@@ -38,9 +38,18 @@ case "$1" in
   shell)
     exec /bin/sh "$@"
     ;;
-  compile)
+  optim|compile)
+    shift
+    # TODO clarify ES5/EC6 CJS/EMS options (--code-es5 --code-esm)
+    # TODO allow removing reporting code
+    # NOTE --code-source=true: standalone version
+    # set useful optimizations options with "optim"
+    [ "$1" = "optim" ] && ajv_opts="--messages=false --code-optimize=2 --strict=false" || ajv_opts=""
+    # get output file if any
     output=$(get_opt "-o" "$@")
-    ajv "$@"
+    # actual compilation
+    ajv compile $ajv_opts "$@"
+    # add benchmarkint main & prettyprint
     [ "$output" ] && {
       {
         echo

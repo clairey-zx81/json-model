@@ -47,7 +47,7 @@ arg("--unshift", "-u", action="store_true", default=False,
     help="unshift measure overhead estimation from reported measures, default is not")
 arg("--compact", "-c", action="store_true", default=False,
     help="compact but less precise comparison display, default is not")
-arg("--performance", "--perf", "-P", default="best", choices=["best", "blaze", "jmc-c"],
+arg("--performance", "--perf", "-P", default="best", choices=["best", "blaze", "jmc-c", "ajv"],
     help="which tool get the 1.0 performance reference")
 arg("--aggregate", "-g", default="median", choices=["min", "mean", "median"],
     help="choose aggregate function for summarizing performance, default is \"median\"")
@@ -99,7 +99,8 @@ if args.tools in TOOL_SHORTCUT:
 # task letter -> task, column, description
 TOOLS: dict[str, tuple[str, str, str]] = {
     # external references
-    "B": ("blaze", "_blaze_", "**blaze** is Sourcemeta Blaze CLI (external reference, in C++)"),
+    "B": ("blaze", "_blaze_", "**blaze** is [Sourcemeta Blaze CLI](https://github.com/sourcemeta/jsonschema) (external reference, in C++)"),
+    "A": ("ajv", "_ajv_", "**ajv** is [Ajv JSON schema Validator](https://ajv.js.org) (external reference, in JS)"),
     # JMC stuff
     "c": ("jmc-c", "c", "**c** is JMC for C"),
     "v": ("jmc-java-gson", "java", "**java** is JMC for Java with GSON"),
@@ -493,7 +494,10 @@ if args.standard:
 
     # compilation columns to display and associated labels
     comp_tool = {
+        # external stuff
         "blaze": "blaze",
+        "ajv": "ajv",
+        # JSU/JMC
         "jsu-model": "model",
         "jmc-c-out": "c",
         "jmc-js": "js",

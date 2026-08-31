@@ -12,7 +12,7 @@
 - [x] model: simplify JSTS model with `$SEMVER`
 - [x] pr: generate model examples pages from json
 - [x] bench: add ajv cli docker and wrapper
-- [ ] bench: add ajv reference
+- [x] bench: add ajv external reference (wip)
 - [ ] bench: collect error runs?
 - [ ] bench: add corvus reference?
 - [ ] bench: case failures handling needs some fixing (test!)

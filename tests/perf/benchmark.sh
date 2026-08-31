@@ -41,7 +41,7 @@ function usage()
      --cap: reduce loop iterations for slow scripts (default)
      --no-cap: do not reduce loop iterations for slow scripts
      --env|-e VARS: environment variables to export to jmc container
-     --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java/GSON y=Python l=Perl)
+     --task|-T TASK: comparisons to perform (B=blaze A=ajv c=C s=JS v=Java/GSON y=Python l=Perl)
      --unshift|-u: unshift overhead estimation from measures
      --load|-L: reduce load by half for java tests
 EOF
@@ -94,6 +94,7 @@ while [[ "$1" == -* ]] ; do
     --jmc=*) JMC=${opt#*=} ;;
     --jsc) JSC=$1 ; shift ;;
     --jsc=*) JSC=${opt#*=} ;;
+    # --ajv?
     --env=*) JMC_ENV+=" ${opt#*=}" ;;
     -e|--env) JMC_ENV+=" $1" ; shift ;;
     # parallelism management
@@ -180,7 +181,7 @@ done
 export JMC_BENCH_DEBUG=$debug
 export PATH=$script_dir:$PATH
 
-for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py src-to-csv.py report.py radar.py ; do
+for cmd in run.sh jmc js-cli ajv-cli run-to-csv.py compile-to-csv.sh res-to-csv.py src-to-csv.py report.py radar.py ; do
   type $cmd || err 5 "script $cmd not found"
 done
 
@@ -232,6 +233,7 @@ done
 tasks=""
 [[ $TASK =~ l ]] && tasks+=" jmc-pl"
 [[ $TASK =~ y ]] && tasks+=" jmc-py"
+[[ $TASK =~ A ]] && tasks+=" ajv"
 [[ $TASK =~ s ]] && tasks+=" jmc-js"
 [[ $TASK =~ [v123] ]] && tasks+=" jmc-java"
 [[ $TASK =~ B ]] && tasks+=" blaze" show_opts+=" --performance=blaze --no-best"
@@ -435,7 +437,8 @@ or deselect tools for easier comparisons.
 - **benchmark script version:** $version
 EOF
 
-[[ $TASK =~ b ]] && echo "- **jsonschema-cli version:** $(js-cli --version)"
+[[ $TASK =~ B ]] && echo "- **jsonschema-cli version:** $(js-cli --version)"
+[[ $TASK =~ A ]] && echo "- **ajv-cli version:** $(ajv-cli --version)"
 
 if [[ $TASK =~ c ]] ; then
   if [[ "$JMC_OPTS" =~ clang ]] ; then
@@ -450,14 +453,19 @@ fi
 [[ $TASK =~ [v123] ]] && echo "- **javac version:** $(jmc exec javac --version|head -1)"
 [[ $TASK =~ l ]] && echo "- **perl version:** $(jmc exec perl -e 'print "$^V\n"'|head -1)"
 
-cat << EOF >> "$ID.md"
+cat <<EOF >> "$ID.md"
 - **duration:** $SECONDS seconds (about $(( ( $SECONDS + 30 ) / 60 )) minutes)
 
 ## Parameters
 
 - **container command:** $POD
-- **jmc container version:** $JMC ($(pod_id docker.io/zx80/jmc:$JMC))
-- **jsc container version:** $JSC ($(pod_id ghcr.io/sourcemeta/jsonschema:$JSC))
+EOF
+
+[[ $TASK =~ [cv123syl] ]] && echo "- **jmc container version:** $JMC ($(pod_id docker.io/zx80/jmc:$JMC))"
+[[ $TASK =~ B ]] && echo "- **jsc container version:** $JSC ($(pod_id ghcr.io/sourcemeta/jsonschema:$JSC))"
+[[ $TASK =~ A ]] && echo "- **ajv container version:** $AJV ($(pod_id docker.io/zx80/ajv-cli:$AJV))"
+
+cat <<EOF >> "$ID.md"
 - **benchmark parallelism:** $PARA
 - **number of runs:** $RUNS
 - **number of test iterations:** $LOOP
