@@ -36,6 +36,7 @@ function usage()
      --runs|-r R: number of runs ($RUNS)
      --jmc=TAG: container tag for JSON Model Compiler container image ($JMC)
      --jsc=TAG: container tag for JSON Schema CLI (Blaze) container image ($JSC)
+     --ajv=TAG: container tag for Ajv CLI (AJV) container image ($AJV)
      --content|-c: also check for value content (aka schema formats and model predefs)
      --no-content|-nc: do not check value content
      --cap: reduce loop iterations for slow scripts (default)
@@ -56,7 +57,7 @@ DEFAULT_TASK="Bcvsy"
 # defaults
 PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK=$DEFAULT_TASK
 cap=1 debug= show_opts= load= content= run_opts=
-export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
+export JMC=latest JSC=latest AJV=latest JMC_ENV=$JMC_ENV
 
 # get options
 while [[ "$1" == -* ]] ; do
@@ -94,7 +95,8 @@ while [[ "$1" == -* ]] ; do
     --jmc=*) JMC=${opt#*=} ;;
     --jsc) JSC=$1 ; shift ;;
     --jsc=*) JSC=${opt#*=} ;;
-    # --ajv?
+    --ajv) AJV=$1 ; shift ;;
+    --ajv=*) AJV=${opt#*=} ;;
     --env=*) JMC_ENV+=" ${opt#*=}" ;;
     -e|--env) JMC_ENV+=" $1" ; shift ;;
     # parallelism management
@@ -126,7 +128,7 @@ done
 [ $LOOP -ge 1 ] || err 1 "unexpected loop value, must be >= 1: $LOOP"
 [ $RUNS -ge 1 ] || err 1 "unexpected runs value, must be >= 1: $RUNS"
 
-echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC env=<$JMC_ENV> task=$TASK"
+echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC ajv=$AJV env=<$JMC_ENV> task=$TASK"
 
 #
 # PARA RUNS
@@ -200,7 +202,7 @@ START=$SECONDS
 
 if [ "$POD_PULL" = "1" ] ; then
   echo "# pulling $POD images"
-  for img in docker.io/zx80/jmc:$JMC ghcr.io/sourcemeta/jsonschema:$JSC ; do
+  for img in docker.io/zx80/jmc:$JMC ghcr.io/sourcemeta/jsonschema:$JSC docker.io/zx80/ajv-cli:$AJV ; do
     $POD pull $img || err 4 "cannot $POD pull $img"
   done
 else
@@ -281,9 +283,10 @@ for trg in $tasks ; do
         para=$PARA
       fi
       do_wait $para
-      # forward target as a label to underlying jmc/js-cli command
+      # forward target as a label to underlying jmc/js-cli/ajv-cli command
       JMC_POD_OPTS="$JMC_POD_OPTS --label $trg" \
       JSC_POD_OPTS="$JSC_POD_OPTS --label $trg" \
+      AJV_POD_OPTS="$AJV_POD_OPTS --label $trg" \
         do_start run.sh -l $loop -t all $run_opts tmp/$run/ $trg $dir
     done
   done

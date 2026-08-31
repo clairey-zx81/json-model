@@ -3,10 +3,12 @@
 # start bench
 #
 
+# container
 export POD=${POD:-docker}
 export POD_PULL=${POD_PULL:-1}
 export JMC_POD_OPTS=
 export JSC_POD_OPTS=
+export AJV_POD_OPTS=
 
 if [ $1 = "-h" -o $1 = "--help" ] ; then
   cat <<EOF
@@ -25,6 +27,7 @@ Environment:
 - JMC_BENCH_IMAGE: overide default docker.io/zx80/jmc-bench-$POD image for testing ($JMC_BENCH_IMAGE)
 - JMC: docker.io/zx80/jmc container tag, default is "latest" ($JMC)
 - JSC: ghcr.io/sourcemeta/jsonschema container tag, default is "latest" ($JSC)
+- AJV: zx80/ajv-cli container tag, default is "latest" ($AJV)
 - JMC_OPTS: options for jmc ($JMC_OPTS)
 - JSU_OPTS: options for jsu-model ($JSU_OPTS)
 - JSB_DIR: JSON Schema Benchmark directory, default is to clone ($JSB_DIR)
@@ -32,7 +35,7 @@ Environment:
 
 Example:
 
-  JMC_OPTS=--no-predef JMC=dev $0 dev -p 8 -l 1000 -r 3 -T bc
+  JMC_OPTS=--no-predef JMC=dev $0 dev -p 8 -l 1000 -r 3 -T Bc
 
 For further details: https://json-model.org/#/BENCH
 
@@ -111,6 +114,8 @@ if [ "$JSB_DIR" ] ; then
   container_opts+=(-v "$JSB_DIR:/workspace/jsb")
   # this is for "jmc"
   JMC_POD_OPTS="-v $JSB_DIR:/app/workspace/jsb"
+  # this is for "ajv-cli"
+  AJV_POD_OPTS="-v $JSB_DIR:/app/workspace/jsb"
   # this is for "js-cli"
   JSC_POD_OPTS="-v $JSB_DIR:/workspace/jsb"
   # forwarding? not needed, this is used directly by the bench/run scripts
@@ -123,6 +128,10 @@ fi
 
 if [ "$JSC" ] ; then
   bench_opts+=(--jsc "$JSC")
+fi
+
+if [ "$AJV" ] ; then
+  bench_opts+=(--ajv "$AJV")
 fi
 
 # hackish container-in-container
@@ -160,6 +169,7 @@ exec $POD run \
   -e POD_PULL="$POD_PULL" \
   -e JMC_POD_OPTS="$JMC_POD_OPTS" \
   -e JSC_POD_OPTS="$JSC_POD_OPTS" \
+  -e AJV_POD_OPTS="$AJV_POD_OPTS" \
   "${container_opts[@]}" \
     "$image" \
       --id=$bench_id "${bench_opts[@]}" "$@" > $bench_id.output 2>&1
