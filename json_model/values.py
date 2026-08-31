@@ -1718,12 +1718,13 @@ def _path(key: str) -> str:
             return key[:-len(word)]
     return key
 
-def _ordered(entries: list[tuple[str, list]]) -> list:
-    """Test vectors sorted by model path, generated order kept inside a path."""
-    def rank(entry: tuple[str, list]) -> tuple:
-        return tuple((1, int(s), "") if s.isdigit() else (0, 0, s)
-                     for s in re.split(r"(\d+)", entry[0]))
-    return [item for _, entry in sorted(entries, key=rank) for item in entry]
+def _ordered(entries: list[tuple[int, str, list]]) -> list:
+    """Test vectors valid before invalid, sorted by model path inside each group."""
+    def rank(entry: tuple[int, str, list]) -> tuple:
+        group, path, _ = entry
+        return group, tuple((1, int(s), "") if s.isdigit() else (0, 0, s)
+                            for s in re.split(r"(\d+)", path))
+    return [item for *_, entry in sorted(entries, key=rank) for item in entry]
 
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             extend: bool = False, unverified: bool = False) -> list:
@@ -1732,18 +1733,18 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     With unverified, skip the compiler wherever an oracle cannot decide, keep the
     value the generator intended and mark it, so a disagreement is visible.
     """
-    entries: list[tuple[str, list]] = []
+    entries: list[tuple[int, str, list]] = []
     reasons: list[str] = []
     taken: set[str] = set()
     try:
         valid = simplest(model, resolver=resolver, url=url, extend=extend)
-        entries.append(("", ["# simplest", [True, valid]]))
+        entries.append((0, ".", ["# . simplest", [True, valid]]))
         taken.add(json.dumps(valid, sort_keys=True))
     except Vacuous as e:
         reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
-        entries.append(("", ["# invalid model FAILED"]))
+        entries.append((0, ".", ["# invalid model FAILED"]))
     try:
         marks: set[str] = set()
         found, skipped = _all_bounds(model, resolver=resolver, url=url, extend=extend,
@@ -1753,14 +1754,14 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             if dumped in taken:
                 continue
             taken.add(dumped)
-            entries.append((_path(key), [_label(key, marks, " bound"), [True, value]]))
+            entries.append((0, _path(key), [_label(key, marks, " bound"), [True, value]]))
         for reason in skipped:
-            entries.append(_note(reason, "FAILED"))
+            entries.append((0, *_note(reason, "FAILED")))
     except Vacuous as e:
         reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
-        entries.append(("", _note(f"bound values: {e}", "FAILED")[1]))
+        entries.append((0, ".", _note(f"bound values: {e}", "FAILED")[1]))
     for step, generate in (("optional", optionals), ("branch", branches)):
         try:
             step_marks: set[str] = set()
@@ -1771,27 +1772,27 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
                 if dumped in taken:
                     continue
                 taken.add(dumped)
-                entries.append((_path(key), [_label(key, step_marks), [True, value]]))
+                entries.append((0, _path(key), [_label(key, step_marks), [True, value]]))
             for reason in skipped:
-                entries.append(_note(reason, "FAILED"))
+                entries.append((0, *_note(reason, "FAILED")))
         except Vacuous as e:
             reasons.append(str(e))
         except UnsupportedValue as e:
             reasons.append(str(e))
-            entries.append(("", _note(f"{step} values: {e}", "FAILED")[1]))
+            entries.append((0, ".", _note(f"{step} values: {e}", "FAILED")[1]))
     try:
         broken_marks: set[str] = set()
         broken, skipped = _violations(model, resolver=resolver, url=url, extend=extend,
                                       unverified=broken_marks if unverified else None)
         for key, value in broken.items():
-            entries.append((_path(key), [_label(key, broken_marks), [False, value]]))
+            entries.append((1, _path(key), [_label(key, broken_marks), [False, value]]))
         for reason in skipped:
-            entries.append(_note(reason, "SKIPPED"))
+            entries.append((1, *_note(reason, "SKIPPED")))
     except Vacuous as e:
         reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
-        entries.append(("", ["# invalid model FAILED"]))
-    if not any(len(entry) > 1 for _, entry in entries):
+        entries.append((1, ".", ["# invalid model FAILED"]))
+    if not any(len(entry) > 1 for *_, entry in entries):
         raise UnsupportedValue(f"no test vector: {_joined(reasons)}")
     return _ordered(entries)
