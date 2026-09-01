@@ -1447,7 +1447,6 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
     Values already generated as valid, as JSON dumps, are known to match the model.
     """
     vjm, vmodel = jm, model
-    marks = set() if marks is None else marks
     skipped: list[str] = []
     if jm is None:
         jm, model = _compile(model, False, resolver, url, extend)
@@ -1474,6 +1473,14 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             return False
         skip(f"{key}: valid for the model")
         return True
+
+    def dropped(key: str) -> bool:
+        """Whether a violation no oracle proves is refused instead of marked."""
+        if marks is None:
+            skip(f"{key}: no oracle proves the violation")
+            return True
+        marks.add(key)
+        return False
 
     if any(f[0][0] if f else v for _, v, f, _, _ in sites):
         try:
@@ -1505,11 +1512,11 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             if not proven and repeats(key, value):
                 continue
-            elif proven:
-                values[key] = value
-            else:
-                skip(f"{key}: no oracle proves the violation")
-    taken = {json.dumps(v, sort_keys=True) for v in values.values()}
+            elif not proven and dropped(key):
+                continue
+            values[key] = value
+    taken = {json.dumps(v, sort_keys=True) for key, v in values.items()
+             if marks is None or key not in marks}
     for mpath, vpath, frames, props, disjunction in sites:
         key = f"{_mpath(mpath)} invalid"
         if not mpath or set(props) - {"@"} or key in values:
@@ -1559,11 +1566,11 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             continue
         elif not proven and repeats(key, value):
             continue
+        elif not proven and dropped(key):
+            continue
         elif proven:
-            values[key] = value
             taken.add(json.dumps(value, sort_keys=True))
-        else:
-            skip(f"{key}: no oracle proves the violation")
+        values[key] = value
     for mpath, vpath, frames, node, disjunction in _object_sites(sites):
         try:
             built = simplest(node, jm, seen)
@@ -1591,11 +1598,11 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             elif not proven and repeats(key, value):
                 continue
+            elif not proven and dropped(key):
+                continue
             elif proven:
-                values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
-            else:
-                skip(f"{key}: no oracle proves the violation")
+            values[key] = value
     for mpath, vpath, frames, node, disjunction in _object_sites(sites):
         if not _closed(node, jm):
             skip(f"{_mpath(mpath)} extra: object is open")
@@ -1836,7 +1843,8 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
              resolver: Resolver|None, url: str, extend: bool) -> None:
     """Ask the validator about marked vectors, keeping the values and rewriting the marks.
 
-    A silent validator guards the mark as UNCHECKED rather than confirming it.
+    A silent validator guards the mark as UNCHECKED rather than confirming it,
+    and a marked violation it does not confirm is dropped rather than claimed.
     """
     marked = [entry for *_, entry in entries
               if len(entry) == 2 and isinstance(entry[0], str)
@@ -1845,32 +1853,40 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
         return
     def remark(entry: list, verdict: str) -> None:
         entry[0] = entry[0][:-len(_AGREES)] + " " + verdict
+    def unproven(entry: list) -> None:
+        entry[:] = [f"# {entry[0][2:-len(_AGREES)]} SKIPPED: "
+                    "no oracle proves the violation"]
     try:
         jm, _ = _compile(model, True, resolver, url, extend)
         defs = _defs(jm)
     except UnsupportedValue:
         for entry in marked:
-            remark(entry, "UNCHECKED")
+            if entry[1][0]:
+                remark(entry, "UNCHECKED")
+            else:
+                unproven(entry)
         return
     for entry in marked:
         expect, value = entry[1]
         result = _verify(value, model, jm, defs)
-        if result is None:
-            remark(entry, "UNCHECKED")
-        elif result != expect:
-            remark(entry, "DISAGREES")
+        if result == expect:
+            continue
+        elif not expect:
+            unproven(entry)
+        else:
+            remark(entry, "UNCHECKED" if result is None else "DISAGREES")
 
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             extend: bool = False) -> list:
     """Test vectors for a model, sorted by model path, valid values before violations.
 
-    The compiler never decides here: a valid value no oracle proves is kept and
-    marked, so a disagreement is visible, while a violation no oracle proves is
-    dropped rather than claimed, since the model may still accept it elsewhere.
-    A last pass then submits each marked value to the validator: the mark stays
-    AGREES when the validator agrees with the generator and becomes DISAGREES
-    when it contradicts it. A validator which answers nothing leaves UNCHECKED,
-    never a confirmation.
+    The compiler never decides here: a value no oracle proves is kept and marked,
+    so a disagreement is visible. A last pass then submits each marked value to
+    the validator: the mark stays AGREES when the validator agrees with the
+    generator and becomes DISAGREES when it contradicts it. A validator which
+    answers nothing leaves UNCHECKED, never a confirmation. A marked violation is
+    held to a stricter rule: unless the validator confirms it, it is dropped
+    rather than claimed, since the model may still accept it elsewhere.
     """
     entries: list[tuple[int, str, list]] = []
     reasons: list[str] = []
