@@ -364,8 +364,13 @@ def _sized(target: ModelType, base: Jsonable, length: int, unique: bool,
             raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
     return values
 
-def _typed(jm: JsonModel, model: ModelType, seen: frozenset[str]) -> set[type]|None:
-    """JSON types a model accepts, None when they cannot be enumerated."""
+def _typed(jm: JsonModel, model: ModelType, seen: frozenset[str],
+           approx: dict[str, set[type]|None], found: dict[str, set[type]|None]) -> set[type]|None:
+    """JSON types a model accepts, None when they cannot be enumerated.
+
+    A reference met again stands for its current approximation, and what each
+    reference yields is recorded, so that iterating reaches the least fixpoint.
+    """
     if isinstance(model, str):
         if model in _TYPE_PREDEFS:
             return set(_TYPE_PREDEFS[model])
@@ -373,16 +378,23 @@ def _typed(jm: JsonModel, model: ModelType, seen: frozenset[str]) -> set[type]|N
             return None
         elif model.startswith("$"):
             name = model[1:]
-            if name in jm._defs._syms:
-                if model in seen:
-                    return None
+            if model in seen:
+                return approx.get(model, set())
+            elif name in jm._defs._syms:
                 node = jm._defs._syms[name]
-                return _typed(node, node._model, seen | {model})
-            return {str} if name in PREDEFS else None
+            elif name in PREDEFS:
+                return {str}
+            else:
+                try:
+                    node = jm.resolveRef(model, [])
+                except (ModelError, AssertionError):
+                    return None
+            found[model] = _typed(node, node._model, seen | {model}, approx, found)
+            return found[model]
         elif model.startswith("="):
             return ({type(None)} if model == "=null" else
                     {bool} if model in ("=true", "=false") else
-                    {float} if "." in model else {int})
+                    {float} if any(c in model for c in ".eE") else {int})
         else:
             return {str}
     elif isinstance(model, list):
@@ -390,24 +402,24 @@ def _typed(jm: JsonModel, model: ModelType, seen: frozenset[str]) -> set[type]|N
     elif isinstance(model, dict):
         props = {p: m for p, m in model.items() if not p.startswith("#")}
         if "@" in props:
-            return _typed(jm, props["@"], seen)
+            return _typed(jm, props["@"], seen, approx, found)
         elif "|" in props or "^" in props:
             op = "|" if "|" in props else "^"
-            found: set[type] = set()
+            kept: set[type] = set()
             for alt in props[op]:
                 if isinstance(alt, str) and alt.startswith("#"):
                     continue
-                kinds = _typed(jm, alt, seen)
+                kinds = _typed(jm, alt, seen, approx, found)
                 if kinds is None:
                     return None
-                found |= kinds
-            return found
+                kept |= kinds
+            return kept
         elif "&" in props:
             shared: set[type]|None = None
             for alt in props["&"]:
                 if isinstance(alt, str) and alt.startswith("#"):
                     continue
-                kinds = _typed(jm, alt, seen)
+                kinds = _typed(jm, alt, seen, approx, found)
                 if kinds is not None:
                     shared = kinds if shared is None else shared & kinds
             return shared
@@ -421,11 +433,19 @@ def _typed(jm: JsonModel, model: ModelType, seen: frozenset[str]) -> set[type]|N
 def _ultimate(jm: JsonModel, model: ModelType) -> set[type]|None:
     """JSON types a model accepts, widened for a loose float model."""
     try:
-        kinds = _typed(jm, model, frozenset())
+        approx: dict[str, set[type]|None] = {}
+        while True:
+            found = dict(approx)
+            kinds = _typed(jm, model, frozenset(), approx, found)
+            if found == approx:
+                break
+            approx = found
     except Exception:
         return None
     if kinds is not None and float in kinds and jm._loose_float:
         kinds = kinds | {int}
+    if kinds is not None and int in kinds and jm._loose_int:
+        kinds = kinds | {float}
     return kinds
 
 def _rejected(target: str, value: Jsonable) -> bool:
@@ -441,56 +461,145 @@ def _mistyped(value: Jsonable, kinds: set[type]|None) -> bool:
     """Whether a value certainly cannot match a model accepting these types."""
     return kinds is not None and type(value) not in kinds
 
-def _refuses(jm: JsonModel, model: ModelType, value: Jsonable) -> bool:
-    """Whether a model certainly rejects a value, by type, format or structure."""
+def _unmatched(model: str, value: Jsonable) -> bool:
+    """Whether a constant or regular expression string model certainly rejects a value.
+
+    Decided without the compiler, like the property name checks, so that a
+    disagreement shows up as a test failure.
+    """
+    if model.startswith("$") or model == "":
+        return False
+    elif model.startswith("="):
+        try:
+            constant = _simplest_constant(model)
+        except UnsupportedValue:
+            return False
+        if constant is None or isinstance(constant, bool):
+            return value is not constant
+        elif isinstance(value, bool) or not isinstance(value, (int, float)):
+            return True
+        else:
+            return value != constant
+    elif model.startswith("/"):
+        if "/" not in model[1:]:
+            return False
+        pattern, opts = model[1:].rsplit("/", 1)
+        if "X" in opts or not isinstance(value, str):
+            return False
+        try:
+            return re.compile(f"(?{opts}){pattern}" if opts else pattern).search(value) is None
+        except re.error:
+            return False
+    elif model.startswith("_"):
+        return value != model[1:]
+    elif model[:1].isalpha():
+        return value != model
+    else:
+        return False
+
+def _outside(model: ModelType, value: Jsonable) -> bool:
+    """Whether the sign a scalar or unsigned model implies rejects a number."""
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return False
+    elif isinstance(model, str):
+        return model in _UINT_PREDEFS and value < 0
+    elif isinstance(model, bool) or not isinstance(model, (int, float)):
+        return False
+    elif model == 0:
+        return value < 0
+    elif model == 1:
+        return value <= 0 if isinstance(model, float) else value < 1
+    else:
+        return False
+
+def _misfits(jm: JsonModel, items: ModelArray, value: list, fixed: bool) -> bool:
+    """Whether the item models of an array or tuple certainly reject a list value."""
+    if not items:
+        return fixed and bool(value)
+    elif fixed and len(items) != 1 and len(items) != len(value):
+        return True
+    else:
+        return any(_denies(jm, items[min(index, len(items) - 1)], item)
+                   for index, item in enumerate(value))
+
+def _refuses(jm: JsonModel, model: ModelType, value: Jsonable, fixed: bool = True) -> bool:
+    """Whether a model certainly rejects a value, by type, format or structure.
+
+    The arity of a tuple is not fixed when a constraint opens it up.
+    """
     if _mistyped(value, _ultimate(jm, model)):
         return True
     elif isinstance(model, str):
-        return _rejected(model, value)
+        return _rejected(model, value) or _unmatched(model, value) or _outside(model, value)
+    elif isinstance(model, list) and isinstance(value, list):
+        items = [m for m in model if not (isinstance(m, str) and m.startswith("#"))]
+        return _misfits(jm, items, value, fixed)
     elif isinstance(model, dict) and isinstance(value, dict):
         node = {p: m for p, m in model.items() if not p.startswith("#")}
         if set(node) & (_OPERATORS | _ROOT_KEYS):
             return False
-        return (any(name not in value for _, name in _mandatory(node))
-                or any(_unclaimed(node, name) for name in value))
-    else:
+        elif any(name not in value for _, name in _mandatory(node)):
+            return True
+        for name, sub in value.items():
+            if _unclaimed(node, name, jm):
+                return True
+            target = _claiming(node, name, jm)
+            if target is not None and _denies(jm, target, sub):
+                return True
         return False
+    else:
+        return _outside(model, value)
+
+def _denies(jm: JsonModel, model: ModelType, value: Jsonable) -> bool:
+    """Whether a model certainly rejects a whole value, following its references."""
+    return _rejects(jm, model, [], value)
 
 def _rejects(jm: JsonModel, model: ModelType, path: list, value: Jsonable,
-             seen: frozenset[str] = frozenset()) -> bool:
+             seen: frozenset[str] = frozenset(), fixed: bool = True) -> bool:
     """Whether a model certainly rejects a value at one of its positions."""
-    if isinstance(model, str) and model.startswith("$") and model[1:] in jm._defs._syms:
+    if isinstance(model, str) and model.startswith("$"):
+        node = None
         if model in seen:
             return False
-        node = jm._defs._syms[model[1:]]
-        return _rejects(node, node._model, path, value, seen | {model})
+        elif model[1:] in jm._defs._syms:
+            node = jm._defs._syms[model[1:]]
+        elif model[1:] not in PREDEFS:
+            try:
+                node = jm.resolveRef(model, [])
+            except (ModelError, AssertionError):
+                node = None
+        if node is not None:
+            return _rejects(node, node._model, path, value, seen | {model})
     props = ({p: m for p, m in model.items() if not p.startswith("#")}
              if isinstance(model, dict) else {})
     if "@" in props and set(props) - {"@"} <= _CONSTRAINTS:
         if not path and any(_breaks(op, props[op], value)
                             for op in props if op != "@"):
             return True
-        return _rejects(jm, props["@"], path, value, seen)
+        return _rejects(jm, props["@"], path, value, seen,
+                        not set(props) & _COMPARISONS)
     elif set(props) in ({"|"}, {"^"}, {"&"}):
         op = next(iter(props))
         alts = [a for a in props[op] if not (isinstance(a, str) and a.startswith("#"))]
         enough = any if op == "&" else all
         return bool(alts) and enough(_rejects(jm, alt, path, value, seen) for alt in alts)
     elif not path:
-        return _refuses(jm, model, value)
+        return _refuses(jm, model, value, fixed)
     elif isinstance(model, list):
         items = [m for m in model if not (isinstance(m, str) and m.startswith("#"))]
         step = path[0]
-        if isinstance(step, bool) or not isinstance(step, int):
+        if isinstance(step, bool) or not isinstance(step, int) or not items:
             return False
         elif len(items) == 1:
             return _rejects(jm, items[0], path[1:], value, seen)
         elif 0 <= step < len(items):
             return _rejects(jm, items[step], path[1:], value, seen)
-        else:
+        elif step < len(items):
             return False
+        else:
+            return True if fixed else _rejects(jm, items[-1], path[1:], value, seen)
     elif props and not set(props) & (_OPERATORS | _ROOT_KEYS) and isinstance(path[0], str):
-        target = _claiming(props, path[0])
+        target = _claiming(props, path[0], jm)
         return target is not None and _rejects(jm, target, path[1:], value, seen)
     else:
         return False
@@ -534,6 +643,8 @@ def _measured(value: Jsonable) -> int|float|None:
 def _breaks(op: str, bound: Jsonable, value: Jsonable) -> bool:
     """Whether a value certainly violates one constraint of an object model."""
     if op in _COMPARISONS:
+        if isinstance(bound, str):
+            return not isinstance(value, str) or _BREAKING[op](value, bound)
         measure = _measured(value)
         if measure is None or isinstance(bound, bool) or not isinstance(bound, (int, float)):
             return False
@@ -588,12 +699,28 @@ _PREDEF_NAMES = {
     "$DURATION": lambda n: _DURATION_RE.fullmatch(n) is not None,
     "$JSONPT": lambda n: _JSONPT_RE.fullmatch(n) is not None,
     "$REGEX": lambda n: _parses(re.compile, n),
+    "$EXREG": lambda n: _parses(re.compile, re.sub(r"\(\$\w+", "(P<x>", n)),
 }
 
-def _matches(name: str, prop: str) -> bool|None:
+def _referred(prop: str, jm: JsonModel) -> tuple[ModelType, JsonModel]:
+    """Model a property key reference stands for, stopping at a predefined name."""
+    seen: set[str] = set()
+    target: ModelType = prop
+    while (isinstance(target, str) and target.startswith("$")
+           and target[1:] not in PREDEFS and target not in seen):
+        seen.add(target)
+        try:
+            node = jm.resolveRef(target, [])
+        except (ModelError, AssertionError):
+            return prop, jm
+        target, jm = node._model, node
+    return target, jm
+
+def _matches(name: str, prop: str, jm: JsonModel|None = None) -> bool|None:
     """Whether a name matches an object model property key, None if undecided.
 
     Independent of the compiler, so that a disagreement shows up as a test failure.
+    With a model scope, a key referring to a string definition is resolved.
     """
     if prop == "" or prop in _ANY_NAME_PREDEFS:
         return True
@@ -613,19 +740,30 @@ def _matches(name: str, prop: str) -> bool|None:
         except re.error:
             return None
     elif prop.startswith("$"):
-        return None
+        if jm is None or prop[1:] in PREDEFS:
+            return None
+        target, scope = _referred(prop, jm)
+        if not isinstance(target, str) or target == prop:
+            return None
+        return _matches(name, target, scope)
     else:
         return name == (prop[1:] if prop.startswith(("!", "?", "_")) else prop)
 
-def _unclaimed(node: ModelObject, name: str) -> bool:
+def _unclaimed(node: ModelObject, name: str, jm: JsonModel|None = None) -> bool:
     """Whether no key of an object model can hold this property name."""
-    return all(_matches(name, prop) is False
+    return all(_matches(name, prop, jm) is False
                for prop in node if not prop.startswith("#"))
 
-def _claiming(node: ModelObject, name: str) -> ModelType|None:
-    """Model a property name falls under, None when no key claims it or one is undecided."""
+def _claiming(node: ModelObject, name: str, jm: JsonModel|None = None) -> ModelType|None:
+    """Model a property name falls under, None when no key claims it or one is undecided.
+
+    Concurrent catch-all keys are left to the compiler, which picks between them
+    with a priority of its own.
+    """
+    if len([prop for prop in node if prop in optim.ANY_PROP]) > 1:
+        return None
     for prop in _outranking(node, "") + ([""] if "" in node else []):
-        verdict = _matches(name, prop)
+        verdict = _matches(name, prop, jm)
         if verdict is None:
             return None
         elif verdict:
@@ -1308,6 +1446,16 @@ def violations(model: ModelType, jm: JsonModel|None = None,
     """Generate a value breaking one constraint, type or property of a model."""
     return _violations(model, jm, seen, resolver, url, extend, unverified)[0]
 
+def _beyond(jm: JsonModel, disjunction: tuple[list, ModelObject]|None,
+            value: Jsonable) -> bool:
+    """Whether every alternative of an enclosing union refuses the whole document.
+
+    Breaking a model under a union only invalidates the document when no other
+    alternative accepts it, which the value at the broken position cannot show.
+    """
+    return (disjunction is not None
+            and _denies(jm, disjunction[1], _at(value, disjunction[0])))
+
 def _violations(model: ModelType, jm: JsonModel|None = None,
                 seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
                 url: str = "", extend: bool = False,
@@ -1360,6 +1508,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                       _rejects(jm, disjunction[1], vpath[len(disjunction[0]):], sub))
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
+                proven = proven or _beyond(jm, disjunction, value)
                 if mpath and mpath[0] == "$":
                     rest, rdefs = model, _without(defs, mpath[1:] + [op])
                 else:
@@ -1395,6 +1544,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                             vpath[len(disjunction[0]):], candidate))
             try:
                 value = _document(copy.deepcopy(candidate), vpath, frames, doc, jm, seen)
+                proven = proven or _beyond(jm, disjunction, value)
             except UnsupportedValue as e:
 
                 reasons.append(str(e))
@@ -1417,10 +1567,11 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         target = props["@"]
         if not isinstance(target, str) or target not in _PREDEF_VIOLATIONS:
             continue
-        proven = disjunction is None and _rejected(target, _PREDEF_VIOLATIONS[target])
+        proven = disjunction is None and _denies(jm, target, _PREDEF_VIOLATIONS[target])
         try:
             value = _document(copy.deepcopy(_PREDEF_VIOLATIONS[target]),
                               vpath, frames, doc, jm, seen)
+            proven = proven or _beyond(jm, disjunction, value)
         except UnsupportedValue as e:
 
             reasons.append(str(e))
@@ -1460,6 +1611,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
+                proven = proven or _beyond(jm, disjunction, value)
             except UnsupportedValue as e:
 
                 reasons.append(str(e))
@@ -1490,13 +1642,16 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             if name in built or key in values:
                 continue
             sub = {**built, name: None}
-            proven = (_unclaimed(node, name) if disjunction is None else
+            claiming = _claiming(node, name, jm)
+            proven = (_unclaimed(node, name, jm) if disjunction is None else
                       _rejects(jm, disjunction[1], vpath[len(disjunction[0]):], sub))
+            proven = proven or (claiming is not None and _denies(jm, claiming, None))
             if unverified is None and (_verify(sub, node, jm, defs) is not False
                                        or _verify(sub, _opened(node), jm, defs) is not True):
                 continue
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
+                proven = proven or _beyond(jm, disjunction, value)
             except UnsupportedValue as e:
 
                 reasons.append(str(e))
