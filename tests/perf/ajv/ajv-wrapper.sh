@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 #
 # AJV wrapper for benchmarking purposes
 #
