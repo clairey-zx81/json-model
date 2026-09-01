@@ -922,12 +922,21 @@ def _needed(model: ModelType, defs: ModelObject) -> set[str]:
                 pending.append(defs[name])
     return keep
 
+def _hoisted(model: ModelType, defs: ModelObject) -> tuple[ModelType, ModelObject]:
+    """Model without its own definitions, which join the ones already collected."""
+    if not isinstance(model, dict) or not isinstance(model.get("$"), dict):
+        return model, defs
+    own = {name: sub for name, sub in model["$"].items() if name != ""}
+    return ({prop: sub for prop, sub in model.items() if prop != "$"},
+            {**own, **defs})
+
 def _verify(value: Jsonable, model: ModelType, jm: JsonModel,
             defs: ModelObject|None = None) -> bool|None:
     """Whether a value matches a model, None when no checker can be built."""
     try:
         if defs is None:
             defs = _defs(jm)
+        model, defs = _hoisted(model, defs)
         defs = {name: defs[name] for name in _needed(model, defs)}
         key = json.dumps([jm._url, {"$": defs, "@": model},
                           jm._loose_int, jm._loose_float], sort_keys=True)
@@ -1649,13 +1658,6 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
            url: str = "", extend: bool = False,
            marks: set[str]|None = None) -> dict[str, Jsonable]:
     """Generate a value on the bound of each constraint of a model."""
-    return _all_bounds(model, jm, seen, resolver, url, extend, marks)[0]
-
-def _all_bounds(model: ModelType, jm: JsonModel|None = None,
-                seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
-                url: str = "", extend: bool = False,
-                marks: set[str]|None = None) -> tuple[dict[str, Jsonable], list[str]]:
-    """Generate a value on each constraint bound, and why some bounds were skipped."""
     marks = set() if marks is None else marks
     if jm is None:
         jm, model = _compile(model, False, resolver, url, extend)
@@ -1664,7 +1666,6 @@ def _all_bounds(model: ModelType, jm: JsonModel|None = None,
         raise UnsupportedValue(f"cannot enter model: {_brief(model)}")
     values: dict[str, Jsonable] = {}
     reasons: list[str] = []
-    skipped: list[str] = []
     doc = None
     if any(f[0][0] if f else v for _, v, f, _, _ in sites):
         try:
@@ -1694,11 +1695,11 @@ def _all_bounds(model: ModelType, jm: JsonModel|None = None,
             values[key] = value
             marks.add(key)
     if not values:
-        if not reasons and not skipped:
+        if not reasons:
             raise Vacuous("no constraint bound: no constraint in model")
-        raise UnsupportedValue(f"no constraint bound: {_joined(reasons + skipped)}")
+        raise UnsupportedValue(f"no constraint bound: {_joined(reasons)}")
     else:
-        return values, skipped
+        return values
 
 def optionals(model: ModelType, jm: JsonModel|None = None,
               seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
@@ -1885,16 +1886,13 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         entries.append((0, ".", ["# invalid model FAILED"]))
     try:
         marks: set[str] = set()
-        found, skipped = _all_bounds(model, resolver=resolver, url=url, extend=extend,
-                                     marks=marks)
+        found = bounds(model, resolver=resolver, url=url, extend=extend, marks=marks)
         for key, value in found.items():
             dumped = json.dumps(value, sort_keys=True)
             if dumped in taken:
                 continue
             taken.add(dumped)
             entries.append((0, _path(key), [_label(key, marks, " bound"), [True, value]]))
-        for reason in skipped:
-            entries.append((0, *_note(reason, "FAILED")))
     except Vacuous as e:
         reasons.append(str(e))
     except UnsupportedValue as e:
