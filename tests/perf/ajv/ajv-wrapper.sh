@@ -55,13 +55,24 @@ case "$1" in
     [ "$1" = "optim" ] && ajv_opts="--messages=false --code-optimize=2 --strict=false" || ajv_opts=""
     # get output file if any
     output=$(get_opt "-o" "$@")
+    input=$(get_opt "-s" "$@")
+    if [ "$input" ] ; then
+      schema=$(jq -r '."$schema"' "$input")
+      if [ "$schema" = "https://json-schema.org/draft/2020-12/schema" ] ; then
+        $ajv_opt+=" --spec=draft2020"
+      elif [ "$schema" = "https://json-schema.org/draft/2019-09/schema" ] ; then
+        $ajv_opt+=" --spec=draft2019"
+      elif [ "$schema" = "http://json-schema.org/draft-07/schema#" ] ; then
+        $ajv_opt+=" --spec=draft7"
+      # else unknown or unexpected schema version, defaults to draft7
+      fi
+    fi
     # actual compilation
     ajv compile $ajv_opts "$@"
     [ $? -eq 0 ] || err $? "ajv compile failed"
     # add benchmarkint main & prettyprint
-    [ "$output" ] && {
+    if [ "$output" ] ; then
       test -s "$output" || err $? "ajv compile empty result"
-      input=$(get_opt "-s" "$@")
       {
         echo
         echo
@@ -74,7 +85,7 @@ case "$1" in
         echo 'main()'
       } >> $output
       prettier --write "$output" || err $? "prettier failed"
-    }
+    fi
     ;;
   *)
     ajv "$@"
