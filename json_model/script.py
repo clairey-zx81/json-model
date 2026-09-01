@@ -407,8 +407,6 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="disable predef content checks")
     arg("--mark", type=str,
         help="add comment to generated file")
-    arg("--unverified", action="store_true", default=False,
-        help="do not ask the compiler where an oracle cannot decide, mark those values")
 
     generate = ap.add_mutually_exclusive_group()
     gen = generate.add_argument
@@ -907,7 +905,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     elif args.op == "A":  # generated test vectors
         try:
             tests = vectors(model._init_md, resolver=model._resolver, url=model._url,
-                            extend=args.extend, unverified=args.unverified)
+                            extend=args.extend)
             comment = f"# generated from {args.model}"
         except UnsupportedValue as e:
             log.warning(f"{args.model}: {e}")
