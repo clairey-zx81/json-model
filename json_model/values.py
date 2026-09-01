@@ -1876,7 +1876,7 @@ _EXPLANATIONS = (" root invalid", " root", " bound", " present", " branch",
 
 def _label(key: str, marks: set[str], suffix: str = "") -> str:
     """Comment introducing a test vector, marked when the compiler was not asked."""
-    return f"# {key}{suffix} UNVERIFIED" if key in marks else f"# {key}{suffix}"
+    return f"# {key}{suffix} AGREES" if key in marks else f"# {key}{suffix}"
 
 def _note(reason: str, warn: str) -> tuple[str, list]:
     """Path and comment about a test vector which could not be generated."""
@@ -1898,7 +1898,7 @@ def _ordered(entries: list[tuple[int, str, list]]) -> list:
                             for s in re.split(r"(\d+)", path))
     return [item for *_, entry in sorted(entries, key=rank) for item in entry]
 
-_UNVERIFIED = " UNVERIFIED"
+_AGREES = " AGREES"
 
 def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
              resolver: Resolver|None, url: str, extend: bool) -> None:
@@ -1908,11 +1908,11 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
     """
     marked = [entry for *_, entry in entries
               if len(entry) == 2 and isinstance(entry[0], str)
-              and entry[0].endswith(_UNVERIFIED)]
+              and entry[0].endswith(_AGREES)]
     if not marked:
         return
     def remark(entry: list, verdict: str) -> None:
-        entry[0] = entry[0][:-len(_UNVERIFIED)] + " " + verdict
+        entry[0] = entry[0][:-len(_AGREES)] + " " + verdict
     try:
         jm, _ = _compile(model, True, resolver, url, extend)
         defs = _defs(jm)
@@ -1936,7 +1936,7 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     marked, so a disagreement is visible, while a violation no oracle proves is
     dropped rather than claimed, since the model may still accept it elsewhere.
     A last pass then submits each marked value to the validator: the mark stays
-    UNVERIFIED when the validator agrees with the generator and becomes DISAGREES
+    AGREES when the validator agrees with the generator and becomes DISAGREES
     when it contradicts it. A validator which answers nothing leaves UNCHECKED,
     never a confirmation.
     """
