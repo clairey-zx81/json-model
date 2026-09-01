@@ -31,7 +31,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.5.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "t"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "t"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"t\" [.'|'.5.t]", (path ? lpath : null)])
@@ -47,7 +47,7 @@ function _jm_obj_0(val, path, rep)
     pval = val["v"]
     // .'|'.5.v
     // "/./s"
-    res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0
+    res = ((typeof pval == 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/./s\" [.'|'.5.v]", (path ? lpath : null)])
@@ -77,7 +77,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.4.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "s"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "s"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"s\" [.'|'.4.t]", (path ? lpath : null)])
@@ -92,7 +92,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'|'.4.v
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.4.v]", (path ? lpath : null)])
@@ -122,7 +122,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.3.t
-    let res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 0.0
+    let res = ((typeof pval == 'number' || pval instanceof Number)) && pval == 0.0
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0.0\" [.'|'.3.t]", (path ? lpath : null)])
@@ -137,7 +137,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'|'.3.v
-    res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0
+    res = ((typeof pval == 'number' || pval instanceof Number)) && pval >= 0.0
     if (! res)
     {
         rep !== null && rep.push(["not a 0.0 strict float [.'|'.3.v]", (path ? lpath : null)])
@@ -167,7 +167,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.2.t
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0\" [.'|'.2.t]", (path ? lpath : null)])
@@ -182,7 +182,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'|'.2.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.2.v]", (path ? lpath : null)])
@@ -212,7 +212,7 @@ function _jm_obj_4(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.1.t
-    let res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true
+    let res = ((typeof pval == 'boolean' || pval instanceof Boolean)) && pval == true
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=true\" [.'|'.1.t]", (path ? lpath : null)])
@@ -227,7 +227,7 @@ function _jm_obj_4(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'|'.1.v
-    res = (typeof pval === 'boolean' || pval instanceof Boolean)
+    res = (typeof pval == 'boolean' || pval instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'|'.1.v]", (path ? lpath : null)])

@@ -23,7 +23,7 @@ function json_model_1(val, path, rep)
             let arr_0_item = val[arr_0_idx]
             // .0
             // "/^hello world!/"
-            res = ((typeof arr_0_item === 'string' || arr_0_item instanceof String)) && arr_0_item.startsWith("hello world!")
+            res = ((typeof arr_0_item == 'string' || arr_0_item instanceof String)) && arr_0_item.startsWith("hello world!")
             if (! res)
                 break
         }

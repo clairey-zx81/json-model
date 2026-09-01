@@ -18,7 +18,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$p1'
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$p1'.'|']", path])
     return res
@@ -29,7 +29,7 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$p2'
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val)
+    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_1.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$p2'.'|']", path])
     return res

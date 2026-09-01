@@ -2355,6 +2355,7 @@ def make_language(
         regex_opt: bool = True,
         unique_opt: bool = True,
         strcmp_cset_partition_threshold: int = 32,
+        js_direct: bool = False,
     ) -> tuple[Language|None, str|None]:
     """Build the back-end for a target language, and its default package."""
 
@@ -2377,7 +2378,7 @@ def make_language(
         from .javascript import JavaScript
         language = JavaScript(
             debug=debug, with_report=report, with_path=report, with_comment=comment,
-            with_predef=predef, relib=relib or "re"
+            with_predef=predef, relib=relib or "re", direct=js_direct,
         )
     elif lang in ("plpgsql", "sql"):
         from .plpgsql import PLpgSQL
@@ -2447,6 +2448,7 @@ def xstatic_compile(
         max_strcmp_cset: int = 64,
         byte_order: str = "le",
         mark: str|None = None,
+        js_direct: bool = False,
     ) -> Code:
     """Generate the check source code for a model.
 
@@ -2487,6 +2489,7 @@ def xstatic_compile(
     - xor_is_not: detect a xor which is a not (any or str)
     - homogeneous_list: factor out type check on homogeneous lists (or, and…)
     - byte_order: le, be or dpd
+    - js_direct: use more direct code in some cases
     """
 
     # set default threshold for must-only scheme
@@ -2580,7 +2583,7 @@ def xstatic_compile(
     language, package = make_language(
         lang, package=package,
         debug=debug, report=report, comment=comment, predef=predef, relib=relib,
-        inline=inline, strcmp=strcmp, byte_order=byte_order,
+        inline=inline, strcmp=strcmp, byte_order=byte_order, js_direct=js_direct,
         max_strcmp_cset=max_strcmp_cset, regex_opt=regex_opt, unique_opt=unique_opt,
         strcmp_cset_partition_threshold=strcmp_cset_partition_threshold,
     )
@@ -2647,6 +2650,7 @@ def ir_compile(
         regex_opt: bool = True,
         unique_opt: bool = True,
         strcmp_cset_partition_threshold: int = 32,
+        js_direct: bool = False,
     ) -> str:
     """Generate the check source code from a JSON intermediate representation."""
 
@@ -2662,7 +2666,7 @@ def ir_compile(
     language, package = make_language(
         lang, package=package,
         debug=debug, report=report, comment=comment, predef=predef, relib=relib,
-        inline=inline, strcmp=strcmp, byte_order=byte_order,
+        inline=inline, strcmp=strcmp, byte_order=byte_order, js_direct=js_direct,
         max_strcmp_cset=max_strcmp_cset, regex_opt=regex_opt, unique_opt=unique_opt,
         strcmp_cset_partition_threshold=strcmp_cset_partition_threshold,
     )

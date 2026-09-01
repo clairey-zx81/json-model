@@ -13,6 +13,8 @@
 - [x] pr: generate model examples pages from json
 - [x] bench: add ajv cli docker and wrapper
 - [x] bench: add ajv external reference (wip)
+- [x] js: add option for more direct/simpler code
+- [ ] js: implement cset as an or-expression
 - [ ] bench: collect error runs?
 - [ ] bench: add corvus reference?
 - [ ] bench: case failures handling needs some fixing (test!)

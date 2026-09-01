@@ -30,7 +30,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may name property
             // .'$Schema'.metadata.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.name]", (path ? lpath_1 : null)])
@@ -43,7 +43,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may previous property
             // .'$Schema'.metadata.previous
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.previous]", (path ? lpath_1 : null)])
@@ -56,7 +56,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may date property
             // .'$Schema'.metadata.date
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.date]", (path ? lpath_1 : null)])
@@ -77,7 +77,7 @@ function _jm_obj_0(val, path, rep)
                     let arr_1_item = pval[arr_1_idx]
                     let arr_1_lpath = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([arr_1_idx]) : null
                     // .'$Schema'.metadata.authors.0
-                    res = (typeof arr_1_item === 'string' || arr_1_item instanceof String)
+                    res = (typeof arr_1_item == 'string' || arr_1_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.authors.0]", ((path ? lpath_1 : null) ? arr_1_lpath : null)])
@@ -206,7 +206,7 @@ function json_model_3(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$atomic-types'
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$atomic-types'.'|']", path])
     return res
@@ -243,7 +243,7 @@ function json_model_6(val, path, rep)
             // handle must kind property
             must_count += 1
             // .'$Atomic'.kind
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "atomic"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "atomic"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"atomic\" [.'$Atomic'.kind]", (path ? lpath_2 : null)])
@@ -270,7 +270,7 @@ function json_model_6(val, path, rep)
         {
             // handle may name property
             // .'$Atomic'.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Atomic'.name]", (path ? lpath_2 : null)])
@@ -283,7 +283,7 @@ function json_model_6(val, path, rep)
         {
             // handle may pattern property
             // .'$Atomic'.pattern
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Atomic'.pattern]", (path ? lpath_2 : null)])
@@ -296,7 +296,7 @@ function json_model_6(val, path, rep)
         {
             // handle may length property
             // .'$Atomic'.length
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.length]", (path ? lpath_2 : null)])
@@ -309,7 +309,7 @@ function json_model_6(val, path, rep)
         {
             // handle may minLength property
             // .'$Atomic'.minLength
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.minLength]", (path ? lpath_2 : null)])
@@ -322,7 +322,7 @@ function json_model_6(val, path, rep)
         {
             // handle may maxLength property
             // .'$Atomic'.maxLength
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.maxLength]", (path ? lpath_2 : null)])
@@ -335,7 +335,7 @@ function json_model_6(val, path, rep)
         {
             // handle may totalDigits property
             // .'$Atomic'.totalDigits
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.totalDigits]", (path ? lpath_2 : null)])
@@ -348,7 +348,7 @@ function json_model_6(val, path, rep)
         {
             // handle may fractionDigits property
             // .'$Atomic'.fractionDigits
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.fractionDigits]", (path ? lpath_2 : null)])
@@ -441,7 +441,7 @@ function json_model_6(val, path, rep)
         {
             // handle may explicitTypeZone property
             // .'$Atomic'.explicitTypeZone
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
+            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$Atomic'.explicitTypeZone.'|']", (path ? lpath_2 : null)])
@@ -486,7 +486,7 @@ function json_model_7(val, path, rep)
             // handle must kind property
             must_count += 1
             // .'$Object'.kind
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "object"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "object"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"object\" [.'$Object'.kind]", (path ? lpath_3 : null)])
@@ -499,7 +499,7 @@ function json_model_7(val, path, rep)
         {
             // handle may name property
             // .'$Object'.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.name]", (path ? lpath_3 : null)])
@@ -512,7 +512,7 @@ function json_model_7(val, path, rep)
         {
             // handle may baseType property
             // .'$Object'.baseType
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.baseType]", (path ? lpath_3 : null)])
@@ -553,7 +553,7 @@ function json_model_7(val, path, rep)
         {
             // handle may closed property
             // .'$Object'.closed
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Object'.closed]", (path ? lpath_3 : null)])
@@ -596,7 +596,7 @@ function json_model_8(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$Fields'.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Fields'.name]", (path ? lpath_4 : null)])
@@ -623,7 +623,7 @@ function json_model_8(val, path, rep)
         {
             // handle may required property
             // .'$Fields'.required
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Fields'.required]", (path ? lpath_4 : null)])
@@ -643,7 +643,7 @@ function json_model_8(val, path, rep)
         {
             // handle may unique property
             // .'$Fields'.unique
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Fields'.unique]", (path ? lpath_4 : null)])
@@ -689,7 +689,7 @@ function json_model_9(val, path, rep)
             // handle must kind property
             must_count += 1
             // .'$Array'.kind
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "array"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "array"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"array\" [.'$Array'.kind]", (path ? lpath_5 : null)])
@@ -702,7 +702,7 @@ function json_model_9(val, path, rep)
         {
             // handle may name property
             // .'$Array'.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.name]", (path ? lpath_5 : null)])
@@ -715,7 +715,7 @@ function json_model_9(val, path, rep)
         {
             // handle may baseType property
             // .'$Array'.baseType
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.baseType]", (path ? lpath_5 : null)])
@@ -741,7 +741,7 @@ function json_model_9(val, path, rep)
         {
             // handle may minLength property
             // .'$Array'.minLength
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Array'.minLength]", (path ? lpath_5 : null)])
@@ -754,7 +754,7 @@ function json_model_9(val, path, rep)
         {
             // handle may maxLength property
             // .'$Array'.maxLength
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Array'.maxLength]", (path ? lpath_5 : null)])
@@ -798,7 +798,7 @@ function json_model_10(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$Union'.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Union'.name]", (path ? lpath_6 : null)])
@@ -812,7 +812,7 @@ function json_model_10(val, path, rep)
             // handle must kind property
             must_count += 1
             // .'$Union'.kind
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "union"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "union"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"union\" [.'$Union'.kind]", (path ? lpath_6 : null)])
@@ -854,7 +854,7 @@ function json_model_10(val, path, rep)
         {
             // handle may baseType property
             // .'$Union'.baseType
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Union'.baseType]", (path ? lpath_6 : null)])
@@ -887,7 +887,7 @@ function json_model_11(val, path, rep)
 {
     // .'$type-or-ref'
     // .'$type-or-ref'.'|'.0
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$type-or-ref'.'|'.0]", path])

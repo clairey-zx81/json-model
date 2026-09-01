@@ -19,7 +19,7 @@ function _jm_obj_0(val, path, rep)
     {
         if (_jm_re_0(prop, null, null))
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("bla")
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval.startsWith("bla")
             if (! res)
                 return false
         }
@@ -37,7 +37,7 @@ function json_model_1(val, path, rep)
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            res = ((typeof arr_0_item === 'string' || arr_0_item instanceof String)) && arr_0_item.startsWith("foo")
+            res = ((typeof arr_0_item == 'string' || arr_0_item instanceof String)) && arr_0_item.startsWith("foo")
             if (! res)
                 break
         }

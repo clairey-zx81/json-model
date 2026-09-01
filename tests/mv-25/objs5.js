@@ -15,14 +15,14 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$empty'
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     for (const [prop, pval] of Object.entries(val))

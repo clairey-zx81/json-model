@@ -25,7 +25,7 @@ function json_model_1(val, path, rep)
         {
             lpath_0 = path ? path.concat([0]) : null
             // .'@'.0
-            res = (typeof val[0] === 'number' || val[0] instanceof Number) && Number.isInteger(val[0])
+            res = (typeof val[0] == 'number' || val[0] instanceof Number) && Number.isInteger(val[0])
             if (! res)
                 rep !== null && rep.push(["not a -1 strict int [.'@'.0]", (path ? lpath_0 : null)])
         }
@@ -35,7 +35,7 @@ function json_model_1(val, path, rep)
             {
                 lpath_0 = path ? path.concat([1]) : null
                 // .'@'.1
-                res = (typeof val[1] === 'string' || val[1] instanceof String)
+                res = (typeof val[1] == 'string' || val[1] instanceof String)
                 if (! res)
                     rep !== null && rep.push(["unexpected value for model \"\" [.'@'.1]", (path ? lpath_0 : null)])
             }
@@ -45,7 +45,7 @@ function json_model_1(val, path, rep)
                 {
                     lpath_0 = path ? path.concat([idx_0]) : null
                     // .'@'.2
-                    res = (typeof val[idx_0] === 'boolean' || val[idx_0] instanceof Boolean)
+                    res = (typeof val[idx_0] == 'boolean' || val[idx_0] instanceof Boolean)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a bool [.'@'.2]", (path ? lpath_0 : null)])

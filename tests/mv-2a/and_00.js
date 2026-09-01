@@ -28,7 +28,7 @@ function json_model_1(val, path, rep)
         {
             // handle may s property
             // .s
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.s]", (path ? lpath_0 : null)])
@@ -41,7 +41,7 @@ function json_model_1(val, path, rep)
         {
             // handle may i property
             // .i
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.i]", (path ? lpath_0 : null)])
@@ -54,7 +54,7 @@ function json_model_1(val, path, rep)
         {
             // handle may b property
             // .b
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.b]", (path ? lpath_0 : null)])
@@ -67,7 +67,7 @@ function json_model_1(val, path, rep)
         {
             // handle 2 re props
             // .'/^d/'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'/^d/']", (path ? lpath_0 : null)])
@@ -78,7 +78,7 @@ function json_model_1(val, path, rep)
         {
             // handle 2 re props
             // .'/^e/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'/^e/']", (path ? lpath_0 : null)])

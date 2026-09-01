@@ -18,7 +18,7 @@ export var check_model_map = new Map()
 function _jm_f_0(val, path, rep)
 {
     // .'$schema'.'$ref'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.'$ref']", path])
     return res
@@ -28,7 +28,7 @@ function _jm_f_0(val, path, rep)
 function _jm_f_1(val, path, rep)
 {
     // .'$schema'.'$schema'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.'$schema']", path])
     return res
@@ -39,7 +39,7 @@ function _jm_f_2(val, path, rep)
 {
     // .'$schema'.additionalItems
     // .'$schema'.additionalItems.'|'.0
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$schema'.additionalItems.'|'.0]", path])
@@ -62,7 +62,7 @@ function _jm_f_3(val, path, rep)
 {
     // .'$schema'.additionalProperties
     // .'$schema'.additionalProperties.'|'.0
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$schema'.additionalProperties.'|'.0]", path])
@@ -103,7 +103,7 @@ function _jm_f_5(val, path, rep)
         // handle other props
         // .'$schema'.dependencies.''
         // .'$schema'.dependencies.''.'|'.0
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.dependencies.''.'|'.0]", (path ? lpath_1 : null)])
@@ -116,7 +116,7 @@ function _jm_f_5(val, path, rep)
                     let arr_0_item = pval[arr_0_idx]
                     let arr_0_lpath = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([arr_0_idx]) : null
                     // .'$schema'.dependencies.''.'|'.1.0
-                    res = (typeof arr_0_item === 'string' || arr_0_item instanceof String)
+                    res = (typeof arr_0_item == 'string' || arr_0_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.dependencies.''.'|'.1.0]", ((path ? lpath_1 : null) ? arr_0_lpath : null)])
@@ -150,7 +150,7 @@ function _jm_f_5(val, path, rep)
 function _jm_f_6(val, path, rep)
 {
     // .'$schema'.description
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.description]", path])
     return res
@@ -161,7 +161,7 @@ function _jm_f_7(val, path, rep)
 {
     // .'$schema'.disallow
     // .'$schema'.disallow.'|'.0
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.disallow.'|'.0]", path])
@@ -183,7 +183,7 @@ function _jm_f_7(val, path, rep)
 function _jm_f_8(val, path, rep)
 {
     // .'$schema'.divisibleBy
-    let res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0
+    let res = ((typeof val == 'number' || val instanceof Number)) && val > 0.0
     if (! res)
         rep !== null && rep.push(["not a 1.0 loose float [.'$schema'.divisibleBy]", path])
     return res
@@ -212,7 +212,7 @@ function _jm_f_9(val, path, rep)
 function _jm_f_10(val, path, rep)
 {
     // .'$schema'.exclusiveMaximum
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$schema'.exclusiveMaximum]", path])
     return res
@@ -222,7 +222,7 @@ function _jm_f_10(val, path, rep)
 function _jm_f_11(val, path, rep)
 {
     // .'$schema'.exclusiveMinimum
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$schema'.exclusiveMinimum]", path])
     return res
@@ -271,7 +271,7 @@ function _jm_f_12(val, path, rep)
 function _jm_f_13(val, path, rep)
 {
     // .'$schema'.format
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$schema'.format.'|']", path])
     return res
@@ -281,7 +281,7 @@ function _jm_f_13(val, path, rep)
 function _jm_f_14(val, path, rep)
 {
     // .'$schema'.id
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.id]", path])
     return res
@@ -329,7 +329,7 @@ function _jm_f_15(val, path, rep)
 function _jm_f_16(val, path, rep)
 {
     // .'$schema'.maxItems
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["not a 0 strict int [.'$schema'.maxItems]", path])
     return res
@@ -339,7 +339,7 @@ function _jm_f_16(val, path, rep)
 function _jm_f_17(val, path, rep)
 {
     // .'$schema'.maxLength
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["not a 0 strict int [.'$schema'.maxLength]", path])
     return res
@@ -349,7 +349,7 @@ function _jm_f_17(val, path, rep)
 function _jm_f_18(val, path, rep)
 {
     // .'$schema'.maximum
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["not a -1.0 loose float [.'$schema'.maximum]", path])
     return res
@@ -359,7 +359,7 @@ function _jm_f_18(val, path, rep)
 function _jm_f_19(val, path, rep)
 {
     // .'$schema'.minItems
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["not a 0 strict int [.'$schema'.minItems]", path])
     return res
@@ -369,7 +369,7 @@ function _jm_f_19(val, path, rep)
 function _jm_f_20(val, path, rep)
 {
     // .'$schema'.minLength
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["not a 0 strict int [.'$schema'.minLength]", path])
     return res
@@ -379,7 +379,7 @@ function _jm_f_20(val, path, rep)
 function _jm_f_21(val, path, rep)
 {
     // .'$schema'.minimum
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["not a -1.0 loose float [.'$schema'.minimum]", path])
     return res
@@ -449,7 +449,7 @@ function _jm_f_24(val, path, rep)
 function _jm_f_25(val, path, rep)
 {
     // .'$schema'.required
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$schema'.required]", path])
     return res
@@ -459,7 +459,7 @@ function _jm_f_25(val, path, rep)
 function _jm_f_26(val, path, rep)
 {
     // .'$schema'.title
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.title]", path])
     return res
@@ -484,7 +484,7 @@ function _jm_f_27(val, path, rep)
                 let arr_3_lpath = path ? path.concat([arr_3_idx]) : null
                 // .'$schema'.type.'|'.1.0
                 // .'$schema'.type.'|'.1.0.'|'.0
-                res = (typeof arr_3_item === 'string' || arr_3_item instanceof String)
+                res = (typeof arr_3_item == 'string' || arr_3_item instanceof String)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.type.'|'.1.0.'|'.0]", (path ? arr_3_lpath : null)])
@@ -520,7 +520,7 @@ function _jm_f_27(val, path, rep)
 function _jm_f_28(val, path, rep)
 {
     // .'$schema'.uniqueItems
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$schema'.uniqueItems]", path])
     return res
@@ -579,7 +579,7 @@ function json_model_1(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$schema#allTypes'
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val)
+    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_1.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$schema#allTypes'.'|']", path])
     return res
@@ -599,7 +599,7 @@ function json_model_5(val, path, rep)
             let arr_4_lpath = path ? path.concat([arr_4_idx]) : null
             // .'$schema#distinctSchemaArray'.'@'.0
             // .'$schema#distinctSchemaArray'.'@'.0.'|'.0
-            res = (typeof arr_4_item === 'string' || arr_4_item instanceof String)
+            res = (typeof arr_4_item == 'string' || arr_4_item instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$schema#distinctSchemaArray'.'@'.0.'|'.0]", (path ? arr_4_lpath : null)])

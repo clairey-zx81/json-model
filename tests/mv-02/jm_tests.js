@@ -24,7 +24,7 @@ function json_model_1(val, path, rep)
             let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .0
             // .0.'|'.0
-            res = (typeof arr_0_item === 'string' || arr_0_item instanceof String)
+            res = (typeof arr_0_item == 'string' || arr_0_item instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.0.'|'.0]", (path ? arr_0_lpath : null)])
@@ -34,7 +34,7 @@ function json_model_1(val, path, rep)
                 {
                     let lpath_1 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([0]) : null
                     // .0.'|'.1.0
-                    res = (typeof arr_0_item[0] === 'boolean' || arr_0_item[0] instanceof Boolean)
+                    res = (typeof arr_0_item[0] == 'boolean' || arr_0_item[0] instanceof Boolean)
                     if (res)
                     {
                         lpath_1 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null
@@ -53,12 +53,12 @@ function json_model_1(val, path, rep)
                     {
                         let lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([0]) : null
                         // .0.'|'.2.0
-                        res = (typeof arr_0_item[0] === 'boolean' || arr_0_item[0] instanceof Boolean)
+                        res = (typeof arr_0_item[0] == 'boolean' || arr_0_item[0] instanceof Boolean)
                         if (res)
                         {
                             lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null
                             // .0.'|'.2.1
-                            res = (typeof arr_0_item[1] === 'string' || arr_0_item[1] instanceof String)
+                            res = (typeof arr_0_item[1] == 'string' || arr_0_item[1] instanceof String)
                             if (res)
                             {
                                 lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([2]) : null

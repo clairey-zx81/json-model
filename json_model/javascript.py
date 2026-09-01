@@ -16,9 +16,30 @@ JS_RUNTIME_PREDEFS: dict[str, str] = {
     "$EXREG": "jm_is_valid_regex",
     "$JSON": "jm_is_valid_json",
     "$CARD": "jm_is_valid_card",
-    # regex: $EMAIL, "$UUID", "$HOST", "$IP4", "$IP6"
+    # regex fallback: $EMAIL, "$UUID", "$HOST", "$IP4", "$IP6"
 }
 
+# set of object properties which are predefined
+# FIXME should be rejected?
+_EXISTING_PROPS: set[str] = {
+    "__defineGetter__",
+    "__defineSetter__",
+    "__lookupGetter__",
+    "__lookupSetter__",
+    "__proto__",
+    "constructor",
+    "hasOwnProperty",
+    "isPrototypeOf",
+    "propertyIsEnumerable",
+    "toLocaleString",
+    "toString",
+    "valueOf",
+}
+
+_identifier_re = re.compile(r"^[_$a-zA-Z][_$a-zA-Z0-9]+$").match
+
+def is_identifier(s: str) -> bool:
+    return isinstance(s, str) and _identifier_re(s) is not None and s not in _EXISTING_PROPS
 
 class JavaScript(Language):
     """JavaScript Code Generator."""
@@ -26,7 +47,8 @@ class JavaScript(Language):
     def __init__(
             self, *,
             debug: bool = False, relib: str = "re", with_predef: bool = True,
-            with_path: bool = True, with_report: bool = True, with_comment: bool = True
+            with_path: bool = True, with_report: bool = True, with_comment: bool = True,
+            direct: bool = False,
         ):
 
         super().__init__(
@@ -36,12 +58,13 @@ class JavaScript(Language):
              true="true", false="false", null="null", relib=relib,
              check_t="object", json_t="object", int_t="Number", float_t="Number",
              path_t="?", str_t="String", match_t="bool", predefs=set(JS_RUNTIME_PREDEFS),
-             eoi="", set_caps=(type(None), bool, int, float, str)
+             eoi="", set_caps=(type(None), bool, int, float, str),
         )  # type: ignore
 
         assert self._relib in ("re", "re2"), f"unsupported regex engine: {self._relib}"
 
         self._json_esc_table = str.maketrans(_ESC_TABLE)
+        self._direct = direct
 
     #
     # file
@@ -72,7 +95,10 @@ class JavaScript(Language):
         # JS === BF
         # 12.5 instanceof Number === false
         # Number(12.5) instanceof Number === false  # YES!
-        return f"(typeof {var} === 'number' || {var} instanceof Number)"
+        if self._direct:
+            return f"typeof {var} == 'number'"
+        else:
+            return f"(typeof {var} == 'number' || {var} instanceof Number)"
 
     def is_scalar(self, var: Var) -> BoolExpr:
         return (
@@ -88,7 +114,10 @@ class JavaScript(Language):
         if tval is None or tval is type(None):
             return f"{var} === null"
         elif tval is bool:
-            return f"(typeof {var} === 'boolean' || {var} instanceof Boolean)"
+            if self._direct:
+                return f"typeof {var} == 'boolean'"
+            else:
+                return f"(typeof {var} == 'boolean' || {var} instanceof Boolean)"
         elif tval is int:
             return self.is_num(var) + f" && Number.isInteger({var})"  # type: ignore
         elif tval is float:
@@ -99,12 +128,18 @@ class JavaScript(Language):
             # JS is a heavy contestant to BF.
             # c = "Calvin": typeof c === "string", c instanceof String === false
             # c = new String("Calvin"): typeof c === "object, c instanceof String === true
-            return f"(typeof {var} === 'string' || {var} instanceof String)"
+            if self._direct:
+                return f"typeof {var} == 'string'"
+            else:
+                return f"(typeof {var} == 'string' || {var} instanceof String)"
         elif tval is list:
             return f"Array.isArray({var})"
         elif tval is dict:
-            # well, nearly everything is an object in JS, including null and arrays
-            return f"Object.prototype.toString.call({var}) === '[object Object]'"
+            # nearly everything is an object in JS, including null and arrays
+            if self._direct:
+                return f"{var} !== null && typeof {var} == 'object' && !Array.isArray({var})"
+            else:
+                return f"Object.prototype.toString.call({var}) === '[object Object]'"
         else:
             raise Exception(f"unexpected type for json: {tval.__name__}")
 
@@ -121,15 +156,23 @@ class JavaScript(Language):
             return super().const(c)
 
     def obj_prop_val(self, obj: Var, prop: Expr, is_var: bool = False) -> JsonExpr:
-        return f"{obj}[{prop}]" if is_var else f"{obj}[{self.esc(prop)}]"  # type: ignore
+        return (
+            f"{obj}[{prop}]" if is_var else
+            f"{obj}.{prop}" if self._direct and is_identifier(prop) else
+            f"{obj}[{self.esc(prop)}]"
+        )
 
     def obj_has_prop_val(
             self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False
         ) -> BoolExpr:
+        # direct: null vs undefined?
         return f"({dst} = {self.obj_prop_val(obj, prop, is_var)}) != null"
 
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
-        return f"{obj}.hasOwnProperty({self.esc(prop)})"
+        if self._direct and is_identifier(prop):
+            return f"{obj}.{prop} !== undefined"
+        else:
+            return f"{obj}.hasOwnProperty({self.esc(prop)})"
 
     def assign_obj_prop(self) -> bool:
         return False

@@ -38,7 +38,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.0.t
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0\" [.'|'.0.t]", (path ? lpath : null)])
@@ -53,7 +53,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["z"]) : null
     pval = val["z"]
     // .'|'.0.z
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.0.z]", (path ? lpath : null)])
@@ -88,7 +88,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.1.t
-    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
+    let res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|'.1.t.'|']", (path ? lpath : null)])
@@ -103,7 +103,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["p"]) : null
     pval = val["p"]
     // .'|'.1.p
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.1.p]", (path ? lpath : null)])
@@ -138,7 +138,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.2.t
-    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
+    let res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|'.2.t.'|']", (path ? lpath : null)])
@@ -153,7 +153,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["i"]) : null
     pval = val["i"]
     // .'|'.2.i
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.2.i]", (path ? lpath : null)])
@@ -187,7 +187,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.3.t
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 10
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 10
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=10\" [.'|'.3.t]", (path ? lpath : null)])
@@ -202,7 +202,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .'|'.3.d
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.3.d]", (path ? lpath : null)])

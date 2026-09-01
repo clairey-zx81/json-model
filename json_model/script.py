@@ -453,6 +453,13 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--javac", type=str, help="override default Java language compiler")
     arg("--jflags", type=str, help="add Java compiler flags")
 
+    grep = ap.add_argument_group("JavaScript compiler options")
+    arg = grp.add_argument
+    arg("--js-direct", action="store_true", default=False,
+        help="use more direct operations in JS")
+    arg("--no-js-direct", dest="js_direct", action="store_false",
+        help="do not use direct operations in JS")
+
     # testing mode, expected results on values
     grp = ap.add_argument_group("Testing")
     arg = grp.add_argument
@@ -475,7 +482,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--no-report", "-nr", dest="report", action="store_false",
         help="fast mode, do not give reasons")
 
-    # cheecks and optimizations on model (preprocessor)
+    # checks and optimizations on model (preprocessor)
     grp = ap.add_argument_group("Optimizations")
     arg = grp.add_argument
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
@@ -923,6 +930,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
                 unique_opt=args.unique_opt,
                 max_strcmp_cset=args.max_strcmp_cset,
                 mark=args.mark,
+                js_direct=args.js_direct,
             )
         else:
             assert model is not None
@@ -962,6 +970,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
                 max_strcmp_cset=args.max_strcmp_cset,
                 array_unrolling_size=args.array_unrolling_size,
                 mark=args.mark,
+                js_direct=args.js_direct,
             )
             source = str(code)
 

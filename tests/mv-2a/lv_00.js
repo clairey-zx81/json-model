@@ -28,12 +28,12 @@ function json_model_1(val, path, rep)
             {
                 let lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([0]) : null
                 // .0.0
-                res = (typeof arr_0_item[0] === 'string' || arr_0_item[0] instanceof String)
+                res = (typeof arr_0_item[0] == 'string' || arr_0_item[0] instanceof String)
                 if (res)
                 {
                     lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null
                     // .0.1
-                    res = (typeof arr_0_item[1] === 'string' || arr_0_item[1] instanceof String)
+                    res = (typeof arr_0_item[1] == 'string' || arr_0_item[1] instanceof String)
                     if (! res)
                         rep !== null && rep.push(["unexpected value for model \"\" [.0.1]", ((path ? arr_0_lpath : null) ? lpath_0 : null)])
                 }

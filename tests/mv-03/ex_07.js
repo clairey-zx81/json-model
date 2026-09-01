@@ -42,7 +42,7 @@ function json_model_3(val, path, rep)
 {
     // .'$Ex07'
     // "/[a-z]/"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/[a-z]/\" [.'$Ex07']", path])
     return res
@@ -109,7 +109,7 @@ function json_model_1(val, path, rep)
 function json_model_5(val, path, rep)
 {
     // .'$ex5#Ex05a'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["not a 0 strict int [.'$ex5#Ex05a']", path])
     return res
@@ -119,7 +119,7 @@ function json_model_5(val, path, rep)
 function json_model_6(val, path, rep)
 {
     // .'$ex5#Ex05b'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$ex5#Ex05b']", path])
     return res
@@ -129,7 +129,7 @@ function json_model_6(val, path, rep)
 function json_model_8(val, path, rep)
 {
     // .'$__external_0#Ex05a'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["not a 0 strict int [.'$__external_0#Ex05a']", path])
     return res
@@ -139,7 +139,7 @@ function json_model_8(val, path, rep)
 function json_model_9(val, path, rep)
 {
     // .'$__external_0#Ex05b'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$__external_0#Ex05b']", path])
     return res

@@ -16,7 +16,7 @@ function json_model_1(val, path, rep)
 {
     // mixed sw eq le optimization with longer strings
     // .
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (res)
     {
         // .'|'.0

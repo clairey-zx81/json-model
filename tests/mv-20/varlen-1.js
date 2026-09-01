@@ -25,7 +25,7 @@ function json_model_1(val, path, rep)
         {
             lpath_0 = path ? path.concat([0]) : null
             // .'@'.0
-            res = (typeof val[0] === 'string' || val[0] instanceof String)
+            res = (typeof val[0] == 'string' || val[0] instanceof String)
             if (! res)
                 rep !== null && rep.push(["unexpected value for model \"\" [.'@'.0]", (path ? lpath_0 : null)])
         }

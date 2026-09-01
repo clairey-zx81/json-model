@@ -38,7 +38,7 @@ function json_model_4(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$Ex06'
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$Ex06']", path])
     return res
@@ -82,7 +82,7 @@ function json_model_1(val, path, rep)
 function json_model_5(val, path, rep)
 {
     // .'$ex5#Ex05a'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["not a 0 strict int [.'$ex5#Ex05a']", path])
     return res
@@ -92,7 +92,7 @@ function json_model_5(val, path, rep)
 function json_model_6(val, path, rep)
 {
     // .'$ex5#Ex05b'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$ex5#Ex05b']", path])
     return res

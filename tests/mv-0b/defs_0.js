@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$an_int'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["not a 0 strict int [.'$an_int']", path])
     return res

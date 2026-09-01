@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_5(val, path, rep)
 {
     // .'$x1'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie"
+    let res = ((typeof val == 'string' || val instanceof String)) && val == "Susie"
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$x1']", path])
     return res
@@ -25,7 +25,7 @@ function json_model_5(val, path, rep)
 function json_model_6(val, path, rep)
 {
     // .'$x2'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie"
+    let res = ((typeof val == 'string' || val instanceof String)) && val == "Susie"
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$x2']", path])
     return res
@@ -35,7 +35,7 @@ function json_model_6(val, path, rep)
 function json_model_7(val, path, rep)
 {
     // .'$x3'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie"
+    let res = ((typeof val == 'string' || val instanceof String)) && val == "Susie"
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$x3']", path])
     return res
@@ -45,7 +45,7 @@ function json_model_7(val, path, rep)
 function json_model_8(val, path, rep)
 {
     // .'$__external_0'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie"
+    let res = ((typeof val == 'string' || val instanceof String)) && val == "Susie"
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$__external_0']", path])
     return res
@@ -60,22 +60,22 @@ function json_model_1(val, path, rep)
     {
         let lpath_0 = path ? path.concat([0]) : null
         // .0
-        res = ((typeof val[0] === 'string' || val[0] instanceof String)) && val[0] == "Susie"
+        res = ((typeof val[0] == 'string' || val[0] instanceof String)) && val[0] == "Susie"
         if (res)
         {
             lpath_0 = path ? path.concat([1]) : null
             // .1
-            res = ((typeof val[1] === 'string' || val[1] instanceof String)) && val[1] == "Susie"
+            res = ((typeof val[1] == 'string' || val[1] instanceof String)) && val[1] == "Susie"
             if (res)
             {
                 lpath_0 = path ? path.concat([2]) : null
                 // .2
-                res = ((typeof val[2] === 'string' || val[2] instanceof String)) && val[2] == "Susie"
+                res = ((typeof val[2] == 'string' || val[2] instanceof String)) && val[2] == "Susie"
                 if (res)
                 {
                     lpath_0 = path ? path.concat([3]) : null
                     // .3
-                    res = ((typeof val[3] === 'string' || val[3] instanceof String)) && val[3] == "Susie"
+                    res = ((typeof val[3] == 'string' || val[3] instanceof String)) && val[3] == "Susie"
                     if (! res)
                         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.3]", (path ? lpath_0 : null)])
                 }

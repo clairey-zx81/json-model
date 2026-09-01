@@ -36,7 +36,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .'|'.0.d
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1\" [.'|'.0.d]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["val"]) : null
     pval = val["val"]
     // .'|'.0.val
-    res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+    res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'|'.0.val]", (path ? lpath : null)])
@@ -85,7 +85,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .'|'.1.d
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 2
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 2
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=2\" [.'|'.1.d]", (path ? lpath : null)])
@@ -100,7 +100,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["val"]) : null
     pval = val["val"]
     // .'|'.1.val
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.val]", (path ? lpath : null)])
@@ -134,7 +134,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .'|'.2.d
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 3
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 3
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=3\" [.'|'.2.d]", (path ? lpath : null)])
@@ -149,7 +149,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["val"]) : null
     pval = val["val"]
     // .'|'.2.val
-    res = (typeof pval === 'boolean' || pval instanceof Boolean)
+    res = (typeof pval == 'boolean' || pval instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'|'.2.val]", (path ? lpath : null)])

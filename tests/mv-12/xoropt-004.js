@@ -34,7 +34,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle other props
             // .'|'.1.''
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'|'.1.'']", (path ? lpath_0 : null)])
@@ -65,7 +65,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'|'.0.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.0.a]", (path ? lpath : null)])

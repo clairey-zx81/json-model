@@ -16,7 +16,7 @@ function json_model_2(val, path, rep)
     {
         if (prop.startsWith("foo"))
         {
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
                 return false
         }
@@ -33,7 +33,7 @@ function json_model_1(val, path, rep)
     {
         if (prop.startsWith("foo"))
         {
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
                 return false
         }

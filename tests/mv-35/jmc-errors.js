@@ -15,7 +15,7 @@ function json_model_2(val, path, rep)
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0
+            res = ((typeof arr_0_item == 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0
             if (! res)
                 break
         }
@@ -90,14 +90,14 @@ function json_model_1(val, path, rep)
         }
         else if (prop == "ts")
         {
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
                 return false
             continue
         }
         if (prop.startsWith("#"))
         {
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
                 return false
         }

@@ -22,7 +22,7 @@ function json_model_1(val, path, rep)
     {
         // handle other props
         // .''
-        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+        res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
             return false
     }

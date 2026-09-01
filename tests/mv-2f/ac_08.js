@@ -19,7 +19,7 @@ function json_model_1(val, path, rep)
     {
         if (_jm_re_0(prop, null, null))
         {
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
                 return false
         }

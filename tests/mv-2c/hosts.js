@@ -20,28 +20,28 @@ function json_model_1(val, path, rep)
     {
         if (prop == "ipv4")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_ip4(pval, null, null)
+            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_ip4(pval, null, null)
             if (! res)
                 return false
             continue
         }
         else if (prop == "ipv6")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_ip6(pval, null, null)
+            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_ip6(pval, null, null)
             if (! res)
                 return false
             continue
         }
         else if (prop == "host")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_host(pval, null, null) && runtime.jm_char_length(pval) <= 255
+            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_host(pval, null, null) && runtime.jm_char_length(pval) <= 255
             if (! res)
                 return false
             continue
         }
         else if (prop == "eth")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_eth(pval, null, null)
+            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_eth(pval, null, null)
             if (! res)
                 return false
             continue

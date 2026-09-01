@@ -23,7 +23,7 @@ function _jm_obj_0(val, path, rep)
 
 function json_model_2(val, path, rep)
 {
-    return (typeof val === 'boolean' || val instanceof Boolean) || _jm_obj_0(val, null, null)
+    return (typeof val == 'boolean' || val instanceof Boolean) || _jm_obj_0(val, null, null)
 }
 
 function json_model_1(val, path, rep)

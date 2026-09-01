@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_4(val, path, rep)
 {
     // .'$bla'
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.'$bla']", path])
     return res
@@ -25,7 +25,7 @@ function json_model_4(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.]", path])
     return res

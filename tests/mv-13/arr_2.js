@@ -20,12 +20,12 @@ function json_model_1(val, path, rep)
     {
         let lpath_0 = path ? path.concat([0]) : null
         // .0
-        res = (typeof val[0] === 'boolean' || val[0] instanceof Boolean)
+        res = (typeof val[0] == 'boolean' || val[0] instanceof Boolean)
         if (res)
         {
             lpath_0 = path ? path.concat([1]) : null
             // .1
-            res = ((typeof val[1] === 'number' || val[1] instanceof Number) && Number.isInteger(val[1])) && val[1] >= 0
+            res = ((typeof val[1] == 'number' || val[1] instanceof Number) && Number.isInteger(val[1])) && val[1] >= 0
             if (! res)
                 rep !== null && rep.push(["not a 0 strict int [.1]", (path ? lpath_0 : null)])
         }

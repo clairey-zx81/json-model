@@ -25,7 +25,7 @@ function _jm_obj_0(val, path, rep)
             // handle must a property
             must_count += 1
             // .'|'.6.a
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'|'.6.a]", (path ? lpath_0 : null)])
@@ -38,7 +38,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may b property
             // .'|'.6.b
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'|'.6.b]", (path ? lpath_0 : null)])

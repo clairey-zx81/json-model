@@ -17,7 +17,7 @@ function json_model_1(val, path, rep)
     {
         if (runtime.jm_char_length(prop) >= 2 && runtime.jm_char_length(prop) <= 4)
         {
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
         }

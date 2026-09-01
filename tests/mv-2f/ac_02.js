@@ -15,13 +15,13 @@ function json_model_1(val, path, rep)
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    let res = (typeof pval === 'string' || pval instanceof String)
+    let res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
         return false
     if (! val.hasOwnProperty("b"))
         return false
     pval = val["b"]
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 

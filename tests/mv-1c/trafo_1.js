@@ -36,7 +36,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["ua"]) : null
     pval = val["ua"]
     // .'$un'.ua
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$un'.ua]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["ub"]) : null
     pval = val["ub"]
     // .'$un'.ub
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$un'.ub]", (path ? lpath : null)])
