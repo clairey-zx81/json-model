@@ -1458,6 +1458,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             raise Vacuous(f"every value matches the model: {_brief(model)}")
         raise UnsupportedValue(f"cannot enter model: {_brief(model)}")
     values: dict[str, Jsonable] = {}
+    taken: set[str] = set()
     reasons: list[str] = []
     doc = None
 
@@ -1510,13 +1511,16 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 reasons.append(str(e))
 
                 continue
-            if not proven and repeats(key, value):
+            dumped = json.dumps(value, sort_keys=True)
+            if dumped in taken:
+                continue
+            elif not proven and repeats(key, value):
                 continue
             elif not proven and dropped(key):
                 continue
+            elif proven:
+                taken.add(dumped)
             values[key] = value
-    taken = {json.dumps(v, sort_keys=True) for key, v in values.items()
-             if marks is None or key not in marks}
     for mpath, vpath, frames, props, disjunction in sites:
         key = f"{_mpath(mpath)} invalid"
         if not mpath or set(props) - {"@"} or key in values:
