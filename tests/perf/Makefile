@@ -110,9 +110,10 @@ ajv.build: .ajv.build
 .PHONY: ajv.tag
 ajv.tag: ajv.build
 	$(POD) tag ajv-cli:$(TAG) $(ZX80)/ajv-cli:$(BRANCH)
+	$(POD) tag ajv-cli:$(TAG) $(ZX80)/ajv-cli:$(TAG)
 
 .PHONY: ajv.push
-ajv.push: .ajv.build
+ajv.push: ajv.tag
 	$(POD) push $(ZX80)/ajv-cli:$(TAG)
 	$(POD) push $(ZX80)/ajv-cli:$(BRANCH)
 
