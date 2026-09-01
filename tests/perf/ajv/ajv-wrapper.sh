@@ -69,7 +69,7 @@ case "$1" in
       fi
     fi
     # actual compilation
-    ajv compile "$@" $ajv_opts
+    ajv compile "$@" $ajv_opts --code-lines
     [ $? -eq 0 ] || err $? "ajv compile failed on $input"
     # add benchmarkint main & prettyprint
     if [ "$output" ] ; then
