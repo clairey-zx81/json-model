@@ -59,16 +59,16 @@ case "$1" in
     if [ "$input" ] ; then
       schema=$(jq -r '."$schema"' "$input")
       if [ "$schema" = "https://json-schema.org/draft/2020-12/schema" ] ; then
-        $ajv_opt+=" --spec=draft2020"
+        ajv_opts+=" --spec=draft2020"
       elif [ "$schema" = "https://json-schema.org/draft/2019-09/schema" ] ; then
-        $ajv_opt+=" --spec=draft2019"
+        ajv_opts+=" --spec=draft2019"
       elif [ "$schema" = "http://json-schema.org/draft-07/schema#" ] ; then
-        $ajv_opt+=" --spec=draft7"
+        ajv_opts+=" --spec=draft7"
       # else unknown or unexpected schema version, defaults to draft7
       fi
     fi
     # actual compilation
-    ajv compile $ajv_opts "$@"
+    ajv compile "$@" $ajv_opts
     [ $? -eq 0 ] || err $? "ajv compile failed"
     # add benchmarkint main & prettyprint
     if [ "$output" ] ; then
