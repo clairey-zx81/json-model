@@ -21,13 +21,13 @@ function json_model_1(val, path, rep)
     // generic xor list
     let xc_0 = 0
     // .'^'.0
-    let xr_0 = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    let xr_0 = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (xr_0)
         xc_0 += 1
     else
         rep !== null && rep.push(["value not in enum [.'^'.0.'|']", path])
     // .'^'.1
-    xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "hello"
+    xr_0 = ((typeof val == 'string' || val instanceof String)) && val == "hello"
     if (xr_0)
         xc_0 += 1
     else

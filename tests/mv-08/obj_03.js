@@ -68,7 +68,7 @@ function json_model_4(val, path, rep)
             let arr_0_item = val[arr_0_idx]
             let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .'$foo#li0'.0
-            res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0
+            res = ((typeof arr_0_item == 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$foo#li0'.0]", (path ? arr_0_lpath : null)])
@@ -118,7 +118,7 @@ function json_model_6(val, path, rep)
             let arr_2_item = val[arr_2_idx]
             let arr_2_lpath = path ? path.concat([arr_2_idx]) : null
             // .'$foo#lb0'.0
-            res = (typeof arr_2_item === 'boolean' || arr_2_item instanceof Boolean)
+            res = (typeof arr_2_item == 'boolean' || arr_2_item instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.'$foo#lb0'.0]", (path ? arr_2_lpath : null)])
@@ -143,7 +143,7 @@ function json_model_7(val, path, rep)
             let arr_3_item = val[arr_3_idx]
             let arr_3_lpath = path ? path.concat([arr_3_idx]) : null
             // .'$foo#lf0'.0
-            res = ((typeof arr_3_item === 'number' || arr_3_item instanceof Number)) && arr_3_item >= 0.0
+            res = ((typeof arr_3_item == 'number' || arr_3_item instanceof Number)) && arr_3_item >= 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'$foo#lf0'.0]", (path ? arr_3_lpath : null)])

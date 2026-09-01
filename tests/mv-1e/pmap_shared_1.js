@@ -30,7 +30,7 @@ function json_model_2(val, path, rep)
             // handle must a property
             must_count += 1
             // .'$Oo0'.a
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Oo0'.a]", (path ? lpath_0 : null)])
@@ -44,7 +44,7 @@ function json_model_2(val, path, rep)
             // handle must b property
             must_count += 1
             // .'$Oo0'.b
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Oo0'.b]", (path ? lpath_0 : null)])
@@ -72,7 +72,7 @@ function json_model_2(val, path, rep)
             // handle must d property
             must_count += 1
             // .'$Oo0'.d
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0
+            res = ((typeof pval == 'number' || pval instanceof Number)) && pval >= 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'$Oo0'.d]", (path ? lpath_0 : null)])
@@ -127,7 +127,7 @@ function json_model_3(val, path, rep)
             // handle must z property
             must_count += 1
             // .'$Oo1'.z
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Oo1'.z]", (path ? lpath_1 : null)])
@@ -140,7 +140,7 @@ function json_model_3(val, path, rep)
         {
             // handle may a property
             // .'$Oo1'.a
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Oo1'.a]", (path ? lpath_1 : null)])
@@ -153,7 +153,7 @@ function json_model_3(val, path, rep)
         {
             // handle may b property
             // .'$Oo1'.b
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Oo1'.b]", (path ? lpath_1 : null)])
@@ -179,7 +179,7 @@ function json_model_3(val, path, rep)
         {
             // handle may d property
             // .'$Oo1'.d
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0
+            res = ((typeof pval == 'number' || pval instanceof Number)) && pval >= 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'$Oo1'.d]", (path ? lpath_1 : null)])
@@ -222,7 +222,7 @@ function json_model_4(val, path, rep)
             // handle must a property
             must_count += 1
             // .'$Oo2'.a
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Oo2'.a]", (path ? lpath_2 : null)])
@@ -236,7 +236,7 @@ function json_model_4(val, path, rep)
             // handle must b property
             must_count += 1
             // .'$Oo2'.b
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Oo2'.b]", (path ? lpath_2 : null)])
@@ -264,7 +264,7 @@ function json_model_4(val, path, rep)
             // handle must d property
             must_count += 1
             // .'$Oo2'.d
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0
+            res = ((typeof pval == 'number' || pval instanceof Number)) && pval >= 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'$Oo2'.d]", (path ? lpath_2 : null)])
@@ -277,7 +277,7 @@ function json_model_4(val, path, rep)
         {
             // handle may y property
             // .'$Oo2'.y
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Oo2'.y]", (path ? lpath_2 : null)])

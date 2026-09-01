@@ -16,7 +16,7 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'@'
-    let res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0
+    let res = ((typeof val == 'number' || val instanceof Number)) && val > 0.0
     if (res)
     {
         let fval_0 = val

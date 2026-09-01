@@ -14,68 +14,68 @@ export var check_model_map = new Map()
 // object .f0
 function _jm_obj_0(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // object .f1
 function _jm_obj_1(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // object .f2
 function _jm_obj_2(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // object .f3
 function _jm_obj_3(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // object .f4
 function _jm_obj_4(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // object .f5
 function _jm_obj_5(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // object .f6
 function _jm_obj_6(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // object .f7
 function _jm_obj_7(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // object .f8
 function _jm_obj_8(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // object .f9
 function _jm_obj_9(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     for (const [prop, pval] of Object.entries(val))

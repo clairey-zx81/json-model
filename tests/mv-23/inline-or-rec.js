@@ -36,7 +36,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$ab'.'|'.0.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"a\" [.'$ab'.'|'.0.t]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'$ab'.'|'.0.a
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$ab'.'|'.0.a]", (path ? lpath : null)])
@@ -85,7 +85,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$ab'.'|'.1.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "b"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "b"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"b\" [.'$ab'.'|'.1.t]", (path ? lpath : null)])
@@ -100,7 +100,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'$ab'.'|'.1.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$ab'.'|'.1.b]", (path ? lpath : null)])

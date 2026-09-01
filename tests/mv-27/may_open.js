@@ -24,7 +24,7 @@ function json_model_1(val, path, rep)
     {
         pval = val["hello"]
         // .hello
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
             return false
     }

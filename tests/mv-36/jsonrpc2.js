@@ -23,12 +23,12 @@ function json_model_2(val, path, rep)
     {
         rep !== null && rep.push(["not null [.'$Id'.'|'.0]", path])
         // .'$Id'.'|'.1
-        res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
+        res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
         if (! res)
         {
             rep !== null && rep.push(["not a -1 strict int [.'$Id'.'|'.1]", path])
             // .'$Id'.'|'.2
-            res = (typeof val === 'string' || val instanceof String)
+            res = (typeof val == 'string' || val instanceof String)
             if (! res)
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Id'.'|'.2]", path])
         }
@@ -63,7 +63,7 @@ function json_model_3(val, path, rep)
             // handle must jsonrpc property
             must_count += 1
             // .'$Notification'.jsonrpc
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "2.0"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$Notification'.jsonrpc]", (path ? lpath_0 : null)])
@@ -78,7 +78,7 @@ function json_model_3(val, path, rep)
             must_count += 1
             // .'$Notification'.method
             // "/./"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/./\" [.'$Notification'.method]", (path ? lpath_0 : null)])
@@ -147,7 +147,7 @@ function json_model_4(val, path, rep)
             // handle must jsonrpc property
             must_count += 1
             // .'$Request'.jsonrpc
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "2.0"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$Request'.jsonrpc]", (path ? lpath_1 : null)])
@@ -162,7 +162,7 @@ function json_model_4(val, path, rep)
             must_count += 1
             // .'$Request'.method
             // "/./"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_1 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_1 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/./\" [.'$Request'.method]", (path ? lpath_1 : null)])
@@ -329,7 +329,7 @@ function json_model_7(val, path, rep)
     lpath = path ? path.concat(["jsonrpc"]) : null
     pval = val["jsonrpc"]
     // .'$Response'.jsonrpc
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "2.0"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$Response'.jsonrpc]", (path ? lpath : null)])
@@ -377,7 +377,7 @@ function _jm_obj_0(val, path, rep)
             // handle must code property
             must_count += 1
             // .'$Error'.error.code
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+            res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1 strict int [.'$Error'.error.code]", (path ? lpath_2 : null)])
@@ -391,7 +391,7 @@ function _jm_obj_0(val, path, rep)
             // handle must message property
             must_count += 1
             // .'$Error'.error.message
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Error'.error.message]", (path ? lpath_2 : null)])
@@ -449,7 +449,7 @@ function json_model_8(val, path, rep)
     lpath = path ? path.concat(["jsonrpc"]) : null
     pval = val["jsonrpc"]
     // .'$Error'.jsonrpc
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "2.0"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$Error'.jsonrpc]", (path ? lpath : null)])

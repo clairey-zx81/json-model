@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$t'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "cst_02"
+    let res = ((typeof val == 'string' || val instanceof String)) && val == "cst_02"
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.'$t']", path])
     return res
@@ -46,7 +46,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'$r'.a
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.a]", (path ? lpath : null)])
@@ -61,7 +61,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'$r'.b
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
+    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.b]", (path ? lpath : null)])
@@ -76,7 +76,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .'$r'.c
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
+    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.c]", (path ? lpath : null)])
@@ -91,7 +91,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .'$r'.d
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
+    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.d]", (path ? lpath : null)])
@@ -126,7 +126,7 @@ function json_model_4(val, path, rep)
     lpath = path ? path.concat(["e"]) : null
     pval = val["e"]
     // .'$z'.e
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_02"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.'$z'.e]", (path ? lpath : null)])
@@ -141,7 +141,7 @@ function json_model_4(val, path, rep)
     lpath = path ? path.concat(["f"]) : null
     pval = val["f"]
     // .'$z'.f
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02"
+    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_02"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.'$z'.f]", (path ? lpath : null)])
@@ -176,7 +176,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .a
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.a]", (path ? lpath : null)])
@@ -191,7 +191,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .b
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
+    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.b]", (path ? lpath : null)])
@@ -206,7 +206,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["e"]) : null
     pval = val["e"]
     // .e
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02"
+    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_02"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.e]", (path ? lpath : null)])
@@ -221,7 +221,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["f"]) : null
     pval = val["f"]
     // .f
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02"
+    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_02"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.f]", (path ? lpath : null)])
@@ -236,7 +236,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .c
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
+    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.c]", (path ? lpath : null)])
@@ -251,7 +251,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .d
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
+    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.d]", (path ? lpath : null)])

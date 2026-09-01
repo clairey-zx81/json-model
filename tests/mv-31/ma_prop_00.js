@@ -29,7 +29,7 @@ function json_model_1(val, path, rep)
         {
             // handle may pretty_long_property_name property
             // .pretty_long_property_name
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.pretty_long_property_name]", (path ? lpath_0 : null)])
@@ -42,7 +42,7 @@ function json_model_1(val, path, rep)
         {
             // handle may zulu property
             // .zulu
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.zulu]", (path ? lpath_0 : null)])
@@ -55,7 +55,7 @@ function json_model_1(val, path, rep)
         {
             // handle may XXX property
             // .XXX
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.XXX]", (path ? lpath_0 : null)])
@@ -68,7 +68,7 @@ function json_model_1(val, path, rep)
         {
             // handle may Susie property
             // .Susie
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.Susie]", (path ? lpath_0 : null)])
@@ -81,7 +81,7 @@ function json_model_1(val, path, rep)
         {
             // handle may last property
             // .last
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.last]", (path ? lpath_0 : null)])

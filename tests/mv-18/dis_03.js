@@ -36,7 +36,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["discriminator"]) : null
     pval = val["discriminator"]
     // .'|'.0.discriminator
-    let res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true
+    let res = ((typeof pval == 'boolean' || pval instanceof Boolean)) && pval == true
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=true\" [.'|'.0.discriminator]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["x"]) : null
     pval = val["x"]
     // .'|'.0.x
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.0.x]", (path ? lpath : null)])
@@ -85,7 +85,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["discriminator"]) : null
     pval = val["discriminator"]
     // .'|'.1.discriminator
-    let res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false
+    let res = ((typeof pval == 'boolean' || pval instanceof Boolean)) && pval == false
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=false\" [.'|'.1.discriminator]", (path ? lpath : null)])
@@ -100,7 +100,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["y"]) : null
     pval = val["y"]
     // .'|'.1.y
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.y]", (path ? lpath : null)])

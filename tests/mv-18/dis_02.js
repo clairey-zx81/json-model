@@ -36,7 +36,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.0.t
-    let res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 3.1415927
+    let res = ((typeof pval == 'number' || pval instanceof Number)) && pval == 3.1415927
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=3.1415927\" [.'|'.0.t]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["pi"]) : null
     pval = val["pi"]
     // .'|'.0.pi
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.0.pi]", (path ? lpath : null)])
@@ -85,7 +85,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.1.t
-    let res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 1.0
+    let res = ((typeof pval == 'number' || pval instanceof Number)) && pval == 1.0
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1.0\" [.'|'.1.t]", (path ? lpath : null)])
@@ -100,7 +100,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["one"]) : null
     pval = val["one"]
     // .'|'.1.one
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.one]", (path ? lpath : null)])
@@ -134,7 +134,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.2.t
-    let res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 0.5
+    let res = ((typeof pval == 'number' || pval instanceof Number)) && pval == 0.5
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0.5\" [.'|'.2.t]", (path ? lpath : null)])
@@ -149,7 +149,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["half"]) : null
     pval = val["half"]
     // .'|'.2.half
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.2.half]", (path ? lpath : null)])

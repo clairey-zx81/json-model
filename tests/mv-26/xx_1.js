@@ -23,13 +23,13 @@ function json_model_1(val, path, rep)
     // generic xor list
     let xc_1 = 0
     // .'^'.0.'^'.0
-    let xr_1 = (typeof val === 'string' || val instanceof String)
+    let xr_1 = (typeof val == 'string' || val instanceof String)
     if (xr_1)
         xc_1 += 1
     else
         rep !== null && rep.push(["unexpected value for model \"\" [.'^'.0.'^'.0]", path])
     // .'^'.0.'^'.1
-    xr_1 = ((typeof val === 'string' || val instanceof String)) && val == "hello"
+    xr_1 = ((typeof val == 'string' || val instanceof String)) && val == "hello"
     if (xr_1)
         xc_1 += 1
     else
@@ -37,7 +37,7 @@ function json_model_1(val, path, rep)
     if (xc_1 <= 1)
     {
         // .'^'.0.'^'.2
-        xr_1 = ((typeof val === 'string' || val instanceof String)) && val == "world"
+        xr_1 = ((typeof val == 'string' || val instanceof String)) && val == "world"
         if (xr_1)
             xc_1 += 1
         else
@@ -46,7 +46,7 @@ function json_model_1(val, path, rep)
     if (xc_1 <= 1)
     {
         // .'^'.0.'^'.3
-        xr_1 = ((typeof val === 'string' || val instanceof String)) && val == "!"
+        xr_1 = ((typeof val == 'string' || val instanceof String)) && val == "!"
         if (xr_1)
             xc_1 += 1
         else
@@ -61,7 +61,7 @@ function json_model_1(val, path, rep)
     else
         rep !== null && rep.push(["not one model match [.'^'.0.'^']", path])
     // .'^'.1
-    xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "hello"
+    xr_0 = ((typeof val == 'string' || val instanceof String)) && val == "hello"
     if (xr_0)
         xc_0 += 1
     else

@@ -10,7 +10,7 @@ export var check_model_map = new Map()
 
 function json_model_2(val, path, rep)
 {
-    return ((typeof val === 'string' || val instanceof String)) && val.startsWith("#")
+    return ((typeof val == 'string' || val instanceof String)) && val.startsWith("#")
 }
 
 function json_model_3(val, path, rep)
@@ -18,7 +18,7 @@ function json_model_3(val, path, rep)
     let res = Array.isArray(val) && val.length == 2
     if (res)
     {
-        res = (typeof val[0] === 'boolean' || val[0] instanceof Boolean)
+        res = (typeof val[0] == 'boolean' || val[0] instanceof Boolean)
         if (res)
             res = true
     }
@@ -32,10 +32,10 @@ function json_model_4(val, path, rep)
     let res = Array.isArray(val) && val.length == 3
     if (res)
     {
-        res = (typeof val[0] === 'boolean' || val[0] instanceof Boolean)
+        res = (typeof val[0] == 'boolean' || val[0] instanceof Boolean)
         if (res)
         {
-            res = ((typeof val[1] === 'string' || val[1] instanceof String)) && _jm_re_0(val[1], null, null)
+            res = ((typeof val[1] == 'string' || val[1] instanceof String)) && _jm_re_0(val[1], null, null)
             if (res)
                 res = true
         }

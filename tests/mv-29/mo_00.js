@@ -17,7 +17,7 @@ function json_model_1(val, path, rep)
     // even positive integers
     // .
     // .'@'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
     if (res)
     {
         let ival_0 = val

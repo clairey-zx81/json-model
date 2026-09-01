@@ -16,21 +16,21 @@ function json_model_1(val, path, rep)
     if (val.hasOwnProperty("a"))
     {
         pval = val["a"]
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
             return false
     }
     if (val.hasOwnProperty("b"))
     {
         pval = val["b"]
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
             return false
     }
     if (val.hasOwnProperty("c"))
     {
         pval = val["c"]
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
             return false
     }

@@ -17,7 +17,7 @@ function json_model_1(val, path, rep)
     // 4 character string
     // .
     // .'@'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (res)
     {
         let ival_0 = runtime.jm_char_length(val)

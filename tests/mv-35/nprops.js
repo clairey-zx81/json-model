@@ -16,7 +16,7 @@ function _jm_obj_0(val, path, rep)
     {
         if (prop.startsWith("a"))
         {
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
                 return false
         }

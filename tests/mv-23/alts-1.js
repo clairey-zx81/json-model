@@ -35,7 +35,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'$oA'.v
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oA'.v]", (path ? lpath : null)])
@@ -50,7 +50,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$oA'.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
+    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_a\" [.'$oA'.t]", (path ? lpath : null)])
@@ -81,7 +81,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'$oB'.v
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oB'.v]", (path ? lpath : null)])
@@ -96,7 +96,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$oB'.t
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
+    res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$oB'.t.'|']", (path ? lpath : null)])
@@ -157,7 +157,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'$oL'.v
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oL'.v]", (path ? lpath : null)])
@@ -172,7 +172,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$oL'.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d"
+    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "d"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_d\" [.'$oL'.t]", (path ? lpath : null)])
@@ -203,7 +203,7 @@ function json_model_6(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'$oX'.v
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oX'.v]", (path ? lpath : null)])
@@ -218,7 +218,7 @@ function json_model_6(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$oX'.t
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
+    res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$oX'.t.'|']", (path ? lpath : null)])

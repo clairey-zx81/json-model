@@ -19,7 +19,7 @@ function json_model_1(val, path, rep)
 {
     // .
     // "/^S/i"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^S/i\" [.]", path])
     return res

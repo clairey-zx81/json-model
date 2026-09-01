@@ -24,11 +24,11 @@ function json_model_1(val, path, rep)
 {
     // deux chaînes constantes et deux re, séparation possible ; constantes matchent re…
     // .
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|']", path])
-        res = (typeof val === 'string' || val instanceof String)
+        res = (typeof val == 'string' || val instanceof String)
         if (res)
         {
             // .'|'.0

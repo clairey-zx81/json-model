@@ -30,7 +30,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle 1 re props
             // .'^'.0.'/a/'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'^'.0.'/a/']", (path ? lpath_0 : null)])

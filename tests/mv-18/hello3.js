@@ -36,7 +36,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["hello"]) : null
     pval = val["hello"]
     // .hello
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.hello]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["world"]) : null
     pval = val["world"]
     // .world
-    res = (typeof pval === 'boolean' || pval instanceof Boolean)
+    res = (typeof pval == 'boolean' || pval instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.world]", (path ? lpath : null)])

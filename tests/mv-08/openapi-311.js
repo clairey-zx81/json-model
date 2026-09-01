@@ -71,7 +71,7 @@ function json_model_2(val, path, rep)
             must_count += 1
             // .'$OpenAPI'.openapi
             // "/^3\\.1\\.\\d+(-.+)?$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^3\\\\.1\\\\.\\\\d+(-.+)?$/\" [.'$OpenAPI'.openapi]", (path ? lpath_0 : null)])
@@ -286,7 +286,7 @@ function json_model_3(val, path, rep)
             // handle must title property
             must_count += 1
             // .'$Info'.title
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Info'.title]", (path ? lpath_2 : null)])
@@ -300,7 +300,7 @@ function json_model_3(val, path, rep)
             // handle must version property
             must_count += 1
             // .'$Info'.version
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Info'.version]", (path ? lpath_2 : null)])
@@ -313,7 +313,7 @@ function json_model_3(val, path, rep)
         {
             // handle may summary property
             // .'$Info'.summary
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Info'.summary]", (path ? lpath_2 : null)])
@@ -326,7 +326,7 @@ function json_model_3(val, path, rep)
         {
             // handle may description property
             // .'$Info'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Info'.description]", (path ? lpath_2 : null)])
@@ -339,7 +339,7 @@ function json_model_3(val, path, rep)
         {
             // handle may termsOfService property
             // .'$Info'.termsOfService
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Info'.termsOfService]", (path ? lpath_2 : null)])
@@ -415,7 +415,7 @@ function json_model_4(val, path, rep)
         {
             // handle may name property
             // .'$Contact'.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Contact'.name]", (path ? lpath_3 : null)])
@@ -441,7 +441,7 @@ function json_model_4(val, path, rep)
         {
             // handle may email property
             // .'$Contact'.email
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Contact'.email]", (path ? lpath_3 : null)])
@@ -479,7 +479,7 @@ function _jm_obj_1(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$License'.'|'.1.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$License'.'|'.1.name]", (path ? lpath_4 : null)])
@@ -540,7 +540,7 @@ function _jm_obj_2(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$License'.'|'.0.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$License'.'|'.0.name]", (path ? lpath_5 : null)])
@@ -554,7 +554,7 @@ function _jm_obj_2(val, path, rep)
             // handle must identifier property
             must_count += 1
             // .'$License'.'|'.0.identifier
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$License'.'|'.0.identifier]", (path ? lpath_5 : null)])
@@ -672,7 +672,7 @@ function json_model_6(val, path, rep)
         {
             // handle may description property
             // .'$Server'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Server'.description]", (path ? lpath_6 : null)])
@@ -735,7 +735,7 @@ function json_model_7(val, path, rep)
             // handle must default property
             must_count += 1
             // .'$ServerVariable'.default
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$ServerVariable'.default]", (path ? lpath_8 : null)])
@@ -756,7 +756,7 @@ function json_model_7(val, path, rep)
                     let arr_3_item = pval[arr_3_idx]
                     let arr_3_lpath = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([arr_3_idx]) : null
                     // .'$ServerVariable'.enum.0
-                    res = (typeof arr_3_item === 'string' || arr_3_item instanceof String)
+                    res = (typeof arr_3_item == 'string' || arr_3_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$ServerVariable'.enum.0]", ((path ? lpath_8 : null) ? arr_3_lpath : null)])
@@ -776,7 +776,7 @@ function json_model_7(val, path, rep)
         {
             // handle may description property
             // .'$ServerVariable'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$ServerVariable'.description]", (path ? lpath_8 : null)])
@@ -1387,7 +1387,7 @@ function json_model_10(val, path, rep)
         {
             // handle may summary property
             // .'$PathItem'.summary
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$PathItem'.summary]", (path ? lpath_21 : null)])
@@ -1400,7 +1400,7 @@ function json_model_10(val, path, rep)
         {
             // handle may description property
             // .'$PathItem'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$PathItem'.description]", (path ? lpath_21 : null)])
@@ -1657,7 +1657,7 @@ function json_model_11(val, path, rep)
                     let arr_6_item = pval[arr_6_idx]
                     let arr_6_lpath = (path ? lpath_22 : null) ? (path ? lpath_22 : null).concat([arr_6_idx]) : null
                     // .'$Operation'.tags.0
-                    res = (typeof arr_6_item === 'string' || arr_6_item instanceof String)
+                    res = (typeof arr_6_item == 'string' || arr_6_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$Operation'.tags.0]", ((path ? lpath_22 : null) ? arr_6_lpath : null)])
@@ -1677,7 +1677,7 @@ function json_model_11(val, path, rep)
         {
             // handle may summary property
             // .'$Operation'.summary
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Operation'.summary]", (path ? lpath_22 : null)])
@@ -1690,7 +1690,7 @@ function json_model_11(val, path, rep)
         {
             // handle may description property
             // .'$Operation'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Operation'.description]", (path ? lpath_22 : null)])
@@ -1716,7 +1716,7 @@ function json_model_11(val, path, rep)
         {
             // handle may operationId property
             // .'$Operation'.operationId
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Operation'.operationId]", (path ? lpath_22 : null)])
@@ -1822,7 +1822,7 @@ function json_model_11(val, path, rep)
         {
             // handle may deprecated property
             // .'$Operation'.deprecated
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Operation'.deprecated]", (path ? lpath_22 : null)])
@@ -1932,7 +1932,7 @@ function json_model_12(val, path, rep)
         {
             // handle may description property
             // .'$ExternalDocumentation'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$ExternalDocumentation'.description]", (path ? lpath_24 : null)])
@@ -1980,7 +1980,7 @@ function json_model_13(val, path, rep)
         {
             // handle may description property
             // .'$parameterShare'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$parameterShare'.description]", (path ? lpath_25 : null)])
@@ -1993,7 +1993,7 @@ function json_model_13(val, path, rep)
         {
             // handle may required property
             // .'$parameterShare'.required
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$parameterShare'.required]", (path ? lpath_25 : null)])
@@ -2006,7 +2006,7 @@ function json_model_13(val, path, rep)
         {
             // handle may deprecated property
             // .'$parameterShare'.deprecated
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$parameterShare'.deprecated]", (path ? lpath_25 : null)])
@@ -2019,7 +2019,7 @@ function json_model_13(val, path, rep)
         {
             // handle may allowEmptyValue property
             // .'$parameterShare'.allowEmptyValue
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$parameterShare'.allowEmptyValue]", (path ? lpath_25 : null)])
@@ -2061,7 +2061,7 @@ function json_model_14(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$commonParameter'.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$commonParameter'.name]", (path ? lpath_26 : null)])
@@ -2075,7 +2075,7 @@ function json_model_14(val, path, rep)
             // handle must in property
             must_count += 1
             // .'$commonParameter'.in
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
+            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$commonParameter'.in.'|']", (path ? lpath_26 : null)])
@@ -2088,7 +2088,7 @@ function json_model_14(val, path, rep)
         {
             // handle may description property
             // .'$commonParameter'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$commonParameter'.description]", (path ? lpath_26 : null)])
@@ -2101,7 +2101,7 @@ function json_model_14(val, path, rep)
         {
             // handle may required property
             // .'$commonParameter'.required
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$commonParameter'.required]", (path ? lpath_26 : null)])
@@ -2114,7 +2114,7 @@ function json_model_14(val, path, rep)
         {
             // handle may deprecated property
             // .'$commonParameter'.deprecated
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$commonParameter'.deprecated]", (path ? lpath_26 : null)])
@@ -2127,7 +2127,7 @@ function json_model_14(val, path, rep)
         {
             // handle may allowEmptyValue property
             // .'$commonParameter'.allowEmptyValue
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$commonParameter'.allowEmptyValue]", (path ? lpath_26 : null)])
@@ -2166,7 +2166,7 @@ function json_model_15(val, path, rep)
 {
     // serialization styles
     // .'$Style'
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val)
+    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_1.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$Style'.'|']", path])
     return res
@@ -2239,7 +2239,7 @@ function json_model_16(val, path, rep)
         {
             // handle may explode property
             // .'$parameterSchemaOnly'.explode
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$parameterSchemaOnly'.explode]", (path ? lpath_27 : null)])
@@ -2252,7 +2252,7 @@ function json_model_16(val, path, rep)
         {
             // handle may allowReserved property
             // .'$parameterSchemaOnly'.allowReserved
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$parameterSchemaOnly'.allowReserved]", (path ? lpath_27 : null)])
@@ -2395,7 +2395,7 @@ function _jm_obj_17(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$Parameter'.'|'.1.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Parameter'.'|'.1.name]", (path ? lpath_31 : null)])
@@ -2409,7 +2409,7 @@ function _jm_obj_17(val, path, rep)
             // handle must in property
             must_count += 1
             // .'$Parameter'.'|'.1.in
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_2.has(pval)
+            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_2.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$Parameter'.'|'.1.in.'|']", (path ? lpath_31 : null)])
@@ -2422,7 +2422,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may description property
             // .'$Parameter'.'|'.1.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Parameter'.'|'.1.description]", (path ? lpath_31 : null)])
@@ -2435,7 +2435,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may required property
             // .'$Parameter'.'|'.1.required
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Parameter'.'|'.1.required]", (path ? lpath_31 : null)])
@@ -2448,7 +2448,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may deprecated property
             // .'$Parameter'.'|'.1.deprecated
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Parameter'.'|'.1.deprecated]", (path ? lpath_31 : null)])
@@ -2461,7 +2461,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may allowEmptyValue property
             // .'$Parameter'.'|'.1.allowEmptyValue
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Parameter'.'|'.1.allowEmptyValue]", (path ? lpath_31 : null)])
@@ -2559,7 +2559,7 @@ function _jm_obj_19(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$Parameter'.'|'.0.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Parameter'.'|'.0.name]", (path ? lpath_33 : null)])
@@ -2573,7 +2573,7 @@ function _jm_obj_19(val, path, rep)
             // handle must in property
             must_count += 1
             // .'$Parameter'.'|'.0.in
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_3.has(pval)
+            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_3.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$Parameter'.'|'.0.in.'|']", (path ? lpath_33 : null)])
@@ -2586,7 +2586,7 @@ function _jm_obj_19(val, path, rep)
         {
             // handle may description property
             // .'$Parameter'.'|'.0.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Parameter'.'|'.0.description]", (path ? lpath_33 : null)])
@@ -2599,7 +2599,7 @@ function _jm_obj_19(val, path, rep)
         {
             // handle may required property
             // .'$Parameter'.'|'.0.required
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Parameter'.'|'.0.required]", (path ? lpath_33 : null)])
@@ -2612,7 +2612,7 @@ function _jm_obj_19(val, path, rep)
         {
             // handle may deprecated property
             // .'$Parameter'.'|'.0.deprecated
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Parameter'.'|'.0.deprecated]", (path ? lpath_33 : null)])
@@ -2625,7 +2625,7 @@ function _jm_obj_19(val, path, rep)
         {
             // handle may allowEmptyValue property
             // .'$Parameter'.'|'.0.allowEmptyValue
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Parameter'.'|'.0.allowEmptyValue]", (path ? lpath_33 : null)])
@@ -2651,7 +2651,7 @@ function _jm_obj_19(val, path, rep)
         {
             // handle may explode property
             // .'$Parameter'.'|'.0.explode
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Parameter'.'|'.0.explode]", (path ? lpath_33 : null)])
@@ -2664,7 +2664,7 @@ function _jm_obj_19(val, path, rep)
         {
             // handle may allowReserved property
             // .'$Parameter'.'|'.0.allowReserved
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Parameter'.'|'.0.allowReserved]", (path ? lpath_33 : null)])
@@ -2800,7 +2800,7 @@ function json_model_19(val, path, rep)
         {
             // handle may description property
             // .'$RequestBody'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$RequestBody'.description]", (path ? lpath_35 : null)])
@@ -2826,7 +2826,7 @@ function json_model_19(val, path, rep)
         {
             // handle may required property
             // .'$RequestBody'.required
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RequestBody'.required]", (path ? lpath_35 : null)])
@@ -3035,7 +3035,7 @@ function json_model_21(val, path, rep)
         {
             // handle may contentType property
             // .'$Encoding'.contentType
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Encoding'.contentType]", (path ? lpath_40 : null)])
@@ -3074,7 +3074,7 @@ function json_model_21(val, path, rep)
         {
             // handle may explode property
             // .'$Encoding'.explode
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Encoding'.explode]", (path ? lpath_40 : null)])
@@ -3087,7 +3087,7 @@ function json_model_21(val, path, rep)
         {
             // handle may allowReserved property
             // .'$Encoding'.allowReserved
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Encoding'.allowReserved]", (path ? lpath_40 : null)])
@@ -3302,7 +3302,7 @@ function json_model_23(val, path, rep)
         {
             // handle may description property
             // .'$Response'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Response'.description]", (path ? lpath_43 : null)])
@@ -3430,7 +3430,7 @@ function json_model_25(val, path, rep)
         {
             // handle may summary property
             // .'$Example'.summary
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Example'.summary]", (path ? lpath_48 : null)])
@@ -3443,7 +3443,7 @@ function json_model_25(val, path, rep)
         {
             // handle may description property
             // .'$Example'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Example'.description]", (path ? lpath_48 : null)])
@@ -3463,7 +3463,7 @@ function json_model_25(val, path, rep)
         {
             // handle may externalValue property
             // .'$Example'.externalValue
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Example'.externalValue]", (path ? lpath_48 : null)])
@@ -3489,7 +3489,7 @@ function json_model_25(val, path, rep)
 function json_model_26(val, path, rep)
 {
     // .'$Expression'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Expression']", path])
     return res
@@ -3509,7 +3509,7 @@ function _jm_obj_28(val, path, rep)
             // handle must operationId property
             must_count += 1
             // .'$Link'.'|'.1.operationId
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Link'.'|'.1.operationId]", (path ? lpath_49 : null)])
@@ -3541,7 +3541,7 @@ function _jm_obj_28(val, path, rep)
         {
             // handle may description property
             // .'$Link'.'|'.1.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Link'.'|'.1.description]", (path ? lpath_49 : null)])
@@ -3599,7 +3599,7 @@ function _jm_obj_29(val, path, rep)
             // handle must operationRef property
             must_count += 1
             // .'$Link'.'|'.0.operationRef
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Link'.'|'.0.operationRef]", (path ? lpath_50 : null)])
@@ -3631,7 +3631,7 @@ function _jm_obj_29(val, path, rep)
         {
             // handle may description property
             // .'$Link'.'|'.0.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Link'.'|'.0.description]", (path ? lpath_50 : null)])
@@ -3740,7 +3740,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may description property
             // .'$Header'.'|'.1.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Header'.'|'.1.description]", (path ? lpath_51 : null)])
@@ -3753,7 +3753,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may required property
             // .'$Header'.'|'.1.required
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Header'.'|'.1.required]", (path ? lpath_51 : null)])
@@ -3766,7 +3766,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may deprecated property
             // .'$Header'.'|'.1.deprecated
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Header'.'|'.1.deprecated]", (path ? lpath_51 : null)])
@@ -3779,7 +3779,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may allowEmptyValue property
             // .'$Header'.'|'.1.allowEmptyValue
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Header'.'|'.1.allowEmptyValue]", (path ? lpath_51 : null)])
@@ -3863,7 +3863,7 @@ function _jm_obj_32(val, path, rep)
         {
             // handle may description property
             // .'$Header'.'|'.0.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Header'.'|'.0.description]", (path ? lpath_53 : null)])
@@ -3876,7 +3876,7 @@ function _jm_obj_32(val, path, rep)
         {
             // handle may required property
             // .'$Header'.'|'.0.required
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Header'.'|'.0.required]", (path ? lpath_53 : null)])
@@ -3889,7 +3889,7 @@ function _jm_obj_32(val, path, rep)
         {
             // handle may deprecated property
             // .'$Header'.'|'.0.deprecated
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Header'.'|'.0.deprecated]", (path ? lpath_53 : null)])
@@ -3902,7 +3902,7 @@ function _jm_obj_32(val, path, rep)
         {
             // handle may allowEmptyValue property
             // .'$Header'.'|'.0.allowEmptyValue
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Header'.'|'.0.allowEmptyValue]", (path ? lpath_53 : null)])
@@ -3928,7 +3928,7 @@ function _jm_obj_32(val, path, rep)
         {
             // handle may explode property
             // .'$Header'.'|'.0.explode
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Header'.'|'.0.explode]", (path ? lpath_53 : null)])
@@ -3941,7 +3941,7 @@ function _jm_obj_32(val, path, rep)
         {
             // handle may allowReserved property
             // .'$Header'.'|'.0.allowReserved
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Header'.'|'.0.allowReserved]", (path ? lpath_53 : null)])
@@ -4045,7 +4045,7 @@ function json_model_29(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$Tag'.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Tag'.name]", (path ? lpath_55 : null)])
@@ -4058,7 +4058,7 @@ function json_model_29(val, path, rep)
         {
             // handle may description property
             // .'$Tag'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Tag'.description]", (path ? lpath_55 : null)])
@@ -4121,7 +4121,7 @@ function json_model_30(val, path, rep)
             // handle must $ref property
             must_count += 1
             // .'$Reference'.'$ref'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Reference'.'$ref']", (path ? lpath_56 : null)])
@@ -4134,7 +4134,7 @@ function json_model_30(val, path, rep)
         {
             // handle may summary property
             // .'$Reference'.summary
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Reference'.summary]", (path ? lpath_56 : null)])
@@ -4147,7 +4147,7 @@ function json_model_30(val, path, rep)
         {
             // handle may description property
             // .'$Reference'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Reference'.description]", (path ? lpath_56 : null)])
@@ -4187,7 +4187,7 @@ function json_model_45(val, path, rep)
 function _jm_f_0(val, path, rep)
 {
     // .'$Schema'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.'$comment']", path])
     return res
@@ -4222,7 +4222,7 @@ function _jm_f_1(val, path, rep)
 function _jm_f_2(val, path, rep)
 {
     // .'$Schema'.'$schema'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "https://json-schema.org/draft/2020-12/schema"
+    let res = ((typeof val == 'string' || val instanceof String)) && val == "https://json-schema.org/draft/2020-12/schema"
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"_https://json-schema.org/draft/2020-12/schema\" [.'$Schema'.'$schema']", path])
     return res
@@ -4245,7 +4245,7 @@ function _jm_f_3(val, path, rep)
         {
             // handle 1 key props
             // .'$Schema'.'$vocabulary'.'$URI'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'$vocabulary'.'$URI']", (path ? lpath_59 : null)])
@@ -4272,7 +4272,7 @@ function _jm_f_4(val, path, rep)
 function _jm_f_5(val, path, rep)
 {
     // .'$Schema'.contentEncoding
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.contentEncoding]", path])
     return res
@@ -4282,7 +4282,7 @@ function _jm_f_5(val, path, rep)
 function _jm_f_6(val, path, rep)
 {
     // .'$Schema'.contentMediaType
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.contentMediaType]", path])
     return res
@@ -4349,7 +4349,7 @@ function _jm_f_9(val, path, rep)
 function _jm_f_10(val, path, rep)
 {
     // .'$Schema'.deprecated
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$Schema'.deprecated]", path])
     return res
@@ -4359,7 +4359,7 @@ function _jm_f_10(val, path, rep)
 function _jm_f_11(val, path, rep)
 {
     // .'$Schema'.description
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.description]", path])
     return res
@@ -4396,7 +4396,7 @@ function _jm_f_14(val, path, rep)
 function _jm_f_15(val, path, rep)
 {
     // .'$Schema'.exclusiveMaximum
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["not a -1.0 strict float [.'$Schema'.exclusiveMaximum]", path])
     return res
@@ -4406,7 +4406,7 @@ function _jm_f_15(val, path, rep)
 function _jm_f_16(val, path, rep)
 {
     // .'$Schema'.exclusiveMinimum
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["not a -1.0 strict float [.'$Schema'.exclusiveMinimum]", path])
     return res
@@ -4416,7 +4416,7 @@ function _jm_f_16(val, path, rep)
 function _jm_f_17(val, path, rep)
 {
     // .'$Schema'.format
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.format]", path])
     return res
@@ -4426,7 +4426,7 @@ function _jm_f_17(val, path, rep)
 function _jm_f_18(val, path, rep)
 {
     // .'$Schema'.maximum
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["not a -1.0 strict float [.'$Schema'.maximum]", path])
     return res
@@ -4436,7 +4436,7 @@ function _jm_f_18(val, path, rep)
 function _jm_f_19(val, path, rep)
 {
     // .'$Schema'.minimum
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["not a -1.0 strict float [.'$Schema'.minimum]", path])
     return res
@@ -4446,7 +4446,7 @@ function _jm_f_19(val, path, rep)
 function _jm_f_20(val, path, rep)
 {
     // .'$Schema'.multipleOf
-    let res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0
+    let res = ((typeof val == 'number' || val instanceof Number)) && val > 0.0
     if (! res)
         rep !== null && rep.push(["not a 1.0 strict float [.'$Schema'.multipleOf]", path])
     return res
@@ -4524,7 +4524,7 @@ function _jm_f_23(val, path, rep)
 function _jm_f_24(val, path, rep)
 {
     // .'$Schema'.readOnly
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$Schema'.readOnly]", path])
     return res
@@ -4534,7 +4534,7 @@ function _jm_f_24(val, path, rep)
 function _jm_f_25(val, path, rep)
 {
     // .'$Schema'.title
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.title]", path])
     return res
@@ -4567,7 +4567,7 @@ function _jm_f_26(val, path, rep)
 function _jm_f_27(val, path, rep)
 {
     // .'$Schema'.uniqueItems
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$Schema'.uniqueItems]", path])
     return res
@@ -4577,7 +4577,7 @@ function _jm_f_27(val, path, rep)
 function _jm_f_28(val, path, rep)
 {
     // .'$Schema'.writeOnly
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$Schema'.writeOnly]", path])
     return res
@@ -4627,7 +4627,7 @@ function _jm_obj_34(val, path, rep)
         let lpath_65 = path ? path.concat([prop]) : null
         // handle other props
         // .'$Discriminator'.mapping.''
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$Discriminator'.mapping.'']", (path ? lpath_65 : null)])
@@ -4656,7 +4656,7 @@ function json_model_33(val, path, rep)
             // handle must propertyName property
             must_count += 1
             // .'$Discriminator'.propertyName
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Discriminator'.propertyName]", (path ? lpath_64 : null)])
@@ -4717,7 +4717,7 @@ function json_model_34(val, path, rep)
         {
             // handle may name property
             // .'$xml'.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$xml'.name]", (path ? lpath_66 : null)])
@@ -4730,7 +4730,7 @@ function json_model_34(val, path, rep)
         {
             // handle may namespace property
             // .'$xml'.namespace
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$xml'.namespace]", (path ? lpath_66 : null)])
@@ -4743,7 +4743,7 @@ function json_model_34(val, path, rep)
         {
             // handle may prefix property
             // .'$xml'.prefix
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$xml'.prefix]", (path ? lpath_66 : null)])
@@ -4756,7 +4756,7 @@ function json_model_34(val, path, rep)
         {
             // handle may attribute property
             // .'$xml'.attribute
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$xml'.attribute]", (path ? lpath_66 : null)])
@@ -4769,7 +4769,7 @@ function json_model_34(val, path, rep)
         {
             // handle may wrapped property
             // .'$xml'.wrapped
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$xml'.wrapped]", (path ? lpath_66 : null)])
@@ -4817,7 +4817,7 @@ function json_model_35(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$SS-apikey'.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "apiKey"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "apiKey"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_apiKey\" [.'$SS-apikey'.type]", (path ? lpath : null)])
@@ -4832,7 +4832,7 @@ function json_model_35(val, path, rep)
     lpath = path ? path.concat(["name"]) : null
     pval = val["name"]
     // .'$SS-apikey'.name
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$SS-apikey'.name]", (path ? lpath : null)])
@@ -4847,7 +4847,7 @@ function json_model_35(val, path, rep)
     lpath = path ? path.concat(["in"]) : null
     pval = val["in"]
     // .'$SS-apikey'.in
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval)
+    res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_4.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$SS-apikey'.in.'|']", (path ? lpath : null)])
@@ -4882,7 +4882,7 @@ function json_model_36(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$SS-http'.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "http"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_http\" [.'$SS-http'.type]", (path ? lpath : null)])
@@ -4897,7 +4897,7 @@ function json_model_36(val, path, rep)
     lpath = path ? path.concat(["scheme"]) : null
     pval = val["scheme"]
     // .'$SS-http'.scheme
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$SS-http'.scheme]", (path ? lpath : null)])
@@ -4928,7 +4928,7 @@ function json_model_37(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$SS-http-bearer'.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "http"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_http\" [.'$SS-http-bearer'.type]", (path ? lpath_67 : null)])
@@ -4943,7 +4943,7 @@ function json_model_37(val, path, rep)
             must_count += 1
             // .'$SS-http-bearer'.scheme
             // "/bearer/i"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_3(pval, (path ? lpath_67 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_3(pval, (path ? lpath_67 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/bearer/i\" [.'$SS-http-bearer'.scheme]", (path ? lpath_67 : null)])
@@ -4956,7 +4956,7 @@ function json_model_37(val, path, rep)
         {
             // handle may bearerFormat property
             // .'$SS-http-bearer'.bearerFormat
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$SS-http-bearer'.bearerFormat]", (path ? lpath_67 : null)])
@@ -5007,7 +5007,7 @@ function json_model_38(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$SS-oauth2'.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "oauth2"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "oauth2"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_oauth2\" [.'$SS-oauth2'.type]", (path ? lpath : null)])
@@ -5057,7 +5057,7 @@ function json_model_39(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$SS-oic'.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "openIdConnect"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "openIdConnect"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_openIdConnect\" [.'$SS-oic'.type]", (path ? lpath : null)])
@@ -5101,7 +5101,7 @@ function _jm_obj_35(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$SecurityScheme'.'|'.0.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "apiKey"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "apiKey"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_apiKey\" [.'$SecurityScheme'.'|'.0.type]", (path ? lpath_68 : null)])
@@ -5115,7 +5115,7 @@ function _jm_obj_35(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$SecurityScheme'.'|'.0.name
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$SecurityScheme'.'|'.0.name]", (path ? lpath_68 : null)])
@@ -5129,7 +5129,7 @@ function _jm_obj_35(val, path, rep)
             // handle must in property
             must_count += 1
             // .'$SecurityScheme'.'|'.0.in
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_5.has(pval)
+            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_5.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$SecurityScheme'.'|'.0.in.'|']", (path ? lpath_68 : null)])
@@ -5142,7 +5142,7 @@ function _jm_obj_35(val, path, rep)
         {
             // handle may description property
             // .'$SecurityScheme'.'|'.0.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$SecurityScheme'.'|'.0.description]", (path ? lpath_68 : null)])
@@ -5188,7 +5188,7 @@ function _jm_obj_36(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$SecurityScheme'.'|'.1.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "http"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_http\" [.'$SecurityScheme'.'|'.1.type]", (path ? lpath_69 : null)])
@@ -5203,7 +5203,7 @@ function _jm_obj_36(val, path, rep)
             must_count += 1
             // .'$SecurityScheme'.'|'.1.scheme
             // "/bearer/i"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_3(pval, (path ? lpath_69 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_3(pval, (path ? lpath_69 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/bearer/i\" [.'$SecurityScheme'.'|'.1.scheme]", (path ? lpath_69 : null)])
@@ -5216,7 +5216,7 @@ function _jm_obj_36(val, path, rep)
         {
             // handle may bearerFormat property
             // .'$SecurityScheme'.'|'.1.bearerFormat
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$SecurityScheme'.'|'.1.bearerFormat]", (path ? lpath_69 : null)])
@@ -5229,7 +5229,7 @@ function _jm_obj_36(val, path, rep)
         {
             // handle may description property
             // .'$SecurityScheme'.'|'.1.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$SecurityScheme'.'|'.1.description]", (path ? lpath_69 : null)])
@@ -5273,7 +5273,7 @@ function _jm_obj_37(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$SecurityScheme'.'|'.2.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "http"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_http\" [.'$SecurityScheme'.'|'.2.type]", (path ? lpath_70 : null)])
@@ -5287,7 +5287,7 @@ function _jm_obj_37(val, path, rep)
             // handle must scheme property
             must_count += 1
             // .'$SecurityScheme'.'|'.2.scheme
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$SecurityScheme'.'|'.2.scheme]", (path ? lpath_70 : null)])
@@ -5300,7 +5300,7 @@ function _jm_obj_37(val, path, rep)
         {
             // handle may description property
             // .'$SecurityScheme'.'|'.2.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$SecurityScheme'.'|'.2.description]", (path ? lpath_70 : null)])
@@ -5344,7 +5344,7 @@ function _jm_obj_38(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$SecurityScheme'.'|'.3.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "oauth2"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "oauth2"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_oauth2\" [.'$SecurityScheme'.'|'.3.type]", (path ? lpath_71 : null)])
@@ -5371,7 +5371,7 @@ function _jm_obj_38(val, path, rep)
         {
             // handle may description property
             // .'$SecurityScheme'.'|'.3.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$SecurityScheme'.'|'.3.description]", (path ? lpath_71 : null)])
@@ -5415,7 +5415,7 @@ function _jm_obj_39(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$SecurityScheme'.'|'.4.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "openIdConnect"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "openIdConnect"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_openIdConnect\" [.'$SecurityScheme'.'|'.4.type]", (path ? lpath_72 : null)])
@@ -5442,7 +5442,7 @@ function _jm_obj_39(val, path, rep)
         {
             // handle may description property
             // .'$SecurityScheme'.'|'.4.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$SecurityScheme'.'|'.4.description]", (path ? lpath_72 : null)])
@@ -5484,7 +5484,7 @@ function _jm_obj_40(val, path, rep)
         {
             // handle may description property
             // .'$SecurityScheme'.'|'.5.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$SecurityScheme'.'|'.5.description]", (path ? lpath_73 : null)])
@@ -5642,7 +5642,7 @@ function _jm_obj_41(val, path, rep)
         let lpath_76 = path ? path.concat([prop]) : null
         // handle other props
         // .'$OAuthFlow'.scopes.''
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$OAuthFlow'.scopes.'']", (path ? lpath_76 : null)])
@@ -5770,7 +5770,7 @@ function json_model_43(val, path, rep)
                 let arr_10_item = pval[arr_10_idx]
                 let arr_10_lpath = (path ? lpath_77 : null) ? (path ? lpath_77 : null).concat([arr_10_idx]) : null
                 // .'$SecurityRequirement'.''.0
-                res = (typeof arr_10_item === 'string' || arr_10_item instanceof String)
+                res = (typeof arr_10_item == 'string' || arr_10_item instanceof String)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"\" [.'$SecurityRequirement'.''.0]", ((path ? lpath_77 : null) ? arr_10_lpath : null)])
@@ -5822,7 +5822,7 @@ function json_model_1(val, path, rep)
 function json_model_46(val, path, rep)
 {
     // .'$schema#URI-REFERENCE'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema#URI-REFERENCE']", path])
     return res
@@ -5833,7 +5833,7 @@ function json_model_46(val, path, rep)
 function json_model_52(val, path, rep)
 {
     // .'$schema#simpleTypes'
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_6.has(val)
+    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_6.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$schema#simpleTypes'.'|']", path])
     return res
@@ -5885,7 +5885,7 @@ function json_model_54(val, path, rep)
             let arr_12_item = val[arr_12_idx]
             let arr_12_lpath = path ? path.concat([arr_12_idx]) : null
             // .'$schema#stringArray'.'@'.0
-            res = (typeof arr_12_item === 'string' || arr_12_item instanceof String)
+            res = (typeof arr_12_item == 'string' || arr_12_item instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$schema#stringArray'.'@'.0]", (path ? arr_12_lpath : null)])
@@ -5908,7 +5908,7 @@ function json_model_54(val, path, rep)
 function json_model_55(val, path, rep)
 {
     // .'$schema#nonNegativeInteger'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["not a 0 loose int [.'$schema#nonNegativeInteger']", path])
     return res
@@ -5952,7 +5952,7 @@ function json_model_60(val, path, rep)
 {
     // .'$schema#Schema'
     // .'$schema#Schema'.'|'.0
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$schema#Schema'.'|'.0]", path])
@@ -5974,7 +5974,7 @@ function json_model_60(val, path, rep)
 function _jm_f_29(val, path, rep)
 {
     // .'$schema#ObjectSchema'.'$comment'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema#ObjectSchema'.'$comment']", path])
     return res
@@ -6009,7 +6009,7 @@ function _jm_f_30(val, path, rep)
 function _jm_f_31(val, path, rep)
 {
     // .'$schema#ObjectSchema'.'$schema'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "https://json-schema.org/draft/2020-12/schema"
+    let res = ((typeof val == 'string' || val instanceof String)) && val == "https://json-schema.org/draft/2020-12/schema"
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"_https://json-schema.org/draft/2020-12/schema\" [.'$schema#ObjectSchema'.'$schema']", path])
     return res
@@ -6032,7 +6032,7 @@ function _jm_f_32(val, path, rep)
         {
             // handle 1 key props
             // .'$schema#ObjectSchema'.'$vocabulary'.'$URI'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.'$vocabulary'.'$URI']", (path ? lpath_81 : null)])
@@ -6059,7 +6059,7 @@ function _jm_f_33(val, path, rep)
 function _jm_f_34(val, path, rep)
 {
     // .'$schema#ObjectSchema'.contentEncoding
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema#ObjectSchema'.contentEncoding]", path])
     return res
@@ -6069,7 +6069,7 @@ function _jm_f_34(val, path, rep)
 function _jm_f_35(val, path, rep)
 {
     // .'$schema#ObjectSchema'.contentMediaType
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema#ObjectSchema'.contentMediaType]", path])
     return res
@@ -6136,7 +6136,7 @@ function _jm_f_38(val, path, rep)
 function _jm_f_39(val, path, rep)
 {
     // .'$schema#ObjectSchema'.deprecated
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.deprecated]", path])
     return res
@@ -6146,7 +6146,7 @@ function _jm_f_39(val, path, rep)
 function _jm_f_40(val, path, rep)
 {
     // .'$schema#ObjectSchema'.description
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema#ObjectSchema'.description]", path])
     return res
@@ -6176,7 +6176,7 @@ function _jm_f_42(val, path, rep)
 function _jm_f_43(val, path, rep)
 {
     // .'$schema#ObjectSchema'.exclusiveMaximum
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["not a -1.0 loose float [.'$schema#ObjectSchema'.exclusiveMaximum]", path])
     return res
@@ -6186,7 +6186,7 @@ function _jm_f_43(val, path, rep)
 function _jm_f_44(val, path, rep)
 {
     // .'$schema#ObjectSchema'.exclusiveMinimum
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["not a -1.0 loose float [.'$schema#ObjectSchema'.exclusiveMinimum]", path])
     return res
@@ -6196,7 +6196,7 @@ function _jm_f_44(val, path, rep)
 function _jm_f_45(val, path, rep)
 {
     // .'$schema#ObjectSchema'.format
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema#ObjectSchema'.format]", path])
     return res
@@ -6206,7 +6206,7 @@ function _jm_f_45(val, path, rep)
 function _jm_f_46(val, path, rep)
 {
     // .'$schema#ObjectSchema'.maximum
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["not a -1.0 loose float [.'$schema#ObjectSchema'.maximum]", path])
     return res
@@ -6216,7 +6216,7 @@ function _jm_f_46(val, path, rep)
 function _jm_f_47(val, path, rep)
 {
     // .'$schema#ObjectSchema'.minimum
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["not a -1.0 loose float [.'$schema#ObjectSchema'.minimum]", path])
     return res
@@ -6226,7 +6226,7 @@ function _jm_f_47(val, path, rep)
 function _jm_f_48(val, path, rep)
 {
     // .'$schema#ObjectSchema'.multipleOf
-    let res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0
+    let res = ((typeof val == 'number' || val instanceof Number)) && val > 0.0
     if (! res)
         rep !== null && rep.push(["not a 1.0 loose float [.'$schema#ObjectSchema'.multipleOf]", path])
     return res
@@ -6304,7 +6304,7 @@ function _jm_f_51(val, path, rep)
 function _jm_f_52(val, path, rep)
 {
     // .'$schema#ObjectSchema'.readOnly
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.readOnly]", path])
     return res
@@ -6314,7 +6314,7 @@ function _jm_f_52(val, path, rep)
 function _jm_f_53(val, path, rep)
 {
     // .'$schema#ObjectSchema'.title
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$schema#ObjectSchema'.title]", path])
     return res
@@ -6347,7 +6347,7 @@ function _jm_f_54(val, path, rep)
 function _jm_f_55(val, path, rep)
 {
     // .'$schema#ObjectSchema'.uniqueItems
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.uniqueItems]", path])
     return res
@@ -6357,7 +6357,7 @@ function _jm_f_55(val, path, rep)
 function _jm_f_56(val, path, rep)
 {
     // .'$schema#ObjectSchema'.writeOnly
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.writeOnly]", path])
     return res

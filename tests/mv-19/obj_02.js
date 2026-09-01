@@ -32,7 +32,7 @@ function json_model_1(val, path, rep)
         {
             // handle 1 re props
             // .'/^[A-Z]$/'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'/^[A-Z]$/']", (path ? lpath_0 : null)])

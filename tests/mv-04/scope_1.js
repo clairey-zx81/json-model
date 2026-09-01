@@ -46,7 +46,7 @@ function json_model_3(val, path, rep)
 {
     // .'$s'
     // "/[a-z]/"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/[a-z]/\" [.'$s']", path])
     return res
@@ -83,7 +83,7 @@ function json_model_5(val, path, rep)
 {
     // .'$r#s'
     // "/[0-9]/"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_1(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/[0-9]/\" [.'$r#s']", path])
     return res

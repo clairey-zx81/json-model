@@ -36,7 +36,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .movie.'|'.0.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "fr"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "fr"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"fr\" [.movie.'|'.0.t]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["titre"]) : null
     pval = val["titre"]
     // .movie.'|'.0.titre
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.movie.'|'.0.titre]", (path ? lpath : null)])
@@ -85,7 +85,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .movie.'|'.1.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "en"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "en"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"en\" [.movie.'|'.1.t]", (path ? lpath : null)])
@@ -100,7 +100,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["title"]) : null
     pval = val["title"]
     // .movie.'|'.1.title
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.movie.'|'.1.title]", (path ? lpath : null)])
@@ -134,7 +134,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .movie.'|'.2.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ru"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ru"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"ru\" [.movie.'|'.2.t]", (path ? lpath : null)])
@@ -149,7 +149,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["suti"]) : null
     pval = val["suti"]
     // .movie.'|'.2.suti
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.movie.'|'.2.suti]", (path ? lpath : null)])
