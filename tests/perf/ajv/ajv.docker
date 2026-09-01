@@ -6,12 +6,10 @@ RUN apt update && apt install -y jq vim && apt clean
 COPY . /app
 WORKDIR /app
 RUN npm install
-# RUN npm list > .version
-RUN echo -n \
-     "ajv-cli: $(jq -r '.packages."node_modules/ajv-cli".version' ./package-lock.json);" \
-     "ajv: $(jq -r '.packages."node_modules/ajv".version' ./package-lock.json);" \
-     "jmc: $(cat .jmc_version);" \
-     > .version
+RUN ajv_cli_version=$(jq -r '.packages."node_modules/ajv-cli".version' ./package-lock.json) ; \
+    ajv_version=$(jq -r '.packages."node_modules/ajv".version' ./package-lock.json) ; \
+    jmc_version=$(cat .jmc_version) ; \
+    echo "ajv-cli $ajv_cli_version/$ajv_version (jmc $jmc_version)" > .version
 # fix perms
 RUN chmod a+rx *.sh
 RUN find . -type d -print0 | xargs -0 chmod a+rx
