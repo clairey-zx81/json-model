@@ -7,9 +7,10 @@ COPY . /app
 WORKDIR /app
 RUN npm install
 # RUN npm list > .version
-RUN echo \
+RUN echo -n \
      "ajv-cli: $(jq -r '.packages."node_modules/ajv-cli".version' ./package-lock.json);" \
-     "ajv: $(jq -r '.packages."node_modules/ajv".version' ./package-lock.json)" \
+     "ajv: $(jq -r '.packages."node_modules/ajv".version' ./package-lock.json);" \
+     "jmc: $(cat .jmc_version);" \
      > .version
 # fix perms
 RUN chmod a+rx *.sh
