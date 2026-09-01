@@ -47,15 +47,16 @@ case "$1" in
     exec /bin/sh "$@"
     ;;
   optim|compile)
-    shift
     # TODO clarify ES5/EC6 CJS/EMS options (--code-es5 --code-esm)
     # TODO allow removing reporting code, --messages=false does not do the trick
     # NOTE --code-source=true: standalone version
     # set useful optimizations options with "optim"
     [ "$1" = "optim" ] && ajv_opts="--messages=false --code-optimize=2 --strict=false" || ajv_opts=""
-    # get output file if any
-    output=$(get_opt "-o" "$@")
-    input=$(get_opt "-s" "$@")
+    # drop command
+    shift
+    # get output and input file if any
+    output=$(get_opt "-o" "$@") input=$(get_opt "-s" "$@")
+    # extract root version
     if [ "$input" ] ; then
       schema=$(jq -r '."$schema"' "$input")
       if [ "$schema" = "https://json-schema.org/draft/2020-12/schema" ] ; then
@@ -63,8 +64,6 @@ case "$1" in
       elif [ "$schema" = "https://json-schema.org/draft/2019-09/schema" ] ; then
         ajv_opts+=" --spec=draft2019"
       elif [ "$schema" = "http://json-schema.org/draft-07/schema#" ] ; then
-        ajv_opts+=" --spec=draft7"
-      elif [ "$schema" = "http://json-schema.org/draft-07/schema" ] ; then
         ajv_opts+=" --spec=draft7"
       # else unknown or unexpected schema version, defaults to draft7
       fi
@@ -74,6 +73,7 @@ case "$1" in
     [ $? -eq 0 ] || err $? "ajv compile failed on $input"
     # add benchmarkint main & prettyprint
     if [ "$output" ] ; then
+      test -e "$output" || err $? "ajv compile no result on $input"
       test -s "$output" || err $? "ajv compile empty result on $input"
       {
         echo
