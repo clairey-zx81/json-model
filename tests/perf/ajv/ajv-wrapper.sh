@@ -73,20 +73,21 @@ case "$1" in
     [ $? -eq 0 ] || err $? "ajv compile failed on $input"
     # add benchmarkint main & prettyprint
     if [ "$output" ] ; then
-      test -e "$output" || err $? "ajv compile no result on $input"
-      test -s "$output" || err $? "ajv compile empty result on $input"
+      test -e "$output" || err $? "ajv compile no result for $input"
+      test -s "$output" || err $? "ajv compile empty result for $input"
+      validate=$(sed -n -e '/^module\.exports = /s/.* = \([_a-zA-Z0-9]*\);.*/\1/p;3q' "$output")
+      [ "$validate" ] || err 1 "ajv compile validate not found in $output"
       {
         echo
         echo
-        echo "// test schema \"$input\""
-        echo 'async function main() {'
-        # echo '  const jab = await import("jmc-ajv-bench")'
-        echo '  const jab = require("jmc-ajv-bench")'
-        echo '  jab.default(validate20)'
-        echo '}'
-        echo 'main()'
+        echo "// test schema '$input'"
+        echo "async function main(validate) {"
+        echo "  const jab = require('jmc-ajv-bench')"
+        echo "  jab.default(validate)"
+        echo "}"
+        echo "main($validate)"
       } >> $output
-      prettier --write "$output" || err $? "prettier failed"
+      prettier --write "$output" || err $? "prettier failed on $output"
     fi
     ;;
   *)
