@@ -64,15 +64,17 @@ case "$1" in
         ajv_opts+=" --spec=draft2019"
       elif [ "$schema" = "http://json-schema.org/draft-07/schema#" ] ; then
         ajv_opts+=" --spec=draft7"
+      elif [ "$schema" = "http://json-schema.org/draft-07/schema" ] ; then
+        ajv_opts+=" --spec=draft7"
       # else unknown or unexpected schema version, defaults to draft7
       fi
     fi
     # actual compilation
     ajv compile "$@" $ajv_opts
-    [ $? -eq 0 ] || err $? "ajv compile failed"
+    [ $? -eq 0 ] || err $? "ajv compile failed on $input"
     # add benchmarkint main & prettyprint
     if [ "$output" ] ; then
-      test -s "$output" || err $? "ajv compile empty result"
+      test -s "$output" || err $? "ajv compile empty result on $input"
       {
         echo
         echo
