@@ -98,7 +98,7 @@ function json_model_2(val, path, rep)
         {
             // handle may name property
             // .'$AIXPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "AIX"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "AIX"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_AIX\" [.'$AIXPlatformModel'.name]", (path ? lpath_0 : null)])
@@ -119,7 +119,7 @@ function json_model_2(val, path, rep)
                     let arr_0_item = pval[arr_0_idx]
                     let arr_0_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_0_idx]) : null
                     // .'$AIXPlatformModel'.versions.0
-                    res = ((arr_0_item === null || (typeof arr_0_item === 'number' || arr_0_item instanceof Number) || (typeof arr_0_item === 'boolean' || arr_0_item instanceof Boolean) || (typeof arr_0_item === 'string' || arr_0_item instanceof String))) && _jm_cst_0.has(arr_0_item)
+                    res = ((arr_0_item === null || (typeof arr_0_item == 'number' || arr_0_item instanceof Number) || (typeof arr_0_item == 'boolean' || arr_0_item instanceof Boolean) || (typeof arr_0_item == 'string' || arr_0_item instanceof String))) && _jm_cst_0.has(arr_0_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$AIXPlatformModel'.versions.0.'|']", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
@@ -158,7 +158,7 @@ function json_model_3(val, path, rep)
         {
             // handle may name property
             // .'$AlpinePlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Alpine"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Alpine"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Alpine\" [.'$AlpinePlatformModel'.name]", (path ? lpath_1 : null)])
@@ -179,7 +179,7 @@ function json_model_3(val, path, rep)
                     let arr_1_item = pval[arr_1_idx]
                     let arr_1_lpath = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([arr_1_idx]) : null
                     // .'$AlpinePlatformModel'.versions.0
-                    res = ((typeof arr_1_item === 'string' || arr_1_item instanceof String)) && arr_1_item == "all"
+                    res = ((typeof arr_1_item == 'string' || arr_1_item instanceof String)) && arr_1_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$AlpinePlatformModel'.versions.0]", ((path ? lpath_1 : null) ? arr_1_lpath : null)])
@@ -219,7 +219,7 @@ function json_model_4(val, path, rep)
         {
             // handle may name property
             // .'$AmazonLinuxPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Amazon Linux"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Amazon Linux"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Amazon Linux\" [.'$AmazonLinuxPlatformModel'.name]", (path ? lpath_2 : null)])
@@ -240,7 +240,7 @@ function json_model_4(val, path, rep)
                     let arr_2_item = pval[arr_2_idx]
                     let arr_2_lpath = (path ? lpath_2 : null) ? (path ? lpath_2 : null).concat([arr_2_idx]) : null
                     // .'$AmazonLinuxPlatformModel'.versions.0
-                    res = ((arr_2_item === null || (typeof arr_2_item === 'number' || arr_2_item instanceof Number) || (typeof arr_2_item === 'boolean' || arr_2_item instanceof Boolean) || (typeof arr_2_item === 'string' || arr_2_item instanceof String))) && _jm_cst_1.has(arr_2_item)
+                    res = ((arr_2_item === null || (typeof arr_2_item == 'number' || arr_2_item instanceof Number) || (typeof arr_2_item == 'boolean' || arr_2_item instanceof Boolean) || (typeof arr_2_item == 'string' || arr_2_item instanceof String))) && _jm_cst_1.has(arr_2_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$AmazonLinuxPlatformModel'.versions.0.'|']", ((path ? lpath_2 : null) ? arr_2_lpath : null)])
@@ -280,7 +280,7 @@ function json_model_5(val, path, rep)
         {
             // handle may name property
             // .'$AmazonPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Amazon"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Amazon"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Amazon\" [.'$AmazonPlatformModel'.name]", (path ? lpath_3 : null)])
@@ -301,7 +301,7 @@ function json_model_5(val, path, rep)
                     let arr_3_item = pval[arr_3_idx]
                     let arr_3_lpath = (path ? lpath_3 : null) ? (path ? lpath_3 : null).concat([arr_3_idx]) : null
                     // .'$AmazonPlatformModel'.versions.0
-                    res = ((arr_3_item === null || (typeof arr_3_item === 'number' || arr_3_item instanceof Number) || (typeof arr_3_item === 'boolean' || arr_3_item instanceof Boolean) || (typeof arr_3_item === 'string' || arr_3_item instanceof String))) && _jm_cst_2.has(arr_3_item)
+                    res = ((arr_3_item === null || (typeof arr_3_item == 'number' || arr_3_item instanceof Number) || (typeof arr_3_item == 'boolean' || arr_3_item instanceof Boolean) || (typeof arr_3_item == 'string' || arr_3_item instanceof String))) && _jm_cst_2.has(arr_3_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$AmazonPlatformModel'.versions.0.'|']", ((path ? lpath_3 : null) ? arr_3_lpath : null)])
@@ -340,7 +340,7 @@ function json_model_6(val, path, rep)
         {
             // handle may name property
             // .'$ArchLinuxPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ArchLinux"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ArchLinux"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_ArchLinux\" [.'$ArchLinuxPlatformModel'.name]", (path ? lpath_4 : null)])
@@ -361,7 +361,7 @@ function json_model_6(val, path, rep)
                     let arr_4_item = pval[arr_4_idx]
                     let arr_4_lpath = (path ? lpath_4 : null) ? (path ? lpath_4 : null).concat([arr_4_idx]) : null
                     // .'$ArchLinuxPlatformModel'.versions.0
-                    res = ((typeof arr_4_item === 'string' || arr_4_item instanceof String)) && arr_4_item == "all"
+                    res = ((typeof arr_4_item == 'string' || arr_4_item instanceof String)) && arr_4_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$ArchLinuxPlatformModel'.versions.0]", ((path ? lpath_4 : null) ? arr_4_lpath : null)])
@@ -401,7 +401,7 @@ function json_model_7(val, path, rep)
         {
             // handle may name property
             // .'$AstraLinuxPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Astra Linux"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Astra Linux"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Astra Linux\" [.'$AstraLinuxPlatformModel'.name]", (path ? lpath_5 : null)])
@@ -422,7 +422,7 @@ function json_model_7(val, path, rep)
                     let arr_5_item = pval[arr_5_idx]
                     let arr_5_lpath = (path ? lpath_5 : null) ? (path ? lpath_5 : null).concat([arr_5_idx]) : null
                     // .'$AstraLinuxPlatformModel'.versions.0
-                    res = ((arr_5_item === null || (typeof arr_5_item === 'number' || arr_5_item instanceof Number) || (typeof arr_5_item === 'boolean' || arr_5_item instanceof Boolean) || (typeof arr_5_item === 'string' || arr_5_item instanceof String))) && _jm_cst_3.has(arr_5_item)
+                    res = ((arr_5_item === null || (typeof arr_5_item == 'number' || arr_5_item instanceof Number) || (typeof arr_5_item == 'boolean' || arr_5_item instanceof Boolean) || (typeof arr_5_item == 'string' || arr_5_item instanceof String))) && _jm_cst_3.has(arr_5_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$AstraLinuxPlatformModel'.versions.0.'|']", ((path ? lpath_5 : null) ? arr_5_lpath : null)])
@@ -461,7 +461,7 @@ function json_model_8(val, path, rep)
         {
             // handle may name property
             // .'$ClearLinuxPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ClearLinux"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ClearLinux"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_ClearLinux\" [.'$ClearLinuxPlatformModel'.name]", (path ? lpath_6 : null)])
@@ -482,7 +482,7 @@ function json_model_8(val, path, rep)
                     let arr_6_item = pval[arr_6_idx]
                     let arr_6_lpath = (path ? lpath_6 : null) ? (path ? lpath_6 : null).concat([arr_6_idx]) : null
                     // .'$ClearLinuxPlatformModel'.versions.0
-                    res = ((typeof arr_6_item === 'string' || arr_6_item instanceof String)) && arr_6_item == "all"
+                    res = ((typeof arr_6_item == 'string' || arr_6_item instanceof String)) && arr_6_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$ClearLinuxPlatformModel'.versions.0]", ((path ? lpath_6 : null) ? arr_6_lpath : null)])
@@ -522,7 +522,7 @@ function json_model_9(val, path, rep)
         {
             // handle may name property
             // .'$CumulusPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Cumulus"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Cumulus"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Cumulus\" [.'$CumulusPlatformModel'.name]", (path ? lpath_7 : null)])
@@ -543,7 +543,7 @@ function json_model_9(val, path, rep)
                     let arr_7_item = pval[arr_7_idx]
                     let arr_7_lpath = (path ? lpath_7 : null) ? (path ? lpath_7 : null).concat([arr_7_idx]) : null
                     // .'$CumulusPlatformModel'.versions.0
-                    res = ((arr_7_item === null || (typeof arr_7_item === 'number' || arr_7_item instanceof Number) || (typeof arr_7_item === 'boolean' || arr_7_item instanceof Boolean) || (typeof arr_7_item === 'string' || arr_7_item instanceof String))) && _jm_cst_4.has(arr_7_item)
+                    res = ((arr_7_item === null || (typeof arr_7_item == 'number' || arr_7_item instanceof Number) || (typeof arr_7_item == 'boolean' || arr_7_item instanceof Boolean) || (typeof arr_7_item == 'string' || arr_7_item instanceof String))) && _jm_cst_4.has(arr_7_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$CumulusPlatformModel'.versions.0.'|']", ((path ? lpath_7 : null) ? arr_7_lpath : null)])
@@ -583,7 +583,7 @@ function json_model_10(val, path, rep)
         {
             // handle may name property
             // .'$DebianPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Debian"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Debian"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Debian\" [.'$DebianPlatformModel'.name]", (path ? lpath_8 : null)])
@@ -604,7 +604,7 @@ function json_model_10(val, path, rep)
                     let arr_8_item = pval[arr_8_idx]
                     let arr_8_lpath = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([arr_8_idx]) : null
                     // .'$DebianPlatformModel'.versions.0
-                    res = ((arr_8_item === null || (typeof arr_8_item === 'number' || arr_8_item instanceof Number) || (typeof arr_8_item === 'boolean' || arr_8_item instanceof Boolean) || (typeof arr_8_item === 'string' || arr_8_item instanceof String))) && _jm_cst_5.has(arr_8_item)
+                    res = ((arr_8_item === null || (typeof arr_8_item == 'number' || arr_8_item instanceof Number) || (typeof arr_8_item == 'boolean' || arr_8_item instanceof Boolean) || (typeof arr_8_item == 'string' || arr_8_item instanceof String))) && _jm_cst_5.has(arr_8_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$DebianPlatformModel'.versions.0.'|']", ((path ? lpath_8 : null) ? arr_8_lpath : null)])
@@ -644,7 +644,7 @@ function json_model_11(val, path, rep)
         {
             // handle may name property
             // .'$DellOSPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "DellOS"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "DellOS"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_DellOS\" [.'$DellOSPlatformModel'.name]", (path ? lpath_9 : null)])
@@ -665,7 +665,7 @@ function json_model_11(val, path, rep)
                     let arr_9_item = pval[arr_9_idx]
                     let arr_9_lpath = (path ? lpath_9 : null) ? (path ? lpath_9 : null).concat([arr_9_idx]) : null
                     // .'$DellOSPlatformModel'.versions.0
-                    res = ((arr_9_item === null || (typeof arr_9_item === 'number' || arr_9_item instanceof Number) || (typeof arr_9_item === 'boolean' || arr_9_item instanceof Boolean) || (typeof arr_9_item === 'string' || arr_9_item instanceof String))) && _jm_cst_6.has(arr_9_item)
+                    res = ((arr_9_item === null || (typeof arr_9_item == 'number' || arr_9_item instanceof Number) || (typeof arr_9_item == 'boolean' || arr_9_item instanceof Boolean) || (typeof arr_9_item == 'string' || arr_9_item instanceof String))) && _jm_cst_6.has(arr_9_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$DellOSPlatformModel'.versions.0.'|']", ((path ? lpath_9 : null) ? arr_9_lpath : null)])
@@ -705,7 +705,7 @@ function json_model_12(val, path, rep)
         {
             // handle may name property
             // .'$DevuanPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Devuan"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Devuan"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Devuan\" [.'$DevuanPlatformModel'.name]", (path ? lpath_10 : null)])
@@ -726,7 +726,7 @@ function json_model_12(val, path, rep)
                     let arr_10_item = pval[arr_10_idx]
                     let arr_10_lpath = (path ? lpath_10 : null) ? (path ? lpath_10 : null).concat([arr_10_idx]) : null
                     // .'$DevuanPlatformModel'.versions.0
-                    res = ((arr_10_item === null || (typeof arr_10_item === 'number' || arr_10_item instanceof Number) || (typeof arr_10_item === 'boolean' || arr_10_item instanceof Boolean) || (typeof arr_10_item === 'string' || arr_10_item instanceof String))) && _jm_cst_7.has(arr_10_item)
+                    res = ((arr_10_item === null || (typeof arr_10_item == 'number' || arr_10_item instanceof Number) || (typeof arr_10_item == 'boolean' || arr_10_item instanceof Boolean) || (typeof arr_10_item == 'string' || arr_10_item instanceof String))) && _jm_cst_7.has(arr_10_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$DevuanPlatformModel'.versions.0.'|']", ((path ? lpath_10 : null) ? arr_10_lpath : null)])
@@ -766,7 +766,7 @@ function json_model_13(val, path, rep)
         {
             // handle may name property
             // .'$DragonFlyBSDPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "DragonFlyBSD"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "DragonFlyBSD"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_DragonFlyBSD\" [.'$DragonFlyBSDPlatformModel'.name]", (path ? lpath_11 : null)])
@@ -787,7 +787,7 @@ function json_model_13(val, path, rep)
                     let arr_11_item = pval[arr_11_idx]
                     let arr_11_lpath = (path ? lpath_11 : null) ? (path ? lpath_11 : null).concat([arr_11_idx]) : null
                     // .'$DragonFlyBSDPlatformModel'.versions.0
-                    res = ((arr_11_item === null || (typeof arr_11_item === 'number' || arr_11_item instanceof Number) || (typeof arr_11_item === 'boolean' || arr_11_item instanceof Boolean) || (typeof arr_11_item === 'string' || arr_11_item instanceof String))) && _jm_cst_8.has(arr_11_item)
+                    res = ((arr_11_item === null || (typeof arr_11_item == 'number' || arr_11_item instanceof Number) || (typeof arr_11_item == 'boolean' || arr_11_item instanceof Boolean) || (typeof arr_11_item == 'string' || arr_11_item instanceof String))) && _jm_cst_8.has(arr_11_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$DragonFlyBSDPlatformModel'.versions.0.'|']", ((path ? lpath_11 : null) ? arr_11_lpath : null)])
@@ -827,7 +827,7 @@ function json_model_14(val, path, rep)
         {
             // handle may name property
             // .'$ELPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "EL"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "EL"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_EL\" [.'$ELPlatformModel'.name]", (path ? lpath_12 : null)])
@@ -848,7 +848,7 @@ function json_model_14(val, path, rep)
                     let arr_12_item = pval[arr_12_idx]
                     let arr_12_lpath = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([arr_12_idx]) : null
                     // .'$ELPlatformModel'.versions.0
-                    res = ((arr_12_item === null || (typeof arr_12_item === 'number' || arr_12_item instanceof Number) || (typeof arr_12_item === 'boolean' || arr_12_item instanceof Boolean) || (typeof arr_12_item === 'string' || arr_12_item instanceof String))) && _jm_cst_9.has(arr_12_item)
+                    res = ((arr_12_item === null || (typeof arr_12_item == 'number' || arr_12_item instanceof Number) || (typeof arr_12_item == 'boolean' || arr_12_item instanceof Boolean) || (typeof arr_12_item == 'string' || arr_12_item instanceof String))) && _jm_cst_9.has(arr_12_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$ELPlatformModel'.versions.0.'|']", ((path ? lpath_12 : null) ? arr_12_lpath : null)])
@@ -888,7 +888,7 @@ function json_model_15(val, path, rep)
         {
             // handle may name property
             // .'$FedoraPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Fedora"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Fedora"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Fedora\" [.'$FedoraPlatformModel'.name]", (path ? lpath_13 : null)])
@@ -909,7 +909,7 @@ function json_model_15(val, path, rep)
                     let arr_13_item = pval[arr_13_idx]
                     let arr_13_lpath = (path ? lpath_13 : null) ? (path ? lpath_13 : null).concat([arr_13_idx]) : null
                     // .'$FedoraPlatformModel'.versions.0
-                    res = ((arr_13_item === null || (typeof arr_13_item === 'number' || arr_13_item instanceof Number) || (typeof arr_13_item === 'boolean' || arr_13_item instanceof Boolean) || (typeof arr_13_item === 'string' || arr_13_item instanceof String))) && _jm_cst_10.has(arr_13_item)
+                    res = ((arr_13_item === null || (typeof arr_13_item == 'number' || arr_13_item instanceof Number) || (typeof arr_13_item == 'boolean' || arr_13_item instanceof Boolean) || (typeof arr_13_item == 'string' || arr_13_item instanceof String))) && _jm_cst_10.has(arr_13_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$FedoraPlatformModel'.versions.0.'|']", ((path ? lpath_13 : null) ? arr_13_lpath : null)])
@@ -949,7 +949,7 @@ function json_model_16(val, path, rep)
         {
             // handle may name property
             // .'$FreeBSDPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "FreeBSD"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "FreeBSD"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_FreeBSD\" [.'$FreeBSDPlatformModel'.name]", (path ? lpath_14 : null)])
@@ -970,7 +970,7 @@ function json_model_16(val, path, rep)
                     let arr_14_item = pval[arr_14_idx]
                     let arr_14_lpath = (path ? lpath_14 : null) ? (path ? lpath_14 : null).concat([arr_14_idx]) : null
                     // .'$FreeBSDPlatformModel'.versions.0
-                    res = ((arr_14_item === null || (typeof arr_14_item === 'number' || arr_14_item instanceof Number) || (typeof arr_14_item === 'boolean' || arr_14_item instanceof Boolean) || (typeof arr_14_item === 'string' || arr_14_item instanceof String))) && _jm_cst_11.has(arr_14_item)
+                    res = ((arr_14_item === null || (typeof arr_14_item == 'number' || arr_14_item instanceof Number) || (typeof arr_14_item == 'boolean' || arr_14_item instanceof Boolean) || (typeof arr_14_item == 'string' || arr_14_item instanceof String))) && _jm_cst_11.has(arr_14_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$FreeBSDPlatformModel'.versions.0.'|']", ((path ? lpath_14 : null) ? arr_14_lpath : null)])
@@ -1009,7 +1009,7 @@ function json_model_17(val, path, rep)
         {
             // handle may name property
             // .'$GenericBSDPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericBSD"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "GenericBSD"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_GenericBSD\" [.'$GenericBSDPlatformModel'.name]", (path ? lpath_15 : null)])
@@ -1030,7 +1030,7 @@ function json_model_17(val, path, rep)
                     let arr_15_item = pval[arr_15_idx]
                     let arr_15_lpath = (path ? lpath_15 : null) ? (path ? lpath_15 : null).concat([arr_15_idx]) : null
                     // .'$GenericBSDPlatformModel'.versions.0
-                    res = ((typeof arr_15_item === 'string' || arr_15_item instanceof String)) && arr_15_item == "all"
+                    res = ((typeof arr_15_item == 'string' || arr_15_item instanceof String)) && arr_15_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$GenericBSDPlatformModel'.versions.0]", ((path ? lpath_15 : null) ? arr_15_lpath : null)])
@@ -1069,7 +1069,7 @@ function json_model_18(val, path, rep)
         {
             // handle may name property
             // .'$GenericLinuxPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericLinux"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "GenericLinux"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_GenericLinux\" [.'$GenericLinuxPlatformModel'.name]", (path ? lpath_16 : null)])
@@ -1090,7 +1090,7 @@ function json_model_18(val, path, rep)
                     let arr_16_item = pval[arr_16_idx]
                     let arr_16_lpath = (path ? lpath_16 : null) ? (path ? lpath_16 : null).concat([arr_16_idx]) : null
                     // .'$GenericLinuxPlatformModel'.versions.0
-                    res = ((typeof arr_16_item === 'string' || arr_16_item instanceof String)) && arr_16_item == "all"
+                    res = ((typeof arr_16_item == 'string' || arr_16_item instanceof String)) && arr_16_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$GenericLinuxPlatformModel'.versions.0]", ((path ? lpath_16 : null) ? arr_16_lpath : null)])
@@ -1129,7 +1129,7 @@ function json_model_19(val, path, rep)
         {
             // handle may name property
             // .'$GenericUNIXPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericUNIX"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "GenericUNIX"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_GenericUNIX\" [.'$GenericUNIXPlatformModel'.name]", (path ? lpath_17 : null)])
@@ -1150,7 +1150,7 @@ function json_model_19(val, path, rep)
                     let arr_17_item = pval[arr_17_idx]
                     let arr_17_lpath = (path ? lpath_17 : null) ? (path ? lpath_17 : null).concat([arr_17_idx]) : null
                     // .'$GenericUNIXPlatformModel'.versions.0
-                    res = ((typeof arr_17_item === 'string' || arr_17_item instanceof String)) && arr_17_item == "all"
+                    res = ((typeof arr_17_item == 'string' || arr_17_item instanceof String)) && arr_17_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$GenericUNIXPlatformModel'.versions.0]", ((path ? lpath_17 : null) ? arr_17_lpath : null)])
@@ -1189,7 +1189,7 @@ function json_model_20(val, path, rep)
         {
             // handle may name property
             // .'$GentooPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Gentoo"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Gentoo"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Gentoo\" [.'$GentooPlatformModel'.name]", (path ? lpath_18 : null)])
@@ -1210,7 +1210,7 @@ function json_model_20(val, path, rep)
                     let arr_18_item = pval[arr_18_idx]
                     let arr_18_lpath = (path ? lpath_18 : null) ? (path ? lpath_18 : null).concat([arr_18_idx]) : null
                     // .'$GentooPlatformModel'.versions.0
-                    res = ((typeof arr_18_item === 'string' || arr_18_item instanceof String)) && arr_18_item == "all"
+                    res = ((typeof arr_18_item == 'string' || arr_18_item instanceof String)) && arr_18_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$GentooPlatformModel'.versions.0]", ((path ? lpath_18 : null) ? arr_18_lpath : null)])
@@ -1250,7 +1250,7 @@ function json_model_21(val, path, rep)
         {
             // handle may name property
             // .'$HardenedBSDPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "HardenedBSD"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "HardenedBSD"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_HardenedBSD\" [.'$HardenedBSDPlatformModel'.name]", (path ? lpath_19 : null)])
@@ -1271,7 +1271,7 @@ function json_model_21(val, path, rep)
                     let arr_19_item = pval[arr_19_idx]
                     let arr_19_lpath = (path ? lpath_19 : null) ? (path ? lpath_19 : null).concat([arr_19_idx]) : null
                     // .'$HardenedBSDPlatformModel'.versions.0
-                    res = ((arr_19_item === null || (typeof arr_19_item === 'number' || arr_19_item instanceof Number) || (typeof arr_19_item === 'boolean' || arr_19_item instanceof Boolean) || (typeof arr_19_item === 'string' || arr_19_item instanceof String))) && _jm_cst_12.has(arr_19_item)
+                    res = ((arr_19_item === null || (typeof arr_19_item == 'number' || arr_19_item instanceof Number) || (typeof arr_19_item == 'boolean' || arr_19_item instanceof Boolean) || (typeof arr_19_item == 'string' || arr_19_item instanceof String))) && _jm_cst_12.has(arr_19_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$HardenedBSDPlatformModel'.versions.0.'|']", ((path ? lpath_19 : null) ? arr_19_lpath : null)])
@@ -1310,7 +1310,7 @@ function json_model_22(val, path, rep)
         {
             // handle may name property
             // .'$IOSPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "IOS"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "IOS"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_IOS\" [.'$IOSPlatformModel'.name]", (path ? lpath_20 : null)])
@@ -1331,7 +1331,7 @@ function json_model_22(val, path, rep)
                     let arr_20_item = pval[arr_20_idx]
                     let arr_20_lpath = (path ? lpath_20 : null) ? (path ? lpath_20 : null).concat([arr_20_idx]) : null
                     // .'$IOSPlatformModel'.versions.0
-                    res = ((typeof arr_20_item === 'string' || arr_20_item instanceof String)) && arr_20_item == "all"
+                    res = ((typeof arr_20_item == 'string' || arr_20_item instanceof String)) && arr_20_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$IOSPlatformModel'.versions.0]", ((path ? lpath_20 : null) ? arr_20_lpath : null)])
@@ -1370,7 +1370,7 @@ function json_model_23(val, path, rep)
         {
             // handle may name property
             // .'$JunosPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Junos"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Junos"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Junos\" [.'$JunosPlatformModel'.name]", (path ? lpath_21 : null)])
@@ -1391,7 +1391,7 @@ function json_model_23(val, path, rep)
                     let arr_21_item = pval[arr_21_idx]
                     let arr_21_lpath = (path ? lpath_21 : null) ? (path ? lpath_21 : null).concat([arr_21_idx]) : null
                     // .'$JunosPlatformModel'.versions.0
-                    res = ((typeof arr_21_item === 'string' || arr_21_item instanceof String)) && arr_21_item == "all"
+                    res = ((typeof arr_21_item == 'string' || arr_21_item instanceof String)) && arr_21_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$JunosPlatformModel'.versions.0]", ((path ? lpath_21 : null) ? arr_21_lpath : null)])
@@ -1431,7 +1431,7 @@ function json_model_24(val, path, rep)
         {
             // handle may name property
             // .'$KaliPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Kali"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Kali"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Kali\" [.'$KaliPlatformModel'.name]", (path ? lpath_22 : null)])
@@ -1452,7 +1452,7 @@ function json_model_24(val, path, rep)
                     let arr_22_item = pval[arr_22_idx]
                     let arr_22_lpath = (path ? lpath_22 : null) ? (path ? lpath_22 : null).concat([arr_22_idx]) : null
                     // .'$KaliPlatformModel'.versions.0
-                    res = ((arr_22_item === null || (typeof arr_22_item === 'number' || arr_22_item instanceof Number) || (typeof arr_22_item === 'boolean' || arr_22_item instanceof Boolean) || (typeof arr_22_item === 'string' || arr_22_item instanceof String))) && _jm_cst_13.has(arr_22_item)
+                    res = ((arr_22_item === null || (typeof arr_22_item == 'number' || arr_22_item instanceof Number) || (typeof arr_22_item == 'boolean' || arr_22_item instanceof Boolean) || (typeof arr_22_item == 'string' || arr_22_item instanceof String))) && _jm_cst_13.has(arr_22_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$KaliPlatformModel'.versions.0.'|']", ((path ? lpath_22 : null) ? arr_22_lpath : null)])
@@ -1492,7 +1492,7 @@ function json_model_25(val, path, rep)
         {
             // handle may name property
             // .'$MacOSXPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Kali"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Kali"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Kali\" [.'$MacOSXPlatformModel'.name]", (path ? lpath_23 : null)])
@@ -1513,7 +1513,7 @@ function json_model_25(val, path, rep)
                     let arr_23_item = pval[arr_23_idx]
                     let arr_23_lpath = (path ? lpath_23 : null) ? (path ? lpath_23 : null).concat([arr_23_idx]) : null
                     // .'$MacOSXPlatformModel'.versions.0
-                    res = ((arr_23_item === null || (typeof arr_23_item === 'number' || arr_23_item instanceof Number) || (typeof arr_23_item === 'boolean' || arr_23_item instanceof Boolean) || (typeof arr_23_item === 'string' || arr_23_item instanceof String))) && _jm_cst_14.has(arr_23_item)
+                    res = ((arr_23_item === null || (typeof arr_23_item == 'number' || arr_23_item instanceof Number) || (typeof arr_23_item == 'boolean' || arr_23_item instanceof Boolean) || (typeof arr_23_item == 'string' || arr_23_item instanceof String))) && _jm_cst_14.has(arr_23_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$MacOSXPlatformModel'.versions.0.'|']", ((path ? lpath_23 : null) ? arr_23_lpath : null)])
@@ -1553,7 +1553,7 @@ function json_model_26(val, path, rep)
         {
             // handle may name property
             // .'$MageiaPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Megeia"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Megeia"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Megeia\" [.'$MageiaPlatformModel'.name]", (path ? lpath_24 : null)])
@@ -1574,7 +1574,7 @@ function json_model_26(val, path, rep)
                     let arr_24_item = pval[arr_24_idx]
                     let arr_24_lpath = (path ? lpath_24 : null) ? (path ? lpath_24 : null).concat([arr_24_idx]) : null
                     // .'$MageiaPlatformModel'.versions.0
-                    res = ((arr_24_item === null || (typeof arr_24_item === 'number' || arr_24_item instanceof Number) || (typeof arr_24_item === 'boolean' || arr_24_item instanceof Boolean) || (typeof arr_24_item === 'string' || arr_24_item instanceof String))) && _jm_cst_15.has(arr_24_item)
+                    res = ((arr_24_item === null || (typeof arr_24_item == 'number' || arr_24_item instanceof Number) || (typeof arr_24_item == 'boolean' || arr_24_item instanceof Boolean) || (typeof arr_24_item == 'string' || arr_24_item instanceof String))) && _jm_cst_15.has(arr_24_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$MageiaPlatformModel'.versions.0.'|']", ((path ? lpath_24 : null) ? arr_24_lpath : null)])
@@ -1613,7 +1613,7 @@ function json_model_27(val, path, rep)
         {
             // handle may name property
             // .'$NXOSPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "NXOS"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "NXOS"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_NXOS\" [.'$NXOSPlatformModel'.name]", (path ? lpath_25 : null)])
@@ -1634,7 +1634,7 @@ function json_model_27(val, path, rep)
                     let arr_25_item = pval[arr_25_idx]
                     let arr_25_lpath = (path ? lpath_25 : null) ? (path ? lpath_25 : null).concat([arr_25_idx]) : null
                     // .'$NXOSPlatformModel'.versions.0
-                    res = ((typeof arr_25_item === 'string' || arr_25_item instanceof String)) && arr_25_item == "all"
+                    res = ((typeof arr_25_item == 'string' || arr_25_item instanceof String)) && arr_25_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$NXOSPlatformModel'.versions.0]", ((path ? lpath_25 : null) ? arr_25_lpath : null)])
@@ -1674,7 +1674,7 @@ function json_model_28(val, path, rep)
         {
             // handle may name property
             // .'$NetBSDPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "NetBSD"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "NetBSD"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_NetBSD\" [.'$NetBSDPlatformModel'.name]", (path ? lpath_26 : null)])
@@ -1695,7 +1695,7 @@ function json_model_28(val, path, rep)
                     let arr_26_item = pval[arr_26_idx]
                     let arr_26_lpath = (path ? lpath_26 : null) ? (path ? lpath_26 : null).concat([arr_26_idx]) : null
                     // .'$NetBSDPlatformModel'.versions.0
-                    res = ((arr_26_item === null || (typeof arr_26_item === 'number' || arr_26_item instanceof Number) || (typeof arr_26_item === 'boolean' || arr_26_item instanceof Boolean) || (typeof arr_26_item === 'string' || arr_26_item instanceof String))) && _jm_cst_16.has(arr_26_item)
+                    res = ((arr_26_item === null || (typeof arr_26_item == 'number' || arr_26_item instanceof Number) || (typeof arr_26_item == 'boolean' || arr_26_item instanceof Boolean) || (typeof arr_26_item == 'string' || arr_26_item instanceof String))) && _jm_cst_16.has(arr_26_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$NetBSDPlatformModel'.versions.0.'|']", ((path ? lpath_26 : null) ? arr_26_lpath : null)])
@@ -1735,7 +1735,7 @@ function json_model_29(val, path, rep)
         {
             // handle may name property
             // .'$OpenBSDPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OpenBSD"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "OpenBSD"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_OpenBSD\" [.'$OpenBSDPlatformModel'.name]", (path ? lpath_27 : null)])
@@ -1756,7 +1756,7 @@ function json_model_29(val, path, rep)
                     let arr_27_item = pval[arr_27_idx]
                     let arr_27_lpath = (path ? lpath_27 : null) ? (path ? lpath_27 : null).concat([arr_27_idx]) : null
                     // .'$OpenBSDPlatformModel'.versions.0
-                    res = ((arr_27_item === null || (typeof arr_27_item === 'number' || arr_27_item instanceof Number) || (typeof arr_27_item === 'boolean' || arr_27_item instanceof Boolean) || (typeof arr_27_item === 'string' || arr_27_item instanceof String))) && _jm_cst_17.has(arr_27_item)
+                    res = ((arr_27_item === null || (typeof arr_27_item == 'number' || arr_27_item instanceof Number) || (typeof arr_27_item == 'boolean' || arr_27_item instanceof Boolean) || (typeof arr_27_item == 'string' || arr_27_item instanceof String))) && _jm_cst_17.has(arr_27_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$OpenBSDPlatformModel'.versions.0.'|']", ((path ? lpath_27 : null) ? arr_27_lpath : null)])
@@ -1796,7 +1796,7 @@ function json_model_30(val, path, rep)
         {
             // handle may name property
             // .'$OpenWrtPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OpenWrt"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "OpenWrt"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_OpenWrt\" [.'$OpenWrtPlatformModel'.name]", (path ? lpath_28 : null)])
@@ -1817,7 +1817,7 @@ function json_model_30(val, path, rep)
                     let arr_28_item = pval[arr_28_idx]
                     let arr_28_lpath = (path ? lpath_28 : null) ? (path ? lpath_28 : null).concat([arr_28_idx]) : null
                     // .'$OpenWrtPlatformModel'.versions.0
-                    res = ((arr_28_item === null || (typeof arr_28_item === 'number' || arr_28_item instanceof Number) || (typeof arr_28_item === 'boolean' || arr_28_item instanceof Boolean) || (typeof arr_28_item === 'string' || arr_28_item instanceof String))) && _jm_cst_18.has(arr_28_item)
+                    res = ((arr_28_item === null || (typeof arr_28_item == 'number' || arr_28_item instanceof Number) || (typeof arr_28_item == 'boolean' || arr_28_item instanceof Boolean) || (typeof arr_28_item == 'string' || arr_28_item instanceof String))) && _jm_cst_18.has(arr_28_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$OpenWrtPlatformModel'.versions.0.'|']", ((path ? lpath_28 : null) ? arr_28_lpath : null)])
@@ -1857,7 +1857,7 @@ function json_model_31(val, path, rep)
         {
             // handle may name property
             // .'$OracleLinuxPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OracleLinux"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "OracleLinux"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_OracleLinux\" [.'$OracleLinuxPlatformModel'.name]", (path ? lpath_29 : null)])
@@ -1878,7 +1878,7 @@ function json_model_31(val, path, rep)
                     let arr_29_item = pval[arr_29_idx]
                     let arr_29_lpath = (path ? lpath_29 : null) ? (path ? lpath_29 : null).concat([arr_29_idx]) : null
                     // .'$OracleLinuxPlatformModel'.versions.0
-                    res = ((arr_29_item === null || (typeof arr_29_item === 'number' || arr_29_item instanceof Number) || (typeof arr_29_item === 'boolean' || arr_29_item instanceof Boolean) || (typeof arr_29_item === 'string' || arr_29_item instanceof String))) && _jm_cst_19.has(arr_29_item)
+                    res = ((arr_29_item === null || (typeof arr_29_item == 'number' || arr_29_item instanceof Number) || (typeof arr_29_item == 'boolean' || arr_29_item instanceof Boolean) || (typeof arr_29_item == 'string' || arr_29_item instanceof String))) && _jm_cst_19.has(arr_29_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$OracleLinuxPlatformModel'.versions.0.'|']", ((path ? lpath_29 : null) ? arr_29_lpath : null)])
@@ -1918,7 +1918,7 @@ function json_model_32(val, path, rep)
         {
             // handle may name property
             // .'$PAN-OSPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "PAN-OS"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "PAN-OS"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_PAN-OS\" [.'$PAN-OSPlatformModel'.name]", (path ? lpath_30 : null)])
@@ -1939,7 +1939,7 @@ function json_model_32(val, path, rep)
                     let arr_30_item = pval[arr_30_idx]
                     let arr_30_lpath = (path ? lpath_30 : null) ? (path ? lpath_30 : null).concat([arr_30_idx]) : null
                     // .'$PAN-OSPlatformModel'.versions.0
-                    res = ((arr_30_item === null || (typeof arr_30_item === 'number' || arr_30_item instanceof Number) || (typeof arr_30_item === 'boolean' || arr_30_item instanceof Boolean) || (typeof arr_30_item === 'string' || arr_30_item instanceof String))) && _jm_cst_20.has(arr_30_item)
+                    res = ((arr_30_item === null || (typeof arr_30_item == 'number' || arr_30_item instanceof Number) || (typeof arr_30_item == 'boolean' || arr_30_item instanceof Boolean) || (typeof arr_30_item == 'string' || arr_30_item instanceof String))) && _jm_cst_20.has(arr_30_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$PAN-OSPlatformModel'.versions.0.'|']", ((path ? lpath_30 : null) ? arr_30_lpath : null)])
@@ -1979,7 +1979,7 @@ function json_model_33(val, path, rep)
         {
             // handle may name property
             // .'$RockyLinuxPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Rocky"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Rocky"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Rocky\" [.'$RockyLinuxPlatformModel'.name]", (path ? lpath_31 : null)])
@@ -2000,7 +2000,7 @@ function json_model_33(val, path, rep)
                     let arr_31_item = pval[arr_31_idx]
                     let arr_31_lpath = (path ? lpath_31 : null) ? (path ? lpath_31 : null).concat([arr_31_idx]) : null
                     // .'$RockyLinuxPlatformModel'.versions.0
-                    res = ((arr_31_item === null || (typeof arr_31_item === 'number' || arr_31_item instanceof Number) || (typeof arr_31_item === 'boolean' || arr_31_item instanceof Boolean) || (typeof arr_31_item === 'string' || arr_31_item instanceof String))) && _jm_cst_21.has(arr_31_item)
+                    res = ((arr_31_item === null || (typeof arr_31_item == 'number' || arr_31_item instanceof Number) || (typeof arr_31_item == 'boolean' || arr_31_item instanceof Boolean) || (typeof arr_31_item == 'string' || arr_31_item instanceof String))) && _jm_cst_21.has(arr_31_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$RockyLinuxPlatformModel'.versions.0.'|']", ((path ? lpath_31 : null) ? arr_31_lpath : null)])
@@ -2040,7 +2040,7 @@ function json_model_34(val, path, rep)
         {
             // handle may name property
             // .'$SLESPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "SLES"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "SLES"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_SLES\" [.'$SLESPlatformModel'.name]", (path ? lpath_32 : null)])
@@ -2061,7 +2061,7 @@ function json_model_34(val, path, rep)
                     let arr_32_item = pval[arr_32_idx]
                     let arr_32_lpath = (path ? lpath_32 : null) ? (path ? lpath_32 : null).concat([arr_32_idx]) : null
                     // .'$SLESPlatformModel'.versions.0
-                    res = ((arr_32_item === null || (typeof arr_32_item === 'number' || arr_32_item instanceof Number) || (typeof arr_32_item === 'boolean' || arr_32_item instanceof Boolean) || (typeof arr_32_item === 'string' || arr_32_item instanceof String))) && _jm_cst_22.has(arr_32_item)
+                    res = ((arr_32_item === null || (typeof arr_32_item == 'number' || arr_32_item instanceof Number) || (typeof arr_32_item == 'boolean' || arr_32_item instanceof Boolean) || (typeof arr_32_item == 'string' || arr_32_item instanceof String))) && _jm_cst_22.has(arr_32_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$SLESPlatformModel'.versions.0.'|']", ((path ? lpath_32 : null) ? arr_32_lpath : null)])
@@ -2100,7 +2100,7 @@ function json_model_35(val, path, rep)
         {
             // handle may name property
             // .'$SmartOSPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "SmartOS"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "SmartOS"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_SmartOS\" [.'$SmartOSPlatformModel'.name]", (path ? lpath_33 : null)])
@@ -2121,7 +2121,7 @@ function json_model_35(val, path, rep)
                     let arr_33_item = pval[arr_33_idx]
                     let arr_33_lpath = (path ? lpath_33 : null) ? (path ? lpath_33 : null).concat([arr_33_idx]) : null
                     // .'$SmartOSPlatformModel'.versions.0
-                    res = ((typeof arr_33_item === 'string' || arr_33_item instanceof String)) && arr_33_item == "all"
+                    res = ((typeof arr_33_item == 'string' || arr_33_item instanceof String)) && arr_33_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$SmartOSPlatformModel'.versions.0]", ((path ? lpath_33 : null) ? arr_33_lpath : null)])
@@ -2161,7 +2161,7 @@ function json_model_36(val, path, rep)
         {
             // handle may name property
             // .'$SolarisPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Solaris"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Solaris"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Solaris\" [.'$SolarisPlatformModel'.name]", (path ? lpath_34 : null)])
@@ -2182,7 +2182,7 @@ function json_model_36(val, path, rep)
                     let arr_34_item = pval[arr_34_idx]
                     let arr_34_lpath = (path ? lpath_34 : null) ? (path ? lpath_34 : null).concat([arr_34_idx]) : null
                     // .'$SolarisPlatformModel'.versions.0
-                    res = ((arr_34_item === null || (typeof arr_34_item === 'number' || arr_34_item instanceof Number) || (typeof arr_34_item === 'boolean' || arr_34_item instanceof Boolean) || (typeof arr_34_item === 'string' || arr_34_item instanceof String))) && _jm_cst_23.has(arr_34_item)
+                    res = ((arr_34_item === null || (typeof arr_34_item == 'number' || arr_34_item instanceof Number) || (typeof arr_34_item == 'boolean' || arr_34_item instanceof Boolean) || (typeof arr_34_item == 'string' || arr_34_item instanceof String))) && _jm_cst_23.has(arr_34_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$SolarisPlatformModel'.versions.0.'|']", ((path ? lpath_34 : null) ? arr_34_lpath : null)])
@@ -2222,7 +2222,7 @@ function json_model_37(val, path, rep)
         {
             // handle may name property
             // .'$SynologyPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Synology"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Synology"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Synology\" [.'$SynologyPlatformModel'.name]", (path ? lpath_35 : null)])
@@ -2243,7 +2243,7 @@ function json_model_37(val, path, rep)
                     let arr_35_item = pval[arr_35_idx]
                     let arr_35_lpath = (path ? lpath_35 : null) ? (path ? lpath_35 : null).concat([arr_35_idx]) : null
                     // .'$SynologyPlatformModel'.versions.0
-                    res = ((arr_35_item === null || (typeof arr_35_item === 'number' || arr_35_item instanceof Number) || (typeof arr_35_item === 'boolean' || arr_35_item instanceof Boolean) || (typeof arr_35_item === 'string' || arr_35_item instanceof String))) && _jm_cst_24.has(arr_35_item)
+                    res = ((arr_35_item === null || (typeof arr_35_item == 'number' || arr_35_item instanceof Number) || (typeof arr_35_item == 'boolean' || arr_35_item instanceof Boolean) || (typeof arr_35_item == 'string' || arr_35_item instanceof String))) && _jm_cst_24.has(arr_35_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$SynologyPlatformModel'.versions.0.'|']", ((path ? lpath_35 : null) ? arr_35_lpath : null)])
@@ -2283,7 +2283,7 @@ function json_model_38(val, path, rep)
         {
             // handle may name property
             // .'$TMOSPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "TMOS"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "TMOS"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_TMOS\" [.'$TMOSPlatformModel'.name]", (path ? lpath_36 : null)])
@@ -2304,7 +2304,7 @@ function json_model_38(val, path, rep)
                     let arr_36_item = pval[arr_36_idx]
                     let arr_36_lpath = (path ? lpath_36 : null) ? (path ? lpath_36 : null).concat([arr_36_idx]) : null
                     // .'$TMOSPlatformModel'.versions.0
-                    res = ((arr_36_item === null || (typeof arr_36_item === 'number' || arr_36_item instanceof Number) || (typeof arr_36_item === 'boolean' || arr_36_item instanceof Boolean) || (typeof arr_36_item === 'string' || arr_36_item instanceof String))) && _jm_cst_25.has(arr_36_item)
+                    res = ((arr_36_item === null || (typeof arr_36_item == 'number' || arr_36_item instanceof Number) || (typeof arr_36_item == 'boolean' || arr_36_item instanceof Boolean) || (typeof arr_36_item == 'string' || arr_36_item instanceof String))) && _jm_cst_25.has(arr_36_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$TMOSPlatformModel'.versions.0.'|']", ((path ? lpath_36 : null) ? arr_36_lpath : null)])
@@ -2344,7 +2344,7 @@ function json_model_39(val, path, rep)
         {
             // handle may name property
             // .'$UbuntuPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Ubuntu"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Ubuntu"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Ubuntu\" [.'$UbuntuPlatformModel'.name]", (path ? lpath_37 : null)])
@@ -2365,7 +2365,7 @@ function json_model_39(val, path, rep)
                     let arr_37_item = pval[arr_37_idx]
                     let arr_37_lpath = (path ? lpath_37 : null) ? (path ? lpath_37 : null).concat([arr_37_idx]) : null
                     // .'$UbuntuPlatformModel'.versions.0
-                    res = ((arr_37_item === null || (typeof arr_37_item === 'number' || arr_37_item instanceof Number) || (typeof arr_37_item === 'boolean' || arr_37_item instanceof Boolean) || (typeof arr_37_item === 'string' || arr_37_item instanceof String))) && _jm_cst_26.has(arr_37_item)
+                    res = ((arr_37_item === null || (typeof arr_37_item == 'number' || arr_37_item instanceof Number) || (typeof arr_37_item == 'boolean' || arr_37_item instanceof Boolean) || (typeof arr_37_item == 'string' || arr_37_item instanceof String))) && _jm_cst_26.has(arr_37_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$UbuntuPlatformModel'.versions.0.'|']", ((path ? lpath_37 : null) ? arr_37_lpath : null)])
@@ -2404,7 +2404,7 @@ function json_model_40(val, path, rep)
         {
             // handle may name property
             // .'$Void_LinuxPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Void Linux"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Void Linux"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Void Linux\" [.'$Void_LinuxPlatformModel'.name]", (path ? lpath_38 : null)])
@@ -2425,7 +2425,7 @@ function json_model_40(val, path, rep)
                     let arr_38_item = pval[arr_38_idx]
                     let arr_38_lpath = (path ? lpath_38 : null) ? (path ? lpath_38 : null).concat([arr_38_idx]) : null
                     // .'$Void_LinuxPlatformModel'.versions.0
-                    res = ((typeof arr_38_item === 'string' || arr_38_item instanceof String)) && arr_38_item == "all"
+                    res = ((typeof arr_38_item == 'string' || arr_38_item instanceof String)) && arr_38_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$Void_LinuxPlatformModel'.versions.0]", ((path ? lpath_38 : null) ? arr_38_lpath : null)])
@@ -2465,7 +2465,7 @@ function json_model_41(val, path, rep)
         {
             // handle may name property
             // .'$WindowsPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Windows"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Windows"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Windows\" [.'$WindowsPlatformModel'.name]", (path ? lpath_39 : null)])
@@ -2486,7 +2486,7 @@ function json_model_41(val, path, rep)
                     let arr_39_item = pval[arr_39_idx]
                     let arr_39_lpath = (path ? lpath_39 : null) ? (path ? lpath_39 : null).concat([arr_39_idx]) : null
                     // .'$WindowsPlatformModel'.versions.0
-                    res = ((arr_39_item === null || (typeof arr_39_item === 'number' || arr_39_item instanceof Number) || (typeof arr_39_item === 'boolean' || arr_39_item instanceof Boolean) || (typeof arr_39_item === 'string' || arr_39_item instanceof String))) && _jm_cst_27.has(arr_39_item)
+                    res = ((arr_39_item === null || (typeof arr_39_item == 'number' || arr_39_item instanceof Number) || (typeof arr_39_item == 'boolean' || arr_39_item instanceof Boolean) || (typeof arr_39_item == 'string' || arr_39_item instanceof String))) && _jm_cst_27.has(arr_39_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$WindowsPlatformModel'.versions.0.'|']", ((path ? lpath_39 : null) ? arr_39_lpath : null)])
@@ -2525,7 +2525,7 @@ function json_model_42(val, path, rep)
         {
             // handle may name property
             // .'$aosPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "aos"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "aos"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_aos\" [.'$aosPlatformModel'.name]", (path ? lpath_40 : null)])
@@ -2546,7 +2546,7 @@ function json_model_42(val, path, rep)
                     let arr_40_item = pval[arr_40_idx]
                     let arr_40_lpath = (path ? lpath_40 : null) ? (path ? lpath_40 : null).concat([arr_40_idx]) : null
                     // .'$aosPlatformModel'.versions.0
-                    res = ((typeof arr_40_item === 'string' || arr_40_item instanceof String)) && arr_40_item == "all"
+                    res = ((typeof arr_40_item == 'string' || arr_40_item instanceof String)) && arr_40_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$aosPlatformModel'.versions.0]", ((path ? lpath_40 : null) ? arr_40_lpath : null)])
@@ -2585,7 +2585,7 @@ function json_model_43(val, path, rep)
         {
             // handle may name property
             // .'$eosPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "eos"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "eos"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_eos\" [.'$eosPlatformModel'.name]", (path ? lpath_41 : null)])
@@ -2606,7 +2606,7 @@ function json_model_43(val, path, rep)
                     let arr_41_item = pval[arr_41_idx]
                     let arr_41_lpath = (path ? lpath_41 : null) ? (path ? lpath_41 : null).concat([arr_41_idx]) : null
                     // .'$eosPlatformModel'.versions.0
-                    res = ((typeof arr_41_item === 'string' || arr_41_item instanceof String)) && arr_41_item == "all"
+                    res = ((typeof arr_41_item == 'string' || arr_41_item instanceof String)) && arr_41_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$eosPlatformModel'.versions.0]", ((path ? lpath_41 : null) ? arr_41_lpath : null)])
@@ -2646,7 +2646,7 @@ function json_model_44(val, path, rep)
         {
             // handle may name property
             // .'$macOSPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "macOS"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "macOS"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_macOS\" [.'$macOSPlatformModel'.name]", (path ? lpath_42 : null)])
@@ -2667,7 +2667,7 @@ function json_model_44(val, path, rep)
                     let arr_42_item = pval[arr_42_idx]
                     let arr_42_lpath = (path ? lpath_42 : null) ? (path ? lpath_42 : null).concat([arr_42_idx]) : null
                     // .'$macOSPlatformModel'.versions.0
-                    res = ((arr_42_item === null || (typeof arr_42_item === 'number' || arr_42_item instanceof Number) || (typeof arr_42_item === 'boolean' || arr_42_item instanceof Boolean) || (typeof arr_42_item === 'string' || arr_42_item instanceof String))) && _jm_cst_28.has(arr_42_item)
+                    res = ((arr_42_item === null || (typeof arr_42_item == 'number' || arr_42_item instanceof Number) || (typeof arr_42_item == 'boolean' || arr_42_item instanceof Boolean) || (typeof arr_42_item == 'string' || arr_42_item instanceof String))) && _jm_cst_28.has(arr_42_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$macOSPlatformModel'.versions.0.'|']", ((path ? lpath_42 : null) ? arr_42_lpath : null)])
@@ -2707,7 +2707,7 @@ function json_model_45(val, path, rep)
         {
             // handle may name property
             // .'$opensusePlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "opensuse"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "opensuse"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_opensuse\" [.'$opensusePlatformModel'.name]", (path ? lpath_43 : null)])
@@ -2728,7 +2728,7 @@ function json_model_45(val, path, rep)
                     let arr_43_item = pval[arr_43_idx]
                     let arr_43_lpath = (path ? lpath_43 : null) ? (path ? lpath_43 : null).concat([arr_43_idx]) : null
                     // .'$opensusePlatformModel'.versions.0
-                    res = ((arr_43_item === null || (typeof arr_43_item === 'number' || arr_43_item instanceof Number) || (typeof arr_43_item === 'boolean' || arr_43_item instanceof Boolean) || (typeof arr_43_item === 'string' || arr_43_item instanceof String))) && _jm_cst_29.has(arr_43_item)
+                    res = ((arr_43_item === null || (typeof arr_43_item == 'number' || arr_43_item instanceof Number) || (typeof arr_43_item == 'boolean' || arr_43_item instanceof Boolean) || (typeof arr_43_item == 'string' || arr_43_item instanceof String))) && _jm_cst_29.has(arr_43_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$opensusePlatformModel'.versions.0.'|']", ((path ? lpath_43 : null) ? arr_43_lpath : null)])
@@ -2767,7 +2767,7 @@ function json_model_46(val, path, rep)
         {
             // handle may name property
             // .'$os10PlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "os10"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "os10"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_os10\" [.'$os10PlatformModel'.name]", (path ? lpath_44 : null)])
@@ -2788,7 +2788,7 @@ function json_model_46(val, path, rep)
                     let arr_44_item = pval[arr_44_idx]
                     let arr_44_lpath = (path ? lpath_44 : null) ? (path ? lpath_44 : null).concat([arr_44_idx]) : null
                     // .'$os10PlatformModel'.versions.0
-                    res = ((typeof arr_44_item === 'string' || arr_44_item instanceof String)) && arr_44_item == "all"
+                    res = ((typeof arr_44_item == 'string' || arr_44_item instanceof String)) && arr_44_item == "all"
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"_all\" [.'$os10PlatformModel'.versions.0]", ((path ? lpath_44 : null) ? arr_44_lpath : null)])
@@ -2828,7 +2828,7 @@ function json_model_47(val, path, rep)
         {
             // handle may name property
             // .'$vCenterPlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "vCenter"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "vCenter"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_vCenter\" [.'$vCenterPlatformModel'.name]", (path ? lpath_45 : null)])
@@ -2849,7 +2849,7 @@ function json_model_47(val, path, rep)
                     let arr_45_item = pval[arr_45_idx]
                     let arr_45_lpath = (path ? lpath_45 : null) ? (path ? lpath_45 : null).concat([arr_45_idx]) : null
                     // .'$vCenterPlatformModel'.versions.0
-                    res = ((arr_45_item === null || (typeof arr_45_item === 'number' || arr_45_item instanceof Number) || (typeof arr_45_item === 'boolean' || arr_45_item instanceof Boolean) || (typeof arr_45_item === 'string' || arr_45_item instanceof String))) && _jm_cst_30.has(arr_45_item)
+                    res = ((arr_45_item === null || (typeof arr_45_item == 'number' || arr_45_item instanceof Number) || (typeof arr_45_item == 'boolean' || arr_45_item instanceof Boolean) || (typeof arr_45_item == 'string' || arr_45_item instanceof String))) && _jm_cst_30.has(arr_45_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$vCenterPlatformModel'.versions.0.'|']", ((path ? lpath_45 : null) ? arr_45_lpath : null)])
@@ -2889,7 +2889,7 @@ function json_model_48(val, path, rep)
         {
             // handle may name property
             // .'$vSpherePlatformModel'.name
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "vSphere"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "vSphere"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_vSphere\" [.'$vSpherePlatformModel'.name]", (path ? lpath_46 : null)])
@@ -2910,7 +2910,7 @@ function json_model_48(val, path, rep)
                     let arr_46_item = pval[arr_46_idx]
                     let arr_46_lpath = (path ? lpath_46 : null) ? (path ? lpath_46 : null).concat([arr_46_idx]) : null
                     // .'$vSpherePlatformModel'.versions.0
-                    res = ((arr_46_item === null || (typeof arr_46_item === 'number' || arr_46_item instanceof Number) || (typeof arr_46_item === 'boolean' || arr_46_item instanceof Boolean) || (typeof arr_46_item === 'string' || arr_46_item instanceof String))) && _jm_cst_31.has(arr_46_item)
+                    res = ((arr_46_item === null || (typeof arr_46_item == 'number' || arr_46_item instanceof Number) || (typeof arr_46_item == 'boolean' || arr_46_item instanceof Boolean) || (typeof arr_46_item == 'string' || arr_46_item instanceof String))) && _jm_cst_31.has(arr_46_item)
                     if (! res)
                     {
                         rep !== null && rep.push(["value not in enum [.'$vSpherePlatformModel'.versions.0.'|']", ((path ? lpath_46 : null) ? arr_46_lpath : null)])
@@ -3244,7 +3244,7 @@ function _jm_obj_0(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.46.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Windows"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Windows"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Windows\" [.'$platforms'.0.'|'.46.name]", (path ? lpath : null)])
@@ -3265,7 +3265,7 @@ function _jm_obj_0(val, path, rep)
                 let arr_48_item = pval[arr_48_idx]
                 let arr_48_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_48_idx]) : null
                 // .'$platforms'.0.'|'.46.versions.0
-                res = ((arr_48_item === null || (typeof arr_48_item === 'number' || arr_48_item instanceof Number) || (typeof arr_48_item === 'boolean' || arr_48_item instanceof Boolean) || (typeof arr_48_item === 'string' || arr_48_item instanceof String))) && _jm_cst_32.has(arr_48_item)
+                res = ((arr_48_item === null || (typeof arr_48_item == 'number' || arr_48_item instanceof Number) || (typeof arr_48_item == 'boolean' || arr_48_item instanceof Boolean) || (typeof arr_48_item == 'string' || arr_48_item instanceof String))) && _jm_cst_32.has(arr_48_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", ((path ? lpath : null) ? arr_48_lpath : null)])
@@ -3301,7 +3301,7 @@ function _jm_obj_1(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.45.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "vSphere"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "vSphere"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_vSphere\" [.'$platforms'.0.'|'.45.name]", (path ? lpath : null)])
@@ -3322,7 +3322,7 @@ function _jm_obj_1(val, path, rep)
                 let arr_49_item = pval[arr_49_idx]
                 let arr_49_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_49_idx]) : null
                 // .'$platforms'.0.'|'.45.versions.0
-                res = ((arr_49_item === null || (typeof arr_49_item === 'number' || arr_49_item instanceof Number) || (typeof arr_49_item === 'boolean' || arr_49_item instanceof Boolean) || (typeof arr_49_item === 'string' || arr_49_item instanceof String))) && _jm_cst_33.has(arr_49_item)
+                res = ((arr_49_item === null || (typeof arr_49_item == 'number' || arr_49_item instanceof Number) || (typeof arr_49_item == 'boolean' || arr_49_item instanceof Boolean) || (typeof arr_49_item == 'string' || arr_49_item instanceof String))) && _jm_cst_33.has(arr_49_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", ((path ? lpath : null) ? arr_49_lpath : null)])
@@ -3357,7 +3357,7 @@ function _jm_obj_2(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.44.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Void Linux"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Void Linux"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Void Linux\" [.'$platforms'.0.'|'.44.name]", (path ? lpath : null)])
@@ -3378,7 +3378,7 @@ function _jm_obj_2(val, path, rep)
                 let arr_50_item = pval[arr_50_idx]
                 let arr_50_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_50_idx]) : null
                 // .'$platforms'.0.'|'.44.versions.0
-                res = ((typeof arr_50_item === 'string' || arr_50_item instanceof String)) && arr_50_item == "all"
+                res = ((typeof arr_50_item == 'string' || arr_50_item instanceof String)) && arr_50_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.44.versions.0]", ((path ? lpath : null) ? arr_50_lpath : null)])
@@ -3414,7 +3414,7 @@ function _jm_obj_3(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.43.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "vCenter"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "vCenter"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_vCenter\" [.'$platforms'.0.'|'.43.name]", (path ? lpath : null)])
@@ -3435,7 +3435,7 @@ function _jm_obj_3(val, path, rep)
                 let arr_51_item = pval[arr_51_idx]
                 let arr_51_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_51_idx]) : null
                 // .'$platforms'.0.'|'.43.versions.0
-                res = ((arr_51_item === null || (typeof arr_51_item === 'number' || arr_51_item instanceof Number) || (typeof arr_51_item === 'boolean' || arr_51_item instanceof Boolean) || (typeof arr_51_item === 'string' || arr_51_item instanceof String))) && _jm_cst_34.has(arr_51_item)
+                res = ((arr_51_item === null || (typeof arr_51_item == 'number' || arr_51_item instanceof Number) || (typeof arr_51_item == 'boolean' || arr_51_item instanceof Boolean) || (typeof arr_51_item == 'string' || arr_51_item instanceof String))) && _jm_cst_34.has(arr_51_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", ((path ? lpath : null) ? arr_51_lpath : null)])
@@ -3471,7 +3471,7 @@ function _jm_obj_4(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.42.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Ubuntu"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Ubuntu"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Ubuntu\" [.'$platforms'.0.'|'.42.name]", (path ? lpath : null)])
@@ -3492,7 +3492,7 @@ function _jm_obj_4(val, path, rep)
                 let arr_52_item = pval[arr_52_idx]
                 let arr_52_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_52_idx]) : null
                 // .'$platforms'.0.'|'.42.versions.0
-                res = ((arr_52_item === null || (typeof arr_52_item === 'number' || arr_52_item instanceof Number) || (typeof arr_52_item === 'boolean' || arr_52_item instanceof Boolean) || (typeof arr_52_item === 'string' || arr_52_item instanceof String))) && _jm_cst_35.has(arr_52_item)
+                res = ((arr_52_item === null || (typeof arr_52_item == 'number' || arr_52_item instanceof Number) || (typeof arr_52_item == 'boolean' || arr_52_item instanceof Boolean) || (typeof arr_52_item == 'string' || arr_52_item instanceof String))) && _jm_cst_35.has(arr_52_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", ((path ? lpath : null) ? arr_52_lpath : null)])
@@ -3528,7 +3528,7 @@ function _jm_obj_5(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.41.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "TMOS"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "TMOS"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_TMOS\" [.'$platforms'.0.'|'.41.name]", (path ? lpath : null)])
@@ -3549,7 +3549,7 @@ function _jm_obj_5(val, path, rep)
                 let arr_53_item = pval[arr_53_idx]
                 let arr_53_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_53_idx]) : null
                 // .'$platforms'.0.'|'.41.versions.0
-                res = ((arr_53_item === null || (typeof arr_53_item === 'number' || arr_53_item instanceof Number) || (typeof arr_53_item === 'boolean' || arr_53_item instanceof Boolean) || (typeof arr_53_item === 'string' || arr_53_item instanceof String))) && _jm_cst_36.has(arr_53_item)
+                res = ((arr_53_item === null || (typeof arr_53_item == 'number' || arr_53_item instanceof Number) || (typeof arr_53_item == 'boolean' || arr_53_item instanceof Boolean) || (typeof arr_53_item == 'string' || arr_53_item instanceof String))) && _jm_cst_36.has(arr_53_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", ((path ? lpath : null) ? arr_53_lpath : null)])
@@ -3585,7 +3585,7 @@ function _jm_obj_6(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.40.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Synology"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Synology"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Synology\" [.'$platforms'.0.'|'.40.name]", (path ? lpath : null)])
@@ -3606,7 +3606,7 @@ function _jm_obj_6(val, path, rep)
                 let arr_54_item = pval[arr_54_idx]
                 let arr_54_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_54_idx]) : null
                 // .'$platforms'.0.'|'.40.versions.0
-                res = ((arr_54_item === null || (typeof arr_54_item === 'number' || arr_54_item instanceof Number) || (typeof arr_54_item === 'boolean' || arr_54_item instanceof Boolean) || (typeof arr_54_item === 'string' || arr_54_item instanceof String))) && _jm_cst_37.has(arr_54_item)
+                res = ((arr_54_item === null || (typeof arr_54_item == 'number' || arr_54_item instanceof Number) || (typeof arr_54_item == 'boolean' || arr_54_item instanceof Boolean) || (typeof arr_54_item == 'string' || arr_54_item instanceof String))) && _jm_cst_37.has(arr_54_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", ((path ? lpath : null) ? arr_54_lpath : null)])
@@ -3642,7 +3642,7 @@ function _jm_obj_7(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.39.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Solaris"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Solaris"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Solaris\" [.'$platforms'.0.'|'.39.name]", (path ? lpath : null)])
@@ -3663,7 +3663,7 @@ function _jm_obj_7(val, path, rep)
                 let arr_55_item = pval[arr_55_idx]
                 let arr_55_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_55_idx]) : null
                 // .'$platforms'.0.'|'.39.versions.0
-                res = ((arr_55_item === null || (typeof arr_55_item === 'number' || arr_55_item instanceof Number) || (typeof arr_55_item === 'boolean' || arr_55_item instanceof Boolean) || (typeof arr_55_item === 'string' || arr_55_item instanceof String))) && _jm_cst_38.has(arr_55_item)
+                res = ((arr_55_item === null || (typeof arr_55_item == 'number' || arr_55_item instanceof Number) || (typeof arr_55_item == 'boolean' || arr_55_item instanceof Boolean) || (typeof arr_55_item == 'string' || arr_55_item instanceof String))) && _jm_cst_38.has(arr_55_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", ((path ? lpath : null) ? arr_55_lpath : null)])
@@ -3698,7 +3698,7 @@ function _jm_obj_8(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.38.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "SmartOS"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "SmartOS"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_SmartOS\" [.'$platforms'.0.'|'.38.name]", (path ? lpath : null)])
@@ -3719,7 +3719,7 @@ function _jm_obj_8(val, path, rep)
                 let arr_56_item = pval[arr_56_idx]
                 let arr_56_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_56_idx]) : null
                 // .'$platforms'.0.'|'.38.versions.0
-                res = ((typeof arr_56_item === 'string' || arr_56_item instanceof String)) && arr_56_item == "all"
+                res = ((typeof arr_56_item == 'string' || arr_56_item instanceof String)) && arr_56_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.38.versions.0]", ((path ? lpath : null) ? arr_56_lpath : null)])
@@ -3755,7 +3755,7 @@ function _jm_obj_9(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.37.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "SLES"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "SLES"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_SLES\" [.'$platforms'.0.'|'.37.name]", (path ? lpath : null)])
@@ -3776,7 +3776,7 @@ function _jm_obj_9(val, path, rep)
                 let arr_57_item = pval[arr_57_idx]
                 let arr_57_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_57_idx]) : null
                 // .'$platforms'.0.'|'.37.versions.0
-                res = ((arr_57_item === null || (typeof arr_57_item === 'number' || arr_57_item instanceof Number) || (typeof arr_57_item === 'boolean' || arr_57_item instanceof Boolean) || (typeof arr_57_item === 'string' || arr_57_item instanceof String))) && _jm_cst_39.has(arr_57_item)
+                res = ((arr_57_item === null || (typeof arr_57_item == 'number' || arr_57_item instanceof Number) || (typeof arr_57_item == 'boolean' || arr_57_item instanceof Boolean) || (typeof arr_57_item == 'string' || arr_57_item instanceof String))) && _jm_cst_39.has(arr_57_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", ((path ? lpath : null) ? arr_57_lpath : null)])
@@ -3812,7 +3812,7 @@ function _jm_obj_10(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.36.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Rocky"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Rocky"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Rocky\" [.'$platforms'.0.'|'.36.name]", (path ? lpath : null)])
@@ -3833,7 +3833,7 @@ function _jm_obj_10(val, path, rep)
                 let arr_58_item = pval[arr_58_idx]
                 let arr_58_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_58_idx]) : null
                 // .'$platforms'.0.'|'.36.versions.0
-                res = ((arr_58_item === null || (typeof arr_58_item === 'number' || arr_58_item instanceof Number) || (typeof arr_58_item === 'boolean' || arr_58_item instanceof Boolean) || (typeof arr_58_item === 'string' || arr_58_item instanceof String))) && _jm_cst_40.has(arr_58_item)
+                res = ((arr_58_item === null || (typeof arr_58_item == 'number' || arr_58_item instanceof Number) || (typeof arr_58_item == 'boolean' || arr_58_item instanceof Boolean) || (typeof arr_58_item == 'string' || arr_58_item instanceof String))) && _jm_cst_40.has(arr_58_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", ((path ? lpath : null) ? arr_58_lpath : null)])
@@ -3869,7 +3869,7 @@ function _jm_obj_11(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.35.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "PAN-OS"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "PAN-OS"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_PAN-OS\" [.'$platforms'.0.'|'.35.name]", (path ? lpath : null)])
@@ -3890,7 +3890,7 @@ function _jm_obj_11(val, path, rep)
                 let arr_59_item = pval[arr_59_idx]
                 let arr_59_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_59_idx]) : null
                 // .'$platforms'.0.'|'.35.versions.0
-                res = ((arr_59_item === null || (typeof arr_59_item === 'number' || arr_59_item instanceof Number) || (typeof arr_59_item === 'boolean' || arr_59_item instanceof Boolean) || (typeof arr_59_item === 'string' || arr_59_item instanceof String))) && _jm_cst_41.has(arr_59_item)
+                res = ((arr_59_item === null || (typeof arr_59_item == 'number' || arr_59_item instanceof Number) || (typeof arr_59_item == 'boolean' || arr_59_item instanceof Boolean) || (typeof arr_59_item == 'string' || arr_59_item instanceof String))) && _jm_cst_41.has(arr_59_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", ((path ? lpath : null) ? arr_59_lpath : null)])
@@ -3925,7 +3925,7 @@ function _jm_obj_12(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.34.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "os10"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "os10"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_os10\" [.'$platforms'.0.'|'.34.name]", (path ? lpath : null)])
@@ -3946,7 +3946,7 @@ function _jm_obj_12(val, path, rep)
                 let arr_60_item = pval[arr_60_idx]
                 let arr_60_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_60_idx]) : null
                 // .'$platforms'.0.'|'.34.versions.0
-                res = ((typeof arr_60_item === 'string' || arr_60_item instanceof String)) && arr_60_item == "all"
+                res = ((typeof arr_60_item == 'string' || arr_60_item instanceof String)) && arr_60_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.34.versions.0]", ((path ? lpath : null) ? arr_60_lpath : null)])
@@ -3982,7 +3982,7 @@ function _jm_obj_13(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.33.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OracleLinux"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "OracleLinux"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_OracleLinux\" [.'$platforms'.0.'|'.33.name]", (path ? lpath : null)])
@@ -4003,7 +4003,7 @@ function _jm_obj_13(val, path, rep)
                 let arr_61_item = pval[arr_61_idx]
                 let arr_61_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_61_idx]) : null
                 // .'$platforms'.0.'|'.33.versions.0
-                res = ((arr_61_item === null || (typeof arr_61_item === 'number' || arr_61_item instanceof Number) || (typeof arr_61_item === 'boolean' || arr_61_item instanceof Boolean) || (typeof arr_61_item === 'string' || arr_61_item instanceof String))) && _jm_cst_42.has(arr_61_item)
+                res = ((arr_61_item === null || (typeof arr_61_item == 'number' || arr_61_item instanceof Number) || (typeof arr_61_item == 'boolean' || arr_61_item instanceof Boolean) || (typeof arr_61_item == 'string' || arr_61_item instanceof String))) && _jm_cst_42.has(arr_61_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", ((path ? lpath : null) ? arr_61_lpath : null)])
@@ -4039,7 +4039,7 @@ function _jm_obj_14(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.32.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OpenWrt"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "OpenWrt"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_OpenWrt\" [.'$platforms'.0.'|'.32.name]", (path ? lpath : null)])
@@ -4060,7 +4060,7 @@ function _jm_obj_14(val, path, rep)
                 let arr_62_item = pval[arr_62_idx]
                 let arr_62_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_62_idx]) : null
                 // .'$platforms'.0.'|'.32.versions.0
-                res = ((arr_62_item === null || (typeof arr_62_item === 'number' || arr_62_item instanceof Number) || (typeof arr_62_item === 'boolean' || arr_62_item instanceof Boolean) || (typeof arr_62_item === 'string' || arr_62_item instanceof String))) && _jm_cst_43.has(arr_62_item)
+                res = ((arr_62_item === null || (typeof arr_62_item == 'number' || arr_62_item instanceof Number) || (typeof arr_62_item == 'boolean' || arr_62_item instanceof Boolean) || (typeof arr_62_item == 'string' || arr_62_item instanceof String))) && _jm_cst_43.has(arr_62_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", ((path ? lpath : null) ? arr_62_lpath : null)])
@@ -4096,7 +4096,7 @@ function _jm_obj_15(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.31.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "opensuse"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "opensuse"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_opensuse\" [.'$platforms'.0.'|'.31.name]", (path ? lpath : null)])
@@ -4117,7 +4117,7 @@ function _jm_obj_15(val, path, rep)
                 let arr_63_item = pval[arr_63_idx]
                 let arr_63_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_63_idx]) : null
                 // .'$platforms'.0.'|'.31.versions.0
-                res = ((arr_63_item === null || (typeof arr_63_item === 'number' || arr_63_item instanceof Number) || (typeof arr_63_item === 'boolean' || arr_63_item instanceof Boolean) || (typeof arr_63_item === 'string' || arr_63_item instanceof String))) && _jm_cst_44.has(arr_63_item)
+                res = ((arr_63_item === null || (typeof arr_63_item == 'number' || arr_63_item instanceof Number) || (typeof arr_63_item == 'boolean' || arr_63_item instanceof Boolean) || (typeof arr_63_item == 'string' || arr_63_item instanceof String))) && _jm_cst_44.has(arr_63_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", ((path ? lpath : null) ? arr_63_lpath : null)])
@@ -4153,7 +4153,7 @@ function _jm_obj_16(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.30.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OpenBSD"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "OpenBSD"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_OpenBSD\" [.'$platforms'.0.'|'.30.name]", (path ? lpath : null)])
@@ -4174,7 +4174,7 @@ function _jm_obj_16(val, path, rep)
                 let arr_64_item = pval[arr_64_idx]
                 let arr_64_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_64_idx]) : null
                 // .'$platforms'.0.'|'.30.versions.0
-                res = ((arr_64_item === null || (typeof arr_64_item === 'number' || arr_64_item instanceof Number) || (typeof arr_64_item === 'boolean' || arr_64_item instanceof Boolean) || (typeof arr_64_item === 'string' || arr_64_item instanceof String))) && _jm_cst_45.has(arr_64_item)
+                res = ((arr_64_item === null || (typeof arr_64_item == 'number' || arr_64_item instanceof Number) || (typeof arr_64_item == 'boolean' || arr_64_item instanceof Boolean) || (typeof arr_64_item == 'string' || arr_64_item instanceof String))) && _jm_cst_45.has(arr_64_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", ((path ? lpath : null) ? arr_64_lpath : null)])
@@ -4209,7 +4209,7 @@ function _jm_obj_17(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.29.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "NXOS"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "NXOS"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_NXOS\" [.'$platforms'.0.'|'.29.name]", (path ? lpath : null)])
@@ -4230,7 +4230,7 @@ function _jm_obj_17(val, path, rep)
                 let arr_65_item = pval[arr_65_idx]
                 let arr_65_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_65_idx]) : null
                 // .'$platforms'.0.'|'.29.versions.0
-                res = ((typeof arr_65_item === 'string' || arr_65_item instanceof String)) && arr_65_item == "all"
+                res = ((typeof arr_65_item == 'string' || arr_65_item instanceof String)) && arr_65_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.29.versions.0]", ((path ? lpath : null) ? arr_65_lpath : null)])
@@ -4266,7 +4266,7 @@ function _jm_obj_18(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.28.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Megeia"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Megeia"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Megeia\" [.'$platforms'.0.'|'.28.name]", (path ? lpath : null)])
@@ -4287,7 +4287,7 @@ function _jm_obj_18(val, path, rep)
                 let arr_66_item = pval[arr_66_idx]
                 let arr_66_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_66_idx]) : null
                 // .'$platforms'.0.'|'.28.versions.0
-                res = ((arr_66_item === null || (typeof arr_66_item === 'number' || arr_66_item instanceof Number) || (typeof arr_66_item === 'boolean' || arr_66_item instanceof Boolean) || (typeof arr_66_item === 'string' || arr_66_item instanceof String))) && _jm_cst_46.has(arr_66_item)
+                res = ((arr_66_item === null || (typeof arr_66_item == 'number' || arr_66_item instanceof Number) || (typeof arr_66_item == 'boolean' || arr_66_item instanceof Boolean) || (typeof arr_66_item == 'string' || arr_66_item instanceof String))) && _jm_cst_46.has(arr_66_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", ((path ? lpath : null) ? arr_66_lpath : null)])
@@ -4323,7 +4323,7 @@ function _jm_obj_19(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.27.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Kali"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Kali"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Kali\" [.'$platforms'.0.'|'.27.name]", (path ? lpath : null)])
@@ -4344,7 +4344,7 @@ function _jm_obj_19(val, path, rep)
                 let arr_67_item = pval[arr_67_idx]
                 let arr_67_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_67_idx]) : null
                 // .'$platforms'.0.'|'.27.versions.0
-                res = ((arr_67_item === null || (typeof arr_67_item === 'number' || arr_67_item instanceof Number) || (typeof arr_67_item === 'boolean' || arr_67_item instanceof Boolean) || (typeof arr_67_item === 'string' || arr_67_item instanceof String))) && _jm_cst_47.has(arr_67_item)
+                res = ((arr_67_item === null || (typeof arr_67_item == 'number' || arr_67_item instanceof Number) || (typeof arr_67_item == 'boolean' || arr_67_item instanceof Boolean) || (typeof arr_67_item == 'string' || arr_67_item instanceof String))) && _jm_cst_47.has(arr_67_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", ((path ? lpath : null) ? arr_67_lpath : null)])
@@ -4380,7 +4380,7 @@ function _jm_obj_20(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.26.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "macOS"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "macOS"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_macOS\" [.'$platforms'.0.'|'.26.name]", (path ? lpath : null)])
@@ -4401,7 +4401,7 @@ function _jm_obj_20(val, path, rep)
                 let arr_68_item = pval[arr_68_idx]
                 let arr_68_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_68_idx]) : null
                 // .'$platforms'.0.'|'.26.versions.0
-                res = ((arr_68_item === null || (typeof arr_68_item === 'number' || arr_68_item instanceof Number) || (typeof arr_68_item === 'boolean' || arr_68_item instanceof Boolean) || (typeof arr_68_item === 'string' || arr_68_item instanceof String))) && _jm_cst_48.has(arr_68_item)
+                res = ((arr_68_item === null || (typeof arr_68_item == 'number' || arr_68_item instanceof Number) || (typeof arr_68_item == 'boolean' || arr_68_item instanceof Boolean) || (typeof arr_68_item == 'string' || arr_68_item instanceof String))) && _jm_cst_48.has(arr_68_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", ((path ? lpath : null) ? arr_68_lpath : null)])
@@ -4437,7 +4437,7 @@ function _jm_obj_21(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.25.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Kali"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Kali"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Kali\" [.'$platforms'.0.'|'.25.name]", (path ? lpath : null)])
@@ -4458,7 +4458,7 @@ function _jm_obj_21(val, path, rep)
                 let arr_69_item = pval[arr_69_idx]
                 let arr_69_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_69_idx]) : null
                 // .'$platforms'.0.'|'.25.versions.0
-                res = ((arr_69_item === null || (typeof arr_69_item === 'number' || arr_69_item instanceof Number) || (typeof arr_69_item === 'boolean' || arr_69_item instanceof Boolean) || (typeof arr_69_item === 'string' || arr_69_item instanceof String))) && _jm_cst_49.has(arr_69_item)
+                res = ((arr_69_item === null || (typeof arr_69_item == 'number' || arr_69_item instanceof Number) || (typeof arr_69_item == 'boolean' || arr_69_item instanceof Boolean) || (typeof arr_69_item == 'string' || arr_69_item instanceof String))) && _jm_cst_49.has(arr_69_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", ((path ? lpath : null) ? arr_69_lpath : null)])
@@ -4493,7 +4493,7 @@ function _jm_obj_22(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.24.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Junos"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Junos"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Junos\" [.'$platforms'.0.'|'.24.name]", (path ? lpath : null)])
@@ -4514,7 +4514,7 @@ function _jm_obj_22(val, path, rep)
                 let arr_70_item = pval[arr_70_idx]
                 let arr_70_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_70_idx]) : null
                 // .'$platforms'.0.'|'.24.versions.0
-                res = ((typeof arr_70_item === 'string' || arr_70_item instanceof String)) && arr_70_item == "all"
+                res = ((typeof arr_70_item == 'string' || arr_70_item instanceof String)) && arr_70_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.24.versions.0]", ((path ? lpath : null) ? arr_70_lpath : null)])
@@ -4549,7 +4549,7 @@ function _jm_obj_23(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.23.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "IOS"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "IOS"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_IOS\" [.'$platforms'.0.'|'.23.name]", (path ? lpath : null)])
@@ -4570,7 +4570,7 @@ function _jm_obj_23(val, path, rep)
                 let arr_71_item = pval[arr_71_idx]
                 let arr_71_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_71_idx]) : null
                 // .'$platforms'.0.'|'.23.versions.0
-                res = ((typeof arr_71_item === 'string' || arr_71_item instanceof String)) && arr_71_item == "all"
+                res = ((typeof arr_71_item == 'string' || arr_71_item instanceof String)) && arr_71_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.23.versions.0]", ((path ? lpath : null) ? arr_71_lpath : null)])
@@ -4606,7 +4606,7 @@ function _jm_obj_24(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.22.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "HardenedBSD"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "HardenedBSD"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_HardenedBSD\" [.'$platforms'.0.'|'.22.name]", (path ? lpath : null)])
@@ -4627,7 +4627,7 @@ function _jm_obj_24(val, path, rep)
                 let arr_72_item = pval[arr_72_idx]
                 let arr_72_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_72_idx]) : null
                 // .'$platforms'.0.'|'.22.versions.0
-                res = ((arr_72_item === null || (typeof arr_72_item === 'number' || arr_72_item instanceof Number) || (typeof arr_72_item === 'boolean' || arr_72_item instanceof Boolean) || (typeof arr_72_item === 'string' || arr_72_item instanceof String))) && _jm_cst_50.has(arr_72_item)
+                res = ((arr_72_item === null || (typeof arr_72_item == 'number' || arr_72_item instanceof Number) || (typeof arr_72_item == 'boolean' || arr_72_item instanceof Boolean) || (typeof arr_72_item == 'string' || arr_72_item instanceof String))) && _jm_cst_50.has(arr_72_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", ((path ? lpath : null) ? arr_72_lpath : null)])
@@ -4662,7 +4662,7 @@ function _jm_obj_25(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.21.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Gentoo"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Gentoo"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Gentoo\" [.'$platforms'.0.'|'.21.name]", (path ? lpath : null)])
@@ -4683,7 +4683,7 @@ function _jm_obj_25(val, path, rep)
                 let arr_73_item = pval[arr_73_idx]
                 let arr_73_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_73_idx]) : null
                 // .'$platforms'.0.'|'.21.versions.0
-                res = ((typeof arr_73_item === 'string' || arr_73_item instanceof String)) && arr_73_item == "all"
+                res = ((typeof arr_73_item == 'string' || arr_73_item instanceof String)) && arr_73_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.21.versions.0]", ((path ? lpath : null) ? arr_73_lpath : null)])
@@ -4718,7 +4718,7 @@ function _jm_obj_26(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.20.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericUNIX"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "GenericUNIX"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_GenericUNIX\" [.'$platforms'.0.'|'.20.name]", (path ? lpath : null)])
@@ -4739,7 +4739,7 @@ function _jm_obj_26(val, path, rep)
                 let arr_74_item = pval[arr_74_idx]
                 let arr_74_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_74_idx]) : null
                 // .'$platforms'.0.'|'.20.versions.0
-                res = ((typeof arr_74_item === 'string' || arr_74_item instanceof String)) && arr_74_item == "all"
+                res = ((typeof arr_74_item == 'string' || arr_74_item instanceof String)) && arr_74_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.20.versions.0]", ((path ? lpath : null) ? arr_74_lpath : null)])
@@ -4774,7 +4774,7 @@ function _jm_obj_27(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.19.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericLinux"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "GenericLinux"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_GenericLinux\" [.'$platforms'.0.'|'.19.name]", (path ? lpath : null)])
@@ -4795,7 +4795,7 @@ function _jm_obj_27(val, path, rep)
                 let arr_75_item = pval[arr_75_idx]
                 let arr_75_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_75_idx]) : null
                 // .'$platforms'.0.'|'.19.versions.0
-                res = ((typeof arr_75_item === 'string' || arr_75_item instanceof String)) && arr_75_item == "all"
+                res = ((typeof arr_75_item == 'string' || arr_75_item instanceof String)) && arr_75_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.19.versions.0]", ((path ? lpath : null) ? arr_75_lpath : null)])
@@ -4830,7 +4830,7 @@ function _jm_obj_28(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.18.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericBSD"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "GenericBSD"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_GenericBSD\" [.'$platforms'.0.'|'.18.name]", (path ? lpath : null)])
@@ -4851,7 +4851,7 @@ function _jm_obj_28(val, path, rep)
                 let arr_76_item = pval[arr_76_idx]
                 let arr_76_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_76_idx]) : null
                 // .'$platforms'.0.'|'.18.versions.0
-                res = ((typeof arr_76_item === 'string' || arr_76_item instanceof String)) && arr_76_item == "all"
+                res = ((typeof arr_76_item == 'string' || arr_76_item instanceof String)) && arr_76_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.18.versions.0]", ((path ? lpath : null) ? arr_76_lpath : null)])
@@ -4887,7 +4887,7 @@ function _jm_obj_29(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.17.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "FreeBSD"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "FreeBSD"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_FreeBSD\" [.'$platforms'.0.'|'.17.name]", (path ? lpath : null)])
@@ -4908,7 +4908,7 @@ function _jm_obj_29(val, path, rep)
                 let arr_77_item = pval[arr_77_idx]
                 let arr_77_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_77_idx]) : null
                 // .'$platforms'.0.'|'.17.versions.0
-                res = ((arr_77_item === null || (typeof arr_77_item === 'number' || arr_77_item instanceof Number) || (typeof arr_77_item === 'boolean' || arr_77_item instanceof Boolean) || (typeof arr_77_item === 'string' || arr_77_item instanceof String))) && _jm_cst_51.has(arr_77_item)
+                res = ((arr_77_item === null || (typeof arr_77_item == 'number' || arr_77_item instanceof Number) || (typeof arr_77_item == 'boolean' || arr_77_item instanceof Boolean) || (typeof arr_77_item == 'string' || arr_77_item instanceof String))) && _jm_cst_51.has(arr_77_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", ((path ? lpath : null) ? arr_77_lpath : null)])
@@ -4944,7 +4944,7 @@ function _jm_obj_30(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.16.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Fedora"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Fedora"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Fedora\" [.'$platforms'.0.'|'.16.name]", (path ? lpath : null)])
@@ -4965,7 +4965,7 @@ function _jm_obj_30(val, path, rep)
                 let arr_78_item = pval[arr_78_idx]
                 let arr_78_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_78_idx]) : null
                 // .'$platforms'.0.'|'.16.versions.0
-                res = ((arr_78_item === null || (typeof arr_78_item === 'number' || arr_78_item instanceof Number) || (typeof arr_78_item === 'boolean' || arr_78_item instanceof Boolean) || (typeof arr_78_item === 'string' || arr_78_item instanceof String))) && _jm_cst_52.has(arr_78_item)
+                res = ((arr_78_item === null || (typeof arr_78_item == 'number' || arr_78_item instanceof Number) || (typeof arr_78_item == 'boolean' || arr_78_item instanceof Boolean) || (typeof arr_78_item == 'string' || arr_78_item instanceof String))) && _jm_cst_52.has(arr_78_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", ((path ? lpath : null) ? arr_78_lpath : null)])
@@ -5000,7 +5000,7 @@ function _jm_obj_31(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.15.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "eos"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "eos"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_eos\" [.'$platforms'.0.'|'.15.name]", (path ? lpath : null)])
@@ -5021,7 +5021,7 @@ function _jm_obj_31(val, path, rep)
                 let arr_79_item = pval[arr_79_idx]
                 let arr_79_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_79_idx]) : null
                 // .'$platforms'.0.'|'.15.versions.0
-                res = ((typeof arr_79_item === 'string' || arr_79_item instanceof String)) && arr_79_item == "all"
+                res = ((typeof arr_79_item == 'string' || arr_79_item instanceof String)) && arr_79_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.15.versions.0]", ((path ? lpath : null) ? arr_79_lpath : null)])
@@ -5057,7 +5057,7 @@ function _jm_obj_32(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.14.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "EL"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "EL"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_EL\" [.'$platforms'.0.'|'.14.name]", (path ? lpath : null)])
@@ -5078,7 +5078,7 @@ function _jm_obj_32(val, path, rep)
                 let arr_80_item = pval[arr_80_idx]
                 let arr_80_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_80_idx]) : null
                 // .'$platforms'.0.'|'.14.versions.0
-                res = ((arr_80_item === null || (typeof arr_80_item === 'number' || arr_80_item instanceof Number) || (typeof arr_80_item === 'boolean' || arr_80_item instanceof Boolean) || (typeof arr_80_item === 'string' || arr_80_item instanceof String))) && _jm_cst_53.has(arr_80_item)
+                res = ((arr_80_item === null || (typeof arr_80_item == 'number' || arr_80_item instanceof Number) || (typeof arr_80_item == 'boolean' || arr_80_item instanceof Boolean) || (typeof arr_80_item == 'string' || arr_80_item instanceof String))) && _jm_cst_53.has(arr_80_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", ((path ? lpath : null) ? arr_80_lpath : null)])
@@ -5114,7 +5114,7 @@ function _jm_obj_33(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.13.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "DragonFlyBSD"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "DragonFlyBSD"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_DragonFlyBSD\" [.'$platforms'.0.'|'.13.name]", (path ? lpath : null)])
@@ -5135,7 +5135,7 @@ function _jm_obj_33(val, path, rep)
                 let arr_81_item = pval[arr_81_idx]
                 let arr_81_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_81_idx]) : null
                 // .'$platforms'.0.'|'.13.versions.0
-                res = ((arr_81_item === null || (typeof arr_81_item === 'number' || arr_81_item instanceof Number) || (typeof arr_81_item === 'boolean' || arr_81_item instanceof Boolean) || (typeof arr_81_item === 'string' || arr_81_item instanceof String))) && _jm_cst_54.has(arr_81_item)
+                res = ((arr_81_item === null || (typeof arr_81_item == 'number' || arr_81_item instanceof Number) || (typeof arr_81_item == 'boolean' || arr_81_item instanceof Boolean) || (typeof arr_81_item == 'string' || arr_81_item instanceof String))) && _jm_cst_54.has(arr_81_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", ((path ? lpath : null) ? arr_81_lpath : null)])
@@ -5171,7 +5171,7 @@ function _jm_obj_34(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.12.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Devuan"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Devuan"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Devuan\" [.'$platforms'.0.'|'.12.name]", (path ? lpath : null)])
@@ -5192,7 +5192,7 @@ function _jm_obj_34(val, path, rep)
                 let arr_82_item = pval[arr_82_idx]
                 let arr_82_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_82_idx]) : null
                 // .'$platforms'.0.'|'.12.versions.0
-                res = ((arr_82_item === null || (typeof arr_82_item === 'number' || arr_82_item instanceof Number) || (typeof arr_82_item === 'boolean' || arr_82_item instanceof Boolean) || (typeof arr_82_item === 'string' || arr_82_item instanceof String))) && _jm_cst_55.has(arr_82_item)
+                res = ((arr_82_item === null || (typeof arr_82_item == 'number' || arr_82_item instanceof Number) || (typeof arr_82_item == 'boolean' || arr_82_item instanceof Boolean) || (typeof arr_82_item == 'string' || arr_82_item instanceof String))) && _jm_cst_55.has(arr_82_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", ((path ? lpath : null) ? arr_82_lpath : null)])
@@ -5228,7 +5228,7 @@ function _jm_obj_35(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.11.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "DellOS"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "DellOS"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_DellOS\" [.'$platforms'.0.'|'.11.name]", (path ? lpath : null)])
@@ -5249,7 +5249,7 @@ function _jm_obj_35(val, path, rep)
                 let arr_83_item = pval[arr_83_idx]
                 let arr_83_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_83_idx]) : null
                 // .'$platforms'.0.'|'.11.versions.0
-                res = ((arr_83_item === null || (typeof arr_83_item === 'number' || arr_83_item instanceof Number) || (typeof arr_83_item === 'boolean' || arr_83_item instanceof Boolean) || (typeof arr_83_item === 'string' || arr_83_item instanceof String))) && _jm_cst_56.has(arr_83_item)
+                res = ((arr_83_item === null || (typeof arr_83_item == 'number' || arr_83_item instanceof Number) || (typeof arr_83_item == 'boolean' || arr_83_item instanceof Boolean) || (typeof arr_83_item == 'string' || arr_83_item instanceof String))) && _jm_cst_56.has(arr_83_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", ((path ? lpath : null) ? arr_83_lpath : null)])
@@ -5285,7 +5285,7 @@ function _jm_obj_36(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.10.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Debian"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Debian"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Debian\" [.'$platforms'.0.'|'.10.name]", (path ? lpath : null)])
@@ -5306,7 +5306,7 @@ function _jm_obj_36(val, path, rep)
                 let arr_84_item = pval[arr_84_idx]
                 let arr_84_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_84_idx]) : null
                 // .'$platforms'.0.'|'.10.versions.0
-                res = ((arr_84_item === null || (typeof arr_84_item === 'number' || arr_84_item instanceof Number) || (typeof arr_84_item === 'boolean' || arr_84_item instanceof Boolean) || (typeof arr_84_item === 'string' || arr_84_item instanceof String))) && _jm_cst_57.has(arr_84_item)
+                res = ((arr_84_item === null || (typeof arr_84_item == 'number' || arr_84_item instanceof Number) || (typeof arr_84_item == 'boolean' || arr_84_item instanceof Boolean) || (typeof arr_84_item == 'string' || arr_84_item instanceof String))) && _jm_cst_57.has(arr_84_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", ((path ? lpath : null) ? arr_84_lpath : null)])
@@ -5342,7 +5342,7 @@ function _jm_obj_37(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.9.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "NetBSD"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "NetBSD"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_NetBSD\" [.'$platforms'.0.'|'.9.name]", (path ? lpath : null)])
@@ -5363,7 +5363,7 @@ function _jm_obj_37(val, path, rep)
                 let arr_85_item = pval[arr_85_idx]
                 let arr_85_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_85_idx]) : null
                 // .'$platforms'.0.'|'.9.versions.0
-                res = ((arr_85_item === null || (typeof arr_85_item === 'number' || arr_85_item instanceof Number) || (typeof arr_85_item === 'boolean' || arr_85_item instanceof Boolean) || (typeof arr_85_item === 'string' || arr_85_item instanceof String))) && _jm_cst_58.has(arr_85_item)
+                res = ((arr_85_item === null || (typeof arr_85_item == 'number' || arr_85_item instanceof Number) || (typeof arr_85_item == 'boolean' || arr_85_item instanceof Boolean) || (typeof arr_85_item == 'string' || arr_85_item instanceof String))) && _jm_cst_58.has(arr_85_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", ((path ? lpath : null) ? arr_85_lpath : null)])
@@ -5399,7 +5399,7 @@ function _jm_obj_38(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.8.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Cumulus"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Cumulus"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Cumulus\" [.'$platforms'.0.'|'.8.name]", (path ? lpath : null)])
@@ -5420,7 +5420,7 @@ function _jm_obj_38(val, path, rep)
                 let arr_86_item = pval[arr_86_idx]
                 let arr_86_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_86_idx]) : null
                 // .'$platforms'.0.'|'.8.versions.0
-                res = ((arr_86_item === null || (typeof arr_86_item === 'number' || arr_86_item instanceof Number) || (typeof arr_86_item === 'boolean' || arr_86_item instanceof Boolean) || (typeof arr_86_item === 'string' || arr_86_item instanceof String))) && _jm_cst_59.has(arr_86_item)
+                res = ((arr_86_item === null || (typeof arr_86_item == 'number' || arr_86_item instanceof Number) || (typeof arr_86_item == 'boolean' || arr_86_item instanceof Boolean) || (typeof arr_86_item == 'string' || arr_86_item instanceof String))) && _jm_cst_59.has(arr_86_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", ((path ? lpath : null) ? arr_86_lpath : null)])
@@ -5455,7 +5455,7 @@ function _jm_obj_39(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.7.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ClearLinux"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ClearLinux"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_ClearLinux\" [.'$platforms'.0.'|'.7.name]", (path ? lpath : null)])
@@ -5476,7 +5476,7 @@ function _jm_obj_39(val, path, rep)
                 let arr_87_item = pval[arr_87_idx]
                 let arr_87_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_87_idx]) : null
                 // .'$platforms'.0.'|'.7.versions.0
-                res = ((typeof arr_87_item === 'string' || arr_87_item instanceof String)) && arr_87_item == "all"
+                res = ((typeof arr_87_item == 'string' || arr_87_item instanceof String)) && arr_87_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.7.versions.0]", ((path ? lpath : null) ? arr_87_lpath : null)])
@@ -5512,7 +5512,7 @@ function _jm_obj_40(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.6.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Astra Linux"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Astra Linux"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Astra Linux\" [.'$platforms'.0.'|'.6.name]", (path ? lpath : null)])
@@ -5533,7 +5533,7 @@ function _jm_obj_40(val, path, rep)
                 let arr_88_item = pval[arr_88_idx]
                 let arr_88_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_88_idx]) : null
                 // .'$platforms'.0.'|'.6.versions.0
-                res = ((arr_88_item === null || (typeof arr_88_item === 'number' || arr_88_item instanceof Number) || (typeof arr_88_item === 'boolean' || arr_88_item instanceof Boolean) || (typeof arr_88_item === 'string' || arr_88_item instanceof String))) && _jm_cst_60.has(arr_88_item)
+                res = ((arr_88_item === null || (typeof arr_88_item == 'number' || arr_88_item instanceof Number) || (typeof arr_88_item == 'boolean' || arr_88_item instanceof Boolean) || (typeof arr_88_item == 'string' || arr_88_item instanceof String))) && _jm_cst_60.has(arr_88_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", ((path ? lpath : null) ? arr_88_lpath : null)])
@@ -5568,7 +5568,7 @@ function _jm_obj_41(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.5.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ArchLinux"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ArchLinux"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_ArchLinux\" [.'$platforms'.0.'|'.5.name]", (path ? lpath : null)])
@@ -5589,7 +5589,7 @@ function _jm_obj_41(val, path, rep)
                 let arr_89_item = pval[arr_89_idx]
                 let arr_89_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_89_idx]) : null
                 // .'$platforms'.0.'|'.5.versions.0
-                res = ((typeof arr_89_item === 'string' || arr_89_item instanceof String)) && arr_89_item == "all"
+                res = ((typeof arr_89_item == 'string' || arr_89_item instanceof String)) && arr_89_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.5.versions.0]", ((path ? lpath : null) ? arr_89_lpath : null)])
@@ -5624,7 +5624,7 @@ function _jm_obj_42(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.4.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "aos"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "aos"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_aos\" [.'$platforms'.0.'|'.4.name]", (path ? lpath : null)])
@@ -5645,7 +5645,7 @@ function _jm_obj_42(val, path, rep)
                 let arr_90_item = pval[arr_90_idx]
                 let arr_90_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_90_idx]) : null
                 // .'$platforms'.0.'|'.4.versions.0
-                res = ((typeof arr_90_item === 'string' || arr_90_item instanceof String)) && arr_90_item == "all"
+                res = ((typeof arr_90_item == 'string' || arr_90_item instanceof String)) && arr_90_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.4.versions.0]", ((path ? lpath : null) ? arr_90_lpath : null)])
@@ -5681,7 +5681,7 @@ function _jm_obj_43(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.3.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Amazon Linux"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Amazon Linux"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Amazon Linux\" [.'$platforms'.0.'|'.3.name]", (path ? lpath : null)])
@@ -5702,7 +5702,7 @@ function _jm_obj_43(val, path, rep)
                 let arr_91_item = pval[arr_91_idx]
                 let arr_91_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_91_idx]) : null
                 // .'$platforms'.0.'|'.3.versions.0
-                res = ((arr_91_item === null || (typeof arr_91_item === 'number' || arr_91_item instanceof Number) || (typeof arr_91_item === 'boolean' || arr_91_item instanceof Boolean) || (typeof arr_91_item === 'string' || arr_91_item instanceof String))) && _jm_cst_61.has(arr_91_item)
+                res = ((arr_91_item === null || (typeof arr_91_item == 'number' || arr_91_item instanceof Number) || (typeof arr_91_item == 'boolean' || arr_91_item instanceof Boolean) || (typeof arr_91_item == 'string' || arr_91_item instanceof String))) && _jm_cst_61.has(arr_91_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", ((path ? lpath : null) ? arr_91_lpath : null)])
@@ -5738,7 +5738,7 @@ function _jm_obj_44(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.2.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Amazon"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Amazon"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Amazon\" [.'$platforms'.0.'|'.2.name]", (path ? lpath : null)])
@@ -5759,7 +5759,7 @@ function _jm_obj_44(val, path, rep)
                 let arr_92_item = pval[arr_92_idx]
                 let arr_92_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_92_idx]) : null
                 // .'$platforms'.0.'|'.2.versions.0
-                res = ((arr_92_item === null || (typeof arr_92_item === 'number' || arr_92_item instanceof Number) || (typeof arr_92_item === 'boolean' || arr_92_item instanceof Boolean) || (typeof arr_92_item === 'string' || arr_92_item instanceof String))) && _jm_cst_62.has(arr_92_item)
+                res = ((arr_92_item === null || (typeof arr_92_item == 'number' || arr_92_item instanceof Number) || (typeof arr_92_item == 'boolean' || arr_92_item instanceof Boolean) || (typeof arr_92_item == 'string' || arr_92_item instanceof String))) && _jm_cst_62.has(arr_92_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", ((path ? lpath : null) ? arr_92_lpath : null)])
@@ -5794,7 +5794,7 @@ function _jm_obj_45(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.1.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Alpine"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Alpine"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Alpine\" [.'$platforms'.0.'|'.1.name]", (path ? lpath : null)])
@@ -5815,7 +5815,7 @@ function _jm_obj_45(val, path, rep)
                 let arr_93_item = pval[arr_93_idx]
                 let arr_93_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_93_idx]) : null
                 // .'$platforms'.0.'|'.1.versions.0
-                res = ((typeof arr_93_item === 'string' || arr_93_item instanceof String)) && arr_93_item == "all"
+                res = ((typeof arr_93_item == 'string' || arr_93_item instanceof String)) && arr_93_item == "all"
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.1.versions.0]", ((path ? lpath : null) ? arr_93_lpath : null)])
@@ -5851,7 +5851,7 @@ function _jm_obj_46(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$platforms'.0.'|'.0.name
-        res = ((typeof pval === 'string' || pval instanceof String)) && pval == "AIX"
+        res = ((typeof pval == 'string' || pval instanceof String)) && pval == "AIX"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_AIX\" [.'$platforms'.0.'|'.0.name]", (path ? lpath : null)])
@@ -5872,7 +5872,7 @@ function _jm_obj_46(val, path, rep)
                 let arr_94_item = pval[arr_94_idx]
                 let arr_94_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_94_idx]) : null
                 // .'$platforms'.0.'|'.0.versions.0
-                res = ((arr_94_item === null || (typeof arr_94_item === 'number' || arr_94_item instanceof Number) || (typeof arr_94_item === 'boolean' || arr_94_item instanceof Boolean) || (typeof arr_94_item === 'string' || arr_94_item instanceof String))) && _jm_cst_63.has(arr_94_item)
+                res = ((arr_94_item === null || (typeof arr_94_item == 'number' || arr_94_item instanceof Number) || (typeof arr_94_item == 'boolean' || arr_94_item instanceof Boolean) || (typeof arr_94_item == 'string' || arr_94_item instanceof String))) && _jm_cst_63.has(arr_94_item)
                 if (! res)
                 {
                     rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", ((path ? lpath : null) ? arr_94_lpath : null)])
@@ -6239,7 +6239,7 @@ function json_model_51(val, path, rep)
                     let arr_95_item = pval[arr_95_idx]
                     let arr_95_lpath = (path ? lpath_47 : null) ? (path ? lpath_47 : null).concat([arr_95_idx]) : null
                     // .'$GalaxyInfoModelCollection'.galaxy_tags.0
-                    res = (typeof arr_95_item === 'string' || arr_95_item instanceof String)
+                    res = (typeof arr_95_item == 'string' || arr_95_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path ? lpath_47 : null) ? arr_95_lpath : null)])
@@ -6259,7 +6259,7 @@ function json_model_51(val, path, rep)
         {
             // handle may min_ansible_version property
             // .'$GalaxyInfoModelCollection'.min_ansible_version
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? lpath_47 : null)])
@@ -6273,7 +6273,7 @@ function json_model_51(val, path, rep)
             // handle may namespace property
             // .'$GalaxyInfoModelCollection'.namespace
             // "/^[a-z][-a-z0-9_]+$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_47 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_47 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModelCollection'.namespace]", (path ? lpath_47 : null)])
@@ -6300,7 +6300,7 @@ function json_model_51(val, path, rep)
             // handle may role_name property
             // .'$GalaxyInfoModelCollection'.role_name
             // "/^[a-z][a-z0-9_]+$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_47 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_47 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModelCollection'.role_name]", (path ? lpath_47 : null)])
@@ -6348,7 +6348,7 @@ function json_model_52(val, path, rep)
             // handle must description property
             must_count += 1
             // .'$GalaxyInfoModelLoose'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.description]", (path ? lpath_48 : null)])
@@ -6361,7 +6361,7 @@ function json_model_52(val, path, rep)
         {
             // handle may author property
             // .'$GalaxyInfoModelLoose'.author
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.author]", (path ? lpath_48 : null)])
@@ -6374,7 +6374,7 @@ function json_model_52(val, path, rep)
         {
             // handle may company property
             // .'$GalaxyInfoModelLoose'.company
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.company]", (path ? lpath_48 : null)])
@@ -6387,7 +6387,7 @@ function json_model_52(val, path, rep)
         {
             // handle may github_branch property
             // .'$GalaxyInfoModelLoose'.github_branch
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.github_branch]", (path ? lpath_48 : null)])
@@ -6400,7 +6400,7 @@ function json_model_52(val, path, rep)
         {
             // handle may issue_tracker_url property
             // .'$GalaxyInfoModelLoose'.issue_tracker_url
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? lpath_48 : null)])
@@ -6413,7 +6413,7 @@ function json_model_52(val, path, rep)
         {
             // handle may license property
             // .'$GalaxyInfoModelLoose'.license
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.license]", (path ? lpath_48 : null)])
@@ -6426,7 +6426,7 @@ function json_model_52(val, path, rep)
         {
             // handle may min_ansible_container_version property
             // .'$GalaxyInfoModelLoose'.min_ansible_container_version
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? lpath_48 : null)])
@@ -6469,7 +6469,7 @@ function json_model_53(val, path, rep)
             // handle must standalone property
             must_count += 1
             // .'$GalaxyInfoModelStandalone'.standalone
-            res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true
+            res = ((typeof pval == 'boolean' || pval instanceof Boolean)) && pval == true
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"=true\" [.'$GalaxyInfoModelStandalone'.standalone]", (path ? lpath_49 : null)])
@@ -6483,7 +6483,7 @@ function json_model_53(val, path, rep)
             // handle must description property
             must_count += 1
             // .'$GalaxyInfoModelStandalone'.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.description]", (path ? lpath_49 : null)])
@@ -6497,7 +6497,7 @@ function json_model_53(val, path, rep)
             // handle must author property
             must_count += 1
             // .'$GalaxyInfoModelStandalone'.author
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.author]", (path ? lpath_49 : null)])
@@ -6511,7 +6511,7 @@ function json_model_53(val, path, rep)
             // handle must license property
             must_count += 1
             // .'$GalaxyInfoModelStandalone'.license
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.license]", (path ? lpath_49 : null)])
@@ -6525,7 +6525,7 @@ function json_model_53(val, path, rep)
             // handle must min_ansible_version property
             must_count += 1
             // .'$GalaxyInfoModelStandalone'.min_ansible_version
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path ? lpath_49 : null)])
@@ -6538,7 +6538,7 @@ function json_model_53(val, path, rep)
         {
             // handle may company property
             // .'$GalaxyInfoModelStandalone'.company
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.company]", (path ? lpath_49 : null)])
@@ -6551,7 +6551,7 @@ function json_model_53(val, path, rep)
         {
             // handle may github_branch property
             // .'$GalaxyInfoModelStandalone'.github_branch
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? lpath_49 : null)])
@@ -6564,7 +6564,7 @@ function json_model_53(val, path, rep)
         {
             // handle may issue_tracker_url property
             // .'$GalaxyInfoModelStandalone'.issue_tracker_url
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? lpath_49 : null)])
@@ -6577,7 +6577,7 @@ function json_model_53(val, path, rep)
         {
             // handle may min_ansible_container_version property
             // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? lpath_49 : null)])
@@ -6605,7 +6605,7 @@ function json_model_53(val, path, rep)
                     let arr_96_item = pval[arr_96_idx]
                     let arr_96_lpath = (path ? lpath_49 : null) ? (path ? lpath_49 : null).concat([arr_96_idx]) : null
                     // .'$GalaxyInfoModelStandalone'.galaxy_tags.0
-                    res = (typeof arr_96_item === 'string' || arr_96_item instanceof String)
+                    res = (typeof arr_96_item == 'string' || arr_96_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path ? lpath_49 : null) ? arr_96_lpath : null)])
@@ -6626,7 +6626,7 @@ function json_model_53(val, path, rep)
             // handle may namespace property
             // .'$GalaxyInfoModelStandalone'.namespace
             // "/^[a-z][-a-z0-9_]+$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_49 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_49 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModelStandalone'.namespace]", (path ? lpath_49 : null)])
@@ -6653,7 +6653,7 @@ function json_model_53(val, path, rep)
             // handle may role_name property
             // .'$GalaxyInfoModelStandalone'.role_name
             // "/^[a-z][a-z0-9_]+$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_49 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_49 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModelStandalone'.role_name]", (path ? lpath_49 : null)])
@@ -6716,7 +6716,7 @@ function _jm_obj_47(val, path, rep)
             // handle must standalone property
             must_count += 1
             // .'$GalaxyInfoModel'.'|'.1.standalone
-            res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false
+            res = ((typeof pval == 'boolean' || pval instanceof Boolean)) && pval == false
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"=false\" [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? lpath_50 : null)])
@@ -6730,7 +6730,7 @@ function _jm_obj_47(val, path, rep)
             // handle must description property
             must_count += 1
             // .'$GalaxyInfoModel'.'|'.1.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.description]", (path ? lpath_50 : null)])
@@ -6743,7 +6743,7 @@ function _jm_obj_47(val, path, rep)
         {
             // handle may author property
             // .'$GalaxyInfoModel'.'|'.1.author
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.author]", (path ? lpath_50 : null)])
@@ -6756,7 +6756,7 @@ function _jm_obj_47(val, path, rep)
         {
             // handle may company property
             // .'$GalaxyInfoModel'.'|'.1.company
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.company]", (path ? lpath_50 : null)])
@@ -6769,7 +6769,7 @@ function _jm_obj_47(val, path, rep)
         {
             // handle may github_branch property
             // .'$GalaxyInfoModel'.'|'.1.github_branch
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? lpath_50 : null)])
@@ -6782,7 +6782,7 @@ function _jm_obj_47(val, path, rep)
         {
             // handle may issue_tracker_url property
             // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? lpath_50 : null)])
@@ -6795,7 +6795,7 @@ function _jm_obj_47(val, path, rep)
         {
             // handle may license property
             // .'$GalaxyInfoModel'.'|'.1.license
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.license]", (path ? lpath_50 : null)])
@@ -6808,7 +6808,7 @@ function _jm_obj_47(val, path, rep)
         {
             // handle may min_ansible_container_version property
             // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? lpath_50 : null)])
@@ -6836,7 +6836,7 @@ function _jm_obj_47(val, path, rep)
                     let arr_97_item = pval[arr_97_idx]
                     let arr_97_lpath = (path ? lpath_50 : null) ? (path ? lpath_50 : null).concat([arr_97_idx]) : null
                     // .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
-                    res = (typeof arr_97_item === 'string' || arr_97_item instanceof String)
+                    res = (typeof arr_97_item == 'string' || arr_97_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", ((path ? lpath_50 : null) ? arr_97_lpath : null)])
@@ -6856,7 +6856,7 @@ function _jm_obj_47(val, path, rep)
         {
             // handle may min_ansible_version property
             // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? lpath_50 : null)])
@@ -6870,7 +6870,7 @@ function _jm_obj_47(val, path, rep)
             // handle may namespace property
             // .'$GalaxyInfoModel'.'|'.1.namespace
             // "/^[a-z][-a-z0-9_]+$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_50 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_50 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.1.namespace]", (path ? lpath_50 : null)])
@@ -6897,7 +6897,7 @@ function _jm_obj_47(val, path, rep)
             // handle may role_name property
             // .'$GalaxyInfoModel'.'|'.1.role_name
             // "/^[a-z][a-z0-9_]+$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_50 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_50 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.1.role_name]", (path ? lpath_50 : null)])
@@ -6954,7 +6954,7 @@ function _jm_obj_48(val, path, rep)
             // handle must description property
             must_count += 1
             // .'$GalaxyInfoModel'.'|'.2.description
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.description]", (path ? lpath_51 : null)])
@@ -6967,7 +6967,7 @@ function _jm_obj_48(val, path, rep)
         {
             // handle may author property
             // .'$GalaxyInfoModel'.'|'.2.author
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.author]", (path ? lpath_51 : null)])
@@ -6980,7 +6980,7 @@ function _jm_obj_48(val, path, rep)
         {
             // handle may company property
             // .'$GalaxyInfoModel'.'|'.2.company
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.company]", (path ? lpath_51 : null)])
@@ -6993,7 +6993,7 @@ function _jm_obj_48(val, path, rep)
         {
             // handle may github_branch property
             // .'$GalaxyInfoModel'.'|'.2.github_branch
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? lpath_51 : null)])
@@ -7006,7 +7006,7 @@ function _jm_obj_48(val, path, rep)
         {
             // handle may issue_tracker_url property
             // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? lpath_51 : null)])
@@ -7019,7 +7019,7 @@ function _jm_obj_48(val, path, rep)
         {
             // handle may license property
             // .'$GalaxyInfoModel'.'|'.2.license
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.license]", (path ? lpath_51 : null)])
@@ -7032,7 +7032,7 @@ function _jm_obj_48(val, path, rep)
         {
             // handle may min_ansible_container_version property
             // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? lpath_51 : null)])
@@ -7060,7 +7060,7 @@ function _jm_obj_48(val, path, rep)
                     let arr_98_item = pval[arr_98_idx]
                     let arr_98_lpath = (path ? lpath_51 : null) ? (path ? lpath_51 : null).concat([arr_98_idx]) : null
                     // .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
-                    res = (typeof arr_98_item === 'string' || arr_98_item instanceof String)
+                    res = (typeof arr_98_item == 'string' || arr_98_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", ((path ? lpath_51 : null) ? arr_98_lpath : null)])
@@ -7080,7 +7080,7 @@ function _jm_obj_48(val, path, rep)
         {
             // handle may min_ansible_version property
             // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? lpath_51 : null)])
@@ -7094,7 +7094,7 @@ function _jm_obj_48(val, path, rep)
             // handle may namespace property
             // .'$GalaxyInfoModel'.'|'.2.namespace
             // "/^[a-z][-a-z0-9_]+$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_51 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_51 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.2.namespace]", (path ? lpath_51 : null)])
@@ -7121,7 +7121,7 @@ function _jm_obj_48(val, path, rep)
             // handle may role_name property
             // .'$GalaxyInfoModel'.'|'.2.role_name
             // "/^[a-z][a-z0-9_]+$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_51 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_51 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.2.role_name]", (path ? lpath_51 : null)])
@@ -7212,7 +7212,7 @@ function json_model_55(val, path, rep)
             let arr_99_lpath = path ? path.concat([arr_99_idx]) : null
             // .'$collections'.0
             // "/^[a-z_]+\\.[a-z_]+$/"
-            res = ((typeof arr_99_item === 'string' || arr_99_item instanceof String)) && _jm_re_2(arr_99_item, (path ? arr_99_lpath : null), rep)
+            res = ((typeof arr_99_item == 'string' || arr_99_item instanceof String)) && _jm_re_2(arr_99_item, (path ? arr_99_lpath : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^[a-z_]+\\\\.[a-z_]+$/\" [.'$collections'.0]", (path ? arr_99_lpath : null)])
@@ -7230,12 +7230,12 @@ function json_model_56(val, path, rep)
 {
     // .'$complex_conditional'
     // .'$complex_conditional'.'|'.0
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$complex_conditional'.'|'.0]", path])
         // .'$complex_conditional'.'|'.1
-        res = (typeof val === 'string' || val instanceof String)
+        res = (typeof val == 'string' || val instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$complex_conditional'.'|'.1]", path])
@@ -7248,7 +7248,7 @@ function json_model_56(val, path, rep)
                     let arr_100_item = val[arr_100_idx]
                     let arr_100_lpath = path ? path.concat([arr_100_idx]) : null
                     // .'$complex_conditional'.'|'.2.0
-                    res = (typeof arr_100_item === 'string' || arr_100_item instanceof String)
+                    res = (typeof arr_100_item == 'string' || arr_100_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$complex_conditional'.'|'.2.0]", (path ? arr_100_lpath : null)])
@@ -7291,7 +7291,7 @@ function json_model_57(val, path, rep)
         lpath = path ? path.concat(["become"]) : null
         pval = val["become"]
         // .'$DependencyModelLoose'.become
-        res = (typeof pval === 'boolean' || pval instanceof Boolean)
+        res = (typeof pval == 'boolean' || pval instanceof Boolean)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$DependencyModelLoose'.become]", (path ? lpath : null)])
@@ -7304,7 +7304,7 @@ function json_model_57(val, path, rep)
         lpath = path ? path.concat(["name"]) : null
         pval = val["name"]
         // .'$DependencyModelLoose'.name
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.name]", (path ? lpath : null)])
@@ -7317,7 +7317,7 @@ function json_model_57(val, path, rep)
         lpath = path ? path.concat(["role"]) : null
         pval = val["role"]
         // .'$DependencyModelLoose'.role
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.role]", (path ? lpath : null)])
@@ -7330,7 +7330,7 @@ function json_model_57(val, path, rep)
         lpath = path ? path.concat(["src"]) : null
         pval = val["src"]
         // .'$DependencyModelLoose'.src
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.src]", (path ? lpath : null)])
@@ -7343,7 +7343,7 @@ function json_model_57(val, path, rep)
         lpath = path ? path.concat(["scm"]) : null
         pval = val["scm"]
         // .'$DependencyModelLoose'.scm
-        res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_64.has(pval)
+        res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_64.has(pval)
         if (! res)
         {
             rep !== null && rep.push(["value not in enum [.'$DependencyModelLoose'.scm.'|']", (path ? lpath : null)])
@@ -7357,7 +7357,7 @@ function json_model_57(val, path, rep)
         pval = val["tags"]
         // .'$DependencyModelLoose'.tags
         // .'$DependencyModelLoose'.tags.'|'.0
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.tags.'|'.0]", (path ? lpath : null)])
@@ -7370,7 +7370,7 @@ function json_model_57(val, path, rep)
                     let arr_101_item = pval[arr_101_idx]
                     let arr_101_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_101_idx]) : null
                     // .'$DependencyModelLoose'.tags.'|'.1.0
-                    res = (typeof arr_101_item === 'string' || arr_101_item instanceof String)
+                    res = (typeof arr_101_item == 'string' || arr_101_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path ? lpath : null) ? arr_101_lpath : null)])
@@ -7409,7 +7409,7 @@ function json_model_57(val, path, rep)
         lpath = path ? path.concat(["version"]) : null
         pval = val["version"]
         // .'$DependencyModelLoose'.version
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.version]", (path ? lpath : null)])
@@ -7448,7 +7448,7 @@ function _jm_obj_49(val, path, rep)
     lpath = path ? path.concat(["name"]) : null
     pval = val["name"]
     // .'$DependencyModel'.'&'.1.'|'.2.name
-    let res = (typeof pval === 'string' || pval instanceof String)
+    let res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.2.name]", (path ? lpath : null)])
@@ -7473,7 +7473,7 @@ function _jm_obj_50(val, path, rep)
     lpath = path ? path.concat(["src"]) : null
     pval = val["src"]
     // .'$DependencyModel'.'&'.1.'|'.1.src
-    let res = (typeof pval === 'string' || pval instanceof String)
+    let res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.1.src]", (path ? lpath : null)])
@@ -7498,7 +7498,7 @@ function _jm_obj_51(val, path, rep)
     lpath = path ? path.concat(["role"]) : null
     pval = val["role"]
     // .'$DependencyModel'.'&'.1.'|'.0.role
-    let res = (typeof pval === 'string' || pval instanceof String)
+    let res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.0.role]", (path ? lpath : null)])
@@ -7579,7 +7579,7 @@ function json_model_59(val, path, rep)
         {
             // handle may allow_duplicates property
             // .'$AnsibleMetaObj'.allow_duplicates
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path ? lpath_52 : null)])
@@ -7614,7 +7614,7 @@ function json_model_59(val, path, rep)
                     let arr_102_lpath = (path ? lpath_52 : null) ? (path ? lpath_52 : null).concat([arr_102_idx]) : null
                     // .'$AnsibleMetaObj'.dependencies.0
                     // .'$AnsibleMetaObj'.dependencies.0.'|'.0
-                    res = (typeof arr_102_item === 'string' || arr_102_item instanceof String)
+                    res = (typeof arr_102_item == 'string' || arr_102_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path ? lpath_52 : null) ? arr_102_lpath : null)])

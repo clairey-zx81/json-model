@@ -18,13 +18,13 @@ function json_model_2(val, path, rep)
     if (! val.hasOwnProperty("x"))
         return false
     pval = val["x"]
-    let res = (typeof pval === 'string' || pval instanceof String)
+    let res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
         return false
     if (! val.hasOwnProperty("y"))
         return false
     pval = val["y"]
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 function json_model_1(val, path, rep)

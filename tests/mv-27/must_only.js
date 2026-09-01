@@ -30,7 +30,7 @@ function _jm_obj_1(val, path, rep)
         return false
     pval = val["p10"]
     // .mo1.p10
-    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    return ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
 }
 
 // object .mo2
@@ -46,14 +46,14 @@ function _jm_obj_2(val, path, rep)
         return false
     pval = val["p20"]
     // .mo2.p20
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
         return false
     if (! val.hasOwnProperty("p21"))
         return false
     pval = val["p21"]
     // .mo2.p21
-    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    return ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
 }
 
 // object .mo3
@@ -70,7 +70,7 @@ function _jm_obj_3(val, path, rep)
             // handle must p30 property
             must_count += 1
             // .mo3.p30
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -80,7 +80,7 @@ function _jm_obj_3(val, path, rep)
             // handle must p31 property
             must_count += 1
             // .mo3.p31
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -90,7 +90,7 @@ function _jm_obj_3(val, path, rep)
             // handle must p32 property
             must_count += 1
             // .mo3.p32
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue

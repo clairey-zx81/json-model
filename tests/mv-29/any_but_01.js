@@ -30,7 +30,7 @@ function json_model_2(val, path, rep)
             // handle must a property
             must_count += 1
             // .'$Obj'.a
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Obj'.a]", (path ? lpath_0 : null)])
@@ -43,7 +43,7 @@ function json_model_2(val, path, rep)
         {
             // handle may b property
             // .'$Obj'.b
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Obj'.b]", (path ? lpath_0 : null)])

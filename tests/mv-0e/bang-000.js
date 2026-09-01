@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
             // handle must ! property
             must_count += 1
             // .'!'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'!']", (path ? lpath_0 : null)])
@@ -44,7 +44,7 @@ function json_model_1(val, path, rep)
             // handle must _ property
             must_count += 1
             // ._
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [._]", (path ? lpath_0 : null)])
@@ -58,7 +58,7 @@ function json_model_1(val, path, rep)
             // handle must a property
             must_count += 1
             // .a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.a]", (path ? lpath_0 : null)])
@@ -72,7 +72,7 @@ function json_model_1(val, path, rep)
             // handle must ? property
             must_count += 1
             // .'?'
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0
+            res = ((typeof pval == 'number' || pval instanceof Number)) && pval >= 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'?']", (path ? lpath_0 : null)])
@@ -86,7 +86,7 @@ function json_model_1(val, path, rep)
             // handle must / property
             must_count += 1
             // .'/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 17
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 17
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"=17\" [.'/']", (path ? lpath_0 : null)])

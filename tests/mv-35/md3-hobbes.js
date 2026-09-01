@@ -21,7 +21,7 @@ function json_model_1(val, path, rep)
         if (prop == "name")
         {
             must_count += 1
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, null, null)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, null, null)
             if (! res)
                 return false
             continue
@@ -42,7 +42,7 @@ function json_model_1(val, path, rep)
                 for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
                 {
                     let arr_0_item = pval[arr_0_idx]
-                    res = ((typeof arr_0_item === 'string' || arr_0_item instanceof String)) && _jm_re_0(arr_0_item, null, null)
+                    res = ((typeof arr_0_item == 'string' || arr_0_item instanceof String)) && _jm_re_0(arr_0_item, null, null)
                     if (! res)
                         break
                 }

@@ -31,7 +31,7 @@ const jm_is_uuid_re = new runtime.RX("^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$
 function json_model_2(val, path, rep)
 {
     // .'$a'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "A"
+    let res = ((typeof val == 'string' || val instanceof String)) && val == "A"
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"_A\" [.'$a']", path])
     return res
@@ -41,7 +41,7 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$b'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "A"
+    let res = ((typeof val == 'string' || val instanceof String)) && val == "A"
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"_A\" [.'$b']", path])
     return res
@@ -72,7 +72,7 @@ function json_model_4(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'$ab'.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$ab'.a]", (path ? lpath : null)])
@@ -87,7 +87,7 @@ function json_model_4(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'$ab'.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$ab'.b]", (path ? lpath : null)])
@@ -122,7 +122,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .'$cd'.c
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$cd'.c]", (path ? lpath : null)])
@@ -137,7 +137,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .'$cd'.d
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$cd'.d]", (path ? lpath : null)])
@@ -158,7 +158,7 @@ function _jm_f_0(val, path, rep)
 function _jm_f_1(val, path, rep)
 {
     // .predefs.BOOL
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.predefs.BOOL]", path])
     return res
@@ -168,7 +168,7 @@ function _jm_f_1(val, path, rep)
 function _jm_f_2(val, path, rep)
 {
     // .predefs.BOOLEAN
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.predefs.BOOLEAN]", path])
     return res
@@ -198,7 +198,7 @@ function _jm_f_4(val, path, rep)
 function _jm_f_5(val, path, rep)
 {
     // .predefs.DURATION
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_duration(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && jm_is_duration(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$DURATION\" [.predefs.DURATION]", path])
     return res
@@ -208,7 +208,7 @@ function _jm_f_5(val, path, rep)
 function _jm_f_6(val, path, rep)
 {
     // .predefs.EMAIL
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_email(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && jm_is_email(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", path])
     return res
@@ -218,7 +218,7 @@ function _jm_f_6(val, path, rep)
 function _jm_f_7(val, path, rep)
 {
     // .predefs.ETH
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_eth(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && jm_is_eth(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$ETH\" [.predefs.ETH]", path])
     return res
@@ -238,7 +238,7 @@ function _jm_f_8(val, path, rep)
 function _jm_f_9(val, path, rep)
 {
     // .predefs.F32
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$F32\" [.predefs.F32]", path])
     return res
@@ -248,7 +248,7 @@ function _jm_f_9(val, path, rep)
 function _jm_f_10(val, path, rep)
 {
     // .predefs.F64
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$F64\" [.predefs.F64]", path])
     return res
@@ -258,7 +258,7 @@ function _jm_f_10(val, path, rep)
 function _jm_f_11(val, path, rep)
 {
     // .predefs.FLOAT
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$FLOAT\" [.predefs.FLOAT]", path])
     return res
@@ -268,7 +268,7 @@ function _jm_f_11(val, path, rep)
 function _jm_f_12(val, path, rep)
 {
     // .predefs.HOST
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_host(val, path, rep) && runtime.jm_char_length(val) <= 255
+    let res = ((typeof val == 'string' || val instanceof String)) && jm_is_host(val, path, rep) && runtime.jm_char_length(val) <= 255
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$HOST\" [.predefs.HOST]", path])
     return res
@@ -278,7 +278,7 @@ function _jm_f_12(val, path, rep)
 function _jm_f_13(val, path, rep)
 {
     // .predefs.I32
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
+    let res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$I32\" [.predefs.I32]", path])
     return res
@@ -288,7 +288,7 @@ function _jm_f_13(val, path, rep)
 function _jm_f_14(val, path, rep)
 {
     // .predefs.I64
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
+    let res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$I64\" [.predefs.I64]", path])
     return res
@@ -298,7 +298,7 @@ function _jm_f_14(val, path, rep)
 function _jm_f_15(val, path, rep)
 {
     // .predefs.INT
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
+    let res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$INT\" [.predefs.INT]", path])
     return res
@@ -308,7 +308,7 @@ function _jm_f_15(val, path, rep)
 function _jm_f_16(val, path, rep)
 {
     // .predefs.INTEGER
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
+    let res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$INTEGER\" [.predefs.INTEGER]", path])
     return res
@@ -318,7 +318,7 @@ function _jm_f_16(val, path, rep)
 function _jm_f_17(val, path, rep)
 {
     // .predefs.IP4
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_ip4(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && jm_is_ip4(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$IP4\" [.predefs.IP4]", path])
     return res
@@ -328,7 +328,7 @@ function _jm_f_17(val, path, rep)
 function _jm_f_18(val, path, rep)
 {
     // .predefs.IP6
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_ip6(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && jm_is_ip6(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$IP6\" [.predefs.IP6]", path])
     return res
@@ -348,7 +348,7 @@ function _jm_f_19(val, path, rep)
 function _jm_f_20(val, path, rep)
 {
     // .predefs.JSONPT
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_jsonpt(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && jm_is_jsonpt(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$JSONPT\" [.predefs.JSONPT]", path])
     return res
@@ -376,7 +376,7 @@ function _jm_f_22(val, path, rep)
 function _jm_f_23(val, path, rep)
 {
     // .predefs.NUMBER
-    let res = (typeof val === 'number' || val instanceof Number)
+    let res = (typeof val == 'number' || val instanceof Number)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$NUMBER\" [.predefs.NUMBER]", path])
     return res
@@ -396,7 +396,7 @@ function _jm_f_24(val, path, rep)
 function _jm_f_25(val, path, rep)
 {
     // .predefs.STRING
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$STRING\" [.predefs.STRING]", path])
     return res
@@ -416,7 +416,7 @@ function _jm_f_26(val, path, rep)
 function _jm_f_27(val, path, rep)
 {
     // .predefs.U32
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$U32\" [.predefs.U32]", path])
     return res
@@ -426,7 +426,7 @@ function _jm_f_27(val, path, rep)
 function _jm_f_28(val, path, rep)
 {
     // .predefs.U64
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$U64\" [.predefs.U64]", path])
     return res
@@ -456,7 +456,7 @@ function _jm_f_30(val, path, rep)
 function _jm_f_31(val, path, rep)
 {
     // .predefs.UUID
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_uuid(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && jm_is_uuid(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$UUID\" [.predefs.UUID]", path])
     return res
@@ -565,7 +565,7 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may b0 property
             // .bool.b0
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.bool.b0]", (path ? lpath_3 : null)])
@@ -578,7 +578,7 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may b1 property
             // .bool.b1
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.bool.b1]", (path ? lpath_3 : null)])
@@ -591,7 +591,7 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may b2 property
             // .bool.b2
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.bool.b2]", (path ? lpath_3 : null)])
@@ -604,7 +604,7 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may b3 property
             // .bool.b3
-            res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true
+            res = ((typeof pval == 'boolean' || pval instanceof Boolean)) && pval == true
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"=true\" [.bool.b3]", (path ? lpath_3 : null)])
@@ -617,7 +617,7 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may b4 property
             // .bool.b4
-            res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false
+            res = ((typeof pval == 'boolean' || pval instanceof Boolean)) && pval == false
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"=false\" [.bool.b4]", (path ? lpath_3 : null)])
@@ -630,7 +630,7 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may b5 property
             // .bool.b5
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
+            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.bool.b5.'|']", (path ? lpath_3 : null)])
@@ -661,7 +661,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may i0 property
             // .int.i0
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.int.i0]", (path ? lpath_4 : null)])
@@ -674,7 +674,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may i1 property
             // .int.i1
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.int.i1]", (path ? lpath_4 : null)])
@@ -687,7 +687,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may i2 property
             // .int.i2
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+            res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1 strict int [.int.i2]", (path ? lpath_4 : null)])
@@ -700,7 +700,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may i3 property
             // .int.i3
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+            res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$INT\" [.int.i3]", (path ? lpath_4 : null)])
@@ -713,7 +713,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may i4 property
             // .int.i4
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+            res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$INTEGER\" [.int.i4]", (path ? lpath_4 : null)])
@@ -726,7 +726,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may i5 property
             // .int.i5
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+            res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$I32\" [.int.i5]", (path ? lpath_4 : null)])
@@ -739,7 +739,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may i6 property
             // .int.i6
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+            res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$I64\" [.int.i6]", (path ? lpath_4 : null)])
@@ -752,7 +752,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may i7 property
             // .int.i7
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$U32\" [.int.i7]", (path ? lpath_4 : null)])
@@ -765,7 +765,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may i8 property
             // .int.i8
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$U64\" [.int.i8]", (path ? lpath_4 : null)])
@@ -778,7 +778,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may i9 property
             // .int.i9
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 42
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 42
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"=42\" [.int.i9]", (path ? lpath_4 : null)])
@@ -791,7 +791,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may ia property
             // .int.ia
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == -42
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == -42
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"=-42\" [.int.ia]", (path ? lpath_4 : null)])
@@ -822,7 +822,7 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may f0 property
             // .float.f0
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0
+            res = ((typeof pval == 'number' || pval instanceof Number)) && pval >= 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.float.f0]", (path ? lpath_5 : null)])
@@ -835,7 +835,7 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may f1 property
             // .float.f1
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0
+            res = ((typeof pval == 'number' || pval instanceof Number)) && pval > 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 1.0 strict float [.float.f1]", (path ? lpath_5 : null)])
@@ -848,7 +848,7 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may f2 property
             // .float.f2
-            res = (typeof pval === 'number' || pval instanceof Number)
+            res = (typeof pval == 'number' || pval instanceof Number)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1.0 strict float [.float.f2]", (path ? lpath_5 : null)])
@@ -861,7 +861,7 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may f3 property
             // .float.f3
-            res = (typeof pval === 'number' || pval instanceof Number)
+            res = (typeof pval == 'number' || pval instanceof Number)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$FLOAT\" [.float.f3]", (path ? lpath_5 : null)])
@@ -874,7 +874,7 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may f4 property
             // .float.f4
-            res = (typeof pval === 'number' || pval instanceof Number)
+            res = (typeof pval == 'number' || pval instanceof Number)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$F32\" [.float.f4]", (path ? lpath_5 : null)])
@@ -887,7 +887,7 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may f5 property
             // .float.f5
-            res = (typeof pval === 'number' || pval instanceof Number)
+            res = (typeof pval == 'number' || pval instanceof Number)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$F64\" [.float.f5]", (path ? lpath_5 : null)])
@@ -900,7 +900,7 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may f6 property
             // .float.f6
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 3.1415927
+            res = ((typeof pval == 'number' || pval instanceof Number)) && pval == 3.1415927
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"=3.1415927\" [.float.f6]", (path ? lpath_5 : null)])
@@ -913,7 +913,7 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may f7 property
             // .float.f7
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 1e+100
+            res = ((typeof pval == 'number' || pval instanceof Number)) && pval == 1e+100
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"=1.0E100\" [.float.f7]", (path ? lpath_5 : null)])
@@ -926,7 +926,7 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may f8 property
             // .float.f8
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval == -42.1
+            res = ((typeof pval == 'number' || pval instanceof Number)) && pval == -42.1
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"=-42.1\" [.float.f8]", (path ? lpath_5 : null)])
@@ -958,7 +958,7 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may s0 property
             // .string.s0
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.string.s0]", (path ? lpath_6 : null)])
@@ -971,7 +971,7 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may s1 property
             // .string.s1
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$STRING\" [.string.s1]", (path ? lpath_6 : null)])
@@ -984,7 +984,7 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may s2 property
             // .string.s2
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Susie"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Susie"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"Susie\" [.string.s2]", (path ? lpath_6 : null)])
@@ -997,7 +997,7 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may s3 property
             // .string.s3
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Calvin"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Calvin"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Calvin\" [.string.s3]", (path ? lpath_6 : null)])
@@ -1010,7 +1010,7 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may s4 property
             // .string.s4
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
+            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.string.s4.'|']", (path ? lpath_6 : null)])
@@ -1049,7 +1049,7 @@ function _jm_obj_6(val, path, rep)
                     let arr_0_item = pval[arr_0_idx]
                     let arr_0_lpath = (path ? lpath_7 : null) ? (path ? lpath_7 : null).concat([arr_0_idx]) : null
                     // .array.a0.0
-                    res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0
+                    res = ((typeof arr_0_item == 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0
                     if (! res)
                     {
                         rep !== null && rep.push(["not a 0 strict int [.array.a0.0]", ((path ? lpath_7 : null) ? arr_0_lpath : null)])
@@ -1077,7 +1077,7 @@ function _jm_obj_6(val, path, rep)
                     let arr_1_item = pval[arr_1_idx]
                     let arr_1_lpath = (path ? lpath_7 : null) ? (path ? lpath_7 : null).concat([arr_1_idx]) : null
                     // .array.a1.0
-                    res = (typeof arr_1_item === 'string' || arr_1_item instanceof String)
+                    res = (typeof arr_1_item == 'string' || arr_1_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.array.a1.0]", ((path ? lpath_7 : null) ? arr_1_lpath : null)])
@@ -1133,7 +1133,7 @@ function _jm_obj_6(val, path, rep)
                     let arr_3_item = pval[arr_3_idx]
                     let arr_3_lpath = (path ? lpath_7 : null) ? (path ? lpath_7 : null).concat([arr_3_idx]) : null
                     // .array.a3.0
-                    res = (typeof arr_3_item === 'boolean' || arr_3_item instanceof Boolean)
+                    res = (typeof arr_3_item == 'boolean' || arr_3_item instanceof Boolean)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a bool [.array.a3.0]", ((path ? lpath_7 : null) ? arr_3_lpath : null)])
@@ -1206,7 +1206,7 @@ function _jm_obj_7(val, path, rep)
                     let arr_4_item = pval[arr_4_idx]
                     let arr_4_lpath = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([arr_4_idx]) : null
                     // .tuple.t1.'@'.0
-                    res = ((typeof arr_4_item === 'number' || arr_4_item instanceof Number) && Number.isInteger(arr_4_item)) && arr_4_item >= 0
+                    res = ((typeof arr_4_item == 'number' || arr_4_item instanceof Number) && Number.isInteger(arr_4_item)) && arr_4_item >= 0
                     if (! res)
                     {
                         rep !== null && rep.push(["not a 0 strict int [.tuple.t1.'@'.0]", ((path ? lpath_8 : null) ? arr_4_lpath : null)])
@@ -1239,12 +1239,12 @@ function _jm_obj_7(val, path, rep)
             {
                 let lpath_9 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([0]) : null
                 // .tuple.t2.0
-                res = ((typeof pval[0] === 'number' || pval[0] instanceof Number) && Number.isInteger(pval[0])) && pval[0] >= 0
+                res = ((typeof pval[0] == 'number' || pval[0] instanceof Number) && Number.isInteger(pval[0])) && pval[0] >= 0
                 if (res)
                 {
                     lpath_9 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([1]) : null
                     // .tuple.t2.1
-                    res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0
+                    res = ((typeof pval[1] == 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0
                     if (! res)
                         rep !== null && rep.push(["not a 0 strict int [.tuple.t2.1]", ((path ? lpath_8 : null) ? lpath_9 : null)])
                 }
@@ -1268,17 +1268,17 @@ function _jm_obj_7(val, path, rep)
             {
                 let lpath_10 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([0]) : null
                 // .tuple.t3.0
-                res = (typeof pval[0] === 'boolean' || pval[0] instanceof Boolean)
+                res = (typeof pval[0] == 'boolean' || pval[0] instanceof Boolean)
                 if (res)
                 {
                     lpath_10 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([1]) : null
                     // .tuple.t3.1
-                    res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0
+                    res = ((typeof pval[1] == 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0
                     if (res)
                     {
                         lpath_10 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([2]) : null
                         // .tuple.t3.2
-                        res = (typeof pval[2] === 'string' || pval[2] instanceof String)
+                        res = (typeof pval[2] == 'string' || pval[2] instanceof String)
                         if (! res)
                             rep !== null && rep.push(["unexpected value for model \"\" [.tuple.t3.2]", ((path ? lpath_8 : null) ? lpath_10 : null)])
                     }
@@ -1310,7 +1310,7 @@ function _jm_obj_7(val, path, rep)
                 {
                     lpath_11 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([0]) : null
                     // .tuple.t4.'@'.0
-                    res = (typeof pval[0] === 'string' || pval[0] instanceof String)
+                    res = (typeof pval[0] == 'string' || pval[0] instanceof String)
                     if (! res)
                         rep !== null && rep.push(["unexpected value for model \"\" [.tuple.t4.'@'.0]", ((path ? lpath_8 : null) ? lpath_11 : null)])
                 }
@@ -1320,7 +1320,7 @@ function _jm_obj_7(val, path, rep)
                     {
                         lpath_11 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([idx_0]) : null
                         // .tuple.t4.'@'.1
-                        res = ((typeof pval[idx_0] === 'number' || pval[idx_0] instanceof Number) && Number.isInteger(pval[idx_0])) && pval[idx_0] >= 0
+                        res = ((typeof pval[idx_0] == 'number' || pval[idx_0] instanceof Number) && Number.isInteger(pval[idx_0])) && pval[idx_0] >= 0
                         if (! res)
                         {
                             rep !== null && rep.push(["not a 0 strict int [.tuple.t4.'@'.1]", ((path ? lpath_8 : null) ? lpath_11 : null)])
@@ -1392,7 +1392,7 @@ function _jm_obj_10(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .object.o1.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.object.o1.a]", (path ? lpath : null)])
@@ -1407,7 +1407,7 @@ function _jm_obj_10(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .object.o1.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.object.o1.b]", (path ? lpath : null)])
@@ -1422,7 +1422,7 @@ function _jm_obj_10(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .object.o1.c
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.object.o1.c]", (path ? lpath : null)])
@@ -1448,7 +1448,7 @@ function _jm_obj_11(val, path, rep)
         {
             // handle may a property
             // .object.o2.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.object.o2.a]", (path ? lpath_13 : null)])
@@ -1479,7 +1479,7 @@ function _jm_obj_12(val, path, rep)
         {
             // handle 1 re props
             // .object.o3.'/^a/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.object.o3.'/^a/']", (path ? lpath_14 : null)])
@@ -1511,7 +1511,7 @@ function _jm_obj_13(val, path, rep)
         {
             // handle 1 key props
             // .object.o4.'$DATE'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.object.o4.'$DATE']", (path ? lpath_15 : null)])
@@ -1541,7 +1541,7 @@ function _jm_obj_14(val, path, rep)
         let lpath_16 = path ? path.concat([prop]) : null
         // handle other props
         // .object.o5.''
-        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+        res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
         {
             rep !== null && rep.push(["not a 0 strict int [.object.o5.'']", (path ? lpath_16 : null)])
@@ -1679,7 +1679,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may e0 property
             // .enum.e0
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_2.has(pval)
+            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_2.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e0.'|']", (path ? lpath_17 : null)])
@@ -1692,7 +1692,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may e1 property
             // .enum.e1
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_3.has(pval)
+            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_3.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e1.'|']", (path ? lpath_17 : null)])
@@ -1705,7 +1705,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may e2 property
             // .enum.e2
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval)
+            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_4.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e2.'|']", (path ? lpath_17 : null)])
@@ -1718,7 +1718,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may e3 property
             // .enum.e3
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_5.has(pval)
+            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_5.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e3.'|']", (path ? lpath_17 : null)])
@@ -1750,12 +1750,12 @@ function _jm_obj_16(val, path, rep)
             // handle may o0 property
             // .or.o0
             // .or.o0.'|'.0
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.or.o0.'|'.0]", (path ? lpath_18 : null)])
                 // .or.o0.'|'.1
-                res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+                res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
                 if (! res)
                     rep !== null && rep.push(["not a -1 strict int [.or.o0.'|'.1]", (path ? lpath_18 : null)])
             }
@@ -1775,7 +1775,7 @@ function _jm_obj_16(val, path, rep)
         {
             // handle may o1 property
             // .or.o1
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (res)
             {
                 // .or.o1.'|'.0
@@ -1809,12 +1809,12 @@ function _jm_obj_16(val, path, rep)
             // handle may o2 property
             // .or.o2
             // .or.o2.'|'.0
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.or.o2.'|'.0]", (path ? lpath_18 : null)])
                 // .or.o2.'|'.1
-                res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_uuid(pval, (path ? lpath_18 : null), rep)
+                res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_uuid(pval, (path ? lpath_18 : null), rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"$UUID\" [.or.o2.'|'.1]", (path ? lpath_18 : null)])
@@ -1863,12 +1863,12 @@ function _jm_obj_17(val, path, rep)
             // handle may x0 property
             // .xor.x0
             // .xor.x0.'|'.0
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.xor.x0.'|'.0]", (path ? lpath_19 : null)])
                 // .xor.x0.'|'.1
-                res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+                res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
                 if (! res)
                     rep !== null && rep.push(["not a -1 strict int [.xor.x0.'|'.1]", (path ? lpath_19 : null)])
             }
@@ -1892,14 +1892,14 @@ function _jm_obj_17(val, path, rep)
             let xc_0 = 0
             // .xor.x1.'^'.0
             // "/^a/"
-            let xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("a")
+            let xr_0 = ((typeof pval == 'string' || pval instanceof String)) && pval.startsWith("a")
             if (xr_0)
                 xc_0 += 1
             else
                 rep !== null && rep.push(["unexpected value for model \"/^a/\" [.xor.x1.'^'.0]", (path ? lpath_19 : null)])
             // .xor.x1.'^'.1
             // "/z$/"
-            xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval.endsWith("z")
+            xr_0 = ((typeof pval == 'string' || pval instanceof String)) && pval.endsWith("z")
             if (xr_0)
                 xc_0 += 1
             else
@@ -1924,13 +1924,13 @@ function _jm_obj_17(val, path, rep)
             // generic xor list
             let xc_1 = 0
             // .xor.x2.'^'.0
-            let xr_1 = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+            let xr_1 = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
             if (xr_1)
                 xc_1 += 1
             else
                 rep !== null && rep.push(["not a -1 strict int [.xor.x2.'^'.0]", (path ? lpath_19 : null)])
             // .xor.x2.'^'.1
-            xr_1 = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            xr_1 = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (xr_1)
                 xc_1 += 1
             else
@@ -1954,7 +1954,7 @@ function _jm_obj_17(val, path, rep)
             // .xor.x3
             // not-case xor list
             // .xor.x3.'^'.1
-            let is_0 = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            let is_0 = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! is_0)
                 rep !== null && rep.push(["not a 0 strict int [.xor.x3.'^'.1]", (path ? lpath_19 : null)])
             res = ! is_0
@@ -1992,7 +1992,7 @@ function _jm_obj_18(val, path, rep)
         {
             // handle may a0 property
             // .and.a0
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (res)
             {
                 // .and.a0.'&'.0
@@ -2044,7 +2044,7 @@ function _jm_obj_20(val, path, rep)
             // handle must a property
             must_count += 1
             // .merge.m0.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m0.a]", (path ? lpath_22 : null)])
@@ -2057,7 +2057,7 @@ function _jm_obj_20(val, path, rep)
         {
             // handle may b property
             // .merge.m0.b
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m0.b]", (path ? lpath_22 : null)])
@@ -2105,7 +2105,7 @@ function _jm_obj_21(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .merge.m1.'|'.1.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m1.'|'.1.a]", (path ? lpath : null)])
@@ -2120,7 +2120,7 @@ function _jm_obj_21(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .merge.m1.'|'.1.c
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.merge.m1.'|'.1.c]", (path ? lpath : null)])
@@ -2154,7 +2154,7 @@ function _jm_obj_22(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .merge.m1.'|'.0.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m1.'|'.0.a]", (path ? lpath : null)])
@@ -2169,7 +2169,7 @@ function _jm_obj_22(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .merge.m1.'|'.0.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.merge.m1.'|'.0.b]", (path ? lpath : null)])
@@ -2203,7 +2203,7 @@ function _jm_obj_23(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .merge.m2.'|'.1.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m2.'|'.1.a]", (path ? lpath : null)])
@@ -2218,7 +2218,7 @@ function _jm_obj_23(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .merge.m2.'|'.1.c
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.merge.m2.'|'.1.c]", (path ? lpath : null)])
@@ -2252,7 +2252,7 @@ function _jm_obj_24(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .merge.m2.'|'.0.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m2.'|'.0.a]", (path ? lpath : null)])
@@ -2267,7 +2267,7 @@ function _jm_obj_24(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .merge.m2.'|'.0.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.merge.m2.'|'.0.b]", (path ? lpath : null)])
@@ -2301,7 +2301,7 @@ function _jm_obj_25(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .merge.m3.'|'.3.b
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m3.'|'.3.b]", (path ? lpath : null)])
@@ -2316,7 +2316,7 @@ function _jm_obj_25(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .merge.m3.'|'.3.d
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.merge.m3.'|'.3.d]", (path ? lpath : null)])
@@ -2350,7 +2350,7 @@ function _jm_obj_26(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .merge.m3.'|'.2.b
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m3.'|'.2.b]", (path ? lpath : null)])
@@ -2365,7 +2365,7 @@ function _jm_obj_26(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .merge.m3.'|'.2.c
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.merge.m3.'|'.2.c]", (path ? lpath : null)])
@@ -2399,7 +2399,7 @@ function _jm_obj_27(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .merge.m3.'|'.1.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m3.'|'.1.a]", (path ? lpath : null)])
@@ -2414,7 +2414,7 @@ function _jm_obj_27(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .merge.m3.'|'.1.d
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.merge.m3.'|'.1.d]", (path ? lpath : null)])
@@ -2448,7 +2448,7 @@ function _jm_obj_28(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .merge.m3.'|'.0.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m3.'|'.0.a]", (path ? lpath : null)])
@@ -2463,7 +2463,7 @@ function _jm_obj_28(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .merge.m3.'|'.0.c
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.merge.m3.'|'.0.c]", (path ? lpath : null)])
@@ -2497,7 +2497,7 @@ function _jm_obj_29(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .merge.m4.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m4.a]", (path ? lpath : null)])
@@ -2512,7 +2512,7 @@ function _jm_obj_29(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .merge.m4.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m4.b]", (path ? lpath : null)])
@@ -2527,7 +2527,7 @@ function _jm_obj_29(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .merge.m4.c
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m4.c]", (path ? lpath : null)])
@@ -2542,7 +2542,7 @@ function _jm_obj_29(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .merge.m4.d
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.merge.m4.d]", (path ? lpath : null)])
@@ -2761,7 +2761,7 @@ function _jm_f_32(val, path, rep)
             let arr_5_item = val[arr_5_idx]
             let arr_5_lpath = path ? path.concat([arr_5_idx]) : null
             // .constraints.cia0.'@'.0
-            res = ((typeof arr_5_item === 'number' || arr_5_item instanceof Number) && Number.isInteger(arr_5_item)) && arr_5_item >= 0
+            res = ((typeof arr_5_item == 'number' || arr_5_item instanceof Number) && Number.isInteger(arr_5_item)) && arr_5_item >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.constraints.cia0.'@'.0]", (path ? arr_5_lpath : null)])
@@ -2794,7 +2794,7 @@ function _jm_f_33(val, path, rep)
             let arr_6_item = val[arr_6_idx]
             let arr_6_lpath = path ? path.concat([arr_6_idx]) : null
             // .constraints.cia1.'@'.0
-            res = ((typeof arr_6_item === 'number' || arr_6_item instanceof Number) && Number.isInteger(arr_6_item)) && arr_6_item >= 0
+            res = ((typeof arr_6_item == 'number' || arr_6_item instanceof Number) && Number.isInteger(arr_6_item)) && arr_6_item >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.constraints.cia1.'@'.0]", (path ? arr_6_lpath : null)])
@@ -2827,7 +2827,7 @@ function _jm_f_34(val, path, rep)
             let arr_7_item = val[arr_7_idx]
             let arr_7_lpath = path ? path.concat([arr_7_idx]) : null
             // .constraints.cia2.'@'.0
-            res = ((typeof arr_7_item === 'number' || arr_7_item instanceof Number) && Number.isInteger(arr_7_item)) && arr_7_item >= 0
+            res = ((typeof arr_7_item == 'number' || arr_7_item instanceof Number) && Number.isInteger(arr_7_item)) && arr_7_item >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.constraints.cia2.'@'.0]", (path ? arr_7_lpath : null)])
@@ -2851,7 +2851,7 @@ function _jm_f_34(val, path, rep)
 function _jm_f_35(val, path, rep)
 {
     // .constraints.cii0
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 10
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val == 10
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"=10\" [.constraints.cii0]", path])
     return res
@@ -2862,7 +2862,7 @@ function _jm_f_36(val, path, rep)
 {
     // .constraints.cii1
     // .constraints.cii1.'@'
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
+    let res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
     if (res)
     {
         let ival_5 = val
@@ -2880,7 +2880,7 @@ function _jm_f_37(val, path, rep)
 {
     // .constraints.cii2
     // .constraints.cii2.'@'
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
+    let res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
     if (res)
     {
         let ival_6 = val
@@ -2898,7 +2898,7 @@ function _jm_f_38(val, path, rep)
 {
     // .constraints.cin0
     // .constraints.cin0.'@'
-    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0
+    let res = ((typeof val == 'number' || val instanceof Number)) && val >= 0.0
     if (res)
     {
         let fval_0 = val
@@ -2916,7 +2916,7 @@ function _jm_f_39(val, path, rep)
 {
     // .constraints.cin1
     // .constraints.cin1.'@'
-    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0
+    let res = ((typeof val == 'number' || val instanceof Number)) && val >= 0.0
     if (res)
     {
         let fval_1 = val
@@ -2934,7 +2934,7 @@ function _jm_f_40(val, path, rep)
 {
     // .constraints.cin2
     // .constraints.cin2.'@'
-    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0
+    let res = ((typeof val == 'number' || val instanceof Number)) && val >= 0.0
     if (res)
     {
         let fval_2 = val
@@ -3000,7 +3000,7 @@ function _jm_f_44(val, path, rep)
 {
     // .constraints.cis0
     // .constraints.cis0.'@'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (res)
     {
         let ival_10 = runtime.jm_char_length(val)
@@ -3018,7 +3018,7 @@ function _jm_f_45(val, path, rep)
 {
     // .constraints.cis1
     // .constraints.cis1.'@'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (res)
     {
         let ival_11 = runtime.jm_char_length(val)
@@ -3036,7 +3036,7 @@ function _jm_f_46(val, path, rep)
 {
     // .constraints.cis2
     // .constraints.cis2.'@'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (res)
     {
         let ival_12 = runtime.jm_char_length(val)
@@ -3053,7 +3053,7 @@ function _jm_f_46(val, path, rep)
 function _jm_f_47(val, path, rep)
 {
     // .constraints.cni0
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"=42\" [.constraints.cni0]", path])
     return res
@@ -3064,7 +3064,7 @@ function _jm_f_48(val, path, rep)
 {
     // .constraints.cni1
     // .constraints.cni1.'@'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
     if (res)
     {
         let ival_13 = val
@@ -3082,7 +3082,7 @@ function _jm_f_48(val, path, rep)
 function _jm_f_49(val, path, rep)
 {
     // .constraints.cni2
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"=42\" [.constraints.cni2]", path])
     return res
@@ -3093,7 +3093,7 @@ function _jm_f_50(val, path, rep)
 {
     // .constraints.cnn0
     // .constraints.cnn0.'@'
-    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0
+    let res = ((typeof val == 'number' || val instanceof Number)) && val >= 0.0
     if (res)
     {
         let fval_4 = val
@@ -3111,7 +3111,7 @@ function _jm_f_51(val, path, rep)
 {
     // .constraints.cnn1
     // .constraints.cnn1.'@'
-    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0
+    let res = ((typeof val == 'number' || val instanceof Number)) && val >= 0.0
     if (res)
     {
         let fval_5 = val
@@ -3129,7 +3129,7 @@ function _jm_f_52(val, path, rep)
 {
     // .constraints.cnn2
     // .constraints.cnn2.'@'
-    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0
+    let res = ((typeof val == 'number' || val instanceof Number)) && val >= 0.0
     if (res)
     {
         let fval_6 = val
@@ -3147,7 +3147,7 @@ function _jm_f_53(val, path, rep)
 {
     // .constraints.css0
     // .constraints.css0.'@'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (res)
     {
         let sval_0 = val
@@ -3165,7 +3165,7 @@ function _jm_f_54(val, path, rep)
 {
     // .constraints.css1
     // .constraints.css1.'@'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (res)
     {
         let sval_1 = val
@@ -3183,7 +3183,7 @@ function _jm_f_55(val, path, rep)
 {
     // .constraints.css2
     // .constraints.css2.'@'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (res)
     {
         let sval_2 = val

@@ -18,7 +18,7 @@ function json_model_1(val, path, rep)
     // .
     // .'|'.0
     // .'|'.0.'@'
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
+    let res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
     if (res)
     {
         let ival_0 = val
@@ -32,7 +32,7 @@ function json_model_1(val, path, rep)
     {
         // .'|'.1
         // .'|'.1.'@'
-        res = (typeof val === 'number' || val instanceof Number)
+        res = (typeof val == 'number' || val instanceof Number)
         if (res)
         {
             let fval_0 = val

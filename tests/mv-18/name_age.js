@@ -36,7 +36,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["name"]) : null
     pval = val["name"]
     // .name
-    let res = (typeof pval === 'string' || pval instanceof String)
+    let res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.name]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["age"]) : null
     pval = val["age"]
     // .age
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.age]", (path ? lpath : null)])

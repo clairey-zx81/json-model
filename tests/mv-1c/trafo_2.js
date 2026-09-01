@@ -91,7 +91,7 @@ function json_model_6(val, path, rep)
     lpath = path ? path.concat(["za"]) : null
     pval = val["za"]
     // .'$Zz#zero'.za
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Zz#zero'.za]", (path ? lpath : null)])
@@ -106,7 +106,7 @@ function json_model_6(val, path, rep)
     lpath = path ? path.concat(["zb"]) : null
     pval = val["zb"]
     // .'$Zz#zero'.zb
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Zz#zero'.zb]", (path ? lpath : null)])

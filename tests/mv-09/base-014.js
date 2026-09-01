@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
             // handle must nom property
             must_count += 1
             // .nom
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.nom]", (path ? lpath_0 : null)])
@@ -43,7 +43,7 @@ function json_model_1(val, path, rep)
         {
             // handle may age property
             // .age
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.age]", (path ? lpath_0 : null)])
@@ -54,7 +54,7 @@ function json_model_1(val, path, rep)
         }
         // handle other props
         // .''
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'']", (path ? lpath_0 : null)])

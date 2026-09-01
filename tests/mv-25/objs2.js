@@ -16,7 +16,7 @@ function json_model_2(val, path, rep)
 {
     // .'$bla'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -25,14 +25,14 @@ function json_model_2(val, path, rep)
         return false
     pval = val["x"]
     // .'$bla'.x
-    let res = (typeof pval === 'number' || pval instanceof Number)
+    let res = typeof pval == 'number'
     if (! res)
         return false
     if (! val.hasOwnProperty("y"))
         return false
     pval = val["y"]
     // .'$bla'.y
-    return (typeof pval === 'number' || pval instanceof Number)
+    return typeof pval == 'number'
 }
 
 // check $foo (.'$foo')

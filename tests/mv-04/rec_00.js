@@ -41,7 +41,7 @@ function json_model_3(val, path, rep)
 {
     // .'$rec'
     // .'$rec'.'|'.0
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$rec'.'|'.0]", path])

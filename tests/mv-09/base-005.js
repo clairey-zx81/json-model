@@ -23,7 +23,7 @@ function json_model_1(val, path, rep)
             let arr_0_item = val[arr_0_idx]
             let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .0
-            res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0
+            res = ((typeof arr_0_item == 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.0]", (path ? arr_0_lpath : null)])

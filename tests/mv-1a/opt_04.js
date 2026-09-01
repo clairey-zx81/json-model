@@ -36,7 +36,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.a]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.b]", (path ? lpath : null)])

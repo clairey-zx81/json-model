@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
             // handle must must property
             must_count += 1
             // .must
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.must]", (path ? lpath_0 : null)])
@@ -43,7 +43,7 @@ function json_model_1(val, path, rep)
         {
             // handle may may property
             // .may
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.may]", (path ? lpath_0 : null)])

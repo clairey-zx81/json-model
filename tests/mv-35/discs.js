@@ -18,7 +18,7 @@ function _jm_obj_0(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "n"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "n"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
@@ -37,13 +37,13 @@ function _jm_obj_1(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "b"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "b"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
         return false
     pval = val["v"]
-    return (typeof pval === 'boolean' || pval instanceof Boolean)
+    return (typeof pval == 'boolean' || pval instanceof Boolean)
 }
 
 function _jm_obj_2(val, path, rep)
@@ -56,13 +56,13 @@ function _jm_obj_2(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "i"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "i"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
         return false
     pval = val["v"]
-    return (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+    return (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
 }
 
 function _jm_obj_3(val, path, rep)
@@ -75,13 +75,13 @@ function _jm_obj_3(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "u"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "u"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
         return false
     pval = val["v"]
-    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    return ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
 }
 
 function _jm_obj_4(val, path, rep)
@@ -94,13 +94,13 @@ function _jm_obj_4(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "f"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "f"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
         return false
     pval = val["v"]
-    return (typeof pval === 'number' || pval instanceof Number)
+    return (typeof pval == 'number' || pval instanceof Number)
 }
 
 function _jm_obj_5(val, path, rep)
@@ -113,13 +113,13 @@ function _jm_obj_5(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "s"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "s"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
         return false
     pval = val["v"]
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 function _jm_obj_6(val, path, rep)
@@ -132,7 +132,7 @@ function _jm_obj_6(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
@@ -151,7 +151,7 @@ function _jm_obj_7(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "o"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "o"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))

@@ -31,7 +31,7 @@ function json_model_1(val, path, rep)
         {
             // handle may all property
             // .all
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.all]", (path ? lpath_0 : null)])
@@ -45,7 +45,7 @@ function json_model_1(val, path, rep)
             // handle may nz property
             // .nz
             // "/./s"
-            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0
+            res = ((typeof pval == 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/./s\" [.nz]", (path ? lpath_0 : null)])
@@ -59,7 +59,7 @@ function json_model_1(val, path, rep)
             // handle may some property
             // .some
             // "/./"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/./\" [.some]", (path ? lpath_0 : null)])

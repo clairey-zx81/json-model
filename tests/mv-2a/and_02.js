@@ -27,7 +27,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle 1 re props
             // .'&'.1.'/^d[0-9]/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'&'.1.'/^d[0-9]/']", (path ? lpath_0 : null)])
@@ -54,7 +54,7 @@ function _jm_obj_1(val, path, rep)
             // handle must s property
             must_count += 1
             // .'&'.0.s
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'&'.0.s]", (path ? lpath_1 : null)])
@@ -68,7 +68,7 @@ function _jm_obj_1(val, path, rep)
             // handle must b property
             must_count += 1
             // .'&'.0.b
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'&'.0.b]", (path ? lpath_1 : null)])
@@ -82,7 +82,7 @@ function _jm_obj_1(val, path, rep)
             // handle must f property
             must_count += 1
             // .'&'.0.f
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0
+            res = ((typeof pval == 'number' || pval instanceof Number)) && pval > 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 1.0 strict float [.'&'.0.f]", (path ? lpath_1 : null)])
@@ -95,7 +95,7 @@ function _jm_obj_1(val, path, rep)
         {
             // handle may u property
             // .'&'.0.u
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'&'.0.u]", (path ? lpath_1 : null)])
@@ -112,7 +112,7 @@ function _jm_obj_1(val, path, rep)
         {
             // handle 2 re props
             // .'&'.0.'/^d[a-z]/'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'&'.0.'/^d[a-z]/']", (path ? lpath_1 : null)])

@@ -36,7 +36,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["tag"]) : null
     pval = val["tag"]
     // .'|'.0.tag
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 18
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 18
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=18\" [.'|'.0.tag]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'|'.0.a
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.0.a]", (path ? lpath : null)])
@@ -85,7 +85,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["tag"]) : null
     pval = val["tag"]
     // .'|'.1.tag
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 42
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 42
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=42\" [.'|'.1.tag]", (path ? lpath : null)])
@@ -100,7 +100,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'|'.1.b
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.b]", (path ? lpath : null)])
@@ -134,7 +134,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["tag"]) : null
     pval = val["tag"]
     // .'|'.2.tag
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1024
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1024
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1024\" [.'|'.2.tag]", (path ? lpath : null)])
@@ -149,7 +149,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .'|'.2.c
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.2.c]", (path ? lpath : null)])

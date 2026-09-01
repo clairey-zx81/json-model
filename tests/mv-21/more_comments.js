@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$Pp'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
         rep !== null && rep.push(["not a 0 strict int [.'$Pp']", path])
     return res
@@ -93,12 +93,12 @@ function _jm_obj_0(val, path, rep)
             {
                 let lpath_2 = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([0]) : null
                 // .o.t.0
-                res = (typeof pval[0] === 'boolean' || pval[0] instanceof Boolean)
+                res = (typeof pval[0] == 'boolean' || pval[0] instanceof Boolean)
                 if (res)
                 {
                     lpath_2 = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([1]) : null
                     // .o.t.1
-                    res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0
+                    res = ((typeof pval[1] == 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0
                     if (! res)
                         rep !== null && rep.push(["not a 0 strict int [.o.t.1]", ((path ? lpath_1 : null) ? lpath_2 : null)])
                 }

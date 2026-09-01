@@ -20,7 +20,7 @@ function json_model_1(val, path, rep)
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    return ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, null, null)
+    return ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, null, null)
 }
 
 

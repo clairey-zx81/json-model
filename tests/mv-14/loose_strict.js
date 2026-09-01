@@ -37,7 +37,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["li"]) : null
     pval = val["li"]
     // .'$loose'.li
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 loose int [.'$loose'.li]", (path ? lpath : null)])
@@ -73,7 +73,7 @@ function json_model_6(val, path, rep)
     lpath = path ? path.concat(["si"]) : null
     pval = val["si"]
     // .'$strict'.si
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$strict'.si]", (path ? lpath : null)])
@@ -108,7 +108,7 @@ function json_model_4(val, path, rep)
     lpath = path ? path.concat(["li"]) : null
     pval = val["li"]
     // .'$combined'.li
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$combined'.li]", (path ? lpath : null)])
@@ -123,7 +123,7 @@ function json_model_4(val, path, rep)
     lpath = path ? path.concat(["si"]) : null
     pval = val["si"]
     // .'$combined'.si
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$combined'.si]", (path ? lpath : null)])

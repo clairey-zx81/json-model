@@ -37,7 +37,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$cs'.'|'.0.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "c"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "c"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"c\" [.'$cs'.'|'.0.t]", (path ? lpath : null)])
@@ -52,7 +52,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["cal"]) : null
     pval = val["cal"]
     // .'$cs'.'|'.0.cal
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$cs'.'|'.0.cal]", (path ? lpath : null)])
@@ -86,7 +86,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$cs'.'|'.1.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "s"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "s"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"s\" [.'$cs'.'|'.1.t]", (path ? lpath : null)])
@@ -101,7 +101,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["sus"]) : null
     pval = val["sus"]
     // .'$cs'.'|'.1.sus
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$cs'.'|'.1.sus]", (path ? lpath : null)])
@@ -166,7 +166,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.0.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "m"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "m"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"m\" [.'|'.0.t]", (path ? lpath : null)])
@@ -181,7 +181,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["moe"]) : null
     pval = val["moe"]
     // .'|'.0.moe
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.0.moe]", (path ? lpath : null)])
@@ -215,7 +215,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.1.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "h"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "h"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"h\" [.'|'.1.t]", (path ? lpath : null)])
@@ -230,7 +230,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["hob"]) : null
     pval = val["hob"]
     // .'|'.1.hob
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.1.hob]", (path ? lpath : null)])
@@ -271,7 +271,7 @@ function json_model_1(val, path, rep)
     if (! res)
     {
         // .'|'.2
-        res = (typeof val === 'boolean' || val instanceof Boolean)
+        res = (typeof val == 'boolean' || val instanceof Boolean)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'|'.2]", path])

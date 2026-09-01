@@ -34,7 +34,7 @@ function json_model_2(val, path, rep)
 {
     // .'$Url'
     // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*)$/\" [.'$Url']", path])
     return res
@@ -45,7 +45,7 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$PreDef'
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$PreDef'.'|']", path])
     return res
@@ -59,7 +59,7 @@ const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 function json_model_4(val, path, rep)
 {
     // .'$Identifier'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (res)
     {
         // .'$Identifier'.'&'.0
@@ -90,7 +90,7 @@ function json_model_5(val, path, rep)
 {
     // .'$ArrayComment'
     // "/^#/"
-    let res = ((typeof val === 'string' || val instanceof String)) && val.startsWith("#")
+    let res = ((typeof val == 'string' || val instanceof String)) && val.startsWith("#")
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^#/\" [.'$ArrayComment']", path])
     return res
@@ -113,7 +113,7 @@ function json_model_6(val, path, rep)
         {
             // handle may # property
             // .'$ObjectComment'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$ObjectComment'.'#']", (path ? lpath_0 : null)])
@@ -142,7 +142,7 @@ function json_model_7(val, path, rep)
 {
     // .'$Ref'
     // "/^\\$./"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_3(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_3(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^\\\\$./\" [.'$Ref']", path])
     return res
@@ -155,7 +155,7 @@ function json_model_8(val, path, rep)
 {
     // .'$ValConst'
     // "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_4(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_4(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^=(null|true|false|[-+]?\\\\d+(\\\\.\\\\d+)?([Ee][-+]?\\\\d+)?)$/\" [.'$ValConst']", path])
     return res
@@ -168,7 +168,7 @@ function json_model_9(val, path, rep)
 {
     // .'$StrConst'
     // "/^[A-Za-z0-9_]/"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_5(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_5(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^[A-Za-z0-9_]/\" [.'$StrConst']", path])
     return res
@@ -206,7 +206,7 @@ function _jm_xre_1(val, path, rep)
 function json_model_10(val, path, rep)
 {
     // .'$Regex'
-    let res = (typeof val === 'string' || val instanceof String)
+    let res = (typeof val == 'string' || val instanceof String)
     if (res)
     {
         // .'$Regex'.'|'.0
@@ -240,7 +240,7 @@ function json_model_11(val, path, rep)
 {
     // .'$Name'
     // "/^\\..+$/"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_6(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_6(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^\\\\..+$/\" [.'$Name']", path])
     return res
@@ -251,17 +251,17 @@ function json_model_12(val, path, rep)
 {
     // .'$CmpValue'
     // .'$CmpValue'.'|'.0
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
+    let res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$CmpValue'.'|'.0]", path])
         // .'$CmpValue'.'|'.1
-        res = (typeof val === 'number' || val instanceof Number)
+        res = (typeof val == 'number' || val instanceof Number)
         if (! res)
         {
             rep !== null && rep.push(["not a -1.0 strict float [.'$CmpValue'.'|'.1]", path])
             // .'$CmpValue'.'|'.2
-            res = (typeof val === 'string' || val instanceof String)
+            res = (typeof val == 'string' || val instanceof String)
             if (! res)
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$CmpValue'.'|'.2]", path])
         }
@@ -285,7 +285,7 @@ function json_model_13(val, path, rep)
     {
         rep !== null && rep.push(["not null [.'$EqValue'.'|'.0]", path])
         // .'$EqValue'.'|'.1
-        res = (typeof val === 'boolean' || val instanceof Boolean)
+        res = (typeof val == 'boolean' || val instanceof Boolean)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$EqValue'.'|'.1]", path])
@@ -309,7 +309,7 @@ function json_model_13(val, path, rep)
 function json_model_14(val, path, rep)
 {
     // .'$ValModel'
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val)
+    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_1.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$ValModel'.'|']", path])
     return res
@@ -345,7 +345,7 @@ function json_model_15(val, path, rep)
                     {
                         rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$StrModel'.'|'.4]", path])
                         // .'$StrModel'.'|'.5
-                        res = ((typeof val === 'string' || val instanceof String)) && val == ""
+                        res = ((typeof val == 'string' || val instanceof String)) && val == ""
                         if (! res)
                             rep !== null && rep.push(["unexpected value for model \"_\" [.'$StrModel'.'|'.5]", path])
                     }
@@ -471,7 +471,7 @@ function json_model_21(val, path, rep)
         {
             // handle may ! property
             // .'$Constraint'.'!'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Constraint'.'!']", (path ? lpath_1 : null)])
@@ -728,7 +728,7 @@ function json_model_26(val, path, rep)
     // .'$Prop'
     // .'$Prop'.'|'.0
     // "/^[?!]/"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_9(val, path, rep)
+    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_9(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/^[?!]/\" [.'$Prop'.'|'.0]", path])
@@ -753,7 +753,7 @@ function json_model_26(val, path, rep)
                     {
                         rep !== null && rep.push(["unexpected value for model \"$Name\" [.'$Prop'.'|'.4]", path])
                         // .'$Prop'.'|'.5
-                        res = ((typeof val === 'string' || val instanceof String)) && val == ""
+                        res = ((typeof val == 'string' || val instanceof String)) && val == ""
                         if (! res)
                             rep !== null && rep.push(["unexpected value for model \"_\" [.'$Prop'.'|'.5]", path])
                     }
@@ -862,7 +862,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may # property
             // .'$Element'.'|'.5.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Element'.'|'.5.'#']", (path ? lpath_3 : null)])
@@ -937,7 +937,7 @@ function _jm_obj_1(val, path, rep)
         {
             // handle may # property
             // .'$Element'.'|'.4.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Element'.'|'.4.'#']", (path ? lpath_4 : null)])
@@ -1010,7 +1010,7 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may # property
             // .'$Element'.'|'.3.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Element'.'|'.3.'#']", (path ? lpath_5 : null)])
@@ -1083,7 +1083,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may # property
             // .'$Element'.'|'.2.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Element'.'|'.2.'#']", (path ? lpath_6 : null)])
@@ -1156,7 +1156,7 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may # property
             // .'$Element'.'|'.1.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Element'.'|'.1.'#']", (path ? lpath_7 : null)])
@@ -1214,7 +1214,7 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may # property
             // .'$Element'.'|'.0.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Element'.'|'.0.'#']", (path ? lpath_8 : null)])
@@ -1227,7 +1227,7 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may ! property
             // .'$Element'.'|'.0.'!'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Element'.'|'.0.'!']", (path ? lpath_8 : null)])
@@ -1347,7 +1347,7 @@ function _jm_obj_6(val, path, rep)
         let lpath_10 = path ? path.concat([prop]) : null
         // handle other props
         // .'$Trafo'.'~'.''
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$Trafo'.'~'.'']", (path ? lpath_10 : null)])
@@ -1437,7 +1437,7 @@ function _jm_obj_8(val, path, rep)
         let lpath_12 = path ? path.concat([prop]) : null
         // handle other props
         // .'$Transformation'.'|'.1.'~'.''
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$Transformation'.'|'.1.'~'.'']", (path ? lpath_12 : null)])
@@ -1463,7 +1463,7 @@ function _jm_obj_7(val, path, rep)
         {
             // handle may # property
             // .'$Transformation'.'|'.1.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Transformation'.'|'.1.'#']", (path ? lpath_11 : null)])
@@ -1672,7 +1672,7 @@ function json_model_35(val, path, rep)
             // handle 1 key props
             // .'$Rename'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_14 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_14 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Rename'.'$Name']", (path ? lpath_14 : null)])
@@ -1799,7 +1799,7 @@ function _jm_obj_9(val, path, rep)
         {
             // handle may # property
             // .'$RootOnly'.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$RootOnly'.'$'.'#']", (path ? lpath_18 : null)])
@@ -1861,7 +1861,7 @@ function _jm_obj_10(val, path, rep)
         {
             // handle may # property
             // .'$RootOnly'.'%'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$RootOnly'.'%'.'#']", (path ? lpath_19 : null)])
@@ -1916,7 +1916,7 @@ function _jm_obj_10(val, path, rep)
             // handle 1 key props
             // .'$RootOnly'.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_19 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_19 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$RootOnly'.'%'.'$Name']", (path ? lpath_19 : null)])
@@ -2022,7 +2022,7 @@ function _jm_obj_12(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.5.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.5.'$'.'#']", (path ? lpath_21 : null)])
@@ -2084,7 +2084,7 @@ function _jm_obj_13(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.5.'%'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.5.'%'.'#']", (path ? lpath_22 : null)])
@@ -2139,7 +2139,7 @@ function _jm_obj_13(val, path, rep)
             // handle 1 key props
             // .'$Root'.'|'.5.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_22 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_22 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Root'.'|'.5.'%'.'$Name']", (path ? lpath_22 : null)])
@@ -2221,7 +2221,7 @@ function _jm_obj_11(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.5.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.5.'#']", (path ? lpath_20 : null)])
@@ -2270,7 +2270,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.4.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.4.'$'.'#']", (path ? lpath_24 : null)])
@@ -2332,7 +2332,7 @@ function _jm_obj_16(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.4.'%'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.4.'%'.'#']", (path ? lpath_25 : null)])
@@ -2387,7 +2387,7 @@ function _jm_obj_16(val, path, rep)
             // handle 1 key props
             // .'$Root'.'|'.4.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_25 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_25 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Root'.'|'.4.'%'.'$Name']", (path ? lpath_25 : null)])
@@ -2499,7 +2499,7 @@ function _jm_obj_14(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.4.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.4.'#']", (path ? lpath_23 : null)])
@@ -2546,7 +2546,7 @@ function _jm_obj_18(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.3.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.3.'$'.'#']", (path ? lpath_27 : null)])
@@ -2608,7 +2608,7 @@ function _jm_obj_19(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.3.'%'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.3.'%'.'#']", (path ? lpath_28 : null)])
@@ -2663,7 +2663,7 @@ function _jm_obj_19(val, path, rep)
             // handle 1 key props
             // .'$Root'.'|'.3.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_28 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_28 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Root'.'|'.3.'%'.'$Name']", (path ? lpath_28 : null)])
@@ -2775,7 +2775,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.3.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.3.'#']", (path ? lpath_26 : null)])
@@ -2822,7 +2822,7 @@ function _jm_obj_21(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.2.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.2.'$'.'#']", (path ? lpath_30 : null)])
@@ -2884,7 +2884,7 @@ function _jm_obj_22(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.2.'%'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.2.'%'.'#']", (path ? lpath_31 : null)])
@@ -2939,7 +2939,7 @@ function _jm_obj_22(val, path, rep)
             // handle 1 key props
             // .'$Root'.'|'.2.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_31 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_31 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Root'.'|'.2.'%'.'$Name']", (path ? lpath_31 : null)])
@@ -3051,7 +3051,7 @@ function _jm_obj_20(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.2.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.2.'#']", (path ? lpath_29 : null)])
@@ -3098,7 +3098,7 @@ function _jm_obj_24(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.1.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.1.'$'.'#']", (path ? lpath_33 : null)])
@@ -3160,7 +3160,7 @@ function _jm_obj_25(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.1.'%'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.1.'%'.'#']", (path ? lpath_34 : null)])
@@ -3215,7 +3215,7 @@ function _jm_obj_25(val, path, rep)
             // handle 1 key props
             // .'$Root'.'|'.1.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_34 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_34 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Root'.'|'.1.'%'.'$Name']", (path ? lpath_34 : null)])
@@ -3327,7 +3327,7 @@ function _jm_obj_23(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.1.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.1.'#']", (path ? lpath_32 : null)])
@@ -3374,7 +3374,7 @@ function _jm_obj_27(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.0.'$'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.0.'$'.'#']", (path ? lpath_36 : null)])
@@ -3436,7 +3436,7 @@ function _jm_obj_28(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.0.'%'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.0.'%'.'#']", (path ? lpath_37 : null)])
@@ -3491,7 +3491,7 @@ function _jm_obj_28(val, path, rep)
             // handle 1 key props
             // .'$Root'.'|'.0.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_37 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_10(pval, (path ? lpath_37 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Root'.'|'.0.'%'.'$Name']", (path ? lpath_37 : null)])
@@ -3588,7 +3588,7 @@ function _jm_obj_26(val, path, rep)
         {
             // handle may # property
             // .'$Root'.'|'.0.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.'|'.0.'#']", (path ? lpath_35 : null)])
@@ -3601,7 +3601,7 @@ function _jm_obj_26(val, path, rep)
         {
             // handle may ! property
             // .'$Root'.'|'.0.'!'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            res = (typeof pval == 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Root'.'|'.0.'!']", (path ? lpath_35 : null)])

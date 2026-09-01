@@ -37,7 +37,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.0.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_a\" [.'|'.0.t]", (path ? lpath : null)])
@@ -52,7 +52,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["foo"]) : null
     pval = val["foo"]
     // .'|'.0.foo
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.0.foo]", (path ? lpath : null)])
@@ -87,7 +87,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.1.t
-    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
+    let res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|'.1.t.'|']", (path ? lpath : null)])
@@ -102,7 +102,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["bla"]) : null
     pval = val["bla"]
     // .'|'.1.bla
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.1.bla]", (path ? lpath : null)])

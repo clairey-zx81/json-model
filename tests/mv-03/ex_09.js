@@ -48,7 +48,7 @@ function json_model_4(val, path, rep)
         {
             // handle may # property
             // .'$Ex09'.'#'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Ex09'.'#']", (path ? lpath_0 : null)])
@@ -91,7 +91,7 @@ function json_model_1(val, path, rep)
 function json_model_6(val, path, rep)
 {
     // .'$ex08#Val'
-    let res = (typeof val === 'boolean' || val instanceof Boolean)
+    let res = (typeof val == 'boolean' || val instanceof Boolean)
     if (! res)
         rep !== null && rep.push(["not a bool [.'$ex08#Val']", path])
     return res

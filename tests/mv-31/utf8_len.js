@@ -29,7 +29,7 @@ function json_model_1(val, path, rep)
         {
             // handle may 0 property
             // .'0'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == ""
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == ""
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_\" [.'0']", (path ? lpath_0 : null)])
@@ -42,7 +42,7 @@ function json_model_1(val, path, rep)
         {
             // handle may 1 property
             // .'1'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "À"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "À"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_\\u00c0\" [.'1']", (path ? lpath_0 : null)])
@@ -55,7 +55,7 @@ function json_model_1(val, path, rep)
         {
             // handle may 2 property
             // .'2'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Àß"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Àß"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_\\u00c0\\u00df\" [.'2']", (path ? lpath_0 : null)])
@@ -68,7 +68,7 @@ function json_model_1(val, path, rep)
         {
             // handle may 3 property
             // .'3'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Àßç"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Àßç"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_\\u00c0\\u00df\\u00e7\" [.'3']", (path ? lpath_0 : null)])
@@ -81,7 +81,7 @@ function json_model_1(val, path, rep)
         {
             // handle may 4 property
             // .'4'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ÀßçΔ"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\" [.'4']", (path ? lpath_0 : null)])
@@ -94,7 +94,7 @@ function json_model_1(val, path, rep)
         {
             // handle may 5 property
             // .'5'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ÀßçΔ€"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\" [.'5']", (path ? lpath_0 : null)])
@@ -107,7 +107,7 @@ function json_model_1(val, path, rep)
         {
             // handle may 6 property
             // .'6'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳ"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳ"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\" [.'6']", (path ? lpath_0 : null)])
@@ -120,7 +120,7 @@ function json_model_1(val, path, rep)
         {
             // handle may 7 property
             // .'7'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧ"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧ"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\" [.'7']", (path ? lpath_0 : null)])
@@ -133,7 +133,7 @@ function json_model_1(val, path, rep)
         {
             // handle may 8 property
             // .'8'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧℏ"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧℏ"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\\u210f\" [.'8']", (path ? lpath_0 : null)])
@@ -146,7 +146,7 @@ function json_model_1(val, path, rep)
         {
             // handle may 9 property
             // .'9'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧℏı"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧℏı"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\\u210f\\u0131\" [.'9']", (path ? lpath_0 : null)])

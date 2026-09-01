@@ -20,7 +20,7 @@ function json_model_1(val, path, rep)
     // remove duplicate xor list
     res = true
     // .'^'.2
-    let is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
+    let is_0 = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
     if (! is_0)
         rep !== null && rep.push(["not a 1 strict int [.'^'.2]", path])
     res = ! is_0
@@ -28,7 +28,7 @@ function json_model_1(val, path, rep)
     {
         // singleton xor list
         // .'^'.0
-        res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+        res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
         if (! res)
             rep !== null && rep.push(["not a 0 strict int [.'^'.0]", path])
     }

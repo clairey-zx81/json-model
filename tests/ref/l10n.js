@@ -31,7 +31,7 @@ function _jm_obj_0(val, path, rep)
             // handle must Model property
             must_count += 1
             // .'$'.Model
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "$https://json-model.org/models/json-model"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "$https://json-model.org/models/json-model"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_$https://json-model.org/models/json-model\" [.'$'.Model]", (path ? lpath_1 : null)])
@@ -88,7 +88,7 @@ function _jm_obj_1(val, path, rep)
         {
             // handle 2 re props
             // .'%'.'/^#/'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'%'.'/^#/']", (path ? lpath_2 : null)])
@@ -100,7 +100,7 @@ function _jm_obj_1(val, path, rep)
             // handle 2 re props
             // .'%'.'/^\\..+$/'
             // "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_2 : null), rep)
+            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_2 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^([#~$%@|&+^/*=]|[<>!]=?)$/\" [.'%'.'/^\\\\..+$/']", (path ? lpath_2 : null)])
@@ -150,7 +150,7 @@ function json_model_1(val, path, rep)
             // handle must ~ property
             must_count += 1
             // .'~'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "https://json-model.org/models/l10n"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "https://json-model.org/models/l10n"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", (path ? lpath_0 : null)])
@@ -179,7 +179,7 @@ function json_model_1(val, path, rep)
             // handle must @ property
             must_count += 1
             // .'@'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "$Model"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "$Model"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_$Model\" [.'@']", (path ? lpath_0 : null)])
@@ -192,7 +192,7 @@ function json_model_1(val, path, rep)
         {
             // handle 1 re props
             // .'/^#/'
-            res = (typeof pval === 'string' || pval instanceof String)
+            res = (typeof pval == 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'/^#/']", (path ? lpath_0 : null)])

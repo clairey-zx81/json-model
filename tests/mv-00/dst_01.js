@@ -15,19 +15,19 @@ function _jm_obj_0(val, path, rep)
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
         return false
     if (! val.hasOwnProperty("c"))
         return false
     pval = val["c"]
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
         return false
     if (! val.hasOwnProperty("f"))
         return false
     pval = val["f"]
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 function _jm_obj_1(val, path, rep)
@@ -38,19 +38,19 @@ function _jm_obj_1(val, path, rep)
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
         return false
     if (! val.hasOwnProperty("c"))
         return false
     pval = val["c"]
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
         return false
     if (! val.hasOwnProperty("e"))
         return false
     pval = val["e"]
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 function _jm_obj_2(val, path, rep)
@@ -61,19 +61,19 @@ function _jm_obj_2(val, path, rep)
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
         return false
     if (! val.hasOwnProperty("c"))
         return false
     pval = val["c"]
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
         return false
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 function _jm_obj_3(val, path, rep)
@@ -84,19 +84,19 @@ function _jm_obj_3(val, path, rep)
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
         return false
     if (! val.hasOwnProperty("b"))
         return false
     pval = val["b"]
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
         return false
     if (! val.hasOwnProperty("f"))
         return false
     pval = val["f"]
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 function _jm_obj_4(val, path, rep)
@@ -107,19 +107,19 @@ function _jm_obj_4(val, path, rep)
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
         return false
     if (! val.hasOwnProperty("b"))
         return false
     pval = val["b"]
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
         return false
     if (! val.hasOwnProperty("e"))
         return false
     pval = val["e"]
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 function _jm_obj_5(val, path, rep)
@@ -130,19 +130,19 @@ function _jm_obj_5(val, path, rep)
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
         return false
     if (! val.hasOwnProperty("b"))
         return false
     pval = val["b"]
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
         return false
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 function json_model_1(val, path, rep)

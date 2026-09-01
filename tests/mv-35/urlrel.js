@@ -10,7 +10,7 @@ const jm_is_url_rel_re = new runtime.RX("^(((https?|s?ftp|rtsps?|s3|cm|oci|amqp)
 
 function json_model_1(val, path, rep)
 {
-    return ((typeof val === 'string' || val instanceof String)) && jm_is_url_rel(val, null, null)
+    return ((typeof val == 'string' || val instanceof String)) && jm_is_url_rel(val, null, null)
 }
 
 

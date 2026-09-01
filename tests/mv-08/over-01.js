@@ -48,7 +48,7 @@ function json_model_4(val, path, rep)
         {
             // handle may foo property
             // .'$over#Foo'.foo
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "rewritten foo"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "rewritten foo"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_rewritten foo\" [.'$over#Foo'.foo]", (path ? lpath_0 : null)])

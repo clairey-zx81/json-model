@@ -26,7 +26,7 @@ function json_model_2(val, path, rep)
             let arr_0_item = val[arr_0_idx]
             let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .'$position'.'@'.0
-            res = (typeof arr_0_item === 'number' || arr_0_item instanceof Number)
+            res = (typeof arr_0_item == 'number' || arr_0_item instanceof Number)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1.0 loose float [.'$position'.'@'.0]", (path ? arr_0_lpath : null)])
@@ -131,7 +131,7 @@ function json_model_5(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$Point'.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Point"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Point"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"Point\" [.'$Point'.type]", (path ? lpath_0 : null)])
@@ -166,7 +166,7 @@ function json_model_5(val, path, rep)
                     let arr_3_item = pval[arr_3_idx]
                     let arr_3_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_3_idx]) : null
                     // .'$Point'.bbox.0
-                    res = (typeof arr_3_item === 'number' || arr_3_item instanceof Number)
+                    res = (typeof arr_3_item == 'number' || arr_3_item instanceof Number)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a -1.0 loose float [.'$Point'.bbox.0]", ((path ? lpath_0 : null) ? arr_3_lpath : null)])
@@ -218,7 +218,7 @@ function json_model_6(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$MultiPoint'.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPoint"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "MultiPoint"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"MultiPoint\" [.'$MultiPoint'.type]", (path ? lpath_1 : null)])
@@ -268,7 +268,7 @@ function json_model_6(val, path, rep)
                     let arr_5_item = pval[arr_5_idx]
                     let arr_5_lpath = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([arr_5_idx]) : null
                     // .'$MultiPoint'.bbox.0
-                    res = (typeof arr_5_item === 'number' || arr_5_item instanceof Number)
+                    res = (typeof arr_5_item == 'number' || arr_5_item instanceof Number)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a -1.0 loose float [.'$MultiPoint'.bbox.0]", ((path ? lpath_1 : null) ? arr_5_lpath : null)])
@@ -320,7 +320,7 @@ function json_model_7(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$LineString'.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "LineString"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "LineString"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"LineString\" [.'$LineString'.type]", (path ? lpath_2 : null)])
@@ -355,7 +355,7 @@ function json_model_7(val, path, rep)
                     let arr_6_item = pval[arr_6_idx]
                     let arr_6_lpath = (path ? lpath_2 : null) ? (path ? lpath_2 : null).concat([arr_6_idx]) : null
                     // .'$LineString'.bbox.0
-                    res = (typeof arr_6_item === 'number' || arr_6_item instanceof Number)
+                    res = (typeof arr_6_item == 'number' || arr_6_item instanceof Number)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a -1.0 loose float [.'$LineString'.bbox.0]", ((path ? lpath_2 : null) ? arr_6_lpath : null)])
@@ -407,7 +407,7 @@ function json_model_8(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$MultiLineString'.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiLineString"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "MultiLineString"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"MultiLineString\" [.'$MultiLineString'.type]", (path ? lpath_3 : null)])
@@ -457,7 +457,7 @@ function json_model_8(val, path, rep)
                     let arr_8_item = pval[arr_8_idx]
                     let arr_8_lpath = (path ? lpath_3 : null) ? (path ? lpath_3 : null).concat([arr_8_idx]) : null
                     // .'$MultiLineString'.bbox.0
-                    res = (typeof arr_8_item === 'number' || arr_8_item instanceof Number)
+                    res = (typeof arr_8_item == 'number' || arr_8_item instanceof Number)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a -1.0 loose float [.'$MultiLineString'.bbox.0]", ((path ? lpath_3 : null) ? arr_8_lpath : null)])
@@ -509,7 +509,7 @@ function json_model_9(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$Polygon'.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Polygon"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Polygon"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"Polygon\" [.'$Polygon'.type]", (path ? lpath_4 : null)])
@@ -559,7 +559,7 @@ function json_model_9(val, path, rep)
                     let arr_10_item = pval[arr_10_idx]
                     let arr_10_lpath = (path ? lpath_4 : null) ? (path ? lpath_4 : null).concat([arr_10_idx]) : null
                     // .'$Polygon'.bbox.0
-                    res = (typeof arr_10_item === 'number' || arr_10_item instanceof Number)
+                    res = (typeof arr_10_item == 'number' || arr_10_item instanceof Number)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a -1.0 loose float [.'$Polygon'.bbox.0]", ((path ? lpath_4 : null) ? arr_10_lpath : null)])
@@ -611,7 +611,7 @@ function json_model_10(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$MultiPolygon'.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPolygon"
+            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "MultiPolygon"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"MultiPolygon\" [.'$MultiPolygon'.type]", (path ? lpath_5 : null)])
@@ -676,7 +676,7 @@ function json_model_10(val, path, rep)
                     let arr_13_item = pval[arr_13_idx]
                     let arr_13_lpath = (path ? lpath_5 : null) ? (path ? lpath_5 : null).concat([arr_13_idx]) : null
                     // .'$MultiPolygon'.bbox.0
-                    res = (typeof arr_13_item === 'number' || arr_13_item instanceof Number)
+                    res = (typeof arr_13_item == 'number' || arr_13_item instanceof Number)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", ((path ? lpath_5 : null) ? arr_13_lpath : null)])
@@ -728,7 +728,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$geometry'.'|'.0.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Point"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Point"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"Point\" [.'$geometry'.'|'.0.type]", (path ? lpath : null)])
@@ -763,7 +763,7 @@ function _jm_obj_0(val, path, rep)
                 let arr_14_item = pval[arr_14_idx]
                 let arr_14_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_14_idx]) : null
                 // .'$geometry'.'|'.0.bbox.0
-                res = (typeof arr_14_item === 'number' || arr_14_item instanceof Number)
+                res = (typeof arr_14_item == 'number' || arr_14_item instanceof Number)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$geometry'.'|'.0.bbox.0]", ((path ? lpath : null) ? arr_14_lpath : null)])
@@ -800,7 +800,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$geometry'.'|'.1.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPoint"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "MultiPoint"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"MultiPoint\" [.'$geometry'.'|'.1.type]", (path ? lpath : null)])
@@ -850,7 +850,7 @@ function _jm_obj_1(val, path, rep)
                 let arr_16_item = pval[arr_16_idx]
                 let arr_16_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_16_idx]) : null
                 // .'$geometry'.'|'.1.bbox.0
-                res = (typeof arr_16_item === 'number' || arr_16_item instanceof Number)
+                res = (typeof arr_16_item == 'number' || arr_16_item instanceof Number)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$geometry'.'|'.1.bbox.0]", ((path ? lpath : null) ? arr_16_lpath : null)])
@@ -887,7 +887,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$geometry'.'|'.2.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "LineString"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "LineString"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"LineString\" [.'$geometry'.'|'.2.type]", (path ? lpath : null)])
@@ -922,7 +922,7 @@ function _jm_obj_2(val, path, rep)
                 let arr_17_item = pval[arr_17_idx]
                 let arr_17_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_17_idx]) : null
                 // .'$geometry'.'|'.2.bbox.0
-                res = (typeof arr_17_item === 'number' || arr_17_item instanceof Number)
+                res = (typeof arr_17_item == 'number' || arr_17_item instanceof Number)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$geometry'.'|'.2.bbox.0]", ((path ? lpath : null) ? arr_17_lpath : null)])
@@ -959,7 +959,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$geometry'.'|'.3.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiLineString"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "MultiLineString"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"MultiLineString\" [.'$geometry'.'|'.3.type]", (path ? lpath : null)])
@@ -1009,7 +1009,7 @@ function _jm_obj_3(val, path, rep)
                 let arr_19_item = pval[arr_19_idx]
                 let arr_19_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_19_idx]) : null
                 // .'$geometry'.'|'.3.bbox.0
-                res = (typeof arr_19_item === 'number' || arr_19_item instanceof Number)
+                res = (typeof arr_19_item == 'number' || arr_19_item instanceof Number)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$geometry'.'|'.3.bbox.0]", ((path ? lpath : null) ? arr_19_lpath : null)])
@@ -1046,7 +1046,7 @@ function _jm_obj_4(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$geometry'.'|'.4.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Polygon"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Polygon"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"Polygon\" [.'$geometry'.'|'.4.type]", (path ? lpath : null)])
@@ -1096,7 +1096,7 @@ function _jm_obj_4(val, path, rep)
                 let arr_21_item = pval[arr_21_idx]
                 let arr_21_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_21_idx]) : null
                 // .'$geometry'.'|'.4.bbox.0
-                res = (typeof arr_21_item === 'number' || arr_21_item instanceof Number)
+                res = (typeof arr_21_item == 'number' || arr_21_item instanceof Number)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$geometry'.'|'.4.bbox.0]", ((path ? lpath : null) ? arr_21_lpath : null)])
@@ -1133,7 +1133,7 @@ function _jm_obj_5(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$geometry'.'|'.5.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPolygon"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "MultiPolygon"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"MultiPolygon\" [.'$geometry'.'|'.5.type]", (path ? lpath : null)])
@@ -1198,7 +1198,7 @@ function _jm_obj_5(val, path, rep)
                 let arr_24_item = pval[arr_24_idx]
                 let arr_24_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_24_idx]) : null
                 // .'$geometry'.'|'.5.bbox.0
-                res = (typeof arr_24_item === 'number' || arr_24_item instanceof Number)
+                res = (typeof arr_24_item == 'number' || arr_24_item instanceof Number)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$geometry'.'|'.5.bbox.0]", ((path ? lpath : null) ? arr_24_lpath : null)])
@@ -1267,7 +1267,7 @@ function json_model_12(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$GeometryCollection'.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GeometryCollection"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "GeometryCollection"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"GeometryCollection\" [.'$GeometryCollection'.type]", (path ? lpath : null)])
@@ -1317,7 +1317,7 @@ function json_model_12(val, path, rep)
                 let arr_26_item = pval[arr_26_idx]
                 let arr_26_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_26_idx]) : null
                 // .'$GeometryCollection'.bbox.0
-                res = (typeof arr_26_item === 'number' || arr_26_item instanceof Number)
+                res = (typeof arr_26_item == 'number' || arr_26_item instanceof Number)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", ((path ? lpath : null) ? arr_26_lpath : null)])
@@ -1355,7 +1355,7 @@ function json_model_13(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$Feature'.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Feature"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "Feature"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"Feature\" [.'$Feature'.type]", (path ? lpath : null)])
@@ -1428,12 +1428,12 @@ function json_model_13(val, path, rep)
         pval = val["id"]
         // .'$Feature'.id
         // .'$Feature'.id.'|'.0
-        res = (typeof pval === 'string' || pval instanceof String)
+        res = (typeof pval == 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$Feature'.id.'|'.0]", (path ? lpath : null)])
             // .'$Feature'.id.'|'.1
-            res = (typeof pval === 'number' || pval instanceof Number)
+            res = (typeof pval == 'number' || pval instanceof Number)
             if (! res)
                 rep !== null && rep.push(["not a -1.0 loose float [.'$Feature'.id.'|'.1]", (path ? lpath : null)])
         }
@@ -1461,7 +1461,7 @@ function json_model_13(val, path, rep)
                 let arr_27_item = pval[arr_27_idx]
                 let arr_27_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_27_idx]) : null
                 // .'$Feature'.bbox.0
-                res = (typeof arr_27_item === 'number' || arr_27_item instanceof Number)
+                res = (typeof arr_27_item == 'number' || arr_27_item instanceof Number)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$Feature'.bbox.0]", ((path ? lpath : null) ? arr_27_lpath : null)])
@@ -1499,7 +1499,7 @@ function json_model_14(val, path, rep)
     lpath = path ? path.concat(["type"]) : null
     pval = val["type"]
     // .'$FeatureCollection'.type
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "FeatureCollection"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "FeatureCollection"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"FeatureCollection\" [.'$FeatureCollection'.type]", (path ? lpath : null)])
@@ -1549,7 +1549,7 @@ function json_model_14(val, path, rep)
                 let arr_29_item = pval[arr_29_idx]
                 let arr_29_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_29_idx]) : null
                 // .'$FeatureCollection'.bbox.0
-                res = (typeof arr_29_item === 'number' || arr_29_item instanceof Number)
+                res = (typeof arr_29_item == 'number' || arr_29_item instanceof Number)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", ((path ? lpath : null) ? arr_29_lpath : null)])

@@ -36,7 +36,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["id"]) : null
     pval = val["id"]
     // .'$Root'.id
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0\" [.'$Root'.id]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["name"]) : null
     pval = val["name"]
     // .'$Root'.name
-    res = (typeof pval === 'string' || pval instanceof String)
+    res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.name]", (path ? lpath : null)])

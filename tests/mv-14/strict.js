@@ -37,7 +37,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["si"]) : null
     pval = val["si"]
     // .si
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.si]", (path ? lpath : null)])

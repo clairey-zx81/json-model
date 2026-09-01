@@ -19,7 +19,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$g'
-    return ((typeof val === 'string' || val instanceof String)) && val == "g"
+    return ((typeof val == 'string' || val instanceof String)) && val == "g"
 }
 
 
@@ -27,7 +27,7 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$h_ou_i'
-    return ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    return ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
 }
 
 // check $d (.'$d')
@@ -44,14 +44,14 @@ function json_model_4(val, path, rep)
         return false
     pval = val["t"]
     // .'$d'.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "d"
     if (! res)
         return false
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
     // .'$d'.d
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 
@@ -69,14 +69,14 @@ function json_model_5(val, path, rep)
         return false
     pval = val["t"]
     // .'$ef'.t
-    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
+    let res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
     if (! res)
         return false
     if (! val.hasOwnProperty("ef"))
         return false
     pval = val["ef"]
     // .'$ef'.ef
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 // object .'$alternative'.'|'.0
@@ -92,14 +92,14 @@ function _jm_obj_0(val, path, rep)
         return false
     pval = val["t"]
     // .'$alternative'.'|'.0.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
     if (! res)
         return false
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
     // .'$alternative'.'|'.0.a
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 
@@ -116,14 +116,14 @@ function _jm_obj_1(val, path, rep)
         return false
     pval = val["t"]
     // .'$alternative'.'|'.1.t
-    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_2.has(pval)
+    let res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_2.has(pval)
     if (! res)
         return false
     if (! val.hasOwnProperty("bc"))
         return false
     pval = val["bc"]
     // .'$alternative'.'|'.1.bc
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 // object .'$alternative'.'|'.2
@@ -139,14 +139,14 @@ function _jm_obj_2(val, path, rep)
         return false
     pval = val["t"]
     // .'$alternative'.'|'.2.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "g"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "g"
     if (! res)
         return false
     if (! val.hasOwnProperty("g"))
         return false
     pval = val["g"]
     // .'$alternative'.'|'.2.g
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 // object .'$alternative'.'|'.3
@@ -169,7 +169,7 @@ function _jm_obj_3(val, path, rep)
         return false
     pval = val["hi"]
     // .'$alternative'.'|'.3.hi
-    return (typeof pval === 'string' || pval instanceof String)
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 

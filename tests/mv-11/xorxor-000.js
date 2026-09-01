@@ -21,17 +21,17 @@ function json_model_2(val, path, rep)
     {
         rep !== null && rep.push(["not null [.'$Xx'.'|'.0]", path])
         // .'$Xx'.'|'.1
-        res = (typeof val === 'boolean' || val instanceof Boolean)
+        res = (typeof val == 'boolean' || val instanceof Boolean)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$Xx'.'|'.1]", path])
             // .'$Xx'.'|'.2
-            res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
+            res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'$Xx'.'|'.2]", path])
                 // .'$Xx'.'|'.3
-                res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0
+                res = ((typeof val == 'number' || val instanceof Number)) && val > 0.0
                 if (! res)
                     rep !== null && rep.push(["not a 1.0 strict float [.'$Xx'.'|'.3]", path])
             }

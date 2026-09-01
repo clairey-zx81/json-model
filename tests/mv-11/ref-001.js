@@ -36,7 +36,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'$a'.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$a'.a]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'$a'.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$a'.b]", (path ? lpath : null)])
@@ -86,7 +86,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'$b'.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$b'.a]", (path ? lpath : null)])
@@ -101,7 +101,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'$b'.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$b'.b]", (path ? lpath : null)])
@@ -116,7 +116,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .'$b'.c
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$b'.c]", (path ? lpath : null)])

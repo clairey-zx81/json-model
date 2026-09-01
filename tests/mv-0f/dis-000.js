@@ -31,7 +31,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'|'.1.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.1.a]", (path ? lpath : null)])
@@ -46,7 +46,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .'|'.1.c
-    res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
+    res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'|'.1.c]", (path ? lpath : null)])
@@ -76,7 +76,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'|'.0.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.0.a]", (path ? lpath : null)])
@@ -91,7 +91,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'|'.0.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.0.b]", (path ? lpath : null)])

@@ -24,7 +24,7 @@ function _jm_obj_0(val, path, rep)
             // handle must a property
             must_count += 1
             // .'|'.2.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -34,7 +34,7 @@ function _jm_obj_0(val, path, rep)
             // handle must d property
             must_count += 1
             // .'|'.2.d
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -43,7 +43,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may u property
             // .'|'.2.u
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -52,7 +52,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may x property
             // .'|'.2.x
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -75,7 +75,7 @@ function _jm_obj_1(val, path, rep)
             // handle must a property
             must_count += 1
             // .'|'.1.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -85,7 +85,7 @@ function _jm_obj_1(val, path, rep)
             // handle must c property
             must_count += 1
             // .'|'.1.c
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -94,7 +94,7 @@ function _jm_obj_1(val, path, rep)
         {
             // handle may v property
             // .'|'.1.v
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -103,7 +103,7 @@ function _jm_obj_1(val, path, rep)
         {
             // handle may z property
             // .'|'.1.z
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -126,7 +126,7 @@ function _jm_obj_2(val, path, rep)
             // handle must a property
             must_count += 1
             // .'|'.0.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -136,7 +136,7 @@ function _jm_obj_2(val, path, rep)
             // handle must b property
             must_count += 1
             // .'|'.0.b
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -145,7 +145,7 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may z property
             // .'|'.0.z
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue
@@ -154,7 +154,7 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may w property
             // .'|'.0.w
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
                 return false
             continue

@@ -21,7 +21,7 @@ function json_model_1(val, path, rep)
                 for (let arr_1_idx = 0; arr_1_idx < arr_0_item.length; arr_1_idx++)
                 {
                     let arr_1_item = arr_0_item[arr_1_idx]
-                    res = (typeof arr_1_item === 'string' || arr_1_item instanceof String)
+                    res = (typeof arr_1_item == 'string' || arr_1_item instanceof String)
                     if (! res)
                         break
                 }
