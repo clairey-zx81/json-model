@@ -1486,6 +1486,13 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         if note not in skipped:
             skipped.append(note)
 
+    def repeats(key: str, value: Jsonable) -> bool:
+        """Whether a violation repeats a value already generated as valid."""
+        if unverified is None or json.dumps(value, sort_keys=True) not in valid:
+            return False
+        skip(f"{key}: valid for the model")
+        return True
+
     if any(f[0][0] if f else v for _, v, f, _, _ in sites):
         try:
             doc = simplest(model, jm, seen)
@@ -1518,7 +1525,9 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 reasons.append(str(e))
 
                 continue
-            if proven or unverified is not None:
+            if not proven and repeats(key, value):
+                continue
+            elif proven or unverified is not None:
                 values[key] = value
                 if unverified is not None and not proven:
                     unverified.add(key)
@@ -1552,6 +1561,8 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 break
             if json.dumps(value, sort_keys=True) in taken:
                 break
+            elif not proven and repeats(key, value):
+                break
             elif unverified is not None or _verify(value, vmodel, vjm) is False:
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
@@ -1578,6 +1589,8 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
 
             continue
         if json.dumps(value, sort_keys=True) in taken:
+            continue
+        elif not proven and repeats(key, value):
             continue
         elif proven or unverified is not None or _verify(value, vmodel, vjm) is False:
             values[key] = value
@@ -1619,6 +1632,8 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 break
             if json.dumps(value, sort_keys=True) in taken:
                 continue
+            elif not proven and repeats(key, value):
+                continue
             elif proven or unverified is not None or _verify(value, vmodel, vjm) is False:
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
@@ -1658,6 +1673,8 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
 
                 break
             if json.dumps(value, sort_keys=True) in taken:
+                break
+            elif not proven and repeats(key, value):
                 break
             elif proven or unverified is not None or _verify(value, vmodel, vjm) is False:
                 values[key] = value
