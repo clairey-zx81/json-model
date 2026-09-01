@@ -1527,10 +1527,10 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             if not proven and repeats(key, value):
                 continue
-            elif proven or unverified is not None:
+            elif proven:
                 values[key] = value
-                if unverified is not None and not proven:
-                    unverified.add(key)
+            elif unverified is not None:
+                skip(f"{key}: no oracle proves the violation")
             elif _verify(value, vmodel, vjm) is False and _verify(value, rest, jm, rdefs) is True:
                 values[key] = value
             else:
@@ -1563,11 +1563,9 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 break
             elif not proven and repeats(key, value):
                 break
-            elif unverified is not None or _verify(value, vmodel, vjm) is False:
+            elif proven or (unverified is None and _verify(value, vmodel, vjm) is False):
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
-                if unverified is not None and not proven:
-                    unverified.add(key)
                 break
         else:
             skip(f"{key}: no type breaks the model here")
@@ -1592,11 +1590,11 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             continue
         elif not proven and repeats(key, value):
             continue
-        elif proven or unverified is not None or _verify(value, vmodel, vjm) is False:
+        elif proven or (unverified is None and _verify(value, vmodel, vjm) is False):
             values[key] = value
             taken.add(json.dumps(value, sort_keys=True))
-            if unverified is not None and not proven:
-                unverified.add(key)
+        elif unverified is not None:
+            skip(f"{key}: no oracle proves the violation")
         else:
             skip(f"{key}: the {target} violation is still valid")
     for mpath, vpath, frames, node, disjunction in _object_sites(sites):
@@ -1634,11 +1632,11 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             elif not proven and repeats(key, value):
                 continue
-            elif proven or unverified is not None or _verify(value, vmodel, vjm) is False:
+            elif proven or (unverified is None and _verify(value, vmodel, vjm) is False):
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
-                if unverified is not None and not proven:
-                    unverified.add(key)
+            elif unverified is not None:
+                skip(f"{key}: no oracle proves the violation")
             else:
                 skip(f"{key}: dropping {name} is still valid")
     for mpath, vpath, frames, node, disjunction in _object_sites(sites):
@@ -1676,11 +1674,9 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 break
             elif not proven and repeats(key, value):
                 break
-            elif proven or unverified is not None or _verify(value, vmodel, vjm) is False:
+            elif proven or (unverified is None and _verify(value, vmodel, vjm) is False):
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
-                if unverified is not None and not proven:
-                    unverified.add(key)
                 break
         else:
             skip(f"{_mpath(mpath)} extra: every extra property is valid")
@@ -1695,8 +1691,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         elif always or dumped in valid:
             verdict = True
         elif unverified is not None:
-            verdict = False
-            unverified.add(f".{shown} root invalid")
+            continue
         else:
             verdict = _verify(candidate, vmodel, vjm)
         if verdict is not False:
@@ -1903,12 +1898,47 @@ def _ordered(entries: list[tuple[int, str, list]]) -> list:
                             for s in re.split(r"(\d+)", path))
     return [item for *_, entry in sorted(entries, key=rank) for item in entry]
 
+_UNVERIFIED = " UNVERIFIED"
+
+def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
+             resolver: Resolver|None, url: str, extend: bool) -> None:
+    """Ask the validator about marked vectors, keeping the values and rewriting the marks.
+
+    A silent validator guards the mark as UNCHECKED rather than confirming it.
+    """
+    marked = [entry for *_, entry in entries
+              if len(entry) == 2 and isinstance(entry[0], str)
+              and entry[0].endswith(_UNVERIFIED)]
+    if not marked:
+        return
+    def remark(entry: list, verdict: str) -> None:
+        entry[0] = entry[0][:-len(_UNVERIFIED)] + " " + verdict
+    try:
+        jm, _ = _compile(model, True, resolver, url, extend)
+        defs = _defs(jm)
+    except UnsupportedValue:
+        for entry in marked:
+            remark(entry, "UNCHECKED")
+        return
+    for entry in marked:
+        expect, value = entry[1]
+        result = _verify(value, model, jm, defs)
+        if result is None:
+            remark(entry, "UNCHECKED")
+        elif result != expect:
+            remark(entry, "DISAGREES")
+
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             extend: bool = False, unverified: bool = False) -> list:
     """Test vectors for a model, sorted by model path, valid values before violations.
 
-    With unverified, skip the compiler wherever an oracle cannot decide, keep the
-    value the generator intended and mark it, so a disagreement is visible.
+    With unverified, skip the compiler: a valid value no oracle proves is kept and
+    marked, so a disagreement is visible, while a violation no oracle proves is
+    dropped rather than claimed, since the model may still accept it elsewhere.
+    A last pass then submits each marked value to the validator: the mark stays
+    UNVERIFIED when the validator agrees with the generator and becomes DISAGREES
+    when it contradicts it. A validator which answers nothing leaves UNCHECKED,
+    never a confirmation.
     """
     entries: list[tuple[int, str, list]] = []
     reasons: list[str] = []
@@ -1973,4 +2003,6 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         entries.append((1, ".", ["# invalid model FAILED"]))
     if not any(len(entry) > 1 for *_, entry in entries):
         raise UnsupportedValue(f"no test vector: {_joined(reasons)}")
+    if unverified:
+        _recheck(entries, model, resolver, url, extend)
     return _ordered(entries)
