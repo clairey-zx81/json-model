@@ -963,11 +963,29 @@ def _alone(models: ModelArray, jm: JsonModel, value: Jsonable) -> list[int]:
     """Alternatives which do not certainly reject a value."""
     return [i for i, alt in enumerate(models) if not _rejects(jm, alt, [], value)]
 
+def _nested(model: ModelType, jm: JsonModel, seen: frozenset[str]) -> list[Jsonable]:
+    """Values the alternatives of a union nested inside an alternative build."""
+    props = ({p: m for p, m in model.items() if not p.startswith("#")}
+             if isinstance(model, dict) else {})
+    if set(props) not in ({"|"}, {"^"}):
+        return []
+    values: list[Jsonable] = []
+    for alt in props[next(iter(props))]:
+        if isinstance(alt, str) and alt.startswith("#"):
+            continue
+        try:
+            values.append(simplest(alt, jm, seen))
+        except UnsupportedValue:
+            continue
+    return values
+
 def _discriminating(models: ModelArray, jm: JsonModel, seen: frozenset[str]) -> list[Jsonable]:
     """Value which exactly one alternative of a xor accepts, empty when none is found.
 
     A value an alternative builds and every other one certainly rejects is proven,
-    since construction shows the acceptance no oracle can. A value borrowed from
+    since construction shows the acceptance no oracle can. An alternative which is
+    itself a union is asked for the values of its own branches, since the simplest
+    of them may be the one the other alternatives share. A value borrowed from
     another alternative's violations is only a better guess: it leaves one branch
     open instead of several, and the last pass notes it if the compiler disagrees.
     """
@@ -980,6 +998,10 @@ def _discriminating(models: ModelArray, jm: JsonModel, seen: frozenset[str]) -> 
     for index, value in built.items():
         if _alone(models, jm, value) == [index]:
             return [value]
+    for index, alt in enumerate(models):
+        for value in _nested(alt, jm, seen):
+            if _alone(models, jm, value) == [index]:
+                return [value]
     for index, alt in enumerate(models):
         try:
             found = violations(alt, jm, seen)
@@ -1988,6 +2010,8 @@ def _ordered(entries: list[tuple[int, str, list]]) -> list:
     return [item for *_, entry in sorted(entries, key=rank) for item in entry]
 
 _AGREES = " AGREES"
+_SIMPLEST = "# . simplest"
+_NO_BASE = "no value the compiler accepts, every vector below builds on this one"
 
 def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
              resolver: Resolver|None, url: str, extend: bool) -> None:
@@ -1996,7 +2020,8 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
     A silent validator guards the mark as UNCHECKED rather than confirming it.
     Every generated value is kept: the validator writes a note, never a verdict
     on whether the vector belongs in the file. A vector no oracle doubted is
-    submitted too, but only a contradiction is worth a word on it.
+    submitted too, but only a contradiction is worth a word on it. A refused base
+    value is called out on its own, since every other vector is built on it.
     """
     judged = [entry for *_, entry in entries
               if len(entry) == 2 and isinstance(entry[0], str)]
@@ -2015,6 +2040,7 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
             if entry[0].endswith(_AGREES):
                 remark(entry, "UNCHECKED")
         return
+    refused = False
     for entry in judged:
         expect, value = entry[1]
         result = _verify(value, model, jm, defs)
@@ -2024,6 +2050,10 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
             remark(entry, "UNCHECKED" if result is None else "DISAGREES")
         elif result is not None:
             remark(entry, "DISAGREES")
+        if result is False and entry[0].startswith(_SIMPLEST):
+            refused = True
+    if refused:
+        entries.append((0, ".", _note(f"base values: {_NO_BASE}", "FAILED")[1]))
 
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             extend: bool = False) -> list:
