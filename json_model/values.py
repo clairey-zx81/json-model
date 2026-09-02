@@ -1799,7 +1799,7 @@ def optionals(model: ModelType, jm: JsonModel|None = None,
                 continue
             values[key] = value
             taken.add(dumped)
-    if not values and not reasons:
+    if not values and not reasons and not doubled:
         raise Vacuous(f"no optional property in model: {_brief(model)}")
     return values, reasons, doubled
 
@@ -1849,7 +1849,7 @@ def branches(model: ModelType, jm: JsonModel|None = None,
                 continue
             values[key] = value
             taken.add(dumped)
-    if not values and not reasons:
+    if not values and not reasons and not doubled:
         raise Vacuous(f"no union alternative in model: {_brief(model)}")
     return values, reasons, doubled
 
