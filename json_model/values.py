@@ -885,7 +885,7 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
     if isinstance(base, dict):
         return _grown(target, base, length, jm, seen)
     value = _sized(target, base, length, unique, jm, seen)
-    if unique and length > 1 and _verify(value, props, jm) is not True:
+    if unique and length > 1 and _breaks("!", True, value):
         raise UnsupportedValue(f"unique constraint is not satisfiable: {target}")
     else:
         return value
@@ -963,13 +963,22 @@ def _simplest_operator(op: str, alts: ModelArray, jm: JsonModel,
                        seen: frozenset[str]) -> Jsonable:
     """Simplest value satisfying an operator, checked against the whole model."""
     models = [a for a in alts if not (isinstance(a, str) and a.startswith("#"))]
+    unchecked, refused = None, None
     for alt in models:
         try:
             value = simplest(alt, jm, seen)
         except UnsupportedValue:
             continue
-        if _verify(value, {op: models}, jm) is True:
+        result = _verify(value, {op: models}, jm)
+        if result is True:
             return value
+        elif result is None and unchecked is None:
+            unchecked = [value]
+        elif result is False and refused is None:
+            refused = [value]
+    for fallback in (unchecked, refused):
+        if fallback is not None:
+            return fallback[0]
     raise UnsupportedValue(f"no alternative satisfies {op}: {alts}")
 
 def _simplest_object(model: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
@@ -1124,10 +1133,16 @@ def _violations_constrained(props: ModelObject, jm: JsonModel,
     values: dict[str, Jsonable] = {}
     for op, bound in ops.items():
         rest = {p: m for p, m in props.items() if p != op}
+        broken = None
         for value in _candidates(op, bound, props, base, jm, seen):
             if _verify(value, props, jm) is False and _verify(value, rest, jm) is True:
                 values[op] = value
                 break
+            elif broken is None and _breaks(op, bound, value):
+                broken = value
+        else:
+            if broken is not None:
+                values[op] = broken
     if not values:
         raise UnsupportedValue(f"no constraint could be violated: {props}")
     else:
@@ -1180,10 +1195,17 @@ def _bounds_constrained(props: ModelObject, jm: JsonModel,
         raise UnsupportedValue(f"unique constraint on a non-array: {target}")
     values: dict[str, Jsonable] = {}
     for op, bound in ops.items():
+        unbroken = None
         for value in _bound_candidates(op, bound, props, base, jm, seen):
             if _verify(value, props, jm) is True:
                 values[op] = value
                 break
+            elif unbroken is None and not any(_breaks(p, c, value)
+                                              for p, c in ops.items()):
+                unbroken = value
+        else:
+            if unbroken is not None:
+                values[op] = unbroken
     if not values:
         raise UnsupportedValue(
             f"no bound reached for {', '.join(ops)} in model: {_brief(target)}")
@@ -1712,7 +1734,7 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
             except UnsupportedValue as e:
-                failure(key, e)
+                reasons.append(f"{key}: {e}")
                 continue
             values[key] = value
             marks.add(key)
@@ -1879,27 +1901,35 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
 
     A silent validator guards the mark as UNCHECKED rather than confirming it.
     Every generated value is kept: the validator writes a note, never a verdict
-    on whether the vector belongs in the file.
+    on whether the vector belongs in the file. A vector no oracle doubted is
+    submitted too, but only a contradiction is worth a word on it.
     """
-    marked = [entry for *_, entry in entries
-              if len(entry) == 2 and isinstance(entry[0], str)
-              and entry[0].endswith(_AGREES)]
-    if not marked:
+    judged = [entry for *_, entry in entries
+              if len(entry) == 2 and isinstance(entry[0], str)]
+    if not judged:
         return
     def remark(entry: list, verdict: str) -> None:
-        entry[0] = entry[0][:-len(_AGREES)] + " " + verdict
+        head = entry[0]
+        if head.endswith(_AGREES):
+            head = head[:-len(_AGREES)]
+        entry[0] = head + " " + verdict
     try:
         jm, _ = _compile(model, True, resolver, url, extend)
         defs = _defs(jm)
     except UnsupportedValue:
-        for entry in marked:
-            remark(entry, "UNCHECKED")
+        for entry in judged:
+            if entry[0].endswith(_AGREES):
+                remark(entry, "UNCHECKED")
         return
-    for entry in marked:
+    for entry in judged:
         expect, value = entry[1]
         result = _verify(value, model, jm, defs)
-        if result != expect:
+        if result == expect:
+            continue
+        elif entry[0].endswith(_AGREES):
             remark(entry, "UNCHECKED" if result is None else "DISAGREES")
+        elif result is not None:
+            remark(entry, "DISAGREES")
 
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             extend: bool = False) -> list:
