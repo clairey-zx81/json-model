@@ -1655,7 +1655,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             if always or dumped in valid:
                 skip(f".{shown} root: valid for the model")
             continue
-        values[f".{shown} root invalid"] = copy.deepcopy(candidate)
+        values[_rooted(candidate)] = copy.deepcopy(candidate)
         taken.add(dumped)
     if not values:
         if not reasons:
@@ -1817,9 +1817,21 @@ def branches(model: ModelType, jm: JsonModel|None = None,
 _EXPLANATIONS = (" root invalid", " root", " bound", " present", " branch",
                  " invalid", " missing", " extra", " bad")
 
+_ROOT_INVALID = " root invalid"
+
+def _rooted(value: Jsonable) -> str:
+    """Key of a root type violation, naming the value it is about."""
+    shown = f"'{value}'" if isinstance(value, str) else json.dumps(value, sort_keys=True)
+    return f".{shown}{_ROOT_INVALID}"
+
+def _shown(key: str) -> str:
+    """Key of a comment, without the root value which the test vector shows anyway."""
+    return f".{_ROOT_INVALID}" if key.endswith(_ROOT_INVALID) else key
+
 def _label(key: str, marks: set[str], suffix: str = "") -> str:
     """Comment introducing a test vector, marked when the compiler was not asked."""
-    return f"# {key}{suffix} AGREES" if key in marks else f"# {key}{suffix}"
+    head = _shown(key)
+    return f"# {head}{suffix} AGREES" if key in marks else f"# {head}{suffix}"
 
 def _note(reason: str, warn: str) -> tuple[str, list]:
     """Path and comment about a test vector which could not be generated."""
@@ -1828,6 +1840,7 @@ def _note(reason: str, warn: str) -> tuple[str, list]:
 
 def _path(key: str) -> str:
     """Model path a comment is about, without the explanation which follows it."""
+    key = _shown(key)
     for word in _EXPLANATIONS:
         if key.endswith(word):
             return key[:-len(word)]
@@ -1858,8 +1871,10 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
     def remark(entry: list, verdict: str) -> None:
         entry[0] = entry[0][:-len(_AGREES)] + " " + verdict
     def unproven(entry: list) -> None:
-        entry[:] = [f"# {entry[0][2:-len(_AGREES)]} SKIPPED: "
-                    "no oracle proves the violation"]
+        head = entry[0][2:-len(_AGREES)]
+        if head == f".{_ROOT_INVALID}":
+            head = _rooted(entry[1][1])
+        entry[:] = [f"# {head} SKIPPED: no oracle proves the violation"]
     try:
         jm, _ = _compile(model, True, resolver, url, extend)
         defs = _defs(jm)
