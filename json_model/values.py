@@ -1441,13 +1441,15 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
                 url: str = "", extend: bool = False,
                 marks: set[str]|None = None,
-                valid: frozenset[str] = frozenset()) -> tuple[dict[str, Jsonable], list[str]]:
-    """Generate a value breaking each constraint, and why some sites were skipped.
+                valid: frozenset[str] = frozenset()
+                ) -> tuple[dict[str, Jsonable], list[str], list[str]]:
+    """Generate a value breaking each constraint, why some sites were skipped and repeated.
 
     Values already generated as valid, as JSON dumps, are known to match the model.
     """
     vjm, vmodel = jm, model
     skipped: list[str] = []
+    doubled: list[str] = []
     if jm is None:
         jm, model = _compile(model, False, resolver, url, extend)
         vjm, vmodel = _compile(vmodel, True, resolver, url, extend)
@@ -1474,6 +1476,11 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             return False
         skip(f"{key}: valid for the model")
         return True
+
+    def doubles(key: str) -> None:
+        """Record a site whose value another site already produced."""
+        if key not in doubled:
+            doubled.append(key)
 
     def dropped(key: str) -> bool:
         """Whether a violation no oracle proves is refused instead of marked."""
@@ -1513,6 +1520,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             dumped = json.dumps(value, sort_keys=True)
             if dumped in taken:
+                doubles(key)
                 continue
             elif not proven and repeats(key, value):
                 continue
@@ -1540,6 +1548,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
 
                 break
             if json.dumps(value, sort_keys=True) in taken:
+                doubles(key)
                 break
             elif not proven and repeats(key, value):
                 break
@@ -1567,6 +1576,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
 
             continue
         if json.dumps(value, sort_keys=True) in taken:
+            doubles(key)
             continue
         elif not proven and repeats(key, value):
             continue
@@ -1599,6 +1609,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
 
                 break
             if json.dumps(value, sort_keys=True) in taken:
+                doubles(key)
                 continue
             elif not proven and repeats(key, value):
                 continue
@@ -1636,6 +1647,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
 
                 break
             if json.dumps(value, sort_keys=True) in taken:
+                doubles(key)
                 break
             elif not proven and repeats(key, value):
                 break
@@ -1650,6 +1662,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         dumped = json.dumps(candidate, sort_keys=True)
         shown = f"'{candidate}'" if isinstance(candidate, str) else dumped
         if dumped in taken:
+            doubles(_rooted(candidate))
             continue
         if not _rejects(vjm, vmodel, [], candidate):
             if always or dumped in valid:
@@ -1662,7 +1675,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             reasons.append("no violation site could be used")
         raise UnsupportedValue(f"no constraint could be violated: {_joined(reasons)}")
     else:
-        return values, skipped
+        return values, skipped, doubled
 
 def bounds(model: ModelType, jm: JsonModel|None = None,
            seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
@@ -1715,14 +1728,16 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
 def optionals(model: ModelType, jm: JsonModel|None = None,
               seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
               url: str = "", extend: bool = False,
-              marks: set[str]|None = None) -> tuple[dict[str, Jsonable], list[str]]:
-    """Generate a valid value per optional property, and why the others were skipped."""
+              marks: set[str]|None = None
+              ) -> tuple[dict[str, Jsonable], list[str], list[str]]:
+    """Generate a valid value per optional property, why the others were skipped or repeated."""
     marks = set() if marks is None else marks
     if jm is None:
         jm, model = _compile(model, True, resolver, url, extend)
     sites = list(_sites(model, [], [], [], jm, frozenset()))
     values: dict[str, Jsonable] = {}
     reasons: list[str] = []
+    doubled: list[str] = []
     doc = None
     try:
         doc = simplest(model, jm, seen)
@@ -1760,24 +1775,27 @@ def optionals(model: ModelType, jm: JsonModel|None = None,
             value = found[0]
             dumped = json.dumps(value, sort_keys=True)
             if dumped in taken:
+                doubled.append(key)
                 continue
             values[key] = value
             taken.add(dumped)
     if not values and not reasons:
         raise Vacuous(f"no optional property in model: {_brief(model)}")
-    return values, reasons
+    return values, reasons, doubled
 
 def branches(model: ModelType, jm: JsonModel|None = None,
              seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
              url: str = "", extend: bool = False,
-             marks: set[str]|None = None) -> tuple[dict[str, Jsonable], list[str]]:
-    """Generate a valid value per union alternative, and why the others were skipped."""
+             marks: set[str]|None = None
+             ) -> tuple[dict[str, Jsonable], list[str], list[str]]:
+    """Generate a valid value per union alternative, why the others were skipped or repeated."""
     marks = set() if marks is None else marks
     if jm is None:
         jm, model = _compile(model, True, resolver, url, extend)
     sites = list(_sites(model, [], [], [], jm, frozenset()))
     values: dict[str, Jsonable] = {}
     reasons: list[str] = []
+    doubled: list[str] = []
     doc = None
     try:
         doc = simplest(model, jm, seen)
@@ -1807,12 +1825,13 @@ def branches(model: ModelType, jm: JsonModel|None = None,
             value = found[0]
             dumped = json.dumps(value, sort_keys=True)
             if dumped in taken:
+                doubled.append(key)
                 continue
             values[key] = value
             taken.add(dumped)
     if not values and not reasons:
         raise Vacuous(f"no union alternative in model: {_brief(model)}")
-    return values, reasons
+    return values, reasons, doubled
 
 _EXPLANATIONS = (" root invalid", " root", " bound", " present", " branch",
                  " invalid", " missing", " extra", " bad")
@@ -1925,6 +1944,7 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         for key, value in found.items():
             dumped = json.dumps(value, sort_keys=True)
             if dumped in taken:
+                entries.append((0, *_note(f"{key} bound", "DUPLICATE")))
                 continue
             taken.add(dumped)
             entries.append((0, _path(key), [_label(key, marks, " bound"), [True, value]]))
@@ -1936,16 +1956,19 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     for step, generate in (("optional", optionals), ("branch", branches)):
         try:
             step_marks: set[str] = set()
-            found, skipped = generate(model, resolver=resolver, url=url, extend=extend,
-                                      marks=step_marks)
+            found, skipped, doubled = generate(model, resolver=resolver, url=url,
+                                               extend=extend, marks=step_marks)
             for key, value in found.items():
                 dumped = json.dumps(value, sort_keys=True)
                 if dumped in taken:
+                    entries.append((0, *_note(key, "DUPLICATE")))
                     continue
                 taken.add(dumped)
                 entries.append((0, _path(key), [_label(key, step_marks), [True, value]]))
             for reason in skipped:
                 entries.append((0, *_note(reason, "FAILED")))
+            for reason in doubled:
+                entries.append((0, *_note(reason, "DUPLICATE")))
         except Vacuous as e:
             reasons.append(str(e))
         except UnsupportedValue as e:
@@ -1953,12 +1976,15 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             entries.append((0, ".", _note(f"{step} values: {e}", "FAILED")[1]))
     try:
         broken_marks: set[str] = set()
-        broken, skipped = _violations(model, resolver=resolver, url=url, extend=extend,
-                                      marks=broken_marks, valid=frozenset(taken))
+        broken, skipped, doubled = _violations(model, resolver=resolver, url=url,
+                                               extend=extend, marks=broken_marks,
+                                               valid=frozenset(taken))
         for key, value in broken.items():
             entries.append((1, _path(key), [_label(key, broken_marks), [False, value]]))
         for reason in skipped:
             entries.append((1, *_note(reason, "SKIPPED")))
+        for reason in doubled:
+            entries.append((1, *_note(reason, "DUPLICATE")))
     except Vacuous as e:
         reasons.append(str(e))
     except UnsupportedValue as e:
