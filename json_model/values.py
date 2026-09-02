@@ -1442,14 +1442,15 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 url: str = "", extend: bool = False,
                 marks: set[str]|None = None,
                 valid: frozenset[str] = frozenset()
-                ) -> tuple[dict[str, Jsonable], list[str], list[str]]:
-    """Generate a value breaking each constraint, why some sites were skipped and repeated.
+                ) -> tuple[dict[str, Jsonable], list[str], list[str], list[str]]:
+    """Generate a value breaking each constraint, and which sites were skipped, repeated or lost.
 
     Values already generated as valid, as JSON dumps, are known to match the model.
     """
     vjm, vmodel = jm, model
     skipped: list[str] = []
     doubled: list[str] = []
+    failed: list[str] = []
     if jm is None:
         jm, model = _compile(model, False, resolver, url, extend)
         vjm, vmodel = _compile(vmodel, True, resolver, url, extend)
@@ -1482,6 +1483,13 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         if key not in doubled:
             doubled.append(key)
 
+    def failure(key: str, error: object) -> None:
+        """Record a site the generator could not build."""
+        note = f"{key}: {error}"
+        reasons.append(note)
+        if note not in failed:
+            failed.append(note)
+
     def dropped(key: str) -> bool:
         """Whether a violation no oracle proves is refused instead of marked."""
         if marks is None:
@@ -1494,7 +1502,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         try:
             doc = simplest(model, jm, seen)
         except UnsupportedValue as e:
-            reasons.append(f"no document to alter: {e}")
+            failure("violation values", f"no document to alter: {e}")
     for mpath, vpath, frames, props, disjunction in sites:
         ops = set(props) - {"@"}
         if not ops or all(_mpath(mpath + [op]) in values for op in ops):
@@ -1502,7 +1510,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         try:
             subs = _violations_constrained(props, jm, seen)
         except UnsupportedValue as e:
-            reasons.append(str(e))
+            failure(_mpath(mpath), e)
             continue
         for op, sub in subs.items():
             key = _mpath(mpath + [op])
@@ -1514,9 +1522,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 value = _document(sub, vpath, frames, doc, jm, seen)
                 proven = proven or _beyond(jm, disjunction, value)
             except UnsupportedValue as e:
-
-                reasons.append(str(e))
-
+                failure(key, e)
                 continue
             dumped = json.dumps(value, sort_keys=True)
             if dumped in taken:
@@ -1543,9 +1549,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 value = _document(copy.deepcopy(candidate), vpath, frames, doc, jm, seen)
                 proven = proven or _beyond(jm, disjunction, value)
             except UnsupportedValue as e:
-
-                reasons.append(str(e))
-
+                failure(key, e)
                 break
             if json.dumps(value, sort_keys=True) in taken:
                 doubles(key)
@@ -1571,9 +1575,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                               vpath, frames, doc, jm, seen)
             proven = proven or _beyond(jm, disjunction, value)
         except UnsupportedValue as e:
-
-            reasons.append(str(e))
-
+            failure(key, e)
             continue
         if json.dumps(value, sort_keys=True) in taken:
             doubles(key)
@@ -1589,7 +1591,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         try:
             built = simplest(node, jm, seen)
         except UnsupportedValue as e:
-            reasons.append(f"{_mpath(mpath)}: no object to shrink: {e}")
+            failure(f"{_mpath(mpath)} missing", f"no object to shrink: {e}")
             continue
         if not isinstance(built, dict):
             continue
@@ -1604,9 +1606,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 value = _document(sub, vpath, frames, doc, jm, seen)
                 proven = proven or _beyond(jm, disjunction, value)
             except UnsupportedValue as e:
-
-                reasons.append(str(e))
-
+                failure(key, e)
                 break
             if json.dumps(value, sort_keys=True) in taken:
                 doubles(key)
@@ -1625,7 +1625,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         try:
             built = simplest(node, jm, seen)
         except UnsupportedValue as e:
-            reasons.append(f"{_mpath(mpath)}: no object to extend: {e}")
+            failure(f"{_mpath(mpath)} extra", f"no object to extend: {e}")
             continue
         if not isinstance(built, dict):
             continue
@@ -1642,9 +1642,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 value = _document(sub, vpath, frames, doc, jm, seen)
                 proven = proven or _beyond(jm, disjunction, value)
             except UnsupportedValue as e:
-
-                reasons.append(str(e))
-
+                failure(key, e)
                 break
             if json.dumps(value, sort_keys=True) in taken:
                 doubles(key)
@@ -1675,7 +1673,9 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             reasons.append("no violation site could be used")
         raise UnsupportedValue(f"no constraint could be violated: {_joined(reasons)}")
     else:
-        return values, skipped, doubled
+        covered = values.keys() | {n.partition(": ")[0] for n in skipped} | set(doubled)
+        return (values, skipped, doubled,
+                [n for n in failed if n.partition(": ")[0] not in covered])
 
 def bounds(model: ModelType, jm: JsonModel|None = None,
            seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
@@ -1712,9 +1712,7 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
             except UnsupportedValue as e:
-
-                reasons.append(str(e))
-
+                failure(key, e)
                 continue
             values[key] = value
             marks.add(key)
@@ -1976,15 +1974,17 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             entries.append((0, ".", _note(f"{step} values: {e}", "FAILED")[1]))
     try:
         broken_marks: set[str] = set()
-        broken, skipped, doubled = _violations(model, resolver=resolver, url=url,
-                                               extend=extend, marks=broken_marks,
-                                               valid=frozenset(taken))
+        broken, skipped, doubled, lost = _violations(model, resolver=resolver, url=url,
+                                                     extend=extend, marks=broken_marks,
+                                                     valid=frozenset(taken))
         for key, value in broken.items():
             entries.append((1, _path(key), [_label(key, broken_marks), [False, value]]))
         for reason in skipped:
             entries.append((1, *_note(reason, "SKIPPED")))
         for reason in doubled:
             entries.append((1, *_note(reason, "DUPLICATE")))
+        for reason in lost:
+            entries.append((1, *_note(reason, "FAILED")))
     except Vacuous as e:
         reasons.append(str(e))
     except UnsupportedValue as e:
