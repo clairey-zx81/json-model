@@ -1877,8 +1877,9 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
              resolver: Resolver|None, url: str, extend: bool) -> None:
     """Ask the validator about marked vectors, keeping the values and rewriting the marks.
 
-    A silent validator guards the mark as UNCHECKED rather than confirming it,
-    and a marked violation it does not confirm is dropped rather than claimed.
+    A silent validator guards the mark as UNCHECKED rather than confirming it.
+    Every generated value is kept: the validator writes a note, never a verdict
+    on whether the vector belongs in the file.
     """
     marked = [entry for *_, entry in entries
               if len(entry) == 2 and isinstance(entry[0], str)
@@ -1887,29 +1888,17 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
         return
     def remark(entry: list, verdict: str) -> None:
         entry[0] = entry[0][:-len(_AGREES)] + " " + verdict
-    def unproven(entry: list) -> None:
-        head = entry[0][2:-len(_AGREES)]
-        if head == f".{_ROOT_INVALID}":
-            head = _rooted(entry[1][1])
-        entry[:] = [f"# {head} SKIPPED: no oracle proves the violation"]
     try:
         jm, _ = _compile(model, True, resolver, url, extend)
         defs = _defs(jm)
     except UnsupportedValue:
         for entry in marked:
-            if entry[1][0]:
-                remark(entry, "UNCHECKED")
-            else:
-                unproven(entry)
+            remark(entry, "UNCHECKED")
         return
     for entry in marked:
         expect, value = entry[1]
         result = _verify(value, model, jm, defs)
-        if result == expect:
-            continue
-        elif not expect:
-            unproven(entry)
-        else:
+        if result != expect:
             remark(entry, "UNCHECKED" if result is None else "DISAGREES")
 
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
@@ -1920,9 +1909,9 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     so a disagreement is visible. A last pass then submits each marked value to
     the validator: the mark stays AGREES when the validator agrees with the
     generator and becomes DISAGREES when it contradicts it. A validator which
-    answers nothing leaves UNCHECKED, never a confirmation. A marked violation is
-    held to a stricter rule: unless the validator confirms it, it is dropped
-    rather than claimed, since the model may still accept it elsewhere.
+    answers nothing leaves UNCHECKED, never a confirmation. The mark is a note
+    about the value, never a reason to drop it: every generated vector is kept,
+    so the compiler can be tested against all of them.
     """
     entries: list[tuple[int, str, list]] = []
     reasons: list[str] = []
