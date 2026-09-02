@@ -959,6 +959,38 @@ def _verify(value: Jsonable, model: ModelType, jm: JsonModel,
         _CHECKERS[key] = None
         return None
 
+def _alone(models: ModelArray, jm: JsonModel, value: Jsonable) -> list[int]:
+    """Alternatives which do not certainly reject a value."""
+    return [i for i, alt in enumerate(models) if not _rejects(jm, alt, [], value)]
+
+def _discriminating(models: ModelArray, jm: JsonModel, seen: frozenset[str]) -> list[Jsonable]:
+    """Value which exactly one alternative of a xor accepts, empty when none is found.
+
+    A value an alternative builds and every other one certainly rejects is proven,
+    since construction shows the acceptance no oracle can. A value borrowed from
+    another alternative's violations is only a better guess: it leaves one branch
+    open instead of several, and the last pass notes it if the compiler disagrees.
+    """
+    built: dict[int, Jsonable] = {}
+    for index, alt in enumerate(models):
+        try:
+            built[index] = simplest(alt, jm, seen)
+        except UnsupportedValue:
+            continue
+    for index, value in built.items():
+        if _alone(models, jm, value) == [index]:
+            return [value]
+    for index, alt in enumerate(models):
+        try:
+            found = violations(alt, jm, seen)
+        except (UnsupportedValue, Vacuous):
+            continue
+        for value in found.values():
+            open_branches = _alone(models, jm, value)
+            if len(open_branches) == 1 and open_branches[0] != index:
+                return [value]
+    return []
+
 def _simplest_operator(op: str, alts: ModelArray, jm: JsonModel,
                        seen: frozenset[str]) -> Jsonable:
     """Simplest value satisfying an operator, checked against the whole model."""
@@ -976,6 +1008,9 @@ def _simplest_operator(op: str, alts: ModelArray, jm: JsonModel,
             unchecked = [value]
         elif result is False and refused is None:
             refused = [value]
+    if op == "^":
+        for found in _discriminating(models, jm, seen):
+            return found
     for fallback in (unchecked, refused):
         if fallback is not None:
             return fallback[0]
@@ -1271,6 +1306,38 @@ def _alternatives(sites: list):
         keys = {p for p in node if not p.startswith("#")}
         if keys in ({"|"}, {"^"}):
             yield mpath, vpath, frames, node, next(iter(keys))
+
+def _overlapping(alts: ModelArray, jm: JsonModel,
+                 seen: frozenset[str]) -> list[Jsonable]:
+    """Value two alternatives of a xor build, which it therefore refuses.
+
+    Alternatives repeated word for word are left out: the optimizer removes
+    them, so what the model then means is not certain enough to claim.
+    """
+    models: dict[str, ModelType] = {}
+    for alt in alts:
+        if not (isinstance(alt, str) and alt.startswith("#")):
+            models.setdefault(json.dumps(alt, sort_keys=True), alt)
+    built: dict[str, Jsonable] = {}
+    for alt in models.values():
+        try:
+            value = simplest(alt, jm, seen)
+        except UnsupportedValue:
+            continue
+        dumped = json.dumps(value, sort_keys=True)
+        if dumped in built:
+            return [built[dumped]]
+        built[dumped] = value
+    return []
+
+def _exclusive_sites(sites: list):
+    """Sites which target an exclusive union model."""
+    for mpath, vpath, frames, props, disjunction in sites:
+        node = props["@"]
+        if set(props) - {"@"} or not isinstance(node, dict):
+            continue
+        if {p for p in node if not p.startswith("#")} == {"^"}:
+            yield mpath, vpath, frames, node, disjunction
 
 def _jqpath(path: list) -> str:
     """jq path expression for a path of object keys and array indexes."""
@@ -1677,6 +1744,33 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 break
         else:
             skip(f"{_mpath(mpath)} extra: every extra property is valid")
+    for mpath, vpath, frames, node, disjunction in _exclusive_sites(sites):
+        key = f"{_mpath(mpath + ['^'])} overlap"
+        if key in values:
+            continue
+        found = _overlapping(node["^"], jm, seen)
+        if not found:
+            continue
+        shared = found[0]
+        proven = (disjunction is None or
+                  _rejects(jm, disjunction[1], vpath[len(disjunction[0]):], shared))
+        try:
+            value = _document(shared, vpath, frames, doc, jm, seen)
+            proven = proven or _beyond(jm, disjunction, value)
+        except UnsupportedValue as e:
+            failure(key, e)
+            continue
+        dumped = json.dumps(value, sort_keys=True)
+        if dumped in taken:
+            doubles(key)
+            continue
+        elif not proven and repeats(key, value):
+            continue
+        elif not proven and dropped(key):
+            continue
+        elif proven:
+            taken.add(dumped)
+        values[key] = value
     always = _anything(vjm, vmodel)
     for candidate in _ROOT_TYPES:
         dumped = json.dumps(candidate, sort_keys=True)
@@ -1854,7 +1948,7 @@ def branches(model: ModelType, jm: JsonModel|None = None,
     return values, reasons, doubled
 
 _EXPLANATIONS = (" root invalid", " root", " bound", " present", " branch",
-                 " invalid", " missing", " extra", " bad")
+                 " invalid", " missing", " extra", " bad", " overlap")
 
 _ROOT_INVALID = " root invalid"
 
