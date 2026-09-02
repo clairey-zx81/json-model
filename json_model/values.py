@@ -2076,9 +2076,10 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         taken.add(json.dumps(valid, sort_keys=True))
     except Vacuous as e:
         reasons.append(str(e))
+        entries.append((0, ".", _note(f". simplest: {e}", "SKIPPED")[1]))
     except UnsupportedValue as e:
         reasons.append(str(e))
-        entries.append((0, ".", ["# invalid model FAILED"]))
+        entries.append((0, ".", _note(f". simplest: {e}", "FAILED")[1]))
     try:
         marks: set[str] = set()
         found = bounds(model, resolver=resolver, url=url, extend=extend, marks=marks)
@@ -2130,9 +2131,10 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             entries.append((1, *_note(reason, "FAILED")))
     except Vacuous as e:
         reasons.append(str(e))
+        entries.append((1, ".", _note(f"violation values: {e}", "SKIPPED")[1]))
     except UnsupportedValue as e:
         reasons.append(str(e))
-        entries.append((1, ".", ["# invalid model FAILED"]))
+        entries.append((1, ".", _note(f"violation values: {e}", "FAILED")[1]))
     if not any(len(entry) > 1 for *_, entry in entries):
         raise UnsupportedValue(f"no test vector: {_joined(reasons)}")
     _recheck(entries, model, resolver, url, extend)
