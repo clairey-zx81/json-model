@@ -788,8 +788,8 @@ def _outranking(node: ModelObject, prop: str) -> list[str]:
     else:
         return []
 
-def _names(prop: str, count: int, taken: set[str],
-           outranking: list[str] = []) -> list[str]:
+def _names(prop: str, count: int, taken: set[str], outranking: list[str] = [],
+           jm: JsonModel|None = None) -> list[str]:
     """Distinct property names matching a catch-all or pattern property model.
 
     A catch-all accepts any name, so fall back on further starting letters when
@@ -804,8 +804,8 @@ def _names(prop: str, count: int, taken: set[str],
         for i in range(count + len(taken) + 1):
             name = seed + _ANY_CHAR * i
             if (name not in names and name not in taken
-                    and _matches(name, prop) is True
-                    and not any(_matches(name, other) is True for other in outranking)):
+                    and _matches(name, prop, jm) is True
+                    and not any(_matches(name, other, jm) is True for other in outranking)):
                 names.append(name)
                 if len(names) >= count:
                     return names
@@ -830,7 +830,7 @@ def _grown(target: ModelType, base: ModelObject, length: int,
             break
         elif prop == "" or prop.startswith("/"):
             for name in _names(prop, length - len(value), set(value),
-                               _outranking(target, prop)):
+                               _outranking(target, prop), jm):
                 value[name] = simplest(submodel, jm, seen)
     if len(value) != length:
         raise UnsupportedValue(f"cannot reach {length} properties: {target}")
@@ -1084,16 +1084,17 @@ def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonabl
     else:
         return model
 
-def _property_name(prop: str, taken: set[str], outranking: list[str] = []) -> str:
+def _property_name(prop: str, taken: set[str], outranking: list[str] = [],
+                   jm: JsonModel|None = None) -> str:
     """Property name matching a pattern property, free of any other key of the object."""
     def usable(name: str) -> bool:
         return (name not in taken
-                and not any(_matches(name, other) is True for other in outranking))
+                and not any(_matches(name, other, jm) is True for other in outranking))
     name = _simplest_regex(prop)
     if usable(name):
         return name
     for suffix in ("0", "00", "000"):
-        if usable(name + suffix) and _matches(name + suffix, prop) is True:
+        if usable(name + suffix) and _matches(name + suffix, prop, jm) is True:
             return name + suffix
     raise UnsupportedValue(f"no free property name for {prop}")
 
@@ -1149,7 +1150,8 @@ def _violation_value(op: str, bound: Jsonable, props: ModelObject, base: Jsonabl
             raise UnsupportedValue(f"unsupported unique constraint: {bound}")
         lo, hi = _bounds(ops, 1, 0)
         lo = 2 if lo is None else max(lo, 2)
-        return _sized(target, base, int(_pick(lo, hi, ops, 1, 0)), False, jm, seen)
+        node, njm, nseen = _resolved(target, jm, seen)
+        return _sized(node, base, int(_pick(lo, hi, ops, 1, 0)), False, njm, nseen)
     is_float = isinstance(base, float)
     table = _FLOAT_VIOLATIONS if is_float else _INT_VIOLATIONS
     if op not in table:
@@ -1164,7 +1166,8 @@ def _violation_value(op: str, bound: Jsonable, props: ModelObject, base: Jsonabl
     elif candidate < 0:
         raise UnsupportedValue(f"no length violates {op} {bound}")
     else:
-        return _sized(target, base, candidate, ops.get("!") is True, jm, seen)
+        node, njm, nseen = _resolved(target, jm, seen)
+        return _sized(node, base, candidate, ops.get("!") is True, njm, nseen)
 
 def _candidates(op: str, bound: Jsonable, props: ModelObject, base: Jsonable,
                 jm: JsonModel, seen: frozenset[str]):
@@ -1291,7 +1294,7 @@ def _optional_props(node: ModelObject, jm: JsonModel,
             props.append((prop, prop[1:], sub))
         elif prop == "" or prop.startswith("/"):
             props.extend((prop, name, sub)
-                         for name in _names(prop, 1, named, _outranking(node, prop)))
+                         for name in _names(prop, 1, named, _outranking(node, prop), jm))
         elif prop.startswith("$"):
             try:
                 name = simplest(prop, jm, seen)
@@ -1467,8 +1470,10 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
                     continue
                 elif prop.startswith("/"):
                     try:
-                        name = _property_name(prop, named, _outranking(props, prop))
-                    except UnsupportedValue:
+                        name = _property_name(prop, named, _outranking(props, prop), jm)
+                    except UnsupportedValue as e:
+                        if notes is not None:
+                            notes.append(f"{_mpath(mpath + [prop])} invalid: {e}")
                         continue
                     inner = frames + [(vpath + [name], sub)]
                 else:

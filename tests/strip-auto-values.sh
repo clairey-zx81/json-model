@@ -152,6 +152,8 @@ def renumber(path, shift, report):
     for name, value, start, end in members(text):
         if name.startswith("#") or not isinstance(value, list):
             continue
+        if not all(isinstance(i, int) and not isinstance(i, bool) for i in value):
+            continue
         for i in value:
             if i not in shift:
                 report.append(f"{path} [{name}]: dropped index {i}, vector removed")
