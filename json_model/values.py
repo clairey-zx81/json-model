@@ -2020,15 +2020,14 @@ _NO_BASE = "no value the compiler accepts, every vector below builds on this one
 
 def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
              resolver: Resolver|None, url: str, extend: bool) -> None:
-    """Ask the validator about marked vectors, keeping the values and rewriting the marks.
+    """Rewrite every unproven mark to BAD and drop its expected result to null.
 
-    A validator that contradicts the generator or answers nothing drops the mark
-    to BAD. Every generated value is kept: the validator writes a note, never a
-    verdict on whether the vector belongs in the file. A vector no oracle doubted
-    is submitted too, but only a contradiction is worth a word on it. A refused
-    base value is called out on its own, since every other vector is built on it.
-    A marked verdict the validator does not confirm becomes null, an expectation
-    no test vector file states, rather than a guess the generator cannot back.
+    A value the compiler was not asked about cannot be confirmed here, so its
+    mark becomes BAD and its expected result null, whatever the validator says.
+    The validator still speaks up when it contradicts a verdict the compiler did
+    prove: that verdict is no longer certain either, so it turns BAD and null as
+    well. Every generated value is kept. A refused base value is called out on
+    its own, since every other vector is built on it.
     """
     judged = [entry for *_, entry in entries
               if len(entry) == 2 and isinstance(entry[0], str)]
@@ -2055,12 +2054,10 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
     for entry in judged:
         expect, value = entry[1]
         result = _verify(value, model, jm, defs)
-        if result == expect:
-            continue
-        elif entry[0].endswith(_AGREES):
+        if entry[0].endswith(_AGREES):
             remark(entry, "BAD")
             unsure(entry)
-        elif result is not None:
+        elif result is not None and result != expect:
             remark(entry, "BAD")
             unsure(entry)
         if result is False and entry[0].startswith(_SIMPLEST):
@@ -2073,11 +2070,10 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     """Test vectors for a model, sorted by model path, valid values before violations.
 
     The compiler never decides here: a value no oracle proves is kept and marked,
-    so a disagreement is visible. A last pass then submits each marked value to
-    the validator: the mark stays AGREES when the validator agrees with the
-    generator and becomes BAD when it contradicts it or answers nothing. A BAD
-    mark also turns the expected result into null, so the file states an
-    expectation only where something proved it. The mark is a note about the
+    so a disagreement is visible. A last pass then rewrites every unproven mark
+    to BAD and drops its expected result to null, and does the same to a proven
+    verdict the validator contradicts. The file states an expectation only where
+    the compiler proved it and nothing refuted it. The mark is a note about the
     value, never a reason to drop it: every generated vector is kept, so the
     compiler can be tested against all of them.
     """
