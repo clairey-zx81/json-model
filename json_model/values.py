@@ -2027,6 +2027,8 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
     on whether the vector belongs in the file. A vector no oracle doubted is
     submitted too, but only a contradiction is worth a word on it. A refused base
     value is called out on its own, since every other vector is built on it.
+    A marked verdict the validator does not confirm becomes null, an expectation
+    no test vector file states, rather than a guess the generator cannot back.
     """
     judged = [entry for *_, entry in entries
               if len(entry) == 2 and isinstance(entry[0], str)]
@@ -2037,6 +2039,9 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
         if head.endswith(_AGREES):
             head = head[:-len(_AGREES)]
         entry[0] = head + " " + verdict
+    def unsure(entry: list) -> None:
+        """Drop a verdict no oracle proved and the validator did not confirm."""
+        entry[1][0] = None
     try:
         jm, _ = _compile(model, True, resolver, url, extend)
         defs = _defs(jm)
@@ -2044,6 +2049,7 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
         for entry in judged:
             if entry[0].endswith(_AGREES):
                 remark(entry, "UNCHECKED")
+                unsure(entry)
         return
     refused = False
     for entry in judged:
@@ -2053,6 +2059,7 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
             continue
         elif entry[0].endswith(_AGREES):
             remark(entry, "UNCHECKED" if result is None else "DISAGREES")
+            unsure(entry)
         elif result is not None:
             remark(entry, "DISAGREES")
         if result is False and entry[0].startswith(_SIMPLEST):
@@ -2068,9 +2075,11 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     so a disagreement is visible. A last pass then submits each marked value to
     the validator: the mark stays AGREES when the validator agrees with the
     generator and becomes DISAGREES when it contradicts it. A validator which
-    answers nothing leaves UNCHECKED, never a confirmation. The mark is a note
-    about the value, never a reason to drop it: every generated vector is kept,
-    so the compiler can be tested against all of them.
+    answers nothing leaves UNCHECKED, never a confirmation. A mark the validator
+    does not confirm also turns the expected result into null, so the file states
+    an expectation only where something proved it. The mark is a note about the
+    value, never a reason to drop it: every generated vector is kept, so the
+    compiler can be tested against all of them.
     """
     entries: list[tuple[int, str, list]] = []
     reasons: list[str] = []

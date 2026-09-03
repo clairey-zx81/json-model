@@ -189,9 +189,11 @@ export default async function main(checker_init, checker, checker_free)
                     else
                         [expect, val] = item, name = ''
 
-                    if (typeof expect !== 'boolean' && ! expect instanceof Boolean) {
+                    // a null expectation states nothing, so no result is an error
+                    if (expect !== null && typeof expect !== 'boolean' &&
+                        !(expect instanceof Boolean)) {
                         errors++
-                        console.log(`${display}: ERROR expecting a boolean first item`)
+                        console.log(`${display}: ERROR expecting a boolean or null first item`)
                         continue
                     }
                     if (typeof name !== 'string' && ! name instanceof String) {

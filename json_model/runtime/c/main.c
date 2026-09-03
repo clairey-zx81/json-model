@@ -525,10 +525,12 @@ int main(int argc, char* argv[])
                         *first = json_array_get(val, 0),
                         *second = json_array_get(val, 1);
 
-                    if (!json_is_boolean(first) || (size == 3 && !json_is_string(second)))
+                    if (!(json_is_boolean(first) || json_is_null(first)) ||
+                        (size == 3 && !json_is_string(second)))
                     {
                         fprintf(stdout,
-                                "%s[%zu]: ERROR first element not boolean or second not string\n",
+                                "%s[%zu]: ERROR first element not boolean or null,"
+                                " or second not string\n",
                                 argv[i], index);
                         errors++;
                         continue;
@@ -536,7 +538,9 @@ int main(int argc, char* argv[])
 
                     const char *tname = size == 3 ? json_string_value(second) : name;
                     const json_t *value = size == 3 ? json_array_get(val, 2) : second;
-                    process_mode_t mode = json_is_true(first) ? expect_pass : expect_fail;
+                    // a null expectation states nothing, so no result is an error
+                    process_mode_t mode = json_is_null(first) ? expect_anything :
+                        json_is_true(first) ? expect_pass : expect_fail;
 
                     if (!process_value(tname, value, argv[i], index, mode,
                                        report, show_time, loop, empty))

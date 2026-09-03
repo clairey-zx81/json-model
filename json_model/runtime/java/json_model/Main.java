@@ -372,18 +372,18 @@ public class Main
                             errors++;
                         }
 
-                        // extract vector contents
-                        boolean expect;
+                        // extract vector contents, a null expectation stating nothing
+                        Boolean expect;
                         String name;
                         Object val;
 
+                        expect = json.isNull(vector[0]) ? null
+                               : Boolean.valueOf(json.asBoolean(vector[0]));
                         if (vector.length == 2) {
-                            expect = json.asBoolean(vector[0]);
                             name = "";
                             val = vector[1];
                         }
                         else {
-                            expect = json.asBoolean(vector[0]);
                             name = json.asString(vector[1]);
                             val = vector[2];
                         }

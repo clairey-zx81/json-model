@@ -4,8 +4,9 @@
   "$": {
     "": "https://json-model.org/models/jmc-tests",
     "Comment": "/./",
-    "Test2": [ true, "$ANY" ],
-    "Test3": [ true, "/^[-\\w]*$/", "$ANY" ],
+    "Expect": { "|": [ true, null ] },
+    "Test2": [ "$Expect", "$ANY" ],
+    "Test3": [ "$Expect", "/^[-\\w]*$/", "$ANY" ],
     "Test": {
       "|": [ "$Comment", "$Test2", "$Test3" ]
     }
