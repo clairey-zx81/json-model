@@ -1607,9 +1607,12 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             failed.append(note)
 
     def dropped(key: str) -> bool:
-        """Whether a violation no oracle proves is refused instead of marked."""
+        """Whether a violation no oracle proves is refused instead of marked.
+
+        A caller which settles marks itself keeps every violation, one which
+        does not is only given what an oracle proves.
+        """
         if marks is None:
-            skip(f"{key}: no oracle proves the violation")
             return True
         marks.add(key)
         return False
