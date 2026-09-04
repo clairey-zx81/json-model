@@ -1,4 +1,3 @@
 {
-  "ts": true,
-  "auto.errors": ["c", "py"]
+  "ts": true
 }
