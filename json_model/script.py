@@ -694,6 +694,9 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         elif args.output.endswith(".ir.json"):
             args.format = args.format or "json"
             args.op = args.op or "C"
+        elif args.output.endswith(".auto.json"):
+            args.format = args.format or "json"
+            args.op = args.op or "A"
         elif args.output.endswith(".json"):
             args.format = args.format or "json"
             args.op = args.op or "U"
