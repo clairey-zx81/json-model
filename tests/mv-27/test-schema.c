@@ -19,6 +19,9 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[5];
 const size_t check_model_map_size = 5;
+static cre2_regexp_t *jm_is_semver_re2 = NULL;
+static int jm_is_semver_nn = 0;
+static bool jm_is_semver(const char *s, jm_path_t *path, jm_report_t *rep);
 
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
@@ -26,11 +29,11 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
     return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
-// check $Version (.'$Version')
+// check $Section (.'$Section')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .'$Version'
-    // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+    // .'$Section'
+    // "/^[0-9]+(\\.[0-9]+)*$/"
     return json_is_string(val) && _jm_re_0(json_string_value(val), NULL, NULL);
 }
 
@@ -127,7 +130,9 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may core property
             // .'$Specification'.'@'.core
-            res = json_model_2(pval, NULL, NULL);
+            // .'$Specification'.'@'.core.'|'.0
+            // .'$Specification'.'@'.core.'|'.1
+            res = json_is_string(pval) && jm_is_semver(json_string_value(pval), NULL, NULL) || json_model_2(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
             continue;
@@ -136,7 +141,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may validation property
             // .'$Specification'.'@'.validation
-            res = json_model_2(pval, NULL, NULL);
+            res = json_is_string(pval) && jm_is_semver(json_string_value(pval), NULL, NULL);
             if (unlikely(! res))
                 return false;
             continue;
@@ -145,7 +150,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may ecma262 property
             // .'$Specification'.'@'.ecma262
-            res = json_model_2(pval, NULL, NULL);
+            res = json_is_string(pval) && jm_is_semver(json_string_value(pval), NULL, NULL);
             if (unlikely(! res))
                 return false;
             continue;
@@ -172,7 +177,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^rfc\\d+$/'
-            res = json_model_2(pval, NULL, NULL);
+            res = json_is_string(pval) && jm_is_semver(json_string_value(pval), NULL, NULL);
             if (unlikely(! res))
                 return false;
         }
@@ -180,7 +185,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^iso\\d+$/'
-            res = json_model_2(pval, NULL, NULL);
+            res = json_is_string(pval) && jm_is_semver(json_string_value(pval), NULL, NULL);
             if (unlikely(! res))
                 return false;
         }
@@ -306,7 +311,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // JSON Model for the JSON Schema Test Suite tests
+    // JSON Model for JSTS tests
     // .
     // .'@'
     bool res = json_is_array(val);
@@ -335,6 +340,12 @@ jm_check_fun_t check_model_map(const char *pname)
     return jm_search_propmap(pname, check_model_map_tab, 5);
 }
 
+static bool jm_is_semver(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(jm_is_semver_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
 static bool initialized = false;
 
 const char *check_model_init(void)
@@ -343,17 +354,22 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        const char * _jm_re_0_rx = "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$";
+        const char * _jm_re_0_rx = "^[0-9]+(\\.[0-9]+)*$";
         _jm_re_0_re2 = cre2_new(_jm_re_0_rx, strlen(_jm_re_0_rx), NULL);
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "Version", json_model_2 };
+        check_model_map_tab[1] = (jm_propmap_t) { "Section", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "Test", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "Specification", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "TestCase", json_model_5 };
         jm_sort_propmap(check_model_map_tab, 5);
+        const char * jm_is_semver_rx = "^([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)(-(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?(\\+(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?$";
+        jm_is_semver_re2 = cre2_new(jm_is_semver_rx, strlen(jm_is_semver_rx), NULL);
+        if (cre2_error_code(jm_is_semver_re2))
+            return cre2_error_string(jm_is_semver_re2);
+        jm_is_semver_nn = cre2_num_capturing_groups(jm_is_semver_re2) + 1;
     }
     return NULL;
 }
@@ -368,6 +384,9 @@ void check_model_free(void)
         cre2_delete(_jm_re_0_re2);
         _jm_re_0_re2 = NULL;
         _jm_re_0_nn = 0;
+        cre2_delete(jm_is_semver_re2);
+        jm_is_semver_re2 = NULL;
+        jm_is_semver_nn = 0;
     }
 }
 

@@ -1,0 +1,3 @@
+WARNING:json-model:url-looking bad: add missing $ or prefix with _ for string constants
+ERROR:json-model:cannot add object to null at ['$', '%', '$bad#Polygon']
+ERROR:json-model:invalid model _bad_tref.model.json

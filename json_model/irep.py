@@ -9,7 +9,7 @@ import copy
 from .utils import log
 from .language import Language, Block, Var, PropMap, ConstList, Code
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, Expr
-from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
+from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals, TopType, NullType
 from .runtime import Path, Report
 
 # compute RW effects on boolean variables
@@ -1214,7 +1214,9 @@ def _json2cmap(mapping: list[tuple[JsonScalar, str]]) -> dict[JsonScalar, str]:
 
 def _t2s(tvar: type|None) -> str:
     """Type to IR type name conversion."""
-    if tvar is None or tvar is type(None):
+    if tvar is None:
+        return "none"
+    elif tvar is NullType:
         return "null"
     elif tvar is bool:
         return "bool"
@@ -1234,7 +1236,8 @@ def _t2s(tvar: type|None) -> str:
         return "Path"
     elif tvar is Report:
         return "Report"
-    # any?
+    elif tvar is TopType:
+        return "any"
     raise Exception(f"unexpected type: {tvar}")
 
 class IRep(Language):
@@ -1586,7 +1589,8 @@ class IRep(Language):
 def _s2t(tname: str|None) -> type:
     """String to type reconversion."""
     match tname:
-        case None|"null": return None
+        case "none": return None
+        case "null": return NullType
         case "bool": return bool
         case "int"|"integer": return int
         case "float"|"number": return float
@@ -1596,6 +1600,7 @@ def _s2t(tname: str|None) -> type:
         case "dict"|"object": return dict
         case "Path": return Path
         case "Report": return Report
+        case "any": return TopType
     raise Exception(f"unexpected type name: {tname}")
 
 def _eval(jv: Jsonable, gen: Language) -> Block|Expr:

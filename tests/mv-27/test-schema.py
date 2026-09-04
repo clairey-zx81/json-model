@@ -28,12 +28,14 @@ _jm_re_1: RegexFun
 _jm_re_2_reco: object
 _jm_re_2: RegexFun
 check_model_map: PropMap
+jm_is_semver_reco: object
+jm_is_semver: RegexFun
 
 
-# check $Version (.'$Version')
+# check $Section (.'$Section')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$Version'
-    # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+    # .'$Section'
+    # "/^[0-9]+(\\.[0-9]+)*$/"
     return isinstance(val, str) and _jm_re_0(val, None, None)
 
 # check $Test (.'$Test')
@@ -88,21 +90,23 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "core":
             # handle may core property
             # .'$Specification'.'@'.core
-            res = json_model_2(pval, None, None)
+            # .'$Specification'.'@'.core.'|'.0
+            # .'$Specification'.'@'.core.'|'.1
+            res = isinstance(pval, str) and jm_is_semver(pval, None, None) or json_model_2(pval, None, None)
             if not res:
                 return False
             continue
         elif prop == "validation":
             # handle may validation property
             # .'$Specification'.'@'.validation
-            res = json_model_2(pval, None, None)
+            res = isinstance(pval, str) and jm_is_semver(pval, None, None)
             if not res:
                 return False
             continue
         elif prop == "ecma262":
             # handle may ecma262 property
             # .'$Specification'.'@'.ecma262
-            res = json_model_2(pval, None, None)
+            res = isinstance(pval, str) and jm_is_semver(pval, None, None)
             if not res:
                 return False
             continue
@@ -123,13 +127,13 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if _jm_re_1(prop, None, None):
             # handle 2 re props
             # .'$Specification'.'@'.'/^rfc\\d+$/'
-            res = json_model_2(pval, None, None)
+            res = isinstance(pval, str) and jm_is_semver(pval, None, None)
             if not res:
                 return False
         elif _jm_re_2(prop, None, None):
             # handle 2 re props
             # .'$Specification'.'@'.'/^iso\\d+$/'
-            res = json_model_2(pval, None, None)
+            res = isinstance(pval, str) and jm_is_semver(pval, None, None)
             if not res:
                 return False
         else:
@@ -215,7 +219,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    # JSON Model for the JSON Schema Test Suite tests
+    # JSON Model for JSTS tests
     # .
     # .'@'
     res: bool = isinstance(val, list)
@@ -231,6 +235,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
+
 # initialization guard
 initialized: bool = False
 
@@ -240,7 +245,7 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_re_0_reco, _jm_re_0
-        _jm_re_0_reco = re.compile("^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$")
+        _jm_re_0_reco = re.compile("^[0-9]+(\\.[0-9]+)*$")
         _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global _jm_re_1_reco, _jm_re_1
         _jm_re_1_reco = re.compile("^rfc\\d+$")
@@ -251,11 +256,14 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "Version": json_model_2,
+            "Section": json_model_2,
             "Test": json_model_3,
             "Specification": json_model_4,
             "TestCase": json_model_5,
         }
+        global jm_is_semver_reco, jm_is_semver
+        jm_is_semver_reco = re.compile("^([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)(-(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?(\\+(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?$")
+        jm_is_semver = lambda s, p, r: jm_is_semver_reco.search(s) is not None
 
 # differed module cleanup
 def check_model_free():
@@ -271,6 +279,9 @@ def check_model_free():
         global _jm_re_2_reco, _jm_re_2
         _jm_re_2_reco = None
         _jm_re_2 = None
+        global jm_is_semver_reco, jm_is_semver
+        jm_is_semver_reco = None
+        jm_is_semver = None
 
 if __name__ == "__main__":
     check_model_init()

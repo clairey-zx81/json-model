@@ -5,20 +5,20 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- regex=^[0-9a-zA-Z]+(\.[0-9a-zA-Z]+)*$ opts=n
+-- regex=^[0-9]+(\.[0-9]+)*$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^[0-9a-zA-Z]+(\.[0-9a-zA-Z]+)*$', 'n');
+  RETURN regexp_like(val, '^[0-9]+(\.[0-9]+)*$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
--- check $Version (.'$Version')
+-- check $Section (.'$Section')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .'$Version'
-  -- "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+  -- .'$Section'
+  -- "/^[0-9]+(\\.[0-9]+)*$/"
   RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
@@ -110,7 +110,9 @@ BEGIN
     IF prop = 'core' THEN
       -- handle may core property
       -- .'$Specification'.'@'.core
-      res := json_model_2(pval, NULL, NULL);
+      -- .'$Specification'.'@'.core.'|'.0
+      -- .'$Specification'.'@'.core.'|'.1
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_semver(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL) OR json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -118,7 +120,7 @@ BEGIN
     ELSEIF prop = 'validation' THEN
       -- handle may validation property
       -- .'$Specification'.'@'.validation
-      res := json_model_2(pval, NULL, NULL);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_semver(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -126,7 +128,7 @@ BEGIN
     ELSEIF prop = 'ecma262' THEN
       -- handle may ecma262 property
       -- .'$Specification'.'@'.ecma262
-      res := json_model_2(pval, NULL, NULL);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_semver(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -151,14 +153,14 @@ BEGIN
     IF _jm_re_1(prop, NULL, NULL) THEN
       -- handle 2 re props
       -- .'$Specification'.'@'.'/^rfc\\d+$/'
-      res := json_model_2(pval, NULL, NULL);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_semver(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF _jm_re_2(prop, NULL, NULL) THEN
       -- handle 2 re props
       -- .'$Specification'.'@'.'/^iso\\d+$/'
-      res := json_model_2(pval, NULL, NULL);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_semver(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -296,7 +298,7 @@ DECLARE
   arr_2_item JSONB;
   ival_3 int;
 BEGIN
-  -- JSON Model for the JSON Schema Test Suite tests
+  -- JSON Model for JSTS tests
   -- .
   -- .'@'
   res := JSONB_TYPEOF(val) = 'array';
@@ -321,9 +323,17 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","Version":"json_model_2","Test":"json_model_3","Specification":"json_model_4","TestCase":"json_model_5"}';
+  map JSONB := JSONB '{"":"json_model_1","Section":"json_model_2","Test":"json_model_3","Specification":"json_model_4","TestCase":"json_model_5"}';
 BEGIN
   RETURN map->>name;
+END;
+$$ LANGUAGE plpgsql;
+
+-- regex=^([0-9]|[1-9][0-9]+)\.([0-9]|[1-9][0-9]+)\.([0-9]|[1-9][0-9]+)(-(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?(\+(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?$ opts=n
+CREATE OR REPLACE FUNCTION jm_is_semver(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^([0-9]|[1-9][0-9]+)\.([0-9]|[1-9][0-9]+)\.([0-9]|[1-9][0-9]+)(-(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?(\+(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
