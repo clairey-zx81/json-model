@@ -21,17 +21,18 @@ public class test_schema extends ModelChecker
     public Pattern _jm_re_1_pat = null;
     public Pattern _jm_re_2_pat = null;
     public Map<String, Checker> test_schema_map_pmap;
+    public Pattern jm_is_semver_pat = null;
 
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
     }
 
-    // check $Version (.'$Version')
+    // check $Section (.'$Section')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        // .'$Version'
-        // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+        // .'$Section'
+        // "/^[0-9]+(\\.[0-9]+)*$/"
         return json.isString(val) && _jm_re_0(json.asString(val), null, null);
     }
 
@@ -116,7 +117,9 @@ public class test_schema extends ModelChecker
             {
                 // handle may core property
                 // .'$Specification'.'@'.core
-                res = json_model_2(pval, null, null);
+                // .'$Specification'.'@'.core.'|'.0
+                // .'$Specification'.'@'.core.'|'.1
+                res = json.isString(pval) && jm_is_semver(json.asString(pval), null, null) || json_model_2(pval, null, null);
                 if (! res)
                     return false;
                 continue;
@@ -125,7 +128,7 @@ public class test_schema extends ModelChecker
             {
                 // handle may validation property
                 // .'$Specification'.'@'.validation
-                res = json_model_2(pval, null, null);
+                res = json.isString(pval) && jm_is_semver(json.asString(pval), null, null);
                 if (! res)
                     return false;
                 continue;
@@ -134,7 +137,7 @@ public class test_schema extends ModelChecker
             {
                 // handle may ecma262 property
                 // .'$Specification'.'@'.ecma262
-                res = json_model_2(pval, null, null);
+                res = json.isString(pval) && jm_is_semver(json.asString(pval), null, null);
                 if (! res)
                     return false;
                 continue;
@@ -161,7 +164,7 @@ public class test_schema extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Specification'.'@'.'/^rfc\\d+$/'
-                res = json_model_2(pval, null, null);
+                res = json.isString(pval) && jm_is_semver(json.asString(pval), null, null);
                 if (! res)
                     return false;
             }
@@ -169,7 +172,7 @@ public class test_schema extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Specification'.'@'.'/^iso\\d+$/'
-                res = json_model_2(pval, null, null);
+                res = json.isString(pval) && jm_is_semver(json.asString(pval), null, null);
                 if (! res)
                     return false;
             }
@@ -300,7 +303,7 @@ public class test_schema extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        // JSON Model for the JSON Schema Test Suite tests
+        // JSON Model for JSTS tests
         // .
         // .'@'
         boolean res = json.isArray(val);
@@ -327,20 +330,26 @@ public class test_schema extends ModelChecker
     }
 
 
+    public boolean jm_is_semver(String val, Path path, Report rep)
+    {
+        return jm_is_semver_pat.matcher(val).find();
+    }
+
     public void init(JSON json)
     {
         if (!initialized)
         {
             try {
-            _jm_re_0_pat = Pattern.compile("^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$");
+            _jm_re_0_pat = Pattern.compile("^[0-9]+(\\.[0-9]+)*$");
             _jm_re_1_pat = Pattern.compile("^rfc\\d+$");
             _jm_re_2_pat = Pattern.compile("^iso\\d+$");
             test_schema_map_pmap = new HashMap<String, Checker>();
             test_schema_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            test_schema_map_pmap.put("Version", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            test_schema_map_pmap.put("Section", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             test_schema_map_pmap.put("Test", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             test_schema_map_pmap.put("Specification", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             test_schema_map_pmap.put("TestCase", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            jm_is_semver_pat = Pattern.compile("^([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)(-(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?(\\+(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?$");
                 super.init(json);
             }
             catch (Exception e) {
@@ -358,6 +367,7 @@ public class test_schema extends ModelChecker
             _jm_re_1_pat = null;
             _jm_re_2_pat = null;
             test_schema_map_pmap = null;
+            jm_is_semver_pat = null;
         }
     }
 

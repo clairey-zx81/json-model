@@ -5,7 +5,7 @@ import json
 from functools import reduce
 
 from .mtypes import ModelType, ModelArray, ModelObject, ModelError, ModelPath, Symbols
-from .mtypes import Jsonable, Number, JsonScalar
+from .mtypes import Jsonable, Number, JsonScalar, NullType, TopType
 from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import is_a_simple_object, partition, is_base_model, resolve_model, model_type
 from .utils import log, tname
@@ -475,7 +475,7 @@ class CodeGenerator:
         gen = self._lang
 
         tmodel = ultimate_type(jm, model["@"])  # type: ignore
-        assert tmodel in (bool, int, float, str, list, dict, type(None), None)
+        assert tmodel in (bool, int, float, str, list, dict, NullType, None, TopType)
 
         # get which props are set
         cmp_props = set(

@@ -1,0 +1,2 @@
+ERROR:json-model:~ is a string at root ['~']
+ERROR:json-model:invalid model tilde_str.model.json

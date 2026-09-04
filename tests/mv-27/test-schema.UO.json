@@ -6,7 +6,7 @@
     ">=": 1,
     "#": "JsonModel 1",
     "$": {
-      "Version": "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+      "Section": "/^[0-9]+(\\.[0-9]+)*$/",
       "Test": {
         "description": "",
         "?comment": "",
@@ -16,13 +16,18 @@
       },
       "Specification": {
         "@": {
-          "?core": "$Version",
-          "?validation": "$Version",
-          "?ecma262": "$Version",
+          "?core": {
+            "|": [
+              "$SEMVER",
+              "$Section"
+            ]
+          },
+          "?validation": "$SEMVER",
+          "?ecma262": "$SEMVER",
           "?perl5": "",
           "?quote": "",
-          "/^rfc\\d+$/": "$Version",
-          "/^iso\\d+$/": "$Version"
+          "/^rfc\\d+$/": "$SEMVER",
+          "/^iso\\d+$/": "$SEMVER"
         },
         ">=": 1,
         "#": "JsonModel 4"
@@ -51,7 +56,7 @@
     },
     "~": "https://json-model.org/models/json-model"
   },
-  "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/",
+  "/^[0-9]+(\\.[0-9]+)*$/",
   {
     "description": "",
     "?comment": "",
@@ -61,13 +66,18 @@
   },
   {
     "@": {
-      "?core": "$Version",
-      "?validation": "$Version",
-      "?ecma262": "$Version",
+      "?core": {
+        "|": [
+          "$SEMVER",
+          "$Section"
+        ]
+      },
+      "?validation": "$SEMVER",
+      "?ecma262": "$SEMVER",
       "?perl5": "",
       "?quote": "",
-      "/^rfc\\d+$/": "$Version",
-      "/^iso\\d+$/": "$Version"
+      "/^rfc\\d+$/": "$SEMVER",
+      "/^iso\\d+$/": "$SEMVER"
     },
     ">=": 1,
     "#": "JsonModel 4"

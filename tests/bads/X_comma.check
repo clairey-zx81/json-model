@@ -1,0 +1,2 @@
+ERROR:json-model:Expecting ',' delimiter: line 1 column 5 (char 4)
+ERROR:json-model:invalid model X_comma.model.json

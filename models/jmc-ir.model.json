@@ -4,7 +4,7 @@
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/jmc-ir",
-    "Type": {"|": [null, "null", "bool", "integer", "number", "string", "array", "object", "Number", "Path", "Report"]},
+    "Type": {"|": [null, "none", "null", "bool", "integer", "number", "string", "array", "object", "Number", "Path", "Report", "any"]},
     "#.Op": "include extensions in and mo",
     "Op": {"|": ["_=", "_<", "_>", "_<=", "_!=", "_>=", "_.in", "_.mo"]},
     "SIFCst": {"|": ["", -1, -1.0]},

@@ -1,0 +1,4 @@
+{
+  "#.whaterver": "this can be anything",
+  "#": [ "this", "must", "be", "a", "string" ]
+}
