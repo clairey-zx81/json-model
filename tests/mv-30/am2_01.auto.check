@@ -1,9 +1,0 @@
-# am2_01.auto.json
-[0] py=PASS js=PASS pl=PASS c=PASS java=PASS
-[1] py=PASS js=PASS pl=PASS c=PASS java=PASS
-[2] py=PASS js=PASS pl=PASS c=PASS java=PASS
-[3] py=PASS js=PASS pl=PASS c=PASS java=PASS
-[4] py=PASS js=PASS pl=PASS c=PASS java=PASS
-[5] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
-[6] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
-[7] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
