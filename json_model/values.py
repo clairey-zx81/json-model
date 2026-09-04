@@ -2017,64 +2017,73 @@ def _ordered(entries: list[tuple[int, str, list]]) -> list:
 _AGREES = " AGREES"
 _SIMPLEST = "# . simplest"
 _ALREADY = "ALREADY IN VALUES"
+_REPEATED = "DUPLICATE BAD"
 _NO_BASE = "no value the compiler accepts, every vector below builds on this one"
 
 def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
              resolver: Resolver|None, url: str, extend: bool,
              known: frozenset[str] = frozenset()) -> None:
-    """Rewrite every unproven mark to BAD and drop its expected result to null.
+    """Settle every unproven mark, and drop to null only what nothing settles.
 
-    A value the compiler was not asked about cannot be confirmed here, so its
-    mark becomes BAD and its expected result null, whatever the validator says.
-    The validator still speaks up when it contradicts a verdict the compiler did
-    prove: that verdict is no longer certain either, so it turns BAD and null as
-    well. A value about to lose its verdict this way is dropped instead when the
-    model test values already hold it, leaving only the comment which says so:
-    an unknown expectation adds nothing where a known one is already on file.
-    Every other generated value is kept. A refused base value is called out on
-    its own, since every other vector is built on it.
+    A value the compiler was not asked about is not confirmed by the compiler
+    reading itself, and neither is a verdict the validator contradicts: both
+    lose their verdict here. Four oracles then get a say before null is written,
+    none of them the compiler. The model test values passed in `known` settle a
+    value outright, and so does a certain verdict the file already states about
+    it elsewhere: the vector adds nothing either way and shrinks to its comment.
+    Failing that, the rejection reasoning of this module may still prove the
+    model refuses the value, which states false where nothing was known. Only a
+    value no oracle settles turns BAD and null. A refused base value is called
+    out on its own, since every other vector is built on it.
     """
     judged = [entry for *_, entry in entries
               if len(entry) == 2 and isinstance(entry[0], str)]
     if not judged:
         return
+    def cleared(entry: list) -> None:
+        """Drop the mark of a vector which is not waiting on the compiler."""
+        if entry[0].endswith(_AGREES):
+            entry[0] = entry[0][:-len(_AGREES)]
     def remark(entry: list, verdict: str) -> None:
-        head = entry[0]
-        if head.endswith(_AGREES):
-            head = head[:-len(_AGREES)]
-        entry[0] = head + " " + verdict
-    def unsure(entry: list) -> None:
-        """Drop a verdict no oracle proved and the validator did not confirm."""
-        entry[1][0] = None
-    def shelved(entry: list) -> bool:
-        """Replace a vector the model test values already hold by its comment."""
-        if json.dumps(entry[1][1], sort_keys=True) not in known:
-            return False
-        remark(entry, _ALREADY)
+        cleared(entry)
+        entry[0] += " " + verdict
+    def commented(entry: list, verdict: str) -> None:
+        """Shrink a vector which adds nothing to the comment which says why."""
+        remark(entry, verdict)
         del entry[1]
-        return True
-    def doubted(entry: list) -> None:
-        """Report a verdict which is not certain, or drop a value already known."""
-        if not shelved(entry):
-            remark(entry, "BAD")
-            unsure(entry)
     try:
-        jm, _ = _compile(model, True, resolver, url, extend)
+        jm, compiled = _compile(model, True, resolver, url, extend)
         defs = _defs(jm)
     except UnsupportedValue:
-        for entry in judged:
-            if entry[0].endswith(_AGREES):
-                doubted(entry)
-        return
+        jm, compiled, defs = None, None, None
+    results = [None if jm is None else _verify(entry[1][1], model, jm, defs)
+               for entry in judged]
+    def settled(index: int, entry: list) -> bool:
+        """Whether the file may state the verdict of a vector as it stands."""
+        if entry[0].endswith(_AGREES):
+            return False
+        return results[index] is None or results[index] == entry[1][0]
+    stated = {json.dumps(entry[1][1], sort_keys=True)
+              for index, entry in enumerate(judged) if settled(index, entry)}
     refused = False
-    for entry in judged:
-        expect, value = entry[1]
-        result = _verify(value, model, jm, defs)
-        head = entry[0]
-        if head.endswith(_AGREES) or (result is not None and result != expect):
-            doubted(entry)
-        if result is False and head.startswith(_SIMPLEST):
+    for index, entry in enumerate(judged):
+        value = entry[1][1]
+        if results[index] is False and entry[0].startswith(_SIMPLEST):
             refused = True
+        if settled(index, entry):
+            continue
+        dumped = json.dumps(value, sort_keys=True)
+        if dumped in known:
+            commented(entry, _ALREADY)
+        elif dumped in stated:
+            commented(entry, _REPEATED)
+        elif compiled is not None and _denies(jm, compiled, value):
+            cleared(entry)
+            entry[1][0] = False
+            stated.add(dumped)
+        else:
+            remark(entry, "BAD")
+            entry[1][0] = None
     if refused:
         entries.append((0, ".", _note(f"base values: {_NO_BASE}", "FAILED")[1]))
 
