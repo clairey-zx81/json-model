@@ -329,6 +329,26 @@ def java_compile(java_code: str, args):
 # Compiler entry point
 #
 
+_MODEL_SUFFIX = ".model.json"
+_VALUES_SUFFIX = ".values.json"
+
+def _known_values(model: str) -> frozenset[str]:
+    """Values the test values file beside a model already holds, if there is one."""
+    if not model.endswith(_MODEL_SUFFIX):
+        return frozenset()
+    path = model[:-len(_MODEL_SUFFIX)] + _VALUES_SUFFIX
+    try:
+        with open(path) as f:
+            values = json.load(f)
+    except (OSError, ValueError) as e:
+        log.debug(f"no test values beside {model}: {e}")
+        return frozenset()
+    if not isinstance(values, list):
+        log.warning(f"{path}: test values are not a list, ignored")
+        return frozenset()
+    return frozenset(json.dumps(entry[1], sort_keys=True) for entry in values
+                     if isinstance(entry, list) and len(entry) == 2)
+
 def jmc_script(xargs: list[str]|None = None) -> int:
 
     if not xargs:
@@ -905,7 +925,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     elif args.op == "A":  # generated test vectors
         try:
             tests = vectors(model._init_md, resolver=model._resolver, url=model._url,
-                            extend=args.extend)
+                            extend=args.extend, known=_known_values(args.model))
             comment = f"# generated from {args.model}"
         except UnsupportedValue as e:
             log.warning(f"{args.model}: {e}")

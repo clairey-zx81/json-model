@@ -2016,17 +2016,22 @@ def _ordered(entries: list[tuple[int, str, list]]) -> list:
 
 _AGREES = " AGREES"
 _SIMPLEST = "# . simplest"
+_ALREADY = "ALREADY IN VALUES"
 _NO_BASE = "no value the compiler accepts, every vector below builds on this one"
 
 def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
-             resolver: Resolver|None, url: str, extend: bool) -> None:
+             resolver: Resolver|None, url: str, extend: bool,
+             known: frozenset[str] = frozenset()) -> None:
     """Rewrite every unproven mark to BAD and drop its expected result to null.
 
     A value the compiler was not asked about cannot be confirmed here, so its
     mark becomes BAD and its expected result null, whatever the validator says.
     The validator still speaks up when it contradicts a verdict the compiler did
     prove: that verdict is no longer certain either, so it turns BAD and null as
-    well. Every generated value is kept. A refused base value is called out on
+    well. A value about to lose its verdict this way is dropped instead when the
+    model test values already hold it, leaving only the comment which says so:
+    an unknown expectation adds nothing where a known one is already on file.
+    Every other generated value is kept. A refused base value is called out on
     its own, since every other vector is built on it.
     """
     judged = [entry for *_, entry in entries
@@ -2041,32 +2046,40 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
     def unsure(entry: list) -> None:
         """Drop a verdict no oracle proved and the validator did not confirm."""
         entry[1][0] = None
+    def shelved(entry: list) -> bool:
+        """Replace a vector the model test values already hold by its comment."""
+        if json.dumps(entry[1][1], sort_keys=True) not in known:
+            return False
+        remark(entry, _ALREADY)
+        del entry[1]
+        return True
+    def doubted(entry: list) -> None:
+        """Report a verdict which is not certain, or drop a value already known."""
+        if not shelved(entry):
+            remark(entry, "BAD")
+            unsure(entry)
     try:
         jm, _ = _compile(model, True, resolver, url, extend)
         defs = _defs(jm)
     except UnsupportedValue:
         for entry in judged:
             if entry[0].endswith(_AGREES):
-                remark(entry, "BAD")
-                unsure(entry)
+                doubted(entry)
         return
     refused = False
     for entry in judged:
         expect, value = entry[1]
         result = _verify(value, model, jm, defs)
-        if entry[0].endswith(_AGREES):
-            remark(entry, "BAD")
-            unsure(entry)
-        elif result is not None and result != expect:
-            remark(entry, "BAD")
-            unsure(entry)
-        if result is False and entry[0].startswith(_SIMPLEST):
+        head = entry[0]
+        if head.endswith(_AGREES) or (result is not None and result != expect):
+            doubted(entry)
+        if result is False and head.startswith(_SIMPLEST):
             refused = True
     if refused:
         entries.append((0, ".", _note(f"base values: {_NO_BASE}", "FAILED")[1]))
 
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
-            extend: bool = False) -> list:
+            extend: bool = False, known: frozenset[str] = frozenset()) -> list:
     """Test vectors for a model, sorted by model path, valid values before violations.
 
     The compiler never decides here: a value no oracle proves is kept and marked,
@@ -2075,7 +2088,9 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     verdict the validator contradicts. The file states an expectation only where
     the compiler proved it and nothing refuted it. The mark is a note about the
     value, never a reason to drop it: every generated vector is kept, so the
-    compiler can be tested against all of them.
+    compiler can be tested against all of them. The exception is a value the
+    caller passes in `known`, the model test values already on file: losing its
+    verdict there leaves nothing to add, so only the comment stays.
     """
     entries: list[tuple[int, str, list]] = []
     reasons: list[str] = []
@@ -2147,5 +2162,5 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         entries.append((1, ".", _note(f"violation values: {e}", "FAILED")[1]))
     if not any(len(entry) > 1 for *_, entry in entries):
         raise UnsupportedValue(f"no test vector: {_joined(reasons)}")
-    _recheck(entries, model, resolver, url, extend)
+    _recheck(entries, model, resolver, url, extend, known)
     return _ordered(entries)
