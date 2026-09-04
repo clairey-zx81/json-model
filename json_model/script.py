@@ -13,7 +13,7 @@ import tempfile
 
 from .mtypes import Jsonable, JsonSchema, ModelError
 from .utils import log, tname, json_loads, load_data_file, jmc_version
-from .resolver import Resolver, JSON_SUFFIX, YAML_SUFFIX, JS_SUFFIX
+from .resolver import Resolver
 from .model import JsonModel
 from .xstatic import xstatic_compile, ir_compile
 from . import optim, analyze, objops
@@ -328,38 +328,6 @@ def java_compile(java_code: str, args):
 #
 # Compiler entry point
 #
-
-_VALUES_SUFFIX = ".values.json"
-_MODEL_SUFFIXES = sorted((s for s in JSON_SUFFIX + YAML_SUFFIX + JS_SUFFIX if s),
-                         key=len, reverse=True)
-
-def _values_path(model: str) -> str|None:
-    """Test values file beside a model, whichever suffix names the model."""
-    if model == "-" or "://" in model:
-        return None
-    for suffix in _MODEL_SUFFIXES:
-        if model.endswith(suffix):
-            model = model[:-len(suffix)]
-            break
-    path = model + _VALUES_SUFFIX
-    return path if os.path.isfile(path) else None
-
-def _known_values(model: str) -> frozenset[str]:
-    """Values the test values file beside a model already holds, if there is one."""
-    path = _values_path(model)
-    if path is None:
-        return frozenset()
-    try:
-        with open(path) as f:
-            values = json.load(f)
-    except (OSError, ValueError) as e:
-        log.warning(f"{path}: test values ignored, {e}")
-        return frozenset()
-    if not isinstance(values, list):
-        log.warning(f"{path}: test values ignored, not an array")
-        return frozenset()
-    return frozenset(json.dumps(entry[1], sort_keys=True) for entry in values
-                     if isinstance(entry, list) and len(entry) == 2)
 
 def jmc_script(xargs: list[str]|None = None) -> int:
 
@@ -937,7 +905,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     elif args.op == "A":  # generated test vectors
         try:
             tests = vectors(model._init_md, resolver=model._resolver, url=model._url,
-                            extend=args.extend, known=_known_values(args.model))
+                            extend=args.extend)
             comment = f"# generated from {args.model}"
         except UnsupportedValue as e:
             log.warning(f"{args.model}: {e}")
