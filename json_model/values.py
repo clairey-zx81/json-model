@@ -2018,6 +2018,8 @@ _AGREES = " AGREES"
 _SIMPLEST = "# . simplest"
 _ALREADY = "ALREADY IN VALUES"
 _REPEATED = "DUPLICATE BAD"
+_PASSED = "BAD PASS"
+_FAILED = "BAD FAIL"
 _NO_BASE = "no value the compiler accepts, every vector below builds on this one"
 
 def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
@@ -2025,16 +2027,18 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
              known: frozenset[str] = frozenset()) -> None:
     """Settle every unproven mark, and drop to null only what nothing settles.
 
-    A value the compiler was not asked about is not confirmed by the compiler
-    reading itself, and neither is a verdict the validator contradicts: both
-    lose their verdict here. Four oracles then get a say before null is written,
-    none of them the compiler. The model test values passed in `known` settle a
-    value outright, and so does a certain verdict the file already states about
-    it elsewhere: the vector adds nothing either way and shrinks to its comment.
-    Failing that, the rejection reasoning of this module may still prove the
-    model refuses the value, which states false where nothing was known. Only a
-    value no oracle settles turns BAD and null. A refused base value is called
-    out on its own, since every other vector is built on it.
+    A mark says the generator could not establish the verdict itself, so every
+    oracle gets a say before null is written. The model test values passed in
+    `known` settle a value outright, and so does a certain verdict the file
+    already states about it elsewhere: the vector adds nothing either way and
+    shrinks to its comment. Failing that, the rejection reasoning of this module
+    may prove the model refuses the value, which states false where nothing was
+    known. The validator speaks last and only about what it was asked: it
+    confirms a verdict by agreeing, and where it disagrees the file says which
+    way it went, PASS where it took a value meant to be refused and FAIL where
+    it refused one meant to be taken. A disagreement is never a verdict, so it
+    turns null, and so does a mark the validator says nothing about. A refused
+    base value is called out on its own, since every other vector is built on it.
     """
     judged = [entry for *_, entry in entries
               if len(entry) == 2 and isinstance(entry[0], str)]
@@ -2067,23 +2071,30 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
               for index, entry in enumerate(judged) if settled(index, entry)}
     refused = False
     for index, entry in enumerate(judged):
-        value = entry[1][1]
-        if results[index] is False and entry[0].startswith(_SIMPLEST):
+        expect, value = entry[1]
+        result = results[index]
+        if result is False and entry[0].startswith(_SIMPLEST):
             refused = True
-        if settled(index, entry):
-            continue
         dumped = json.dumps(value, sort_keys=True)
-        if dumped in known:
+        marked = entry[0].endswith(_AGREES)
+        if marked and dumped in known:
             commented(entry, _ALREADY)
-        elif dumped in stated:
+            continue
+        if marked and dumped in stated:
             commented(entry, _REPEATED)
-        elif compiled is not None and _denies(jm, compiled, value):
-            cleared(entry)
-            entry[1][0] = False
-            stated.add(dumped)
-        else:
+            continue
+        if (marked or expect) and compiled is not None and _denies(jm, compiled, value):
+            expect, marked = False, False
+        if result is not None and result != expect:
+            remark(entry, _FAILED if expect else _PASSED)
+            entry[1][0] = None
+        elif marked and result is None:
             remark(entry, "BAD")
             entry[1][0] = None
+        else:
+            cleared(entry)
+            entry[1][0] = expect
+            stated.add(dumped)
     if refused:
         entries.append((0, ".", _note(f"base values: {_NO_BASE}", "FAILED")[1]))
 
