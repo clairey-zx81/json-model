@@ -2,9 +2,9 @@ jmc-errors.values.json[0]: PASS
 jmc-errors.values.json[1]: PASS
 jmc-errors.values.json[2]: PASS
 jmc-errors.values.json[3]: PASS
-jmc-errors.values.json[4]: FAIL ()
-jmc-errors.values.json[5]: FAIL ()
-jmc-errors.values.json[6]: FAIL ()
+jmc-errors.values.json[4]: PASS
+jmc-errors.values.json[5]: PASS
+jmc-errors.values.json[6]: PASS
 jmc-errors.values.json[7]: FAIL ()
 jmc-errors.values.json[8]: FAIL ()
 jmc-errors.values.json[9]: FAIL ()
@@ -12,3 +12,12 @@ jmc-errors.values.json[10]: FAIL ()
 jmc-errors.values.json[11]: FAIL ()
 jmc-errors.values.json[12]: FAIL ()
 jmc-errors.values.json[13]: FAIL ()
+jmc-errors.values.json[14]: FAIL ()
+jmc-errors.values.json[15]: FAIL ()
+jmc-errors.values.json[16]: FAIL ()
+jmc-errors.values.json[17]: FAIL ()
+jmc-errors.values.json[18]: FAIL ()
+jmc-errors.values.json[19]: FAIL ()
+jmc-errors.values.json[20]: FAIL ()
+jmc-errors.values.json[21]: FAIL ()
+jmc-errors.values.json[22]: FAIL ()
