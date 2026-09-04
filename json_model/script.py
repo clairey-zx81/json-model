@@ -346,40 +346,102 @@ def _read_values(path: str) -> list|None:
         return None
     return values
 
-def _values_held(values: list) -> dict[str, int]:
-    """Position of each value a values file holds, its comments aside."""
-    held: dict[str, int] = {}
+def _values_held(values: list) -> dict[str, tuple[int, int|None, Jsonable]]:
+    """What a values file says about each value it holds.
+
+    The position of a value is its rank among the test vectors of the file,
+    comments aside, as the error files count them. A named case also carries a
+    test case name which no generated vector holds, so it has no index to
+    remove: the entry stays whatever the compiler proves about its value.
+    """
+    held: dict[str, tuple[int, int|None, Jsonable]] = {}
     ordinal = 0
-    for entry in values:
+    for index, entry in enumerate(values):
         if isinstance(entry, list) and len(entry) in (2, 3):
-            held.setdefault(_vector_key(entry[-1]), ordinal)
+            index = index if len(entry) == 2 else None  # pyright: ignore
+            held.setdefault(_vector_key(entry[-1]), (ordinal, index, entry[0]))
             ordinal += 1
     return held
 
-def _append_values(path: str, added: list) -> None:
-    """Add unsettled test vectors at the end of a values file, keeping its layout."""
+def _values_items(text: str) -> list[tuple[Jsonable, int, int]]:
+    """List (value, start, end) triples for the items of a JSON array source."""
+    dec, items = json.JSONDecoder(), []
+    i, n = text.index("[") + 1, len(text)
+    while i < n:
+        while i < n and text[i].isspace():
+            i += 1
+        if i >= n or text[i] == "]":
+            break
+        value, end = dec.raw_decode(text, i)
+        items.append((value, i, end))
+        i = end
+        while i < n and text[i].isspace():
+            i += 1
+        if i < n and text[i] == ",":
+            i += 1
+    return items
+
+def _values_orphans(items: list[tuple[Jsonable, int, int]], dropped: set[int]) -> set[int]:
+    """Comment items whose whole section of test vectors is dropped."""
+    orphans, comment, seen, gone = set(), None, 0, 0
+    for i, (value, _, _) in enumerate(items):
+        if isinstance(value, str):
+            if comment is not None and seen > 0 and seen == gone:
+                orphans.add(comment)
+            comment, seen, gone = i, 0, 0
+        elif isinstance(value, list):
+            seen += 1
+            if i in dropped:
+                gone += 1
+    if comment is not None and seen > 0 and seen == gone:
+        orphans.add(comment)
+    return orphans
+
+def _values_splice(text: str, items: list[tuple[Jsonable, int, int]], dropped: set[int]) -> str:
+    """Rebuild an array source without the dropped items, keeping its layout."""
+    kept = [i for i in range(len(items)) if i not in dropped]
+    if not kept:
+        return text[:text.index("[")] + "[]" + text[text.rindex("]") + 1:]
+    parts = [text[:items[0][1]]]
+    for rank, i in enumerate(kept):
+        parts.append(text[items[i][1]:items[i][2]])
+        if rank + 1 < len(kept):
+            parts.append(text[items[i][2]:items[i + 1][1]])
+    parts.append(text[items[-1][2]:])
+    return "".join(parts)
+
+def _write_values(path: str, dropped: set[int], added: list) -> None:
+    """Remove generated test vectors from a values file and add unsettled ones."""
     with open(path) as f:
         text = f.read()
-    close = text.rindex("]")
-    head, tail = text[:close].rstrip(), text[close:]
-    lines = ",\n".join(f"  [ null, {json.dumps(value)} ]" for value in added)
-    sep = "\n" if head.endswith("[") else ",\n"
+    if dropped:
+        items = _values_items(text)
+        text = _values_splice(text, items, dropped | _values_orphans(items, dropped))
+    if added:
+        close = text.rindex("]")
+        head, tail = text[:close].rstrip(), text[close:]
+        lines = ",\n".join(f"  [ null, {json.dumps(value)} ]" for value in added)
+        sep = "\n" if head.endswith("[") else ",\n"
+        text = head + sep + lines + "\n" + tail
     with open(path, "w") as f:
-        f.write(head + sep + lines + "\n" + tail)
+        f.write(text)
 
 def _merge_values(tests: list, path: str, values: list) -> list:
     """Test vectors to generate, those still waiting for a verdict left to a values file.
 
     A vector the compiler could not settle is not generated: it goes to the
     values file with a null result for the user to state, unless the file
-    already holds the value. A vector the compiler did settle is generated,
-    and the values file holding it as well is reported as redundant.
+    already holds the value. A vector the compiler did settle is generated, and
+    the values file loses it, having nothing left to add. A file which expects
+    the opposite keeps its entry: the disagreement is not the generator's to
+    settle, and dropping it would hide it.
     """
     held = _values_held(values)
     kept: list = []
     added: list = []
     seen: set[str] = set()
-    generated: list[int] = []
+    dropped: set[int] = set()
+    removed: list[int] = []
     for item in tests:
         if isinstance(item, str):
             kept.append(item)
@@ -393,15 +455,20 @@ def _merge_values(tests: list, path: str, values: list) -> list:
             if kept and isinstance(kept[-1], str):
                 kept.pop()
             continue
-        if key in held:
-            generated.append(held[key])
         kept.append(item)
+        if key not in held:
+            continue
+        ordinal, index, stated = held[key]
+        if index is not None and stated == expect:
+            dropped.add(index)
+            removed.append(ordinal)
+    if added or dropped:
+        _write_values(path, dropped, added)
     if added:
-        _append_values(path, added)
         log.warning(f"{path}: {len(added)} value(s) added with a null result, set them")
-    if generated:
-        log.warning(f"{path}: {len(generated)} value(s) now generated, "
-                    f"to remove: {sorted(generated)}")
+    if removed:
+        log.warning(f"{path}: {len(removed)} value(s) removed, now generated: "
+                    f"{sorted(removed)}, error file indexes must be updated")
     return kept
 
 def jmc_script(xargs: list[str]|None = None) -> int:
