@@ -13,7 +13,7 @@ import tempfile
 
 from .mtypes import Jsonable, JsonSchema, ModelError
 from .utils import log, tname, json_loads, load_data_file, jmc_version
-from .resolver import Resolver
+from .resolver import Resolver, JSON_SUFFIX, YAML_SUFFIX, JS_SUFFIX
 from .model import JsonModel
 from .xstatic import xstatic_compile, ir_compile
 from . import optim, analyze, objops
@@ -329,22 +329,34 @@ def java_compile(java_code: str, args):
 # Compiler entry point
 #
 
-_MODEL_SUFFIX = ".model.json"
 _VALUES_SUFFIX = ".values.json"
+_MODEL_SUFFIXES = sorted((s for s in JSON_SUFFIX + YAML_SUFFIX + JS_SUFFIX if s),
+                         key=len, reverse=True)
+
+def _values_path(model: str) -> str|None:
+    """Test values file beside a model, whichever suffix names the model."""
+    if model == "-" or "://" in model:
+        return None
+    for suffix in _MODEL_SUFFIXES:
+        if model.endswith(suffix):
+            model = model[:-len(suffix)]
+            break
+    path = model + _VALUES_SUFFIX
+    return path if os.path.isfile(path) else None
 
 def _known_values(model: str) -> frozenset[str]:
     """Values the test values file beside a model already holds, if there is one."""
-    if not model.endswith(_MODEL_SUFFIX):
+    path = _values_path(model)
+    if path is None:
         return frozenset()
-    path = model[:-len(_MODEL_SUFFIX)] + _VALUES_SUFFIX
     try:
         with open(path) as f:
             values = json.load(f)
     except (OSError, ValueError) as e:
-        log.debug(f"no test values beside {model}: {e}")
+        log.warning(f"{path}: test values ignored, {e}")
         return frozenset()
     if not isinstance(values, list):
-        log.warning(f"{path}: test values are not a list, ignored")
+        log.warning(f"{path}: test values ignored, not an array")
         return frozenset()
     return frozenset(json.dumps(entry[1], sort_keys=True) for entry in values
                      if isinstance(entry, list) and len(entry) == 2)
