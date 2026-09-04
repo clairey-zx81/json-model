@@ -6,8 +6,13 @@
   [ false, "Hello 'Susie'" ],
 
   "miscellaneous values",
+  [ false, "" ],
+  [ false, null ],
+  [ false, true ],
   [ false, 42 ],
   [ false, 3.1415927 ],
+  [ false, [] ],
   [ false, ["'Susie'", "'Calvin'"] ],
+  [ false, {} ],
   [ false, {"'Calvin'": "'Susie'"} ]
 ]

@@ -6,6 +6,9 @@
   [ false, {"a": 18, "b": 42} ],
   [ false, ["hello", "world!"] ],
   [ false, {"t": "42", "a": 18} ],
+  [ false, null ],
+  [ false, true ],
   [ false, 42 ],
-  [ false, "oops!" ]
+  [ false, "oops!" ],
+  [ false, {} ]
 ]

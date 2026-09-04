@@ -1,6 +1,9 @@
 [
+  [ true,  {} ],
   [ true,  { "#": "comment" } ],
   [ true,  { "ts": true } ],
+  [ true,  { "ts": false } ],
+  [ true,  { "c": [] } ],
   [ true,  { "c": [0, 2, 3, 5] } ],
   [ true,  { "ts": true, "java": [], "pl": [], "py": [], "js": [ 12345 ] } ],
   [ false, { "no-such-prop": "bad prop" } ],
@@ -10,7 +13,13 @@
   [ false, { "ts": 1 } ],
   [ false, { "pl": [ null ] } ],
   [ false, { "java": [ 0, 1, 2, -42 ] } ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
   [ false, 3.1515927 ],
+  [ false, "" ],
   [ false, "unexpected" ],
+  [ false, [] ],
   [ false, [1, "expected"] ]
 ]

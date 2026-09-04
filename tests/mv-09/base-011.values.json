@@ -1,4 +1,5 @@
 [
+  [ true,  1 ],
   [ true,  2 ],
   [ true,  3 ],
   [ true,  4 ],
@@ -7,8 +8,16 @@
   [ true,  7 ],
   [ true,  8 ],
   [ true,  9 ],
+  [ true,  10 ],
+  [ false, 0 ],
+  [ false, 11 ],
   [ false, 42 ],
+  [ false, null ],
   [ false, 5.0 ],
   [ false, 3.1415927 ],
-  [ false, "unexpected" ]
+  [ false, false ],
+  [ false, true ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, {} ]
 ]

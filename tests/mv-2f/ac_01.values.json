@@ -1,4 +1,5 @@
 [
+  [ true,  {} ],
   [ true,  {"a": "Susie", "b": "Hobbes", "c": "Calvin"} ],
   [ true,  {"a": "S", "b": "H", "c": "C", "xxx": 42} ],
   [ true,  {"a": "Susie"} ],
@@ -10,7 +11,13 @@
   [ true,  {"a": "Susie", "c": "Calvin"} ],
   [ true,  {"what": "ever", "is": "also", "good": "!"} ],
   [ false, {"a": 42, "b": "Hobbes"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
   [ false, 3.1415927 ],
+  [ false, "" ],
   [ false, "unexpected" ],
+  [ false, [] ],
   [ false, [1, "expected"] ]
 ]

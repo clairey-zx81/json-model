@@ -1,4 +1,5 @@
 [
+  [ true,  {} ],
   [ false, {"un": "expected"} ],
   [ false, null ],
   [ false, true ],

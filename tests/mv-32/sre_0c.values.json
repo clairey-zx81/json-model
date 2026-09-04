@@ -6,8 +6,15 @@
   [ false, "ho.42.A" ],
   [ false, "ca.24.ABCDE" ],
   [ false, "ab:34:EDFH" ],
+  [ false, "" ],
   [ false, "unrelated" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
   [ false, 3.1415927 ],
+  [ false, [] ],
   [ false, [1, "expected"] ],
+  [ false, {} ],
   [ false, {"un": "expected"} ]
 ]

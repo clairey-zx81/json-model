@@ -8,6 +8,7 @@
   [ true, "ex5", "forty-two" ],
   [ false, "Ex06", null ],
   [ false, "Ex06", 0.0 ],
+  [ false, [] ],
   [ false, [ 18 ] ],
   [ false, [ 19, "dix-neuf" ] ],
   [ false, [ 19, "dix-neuf", true, "oops" ] ]

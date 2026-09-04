@@ -2,6 +2,7 @@
   [ true, [[]] ],
   [ true, [["Calvin"]] ],
   [ true, [["Calvin", "Susie"], ["Hobbes"], []] ],
+  [ true, [] ],
   [ false, [[ 12 ]] ],
   [ false, ["not a list", "of", "list of strings"] ],
   [ false, [ [], ["Hobbes"], ["Calvin", "Susie"], ["pi", "is", 3.14159]] ]

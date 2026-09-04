@@ -12,6 +12,7 @@
       "some": "x"
     }
   ],
+  [ false, { "all": null } ],
   [ false, { "nz": "" } ],
   [ false, { "nz": 1 } ],
   [ false, { "some": "\n\n" } ]

@@ -1,4 +1,5 @@
 [
+  [ true,  "" ],
   [ true,  "(.*)" ],
   [ true,  ".* ($URL) .*" ],
   [ true,  ".* ($URL:[a-z]+) .*" ],
@@ -6,8 +7,13 @@
   [ false, "(" ],
   [ false, "($URL:" ],
   [ false, "($URL:[a-)" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
   [ false, 42 ],
   [ false, 3.1415927 ],
+  [ false, [] ],
   [ false, ["not", "expected"] ],
+  [ false, {} ],
   [ false, {"un": "expected"} ]
 ]

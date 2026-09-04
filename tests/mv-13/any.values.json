@@ -1,5 +1,9 @@
 [
+  [ true, null ],
   [ true, 42 ],
   [ true, 3.14159 ],
-  [ true, "whatever" ]
+  [ true, false ],
+  [ true, "whatever" ],
+  [ true, [] ],
+  [ true, {} ]
 ]

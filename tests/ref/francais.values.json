@@ -1,4 +1,5 @@
 [
+  [ true,  null ],
   [ true,  {} ],
   [ true,  0 ],
   [ true,  true ],

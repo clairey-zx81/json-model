@@ -8,9 +8,16 @@
   [ true,  { "calvin": "ccc", "susie": "ssss" } ],
   [ true,  { "Calvin": "ccc", "Susie": "ssss" } ],
   [ true,  { "Hobbes": "HHH" } ],
+  [ true,  {} ],
   [ false, { "calvin": "ccc", "susie": "ssss", "un": "expected" } ],
   [ false, { "bla": "HHH" } ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
   [ false, 3.1415927 ],
+  [ false, "" ],
   [ false, "unexpected" ],
+  [ false, [] ],
   [ false, [1, "expected"] ]
 ]

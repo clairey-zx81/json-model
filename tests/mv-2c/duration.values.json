@@ -1,4 +1,5 @@
 [
+  [ true,  "PT0S" ],
   [ true,  "PT0M" ],
   [ true,  "PT14M59S" ],
   [ true,  "PT0H" ],
@@ -19,8 +20,15 @@
   "# missing minutes",
   [ false, "PT1H1S" ],
   "# misc types",
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
   [ false, 3.1415927 ],
+  [ false, "" ],
   [ false, "unexpected" ],
+  [ false, [] ],
   [ false, [1, "expected"] ],
+  [ false, {} ],
   [ false, {"un": "expected"} ]
 ]

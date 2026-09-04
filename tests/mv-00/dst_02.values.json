@@ -9,6 +9,12 @@
   [ false, { "a": 42, "d": true, "e": false } ],
   [ false, { "b": 42, "c": 42, "d": true } ],
   [ false, { "b": 42, "d": true } ],
+  [ false, { "a": 1, "b": 0 } ],
   [ false, { "c": 42, "f": false } ],
-  [ false, 42.00001 ]
+  [ false, null ],
+  [ false, false ],
+  [ false, 42.00001 ],
+  [ false, "abc" ],
+  [ false, [] ],
+  [ false, {} ]
 ]

@@ -1,4 +1,6 @@
 [
+  [ true, true ],
+  [ false, false ],
   [ false, 1 ],
   [ false, 1.0 ],
   [ false, "not true" ],

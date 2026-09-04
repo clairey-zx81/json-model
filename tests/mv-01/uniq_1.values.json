@@ -1,8 +1,10 @@
 [
+  [ true, [] ],
   [ true, ["Hobbes"] ],
   [ true, ["Hobbes", "Hobbes"] ],
   [ true, ["Susie", "Calvin", "Susie"] ],
   [ false, [ 42, 1, 42 ] ],
+  [ false, null ],
   [ false, 666 ],
   [ false, 99.99 ],
   [ false, "xxx" ],

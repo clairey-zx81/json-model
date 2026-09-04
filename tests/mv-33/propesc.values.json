@@ -7,9 +7,16 @@
   [ true,  {"\n": 42} ],
   [ true,  {"'": 42} ],
   [ true,  {"\r": 1, "\t": 2, "\f": 3, "\n": 4, "'": 5, "\"": 6} ],
+  [ true,  {} ],
+  [ false, "" ],
   [ false, "\t" ],
   [ false, "hello world" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
   [ false, 3.1415927 ],
+  [ false, [] ],
   [ false, [1, "unexpected"] ],
   [ false, {"un": "expected"} ]
 ]

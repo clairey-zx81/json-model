@@ -1,4 +1,5 @@
 [
+  [ true,  [] ],
   [ true,  [ [ true, null ] ] ],
   [ true,  [ [ true, "", null ] ] ],
   [ true,  [ [ true, "foo", null ] ] ],
@@ -6,6 +7,7 @@
   [ true,  [ [ false, "", null ] ] ],
   [ true,  [ [ false, "bla", null ] ] ],
   [ true,  [ "embedded comment" ] ],
+  [ false, [ null ] ],
   [ false, [ true ] ],
   [ false, [ false ] ],
   [ false, [ -42 ] ],
@@ -14,7 +16,13 @@
   [ false, [ [] ] ],
   [ false, [ [ 42, null ] ] ],
   [ false, [ [ true, 42, null ] ] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
   [ false, 3.1415927 ],
+  [ false, "" ],
   [ false, "unexpected" ],
+  [ false, {} ],
   [ false, {"un": "expected"} ]
 ]

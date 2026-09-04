@@ -4,10 +4,14 @@
   [ true, { "tag": "c", "c": "Hobbes" } ],
   [ false, { "tag": "z", "z": "unexpected property z" } ],
   [ false, { "tag": "a", "b": "missing property a" } ],
+  [ false, null ],
+  [ false, true ],
   [ false, -64 ],
   [ false, 1.0E-17 ],
   [ false, "not an object" ],
   [ false, ["not", "an", "object"] ],
+  [ false, [] ],
+  [ false, {} ],
   [ false, {"hello": "world!"} ],
   [ false, {"tag": "X", "X": "nope"} ]
 ]

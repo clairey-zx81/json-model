@@ -1,5 +1,6 @@
 [
   "quick sample local test",
+  [ true,  null ],
   [ true,  true ],
   [ true,  0 ],
   [ true,  1 ],

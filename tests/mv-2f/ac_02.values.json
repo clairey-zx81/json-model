@@ -6,7 +6,14 @@
   [ false, {"a": "Susie", "d": "Moe"} ],
   [ false, {"what": "ever", "is": "also", "good": "!"} ],
   [ false, {"a": 42, "b": "Hobbes"} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
   [ false, 3.1415927 ],
+  [ false, "" ],
   [ false, "unexpected" ],
+  [ false, [] ],
   [ false, [1, "expected"] ]
 ]

@@ -79,6 +79,7 @@
     }, "id": 1}
   ],
   [ false, {"jsonrpc":"1.0","method":"x","id":1} ],
+  [ false, [] ],
   [
     false,
     {
