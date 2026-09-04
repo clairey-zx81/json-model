@@ -2016,29 +2016,27 @@ def _ordered(entries: list[tuple[int, str, list]]) -> list:
 
 _AGREES = " AGREES"
 _SIMPLEST = "# . simplest"
-_ALREADY = "ALREADY IN VALUES"
 _REPEATED = "DUPLICATE BAD"
 _PASSED = "BAD PASS"
 _FAILED = "BAD FAIL"
 _NO_BASE = "no value the compiler accepts, every vector below builds on this one"
 
 def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
-             resolver: Resolver|None, url: str, extend: bool,
-             known: frozenset[str] = frozenset()) -> None:
+             resolver: Resolver|None, url: str, extend: bool) -> None:
     """Settle every unproven mark, and drop to null only what nothing settles.
 
     A mark says the generator could not establish the verdict itself, so every
-    oracle gets a say before null is written. The model test values passed in
-    `known` settle a value outright, and so does a certain verdict the file
-    already states about it elsewhere: the vector adds nothing either way and
-    shrinks to its comment. Failing that, the rejection reasoning of this module
-    may prove the model refuses the value, which states false where nothing was
-    known. The validator speaks last and only about what it was asked: it
-    confirms a verdict by agreeing, and where it disagrees the file says which
-    way it went, PASS where it took a value meant to be refused and FAIL where
-    it refused one meant to be taken. A disagreement is never a verdict, so it
-    turns null, and so does a mark the validator says nothing about. A refused
-    base value is called out on its own, since every other vector is built on it.
+    oracle gets a say before null is written. A certain verdict the file already
+    states about the value elsewhere settles it outright: the vector adds nothing
+    either way and shrinks to its comment. Failing that, the rejection reasoning
+    of this module may prove the model refuses the value, which states false
+    where nothing was known. The validator speaks last and only about what it
+    was asked: it confirms a verdict by agreeing, and where it disagrees the
+    file says which way it went, PASS where it took a value meant to be refused
+    and FAIL where it refused one meant to be taken. A disagreement is never a
+    verdict, so it turns null, and so does a mark the validator says nothing
+    about. A refused base value is called out on its own, since every other
+    vector is built on it.
     """
     judged = [entry for *_, entry in entries
               if len(entry) == 2 and isinstance(entry[0], str)]
@@ -2077,9 +2075,6 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
             refused = True
         dumped = json.dumps(value, sort_keys=True)
         marked = entry[0].endswith(_AGREES)
-        if marked and dumped in known:
-            commented(entry, _ALREADY)
-            continue
         if marked and dumped in stated:
             commented(entry, _REPEATED)
             continue
@@ -2099,7 +2094,7 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
         entries.append((0, ".", _note(f"base values: {_NO_BASE}", "FAILED")[1]))
 
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
-            extend: bool = False, known: frozenset[str] = frozenset()) -> list:
+            extend: bool = False) -> list:
     """Test vectors for a model, sorted by model path, valid values before violations.
 
     The compiler never decides here: a value no oracle proves is kept and marked,
@@ -2108,9 +2103,7 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     verdict the validator contradicts. The file states an expectation only where
     the compiler proved it and nothing refuted it. The mark is a note about the
     value, never a reason to drop it: every generated vector is kept, so the
-    compiler can be tested against all of them. The exception is a value the
-    caller passes in `known`, the model test values already on file: losing its
-    verdict there leaves nothing to add, so only the comment stays.
+    compiler can be tested against all of them.
     """
     entries: list[tuple[int, str, list]] = []
     reasons: list[str] = []
@@ -2182,5 +2175,5 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         entries.append((1, ".", _note(f"violation values: {e}", "FAILED")[1]))
     if not any(len(entry) > 1 for *_, entry in entries):
         raise UnsupportedValue(f"no test vector: {_joined(reasons)}")
-    _recheck(entries, model, resolver, url, extend, known)
+    _recheck(entries, model, resolver, url, extend)
     return _ordered(entries)

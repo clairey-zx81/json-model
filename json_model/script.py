@@ -329,6 +329,81 @@ def java_compile(java_code: str, args):
 # Compiler entry point
 #
 
+def _vector_key(value: Jsonable) -> str:
+    """Comparison key of a test vector value."""
+    return json.dumps(value, sort_keys=True)
+
+def _read_values(path: str) -> list|None:
+    """Test vectors held by a values file, None if the file cannot be used."""
+    try:
+        with open(path) as f:
+            values = json.load(f)
+    except (OSError, ValueError) as e:
+        log.error(f"{path}: test values unreadable, {e}")
+        return None
+    if not isinstance(values, list):
+        log.error(f"{path}: test values are not an array")
+        return None
+    return values
+
+def _values_held(values: list) -> dict[str, int]:
+    """Position of each value a values file holds, its comments aside."""
+    held: dict[str, int] = {}
+    ordinal = 0
+    for entry in values:
+        if isinstance(entry, list) and len(entry) in (2, 3):
+            held.setdefault(_vector_key(entry[-1]), ordinal)
+            ordinal += 1
+    return held
+
+def _append_values(path: str, added: list) -> None:
+    """Add unsettled test vectors at the end of a values file, keeping its layout."""
+    with open(path) as f:
+        text = f.read()
+    close = text.rindex("]")
+    head, tail = text[:close].rstrip(), text[close:]
+    lines = ",\n".join(f"  [ null, {json.dumps(value)} ]" for value in added)
+    sep = "\n" if head.endswith("[") else ",\n"
+    with open(path, "w") as f:
+        f.write(head + sep + lines + "\n" + tail)
+
+def _merge_values(tests: list, path: str, values: list) -> list:
+    """Test vectors to generate, those still waiting for a verdict left to a values file.
+
+    A vector the compiler could not settle is not generated: it goes to the
+    values file with a null result for the user to state, unless the file
+    already holds the value. A vector the compiler did settle is generated,
+    and the values file holding it as well is reported as redundant.
+    """
+    held = _values_held(values)
+    kept: list = []
+    added: list = []
+    seen: set[str] = set()
+    generated: list[int] = []
+    for item in tests:
+        if isinstance(item, str):
+            kept.append(item)
+            continue
+        expect, value = item
+        key = _vector_key(value)
+        if expect is None:
+            if key not in held and key not in seen:
+                seen.add(key)
+                added.append(value)
+            if kept and isinstance(kept[-1], str):
+                kept.pop()
+            continue
+        if key in held:
+            generated.append(held[key])
+        kept.append(item)
+    if added:
+        _append_values(path, added)
+        log.warning(f"{path}: {len(added)} value(s) added with a null result, set them")
+    if generated:
+        log.warning(f"{path}: {len(generated)} value(s) now generated, "
+                    f"to remove: {sorted(generated)}")
+    return kept
+
 def jmc_script(xargs: list[str]|None = None) -> int:
 
     if not xargs:
@@ -587,6 +662,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--cache-clear", default=False, action="store_true", help="cleanup cache contents and exit")
 
     # parameters
+    arg("--values", dest="values_file", type=str,
+        help="test values file to read and update")
     arg("--model", dest="model_option", type=str, help="JSON model as an option")
     arg("model", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
     arg("values", nargs="*", help="JSON values to testing")
@@ -627,6 +704,16 @@ def jmc_script(xargs: list[str]|None = None) -> int:
 
     if args.from_ir:
         args.op = args.op or "C"
+
+    test_values = None
+    if args.values_file is not None:
+        args.op = args.op or "A"
+        if args.op != "A":
+            log.error(f"--values requires generating test vectors: {args.op}")
+            return 1
+        test_values = _read_values(args.values_file)
+        if test_values is None:
+            return 1
 
     # format/operation/gen guessing
     if args.output != "-":
@@ -913,6 +1000,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         except UnsupportedValue as e:
             log.warning(f"{args.model}: {e}")
             tests, comment = [], f"# generated from {args.model}: {e}"
+        if test_values is not None:
+            tests = _merge_values(tests, args.values_file, test_values)
         print(list2str([comment] + tests), file=output)
     elif args.op == "C":
         assert args.format in LANG, f"valid output language {args.format}"
