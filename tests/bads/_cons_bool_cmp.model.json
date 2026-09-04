@@ -1,0 +1,5 @@
+{
+  "#": "no comparisons on bool constraints",
+  "@": true,
+  ">=": 1
+}

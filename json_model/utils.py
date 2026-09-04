@@ -400,7 +400,7 @@ def _distinct_models(m1: ModelType, m2: ModelType, jm, mpath: ModelPath) -> bool
             m = m1
         else:
             m = m2
-        if not all(map(lambda s: isinstance(s, str), lv1)):
+        if not all(isinstance(s, str) for s in lv1):
             return False
         if isinstance(m, dict) and "^" in m and "" in m["^"]:
             lxor = m["^"]

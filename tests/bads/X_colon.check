@@ -1,0 +1,2 @@
+ERROR:json-model:Expecting ':' delimiter: line 1 column 24 (char 23)
+ERROR:json-model:invalid model X_colon.model.json

@@ -51,6 +51,12 @@ type Block = list[str]
 type Conditionals = list[tuple[BoolExpr, TestHint, Block]]
 # del JsonModel
 
+# typing lattice
+class TopType:
+    pass
+
+type NullType = type(None)
+
 class ModelError(Exception):
     pass
 

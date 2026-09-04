@@ -23,16 +23,16 @@ my %check_model_map;
 sub _jm_re_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[0-9a-zA-Z]+(\.[0-9a-zA-Z]+)*$/;
+    my $res = $val =~ /^[0-9]+(\.[0-9]+)*$/;
     return $res;
 }
 
-# check $Version (.'$Version')
+# check $Section (.'$Section')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .'$Version'
-    # "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
+    # .'$Section'
+    # "/^[0-9]+(\\.[0-9]+)*$/"
     return jm_is_string($val) && _jm_re_0($val, undef, undef);
 }
 
@@ -116,7 +116,9 @@ sub _jm_obj_0($$$)
         {
             # handle may core property
             # .'$Specification'.'@'.core
-            $res = json_model_2($pval, undef, undef);
+            # .'$Specification'.'@'.core.'|'.0
+            # .'$Specification'.'@'.core.'|'.1
+            $res = jm_is_string($pval) && jm_is_semver($pval, undef, undef) || json_model_2($pval, undef, undef);
             return 0 unless $res;
             next;
         }
@@ -124,7 +126,7 @@ sub _jm_obj_0($$$)
         {
             # handle may validation property
             # .'$Specification'.'@'.validation
-            $res = json_model_2($pval, undef, undef);
+            $res = jm_is_string($pval) && jm_is_semver($pval, undef, undef);
             return 0 unless $res;
             next;
         }
@@ -132,7 +134,7 @@ sub _jm_obj_0($$$)
         {
             # handle may ecma262 property
             # .'$Specification'.'@'.ecma262
-            $res = json_model_2($pval, undef, undef);
+            $res = jm_is_string($pval) && jm_is_semver($pval, undef, undef);
             return 0 unless $res;
             next;
         }
@@ -156,14 +158,14 @@ sub _jm_obj_0($$$)
         {
             # handle 2 re props
             # .'$Specification'.'@'.'/^rfc\\d+$/'
-            $res = json_model_2($pval, undef, undef);
+            $res = jm_is_string($pval) && jm_is_semver($pval, undef, undef);
             return 0 unless $res;
         }
         elsif (_jm_re_2($prop, undef, undef))
         {
             # handle 2 re props
             # .'$Specification'.'@'.'/^iso\\d+$/'
-            $res = json_model_2($pval, undef, undef);
+            $res = jm_is_string($pval) && jm_is_semver($pval, undef, undef);
             return 0 unless $res;
         }
         else
@@ -284,7 +286,7 @@ sub json_model_5($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    # JSON Model for the JSON Schema Test Suite tests
+    # JSON Model for JSTS tests
     # .
     # .'@'
     my $res = jm_is_array($val);
@@ -307,6 +309,13 @@ sub json_model_1($$$)
 }
 
 
+sub jm_is_semver($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res = $val =~ /^([0-9]|[1-9][0-9]+)\.([0-9]|[1-9][0-9]+)\.([0-9]|[1-9][0-9]+)(-(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?(\+(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?$/;
+    return $res;
+}
+
 # initialization of global variables
 
 our $initialized = 0;
@@ -318,7 +327,7 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             "" => \&json_model_1,
-            "Version" => \&json_model_2,
+            "Section" => \&json_model_2,
             "Test" => \&json_model_3,
             "Specification" => \&json_model_4,
             "TestCase" => \&json_model_5,

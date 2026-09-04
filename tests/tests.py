@@ -29,16 +29,15 @@ EXPECT: dict[str, int] = {
     "ref:models:errors-jsm": 2,
     # chunk 00
     "mv-00:cmp-opts": {"report": False, "comment": False, "relib": "re"},
-    "mv-00:models": 10,
-    "mv-00:values": 95,
+    "mv-00:models": 9,
+    "mv-00:values": 89,
     # chunk 01
     "mv-01:models": 11,
     "mv-01:values": 116,
     "mv-01:verrors:schema": 14,
     # chunk 02
-    "mv-02:js2json": 1,
-    "mv-02:models": 10,
-    "mv-02:values": 122,
+    "mv-02:models": 9,
+    "mv-02:values": 111,
     "mv-02:verrors:schema": 46,
     # chunk 03
     "mv-03:js2json": 1,
@@ -265,7 +264,7 @@ EXPECT: dict[str, int] = {
     "mv-36:values": 126,
     "mv-36:verrors:schema": 1,
     # miscellaneous tests
-    "bads:models": 58,
+    "bads:models": 66,
     "jsts-files": 309,
     # tests json models of json schema versions
     "draft3:jsts": 104,
@@ -736,6 +735,7 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
     nfiles, ntests, nmerrors, nverrors = 0, 0, 0, 0
 
     for fpath in sorted(directory.glob("*.model.json")):
+        nmtests = 0
         nfiles += 1
 
         fmodel = f"./{fpath}"
@@ -772,6 +772,7 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
                     continue  # skip comments
                 assert isinstance(tvect, list)
                 ntests += 1
+                nmtests += 1
                 if checker is None:
                     nverrors += 1
                     continue
@@ -799,6 +800,8 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
                 except Exception as e:
                     log.error(f"{name} internal checker error on {model}.values.json[{index}]")
                     nverrors += 1
+
+        log.debug(f"dyn[{directory}]: {model} ({fpath}) {nmtests}")
 
     assert nfiles == EXPECT.get(f"{directory}:models")
     assert ntests == EXPECT.get(f"{directory}:values")

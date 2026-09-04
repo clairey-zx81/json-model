@@ -1,0 +1,5 @@
+{
+  "#": "no comparison if multiple types",
+  "@": {"|": [1, ""]},
+  "<=": 42
+}
