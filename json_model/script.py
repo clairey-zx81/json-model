@@ -336,7 +336,7 @@ def _vector_key(value: Jsonable) -> str:
 def _read_values(path: str) -> list|None:
     """Test vectors held by a values file, None if the file cannot be used."""
     try:
-        with open(path) as f:
+        with open(path, newline="") as f:
             values = json.load(f)
     except (OSError, ValueError) as e:
         log.error(f"{path}: test values unreadable, {e}")
@@ -412,19 +412,107 @@ def _values_splice(text: str, items: list[tuple[Jsonable, int, int]], dropped: s
 
 def _write_values(path: str, dropped: set[int], added: list) -> None:
     """Remove generated test vectors from a values file and add unsettled ones."""
-    with open(path) as f:
+    with open(path, newline="") as f:
         text = f.read()
+    eol = "\r\n" if "\r\n" in text else "\n"
     if dropped:
         items = _values_items(text)
         text = _values_splice(text, items, dropped | _values_orphans(items, dropped))
     if added:
         close = text.rindex("]")
         head, tail = text[:close].rstrip(), text[close:]
-        lines = ",\n".join(f"  [ null, {json.dumps(value)} ]" for value in added)
-        sep = "\n" if head.endswith("[") else ",\n"
-        text = head + sep + lines + "\n" + tail
-    with open(path, "w") as f:
+        lines = ("," + eol).join(f"  [ null, {json.dumps(value)} ]" for value in added)
+        sep = eol if head.endswith("[") else "," + eol
+        text = head + sep + lines + eol + tail
+    with open(path, "w", newline="") as f:
         f.write(text)
+
+_VALUES_SUFFIX = ".values.json"
+_ERRORS_SUFFIX = ".errors.json"
+
+def _values_shift(values: list, removed: set[int]) -> dict[int, int]:
+    """New position of each test vector a values file keeps."""
+    shift, ordinal, new = {}, 0, 0
+    for entry in values:
+        if isinstance(entry, list) and len(entry) in (2, 3):
+            if ordinal not in removed:
+                shift[ordinal] = new
+                new += 1
+            ordinal += 1
+    return shift
+
+def _errors_members(text: str) -> list[tuple[str, Jsonable, int, int]]:
+    """List (name, value, start, end) tuples for the members of a JSON object source."""
+    dec, members = json.JSONDecoder(), []
+    i, n = text.index("{") + 1, len(text)
+    while i < n:
+        while i < n and text[i].isspace():
+            i += 1
+        if i >= n or text[i] == "}":
+            break
+        name, i = dec.raw_decode(text, i)
+        while i < n and text[i] != ":":
+            i += 1
+        i += 1
+        while i < n and text[i].isspace():
+            i += 1
+        value, end = dec.raw_decode(text, i)
+        members.append((name, value, i, end))
+        i = end
+        while i < n and text[i].isspace():
+            i += 1
+        if i < n and text[i] == ",":
+            i += 1
+    return members
+
+def _errors_render(source: str, indexes: list[int]) -> str:
+    """Render an index list following the bracket spacing of its source."""
+    if not indexes:
+        return "[]"
+    inner = ", ".join(str(i) for i in indexes)
+    return f"[ {inner} ]" if source.startswith("[ ") else f"[{inner}]"
+
+def _renumber_errors(path: str, shift: dict[int, int]) -> None:
+    """Move the test vector indexes of the errors file beside a values file.
+
+    The file states which vector each backend is known to fail on, by position
+    in the values file, so removing a vector moves every index which follows.
+    An index on a removed vector has nothing left to point at and goes away.
+    """
+    if not path.endswith(_VALUES_SUFFIX):
+        return
+    epath = path[:-len(_VALUES_SUFFIX)] + _ERRORS_SUFFIX
+    if not os.path.isfile(epath):
+        return
+    try:
+        with open(epath, newline="") as f:
+            text = f.read()
+        errors = json.loads(text)
+    except (OSError, ValueError) as e:
+        log.error(f"{epath}: expected errors ignored, {e}")
+        return
+    if not isinstance(errors, dict):
+        log.error(f"{epath}: expected errors ignored, not an object")
+        return
+    edits = []
+    for name, value, start, end in _errors_members(text):
+        if name.startswith("#") or not isinstance(value, list):
+            continue
+        if not all(isinstance(i, int) and not isinstance(i, bool) for i in value):
+            continue
+        for i in value:
+            if i not in shift:
+                log.warning(f"{epath} [{name}]: index {i} dropped, its value is generated")
+        kept = [shift[i] for i in value if i in shift]
+        if kept != value:
+            edits.append((start, end, _errors_render(text[start:end], kept)))
+    if not edits:
+        return
+    for start, end, rendered in reversed(edits):
+        text = text[:start] + rendered + text[end:]
+    with open(epath, "w", newline="") as f:
+        f.write(text)
+    log.warning(f"{epath}: {len(edits)} expected error list(s) renumbered")
 
 def _merge_values(tests: list, path: str, values: list) -> list:
     """Test vectors to generate, those still waiting for a verdict left to a values file.
@@ -467,8 +555,8 @@ def _merge_values(tests: list, path: str, values: list) -> list:
     if added:
         log.warning(f"{path}: {len(added)} value(s) added with a null result, set them")
     if removed:
-        log.warning(f"{path}: {len(removed)} value(s) removed, now generated: "
-                    f"{sorted(removed)}, error file indexes must be updated")
+        log.warning(f"{path}: {len(removed)} value(s) removed, now generated: {sorted(removed)}")
+        _renumber_errors(path, _values_shift(values, set(removed)))
     return kept
 
 def jmc_script(xargs: list[str]|None = None) -> int:
@@ -777,6 +865,10 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         args.op = args.op or "A"
         if args.op != "A":
             log.error(f"--values requires generating test vectors: {args.op}")
+            return 1
+        if args.output != "-" and \
+                os.path.abspath(args.output) == os.path.abspath(args.values_file):
+            log.error(f"--values file is the output file: {args.values_file}")
             return 1
         test_values = _read_values(args.values_file)
         if test_values is None:
