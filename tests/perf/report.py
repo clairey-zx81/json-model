@@ -7,6 +7,7 @@ import sys
 import argparse
 import logging
 import json
+import math
 import numpy as np
 import pandas as pd
 import warnings
@@ -65,6 +66,8 @@ arg("--best", default=True, action="store_true",
     help="show best line in summary")
 arg("--no-best", dest="best", action="store_false",
     help="do not show best line in summary")
+arg("--threshold", type=float, default=0.96,
+    help="minimum rate of passed values")
 args = ap.parse_args()
 
 if args.hide and not args.ref:
@@ -96,21 +99,21 @@ if args.tools in TOOL_SHORTCUT:
     args.tools = TOOL_SHORTCUT[args.tools]
 
 # tools to report details
-# task letter -> task, column, description
-TOOLS: dict[str, tuple[str, str, str]] = {
+# task letter -> task, column, compilation, description
+TOOLS: dict[str, tuple[str, str, str, str]] = {
     # external references
-    "B": ("blaze", "_blaze_", "**blaze** is [Sourcemeta Blaze CLI](https://github.com/sourcemeta/jsonschema) (external reference, in C++)"),
-    "A": ("ajv", "_ajv_", "**ajv** is [Ajv JSON schema Validator](https://ajv.js.org) (external reference, in JS)"),
+    "B": ("blaze", "_blaze_", "blaze", "**blaze** is [Sourcemeta Blaze CLI](https://github.com/sourcemeta/jsonschema) (external reference, in C++)"),
+    "A": ("ajv", "_ajv_", "ajv", "**ajv** is [Ajv JSON schema Validator](https://ajv.js.org) (external reference, in JS)"),
     # JMC stuff
-    "c": ("jmc-c", "c", "**c** is JMC for C"),
-    "v": ("jmc-java-gson", "java", "**java** is JMC for Java with GSON"),
-    "1": ("jmc-java-gson", "jv1", "**jv1** is JMC for Java with GSON"),
-    "2": ("jmc-java-jackson", "jv2", "**jv2** is JMC for Java with Jackson"),
-    "3": ("jmc-java-jsonp", "jv3", "**jv3** is JMC for Java with JSONP"),
-    "s": ("jmc-js", "js", "**js** is JMC for JavaScript"),
-    "y": ("jmc-py", "py", "**py** is JMC for Python"),
-    "l": ("jmc-pl", "pl", "**pl** is JMC for Perl"),
-    "q": ("jmc-sql", "sql", "**sql** is JMC for PL/pgSQL"),
+    "c": ("jmc-c", "c", "jmc-c-out", "**c** is JMC for C"),
+    "v": ("jmc-java-gson", "java", "jmc-java-class", "**java** is JMC for Java with GSON"),
+    "1": ("jmc-java-gson", "jv1", "jmc-java-class", "**jv1** is JMC for Java with GSON"),
+    "2": ("jmc-java-jackson", "jv2", "jmc-java-class", "**jv2** is JMC for Java with Jackson"),
+    "3": ("jmc-java-jsonp", "jv3", "jmc-java-class", "**jv3** is JMC for Java with JSONP"),
+    "s": ("jmc-js", "js", "jmc-js", "**js** is JMC for JavaScript"),
+    "y": ("jmc-py", "py", "jmc-py", "**py** is JMC for Python"),
+    "l": ("jmc-pl", "pl", "jmc-pl", "**pl** is JMC for Perl"),
+    "q": ("jmc-sql", "sql", "jmc-sql", "**sql** is JMC for PL/pgSQL"),
 }
 
 TOOL_SUMMARY: str = "\n"
@@ -122,7 +125,7 @@ if args.tools:
     TOOL_SUMMARY += "Tools:\n"
     last_tool = len(args.tools) - 1
     for i, t in enumerate(args.tools):
-        name, col, bla = TOOLS[t]
+        name, col, comp, bla = TOOLS[t]
         report_tools.append(name)
         TOOL_SUMMARY += bla + (".\n" if i == last_tool else ",\n")
         TOOL[name] = col
@@ -185,7 +188,7 @@ the lower the better, empty denotes a tool failure.
 if args.performance == "best":
     TOOL_CASES += "**1.0** is best.\n"
 else:
-    TOOL_CASES += f"Reference is **1.0** for tool _{TOOL[args.performance]}_.\n"
+    TOOL_CASES += f"Reference is **1.0** for tool {TOOL[args.performance]}.\n"
 
 RESULT_SUCCESS: str = """
 For each tool and cases with a partial success rate, percent of test cases validated.
@@ -314,8 +317,8 @@ perf_df = pd.read_csv(
 )
 
 # remove unused values (not very efficient)
-if loaded_tools != tools:
-    remove = set(loaded_tools) - set(tools)
+remove = set(loaded_tools) - set(tools)
+if remove:
     log.info(f"removing unneeded data before analysis: {' '.join(sorted(remove))}")
     for t in remove:
         for c in cases:
@@ -326,11 +329,51 @@ if args.unshift:
 
 log.info("analyzing data")
 
-# aggregate performance for each case/tool/line
+# results
+passed = resu_df.groupby(["case", "tool"])["pass"].min()
+failed = resu_df.groupby(["case", "tool"])["fail"].max()
+success_ratio = passed / (passed + failed)
+
+# aggregate performance for each case/tool/line in µs
 perf_aggreg = perf_df.groupby(["case", "tool", "line"])["runavg"].aggregate(args.aggregate)
 
 # total processing time for each case/tool
 perf_total = perf_aggreg.groupby(["case", "tool"]).sum()
+
+# check for missing cases
+missings: set[tuple[str, str]] = set()
+for c in cases:
+    for t in tools:
+        try:
+            _ = perf_total[c, t]
+        except KeyError:
+            log.debug(f"missing: {c}, {t}")
+            missings.add((c, t))
+            perf_total[c, t] = np.nan
+
+log.info(f"missings: {missings}")
+
+# which results should be ignored
+bad_result: dict[tuple[str, str], bool] = {
+    (c, t): (
+        (c, t) in missings or
+        passed[c, t] + failed[c, t] != case_df.loc[c]["ntests"] or
+        passed[c, t] <= args.threshold * case_df.loc[c]["ntests"]
+    )
+    for c in cases
+        for t in tools
+}
+
+bad_results = list(filter(lambda ct: bad_result[ct], bad_result))
+log.info(f"bad results: {bad_results}")
+
+# fill-on or override missings data
+for (c, t), is_bad in bad_result.items():
+    if is_bad:
+        perf_total[c, t] = np.nan
+
+for c, t in missings:
+    success_ratio[c, t] = 0.0
 
 # best performance for each case
 perf_best = perf_total.groupby("case").min()
@@ -377,20 +420,15 @@ case_total_lines = case_lines.sum()
 speed_size = case_total_sizes / tool_perf
 speed_lines = case_total_lines / tool_perf
 
-# results
-passed = resu_df.groupby(["case", "tool"])["pass"].min()
-failed = resu_df.groupby(["case", "tool"])["fail"].max()
-success_ratio = passed / (passed + failed)
-
 # for each tool, how many cases were failed
 # nfailed_tool: dict[str, int] = {
 #     t: sum(0 if success_ratio[c, t] == 1.0 else 1 for c in cases)
 #         for t in tools
 # }
-# print(case_df)
-# for each tool, how many cases ware not completed
+
+# for each tool, how many cases were not completed
 nerror_tool: dict[str, int] = {
-    t: sum(1 if passed[c, t] + failed[c, t] != case_df.loc[c]["ntests"] else 0 for c in cases)
+    t: sum(1 if bad_result[(c, t)] else 0 for c in cases)
         for t in tools
 }
 
@@ -454,11 +492,17 @@ if args.best:
 if dobetter:
     print("|better count|" + "".join(f"{nbetter_tool[t]}|" for t in tools))
 if any(nerror_tool[t] != 0 for t in tools):
-    print("|bad count|" + "".join(f"{nfailed_tool[t]}|" for t in tools))
+    print("|bad count|" + "".join(f"{nerror_tool[t]}|" for t in tools))
 
 print()
 print("## Tool Performance Per Case")
 if args.standard: print(TOOL_CASES, end="")
+
+perf_display: dict[tuple[str, str], str] = {
+    (c, t): f"{perf_rela[c, t]:.02f}" if not math.isnan(perf_rela[c, t]) else "-"
+        for c in cases
+            for t in tools
+}
 
 print()
 print("|#|name|cases|best µs| :1st_place_medal: |" + "|".join(TOOL[t] for t in tools) + "|")
@@ -466,7 +510,7 @@ print("|---:|:------|---:|---:|:--:|" + "".join("---:|" for t in tools))
 for i, c in enumerate(cases):
     print(f"|{i+1}|{CASE[c]}|{case_df.loc[c]['ntests']}|"
           f"{perf_best[c]:.01f}|{TOOL[best_tool[c]]}|", end="")
-    print("".join(f"{perf_rela[c, t]:.02f}|" for t in tools))
+    print("".join(f"{perf_display[(c, t)]}|" for t in tools))
 
 if any(success_ratio[n, t] != 1.0 for t in tools for n in cases):
 
@@ -503,7 +547,14 @@ if args.standard:
         "jmc-js": "js",
         "jmc-java-class": "java",
         "jmc-py": "py",
+        "jmc-pl": "pl",
+        "jmc-sql": "sql",
     }
+
+    # subset to display
+    for t in "BAcsv123ylq":
+        if t not in args.tools and TOOLS[t][2] in comp_tool:
+            del comp_tool[TOOLS[t][2]]
 
     print()
     print("## Compilation Times")
@@ -511,6 +562,14 @@ if args.standard:
     if args.standard: print(COMP_CASES, end="")
 
     compilation = comp_df.groupby(["case", "tool"])["run"].aggregate(args.aggregate)
+
+    for (c, t), is_bad in bad_result.items():
+        if is_bad:
+            try:
+                _ = compilation[c, t]
+            except KeyError:
+                compilation[c, t] = np.nan
+
     comp_max = compilation.groupby("tool").max()
     comp_avg = compilation.groupby("tool").mean()
     comp_min = compilation.groupby("tool").min()
@@ -564,6 +623,9 @@ print(f"|| _summary_ ||||| _{min_vs}_ | _{avg_vs:.0f}_ | _{max_vs}_ |")
 # force flush at end of main sections
 print(end="", flush=True)
 
+#
+# statistical analysis
+#
 if args.ref:
 
     # NOTE this is quite slow
