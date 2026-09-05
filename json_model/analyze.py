@@ -3,6 +3,7 @@
 #
 import functools
 import re
+import json
 
 from .mtypes import UnknownModel, ModelPath, ModelType, ModelFilter, ModelObject, ModelArray, NullType, TopType
 from .utils import log, is_regex, is_a_simple_object
@@ -10,6 +11,7 @@ from .predefs import CONST_RE, STR_MODEL_PREDEFS, BOOL_MODEL_PREDEFS, INT_MODEL_
 from .recurse import recModel, allFlt, noRwt
 from .model import JsonModel
 from .runtime import ConstSet
+from .runtime.support import _path as json_path
 
 # JsonModel = typing.NewType("JsonModel", None)
 type Constants = bool|int|float|str|list[int|float|str]
@@ -74,6 +76,7 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool =
     CMP_KW = {"<", "<=", ">", ">="}
     NEQ_KW = {"=", "!="}
     ARR_KW = {"!"}
+    OP_KW = {"@", "|", "&", "^", "+"}
 
     if extend:  # multiple-of: number, contains: model
         CMP_KW |= {".mo"}
@@ -86,6 +89,7 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool =
 
     def finiteRef(model: str) -> bool:
         ref, recref, recid, ljm = model, [], [], jm
+        smodel = json.dumps(model)
         while isinstance(ref, str) and jm._isRef(ref) and ref not in recref:
             ljm = ljm.resolveRef(ref, path + recref)
             recref.append(ref)
@@ -93,118 +97,115 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool =
             ref = ljm._model
         finite = not jm._isRef(ref) or ref == "$#"  # Hmmm…
         if not finite:
-            log.debug(f"infinite recursion on {model}: {recref} ({recid})")
+            log.debug(f"infinite recursion on {smodel}: {recref} ({recid})")
         return finite
 
     def validFlt(model: ModelType, path: ModelPath) -> bool:
-        nonlocal is_valid
+        spath, smodel = json_path(path), json.dumps(model)
         match model:
             case None:
                 pass
             case bool():
-                is_valid &= model
+                assert model, f"boolean model must be true at {spath}"
             case int():
-                is_valid &= model in (-1, 0, 1)
+                assert model in (-1, 0, 1), f"int model values at {spath}"
             case float():
-                is_valid &= model in (-1.0, 0.0, 1.0)
+                assert model in (-1.0, 0.0, 1.0), f"float model values at {spath}"
             case str():
-                if model == "":
+                if model == "" or model[0] == "_":
                     pass
                 elif model[0] == "=":
-                    is_valid &= re.match(CONST_RE, model) is not None
+                    assert re.match(CONST_RE, model) is not None, f"constant model {smodel} at {spath}"
                 elif model[0] == "/":
-                    try:
-                        pattern, ropts = model[1:].rsplit("/", 1)
-                        is_valid &= (ropts == "" or ropts.isalpha()) and is_regex(pattern)
-                    except Exception:
-                        is_valid = False
+                    assert "/" in model[1:], f"regex model {smodel} has closing marker at {spath}"
+                    pattern, ropts = model[1:].rsplit("/", 1)
+                    assert (ropts == "" or ropts.isalpha()) and is_regex(pattern), f"regex model {smodel} at {spath}"
                 elif model[0] == "$":
                     # reject predef extensions
                     if not extend and model.startswith("$__EXTENSION_"):
-                        is_valid = False
-                else:  # TODO more checks
+                        assert False, f"model extensions are enabled at {spath}"
+                else:  # TODO more checks?
                     pass
             case list():
                 pass
             case dict():
+                assert len(model.keys() & OP_KW) <= 1, f"no operator mix at {spath}"
                 if "#" in model:
-                    is_valid &= isinstance(model["#"], str)
+                    assert isinstance(model["#"], str), f"model object comment is a string at {spath}"
                 if "@" in model:
-                    # kw exclusion
-                    is_valid &= model.keys() & {"|", "&", "^", "+"} == set()
                     if "!" in model:
-                        is_valid &= isinstance(model["!"], bool)
+                        assert isinstance(model["!"], bool), f"unique (!) is a boolean at {spath}"
                     if ".mo" in model:
-                        is_valid &= isinstance(model[".mo"], (int, float))
+                        assert isinstance(model[".mo"], (int, float)), f"multiple-of extension is a number at {spath}"
                     # @ and comparison consistency
                     aro_type = ultimate_type(jm, model["@"])
                     if aro_type in (int, float):
-                        is_valid &= all(isinstance(model[op], (int, float)) for op in NUM_KW & model.keys())
+                        assert all(isinstance(model[op], (int, float)) for op in NUM_KW & model.keys()), \
+                            f"number model has number constraints at {spath}"
                     elif aro_type is str:
-                        is_valid &= all(isinstance(model[op], (int, str)) for op in NUM_KW & model.keys())
+                        assert all(isinstance(model[op], (int, str)) for op in NUM_KW & model.keys()), \
+                            f"string model has number or string constraints at {spath}"
                     elif aro_type in (list, dict):
-                        is_valid &= all(isinstance(model[op], int) for op in NUM_KW & model.keys())
-                    else:  # bool or null
-                        is_valid &= (model.keys() & CMP_KW) == set()
-                    # values
-                    if aro_type is bool:
-                        is_valid &= all(isinstance(model[op], bool) for op in NEQ_KW & model.keys())
-                    # TODO other types?
+                        assert all(isinstance(model[op], int) for op in NUM_KW & model.keys()), \
+                            f"array or object model has integer constraints at {spath}"
+                    elif aro_type is bool:
+                        assert len(model.keys() & CMP_KW) == 0, f"boolean model has no comparison constraints at {spath}"
+                        assert all(isinstance(model[op], bool) for op in NEQ_KW & model.keys()), \
+                            f"boolean model has boolean eq/neq constraints at {spath}"
+                    elif aro_type is NullType:
+                        assert len(model.keys() & CMP_KW) == 0, f"null model has no comparison constraints at {spath}"
+                        assert all(isinstance(model[op], NullType) for op in NEQ_KW & model.keys()), \
+                            f"null model has null eq/neq constraints at {spath}"
+                    elif aro_type is TopType:
+                        assert len(model.keys() & (NUM_KW | ARR_KW)) == 0, \
+                            f"multi typed model has no constraints at {spath}"
+                    elif aro_type is None:
+                        assert len(model.keys() & (NUM_KW | ARR_KW)) == 0, \
+                            f"no type model has no constraints at {spath}"
+                    else:
+                        assert False, f"unexpected model type {aro_type} at {spath}"
                     # only comments
-                    for prop in model.keys() - ANY_KW:
-                        is_valid &= prop.startswith("#")
+                    assert all(prop.startswith("#") for prop in model.keys() - ANY_KW), \
+                        f"miscellaneous keywords are comments at {spath}"
                     # lattice consistency
-                    if model.keys() & (NUM_KW | ARR_KW):
-                        is_valid &= aro_type not in (TopType, None)
                     if model.keys() & ARR_KW:
-                        is_valid &= aro_type is list
-                    if model.keys() & CMP_KW:
-                        is_valid &= aro_type not in (bool, NullType)
+                        assert aro_type is list, f"array model for array constraints at {spath}"
                 elif "|" in model:
-                    is_valid &= model.keys() & {"@", "&", "^", "+"} == set()
-                    is_valid &= isinstance(model["|"], list)
-                    # no other keys in recurse
+                    assert isinstance(model["|"], list), f"or model is an array at {spath}"
                 elif "^" in model:
-                    is_valid &= model.keys() & {"@", "&", "|", "+"} == set()
-                    is_valid &= isinstance(model["^"], list)
-                    # no other keys in recurse
+                    assert isinstance(model["^"], list), f"xor model is an array at {spath}"
                 elif "&" in model:
-                    is_valid &= model.keys() & {"@", "^", "|", "+"} == set()
-                    is_valid &= isinstance(model["&"], list)
-                    # no other keys in recurse
+                    assert isinstance(model["&"], list), f"and model is an array at {spath}"
                 elif "+" in model:
-                    is_valid &= model.keys() & {"@", "^", "|", "&"} == set()
-                    is_valid &= isinstance(model["+"], list)
-                    # no other keys in recurse
+                    assert isinstance(model["+"], list), f"merge model is an array at {spath}"
                 else:  # check object
-                    props = set()  # property name collisions
+                    props = set()  # check property name collisions
                     for p, m in model.items():
                         if p == "#":
                             continue
-                        is_valid &= isinstance(p, str)
+                        assert isinstance(p, str), f"property name {p} is a string at {spath}"
                         if p and p[0] not in ("$", "/"):
                             name = p[1:] if p[0] in ("?", "_", "!") else p
-                            is_valid &= name not in props
+                            assert name not in props, f"no property name collison at {spath}"
                             props.add(name)
                         # more checks on p if p[0] == "$"
             case _:
-                is_valid = False
+                assert False, f"unexpected model base type at {spath}"
         return True
 
-    if is_valid and jm._defs:
+    try:
         for name, jmr in jm._defs.items():
-            is_valid &= finiteRef("$" + name)
-
-    if is_valid:
-        try:
-            check(jm, validFlt, "JSON Model Structural Validity")
-        except AssertionError as e:
-            log.error(e, exc_info=jm._debug > 0)
-            is_valid = False
-            if jm._debug:
-                raise
-
-    # TODO also check other instances?!
+            assert finiteRef("$" + name), f"finite recursion on ${name}"
+        check(jm, validFlt, "JSON Model Structural Validity")
+        is_valid = True
+    except AssertionError as e:
+        is_valid = False
+        if jm._debug > 0:
+            log.error(e, exc_info=True)
+        else:
+            log.warning(e)
+        if jm._debug:
+            raise
 
     return is_valid
 
@@ -225,6 +226,8 @@ for predef in STR_MODEL_PREDEFS:
     _UTYPE[predef] = str
 
 def _ultimate_type(jm: JsonModel, model: ModelType, names: set[str]) -> type|None:
+    if model is None:
+        return NullType
     match model:
         case str():
             if model == "" or model[0] not in ("$", "="):
@@ -237,9 +240,9 @@ def _ultimate_type(jm: JsonModel, model: ModelType, names: set[str]) -> type|Non
                     float if "." in model else
                     int
                 )
-            elif model in _UTYPE:
+            elif model in _UTYPE:  # predefs
                 return _UTYPE[model]
-            else:  # "$..."
+            else:  # reference "$..."
                 # stop detected recursion
                 if model in names:
                     return None
@@ -280,7 +283,7 @@ def _ultimate_type(jm: JsonModel, model: ModelType, names: set[str]) -> type|Non
                 return dict
             else:
                 return type(model)  # dict
-        case _:  # None, bool, int, float, list
+        case _:  # bool, int, float, list
             return type(model)
 
 def ultimate_type(jm: JsonModel, model: ModelType) -> type|None:

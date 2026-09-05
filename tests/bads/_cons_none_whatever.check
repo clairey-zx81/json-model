@@ -1,2 +1,3 @@
+WARNING:json-model:no type model has no constraints at .
 ERROR:json-model:invalid initial model _cons_none_whatever.model.json:1
 ERROR:json-model:invalid model _cons_none_whatever.model.json

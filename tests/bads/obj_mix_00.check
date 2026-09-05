@@ -1,0 +1,2 @@
+ERROR:json-model:@ restricts other keywords ['@']
+ERROR:json-model:invalid model obj_mix_00.model.json
