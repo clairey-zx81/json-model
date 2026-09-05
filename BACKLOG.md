@@ -16,7 +16,8 @@
 - [x] js: add option for more direct/simpler code
 - [x] analyze: check static typing on constrained nodes
 - [x] analyze: display model rejections reasons as a warning
-- [ ] bench: case failures handling needs some fixing (ajv!)
+- [x] bench: handle case failures when reporting
+- [ ] bench: handle case failures for radar
 - [ ] bench: collect error runs?
 - [ ] bench: add corvus reference?
 - [ ] bench: add stddev performance computation
