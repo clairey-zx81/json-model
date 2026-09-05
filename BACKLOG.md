@@ -16,10 +16,9 @@
 - [x] js: add option for more direct/simpler code
 - [x] analyze: check static typing on constrained nodes
 - [x] analyze: display model rejections reasons as a warning
-- [ ] js: implement cset as an or-expression
+- [ ] bench: case failures handling needs some fixing (ajv!)
 - [ ] bench: collect error runs?
 - [ ] bench: add corvus reference?
-- [ ] bench: case failures handling needs some fixing (test!)
 - [ ] bench: add stddev performance computation
 - [ ] bench: improve resilience to bad overhead estimation
 - [ ] bench: collect JSON parse times for comparison with validation times
@@ -44,6 +43,7 @@
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
 - [ ] pr: better document optimizations, eg add compiler optimization page
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
+- [ ] js: implement cset as an or-expression
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
