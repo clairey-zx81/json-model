@@ -15,7 +15,7 @@
 - [x] bench: add ajv external reference (wip)
 - [x] js: add option for more direct/simpler code
 - [x] analyze: check static typing on constrained nodes
-- [ ] analyze: display model rejections reasons as a warning?
+- [x] analyze: display model rejections reasons as a warning
 - [ ] js: implement cset as an or-expression
 - [ ] bench: collect error runs?
 - [ ] bench: add corvus reference?

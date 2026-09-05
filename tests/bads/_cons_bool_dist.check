@@ -1,2 +1,3 @@
+WARNING:json-model:array model for array constraints at .
 ERROR:json-model:invalid initial model _cons_bool_dist.model.json:1
 ERROR:json-model:invalid model _cons_bool_dist.model.json

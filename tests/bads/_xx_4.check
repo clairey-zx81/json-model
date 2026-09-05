@@ -1,2 +1,3 @@
+WARNING:json-model:no property name collison at .
 ERROR:json-model:invalid initial model _xx_4.model.json:1
 ERROR:json-model:invalid model _xx_4.model.json
