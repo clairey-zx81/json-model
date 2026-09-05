@@ -1,2 +1,3 @@
+WARNING:json-model:boolean model must be true at .
 ERROR:json-model:invalid initial model bool_0.model.json:1
 ERROR:json-model:invalid model bool_0.model.json

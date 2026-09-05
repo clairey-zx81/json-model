@@ -1,2 +1,3 @@
+WARNING:json-model:number model has number constraints at .
 ERROR:json-model:invalid initial model _cons_int_scmp.model.json:1
 ERROR:json-model:invalid model _cons_int_scmp.model.json
