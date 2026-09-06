@@ -14,7 +14,7 @@ export var check_model_map = new Map()
 // object .'^'.0
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'^'.0]", path])
         return false
@@ -29,7 +29,7 @@ function _jm_obj_0(val, path, rep)
             // handle must a property
             must_count += 1
             // .'^'.0.a
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'^'.0.a]", (path ? lpath_0 : null)])
@@ -42,7 +42,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may b property
             // .'^'.0.b
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'^'.0.b]", (path ? lpath_0 : null)])
@@ -69,7 +69,7 @@ function _jm_obj_0(val, path, rep)
 // object .'^'.1
 function _jm_obj_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'^'.1]", path])
         return false
@@ -84,7 +84,7 @@ function _jm_obj_1(val, path, rep)
             // handle must b property
             must_count += 1
             // .'^'.1.b
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'^'.1.b]", (path ? lpath_1 : null)])
@@ -97,7 +97,7 @@ function _jm_obj_1(val, path, rep)
         {
             // handle may a property
             // .'^'.1.a
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'^'.1.a]", (path ? lpath_1 : null)])

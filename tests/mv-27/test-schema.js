@@ -22,7 +22,7 @@ function json_model_2(val, path, rep)
 {
     // .'$Section'
     // "/^[0-9]+(\\.[0-9]+)*$/"
-    return ((typeof val == 'string' || val instanceof String)) && _jm_re_0(val, null, null)
+    return typeof val == 'string' && _jm_re_0(val, null, null)
 }
 
 // check $Test (.'$Test')
@@ -30,7 +30,7 @@ function json_model_3(val, path, rep)
 {
     // A single test
     // .'$Test'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     let must_count = 0
@@ -41,7 +41,7 @@ function json_model_3(val, path, rep)
             // handle must description property
             must_count += 1
             // .'$Test'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
                 return false
             continue
@@ -59,7 +59,7 @@ function json_model_3(val, path, rep)
             // handle must valid property
             must_count += 1
             // .'$Test'.valid
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
                 return false
             continue
@@ -68,7 +68,7 @@ function json_model_3(val, path, rep)
         {
             // handle may comment property
             // .'$Test'.comment
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
                 return false
             continue
@@ -85,7 +85,7 @@ const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 // object .'$Specification'.'@'
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     for (const [prop, pval] of Object.entries(val))
@@ -96,7 +96,7 @@ function _jm_obj_0(val, path, rep)
             // .'$Specification'.'@'.core
             // .'$Specification'.'@'.core.'|'.0
             // .'$Specification'.'@'.core.'|'.1
-            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_semver(pval, null, null) || json_model_2(pval, null, null)
+            res = typeof pval == 'string' && jm_is_semver(pval, null, null) || json_model_2(pval, null, null)
             if (! res)
                 return false
             continue
@@ -105,7 +105,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may validation property
             // .'$Specification'.'@'.validation
-            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_semver(pval, null, null)
+            res = typeof pval == 'string' && jm_is_semver(pval, null, null)
             if (! res)
                 return false
             continue
@@ -114,7 +114,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may ecma262 property
             // .'$Specification'.'@'.ecma262
-            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_semver(pval, null, null)
+            res = typeof pval == 'string' && jm_is_semver(pval, null, null)
             if (! res)
                 return false
             continue
@@ -123,7 +123,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may perl5 property
             // .'$Specification'.'@'.perl5
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
                 return false
             continue
@@ -132,7 +132,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may quote property
             // .'$Specification'.'@'.quote
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
                 return false
             continue
@@ -141,7 +141,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^rfc\\d+$/'
-            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_semver(pval, null, null)
+            res = typeof pval == 'string' && jm_is_semver(pval, null, null)
             if (! res)
                 return false
         }
@@ -149,7 +149,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^iso\\d+$/'
-            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_semver(pval, null, null)
+            res = typeof pval == 'string' && jm_is_semver(pval, null, null)
             if (! res)
                 return false
         }
@@ -177,7 +177,7 @@ function json_model_4(val, path, rep)
 function json_model_5(val, path, rep)
 {
     // .'$TestCase'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     let must_count = 0
@@ -188,7 +188,7 @@ function json_model_5(val, path, rep)
             // handle must description property
             must_count += 1
             // .'$TestCase'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
                 return false
             continue
@@ -232,7 +232,7 @@ function json_model_5(val, path, rep)
         {
             // handle may comment property
             // .'$TestCase'.comment
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
                 return false
             continue

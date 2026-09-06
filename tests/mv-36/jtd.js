@@ -18,7 +18,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$Metadata'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Metadata']", path])
         return false
@@ -31,7 +31,7 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$Shared'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Shared']", path])
         return false
@@ -57,7 +57,7 @@ function json_model_3(val, path, rep)
         {
             // handle may nullable property
             // .'$Shared'.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Shared'.nullable]", (path ? lpath_0 : null)])
@@ -76,7 +76,7 @@ function json_model_3(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$names'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$names']", path])
         return false
@@ -113,7 +113,7 @@ function json_model_6(val, path, rep)
 {
     // .'$Type'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Type']", path])
         return false
@@ -125,15 +125,15 @@ function json_model_6(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("type"))
+    if (! (val.type !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$Type']", path])
         return false
     }
     lpath = path ? path.concat(["type"]) : null
-    pval = val["type"]
+    pval = val.type
     // .'$Type'.type
-    let res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
+    let res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_0.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$Type'.type.'|']", (path ? lpath : null)])
@@ -148,7 +148,7 @@ function json_model_7(val, path, rep)
 {
     // .'$Ref'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Ref']", path])
         return false
@@ -160,15 +160,15 @@ function json_model_7(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("ref"))
+    if (! (val.ref !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <ref> [.'$Ref']", path])
         return false
     }
     lpath = path ? path.concat(["ref"]) : null
-    pval = val["ref"]
+    pval = val.ref
     // .'$Ref'.ref
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Ref'.ref]", (path ? lpath : null)])
@@ -183,7 +183,7 @@ function json_model_8(val, path, rep)
 {
     // .'$Enum'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Enum']", path])
         return false
@@ -195,13 +195,13 @@ function json_model_8(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("enum"))
+    if (! (val.enum !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <enum> [.'$Enum']", path])
         return false
     }
     lpath = path ? path.concat(["enum"]) : null
-    pval = val["enum"]
+    pval = val.enum
     // .'$Enum'.enum
     // .'$Enum'.enum.'@'
     let res = Array.isArray(pval)
@@ -212,7 +212,7 @@ function json_model_8(val, path, rep)
             let arr_0_item = pval[arr_0_idx]
             let arr_0_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_0_idx]) : null
             // .'$Enum'.enum.'@'.0
-            res = (typeof arr_0_item == 'string' || arr_0_item instanceof String)
+            res = typeof arr_0_item == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Enum'.enum.'@'.0]", ((path ? lpath : null) ? arr_0_lpath : null)])
@@ -242,7 +242,7 @@ function json_model_9(val, path, rep)
 {
     // .'$Elements'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Elements']", path])
         return false
@@ -254,13 +254,13 @@ function json_model_9(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("elements"))
+    if (! (val.elements !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <elements> [.'$Elements']", path])
         return false
     }
     lpath = path ? path.concat(["elements"]) : null
-    pval = val["elements"]
+    pval = val.elements
     // .'$Elements'.elements
     let res = json_model_14(pval, (path ? lpath : null), rep)
     if (! res)
@@ -312,7 +312,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may additionalProperties property
             // .'$Properties'.'|'.1.additionalProperties
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Properties'.'|'.1.additionalProperties]", (path ? lpath_2 : null)])
@@ -328,7 +328,7 @@ function _jm_obj_0(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("optionalProperties"))
+            if (! (val.optionalProperties !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <optionalProperties> [.'$Properties'.'|'.1]", path])
         }
         return false
@@ -376,7 +376,7 @@ function _jm_obj_1(val, path, rep)
         {
             // handle may additionalProperties property
             // .'$Properties'.'|'.0.additionalProperties
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Properties'.'|'.0.additionalProperties]", (path ? lpath_3 : null)])
@@ -392,7 +392,7 @@ function _jm_obj_1(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("properties"))
+            if (! (val.properties !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <properties> [.'$Properties'.'|'.0]", path])
         }
         return false
@@ -404,7 +404,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_10(val, path, rep)
 {
     // .'$Properties'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         // .'$Properties'.'|'.0
@@ -434,7 +434,7 @@ function json_model_11(val, path, rep)
 {
     // .'$Values'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Values']", path])
         return false
@@ -446,13 +446,13 @@ function json_model_11(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("values"))
+    if (! (val.values !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <values> [.'$Values']", path])
         return false
     }
     lpath = path ? path.concat(["values"]) : null
-    pval = val["values"]
+    pval = val.values
     // .'$Values'.values
     let res = json_model_14(pval, (path ? lpath : null), rep)
     if (! res)
@@ -467,7 +467,7 @@ function json_model_11(val, path, rep)
 // object .'$Discriminator'.mapping
 function _jm_obj_2(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Discriminator'.mapping]", path])
         return false
@@ -493,7 +493,7 @@ function json_model_12(val, path, rep)
 {
     // .'$Discriminator'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Discriminator']", path])
         return false
@@ -505,28 +505,28 @@ function json_model_12(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("discriminator"))
+    if (! (val.discriminator !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <discriminator> [.'$Discriminator']", path])
         return false
     }
     lpath = path ? path.concat(["discriminator"]) : null
-    pval = val["discriminator"]
+    pval = val.discriminator
     // .'$Discriminator'.discriminator
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Discriminator'.discriminator]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <discriminator> [.'$Discriminator']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("mapping"))
+    if (! (val.mapping !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <mapping> [.'$Discriminator']", path])
         return false
     }
     lpath = path ? path.concat(["mapping"]) : null
-    pval = val["mapping"]
+    pval = val.mapping
     // .'$Discriminator'.mapping
     res = _jm_obj_2(pval, (path ? lpath : null), rep)
     if (! res)
@@ -542,7 +542,7 @@ function json_model_12(val, path, rep)
 function json_model_13(val, path, rep)
 {
     // .'$Empty'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Empty']", path])
         return false
@@ -581,7 +581,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may nullable property
             // .'$Schema'.'|'.8.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'|'.8.nullable]", (path ? lpath_5 : null)])
@@ -599,7 +599,7 @@ function _jm_obj_3(val, path, rep)
 // object .'$Schema'.'|'.7.mapping
 function _jm_obj_5(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Schema'.'|'.7.mapping]", path])
         return false
@@ -634,7 +634,7 @@ function _jm_obj_4(val, path, rep)
             // handle must discriminator property
             must_count += 1
             // .'$Schema'.'|'.7.discriminator
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.'|'.7.discriminator]", (path ? lpath_6 : null)])
@@ -674,7 +674,7 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may nullable property
             // .'$Schema'.'|'.7.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'|'.7.nullable]", (path ? lpath_6 : null)])
@@ -690,9 +690,9 @@ function _jm_obj_4(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("discriminator"))
+            if (! (val.discriminator !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <discriminator> [.'$Schema'.'|'.7]", path])
-            if (! val.hasOwnProperty("mapping"))
+            if (! (val.mapping !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <mapping> [.'$Schema'.'|'.7]", path])
         }
         return false
@@ -740,7 +740,7 @@ function _jm_obj_6(val, path, rep)
         {
             // handle may nullable property
             // .'$Schema'.'|'.6.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'|'.6.nullable]", (path ? lpath_8 : null)])
@@ -756,7 +756,7 @@ function _jm_obj_6(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("values"))
+            if (! (val.values !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <values> [.'$Schema'.'|'.6]", path])
         }
         return false
@@ -804,7 +804,7 @@ function _jm_obj_7(val, path, rep)
         {
             // handle may nullable property
             // .'$Schema'.'|'.5.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'|'.5.nullable]", (path ? lpath_9 : null)])
@@ -830,7 +830,7 @@ function _jm_obj_7(val, path, rep)
         {
             // handle may additionalProperties property
             // .'$Schema'.'|'.5.additionalProperties
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'|'.5.additionalProperties]", (path ? lpath_9 : null)])
@@ -846,7 +846,7 @@ function _jm_obj_7(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("optionalProperties"))
+            if (! (val.optionalProperties !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <optionalProperties> [.'$Schema'.'|'.5]", path])
         }
         return false
@@ -894,7 +894,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may nullable property
             // .'$Schema'.'|'.4.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'|'.4.nullable]", (path ? lpath_10 : null)])
@@ -920,7 +920,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may additionalProperties property
             // .'$Schema'.'|'.4.additionalProperties
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'|'.4.additionalProperties]", (path ? lpath_10 : null)])
@@ -936,7 +936,7 @@ function _jm_obj_8(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("properties"))
+            if (! (val.properties !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <properties> [.'$Schema'.'|'.4]", path])
         }
         return false
@@ -984,7 +984,7 @@ function _jm_obj_9(val, path, rep)
         {
             // handle may nullable property
             // .'$Schema'.'|'.3.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'|'.3.nullable]", (path ? lpath_11 : null)])
@@ -1000,7 +1000,7 @@ function _jm_obj_9(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("elements"))
+            if (! (val.elements !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <elements> [.'$Schema'.'|'.3]", path])
         }
         return false
@@ -1031,7 +1031,7 @@ function _jm_obj_10(val, path, rep)
                     let arr_1_item = pval[arr_1_idx]
                     let arr_1_lpath = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([arr_1_idx]) : null
                     // .'$Schema'.'|'.2.enum.'@'.0
-                    res = (typeof arr_1_item == 'string' || arr_1_item instanceof String)
+                    res = typeof arr_1_item == 'string'
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.'|'.2.enum.'@'.0]", ((path ? lpath_12 : null) ? arr_1_lpath : null)])
@@ -1072,7 +1072,7 @@ function _jm_obj_10(val, path, rep)
         {
             // handle may nullable property
             // .'$Schema'.'|'.2.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'|'.2.nullable]", (path ? lpath_12 : null)])
@@ -1088,7 +1088,7 @@ function _jm_obj_10(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("enum"))
+            if (! (val.enum !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <enum> [.'$Schema'.'|'.2]", path])
         }
         return false
@@ -1110,7 +1110,7 @@ function _jm_obj_11(val, path, rep)
             // handle must ref property
             must_count += 1
             // .'$Schema'.'|'.1.ref
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.'|'.1.ref]", (path ? lpath_13 : null)])
@@ -1136,7 +1136,7 @@ function _jm_obj_11(val, path, rep)
         {
             // handle may nullable property
             // .'$Schema'.'|'.1.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'|'.1.nullable]", (path ? lpath_13 : null)])
@@ -1152,7 +1152,7 @@ function _jm_obj_11(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("ref"))
+            if (! (val.ref !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <ref> [.'$Schema'.'|'.1]", path])
         }
         return false
@@ -1175,7 +1175,7 @@ function _jm_obj_12(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$Schema'.'|'.0.type
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_1.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$Schema'.'|'.0.type.'|']", (path ? lpath_14 : null)])
@@ -1201,7 +1201,7 @@ function _jm_obj_12(val, path, rep)
         {
             // handle may nullable property
             // .'$Schema'.'|'.0.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'|'.0.nullable]", (path ? lpath_14 : null)])
@@ -1217,7 +1217,7 @@ function _jm_obj_12(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("type"))
+            if (! (val.type !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Schema'.'|'.0]", path])
         }
         return false
@@ -1229,10 +1229,10 @@ function _jm_obj_12(val, path, rep)
 function json_model_14(val, path, rep)
 {
     // .'$Schema'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
-        if (val.hasOwnProperty("type"))
+        if (val.type !== undefined)
         {
             // .'$Schema'.'|'.0
             res = _jm_obj_12(val, path, rep)
@@ -1241,7 +1241,7 @@ function json_model_14(val, path, rep)
         }
         else
         {
-            if (val.hasOwnProperty("ref"))
+            if (val.ref !== undefined)
             {
                 // .'$Schema'.'|'.1
                 res = _jm_obj_11(val, path, rep)
@@ -1250,7 +1250,7 @@ function json_model_14(val, path, rep)
             }
             else
             {
-                if (val.hasOwnProperty("enum"))
+                if (val.enum !== undefined)
                 {
                     // .'$Schema'.'|'.2
                     res = _jm_obj_10(val, path, rep)
@@ -1259,7 +1259,7 @@ function json_model_14(val, path, rep)
                 }
                 else
                 {
-                    if (val.hasOwnProperty("elements"))
+                    if (val.elements !== undefined)
                     {
                         // .'$Schema'.'|'.3
                         res = _jm_obj_9(val, path, rep)
@@ -1268,7 +1268,7 @@ function json_model_14(val, path, rep)
                     }
                     else
                     {
-                        if (val.hasOwnProperty("properties"))
+                        if (val.properties !== undefined)
                         {
                             // .'$Schema'.'|'.4
                             res = _jm_obj_8(val, path, rep)
@@ -1279,7 +1279,7 @@ function json_model_14(val, path, rep)
                             res = false
                         if (! res)
                         {
-                            if (val.hasOwnProperty("optionalProperties"))
+                            if (val.optionalProperties !== undefined)
                             {
                                 // .'$Schema'.'|'.5
                                 res = _jm_obj_7(val, path, rep)
@@ -1290,7 +1290,7 @@ function json_model_14(val, path, rep)
                                 res = false
                             if (! res)
                             {
-                                if (val.hasOwnProperty("values"))
+                                if (val.values !== undefined)
                                 {
                                     // .'$Schema'.'|'.6
                                     res = _jm_obj_6(val, path, rep)
@@ -1299,7 +1299,7 @@ function json_model_14(val, path, rep)
                                 }
                                 else
                                 {
-                                    if (val.hasOwnProperty("discriminator"))
+                                    if (val.discriminator !== undefined)
                                     {
                                         // .'$Schema'.'|'.7
                                         res = _jm_obj_4(val, path, rep)
@@ -1370,7 +1370,7 @@ function _jm_obj_13(val, path, rep)
         {
             // handle may nullable property
             // .'$RootSchema'.'|'.8.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RootSchema'.'|'.8.nullable]", (path ? lpath_15 : null)])
@@ -1388,7 +1388,7 @@ function _jm_obj_13(val, path, rep)
 // object .'$RootSchema'.'|'.7.mapping
 function _jm_obj_15(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$RootSchema'.'|'.7.mapping]", path])
         return false
@@ -1423,7 +1423,7 @@ function _jm_obj_14(val, path, rep)
             // handle must discriminator property
             must_count += 1
             // .'$RootSchema'.'|'.7.discriminator
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$RootSchema'.'|'.7.discriminator]", (path ? lpath_16 : null)])
@@ -1476,7 +1476,7 @@ function _jm_obj_14(val, path, rep)
         {
             // handle may nullable property
             // .'$RootSchema'.'|'.7.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RootSchema'.'|'.7.nullable]", (path ? lpath_16 : null)])
@@ -1492,9 +1492,9 @@ function _jm_obj_14(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("discriminator"))
+            if (! (val.discriminator !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <discriminator> [.'$RootSchema'.'|'.7]", path])
-            if (! val.hasOwnProperty("mapping"))
+            if (! (val.mapping !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <mapping> [.'$RootSchema'.'|'.7]", path])
         }
         return false
@@ -1555,7 +1555,7 @@ function _jm_obj_16(val, path, rep)
         {
             // handle may nullable property
             // .'$RootSchema'.'|'.6.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RootSchema'.'|'.6.nullable]", (path ? lpath_18 : null)])
@@ -1571,7 +1571,7 @@ function _jm_obj_16(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("values"))
+            if (! (val.values !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <values> [.'$RootSchema'.'|'.6]", path])
         }
         return false
@@ -1632,7 +1632,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may nullable property
             // .'$RootSchema'.'|'.5.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RootSchema'.'|'.5.nullable]", (path ? lpath_19 : null)])
@@ -1658,7 +1658,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may additionalProperties property
             // .'$RootSchema'.'|'.5.additionalProperties
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RootSchema'.'|'.5.additionalProperties]", (path ? lpath_19 : null)])
@@ -1674,7 +1674,7 @@ function _jm_obj_17(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("optionalProperties"))
+            if (! (val.optionalProperties !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <optionalProperties> [.'$RootSchema'.'|'.5]", path])
         }
         return false
@@ -1735,7 +1735,7 @@ function _jm_obj_18(val, path, rep)
         {
             // handle may nullable property
             // .'$RootSchema'.'|'.4.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RootSchema'.'|'.4.nullable]", (path ? lpath_20 : null)])
@@ -1761,7 +1761,7 @@ function _jm_obj_18(val, path, rep)
         {
             // handle may additionalProperties property
             // .'$RootSchema'.'|'.4.additionalProperties
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RootSchema'.'|'.4.additionalProperties]", (path ? lpath_20 : null)])
@@ -1777,7 +1777,7 @@ function _jm_obj_18(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("properties"))
+            if (! (val.properties !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <properties> [.'$RootSchema'.'|'.4]", path])
         }
         return false
@@ -1838,7 +1838,7 @@ function _jm_obj_19(val, path, rep)
         {
             // handle may nullable property
             // .'$RootSchema'.'|'.3.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RootSchema'.'|'.3.nullable]", (path ? lpath_21 : null)])
@@ -1854,7 +1854,7 @@ function _jm_obj_19(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("elements"))
+            if (! (val.elements !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <elements> [.'$RootSchema'.'|'.3]", path])
         }
         return false
@@ -1885,7 +1885,7 @@ function _jm_obj_20(val, path, rep)
                     let arr_2_item = pval[arr_2_idx]
                     let arr_2_lpath = (path ? lpath_22 : null) ? (path ? lpath_22 : null).concat([arr_2_idx]) : null
                     // .'$RootSchema'.'|'.2.enum.'@'.0
-                    res = (typeof arr_2_item == 'string' || arr_2_item instanceof String)
+                    res = typeof arr_2_item == 'string'
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$RootSchema'.'|'.2.enum.'@'.0]", ((path ? lpath_22 : null) ? arr_2_lpath : null)])
@@ -1939,7 +1939,7 @@ function _jm_obj_20(val, path, rep)
         {
             // handle may nullable property
             // .'$RootSchema'.'|'.2.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RootSchema'.'|'.2.nullable]", (path ? lpath_22 : null)])
@@ -1955,7 +1955,7 @@ function _jm_obj_20(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("enum"))
+            if (! (val.enum !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <enum> [.'$RootSchema'.'|'.2]", path])
         }
         return false
@@ -1977,7 +1977,7 @@ function _jm_obj_21(val, path, rep)
             // handle must ref property
             must_count += 1
             // .'$RootSchema'.'|'.1.ref
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$RootSchema'.'|'.1.ref]", (path ? lpath_23 : null)])
@@ -2016,7 +2016,7 @@ function _jm_obj_21(val, path, rep)
         {
             // handle may nullable property
             // .'$RootSchema'.'|'.1.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RootSchema'.'|'.1.nullable]", (path ? lpath_23 : null)])
@@ -2032,7 +2032,7 @@ function _jm_obj_21(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("ref"))
+            if (! (val.ref !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <ref> [.'$RootSchema'.'|'.1]", path])
         }
         return false
@@ -2055,7 +2055,7 @@ function _jm_obj_22(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$RootSchema'.'|'.0.type
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_2.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_2.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$RootSchema'.'|'.0.type.'|']", (path ? lpath_24 : null)])
@@ -2094,7 +2094,7 @@ function _jm_obj_22(val, path, rep)
         {
             // handle may nullable property
             // .'$RootSchema'.'|'.0.nullable
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RootSchema'.'|'.0.nullable]", (path ? lpath_24 : null)])
@@ -2110,7 +2110,7 @@ function _jm_obj_22(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("type"))
+            if (! (val.type !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$RootSchema'.'|'.0]", path])
         }
         return false
@@ -2122,10 +2122,10 @@ function _jm_obj_22(val, path, rep)
 function json_model_15(val, path, rep)
 {
     // .'$RootSchema'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
-        if (val.hasOwnProperty("type"))
+        if (val.type !== undefined)
         {
             // .'$RootSchema'.'|'.0
             res = _jm_obj_22(val, path, rep)
@@ -2134,7 +2134,7 @@ function json_model_15(val, path, rep)
         }
         else
         {
-            if (val.hasOwnProperty("ref"))
+            if (val.ref !== undefined)
             {
                 // .'$RootSchema'.'|'.1
                 res = _jm_obj_21(val, path, rep)
@@ -2143,7 +2143,7 @@ function json_model_15(val, path, rep)
             }
             else
             {
-                if (val.hasOwnProperty("enum"))
+                if (val.enum !== undefined)
                 {
                     // .'$RootSchema'.'|'.2
                     res = _jm_obj_20(val, path, rep)
@@ -2152,7 +2152,7 @@ function json_model_15(val, path, rep)
                 }
                 else
                 {
-                    if (val.hasOwnProperty("elements"))
+                    if (val.elements !== undefined)
                     {
                         // .'$RootSchema'.'|'.3
                         res = _jm_obj_19(val, path, rep)
@@ -2161,7 +2161,7 @@ function json_model_15(val, path, rep)
                     }
                     else
                     {
-                        if (val.hasOwnProperty("properties"))
+                        if (val.properties !== undefined)
                         {
                             // .'$RootSchema'.'|'.4
                             res = _jm_obj_18(val, path, rep)
@@ -2172,7 +2172,7 @@ function json_model_15(val, path, rep)
                             res = false
                         if (! res)
                         {
-                            if (val.hasOwnProperty("optionalProperties"))
+                            if (val.optionalProperties !== undefined)
                             {
                                 // .'$RootSchema'.'|'.5
                                 res = _jm_obj_17(val, path, rep)
@@ -2183,7 +2183,7 @@ function json_model_15(val, path, rep)
                                 res = false
                             if (! res)
                             {
-                                if (val.hasOwnProperty("values"))
+                                if (val.values !== undefined)
                                 {
                                     // .'$RootSchema'.'|'.6
                                     res = _jm_obj_16(val, path, rep)
@@ -2192,7 +2192,7 @@ function json_model_15(val, path, rep)
                                 }
                                 else
                                 {
-                                    if (val.hasOwnProperty("discriminator"))
+                                    if (val.discriminator !== undefined)
                                     {
                                         // .'$RootSchema'.'|'.7
                                         res = _jm_obj_14(val, path, rep)

@@ -17,7 +17,7 @@ export var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$ab'.'|'.0]", path])
         return false
@@ -37,7 +37,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$ab'.'|'.0.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
+    let res = typeof pval == 'string' && pval == "a"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"a\" [.'$ab'.'|'.0.t]", (path ? lpath : null)])
@@ -52,7 +52,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'$ab'.'|'.0.a
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$ab'.'|'.0.a]", (path ? lpath : null)])
@@ -66,7 +66,7 @@ function _jm_obj_0(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$ab'.'|'.1]", path])
         return false
@@ -86,7 +86,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$ab'.'|'.1.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "b"
+    let res = typeof pval == 'string' && pval == "b"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"b\" [.'$ab'.'|'.1.t]", (path ? lpath : null)])
@@ -101,7 +101,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'$ab'.'|'.1.b
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$ab'.'|'.1.b]", (path ? lpath : null)])
@@ -116,7 +116,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_2(val, path, rep)
 {
     // .'$ab'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0
@@ -146,7 +146,7 @@ function json_model_2(val, path, rep)
 function _jm_obj_2(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$cd'.'|'.0]", path])
         return false
@@ -166,7 +166,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$cd'.'|'.0.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "c"
+    let res = typeof pval == 'string' && pval == "c"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"c\" [.'$cd'.'|'.0.t]", (path ? lpath : null)])
@@ -181,7 +181,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .'$cd'.'|'.0.c
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$cd'.'|'.0.c]", (path ? lpath : null)])
@@ -195,7 +195,7 @@ function _jm_obj_2(val, path, rep)
 function _jm_obj_3(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$cd'.'|'.1]", path])
         return false
@@ -215,7 +215,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$cd'.'|'.1.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "d"
+    let res = typeof pval == 'string' && pval == "d"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"d\" [.'$cd'.'|'.1.t]", (path ? lpath : null)])
@@ -230,7 +230,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .'$cd'.'|'.1.d
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$cd'.'|'.1.d]", (path ? lpath : null)])
@@ -245,7 +245,7 @@ function _jm_obj_3(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$cd'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_1

@@ -16,7 +16,7 @@ function json_model_1(val, path, rep)
 {
     // inline up to 3 must/may properties
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -45,7 +45,7 @@ function json_model_1(val, path, rep)
             // handle must mu2 property
             must_count += 1
             // .mu2
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.mu2]", (path ? lpath_0 : null)])
@@ -59,7 +59,7 @@ function json_model_1(val, path, rep)
             // handle must mu3 property
             must_count += 1
             // .mu3
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.mu3]", (path ? lpath_0 : null)])
@@ -72,7 +72,7 @@ function json_model_1(val, path, rep)
         {
             // handle may ma1 property
             // .ma1
-            res = ((typeof pval == 'number' || pval instanceof Number)) && pval >= 0.0
+            res = typeof pval == 'number' && pval >= 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.ma1]", (path ? lpath_0 : null)])
@@ -85,7 +85,7 @@ function json_model_1(val, path, rep)
         {
             // handle may ma2 property
             // .ma2
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.ma2]", (path ? lpath_0 : null)])
@@ -114,11 +114,11 @@ function json_model_1(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("mu1"))
+            if (! (val.mu1 !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <mu1> [.]", path])
-            if (! val.hasOwnProperty("mu2"))
+            if (! (val.mu2 !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <mu2> [.]", path])
-            if (! val.hasOwnProperty("mu3"))
+            if (! (val.mu3 !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <mu3> [.]", path])
         }
         return false

@@ -25,7 +25,7 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$Bb'
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.'$Bb']", path])
     return res
@@ -35,7 +35,7 @@ function json_model_3(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$Ii'
-    let res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
+    let res = typeof val == 'number' && Number.isInteger(val)
     if (! res)
         rep !== null && rep.push(["not a -1 strict int [.'$Ii']", path])
     return res
@@ -45,7 +45,7 @@ function json_model_4(val, path, rep)
 function json_model_5(val, path, rep)
 {
     // .'$Ff'
-    let res = (typeof val == 'number' || val instanceof Number)
+    let res = typeof val == 'number'
     if (! res)
         rep !== null && rep.push(["not a -1.0 strict float [.'$Ff']", path])
     return res
@@ -55,7 +55,7 @@ function json_model_5(val, path, rep)
 function json_model_6(val, path, rep)
 {
     // .'$Ss'
-    let res = (typeof val == 'string' || val instanceof String)
+    let res = typeof val == 'string'
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Ss']", path])
     return res
@@ -90,7 +90,7 @@ function json_model_7(val, path, rep)
 function json_model_8(val, path, rep)
 {
     // .'$Oo'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Oo']", path])
         return false

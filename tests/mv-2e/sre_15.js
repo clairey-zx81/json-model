@@ -18,56 +18,56 @@ const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 
 function json_model_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "dot")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, null, null)
+            res = typeof pval == 'string' && _jm_re_0(pval, null, null)
             if (! res)
                 return false
             continue
         }
         else if (prop == "doti")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, null, null)
+            res = typeof pval == 'string' && _jm_re_0(pval, null, null)
             if (! res)
                 return false
             continue
         }
         else if (prop == "dots")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0
+            res = typeof pval == 'string' && runtime.jm_char_length(pval) > 0
             if (! res)
                 return false
             continue
         }
         else if (prop == "dot+")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_1(pval, null, null)
+            res = typeof pval == 'string' && _jm_re_1(pval, null, null)
             if (! res)
                 return false
             continue
         }
         else if (prop == "dot*")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_2(pval, null, null)
+            res = typeof pval == 'string' && _jm_re_2(pval, null, null)
             if (! res)
                 return false
             continue
         }
         else if (prop == "dot+s")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0
+            res = typeof pval == 'string' && runtime.jm_char_length(pval) > 0
             if (! res)
                 return false
             continue
         }
         else if (prop == "dot*s")
         {
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
                 return false
             continue

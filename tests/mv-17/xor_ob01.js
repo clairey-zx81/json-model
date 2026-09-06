@@ -31,7 +31,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'$Bb'.'|'.1.b
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Bb'.'|'.1.b]", (path ? lpath : null)])
@@ -61,7 +61,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'$Bb'.'|'.0.a
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Bb'.'|'.0.a]", (path ? lpath : null)])
@@ -75,7 +75,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_2(val, path, rep)
 {
     // .'$Bb'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         if (val.hasOwnProperty("a"))
@@ -129,7 +129,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .'$Cc'.'|'.1.c
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Cc'.'|'.1.c]", (path ? lpath : null)])
@@ -159,7 +159,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'$Cc'.'|'.0.a
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Cc'.'|'.0.a]", (path ? lpath : null)])
@@ -173,7 +173,7 @@ function _jm_obj_3(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$Cc'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         if (val.hasOwnProperty("a"))
@@ -227,7 +227,7 @@ function _jm_obj_4(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'|'.3.b
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.3.b]", (path ? lpath : null)])
@@ -242,7 +242,7 @@ function _jm_obj_4(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .'|'.3.c
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.3.c]", (path ? lpath : null)])
@@ -272,7 +272,7 @@ function _jm_obj_5(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'|'.2.b
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.2.b]", (path ? lpath : null)])
@@ -287,7 +287,7 @@ function _jm_obj_5(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'|'.2.a
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.2.a]", (path ? lpath : null)])
@@ -317,7 +317,7 @@ function _jm_obj_6(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'|'.1.a
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.1.a]", (path ? lpath : null)])
@@ -332,7 +332,7 @@ function _jm_obj_6(val, path, rep)
     lpath = path ? path.concat(["c"]) : null
     pval = val["c"]
     // .'|'.1.c
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.1.c]", (path ? lpath : null)])
@@ -362,7 +362,7 @@ function _jm_obj_7(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'|'.0.a
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.0.a]", (path ? lpath : null)])
@@ -377,7 +377,7 @@ function json_model_1(val, path, rep)
 {
     // CAUTION ba is currently valid…
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         if (val.hasOwnProperty("a"))

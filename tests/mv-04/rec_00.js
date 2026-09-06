@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$obj'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$obj']", path])
         return false
@@ -41,7 +41,7 @@ function json_model_3(val, path, rep)
 {
     // .'$rec'
     // .'$rec'.'|'.0
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$rec'.'|'.0]", path])

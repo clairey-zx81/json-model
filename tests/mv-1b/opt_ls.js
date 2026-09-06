@@ -17,7 +17,7 @@ function json_model_1(val, path, rep)
     // JSON_MODEL_LOOSE_INT, JSON_MODEL_STRICT_FLOAT
     // .
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -37,7 +37,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["i"]) : null
     pval = val["i"]
     // .i
-    let res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
+    let res = typeof pval == 'number' && Number.isInteger(pval)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 loose int [.i]", (path ? lpath : null)])
@@ -52,7 +52,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["f"]) : null
     pval = val["f"]
     // .f
-    res = (typeof pval == 'number' || pval instanceof Number)
+    res = typeof pval == 'number'
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 strict float [.f]", (path ? lpath : null)])

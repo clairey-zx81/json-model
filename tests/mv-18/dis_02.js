@@ -16,7 +16,7 @@ export var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'|'.0]", path])
         return false
@@ -36,22 +36,22 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.0.t
-    let res = ((typeof pval == 'number' || pval instanceof Number)) && pval == 3.1415927
+    let res = typeof pval == 'number' && pval == 3.1415927
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=3.1415927\" [.'|'.0.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.0]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("pi"))
+    if (! (val.pi !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <pi> [.'|'.0]", path])
         return false
     }
     lpath = path ? path.concat(["pi"]) : null
-    pval = val["pi"]
+    pval = val.pi
     // .'|'.0.pi
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.0.pi]", (path ? lpath : null)])
@@ -65,7 +65,7 @@ function _jm_obj_0(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'|'.1]", path])
         return false
@@ -85,22 +85,22 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.1.t
-    let res = ((typeof pval == 'number' || pval instanceof Number)) && pval == 1.0
+    let res = typeof pval == 'number' && pval == 1.0
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1.0\" [.'|'.1.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.1]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("one"))
+    if (! (val.one !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <one> [.'|'.1]", path])
         return false
     }
     lpath = path ? path.concat(["one"]) : null
-    pval = val["one"]
+    pval = val.one
     // .'|'.1.one
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.one]", (path ? lpath : null)])
@@ -114,7 +114,7 @@ function _jm_obj_1(val, path, rep)
 function _jm_obj_2(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'|'.2]", path])
         return false
@@ -134,22 +134,22 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'|'.2.t
-    let res = ((typeof pval == 'number' || pval instanceof Number)) && pval == 0.5
+    let res = typeof pval == 'number' && pval == 0.5
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0.5\" [.'|'.2.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.2]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("half"))
+    if (! (val.half !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <half> [.'|'.2]", path])
         return false
     }
     lpath = path ? path.concat(["half"]) : null
-    pval = val["half"]
+    pval = val.half
     // .'|'.2.half
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.2.half]", (path ? lpath : null)])
@@ -165,7 +165,7 @@ function json_model_1(val, path, rep)
 {
     // disjunction on float
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0

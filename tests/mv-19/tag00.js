@@ -17,7 +17,7 @@ function json_model_2(val, path, rep)
 {
     // .'$Aa'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Aa']", path])
         return false
@@ -37,7 +37,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$Aa'.t
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval == 1
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1\" [.'$Aa'.t]", (path ? lpath : null)])
@@ -52,7 +52,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'$Aa'.a
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Aa'.a]", (path ? lpath : null)])
@@ -67,7 +67,7 @@ function json_model_3(val, path, rep)
 {
     // .'$Bb'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Bb']", path])
         return false
@@ -87,7 +87,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$Bb'.t
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 2
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval == 2
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=2\" [.'$Bb'.t]", (path ? lpath : null)])
@@ -102,7 +102,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'$Bb'.b
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Bb'.b]", (path ? lpath : null)])
@@ -117,7 +117,7 @@ function json_model_3(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0

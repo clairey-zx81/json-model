@@ -16,12 +16,12 @@ function json_model_2(val, path, rep)
 {
     // .'$Vv'
     // .'$Vv'.'|'.0
-    let res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
+    let res = typeof val == 'number' && Number.isInteger(val)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$Vv'.'|'.0]", path])
         // .'$Vv'.'|'.1
-        res = (typeof val == 'string' || val instanceof String)
+        res = typeof val == 'string'
         if (! res)
             rep !== null && rep.push(["unexpected value for model \"\" [.'$Vv'.'|'.1]", path])
     }
@@ -39,7 +39,7 @@ function json_model_3(val, path, rep)
 {
     // .'$Xx'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Xx']", path])
         return false
@@ -59,7 +59,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["X"]) : null
     pval = val["X"]
     // .'$Xx'.X
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Xx'.X]", (path ? lpath : null)])
@@ -74,7 +74,7 @@ function json_model_4(val, path, rep)
 {
     // .'$Yy'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Yy']", path])
         return false
@@ -94,7 +94,7 @@ function json_model_4(val, path, rep)
     lpath = path ? path.concat(["Y"]) : null
     pval = val["Y"]
     // .'$Yy'.Y
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Yy'.Y]", (path ? lpath : null)])
@@ -118,7 +118,7 @@ function _jm_obj_0(val, path, rep)
             // handle must Y property
             must_count += 1
             // .'$Ee'.'|'.1.Y
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Ee'.'|'.1.Y]", (path ? lpath_0 : null)])
@@ -131,7 +131,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may Z property
             // .'$Ee'.'|'.1.Z
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Ee'.'|'.1.Z]", (path ? lpath_0 : null)])
@@ -169,7 +169,7 @@ function _jm_obj_1(val, path, rep)
             // handle must X property
             must_count += 1
             // .'$Ee'.'|'.0.X
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Ee'.'|'.0.X]", (path ? lpath_1 : null)])
@@ -182,7 +182,7 @@ function _jm_obj_1(val, path, rep)
         {
             // handle may Z property
             // .'$Ee'.'|'.0.Z
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Ee'.'|'.0.Z]", (path ? lpath_1 : null)])
@@ -210,7 +210,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_5(val, path, rep)
 {
     // .'$Ee'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         if (val.hasOwnProperty("X"))

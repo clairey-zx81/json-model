@@ -16,32 +16,32 @@ function json_model_1(val, path, rep)
 {
     // .
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("name"))
+    if (! (val.name !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.]", path])
         return false
     }
     lpath = path ? path.concat(["name"]) : null
-    pval = val["name"]
+    pval = val.name
     // .name
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.]", (path ? lpath : null)])
         return false
     }
-    if (val.hasOwnProperty("born"))
+    if (val.born !== undefined)
     {
         lpath = path ? path.concat(["born"]) : null
-        pval = val["born"]
+        pval = val.born
         // .born
         res = runtime.jm_is_valid_date(pval, (path ? lpath : null), rep)
         if (! res)

@@ -28,7 +28,7 @@ function json_model_2(val, path, rep)
 {
     // .'$neStr'
     // "/./"
-    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
+    let res = typeof val == 'string' && _jm_re_0(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/./\" [.'$neStr']", path])
     return res
@@ -72,7 +72,7 @@ function json_model_3(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$License'
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_0.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$License'.'|']", path])
     return res
@@ -117,7 +117,7 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 function json_model_6(val, path, rep)
 {
     // .'$Provide'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Provide']", path])
         return false
@@ -132,7 +132,7 @@ function json_model_6(val, path, rep)
             // handle must file property
             must_count += 1
             // .'$Provide'.file
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Provide'.file]", (path ? lpath_0 : null)])
@@ -159,7 +159,7 @@ function json_model_6(val, path, rep)
         {
             // handle may abstract property
             // .'$Provide'.abstract
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Provide'.abstract]", (path ? lpath_0 : null)])
@@ -172,7 +172,7 @@ function json_model_6(val, path, rep)
         {
             // handle may docfile property
             // .'$Provide'.docfile
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Provide'.docfile]", (path ? lpath_0 : null)])
@@ -195,9 +195,9 @@ function json_model_6(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("file"))
+            if (! (val.file !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <file> [.'$Provide']", path])
-            if (! val.hasOwnProperty("version"))
+            if (! (val.version !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <version> [.'$Provide']", path])
         }
         return false
@@ -210,7 +210,7 @@ function json_model_6(val, path, rep)
 function json_model_7(val, path, rep)
 {
     // .'$Status'
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_1.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_1.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$Status'.'|']", path])
     return res
@@ -219,7 +219,7 @@ function json_model_7(val, path, rep)
 // object .'$Resources'.bugtracker
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Resources'.bugtracker]", path])
         return false
@@ -245,7 +245,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may mailto property
             // .'$Resources'.bugtracker.mailto
-            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_email(pval, (path ? lpath_2 : null), rep)
+            res = typeof pval == 'string' && jm_is_email(pval, (path ? lpath_2 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$EMAIL\" [.'$Resources'.bugtracker.mailto]", (path ? lpath_2 : null)])
@@ -270,7 +270,7 @@ function _jm_obj_0(val, path, rep)
 // object .'$Resources'.repository
 function _jm_obj_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Resources'.repository]", path])
         return false
@@ -310,7 +310,7 @@ function _jm_obj_1(val, path, rep)
             // handle may type property
             // .'$Resources'.repository.type
             // "/./"
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_3 : null), rep)
+            res = typeof pval == 'string' && _jm_re_0(pval, (path ? lpath_3 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/./\" [.'$Resources'.repository.type]", (path ? lpath_3 : null)])
@@ -329,7 +329,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_8(val, path, rep)
 {
     // .'$Resources'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Resources']", path])
         return false
@@ -390,7 +390,7 @@ function json_model_9(val, path, rep)
 {
     // .'$SemVer'
     // "/^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/"
-    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_2(val, path, rep)
+    let res = typeof val == 'string' && _jm_re_2(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^\\\\d+\\\\.\\\\d+\\\\.\\\\d+[-_A-Za-z0-9]*$/\" [.'$SemVer']", path])
     return res
@@ -406,7 +406,7 @@ function json_model_10(val, path, rep)
     {
         rep !== null && rep.push(["unexpected value for model \"$SemVer\" [.'$Version'.'|'.0]", path])
         // .'$Version'.'|'.1
-        res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val == 0
+        res = typeof val == 'number' && Number.isInteger(val) && val == 0
         if (! res)
             rep !== null && rep.push(["unexpected value for model \"=0\" [.'$Version'.'|'.1]", path])
     }
@@ -426,7 +426,7 @@ function json_model_11(val, path, rep)
 {
     // .'$Ops'
     // "/^(<=|<|>=|>|!=|==)$/"
-    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_3(val, path, rep)
+    let res = typeof val == 'string' && _jm_re_3(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^(<=|<|>=|>|!=|==)$/\" [.'$Ops']", path])
     return res
@@ -439,7 +439,7 @@ function json_model_12(val, path, rep)
 {
     // .'$VersionRange'
     // "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/"
-    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_4(val, path, rep)
+    let res = typeof val == 'string' && _jm_re_4(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^\\\\s*(<=|<|>=|>|!=|==)\\\\s*(\\\\d+\\\\.\\\\d+\\\\.\\\\d+[-_A-Za-z0-9]*)\\\\s*(,\\\\s*(<=|<|>=|>|!=|==)\\\\s*(\\\\d+\\\\.\\\\d+\\\\.\\\\d+[-_A-Za-z0-9]*))*\\\\s*$/\" [.'$VersionRange']", path])
     return res
@@ -450,7 +450,7 @@ function json_model_12(val, path, rep)
 function json_model_13(val, path, rep)
 {
     // .'$Phase'
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_2.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_2.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$Phase'.'|']", path])
     return res
@@ -461,7 +461,7 @@ function json_model_13(val, path, rep)
 function json_model_14(val, path, rep)
 {
     // .'$Relation'
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_3.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_3.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$Relation'.'|']", path])
     return res
@@ -471,7 +471,7 @@ function json_model_14(val, path, rep)
 function json_model_15(val, path, rep)
 {
     // .'$Prereq'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Prereq']", path])
         return false
@@ -508,7 +508,7 @@ function json_model_15(val, path, rep)
 // object .'$Prereqs'.'$Phase'
 function _jm_obj_2(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Prereqs'.'$Phase']", path])
         return false
@@ -545,7 +545,7 @@ function _jm_obj_2(val, path, rep)
 function json_model_16(val, path, rep)
 {
     // .'$Prereqs'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Prereqs']", path])
         return false
@@ -581,7 +581,7 @@ function json_model_16(val, path, rep)
 // object .license.'|'.2
 function _jm_obj_3(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.license.'|'.2]", path])
         return false
@@ -605,7 +605,7 @@ function _jm_obj_3(val, path, rep)
 // object .provides
 function _jm_obj_4(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.provides]", path])
         return false
@@ -629,7 +629,7 @@ function _jm_obj_4(val, path, rep)
 // object .'meta-spec'
 function _jm_obj_5(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'meta-spec']", path])
         return false
@@ -644,7 +644,7 @@ function _jm_obj_5(val, path, rep)
             // handle must version property
             must_count += 1
             // .'meta-spec'.version
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "1.0.0"
+            res = typeof pval == 'string' && pval == "1.0.0"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_1.0.0\" [.'meta-spec'.version]", (path ? lpath_10 : null)])
@@ -680,7 +680,7 @@ function _jm_obj_5(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("version"))
+            if (! (val.version !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <version> [.'meta-spec']", path])
         }
         return false
@@ -691,7 +691,7 @@ function _jm_obj_5(val, path, rep)
 // object .no_index
 function _jm_obj_6(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.no_index]", path])
         return false
@@ -736,7 +736,7 @@ function _jm_obj_6(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -765,7 +765,7 @@ function json_model_1(val, path, rep)
             // handle must version property
             must_count += 1
             // .version
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.version]", (path ? lpath_7 : null)])
@@ -779,7 +779,7 @@ function json_model_1(val, path, rep)
             // handle must abstract property
             must_count += 1
             // .abstract
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.abstract]", (path ? lpath_7 : null)])
@@ -893,7 +893,7 @@ function json_model_1(val, path, rep)
         {
             // handle may description property
             // .description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.description]", (path ? lpath_7 : null)])
@@ -906,7 +906,7 @@ function json_model_1(val, path, rep)
         {
             // handle may generated_by property
             // .generated_by
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.generated_by]", (path ? lpath_7 : null)])
@@ -994,19 +994,19 @@ function json_model_1(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("abstract"))
+            if (! (val.abstract !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <abstract> [.]", path])
-            if (! val.hasOwnProperty("license"))
+            if (! (val.license !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <license> [.]", path])
-            if (! val.hasOwnProperty("maintainer"))
+            if (! (val.maintainer !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <maintainer> [.]", path])
             if (! val.hasOwnProperty("meta-spec"))
                 rep !== null && rep.push(["missing mandatory prop <meta-spec> [.]", path])
-            if (! val.hasOwnProperty("name"))
+            if (! (val.name !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <name> [.]", path])
-            if (! val.hasOwnProperty("provides"))
+            if (! (val.provides !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <provides> [.]", path])
-            if (! val.hasOwnProperty("version"))
+            if (! (val.version !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <version> [.]", path])
         }
         return false

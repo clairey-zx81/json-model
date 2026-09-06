@@ -16,7 +16,7 @@ export var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'|'.0]", path])
         return false
@@ -36,22 +36,22 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .'|'.0.d
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval == 1
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1\" [.'|'.0.d]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <d> [.'|'.0]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("val"))
+    if (! (val.val !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <val> [.'|'.0]", path])
         return false
     }
     lpath = path ? path.concat(["val"]) : null
-    pval = val["val"]
+    pval = val.val
     // .'|'.0.val
-    res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
+    res = typeof pval == 'number' && Number.isInteger(pval)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'|'.0.val]", (path ? lpath : null)])
@@ -65,7 +65,7 @@ function _jm_obj_0(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'|'.1]", path])
         return false
@@ -85,22 +85,22 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .'|'.1.d
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 2
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval == 2
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=2\" [.'|'.1.d]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <d> [.'|'.1]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("val"))
+    if (! (val.val !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <val> [.'|'.1]", path])
         return false
     }
     lpath = path ? path.concat(["val"]) : null
-    pval = val["val"]
+    pval = val.val
     // .'|'.1.val
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.val]", (path ? lpath : null)])
@@ -114,7 +114,7 @@ function _jm_obj_1(val, path, rep)
 function _jm_obj_2(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'|'.2]", path])
         return false
@@ -134,22 +134,22 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["d"]) : null
     pval = val["d"]
     // .'|'.2.d
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 3
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval == 3
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=3\" [.'|'.2.d]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <d> [.'|'.2]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("val"))
+    if (! (val.val !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <val> [.'|'.2]", path])
         return false
     }
     lpath = path ? path.concat(["val"]) : null
-    pval = val["val"]
+    pval = val.val
     // .'|'.2.val
-    res = (typeof pval == 'boolean' || pval instanceof Boolean)
+    res = typeof pval == 'boolean'
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'|'.2.val]", (path ? lpath : null)])
@@ -165,7 +165,7 @@ function json_model_1(val, path, rep)
 {
     // ^ to | on discriminant property
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0

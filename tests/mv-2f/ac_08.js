@@ -12,14 +12,14 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
 function json_model_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (_jm_re_0(prop, null, null))
         {
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
                 return false
         }

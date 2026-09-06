@@ -16,7 +16,7 @@ function json_model_1(val, path, rep)
 {
     // .
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -28,30 +28,30 @@ function json_model_1(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("name"))
+    if (! (val.name !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.]", path])
         return false
     }
     lpath = path ? path.concat(["name"]) : null
-    pval = val["name"]
+    pval = val.name
     // .name
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("age"))
+    if (! (val.age !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <age> [.]", path])
         return false
     }
     lpath = path ? path.concat(["age"]) : null
-    pval = val["age"]
+    pval = val.age
     // .age
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.age]", (path ? lpath : null)])

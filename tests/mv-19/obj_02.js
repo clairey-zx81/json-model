@@ -19,7 +19,7 @@ function json_model_1(val, path, rep)
 {
     // minimal regex prop
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -32,7 +32,7 @@ function json_model_1(val, path, rep)
         {
             // handle 1 re props
             // .'/^[A-Z]$/'
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'/^[A-Z]$/']", (path ? lpath_0 : null)])

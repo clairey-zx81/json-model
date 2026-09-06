@@ -17,7 +17,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$Xxx'
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_0.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$Xxx'.'|']", path])
     return res
@@ -28,7 +28,7 @@ function json_model_1(val, path, rep)
 {
     // prop ref to enum
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -41,7 +41,7 @@ function json_model_1(val, path, rep)
         {
             // handle 1 key props
             // .'$Xxx'
-            res = ((typeof pval == 'number' || pval instanceof Number)) && pval >= 0.0
+            res = typeof pval == 'number' && pval >= 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'$Xxx']", (path ? lpath_0 : null)])

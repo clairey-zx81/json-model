@@ -41,11 +41,11 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 function json_model_2(val, path, rep)
 {
     // .'$color'
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_0.has(val)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$color'.'|']", path])
-        res = (typeof val == 'string' || val instanceof String)
+        res = typeof val == 'string'
         if (res)
         {
             // .'$color'.'|'.0
@@ -110,7 +110,7 @@ function json_model_4(val, path, rep)
     {
         rep !== null && rep.push(["not null [.'$keybinding'.'|'.0]", path])
         // .'$keybinding'.'|'.1
-        res = (typeof val == 'string' || val instanceof String)
+        res = typeof val == 'string'
         if (! res)
             rep !== null && rep.push(["unexpected value for model \"\" [.'$keybinding'.'|'.1]", path])
     }
@@ -128,7 +128,7 @@ function json_model_4(val, path, rep)
 function json_model_5(val, path, rep)
 {
     // .'$custom-commands-prompts-type-property'
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_1.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_1.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$custom-commands-prompts-type-property'.'|']", path])
     return res
@@ -138,7 +138,7 @@ function json_model_5(val, path, rep)
 function json_model_6(val, path, rep)
 {
     // .'$custom-commands-prompts-title-property'
-    let res = (typeof val == 'string' || val instanceof String)
+    let res = typeof val == 'string'
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$custom-commands-prompts-title-property']", path])
     return res
@@ -148,7 +148,7 @@ function json_model_6(val, path, rep)
 function json_model_7(val, path, rep)
 {
     // .'$custom-commands-prompts-key-property'
-    let res = (typeof val == 'string' || val instanceof String)
+    let res = typeof val == 'string'
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$custom-commands-prompts-key-property']", path])
     return res
@@ -159,7 +159,7 @@ function json_model_8(val, path, rep)
 {
     // .'$neString'
     // .'$neString'.'@'
-    let res = (typeof val == 'string' || val instanceof String)
+    let res = typeof val == 'string'
     if (res)
     {
         let sval_0 = val
@@ -208,7 +208,7 @@ function json_model_9(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Prompts'.'|'.0.suggestions.'|'.1]", path])
         return false
@@ -220,15 +220,15 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("command"))
+    if (! (val.command !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path])
         return false
     }
     lpath = path ? path.concat(["command"]) : null
-    pval = val["command"]
+    pval = val.command
     // .'$Prompts'.'|'.0.suggestions.'|'.1.command
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path ? lpath : null)])
@@ -243,7 +243,7 @@ function _jm_obj_1(val, path, rep)
 function _jm_obj_2(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Prompts'.'|'.0.suggestions.'|'.0]", path])
         return false
@@ -255,15 +255,15 @@ function _jm_obj_2(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("preset"))
+    if (! (val.preset !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path])
         return false
     }
     lpath = path ? path.concat(["preset"]) : null
-    pval = val["preset"]
+    pval = val.preset
     // .'$Prompts'.'|'.0.suggestions.'|'.0.preset
-    let res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_2.has(pval)
+    let res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_2.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$Prompts'.'|'.0.suggestions.'|'.0.preset.'|']", (path ? lpath : null)])
@@ -276,7 +276,7 @@ function _jm_obj_2(val, path, rep)
 // object .'$Prompts'.'|'.0
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Prompts'.'|'.0]", path])
         return false
@@ -291,7 +291,7 @@ function _jm_obj_0(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$Prompts'.'|'.0.type
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "input"
+            res = typeof pval == 'string' && pval == "input"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"input\" [.'$Prompts'.'|'.0.type]", (path ? lpath_0 : null)])
@@ -332,7 +332,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may initialValue property
             // .'$Prompts'.'|'.0.initialValue
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.0.initialValue]", (path ? lpath_0 : null)])
@@ -345,10 +345,10 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may suggestions property
             // .'$Prompts'.'|'.0.suggestions
-            res = Object.prototype.toString.call(pval) === '[object Object]'
+            res = pval !== null && typeof pval == 'object' && !Array.isArray(pval)
             if (res)
             {
-                if (pval.hasOwnProperty("preset"))
+                if (pval.preset !== undefined)
                 {
                     // .'$Prompts'.'|'.0.suggestions.'|'.0
                     res = _jm_obj_2(pval, (path ? lpath_0 : null), rep)
@@ -357,7 +357,7 @@ function _jm_obj_0(val, path, rep)
                 }
                 else
                 {
-                    if (pval.hasOwnProperty("command"))
+                    if (pval.command !== undefined)
                     {
                         // .'$Prompts'.'|'.0.suggestions.'|'.1
                         res = _jm_obj_1(pval, (path ? lpath_0 : null), rep)
@@ -390,11 +390,11 @@ function _jm_obj_0(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("key"))
+            if (! (val.key !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <key> [.'$Prompts'.'|'.0]", path])
-            if (! val.hasOwnProperty("title"))
+            if (! (val.title !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <title> [.'$Prompts'.'|'.0]", path])
-            if (! val.hasOwnProperty("type"))
+            if (! (val.type !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Prompts'.'|'.0]", path])
         }
         return false
@@ -405,7 +405,7 @@ function _jm_obj_0(val, path, rep)
 // object .'$Prompts'.'|'.1
 function _jm_obj_3(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Prompts'.'|'.1]", path])
         return false
@@ -420,7 +420,7 @@ function _jm_obj_3(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$Prompts'.'|'.1.type
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "confirm"
+            res = typeof pval == 'string' && pval == "confirm"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"confirm\" [.'$Prompts'.'|'.1.type]", (path ? lpath_1 : null)])
@@ -461,7 +461,7 @@ function _jm_obj_3(val, path, rep)
         {
             // handle may body property
             // .'$Prompts'.'|'.1.body
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.1.body]", (path ? lpath_1 : null)])
@@ -477,11 +477,11 @@ function _jm_obj_3(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("key"))
+            if (! (val.key !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <key> [.'$Prompts'.'|'.1]", path])
-            if (! val.hasOwnProperty("title"))
+            if (! (val.title !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <title> [.'$Prompts'.'|'.1]", path])
-            if (! val.hasOwnProperty("type"))
+            if (! (val.type !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Prompts'.'|'.1]", path])
         }
         return false
@@ -492,7 +492,7 @@ function _jm_obj_3(val, path, rep)
 // object .'$Prompts'.'|'.2.options.'@'.0
 function _jm_obj_5(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Prompts'.'|'.2.options.'@'.0]", path])
         return false
@@ -520,7 +520,7 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may description property
             // .'$Prompts'.'|'.2.options.'@'.0.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.2.options.'@'.0.description]", (path ? lpath_2 : null)])
@@ -533,7 +533,7 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may name property
             // .'$Prompts'.'|'.2.options.'@'.0.name
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.2.options.'@'.0.name]", (path ? lpath_2 : null)])
@@ -549,7 +549,7 @@ function _jm_obj_5(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("value"))
+            if (! (val.value !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <value> [.'$Prompts'.'|'.2.options.'@'.0]", path])
         }
         return false
@@ -561,7 +561,7 @@ function _jm_obj_5(val, path, rep)
 function _jm_obj_4(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Prompts'.'|'.2]", path])
         return false
@@ -573,28 +573,28 @@ function _jm_obj_4(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("type"))
+    if (! (val.type !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$Prompts'.'|'.2]", path])
         return false
     }
     lpath = path ? path.concat(["type"]) : null
-    pval = val["type"]
+    pval = val.type
     // .'$Prompts'.'|'.2.type
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "menu"
+    let res = typeof pval == 'string' && pval == "menu"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"menu\" [.'$Prompts'.'|'.2.type]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Prompts'.'|'.2]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("title"))
+    if (! (val.title !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <title> [.'$Prompts'.'|'.2]", path])
         return false
     }
     lpath = path ? path.concat(["title"]) : null
-    pval = val["title"]
+    pval = val.title
     // .'$Prompts'.'|'.2.title
     res = json_model_6(pval, (path ? lpath : null), rep)
     if (! res)
@@ -603,13 +603,13 @@ function _jm_obj_4(val, path, rep)
         rep !== null && rep.push(["unexpected value for mandatory prop <title> [.'$Prompts'.'|'.2]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("key"))
+    if (! (val.key !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <key> [.'$Prompts'.'|'.2]", path])
         return false
     }
     lpath = path ? path.concat(["key"]) : null
-    pval = val["key"]
+    pval = val.key
     // .'$Prompts'.'|'.2.key
     res = json_model_7(pval, (path ? lpath : null), rep)
     if (! res)
@@ -618,13 +618,13 @@ function _jm_obj_4(val, path, rep)
         rep !== null && rep.push(["unexpected value for mandatory prop <key> [.'$Prompts'.'|'.2]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("options"))
+    if (! (val.options !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <options> [.'$Prompts'.'|'.2]", path])
         return false
     }
     lpath = path ? path.concat(["options"]) : null
-    pval = val["options"]
+    pval = val.options
     // .'$Prompts'.'|'.2.options
     // .'$Prompts'.'|'.2.options.'@'
     res = Array.isArray(pval)
@@ -662,7 +662,7 @@ function _jm_obj_4(val, path, rep)
 // object .'$Prompts'.'|'.3
 function _jm_obj_6(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Prompts'.'|'.3]", path])
         return false
@@ -677,7 +677,7 @@ function _jm_obj_6(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$Prompts'.'|'.3.type
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "menuFromCommand"
+            res = typeof pval == 'string' && pval == "menuFromCommand"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"menuFromCommand\" [.'$Prompts'.'|'.3.type]", (path ? lpath_3 : null)])
@@ -719,7 +719,7 @@ function _jm_obj_6(val, path, rep)
             // handle must command property
             must_count += 1
             // .'$Prompts'.'|'.3.command
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.3.command]", (path ? lpath_3 : null)])
@@ -732,7 +732,7 @@ function _jm_obj_6(val, path, rep)
         {
             // handle may filter property
             // .'$Prompts'.'|'.3.filter
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.3.filter]", (path ? lpath_3 : null)])
@@ -745,7 +745,7 @@ function _jm_obj_6(val, path, rep)
         {
             // handle may valueFormat property
             // .'$Prompts'.'|'.3.valueFormat
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.3.valueFormat]", (path ? lpath_3 : null)])
@@ -758,7 +758,7 @@ function _jm_obj_6(val, path, rep)
         {
             // handle may labelFormat property
             // .'$Prompts'.'|'.3.labelFormat
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.3.labelFormat]", (path ? lpath_3 : null)])
@@ -774,13 +774,13 @@ function _jm_obj_6(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("command"))
+            if (! (val.command !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <command> [.'$Prompts'.'|'.3]", path])
-            if (! val.hasOwnProperty("key"))
+            if (! (val.key !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <key> [.'$Prompts'.'|'.3]", path])
-            if (! val.hasOwnProperty("title"))
+            if (! (val.title !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <title> [.'$Prompts'.'|'.3]", path])
-            if (! val.hasOwnProperty("type"))
+            if (! (val.type !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Prompts'.'|'.3]", path])
         }
         return false
@@ -793,11 +793,11 @@ function _jm_obj_6(val, path, rep)
 function json_model_10(val, path, rep)
 {
     // .'$Prompts'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0
-        if ((tag_0 = val["type"]) != null)
+        if ((tag_0 = val.type) != null)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
@@ -823,7 +823,7 @@ function json_model_10(val, path, rep)
 function _jm_f_0(val, path, rep)
 {
     // .gui.animateExplosion
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.animateExplosion]", path])
     return res
@@ -835,7 +835,7 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 function _jm_f_1(val, path, rep)
 {
     // .gui.authorColors
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.gui.authorColors]", path])
         return false
@@ -869,7 +869,7 @@ function _jm_f_1(val, path, rep)
 function _jm_f_2(val, path, rep)
 {
     // .gui.border
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_3.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_3.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.gui.border.'|']", path])
     return res
@@ -879,7 +879,7 @@ function _jm_f_2(val, path, rep)
 function _jm_f_3(val, path, rep)
 {
     // .gui.branchColors
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.gui.branchColors]", path])
         return false
@@ -912,7 +912,7 @@ function _jm_f_3(val, path, rep)
 function _jm_f_4(val, path, rep)
 {
     // .gui.commandLogSize
-    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
+    let res = typeof val == 'number' && Number.isInteger(val) && val >= 0
     if (! res)
         rep !== null && rep.push(["not a 0 strict int [.gui.commandLogSize]", path])
     return res
@@ -922,7 +922,7 @@ function _jm_f_4(val, path, rep)
 function _jm_f_5(val, path, rep)
 {
     // .gui.commitLength
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.gui.commitLength]", path])
         return false
@@ -935,7 +935,7 @@ function _jm_f_5(val, path, rep)
         {
             // handle may show property
             // .gui.commitLength.show
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.gui.commitLength.show]", (path ? lpath_8 : null)])
@@ -954,7 +954,7 @@ function _jm_f_5(val, path, rep)
 function _jm_f_6(val, path, rep)
 {
     // .gui.expandFocusedSidePanel
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.expandFocusedSidePanel]", path])
     return res
@@ -965,7 +965,7 @@ function _jm_f_6(val, path, rep)
 function _jm_f_7(val, path, rep)
 {
     // .gui.language
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_4.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_4.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.gui.language.'|']", path])
     return res
@@ -976,7 +976,7 @@ function _jm_f_7(val, path, rep)
 function _jm_f_8(val, path, rep)
 {
     // .gui.mainPanelSplitMode
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_5.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_5.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.gui.mainPanelSplitMode.'|']", path])
     return res
@@ -986,7 +986,7 @@ function _jm_f_8(val, path, rep)
 function _jm_f_9(val, path, rep)
 {
     // .gui.mouseEvents
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.mouseEvents]", path])
     return res
@@ -997,7 +997,7 @@ function _jm_f_9(val, path, rep)
 function _jm_f_10(val, path, rep)
 {
     // .gui.nerdFontsVersion
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_6.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_6.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.gui.nerdFontsVersion.'|']", path])
     return res
@@ -1007,7 +1007,7 @@ function _jm_f_10(val, path, rep)
 function _jm_f_11(val, path, rep)
 {
     // .gui.scrollHeight
-    let res = ((typeof val == 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
+    let res = typeof val == 'number' && Number.isInteger(val) && val >= 1
     if (! res)
         rep !== null && rep.push(["not a 1 strict int [.gui.scrollHeight]", path])
     return res
@@ -1017,7 +1017,7 @@ function _jm_f_11(val, path, rep)
 function _jm_f_12(val, path, rep)
 {
     // .gui.scrollPastBottom
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.scrollPastBottom]", path])
     return res
@@ -1027,7 +1027,7 @@ function _jm_f_12(val, path, rep)
 function _jm_f_13(val, path, rep)
 {
     // .gui.shortTimeFormat
-    let res = (typeof val == 'string' || val instanceof String)
+    let res = typeof val == 'string'
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.gui.shortTimeFormat]", path])
     return res
@@ -1037,7 +1037,7 @@ function _jm_f_13(val, path, rep)
 function _jm_f_14(val, path, rep)
 {
     // .gui.showBottomLine
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.showBottomLine]", path])
     return res
@@ -1047,7 +1047,7 @@ function _jm_f_14(val, path, rep)
 function _jm_f_15(val, path, rep)
 {
     // .gui.showBranchCommitHash
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.showBranchCommitHash]", path])
     return res
@@ -1057,7 +1057,7 @@ function _jm_f_15(val, path, rep)
 function _jm_f_16(val, path, rep)
 {
     // .gui.showCommandLog
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.showCommandLog]", path])
     return res
@@ -1067,7 +1067,7 @@ function _jm_f_16(val, path, rep)
 function _jm_f_17(val, path, rep)
 {
     // .gui.showFileTree
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.showFileTree]", path])
     return res
@@ -1077,7 +1077,7 @@ function _jm_f_17(val, path, rep)
 function _jm_f_18(val, path, rep)
 {
     // .gui.showListFooter
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.showListFooter]", path])
     return res
@@ -1087,7 +1087,7 @@ function _jm_f_18(val, path, rep)
 function _jm_f_19(val, path, rep)
 {
     // .gui.showRandomTip
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.showRandomTip]", path])
     return res
@@ -1098,7 +1098,7 @@ function _jm_f_20(val, path, rep)
 {
     // .gui.sidePanelWidth
     // .gui.sidePanelWidth.'@'
-    let res = ((typeof val == 'number' || val instanceof Number)) && val >= 0.0
+    let res = typeof val == 'number' && val >= 0.0
     if (res)
     {
         let fval_0 = val
@@ -1115,7 +1115,7 @@ function _jm_f_20(val, path, rep)
 function _jm_f_21(val, path, rep)
 {
     // .gui.skipDiscardChangeWarning
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.skipDiscardChangeWarning]", path])
     return res
@@ -1125,7 +1125,7 @@ function _jm_f_21(val, path, rep)
 function _jm_f_22(val, path, rep)
 {
     // .gui.skipRewordInEditorWarning
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.skipRewordInEditorWarning]", path])
     return res
@@ -1135,7 +1135,7 @@ function _jm_f_22(val, path, rep)
 function _jm_f_23(val, path, rep)
 {
     // .gui.skipStashWarning
-    let res = (typeof val == 'boolean' || val instanceof Boolean)
+    let res = typeof val == 'boolean'
     if (! res)
         rep !== null && rep.push(["not a bool [.gui.skipStashWarning]", path])
     return res
@@ -1146,7 +1146,7 @@ function _jm_f_23(val, path, rep)
 function _jm_f_24(val, path, rep)
 {
     // .gui.splitDiff
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_7.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_7.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.gui.splitDiff.'|']", path])
     return res
@@ -1156,7 +1156,7 @@ function _jm_f_24(val, path, rep)
 function _jm_f_25(val, path, rep)
 {
     // .gui.theme
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.gui.theme]", path])
         return false
@@ -1305,7 +1305,7 @@ function _jm_f_25(val, path, rep)
 function _jm_f_26(val, path, rep)
 {
     // .gui.timeFormat
-    let res = (typeof val == 'string' || val instanceof String)
+    let res = typeof val == 'string'
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.gui.timeFormat]", path])
     return res
@@ -1316,7 +1316,7 @@ function _jm_f_26(val, path, rep)
 function _jm_f_27(val, path, rep)
 {
     // .gui.windowSize
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_8.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_8.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.gui.windowSize.'|']", path])
     return res
@@ -1326,7 +1326,7 @@ function _jm_f_27(val, path, rep)
 // object .gui
 function _jm_obj_7(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.gui]", path])
         return false
@@ -1355,7 +1355,7 @@ function _jm_obj_7(val, path, rep)
 // object .git.paging
 function _jm_obj_9(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.git.paging]", path])
         return false
@@ -1368,7 +1368,7 @@ function _jm_obj_9(val, path, rep)
         {
             // handle may colorArg property
             // .git.paging.colorArg
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_9.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_9.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.git.paging.colorArg.'|']", (path ? lpath_11 : null)])
@@ -1381,7 +1381,7 @@ function _jm_obj_9(val, path, rep)
         {
             // handle may useConfig property
             // .git.paging.useConfig
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.git.paging.useConfig]", (path ? lpath_11 : null)])
@@ -1395,7 +1395,7 @@ function _jm_obj_9(val, path, rep)
             // handle may pager property
             // .git.paging.pager
             // .git.paging.pager.'@'
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (res)
             {
                 let sval_1 = pval
@@ -1421,7 +1421,7 @@ function _jm_obj_9(val, path, rep)
 // object .git.commit
 function _jm_obj_10(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.git.commit]", path])
         return false
@@ -1434,7 +1434,7 @@ function _jm_obj_10(val, path, rep)
         {
             // handle may signOff property
             // .git.commit.signOff
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.git.commit.signOff]", (path ? lpath_12 : null)])
@@ -1452,7 +1452,7 @@ function _jm_obj_10(val, path, rep)
 // object .git.merging
 function _jm_obj_11(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.git.merging]", path])
         return false
@@ -1465,7 +1465,7 @@ function _jm_obj_11(val, path, rep)
         {
             // handle may manualCommit property
             // .git.merging.manualCommit
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.git.merging.manualCommit]", (path ? lpath_13 : null)])
@@ -1478,7 +1478,7 @@ function _jm_obj_11(val, path, rep)
         {
             // handle may args property
             // .git.merging.args
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.git.merging.args]", (path ? lpath_13 : null)])
@@ -1498,7 +1498,7 @@ function _jm_obj_11(val, path, rep)
 // object .git.log
 function _jm_obj_12(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.git.log]", path])
         return false
@@ -1511,7 +1511,7 @@ function _jm_obj_12(val, path, rep)
         {
             // handle may order property
             // .git.log.order
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_10.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_10.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.git.log.order.'|']", (path ? lpath_14 : null)])
@@ -1524,7 +1524,7 @@ function _jm_obj_12(val, path, rep)
         {
             // handle may showGraph property
             // .git.log.showGraph
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_11.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_11.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.git.log.showGraph.'|']", (path ? lpath_14 : null)])
@@ -1537,7 +1537,7 @@ function _jm_obj_12(val, path, rep)
         {
             // handle may showWholeGraph property
             // .git.log.showWholeGraph
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.git.log.showWholeGraph]", (path ? lpath_14 : null)])
@@ -1556,7 +1556,7 @@ function _jm_obj_12(val, path, rep)
 function _jm_obj_14(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.git.commitPrefixes.'/./']", path])
         return false
@@ -1568,13 +1568,13 @@ function _jm_obj_14(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("pattern"))
+    if (! (val.pattern !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <pattern> [.git.commitPrefixes.'/./']", path])
         return false
     }
     lpath = path ? path.concat(["pattern"]) : null
-    pval = val["pattern"]
+    pval = val.pattern
     // .git.commitPrefixes.'/./'.pattern
     let res = json_model_8(pval, (path ? lpath : null), rep)
     if (! res)
@@ -1583,13 +1583,13 @@ function _jm_obj_14(val, path, rep)
         rep !== null && rep.push(["unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("replace"))
+    if (! (val.replace !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <replace> [.git.commitPrefixes.'/./']", path])
         return false
     }
     lpath = path ? path.concat(["replace"]) : null
-    pval = val["replace"]
+    pval = val.replace
     // .git.commitPrefixes.'/./'.replace
     res = json_model_8(pval, (path ? lpath : null), rep)
     if (! res)
@@ -1604,7 +1604,7 @@ function _jm_obj_14(val, path, rep)
 // object .git.commitPrefixes
 function _jm_obj_13(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.git.commitPrefixes]", path])
         return false
@@ -1636,7 +1636,7 @@ function _jm_obj_13(val, path, rep)
 // object .git
 function _jm_obj_8(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.git]", path])
         return false
@@ -1701,7 +1701,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may skipHookPrefix property
             // .git.skipHookPrefix
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.git.skipHookPrefix]", (path ? lpath_10 : null)])
@@ -1727,7 +1727,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may autoFetch property
             // .git.autoFetch
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.git.autoFetch]", (path ? lpath_10 : null)])
@@ -1740,7 +1740,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may autoRefresh property
             // .git.autoRefresh
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.git.autoRefresh]", (path ? lpath_10 : null)])
@@ -1753,7 +1753,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may fetchAll property
             // .git.fetchAll
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.git.fetchAll]", (path ? lpath_10 : null)])
@@ -1766,7 +1766,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may branchLogCmd property
             // .git.branchLogCmd
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.git.branchLogCmd]", (path ? lpath_10 : null)])
@@ -1779,7 +1779,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may allBranchesLogCmd property
             // .git.allBranchesLogCmd
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.git.allBranchesLogCmd]", (path ? lpath_10 : null)])
@@ -1792,7 +1792,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may overrideGpg property
             // .git.overrideGpg
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.git.overrideGpg]", (path ? lpath_10 : null)])
@@ -1805,7 +1805,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may disableForcePushing property
             // .git.disableForcePushing
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.git.disableForcePushing]", (path ? lpath_10 : null)])
@@ -1818,7 +1818,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may parseEmoji property
             // .git.parseEmoji
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.git.parseEmoji]", (path ? lpath_10 : null)])
@@ -1831,7 +1831,7 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may diffContextSize property
             // .git.diffContextSize
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.git.diffContextSize]", (path ? lpath_10 : null)])
@@ -1863,7 +1863,7 @@ function _jm_obj_8(val, path, rep)
 // object .os
 function _jm_obj_15(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.os]", path])
         return false
@@ -1876,7 +1876,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may copyToClipboardCmd property
             // .os.copyToClipboardCmd
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.os.copyToClipboardCmd]", (path ? lpath_16 : null)])
@@ -1889,7 +1889,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may editPreset property
             // .os.editPreset
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_12.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_12.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.os.editPreset.'|']", (path ? lpath_16 : null)])
@@ -1902,7 +1902,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may edit property
             // .os.edit
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.os.edit]", (path ? lpath_16 : null)])
@@ -1915,7 +1915,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may editAtLine property
             // .os.editAtLine
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.os.editAtLine]", (path ? lpath_16 : null)])
@@ -1928,7 +1928,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may editAtLineAndWait property
             // .os.editAtLineAndWait
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.os.editAtLineAndWait]", (path ? lpath_16 : null)])
@@ -1941,7 +1941,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may open property
             // .os.open
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.os.open]", (path ? lpath_16 : null)])
@@ -1954,7 +1954,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may openLink property
             // .os.openLink
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.os.openLink]", (path ? lpath_16 : null)])
@@ -1972,7 +1972,7 @@ function _jm_obj_15(val, path, rep)
 // object .refresher
 function _jm_obj_16(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.refresher]", path])
         return false
@@ -1985,7 +1985,7 @@ function _jm_obj_16(val, path, rep)
         {
             // handle may refreshInterval property
             // .refresher.refreshInterval
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.refresher.refreshInterval]", (path ? lpath_17 : null)])
@@ -1998,7 +1998,7 @@ function _jm_obj_16(val, path, rep)
         {
             // handle may fetchInterval property
             // .refresher.fetchInterval
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.refresher.fetchInterval]", (path ? lpath_17 : null)])
@@ -2017,7 +2017,7 @@ function _jm_obj_16(val, path, rep)
 // object .update
 function _jm_obj_17(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.update]", path])
         return false
@@ -2030,7 +2030,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may method property
             // .update.method
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_13.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_13.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.update.method.'|']", (path ? lpath_18 : null)])
@@ -2043,7 +2043,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may days property
             // .update.days
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.update.days]", (path ? lpath_18 : null)])
@@ -2083,7 +2083,7 @@ function _jm_f_29(val, path, rep)
 // object .keybinding.universal
 function _jm_obj_19(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.keybinding.universal]", path])
         return false
@@ -2111,7 +2111,7 @@ function _jm_obj_19(val, path, rep)
 // object .keybinding.status
 function _jm_obj_20(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.keybinding.status]", path])
         return false
@@ -2155,7 +2155,7 @@ function _jm_obj_20(val, path, rep)
 // object .keybinding.files
 function _jm_obj_21(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.keybinding.files]", path])
         return false
@@ -2355,7 +2355,7 @@ function _jm_obj_21(val, path, rep)
 // object .keybinding.branches
 function _jm_obj_22(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.keybinding.branches]", path])
         return false
@@ -2543,7 +2543,7 @@ function _jm_obj_22(val, path, rep)
 // object .keybinding.commits
 function _jm_obj_23(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.keybinding.commits]", path])
         return false
@@ -2571,7 +2571,7 @@ function _jm_obj_23(val, path, rep)
 // object .keybinding.stash
 function _jm_obj_24(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.keybinding.stash]", path])
         return false
@@ -2615,7 +2615,7 @@ function _jm_obj_24(val, path, rep)
 // object .keybinding.commitFiles
 function _jm_obj_25(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.keybinding.commitFiles]", path])
         return false
@@ -2646,7 +2646,7 @@ function _jm_obj_25(val, path, rep)
 // object .keybinding.main
 function _jm_obj_26(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.keybinding.main]", path])
         return false
@@ -2716,7 +2716,7 @@ function _jm_obj_26(val, path, rep)
 // object .keybinding.submodules
 function _jm_obj_27(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.keybinding.submodules]", path])
         return false
@@ -2773,7 +2773,7 @@ function _jm_obj_27(val, path, rep)
 // object .keybinding
 function _jm_obj_18(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.keybinding]", path])
         return false
@@ -2910,7 +2910,7 @@ const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 // object .services
 function _jm_obj_28(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.services]", path])
         return false
@@ -2924,7 +2924,7 @@ function _jm_obj_28(val, path, rep)
             // handle 1 re props
             // .services.'/./'
             // "/^[^:]+:[^:]+$/"
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_2(pval, (path ? lpath_29 : null), rep)
+            res = typeof pval == 'string' && _jm_re_2(pval, (path ? lpath_29 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^[^:]+:[^:]+$/\" [.services.'/./']", (path ? lpath_29 : null)])
@@ -2944,7 +2944,7 @@ function _jm_obj_28(val, path, rep)
 // object .customCommands.'@'.0.after
 function _jm_obj_30(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.customCommands.'@'.0.after]", path])
         return false
@@ -2957,7 +2957,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may checkForConflicts property
             // .customCommands.'@'.0.after.checkForConflicts
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.customCommands.'@'.0.after.checkForConflicts]", (path ? lpath_31 : null)])
@@ -2975,7 +2975,7 @@ function _jm_obj_30(val, path, rep)
 // object .customCommands.'@'.0
 function _jm_obj_29(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.customCommands.'@'.0]", path])
         return false
@@ -3004,7 +3004,7 @@ function _jm_obj_29(val, path, rep)
             // handle must command property
             must_count += 1
             // .customCommands.'@'.0.command
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.customCommands.'@'.0.command]", (path ? lpath_30 : null)])
@@ -3018,7 +3018,7 @@ function _jm_obj_29(val, path, rep)
             // handle must context property
             must_count += 1
             // .customCommands.'@'.0.context
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_15.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_15.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.customCommands.'@'.0.context.'|']", (path ? lpath_30 : null)])
@@ -3031,7 +3031,7 @@ function _jm_obj_29(val, path, rep)
         {
             // handle may subprocess property
             // .customCommands.'@'.0.subprocess
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.customCommands.'@'.0.subprocess]", (path ? lpath_30 : null)])
@@ -3072,7 +3072,7 @@ function _jm_obj_29(val, path, rep)
         {
             // handle may loadingText property
             // .customCommands.'@'.0.loadingText
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.customCommands.'@'.0.loadingText]", (path ? lpath_30 : null)])
@@ -3085,7 +3085,7 @@ function _jm_obj_29(val, path, rep)
         {
             // handle may description property
             // .customCommands.'@'.0.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.customCommands.'@'.0.description]", (path ? lpath_30 : null)])
@@ -3098,7 +3098,7 @@ function _jm_obj_29(val, path, rep)
         {
             // handle may stream property
             // .customCommands.'@'.0.stream
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.customCommands.'@'.0.stream]", (path ? lpath_30 : null)])
@@ -3111,7 +3111,7 @@ function _jm_obj_29(val, path, rep)
         {
             // handle may showOutput property
             // .customCommands.'@'.0.showOutput
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.customCommands.'@'.0.showOutput]", (path ? lpath_30 : null)])
@@ -3140,11 +3140,11 @@ function _jm_obj_29(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("command"))
+            if (! (val.command !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <command> [.customCommands.'@'.0]", path])
-            if (! val.hasOwnProperty("context"))
+            if (! (val.context !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <context> [.customCommands.'@'.0]", path])
-            if (! val.hasOwnProperty("key"))
+            if (! (val.key !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <key> [.customCommands.'@'.0]", path])
         }
         return false
@@ -3157,7 +3157,7 @@ function json_model_1(val, path, rep)
 {
     // JSON Model for Lazy Git
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -3235,7 +3235,7 @@ function json_model_1(val, path, rep)
         {
             // handle may confirmOnQuit property
             // .confirmOnQuit
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.confirmOnQuit]", (path ? lpath_4 : null)])
@@ -3248,7 +3248,7 @@ function json_model_1(val, path, rep)
         {
             // handle may quitOnTopLevelReturn property
             // .quitOnTopLevelReturn
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.quitOnTopLevelReturn]", (path ? lpath_4 : null)])
@@ -3261,7 +3261,7 @@ function json_model_1(val, path, rep)
         {
             // handle may disableStartupPopups property
             // .disableStartupPopups
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.disableStartupPopups]", (path ? lpath_4 : null)])
@@ -3274,7 +3274,7 @@ function json_model_1(val, path, rep)
         {
             // handle may notARepository property
             // .notARepository
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_14.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_14.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.notARepository.'|']", (path ? lpath_4 : null)])
@@ -3287,7 +3287,7 @@ function json_model_1(val, path, rep)
         {
             // handle may promptToReturnFromSubprocess property
             // .promptToReturnFromSubprocess
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.promptToReturnFromSubprocess]", (path ? lpath_4 : null)])

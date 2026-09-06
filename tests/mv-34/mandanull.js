@@ -9,14 +9,14 @@ export var check_model_map = new Map()
 
 function json_model_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 1)
         return false
     let pval
-    if (! val.hasOwnProperty("null"))
+    if (! (val.null !== undefined))
         return false
-    pval = val["null"]
+    pval = val.null
     return pval === null
 }
 

@@ -10,7 +10,7 @@ export var check_model_map = new Map()
 
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -18,7 +18,7 @@ function _jm_obj_0(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "n"
+    let res = typeof pval == 'string' && pval == "n"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
@@ -29,7 +29,7 @@ function _jm_obj_0(val, path, rep)
 
 function _jm_obj_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -37,18 +37,18 @@ function _jm_obj_1(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "b"
+    let res = typeof pval == 'string' && pval == "b"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
         return false
     pval = val["v"]
-    return (typeof pval == 'boolean' || pval instanceof Boolean)
+    return typeof pval == 'boolean'
 }
 
 function _jm_obj_2(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -56,18 +56,18 @@ function _jm_obj_2(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "i"
+    let res = typeof pval == 'string' && pval == "i"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
         return false
     pval = val["v"]
-    return (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
+    return typeof pval == 'number' && Number.isInteger(pval)
 }
 
 function _jm_obj_3(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -75,18 +75,18 @@ function _jm_obj_3(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "u"
+    let res = typeof pval == 'string' && pval == "u"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
         return false
     pval = val["v"]
-    return ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    return typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
 }
 
 function _jm_obj_4(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -94,18 +94,18 @@ function _jm_obj_4(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "f"
+    let res = typeof pval == 'string' && pval == "f"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
         return false
     pval = val["v"]
-    return (typeof pval == 'number' || pval instanceof Number)
+    return typeof pval == 'number'
 }
 
 function _jm_obj_5(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -113,18 +113,18 @@ function _jm_obj_5(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "s"
+    let res = typeof pval == 'string' && pval == "s"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
         return false
     pval = val["v"]
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 function _jm_obj_6(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -132,7 +132,7 @@ function _jm_obj_6(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
+    let res = typeof pval == 'string' && pval == "a"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
@@ -143,7 +143,7 @@ function _jm_obj_6(val, path, rep)
 
 function _jm_obj_7(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -151,19 +151,19 @@ function _jm_obj_7(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "o"
+    let res = typeof pval == 'string' && pval == "o"
     if (! res)
         return false
     if (! val.hasOwnProperty("v"))
         return false
     pval = val["v"]
-    return Object.prototype.toString.call(pval) === '[object Object]'
+    return pval !== null && typeof pval == 'object' && !Array.isArray(pval)
 }
 
 
 function json_model_1(val, path, rep)
 {
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0

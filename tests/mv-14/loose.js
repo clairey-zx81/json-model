@@ -17,7 +17,7 @@ function json_model_1(val, path, rep)
     // JSON_MODEL_LOOSE_INT
     // .
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -29,15 +29,15 @@ function json_model_1(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("li"))
+    if (! (val.li !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <li> [.]", path])
         return false
     }
     lpath = path ? path.concat(["li"]) : null
-    pval = val["li"]
+    pval = val.li
     // .li
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 loose int [.li]", (path ? lpath : null)])

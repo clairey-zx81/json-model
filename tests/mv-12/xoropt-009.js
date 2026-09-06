@@ -17,7 +17,7 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // object .'^'.0
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'^'.0]", path])
         return false
@@ -30,7 +30,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle 1 re props
             // .'^'.0.'/a/'
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'^'.0.'/a/']", (path ? lpath_0 : null)])
@@ -49,7 +49,7 @@ function _jm_obj_0(val, path, rep)
 // object .'^'.1
 function _jm_obj_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'^'.1]", path])
         return false

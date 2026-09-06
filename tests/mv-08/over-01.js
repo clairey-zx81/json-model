@@ -35,7 +35,7 @@ function json_model_1(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$over#Foo'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$over#Foo']", path])
         return false
@@ -48,7 +48,7 @@ function json_model_4(val, path, rep)
         {
             // handle may foo property
             // .'$over#Foo'.foo
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "rewritten foo"
+            res = typeof pval == 'string' && pval == "rewritten foo"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_rewritten foo\" [.'$over#Foo'.foo]", (path ? lpath_0 : null)])

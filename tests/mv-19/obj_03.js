@@ -19,7 +19,7 @@ function json_model_1(val, path, rep)
 {
     // regex property… beware that \d character class does not seem to be supported by re2
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -32,7 +32,7 @@ function json_model_1(val, path, rep)
         {
             // handle 1 re props
             // .'/^[0-9]+$/'
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'/^[0-9]+$/']", (path ? lpath_0 : null)])

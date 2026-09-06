@@ -17,7 +17,7 @@ function json_model_1(val, path, rep)
     // JSON_MODEL_STRICT_INT
     // .
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -29,15 +29,15 @@ function json_model_1(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("si"))
+    if (! (val.si !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <si> [.]", path])
         return false
     }
     lpath = path ? path.concat(["si"]) : null
-    pval = val["si"]
+    pval = val.si
     // .si
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.si]", (path ? lpath : null)])

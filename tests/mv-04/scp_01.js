@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$b'
-    let res = ((typeof val == 'string' || val instanceof String)) && val == "b"
+    let res = typeof val == 'string' && val == "b"
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"_b\" [.'$b']", path])
     return res
@@ -25,7 +25,7 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$Bb'
-    let res = (typeof val == 'string' || val instanceof String)
+    let res = typeof val == 'string'
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Bb']", path])
     return res
@@ -35,7 +35,7 @@ function json_model_3(val, path, rep)
 function json_model_5(val, path, rep)
 {
     // .'$Rr'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Rr']", path])
         return false
@@ -67,7 +67,7 @@ function json_model_5(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -124,7 +124,7 @@ function json_model_1(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("RA"))
+            if (! (val.RA !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <RA> [.]", path])
         }
         return false
@@ -136,7 +136,7 @@ function json_model_1(val, path, rep)
 function json_model_7(val, path, rep)
 {
     // .'$Rr#Aa'
-    let res = (typeof val == 'string' || val instanceof String)
+    let res = typeof val == 'string'
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Rr#Aa']", path])
     return res

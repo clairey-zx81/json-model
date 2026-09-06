@@ -17,7 +17,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$Object'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Object']", path])
         return false
@@ -31,7 +31,7 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$ProtocolVersion'
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_0.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$ProtocolVersion'.'|']", path])
     return res
@@ -42,35 +42,35 @@ function json_model_4(val, path, rep)
 {
     // .'$Tool'
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Tool']", path])
         return false
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("name"))
+    if (! (val.name !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.'$Tool']", path])
         return false
     }
     lpath = path ? path.concat(["name"]) : null
-    pval = val["name"]
+    pval = val.name
     // .'$Tool'.name
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Tool'.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$Tool']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("inputSchema"))
+    if (! (val.inputSchema !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <inputSchema> [.'$Tool']", path])
         return false
     }
     lpath = path ? path.concat(["inputSchema"]) : null
-    pval = val["inputSchema"]
+    pval = val.inputSchema
     // .'$Tool'.inputSchema
     res = json_model_2(pval, (path ? lpath : null), rep)
     if (! res)
@@ -79,12 +79,12 @@ function json_model_4(val, path, rep)
         rep !== null && rep.push(["unexpected value for mandatory prop <inputSchema> [.'$Tool']", (path ? lpath : null)])
         return false
     }
-    if (val.hasOwnProperty("title"))
+    if (val.title !== undefined)
     {
         lpath = path ? path.concat(["title"]) : null
-        pval = val["title"]
+        pval = val.title
         // .'$Tool'.title
-        res = (typeof pval == 'string' || pval instanceof String)
+        res = typeof pval == 'string'
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$Tool'.title]", (path ? lpath : null)])
@@ -92,12 +92,12 @@ function json_model_4(val, path, rep)
             return false
         }
     }
-    if (val.hasOwnProperty("description"))
+    if (val.description !== undefined)
     {
         lpath = path ? path.concat(["description"]) : null
-        pval = val["description"]
+        pval = val.description
         // .'$Tool'.description
-        res = (typeof pval == 'string' || pval instanceof String)
+        res = typeof pval == 'string'
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$Tool'.description]", (path ? lpath : null)])
@@ -112,20 +112,20 @@ function json_model_4(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$InitializeRequest'.params.capabilities]", path])
         return false
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("elicitation"))
+    if (! (val.elicitation !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <elicitation> [.'$InitializeRequest'.params.capabilities]", path])
         return false
     }
     lpath = path ? path.concat(["elicitation"]) : null
-    pval = val["elicitation"]
+    pval = val.elicitation
     // .'$InitializeRequest'.params.capabilities.elicitation
     let res = json_model_2(pval, (path ? lpath : null), rep)
     if (! res)
@@ -141,37 +141,37 @@ function _jm_obj_1(val, path, rep)
 function _jm_obj_2(val, path, rep)
 {
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$InitializeRequest'.params.clientInfo]", path])
         return false
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("name"))
+    if (! (val.name !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.'$InitializeRequest'.params.clientInfo]", path])
         return false
     }
     lpath = path ? path.concat(["name"]) : null
-    pval = val["name"]
+    pval = val.name
     // .'$InitializeRequest'.params.clientInfo.name
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$InitializeRequest'.params.clientInfo.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$InitializeRequest'.params.clientInfo]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("version"))
+    if (! (val.version !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <version> [.'$InitializeRequest'.params.clientInfo]", path])
         return false
     }
     lpath = path ? path.concat(["version"]) : null
-    pval = val["version"]
+    pval = val.version
     // .'$InitializeRequest'.params.clientInfo.version
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$InitializeRequest'.params.clientInfo.version]", (path ? lpath : null)])
@@ -185,7 +185,7 @@ function _jm_obj_2(val, path, rep)
 function _jm_obj_0(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$InitializeRequest'.params]", path])
         return false
@@ -197,13 +197,13 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("protocolVersion"))
+    if (! (val.protocolVersion !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <protocolVersion> [.'$InitializeRequest'.params]", path])
         return false
     }
     lpath = path ? path.concat(["protocolVersion"]) : null
-    pval = val["protocolVersion"]
+    pval = val.protocolVersion
     // .'$InitializeRequest'.params.protocolVersion
     let res = json_model_3(pval, (path ? lpath : null), rep)
     if (! res)
@@ -212,13 +212,13 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["unexpected value for mandatory prop <protocolVersion> [.'$InitializeRequest'.params]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("capabilities"))
+    if (! (val.capabilities !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <capabilities> [.'$InitializeRequest'.params]", path])
         return false
     }
     lpath = path ? path.concat(["capabilities"]) : null
-    pval = val["capabilities"]
+    pval = val.capabilities
     // .'$InitializeRequest'.params.capabilities
     res = _jm_obj_1(pval, (path ? lpath : null), rep)
     if (! res)
@@ -227,13 +227,13 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["unexpected value for mandatory prop <capabilities> [.'$InitializeRequest'.params]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("clientInfo"))
+    if (! (val.clientInfo !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <clientInfo> [.'$InitializeRequest'.params]", path])
         return false
     }
     lpath = path ? path.concat(["clientInfo"]) : null
-    pval = val["clientInfo"]
+    pval = val.clientInfo
     // .'$InitializeRequest'.params.clientInfo
     res = _jm_obj_2(pval, (path ? lpath : null), rep)
     if (! res)
@@ -250,7 +250,7 @@ function json_model_5(val, path, rep)
 {
     // .'$InitializeRequest'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$InitializeRequest']", path])
         return false
@@ -262,58 +262,58 @@ function json_model_5(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("jsonrpc"))
+    if (! (val.jsonrpc !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <jsonrpc> [.'$InitializeRequest']", path])
         return false
     }
     lpath = path ? path.concat(["jsonrpc"]) : null
-    pval = val["jsonrpc"]
+    pval = val.jsonrpc
     // .'$InitializeRequest'.jsonrpc
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
+    let res = typeof pval == 'string' && pval == "2.0"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$InitializeRequest'.jsonrpc]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <jsonrpc> [.'$InitializeRequest']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("id"))
+    if (! (val.id !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$InitializeRequest']", path])
         return false
     }
     lpath = path ? path.concat(["id"]) : null
-    pval = val["id"]
+    pval = val.id
     // .'$InitializeRequest'.id
-    res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
+    res = typeof pval == 'number' && Number.isInteger(pval)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$InitializeRequest'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$InitializeRequest']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("method"))
+    if (! (val.method !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <method> [.'$InitializeRequest']", path])
         return false
     }
     lpath = path ? path.concat(["method"]) : null
-    pval = val["method"]
+    pval = val.method
     // .'$InitializeRequest'.method
-    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "initialize"
+    res = typeof pval == 'string' && pval == "initialize"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_initialize\" [.'$InitializeRequest'.method]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <method> [.'$InitializeRequest']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("params"))
+    if (! (val.params !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <params> [.'$InitializeRequest']", path])
         return false
     }
     lpath = path ? path.concat(["params"]) : null
-    pval = val["params"]
+    pval = val.params
     // .'$InitializeRequest'.params
     res = _jm_obj_0(pval, (path ? lpath : null), rep)
     if (! res)
@@ -329,7 +329,7 @@ function json_model_5(val, path, rep)
 function _jm_obj_5(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$InitializeResponse'.result.capabilities.tools]", path])
         return false
@@ -341,15 +341,15 @@ function _jm_obj_5(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("listChanged"))
+    if (! (val.listChanged !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <listChanged> [.'$InitializeResponse'.result.capabilities.tools]", path])
         return false
     }
     lpath = path ? path.concat(["listChanged"]) : null
-    pval = val["listChanged"]
+    pval = val.listChanged
     // .'$InitializeResponse'.result.capabilities.tools.listChanged
-    let res = (typeof pval == 'boolean' || pval instanceof Boolean)
+    let res = typeof pval == 'boolean'
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$InitializeResponse'.result.capabilities.tools.listChanged]", (path ? lpath : null)])
@@ -363,20 +363,20 @@ function _jm_obj_5(val, path, rep)
 function _jm_obj_4(val, path, rep)
 {
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$InitializeResponse'.result.capabilities]", path])
         return false
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("tools"))
+    if (! (val.tools !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <tools> [.'$InitializeResponse'.result.capabilities]", path])
         return false
     }
     lpath = path ? path.concat(["tools"]) : null
-    pval = val["tools"]
+    pval = val.tools
     // .'$InitializeResponse'.result.capabilities.tools
     let res = _jm_obj_5(pval, (path ? lpath : null), rep)
     if (! res)
@@ -385,13 +385,13 @@ function _jm_obj_4(val, path, rep)
         rep !== null && rep.push(["unexpected value for mandatory prop <tools> [.'$InitializeResponse'.result.capabilities]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("resources"))
+    if (! (val.resources !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <resources> [.'$InitializeResponse'.result.capabilities]", path])
         return false
     }
     lpath = path ? path.concat(["resources"]) : null
-    pval = val["resources"]
+    pval = val.resources
     // .'$InitializeResponse'.result.capabilities.resources
     res = json_model_2(pval, (path ? lpath : null), rep)
     if (! res)
@@ -407,37 +407,37 @@ function _jm_obj_4(val, path, rep)
 function _jm_obj_6(val, path, rep)
 {
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$InitializeResponse'.result.serverInfo]", path])
         return false
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("name"))
+    if (! (val.name !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.'$InitializeResponse'.result.serverInfo]", path])
         return false
     }
     lpath = path ? path.concat(["name"]) : null
-    pval = val["name"]
+    pval = val.name
     // .'$InitializeResponse'.result.serverInfo.name
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$InitializeResponse'.result.serverInfo.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$InitializeResponse'.result.serverInfo]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("version"))
+    if (! (val.version !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <version> [.'$InitializeResponse'.result.serverInfo]", path])
         return false
     }
     lpath = path ? path.concat(["version"]) : null
-    pval = val["version"]
+    pval = val.version
     // .'$InitializeResponse'.result.serverInfo.version
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$InitializeResponse'.result.serverInfo.version]", (path ? lpath : null)])
@@ -451,7 +451,7 @@ function _jm_obj_6(val, path, rep)
 function _jm_obj_3(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$InitializeResponse'.result]", path])
         return false
@@ -463,13 +463,13 @@ function _jm_obj_3(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("protocolVersion"))
+    if (! (val.protocolVersion !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <protocolVersion> [.'$InitializeResponse'.result]", path])
         return false
     }
     lpath = path ? path.concat(["protocolVersion"]) : null
-    pval = val["protocolVersion"]
+    pval = val.protocolVersion
     // .'$InitializeResponse'.result.protocolVersion
     let res = json_model_3(pval, (path ? lpath : null), rep)
     if (! res)
@@ -478,13 +478,13 @@ function _jm_obj_3(val, path, rep)
         rep !== null && rep.push(["unexpected value for mandatory prop <protocolVersion> [.'$InitializeResponse'.result]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("capabilities"))
+    if (! (val.capabilities !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <capabilities> [.'$InitializeResponse'.result]", path])
         return false
     }
     lpath = path ? path.concat(["capabilities"]) : null
-    pval = val["capabilities"]
+    pval = val.capabilities
     // .'$InitializeResponse'.result.capabilities
     res = _jm_obj_4(pval, (path ? lpath : null), rep)
     if (! res)
@@ -493,13 +493,13 @@ function _jm_obj_3(val, path, rep)
         rep !== null && rep.push(["unexpected value for mandatory prop <capabilities> [.'$InitializeResponse'.result]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("serverInfo"))
+    if (! (val.serverInfo !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <serverInfo> [.'$InitializeResponse'.result]", path])
         return false
     }
     lpath = path ? path.concat(["serverInfo"]) : null
-    pval = val["serverInfo"]
+    pval = val.serverInfo
     // .'$InitializeResponse'.result.serverInfo
     res = _jm_obj_6(pval, (path ? lpath : null), rep)
     if (! res)
@@ -516,7 +516,7 @@ function json_model_6(val, path, rep)
 {
     // .'$InitializeResponse'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$InitializeResponse']", path])
         return false
@@ -528,43 +528,43 @@ function json_model_6(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("jsonrpc"))
+    if (! (val.jsonrpc !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <jsonrpc> [.'$InitializeResponse']", path])
         return false
     }
     lpath = path ? path.concat(["jsonrpc"]) : null
-    pval = val["jsonrpc"]
+    pval = val.jsonrpc
     // .'$InitializeResponse'.jsonrpc
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
+    let res = typeof pval == 'string' && pval == "2.0"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$InitializeResponse'.jsonrpc]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <jsonrpc> [.'$InitializeResponse']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("id"))
+    if (! (val.id !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$InitializeResponse']", path])
         return false
     }
     lpath = path ? path.concat(["id"]) : null
-    pval = val["id"]
+    pval = val.id
     // .'$InitializeResponse'.id
-    res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
+    res = typeof pval == 'number' && Number.isInteger(pval)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$InitializeResponse'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$InitializeResponse']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("result"))
+    if (! (val.result !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <result> [.'$InitializeResponse']", path])
         return false
     }
     lpath = path ? path.concat(["result"]) : null
-    pval = val["result"]
+    pval = val.result
     // .'$InitializeResponse'.result
     res = _jm_obj_3(pval, (path ? lpath : null), rep)
     if (! res)
@@ -581,7 +581,7 @@ function json_model_7(val, path, rep)
 {
     // .'$Notification'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Notification']", path])
         return false
@@ -593,31 +593,31 @@ function json_model_7(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("jsonrpc"))
+    if (! (val.jsonrpc !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <jsonrpc> [.'$Notification']", path])
         return false
     }
     lpath = path ? path.concat(["jsonrpc"]) : null
-    pval = val["jsonrpc"]
+    pval = val.jsonrpc
     // .'$Notification'.jsonrpc
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
+    let res = typeof pval == 'string' && pval == "2.0"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$Notification'.jsonrpc]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <jsonrpc> [.'$Notification']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("method"))
+    if (! (val.method !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <method> [.'$Notification']", path])
         return false
     }
     lpath = path ? path.concat(["method"]) : null
-    pval = val["method"]
+    pval = val.method
     // .'$Notification'.method
     // "/^notifications/"
-    res = ((typeof pval == 'string' || pval instanceof String)) && pval.startsWith("notifications")
+    res = typeof pval == 'string' && pval.startsWith("notifications")
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/^notifications/\" [.'$Notification'.method]", (path ? lpath : null)])
@@ -632,52 +632,52 @@ function json_model_8(val, path, rep)
 {
     // .'$ToolsListRequest'
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$ToolsListRequest']", path])
         return false
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("jsonrpc"))
+    if (! (val.jsonrpc !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <jsonrpc> [.'$ToolsListRequest']", path])
         return false
     }
     lpath = path ? path.concat(["jsonrpc"]) : null
-    pval = val["jsonrpc"]
+    pval = val.jsonrpc
     // .'$ToolsListRequest'.jsonrpc
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
+    let res = typeof pval == 'string' && pval == "2.0"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$ToolsListRequest'.jsonrpc]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <jsonrpc> [.'$ToolsListRequest']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("id"))
+    if (! (val.id !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$ToolsListRequest']", path])
         return false
     }
     lpath = path ? path.concat(["id"]) : null
-    pval = val["id"]
+    pval = val.id
     // .'$ToolsListRequest'.id
-    res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
+    res = typeof pval == 'number' && Number.isInteger(pval)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$ToolsListRequest'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$ToolsListRequest']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("method"))
+    if (! (val.method !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <method> [.'$ToolsListRequest']", path])
         return false
     }
     lpath = path ? path.concat(["method"]) : null
-    pval = val["method"]
+    pval = val.method
     // .'$ToolsListRequest'.method
-    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "tools/list"
+    res = typeof pval == 'string' && pval == "tools/list"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_tools/list\" [.'$ToolsListRequest'.method]", (path ? lpath : null)])
@@ -691,7 +691,7 @@ function json_model_8(val, path, rep)
 function _jm_obj_7(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$ToolsListResponse'.result]", path])
         return false
@@ -703,13 +703,13 @@ function _jm_obj_7(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("tools"))
+    if (! (val.tools !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <tools> [.'$ToolsListResponse'.result]", path])
         return false
     }
     lpath = path ? path.concat(["tools"]) : null
-    pval = val["tools"]
+    pval = val.tools
     // .'$ToolsListResponse'.result.tools
     // .'$ToolsListResponse'.result.tools.'@'
     let res = Array.isArray(pval)
@@ -749,7 +749,7 @@ function json_model_9(val, path, rep)
 {
     // .'$ToolsListResponse'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$ToolsListResponse']", path])
         return false
@@ -761,43 +761,43 @@ function json_model_9(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("jsonrpc"))
+    if (! (val.jsonrpc !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <jsonrpc> [.'$ToolsListResponse']", path])
         return false
     }
     lpath = path ? path.concat(["jsonrpc"]) : null
-    pval = val["jsonrpc"]
+    pval = val.jsonrpc
     // .'$ToolsListResponse'.jsonrpc
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
+    let res = typeof pval == 'string' && pval == "2.0"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$ToolsListResponse'.jsonrpc]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <jsonrpc> [.'$ToolsListResponse']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("id"))
+    if (! (val.id !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$ToolsListResponse']", path])
         return false
     }
     lpath = path ? path.concat(["id"]) : null
-    pval = val["id"]
+    pval = val.id
     // .'$ToolsListResponse'.id
-    res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
+    res = typeof pval == 'number' && Number.isInteger(pval)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$ToolsListResponse'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$ToolsListResponse']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("result"))
+    if (! (val.result !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <result> [.'$ToolsListResponse']", path])
         return false
     }
     lpath = path ? path.concat(["result"]) : null
-    pval = val["result"]
+    pval = val.result
     // .'$ToolsListResponse'.result
     res = _jm_obj_7(pval, (path ? lpath : null), rep)
     if (! res)
@@ -814,7 +814,7 @@ function json_model_10(val, path, rep)
 {
     // .'$ToolCallRequest'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$ToolCallRequest']", path])
         return false
@@ -826,58 +826,58 @@ function json_model_10(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("jsonrpc"))
+    if (! (val.jsonrpc !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <jsonrpc> [.'$ToolCallRequest']", path])
         return false
     }
     lpath = path ? path.concat(["jsonrpc"]) : null
-    pval = val["jsonrpc"]
+    pval = val.jsonrpc
     // .'$ToolCallRequest'.jsonrpc
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
+    let res = typeof pval == 'string' && pval == "2.0"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$ToolCallRequest'.jsonrpc]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <jsonrpc> [.'$ToolCallRequest']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("id"))
+    if (! (val.id !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$ToolCallRequest']", path])
         return false
     }
     lpath = path ? path.concat(["id"]) : null
-    pval = val["id"]
+    pval = val.id
     // .'$ToolCallRequest'.id
-    res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
+    res = typeof pval == 'number' && Number.isInteger(pval)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$ToolCallRequest'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$ToolCallRequest']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("method"))
+    if (! (val.method !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <method> [.'$ToolCallRequest']", path])
         return false
     }
     lpath = path ? path.concat(["method"]) : null
-    pval = val["method"]
+    pval = val.method
     // .'$ToolCallRequest'.method
-    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "tools/call"
+    res = typeof pval == 'string' && pval == "tools/call"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_tools/call\" [.'$ToolCallRequest'.method]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <method> [.'$ToolCallRequest']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("params"))
+    if (! (val.params !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <params> [.'$ToolCallRequest']", path])
         return false
     }
     lpath = path ? path.concat(["params"]) : null
-    pval = val["params"]
+    pval = val.params
     // .'$ToolCallRequest'.params
     res = json_model_2(pval, (path ? lpath : null), rep)
     if (! res)
@@ -893,20 +893,20 @@ function json_model_10(val, path, rep)
 function _jm_obj_8(val, path, rep)
 {
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$ToolCallResponse'.result]", path])
         return false
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("content"))
+    if (! (val.content !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <content> [.'$ToolCallResponse'.result]", path])
         return false
     }
     lpath = path ? path.concat(["content"]) : null
-    pval = val["content"]
+    pval = val.content
     // .'$ToolCallResponse'.result.content
     let res = Array.isArray(pval)
     if (! res)
@@ -923,7 +923,7 @@ function json_model_11(val, path, rep)
 {
     // .'$ToolCallResponse'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$ToolCallResponse']", path])
         return false
@@ -935,43 +935,43 @@ function json_model_11(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("jsonrpc"))
+    if (! (val.jsonrpc !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <jsonrpc> [.'$ToolCallResponse']", path])
         return false
     }
     lpath = path ? path.concat(["jsonrpc"]) : null
-    pval = val["jsonrpc"]
+    pval = val.jsonrpc
     // .'$ToolCallResponse'.jsonrpc
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
+    let res = typeof pval == 'string' && pval == "2.0"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$ToolCallResponse'.jsonrpc]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <jsonrpc> [.'$ToolCallResponse']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("id"))
+    if (! (val.id !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$ToolCallResponse']", path])
         return false
     }
     lpath = path ? path.concat(["id"]) : null
-    pval = val["id"]
+    pval = val.id
     // .'$ToolCallResponse'.id
-    res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
+    res = typeof pval == 'number' && Number.isInteger(pval)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$ToolCallResponse'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$ToolCallResponse']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("result"))
+    if (! (val.result !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <result> [.'$ToolCallResponse']", path])
         return false
     }
     lpath = path ? path.concat(["result"]) : null
-    pval = val["result"]
+    pval = val.result
     // .'$ToolCallResponse'.result
     res = _jm_obj_8(pval, (path ? lpath : null), rep)
     if (! res)
@@ -989,11 +989,11 @@ function json_model_1(val, path, rep)
 {
     // MCP - Model Context Protocol
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0
-        if ((tag_0 = val["method"]) != null)
+        if ((tag_0 = val.method) != null)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)

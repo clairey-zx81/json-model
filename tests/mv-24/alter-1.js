@@ -19,7 +19,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$g'
-    return ((typeof val == 'string' || val instanceof String)) && val == "g"
+    return typeof val == 'string' && val == "g"
 }
 
 
@@ -27,7 +27,7 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$h_ou_i'
-    return ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_0.has(val)
+    return ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_0.has(val)
 }
 
 // check $d (.'$d')
@@ -35,7 +35,7 @@ function json_model_4(val, path, rep)
 {
     // .'$d'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -44,14 +44,14 @@ function json_model_4(val, path, rep)
         return false
     pval = val["t"]
     // .'$d'.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "d"
+    let res = typeof pval == 'string' && pval == "d"
     if (! res)
         return false
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
     // .'$d'.d
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 
@@ -60,7 +60,7 @@ function json_model_5(val, path, rep)
 {
     // .'$ef'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -69,21 +69,21 @@ function json_model_5(val, path, rep)
         return false
     pval = val["t"]
     // .'$ef'.t
-    let res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
+    let res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_1.has(pval)
     if (! res)
         return false
-    if (! val.hasOwnProperty("ef"))
+    if (! (val.ef !== undefined))
         return false
-    pval = val["ef"]
+    pval = val.ef
     // .'$ef'.ef
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 // object .'$alternative'.'|'.0
 function _jm_obj_0(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -92,14 +92,14 @@ function _jm_obj_0(val, path, rep)
         return false
     pval = val["t"]
     // .'$alternative'.'|'.0.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
+    let res = typeof pval == 'string' && pval == "a"
     if (! res)
         return false
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
     // .'$alternative'.'|'.0.a
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 
@@ -107,7 +107,7 @@ function _jm_obj_0(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -116,21 +116,21 @@ function _jm_obj_1(val, path, rep)
         return false
     pval = val["t"]
     // .'$alternative'.'|'.1.t
-    let res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_2.has(pval)
+    let res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_2.has(pval)
     if (! res)
         return false
-    if (! val.hasOwnProperty("bc"))
+    if (! (val.bc !== undefined))
         return false
-    pval = val["bc"]
+    pval = val.bc
     // .'$alternative'.'|'.1.bc
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 // object .'$alternative'.'|'.2
 function _jm_obj_2(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -139,21 +139,21 @@ function _jm_obj_2(val, path, rep)
         return false
     pval = val["t"]
     // .'$alternative'.'|'.2.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "g"
+    let res = typeof pval == 'string' && pval == "g"
     if (! res)
         return false
     if (! val.hasOwnProperty("g"))
         return false
     pval = val["g"]
     // .'$alternative'.'|'.2.g
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 // object .'$alternative'.'|'.3
 function _jm_obj_3(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -165,11 +165,11 @@ function _jm_obj_3(val, path, rep)
     let res = json_model_3(pval, null, null)
     if (! res)
         return false
-    if (! val.hasOwnProperty("hi"))
+    if (! (val.hi !== undefined))
         return false
-    pval = val["hi"]
+    pval = val.hi
     // .'$alternative'.'|'.3.hi
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 
@@ -178,7 +178,7 @@ function json_model_6(val, path, rep)
 {
     // expecting xor-to-or and tag detection
     // .'$alternative'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0

@@ -56,7 +56,7 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 // object .'$openapi#OpenAPI'.webhooks
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#OpenAPI'.webhooks]", path])
         return false
@@ -81,7 +81,7 @@ function _jm_obj_0(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$openapi#OpenAPI'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#OpenAPI']", path])
         return false
@@ -97,7 +97,7 @@ function json_model_4(val, path, rep)
             must_count += 1
             // .'$openapi#OpenAPI'.openapi
             // "/^3\\.1\\.\\d+(-.+)?$/"
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep)
+            res = typeof pval == 'string' && _jm_re_0(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^3\\\\.1\\\\.\\\\d+(-.+)?$/\" [.'$openapi#OpenAPI'.openapi]", (path ? lpath_0 : null)])
@@ -283,9 +283,9 @@ function json_model_4(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("info"))
+            if (! (val.info !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <info> [.'$openapi#OpenAPI']", path])
-            if (! val.hasOwnProperty("openapi"))
+            if (! (val.openapi !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <openapi> [.'$openapi#OpenAPI']", path])
         }
         return false
@@ -297,7 +297,7 @@ function json_model_4(val, path, rep)
 function json_model_5(val, path, rep)
 {
     // .'$openapi#Info'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Info']", path])
         return false
@@ -312,7 +312,7 @@ function json_model_5(val, path, rep)
             // handle must title property
             must_count += 1
             // .'$openapi#Info'.title
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Info'.title]", (path ? lpath_2 : null)])
@@ -326,7 +326,7 @@ function json_model_5(val, path, rep)
             // handle must version property
             must_count += 1
             // .'$openapi#Info'.version
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Info'.version]", (path ? lpath_2 : null)])
@@ -339,7 +339,7 @@ function json_model_5(val, path, rep)
         {
             // handle may summary property
             // .'$openapi#Info'.summary
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Info'.summary]", (path ? lpath_2 : null)])
@@ -352,7 +352,7 @@ function json_model_5(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Info'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Info'.description]", (path ? lpath_2 : null)])
@@ -365,7 +365,7 @@ function json_model_5(val, path, rep)
         {
             // handle may termsOfService property
             // .'$openapi#Info'.termsOfService
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Info'.termsOfService]", (path ? lpath_2 : null)])
@@ -414,9 +414,9 @@ function json_model_5(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("title"))
+            if (! (val.title !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <title> [.'$openapi#Info']", path])
-            if (! val.hasOwnProperty("version"))
+            if (! (val.version !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <version> [.'$openapi#Info']", path])
         }
         return false
@@ -428,7 +428,7 @@ function json_model_5(val, path, rep)
 function json_model_6(val, path, rep)
 {
     // .'$openapi#Contact'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Contact']", path])
         return false
@@ -441,7 +441,7 @@ function json_model_6(val, path, rep)
         {
             // handle may name property
             // .'$openapi#Contact'.name
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Contact'.name]", (path ? lpath_3 : null)])
@@ -467,7 +467,7 @@ function json_model_6(val, path, rep)
         {
             // handle may email property
             // .'$openapi#Contact'.email
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Contact'.email]", (path ? lpath_3 : null)])
@@ -505,7 +505,7 @@ function _jm_obj_1(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$openapi#License'.'|'.1.name
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#License'.'|'.1.name]", (path ? lpath_4 : null)])
@@ -542,9 +542,9 @@ function _jm_obj_1(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("name"))
+            if (! (val.name !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <name> [.'$openapi#License'.'|'.1]", path])
-            if (! val.hasOwnProperty("url"))
+            if (! (val.url !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <url> [.'$openapi#License'.'|'.1]", path])
         }
         return false
@@ -566,7 +566,7 @@ function _jm_obj_2(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$openapi#License'.'|'.0.name
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#License'.'|'.0.name]", (path ? lpath_5 : null)])
@@ -580,7 +580,7 @@ function _jm_obj_2(val, path, rep)
             // handle must identifier property
             must_count += 1
             // .'$openapi#License'.'|'.0.identifier
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#License'.'|'.0.identifier]", (path ? lpath_5 : null)])
@@ -603,9 +603,9 @@ function _jm_obj_2(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("identifier"))
+            if (! (val.identifier !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <identifier> [.'$openapi#License'.'|'.0]", path])
-            if (! val.hasOwnProperty("name"))
+            if (! (val.name !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <name> [.'$openapi#License'.'|'.0]", path])
         }
         return false
@@ -617,7 +617,7 @@ function _jm_obj_2(val, path, rep)
 function json_model_7(val, path, rep)
 {
     // .'$openapi#License'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         // .'$openapi#License'.'|'.0
@@ -645,7 +645,7 @@ function json_model_7(val, path, rep)
 // object .'$openapi#Server'.variables
 function _jm_obj_3(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Server'.variables]", path])
         return false
@@ -670,7 +670,7 @@ function _jm_obj_3(val, path, rep)
 function json_model_8(val, path, rep)
 {
     // .'$openapi#Server'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Server']", path])
         return false
@@ -698,7 +698,7 @@ function json_model_8(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Server'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Server'.description]", (path ? lpath_6 : null)])
@@ -734,7 +734,7 @@ function json_model_8(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("url"))
+            if (! (val.url !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <url> [.'$openapi#Server']", path])
         }
         return false
@@ -746,7 +746,7 @@ function json_model_8(val, path, rep)
 function json_model_9(val, path, rep)
 {
     // .'$openapi#ServerVariable'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#ServerVariable']", path])
         return false
@@ -761,7 +761,7 @@ function json_model_9(val, path, rep)
             // handle must default property
             must_count += 1
             // .'$openapi#ServerVariable'.default
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#ServerVariable'.default]", (path ? lpath_8 : null)])
@@ -782,7 +782,7 @@ function json_model_9(val, path, rep)
                     let arr_3_item = pval[arr_3_idx]
                     let arr_3_lpath = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([arr_3_idx]) : null
                     // .'$openapi#ServerVariable'.enum.0
-                    res = (typeof arr_3_item == 'string' || arr_3_item instanceof String)
+                    res = typeof arr_3_item == 'string'
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#ServerVariable'.enum.0]", ((path ? lpath_8 : null) ? arr_3_lpath : null)])
@@ -802,7 +802,7 @@ function json_model_9(val, path, rep)
         {
             // handle may description property
             // .'$openapi#ServerVariable'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#ServerVariable'.description]", (path ? lpath_8 : null)])
@@ -825,7 +825,7 @@ function json_model_9(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("default"))
+            if (! (val.default !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <default> [.'$openapi#ServerVariable']", path])
         }
         return false
@@ -836,7 +836,7 @@ function json_model_9(val, path, rep)
 // object .'$openapi#Components'.responses
 function _jm_obj_4(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Components'.responses]", path])
         return false
@@ -873,7 +873,7 @@ function _jm_obj_4(val, path, rep)
 // object .'$openapi#Components'.parameters
 function _jm_obj_5(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Components'.parameters]", path])
         return false
@@ -910,7 +910,7 @@ function _jm_obj_5(val, path, rep)
 // object .'$openapi#Components'.examples
 function _jm_obj_6(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Components'.examples]", path])
         return false
@@ -947,7 +947,7 @@ function _jm_obj_6(val, path, rep)
 // object .'$openapi#Components'.requestBodies
 function _jm_obj_7(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Components'.requestBodies]", path])
         return false
@@ -984,7 +984,7 @@ function _jm_obj_7(val, path, rep)
 // object .'$openapi#Components'.headers
 function _jm_obj_8(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Components'.headers]", path])
         return false
@@ -1021,7 +1021,7 @@ function _jm_obj_8(val, path, rep)
 // object .'$openapi#Components'.securitySchemes
 function _jm_obj_9(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Components'.securitySchemes]", path])
         return false
@@ -1058,7 +1058,7 @@ function _jm_obj_9(val, path, rep)
 // object .'$openapi#Components'.links
 function _jm_obj_10(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Components'.links]", path])
         return false
@@ -1095,7 +1095,7 @@ function _jm_obj_10(val, path, rep)
 // object .'$openapi#Components'.callbacks
 function _jm_obj_11(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Components'.callbacks]", path])
         return false
@@ -1132,7 +1132,7 @@ function _jm_obj_11(val, path, rep)
 // object .'$openapi#Components'.pathItems
 function _jm_obj_12(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Components'.pathItems]", path])
         return false
@@ -1169,7 +1169,7 @@ function _jm_obj_12(val, path, rep)
 // object .'$openapi#Components'.models
 function _jm_obj_13(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Components'.models]", path])
         return false
@@ -1194,7 +1194,7 @@ function _jm_obj_13(val, path, rep)
 function json_model_10(val, path, rep)
 {
     // .'$openapi#Components'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Components']", path])
         return false
@@ -1350,7 +1350,7 @@ function json_model_10(val, path, rep)
 function json_model_11(val, path, rep)
 {
     // .'$openapi#Paths'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Paths']", path])
         return false
@@ -1387,7 +1387,7 @@ function json_model_11(val, path, rep)
 function json_model_12(val, path, rep)
 {
     // .'$openapi#PathItem'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#PathItem']", path])
         return false
@@ -1413,7 +1413,7 @@ function json_model_12(val, path, rep)
         {
             // handle may summary property
             // .'$openapi#PathItem'.summary
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#PathItem'.summary]", (path ? lpath_21 : null)])
@@ -1426,7 +1426,7 @@ function json_model_12(val, path, rep)
         {
             // handle may description property
             // .'$openapi#PathItem'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#PathItem'.description]", (path ? lpath_21 : null)])
@@ -1624,7 +1624,7 @@ function json_model_12(val, path, rep)
 // object .'$openapi#Operation'.callbacks
 function _jm_obj_14(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Operation'.callbacks]", path])
         return false
@@ -1662,7 +1662,7 @@ function _jm_obj_14(val, path, rep)
 function json_model_13(val, path, rep)
 {
     // .'$openapi#Operation'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Operation']", path])
         return false
@@ -1683,7 +1683,7 @@ function json_model_13(val, path, rep)
                     let arr_6_item = pval[arr_6_idx]
                     let arr_6_lpath = (path ? lpath_22 : null) ? (path ? lpath_22 : null).concat([arr_6_idx]) : null
                     // .'$openapi#Operation'.tags.0
-                    res = (typeof arr_6_item == 'string' || arr_6_item instanceof String)
+                    res = typeof arr_6_item == 'string'
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Operation'.tags.0]", ((path ? lpath_22 : null) ? arr_6_lpath : null)])
@@ -1703,7 +1703,7 @@ function json_model_13(val, path, rep)
         {
             // handle may summary property
             // .'$openapi#Operation'.summary
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Operation'.summary]", (path ? lpath_22 : null)])
@@ -1716,7 +1716,7 @@ function json_model_13(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Operation'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Operation'.description]", (path ? lpath_22 : null)])
@@ -1742,7 +1742,7 @@ function json_model_13(val, path, rep)
         {
             // handle may operationId property
             // .'$openapi#Operation'.operationId
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Operation'.operationId]", (path ? lpath_22 : null)])
@@ -1848,7 +1848,7 @@ function json_model_13(val, path, rep)
         {
             // handle may deprecated property
             // .'$openapi#Operation'.deprecated
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Operation'.deprecated]", (path ? lpath_22 : null)])
@@ -1930,7 +1930,7 @@ function json_model_13(val, path, rep)
 function json_model_14(val, path, rep)
 {
     // .'$openapi#ExternalDocumentation'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#ExternalDocumentation']", path])
         return false
@@ -1958,7 +1958,7 @@ function json_model_14(val, path, rep)
         {
             // handle may description property
             // .'$openapi#ExternalDocumentation'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#ExternalDocumentation'.description]", (path ? lpath_24 : null)])
@@ -1981,7 +1981,7 @@ function json_model_14(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("url"))
+            if (! (val.url !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <url> [.'$openapi#ExternalDocumentation']", path])
         }
         return false
@@ -1993,7 +1993,7 @@ function json_model_14(val, path, rep)
 // object .'$openapi#Parameter'.'|'.1.content
 function _jm_obj_16(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Parameter'.'|'.1.content]", path])
         return false
@@ -2028,7 +2028,7 @@ function _jm_obj_15(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$openapi#Parameter'.'|'.1.name
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Parameter'.'|'.1.name]", (path ? lpath_25 : null)])
@@ -2042,7 +2042,7 @@ function _jm_obj_15(val, path, rep)
             // handle must in property
             must_count += 1
             // .'$openapi#Parameter'.'|'.1.in
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_0.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$openapi#Parameter'.'|'.1.in.'|']", (path ? lpath_25 : null)])
@@ -2055,7 +2055,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Parameter'.'|'.1.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Parameter'.'|'.1.description]", (path ? lpath_25 : null)])
@@ -2068,7 +2068,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may required property
             // .'$openapi#Parameter'.'|'.1.required
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.1.required]", (path ? lpath_25 : null)])
@@ -2081,7 +2081,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may deprecated property
             // .'$openapi#Parameter'.'|'.1.deprecated
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.1.deprecated]", (path ? lpath_25 : null)])
@@ -2094,7 +2094,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may allowEmptyValue property
             // .'$openapi#Parameter'.'|'.1.allowEmptyValue
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.1.allowEmptyValue]", (path ? lpath_25 : null)])
@@ -2130,9 +2130,9 @@ function _jm_obj_15(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("in"))
+            if (! (val.in !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <in> [.'$openapi#Parameter'.'|'.1]", path])
-            if (! val.hasOwnProperty("name"))
+            if (! (val.name !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <name> [.'$openapi#Parameter'.'|'.1]", path])
         }
         return false
@@ -2144,7 +2144,7 @@ function _jm_obj_15(val, path, rep)
 // object .'$openapi#Parameter'.'|'.0.examples
 function _jm_obj_18(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Parameter'.'|'.0.examples]", path])
         return false
@@ -2192,7 +2192,7 @@ function _jm_obj_17(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$openapi#Parameter'.'|'.0.name
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Parameter'.'|'.0.name]", (path ? lpath_27 : null)])
@@ -2206,7 +2206,7 @@ function _jm_obj_17(val, path, rep)
             // handle must in property
             must_count += 1
             // .'$openapi#Parameter'.'|'.0.in
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_1.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$openapi#Parameter'.'|'.0.in.'|']", (path ? lpath_27 : null)])
@@ -2219,7 +2219,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Parameter'.'|'.0.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Parameter'.'|'.0.description]", (path ? lpath_27 : null)])
@@ -2232,7 +2232,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may required property
             // .'$openapi#Parameter'.'|'.0.required
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.0.required]", (path ? lpath_27 : null)])
@@ -2245,7 +2245,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may deprecated property
             // .'$openapi#Parameter'.'|'.0.deprecated
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.0.deprecated]", (path ? lpath_27 : null)])
@@ -2258,7 +2258,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may allowEmptyValue property
             // .'$openapi#Parameter'.'|'.0.allowEmptyValue
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.0.allowEmptyValue]", (path ? lpath_27 : null)])
@@ -2284,7 +2284,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may explode property
             // .'$openapi#Parameter'.'|'.0.explode
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.0.explode]", (path ? lpath_27 : null)])
@@ -2297,7 +2297,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may allowReserved property
             // .'$openapi#Parameter'.'|'.0.allowReserved
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.0.allowReserved]", (path ? lpath_27 : null)])
@@ -2353,9 +2353,9 @@ function _jm_obj_17(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("in"))
+            if (! (val.in !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <in> [.'$openapi#Parameter'.'|'.0]", path])
-            if (! val.hasOwnProperty("name"))
+            if (! (val.name !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <name> [.'$openapi#Parameter'.'|'.0]", path])
         }
         return false
@@ -2367,7 +2367,7 @@ function _jm_obj_17(val, path, rep)
 function json_model_20(val, path, rep)
 {
     // .'$openapi#Parameter'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         // .'$openapi#Parameter'.'|'.0
@@ -2398,7 +2398,7 @@ function json_model_17(val, path, rep)
 {
     // serialization styles
     // .'$openapi#Style'
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_2.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_2.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$openapi#Style'.'|']", path])
     return res
@@ -2407,7 +2407,7 @@ function json_model_17(val, path, rep)
 // object .'$openapi#RequestBody'.content
 function _jm_obj_19(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#RequestBody'.content]", path])
         return false
@@ -2432,7 +2432,7 @@ function _jm_obj_19(val, path, rep)
 function json_model_21(val, path, rep)
 {
     // .'$openapi#RequestBody'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#RequestBody']", path])
         return false
@@ -2445,7 +2445,7 @@ function json_model_21(val, path, rep)
         {
             // handle may description property
             // .'$openapi#RequestBody'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#RequestBody'.description]", (path ? lpath_29 : null)])
@@ -2471,7 +2471,7 @@ function json_model_21(val, path, rep)
         {
             // handle may required property
             // .'$openapi#RequestBody'.required
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#RequestBody'.required]", (path ? lpath_29 : null)])
@@ -2496,7 +2496,7 @@ function json_model_21(val, path, rep)
 // object .'$openapi#MediaType'.examples
 function _jm_obj_20(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#MediaType'.examples]", path])
         return false
@@ -2533,7 +2533,7 @@ function _jm_obj_20(val, path, rep)
 // object .'$openapi#MediaType'.encoding
 function _jm_obj_21(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#MediaType'.encoding]", path])
         return false
@@ -2558,7 +2558,7 @@ function _jm_obj_21(val, path, rep)
 function json_model_22(val, path, rep)
 {
     // .'$openapi#MediaType'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#MediaType']", path])
         return false
@@ -2629,7 +2629,7 @@ function json_model_22(val, path, rep)
 // object .'$openapi#Encoding'.headers
 function _jm_obj_22(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Encoding'.headers]", path])
         return false
@@ -2667,7 +2667,7 @@ function _jm_obj_22(val, path, rep)
 function json_model_23(val, path, rep)
 {
     // .'$openapi#Encoding'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Encoding']", path])
         return false
@@ -2680,7 +2680,7 @@ function json_model_23(val, path, rep)
         {
             // handle may contentType property
             // .'$openapi#Encoding'.contentType
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Encoding'.contentType]", (path ? lpath_34 : null)])
@@ -2719,7 +2719,7 @@ function json_model_23(val, path, rep)
         {
             // handle may explode property
             // .'$openapi#Encoding'.explode
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Encoding'.explode]", (path ? lpath_34 : null)])
@@ -2732,7 +2732,7 @@ function json_model_23(val, path, rep)
         {
             // handle may allowReserved property
             // .'$openapi#Encoding'.allowReserved
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Encoding'.allowReserved]", (path ? lpath_34 : null)])
@@ -2760,7 +2760,7 @@ const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 function json_model_24(val, path, rep)
 {
     // .'$openapi#Responses'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Responses']", path])
         return false
@@ -2835,7 +2835,7 @@ function json_model_24(val, path, rep)
 // object .'$openapi#Response'.headers
 function _jm_obj_23(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Response'.headers]", path])
         return false
@@ -2872,7 +2872,7 @@ function _jm_obj_23(val, path, rep)
 // object .'$openapi#Response'.content
 function _jm_obj_24(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Response'.content]", path])
         return false
@@ -2896,7 +2896,7 @@ function _jm_obj_24(val, path, rep)
 // object .'$openapi#Response'.links
 function _jm_obj_25(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Response'.links]", path])
         return false
@@ -2934,7 +2934,7 @@ function _jm_obj_25(val, path, rep)
 function json_model_25(val, path, rep)
 {
     // .'$openapi#Response'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Response']", path])
         return false
@@ -2947,7 +2947,7 @@ function json_model_25(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Response'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Response'.description]", (path ? lpath_37 : null)])
@@ -3012,7 +3012,7 @@ function json_model_25(val, path, rep)
 function json_model_26(val, path, rep)
 {
     // .'$openapi#Callback'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Callback']", path])
         return false
@@ -3062,7 +3062,7 @@ function json_model_26(val, path, rep)
 function json_model_27(val, path, rep)
 {
     // .'$openapi#Example'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Example']", path])
         return false
@@ -3075,7 +3075,7 @@ function json_model_27(val, path, rep)
         {
             // handle may summary property
             // .'$openapi#Example'.summary
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Example'.summary]", (path ? lpath_42 : null)])
@@ -3088,7 +3088,7 @@ function json_model_27(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Example'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Example'.description]", (path ? lpath_42 : null)])
@@ -3108,7 +3108,7 @@ function json_model_27(val, path, rep)
         {
             // handle may externalValue property
             // .'$openapi#Example'.externalValue
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Example'.externalValue]", (path ? lpath_42 : null)])
@@ -3134,7 +3134,7 @@ function json_model_27(val, path, rep)
 function json_model_28(val, path, rep)
 {
     // .'$openapi#Expression'
-    let res = (typeof val == 'string' || val instanceof String)
+    let res = typeof val == 'string'
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Expression']", path])
     return res
@@ -3154,7 +3154,7 @@ function _jm_obj_26(val, path, rep)
             // handle must operationId property
             must_count += 1
             // .'$openapi#Link'.'|'.1.operationId
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Link'.'|'.1.operationId]", (path ? lpath_43 : null)])
@@ -3167,7 +3167,7 @@ function _jm_obj_26(val, path, rep)
         {
             // handle may parameters property
             // .'$openapi#Link'.'|'.1.parameters
-            res = Object.prototype.toString.call(pval) === '[object Object]'
+            res = pval !== null && typeof pval == 'object' && !Array.isArray(pval)
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.1.parameters]", (path ? lpath_43 : null)])
@@ -3186,7 +3186,7 @@ function _jm_obj_26(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Link'.'|'.1.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Link'.'|'.1.description]", (path ? lpath_43 : null)])
@@ -3222,7 +3222,7 @@ function _jm_obj_26(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("operationId"))
+            if (! (val.operationId !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <operationId> [.'$openapi#Link'.'|'.1]", path])
         }
         return false
@@ -3244,7 +3244,7 @@ function _jm_obj_27(val, path, rep)
             // handle must operationRef property
             must_count += 1
             // .'$openapi#Link'.'|'.0.operationRef
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Link'.'|'.0.operationRef]", (path ? lpath_44 : null)])
@@ -3257,7 +3257,7 @@ function _jm_obj_27(val, path, rep)
         {
             // handle may parameters property
             // .'$openapi#Link'.'|'.0.parameters
-            res = Object.prototype.toString.call(pval) === '[object Object]'
+            res = pval !== null && typeof pval == 'object' && !Array.isArray(pval)
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.0.parameters]", (path ? lpath_44 : null)])
@@ -3276,7 +3276,7 @@ function _jm_obj_27(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Link'.'|'.0.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Link'.'|'.0.description]", (path ? lpath_44 : null)])
@@ -3312,7 +3312,7 @@ function _jm_obj_27(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("operationRef"))
+            if (! (val.operationRef !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <operationRef> [.'$openapi#Link'.'|'.0]", path])
         }
         return false
@@ -3324,7 +3324,7 @@ function _jm_obj_27(val, path, rep)
 function json_model_29(val, path, rep)
 {
     // .'$openapi#Link'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         // .'$openapi#Link'.'|'.0
@@ -3352,7 +3352,7 @@ function json_model_29(val, path, rep)
 // object .'$openapi#Header'.'|'.1.content
 function _jm_obj_29(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Header'.'|'.1.content]", path])
         return false
@@ -3385,7 +3385,7 @@ function _jm_obj_28(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Header'.'|'.1.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Header'.'|'.1.description]", (path ? lpath_45 : null)])
@@ -3398,7 +3398,7 @@ function _jm_obj_28(val, path, rep)
         {
             // handle may required property
             // .'$openapi#Header'.'|'.1.required
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.1.required]", (path ? lpath_45 : null)])
@@ -3411,7 +3411,7 @@ function _jm_obj_28(val, path, rep)
         {
             // handle may deprecated property
             // .'$openapi#Header'.'|'.1.deprecated
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.1.deprecated]", (path ? lpath_45 : null)])
@@ -3424,7 +3424,7 @@ function _jm_obj_28(val, path, rep)
         {
             // handle may allowEmptyValue property
             // .'$openapi#Header'.'|'.1.allowEmptyValue
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.1.allowEmptyValue]", (path ? lpath_45 : null)])
@@ -3462,7 +3462,7 @@ function _jm_obj_28(val, path, rep)
 // object .'$openapi#Header'.'|'.0.examples
 function _jm_obj_31(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Header'.'|'.0.examples]", path])
         return false
@@ -3508,7 +3508,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Header'.'|'.0.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Header'.'|'.0.description]", (path ? lpath_47 : null)])
@@ -3521,7 +3521,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may required property
             // .'$openapi#Header'.'|'.0.required
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.0.required]", (path ? lpath_47 : null)])
@@ -3534,7 +3534,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may deprecated property
             // .'$openapi#Header'.'|'.0.deprecated
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.0.deprecated]", (path ? lpath_47 : null)])
@@ -3547,7 +3547,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may allowEmptyValue property
             // .'$openapi#Header'.'|'.0.allowEmptyValue
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.0.allowEmptyValue]", (path ? lpath_47 : null)])
@@ -3573,7 +3573,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may explode property
             // .'$openapi#Header'.'|'.0.explode
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.0.explode]", (path ? lpath_47 : null)])
@@ -3586,7 +3586,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may allowReserved property
             // .'$openapi#Header'.'|'.0.allowReserved
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.0.allowReserved]", (path ? lpath_47 : null)])
@@ -3646,7 +3646,7 @@ function json_model_30(val, path, rep)
 {
     // more or less a parameter but without name and in
     // .'$openapi#Header'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         // .'$openapi#Header'.'|'.0
@@ -3675,7 +3675,7 @@ function json_model_30(val, path, rep)
 function json_model_31(val, path, rep)
 {
     // .'$openapi#Tag'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Tag']", path])
         return false
@@ -3690,7 +3690,7 @@ function json_model_31(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$openapi#Tag'.name
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Tag'.name]", (path ? lpath_49 : null)])
@@ -3703,7 +3703,7 @@ function json_model_31(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Tag'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Tag'.description]", (path ? lpath_49 : null)])
@@ -3739,7 +3739,7 @@ function json_model_31(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("name"))
+            if (! (val.name !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <name> [.'$openapi#Tag']", path])
         }
         return false
@@ -3751,7 +3751,7 @@ function json_model_31(val, path, rep)
 function json_model_32(val, path, rep)
 {
     // .'$openapi#Reference'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#Reference']", path])
         return false
@@ -3766,7 +3766,7 @@ function json_model_32(val, path, rep)
             // handle must $ref property
             must_count += 1
             // .'$openapi#Reference'.'$ref'
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Reference'.'$ref']", (path ? lpath_50 : null)])
@@ -3779,7 +3779,7 @@ function json_model_32(val, path, rep)
         {
             // handle may summary property
             // .'$openapi#Reference'.summary
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Reference'.summary]", (path ? lpath_50 : null)])
@@ -3792,7 +3792,7 @@ function json_model_32(val, path, rep)
         {
             // handle may description property
             // .'$openapi#Reference'.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#Reference'.description]", (path ? lpath_50 : null)])
@@ -3808,7 +3808,7 @@ function json_model_32(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("$ref"))
+            if (! (val.$ref !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <$ref> [.'$openapi#Reference']", path])
         }
         return false
@@ -3820,7 +3820,7 @@ function json_model_32(val, path, rep)
 // object .'$openapi#SecurityScheme'.'|'.0
 function _jm_obj_32(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#SecurityScheme'.'|'.0]", path])
         return false
@@ -3835,7 +3835,7 @@ function _jm_obj_32(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$openapi#SecurityScheme'.'|'.0.type
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "apiKey"
+            res = typeof pval == 'string' && pval == "apiKey"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_apiKey\" [.'$openapi#SecurityScheme'.'|'.0.type]", (path ? lpath_51 : null)])
@@ -3849,7 +3849,7 @@ function _jm_obj_32(val, path, rep)
             // handle must name property
             must_count += 1
             // .'$openapi#SecurityScheme'.'|'.0.name
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#SecurityScheme'.'|'.0.name]", (path ? lpath_51 : null)])
@@ -3863,7 +3863,7 @@ function _jm_obj_32(val, path, rep)
             // handle must in property
             must_count += 1
             // .'$openapi#SecurityScheme'.'|'.0.in
-            res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_3.has(pval)
+            res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_3.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$openapi#SecurityScheme'.'|'.0.in.'|']", (path ? lpath_51 : null)])
@@ -3876,7 +3876,7 @@ function _jm_obj_32(val, path, rep)
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.0.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#SecurityScheme'.'|'.0.description]", (path ? lpath_51 : null)])
@@ -3892,11 +3892,11 @@ function _jm_obj_32(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("in"))
+            if (! (val.in !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <in> [.'$openapi#SecurityScheme'.'|'.0]", path])
-            if (! val.hasOwnProperty("name"))
+            if (! (val.name !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <name> [.'$openapi#SecurityScheme'.'|'.0]", path])
-            if (! val.hasOwnProperty("type"))
+            if (! (val.type !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$openapi#SecurityScheme'.'|'.0]", path])
         }
         return false
@@ -3909,7 +3909,7 @@ const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
 // object .'$openapi#SecurityScheme'.'|'.1
 function _jm_obj_33(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#SecurityScheme'.'|'.1]", path])
         return false
@@ -3924,7 +3924,7 @@ function _jm_obj_33(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$openapi#SecurityScheme'.'|'.1.type
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "http"
+            res = typeof pval == 'string' && pval == "http"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_http\" [.'$openapi#SecurityScheme'.'|'.1.type]", (path ? lpath_52 : null)])
@@ -3939,7 +3939,7 @@ function _jm_obj_33(val, path, rep)
             must_count += 1
             // .'$openapi#SecurityScheme'.'|'.1.scheme
             // "/bearer/i"
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_3(pval, (path ? lpath_52 : null), rep)
+            res = typeof pval == 'string' && _jm_re_3(pval, (path ? lpath_52 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/bearer/i\" [.'$openapi#SecurityScheme'.'|'.1.scheme]", (path ? lpath_52 : null)])
@@ -3952,7 +3952,7 @@ function _jm_obj_33(val, path, rep)
         {
             // handle may bearerFormat property
             // .'$openapi#SecurityScheme'.'|'.1.bearerFormat
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#SecurityScheme'.'|'.1.bearerFormat]", (path ? lpath_52 : null)])
@@ -3965,7 +3965,7 @@ function _jm_obj_33(val, path, rep)
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.1.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#SecurityScheme'.'|'.1.description]", (path ? lpath_52 : null)])
@@ -3981,9 +3981,9 @@ function _jm_obj_33(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("scheme"))
+            if (! (val.scheme !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <scheme> [.'$openapi#SecurityScheme'.'|'.1]", path])
-            if (! val.hasOwnProperty("type"))
+            if (! (val.type !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$openapi#SecurityScheme'.'|'.1]", path])
         }
         return false
@@ -3994,7 +3994,7 @@ function _jm_obj_33(val, path, rep)
 // object .'$openapi#SecurityScheme'.'|'.2
 function _jm_obj_34(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#SecurityScheme'.'|'.2]", path])
         return false
@@ -4009,7 +4009,7 @@ function _jm_obj_34(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$openapi#SecurityScheme'.'|'.2.type
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "http"
+            res = typeof pval == 'string' && pval == "http"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_http\" [.'$openapi#SecurityScheme'.'|'.2.type]", (path ? lpath_53 : null)])
@@ -4023,7 +4023,7 @@ function _jm_obj_34(val, path, rep)
             // handle must scheme property
             must_count += 1
             // .'$openapi#SecurityScheme'.'|'.2.scheme
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#SecurityScheme'.'|'.2.scheme]", (path ? lpath_53 : null)])
@@ -4036,7 +4036,7 @@ function _jm_obj_34(val, path, rep)
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.2.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#SecurityScheme'.'|'.2.description]", (path ? lpath_53 : null)])
@@ -4052,9 +4052,9 @@ function _jm_obj_34(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("scheme"))
+            if (! (val.scheme !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <scheme> [.'$openapi#SecurityScheme'.'|'.2]", path])
-            if (! val.hasOwnProperty("type"))
+            if (! (val.type !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$openapi#SecurityScheme'.'|'.2]", path])
         }
         return false
@@ -4065,7 +4065,7 @@ function _jm_obj_34(val, path, rep)
 // object .'$openapi#SecurityScheme'.'|'.3
 function _jm_obj_35(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#SecurityScheme'.'|'.3]", path])
         return false
@@ -4080,7 +4080,7 @@ function _jm_obj_35(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$openapi#SecurityScheme'.'|'.3.type
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "oauth2"
+            res = typeof pval == 'string' && pval == "oauth2"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_oauth2\" [.'$openapi#SecurityScheme'.'|'.3.type]", (path ? lpath_54 : null)])
@@ -4107,7 +4107,7 @@ function _jm_obj_35(val, path, rep)
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.3.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#SecurityScheme'.'|'.3.description]", (path ? lpath_54 : null)])
@@ -4123,9 +4123,9 @@ function _jm_obj_35(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("flows"))
+            if (! (val.flows !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <flows> [.'$openapi#SecurityScheme'.'|'.3]", path])
-            if (! val.hasOwnProperty("type"))
+            if (! (val.type !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$openapi#SecurityScheme'.'|'.3]", path])
         }
         return false
@@ -4136,7 +4136,7 @@ function _jm_obj_35(val, path, rep)
 // object .'$openapi#SecurityScheme'.'|'.4
 function _jm_obj_36(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#SecurityScheme'.'|'.4]", path])
         return false
@@ -4151,7 +4151,7 @@ function _jm_obj_36(val, path, rep)
             // handle must type property
             must_count += 1
             // .'$openapi#SecurityScheme'.'|'.4.type
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "openIdConnect"
+            res = typeof pval == 'string' && pval == "openIdConnect"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_openIdConnect\" [.'$openapi#SecurityScheme'.'|'.4.type]", (path ? lpath_55 : null)])
@@ -4178,7 +4178,7 @@ function _jm_obj_36(val, path, rep)
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.4.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#SecurityScheme'.'|'.4.description]", (path ? lpath_55 : null)])
@@ -4194,9 +4194,9 @@ function _jm_obj_36(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("openIdConnectUrl"))
+            if (! (val.openIdConnectUrl !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <openIdConnectUrl> [.'$openapi#SecurityScheme'.'|'.4]", path])
-            if (! val.hasOwnProperty("type"))
+            if (! (val.type !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$openapi#SecurityScheme'.'|'.4]", path])
         }
         return false
@@ -4207,7 +4207,7 @@ function _jm_obj_36(val, path, rep)
 // object .'$openapi#SecurityScheme'.'|'.5
 function _jm_obj_37(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#SecurityScheme'.'|'.5]", path])
         return false
@@ -4220,7 +4220,7 @@ function _jm_obj_37(val, path, rep)
         {
             // handle may description property
             // .'$openapi#SecurityScheme'.'|'.5.description
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#SecurityScheme'.'|'.5.description]", (path ? lpath_56 : null)])
@@ -4247,11 +4247,11 @@ function _jm_obj_37(val, path, rep)
 function json_model_42(val, path, rep)
 {
     // .'$openapi#SecurityScheme'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0
-        if ((tag_0 = val["type"]) != null)
+        if ((tag_0 = val.type) != null)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
@@ -4290,7 +4290,7 @@ function json_model_42(val, path, rep)
 function json_model_43(val, path, rep)
 {
     // .'$openapi#OAuthFlows'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#OAuthFlows']", path])
         return false
@@ -4367,7 +4367,7 @@ function json_model_43(val, path, rep)
 // object .'$openapi#OAuthFlow'.scopes
 function _jm_obj_38(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#OAuthFlow'.scopes]", path])
         return false
@@ -4378,7 +4378,7 @@ function _jm_obj_38(val, path, rep)
         let lpath_59 = path ? path.concat([prop]) : null
         // handle other props
         // .'$openapi#OAuthFlow'.scopes.''
-        res = (typeof pval == 'string' || pval instanceof String)
+        res = typeof pval == 'string'
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#OAuthFlow'.scopes.'']", (path ? lpath_59 : null)])
@@ -4392,7 +4392,7 @@ function _jm_obj_38(val, path, rep)
 function json_model_44(val, path, rep)
 {
     // .'$openapi#OAuthFlow'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#OAuthFlow']", path])
         return false
@@ -4471,11 +4471,11 @@ function json_model_44(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("authorizationUrl"))
+            if (! (val.authorizationUrl !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <authorizationUrl> [.'$openapi#OAuthFlow']", path])
-            if (! val.hasOwnProperty("scopes"))
+            if (! (val.scopes !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <scopes> [.'$openapi#OAuthFlow']", path])
-            if (! val.hasOwnProperty("tokenUrl"))
+            if (! (val.tokenUrl !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <tokenUrl> [.'$openapi#OAuthFlow']", path])
         }
         return false
@@ -4487,7 +4487,7 @@ function json_model_44(val, path, rep)
 function json_model_45(val, path, rep)
 {
     // .'$openapi#SecurityRequirement'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$openapi#SecurityRequirement']", path])
         return false
@@ -4506,7 +4506,7 @@ function json_model_45(val, path, rep)
                 let arr_10_item = pval[arr_10_idx]
                 let arr_10_lpath = (path ? lpath_60 : null) ? (path ? lpath_60 : null).concat([arr_10_idx]) : null
                 // .'$openapi#SecurityRequirement'.''.0
-                res = (typeof arr_10_item == 'string' || arr_10_item instanceof String)
+                res = typeof arr_10_item == 'string'
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#SecurityRequirement'.''.0]", ((path ? lpath_60 : null) ? arr_10_lpath : null)])
@@ -4615,7 +4615,7 @@ function json_model_69(val, path, rep)
 {
     // .'$openapi#model#ArrayComment'
     // "/^#/"
-    let res = ((typeof val == 'string' || val instanceof String)) && val.startsWith("#")
+    let res = typeof val == 'string' && val.startsWith("#")
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^#/\" [.'$openapi#model#ArrayComment']", path])
     return res
@@ -4633,7 +4633,7 @@ function _jm_obj_39(val, path, rep)
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.5.'#'
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#model#Element'.'|'.5.'#']", (path ? lpath_61 : null)])
@@ -4708,7 +4708,7 @@ function _jm_obj_40(val, path, rep)
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.4.'#'
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#model#Element'.'|'.4.'#']", (path ? lpath_62 : null)])
@@ -4781,7 +4781,7 @@ function _jm_obj_41(val, path, rep)
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.3.'#'
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#model#Element'.'|'.3.'#']", (path ? lpath_63 : null)])
@@ -4854,7 +4854,7 @@ function _jm_obj_42(val, path, rep)
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.2.'#'
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#model#Element'.'|'.2.'#']", (path ? lpath_64 : null)])
@@ -4927,7 +4927,7 @@ function _jm_obj_43(val, path, rep)
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.1.'#'
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#model#Element'.'|'.1.'#']", (path ? lpath_65 : null)])
@@ -4989,7 +4989,7 @@ function _jm_obj_44(val, path, rep)
         {
             // handle may # property
             // .'$openapi#model#Element'.'|'.0.'#'
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#model#Element'.'|'.0.'#']", (path ? lpath_66 : null)])
@@ -5002,7 +5002,7 @@ function _jm_obj_44(val, path, rep)
         {
             // handle may ! property
             // .'$openapi#model#Element'.'|'.0.'!'
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$openapi#model#Element'.'|'.0.'!']", (path ? lpath_66 : null)])
@@ -5059,7 +5059,7 @@ function _jm_obj_44(val, path, rep)
 function json_model_93(val, path, rep)
 {
     // .'$openapi#model#Element'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         // .'$openapi#model#Element'.'|'.0
@@ -5113,17 +5113,17 @@ function json_model_76(val, path, rep)
 {
     // .'$openapi#model#CmpValue'
     // .'$openapi#model#CmpValue'.'|'.0
-    let res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
+    let res = typeof val == 'number' && Number.isInteger(val)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$openapi#model#CmpValue'.'|'.0]", path])
         // .'$openapi#model#CmpValue'.'|'.1
-        res = (typeof val == 'number' || val instanceof Number)
+        res = typeof val == 'number'
         if (! res)
         {
             rep !== null && rep.push(["not a -1.0 strict float [.'$openapi#model#CmpValue'.'|'.1]", path])
             // .'$openapi#model#CmpValue'.'|'.2
-            res = (typeof val == 'string' || val instanceof String)
+            res = typeof val == 'string'
             if (! res)
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$openapi#model#CmpValue'.'|'.2]", path])
         }
@@ -5147,7 +5147,7 @@ function json_model_77(val, path, rep)
     {
         rep !== null && rep.push(["not null [.'$openapi#model#EqValue'.'|'.0]", path])
         // .'$openapi#model#EqValue'.'|'.1
-        res = (typeof val == 'boolean' || val instanceof Boolean)
+        res = typeof val == 'boolean'
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$openapi#model#EqValue'.'|'.1]", path])
@@ -5174,7 +5174,7 @@ function json_model_90(val, path, rep)
     // .'$openapi#model#Prop'
     // .'$openapi#model#Prop'.'|'.0
     // "/^[?!]/"
-    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_6(val, path, rep)
+    let res = typeof val == 'string' && _jm_re_6(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/^[?!]/\" [.'$openapi#model#Prop'.'|'.0]", path])
@@ -5199,7 +5199,7 @@ function json_model_90(val, path, rep)
                     {
                         rep !== null && rep.push(["unexpected value for model \"$Name\" [.'$openapi#model#Prop'.'|'.4]", path])
                         // .'$openapi#model#Prop'.'|'.5
-                        res = ((typeof val == 'string' || val instanceof String)) && val == ""
+                        res = typeof val == 'string' && val == ""
                         if (! res)
                             rep !== null && rep.push(["unexpected value for model \"_\" [.'$openapi#model#Prop'.'|'.5]", path])
                     }
@@ -5223,7 +5223,7 @@ function json_model_71(val, path, rep)
 {
     // .'$openapi#model#Ref'
     // "/^\\$./"
-    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_7(val, path, rep)
+    let res = typeof val == 'string' && _jm_re_7(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^\\\\$./\" [.'$openapi#model#Ref']", path])
     return res
@@ -5236,7 +5236,7 @@ function json_model_73(val, path, rep)
 {
     // .'$openapi#model#StrConst'
     // "/^[A-Za-z0-9_]/"
-    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_8(val, path, rep)
+    let res = typeof val == 'string' && _jm_re_8(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^[A-Za-z0-9_]/\" [.'$openapi#model#StrConst']", path])
     return res
@@ -5274,7 +5274,7 @@ function _jm_xre_1(val, path, rep)
 function json_model_74(val, path, rep)
 {
     // .'$openapi#model#Regex'
-    let res = (typeof val == 'string' || val instanceof String)
+    let res = typeof val == 'string'
     if (res)
     {
         // .'$openapi#model#Regex'.'|'.0
@@ -5308,7 +5308,7 @@ function json_model_75(val, path, rep)
 {
     // .'$openapi#model#Name'
     // "/^\\..+$/"
-    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_9(val, path, rep)
+    let res = typeof val == 'string' && _jm_re_9(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^\\\\..+$/\" [.'$openapi#model#Name']", path])
     return res
@@ -5342,7 +5342,7 @@ function json_model_96(val, path, rep)
 function json_model_78(val, path, rep)
 {
     // .'$openapi#model#ValModel'
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_4.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_4.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$openapi#model#ValModel'.'|']", path])
     return res
@@ -5378,7 +5378,7 @@ function json_model_79(val, path, rep)
                     {
                         rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$openapi#model#StrModel'.'|'.4]", path])
                         // .'$openapi#model#StrModel'.'|'.5
-                        res = ((typeof val == 'string' || val instanceof String)) && val == ""
+                        res = typeof val == 'string' && val == ""
                         if (! res)
                             rep !== null && rep.push(["unexpected value for model \"_\" [.'$openapi#model#StrModel'.'|'.5]", path])
                     }
@@ -5400,7 +5400,7 @@ function json_model_79(val, path, rep)
 function json_model_67(val, path, rep)
 {
     // .'$openapi#model#PreDef'
-    let res = ((val === null || (typeof val == 'number' || val instanceof Number) || (typeof val == 'boolean' || val instanceof Boolean) || (typeof val == 'string' || val instanceof String))) && _jm_cst_5.has(val)
+    let res = ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_5.has(val)
     if (! res)
         rep !== null && rep.push(["value not in enum [.'$openapi#model#PreDef'.'|']", path])
     return res
@@ -5413,7 +5413,7 @@ function json_model_72(val, path, rep)
 {
     // .'$openapi#model#ValConst'
     // "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-    let res = ((typeof val == 'string' || val instanceof String)) && _jm_re_10(val, path, rep)
+    let res = typeof val == 'string' && _jm_re_10(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"/^=(null|true|false|[-+]?\\\\d+(\\\\.\\\\d+)?([Ee][-+]?\\\\d+)?)$/\" [.'$openapi#model#ValConst']", path])
     return res
