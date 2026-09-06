@@ -12,14 +12,14 @@
 - [x] model: simplify JSTS model with `$SEMVER`
 - [x] pr: generate model examples pages from json
 - [x] bench: add ajv cli docker and wrapper
-- [x] bench: add ajv external reference (wip)
+- [x] bench: add ajv external reference
 - [x] js: add option for more direct/simpler code
 - [x] js: set default to use simpler code
 - [x] analyze: check static typing on constrained nodes
 - [x] analyze: display model rejections reasons as a warning
 - [x] bench: handle case failures when reporting
 - [x] model: improve jm meta model
-- [ ] bench: handle case failures for radar (wip)
+- [ ] bench: handle case failures for radar (wip, ajv handling)
 - [ ] bench: collect error runs?
 - [ ] bench: add corvus reference?
 - [ ] bench: add stddev performance computation
