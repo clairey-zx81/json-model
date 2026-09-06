@@ -5824,17 +5824,27 @@ static bool json_model_91(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static INLINE bool _jm_cst_4_str_test(const char *s)
 {
     return
-           jm_str_eq_5(s, 0x0000000049525524LL)  // "$URI"
+           jm_str_eq_5(s, 0x0000000048544524LL)  // "$ETH"
+        || jm_str_eq_5(s, 0x0000000034504924LL)  // "$IP4"
+        || jm_str_eq_5(s, 0x0000000036504924LL)  // "$IP6"
+        || jm_str_eq_5(s, 0x0000000049525524LL)  // "$URI"
         || jm_str_eq_5(s, 0x000000004c525524LL)  // "$URL"
+        || jm_str_eq_6(s, 0x0000004452414324LL)  // "$CARD"
         || jm_str_eq_6(s, 0x0000004554414424LL)  // "$DATE"
+        || jm_str_eq_6(s, 0x00000054534f4824LL)  // "$HOST"
+        || jm_str_eq_6(s, 0x0000004e4f534a24LL)  // "$JSON"
         || jm_str_eq_6(s, 0x000000454d495424LL)  // "$TIME"
         || jm_str_eq_6(s, 0x0000004449555524LL)  // "$UUID"
         || jm_str_eq_7(s, 0x00004c49414d4524LL)  // "$EMAIL"
         || jm_str_eq_7(s, 0x0000474552584524LL)  // "$EXREG"
         || jm_str_eq_7(s, 0x0000584547455224LL)  // "$REGEX"
+        || jm_str_eq_8(s, 0x0054504e4f534a24LL)  // "$JSONPT"
         || jm_str_eq_8(s, 0x005245564d455324LL)  // "$SEMVER"
         || jm_str_eq_8(s, 0x00474e4952545324LL)  // "$STRING"
+        || jm_str_eq_8(s, 0x005a54454d495424LL)  // "$TIMETZ"
+        || jm_str_eq_8(s, 0x4c45525f4c525524LL) && jm_str_eq_0(s + 8)  // "$URL_REL"
         || jm_str_eq_8(s, 0x4d49544554414424LL) && jm_str_eq_2(s + 8, 0x00000045)  // "$DATETIME"
+        || jm_str_eq_8(s, 0x4f49544152554424LL) && jm_str_eq_2(s + 8, 0x0000004e)  // "$DURATION"
     ;
 }
 
@@ -5943,11 +5953,11 @@ static bool _jm_re_8(const char *s, jm_path_t *path, jm_report_t *rep)
 static bool json_model_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$openapi#model#Url'
-    // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
+    // "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/"
     bool res = json_is_string(val) && _jm_re_8(json_string_value(val), path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*)$/\" [.'$openapi#model#Url']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*|[^#]*#.*)$/\" [.'$openapi#model#Url']", path);
     }
     return res;
 }
@@ -6240,6 +6250,7 @@ static INLINE bool _jm_cst_6_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000004c4c554e24LL)  // "$NULL"
         || jm_str_eq_7(s, 0x000054414f4c4624LL)  // "$FLOAT"
         || jm_str_eq_8(s, 0x005245424d554e24LL)  // "$NUMBER"
+        || jm_str_eq_8(s, 0x4e41454c4f4f4224LL) && jm_str_eq_0(s + 8)  // "$BOOLEAN"
         || jm_str_eq_8(s, 0x52454745544e4924LL) && jm_str_eq_0(s + 8)  // "$INTEGER"
     ;
 }
@@ -6344,7 +6355,7 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_xre_1_re_re2))
             return cre2_error_string(_jm_xre_1_re_re2);
         _jm_xre_1_re_nn = cre2_num_capturing_groups(_jm_xre_1_re_re2) + 1;
-        const char * _jm_re_8_rx = "^((file|https?)://.+|\\./.*|\\.\\./.*)$";
+        const char * _jm_re_8_rx = "^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$";
         _jm_re_8_re2 = cre2_new(_jm_re_8_rx, strlen(_jm_re_8_rx), NULL);
         if (cre2_error_code(_jm_re_8_re2))
             return cre2_error_string(_jm_re_8_re2);

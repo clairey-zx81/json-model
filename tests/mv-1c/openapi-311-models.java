@@ -5691,11 +5691,11 @@ public class openapi_311_models extends ModelChecker
     public boolean json_model_66(Object val, Path path, Report rep)
     {
         // .'$openapi#model#Url'
-        // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
+        // "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/"
         boolean res = json.isString(val) && _jm_re_8(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*)$/\" [.'$openapi#model#Url']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*|[^#]*#.*)$/\" [.'$openapi#model#Url']", path);
         }
         return res;
     }
@@ -6042,20 +6042,30 @@ public class openapi_311_models extends ModelChecker
             _jm_re_6_pat = Pattern.compile("^(=|!=)$");
             _jm_re_7_pat = Pattern.compile("^[?!]");
             _jm_cst_4_set = new HashSet<Object>();
+            _jm_cst_4_set.add(json.safeJSON("\"$STRING\""));
             _jm_cst_4_set.add(json.safeJSON("\"$DATE\""));
             _jm_cst_4_set.add(json.safeJSON("\"$TIME\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$TIMETZ\""));
             _jm_cst_4_set.add(json.safeJSON("\"$DATETIME\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$DURATION\""));
             _jm_cst_4_set.add(json.safeJSON("\"$URL\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$URL_REL\""));
             _jm_cst_4_set.add(json.safeJSON("\"$URI\""));
-            _jm_cst_4_set.add(json.safeJSON("\"$UUID\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$HOST\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$IP4\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$IP6\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$ETH\""));
             _jm_cst_4_set.add(json.safeJSON("\"$EMAIL\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$UUID\""));
             _jm_cst_4_set.add(json.safeJSON("\"$REGEX\""));
             _jm_cst_4_set.add(json.safeJSON("\"$EXREG\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$JSON\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$JSONPT\""));
             _jm_cst_4_set.add(json.safeJSON("\"$SEMVER\""));
-            _jm_cst_4_set.add(json.safeJSON("\"$STRING\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$CARD\""));
             _jm_xre_0_re_pat = Pattern.compile("^\\$(?<s1>.*)$");
             _jm_xre_1_re_pat = Pattern.compile("^\\$(?<s1>.*)$");
-            _jm_re_8_pat = Pattern.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$");
+            _jm_re_8_pat = Pattern.compile("^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$");
             _jm_re_9_pat = Pattern.compile("[^A-Z0-9]");
             _jm_re_10_pat = Pattern.compile("^\\w(\\w|-)*$");
             _jm_re_11_pat = Pattern.compile("^[A-Za-z0-9_]");
@@ -6074,6 +6084,7 @@ public class openapi_311_models extends ModelChecker
             _jm_cst_6_set = new HashSet<Object>();
             _jm_cst_6_set.add(json.safeJSON("\"$NULL\""));
             _jm_cst_6_set.add(json.safeJSON("\"$BOOL\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$BOOLEAN\""));
             _jm_cst_6_set.add(json.safeJSON("\"$FLOAT\""));
             _jm_cst_6_set.add(json.safeJSON("\"$F16\""));
             _jm_cst_6_set.add(json.safeJSON("\"$F32\""));

@@ -3597,7 +3597,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_cst_4(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  constants JSONB = JSONB '["$DATE","$TIME","$DATETIME","$URL","$URI","$UUID","$EMAIL","$REGEX","$EXREG","$SEMVER","$STRING"]';
+  constants JSONB = JSONB '["$STRING","$DATE","$TIME","$TIMETZ","$DATETIME","$DURATION","$URL","$URL_REL","$URI","$HOST","$IP4","$IP6","$ETH","$EMAIL","$UUID","$REGEX","$EXREG","$JSON","$JSONPT","$SEMVER","$CARD"]';
 BEGIN
   RETURN constants @> value;
 END;
@@ -3677,11 +3677,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^((file|https?)://.+|\./.*|\.\./.*)$ opts=n
+-- regex=^((file|https?)://.+|\./.*|\.\./.*|[^#]*#.*)$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_8(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^((file|https?)://.+|\./.*|\.\./.*)$', 'n');
+  RETURN regexp_like(val, '^((file|https?)://.+|\./.*|\.\./.*|[^#]*#.*)$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -3690,7 +3690,7 @@ CREATE OR REPLACE FUNCTION json_model_66(val JSONB, path TEXT[], rep jm_report_e
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi#model#Url'
-  -- "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
+  -- "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/"
   RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_8(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
@@ -3872,7 +3872,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_cst_6(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  constants JSONB = JSONB '["$NULL","$BOOL","$FLOAT","$F16","$F32","$F64","$NUMBER","$INT","$INTEGER","$I8","$I16","$I32","$I64","$U8","$U16","$U32","$U64","$NONE","$ANY"]';
+  constants JSONB = JSONB '["$NULL","$BOOL","$BOOLEAN","$FLOAT","$F16","$F32","$F64","$NUMBER","$INT","$INTEGER","$I8","$I16","$I32","$I64","$U8","$U16","$U32","$U64","$NONE","$ANY"]';
 BEGIN
   RETURN constants @> value;
 END;

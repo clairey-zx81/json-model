@@ -303,10 +303,10 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $Model#Url (.'$Model#Url')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Url'
-    # "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
+    # "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/"
     res: bool = isinstance(val, str) and _jm_re_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*)$/\" [.'$Model#Url']", path))
+        rep is None or rep.append(("unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*|[^#]*#.*)$/\" [.'$Model#Url']", path))
     return res
 
 
@@ -1711,9 +1711,9 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_cst_0
-        _jm_cst_0 = {'$ANY', '$BOOL', '$F16', '$F32', '$F64', '$FLOAT', '$I16', '$I32', '$I64', '$I8', '$INT', '$INTEGER', '$NONE', '$NULL', '$NUMBER', '$U16', '$U32', '$U64', '$U8'}
+        _jm_cst_0 = {'$ANY', '$BOOL', '$BOOLEAN', '$F16', '$F32', '$F64', '$FLOAT', '$I16', '$I32', '$I64', '$I8', '$INT', '$INTEGER', '$NONE', '$NULL', '$NUMBER', '$U16', '$U32', '$U64', '$U8'}
         global _jm_cst_1
-        _jm_cst_1 = {'$DATE', '$DATETIME', '$EMAIL', '$EXREG', '$REGEX', '$SEMVER', '$STRING', '$TIME', '$URI', '$URL', '$UUID'}
+        _jm_cst_1 = {'$CARD', '$DATE', '$DATETIME', '$DURATION', '$EMAIL', '$ETH', '$EXREG', '$HOST', '$IP4', '$IP6', '$JSON', '$JSONPT', '$REGEX', '$SEMVER', '$STRING', '$TIME', '$TIMETZ', '$URI', '$URL', '$URL_REL', '$UUID'}
         global _jm_xre_0_re_reco, _jm_xre_0_re
         _jm_xre_0_re_reco = re.compile("^\\$(?<s1>.*)$")
         _jm_xre_0_re = lambda s, p, r: _jm_xre_0_re_reco.search(s) is not None
@@ -1721,7 +1721,7 @@ def check_model_init():
         _jm_xre_1_re_reco = re.compile("^\\$(?<s1>.*)$")
         _jm_xre_1_re = lambda s, p, r: _jm_xre_1_re_reco.search(s) is not None
         global _jm_re_0_reco, _jm_re_0
-        _jm_re_0_reco = re.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$")
+        _jm_re_0_reco = re.compile("^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$")
         _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global _jm_re_1_reco, _jm_re_1
         _jm_re_1_reco = re.compile("[^A-Z0-9]")

@@ -38,7 +38,8 @@ clean:
 	$(RM) $(COUNTER).*
 
 LOGLEVEL = info
-PYTEST  = pytest --log-level=$(LOGLEVEL) --capture=tee-sys --durations=10
+# --capture=tee-sys
+PYTEST  = pytest --log-level=$(LOGLEVEL) --durations=10
 PYTOPT	= -n logical
 
 .PHONY: check.pytest

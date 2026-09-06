@@ -47,11 +47,11 @@ public class json_model extends ModelChecker
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         // .'$Url'
-        // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
+        // "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/"
         boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*)$/\" [.'$Url']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*|[^#]*#.*)$/\" [.'$Url']", path);
         }
         return res;
     }
@@ -4194,22 +4194,33 @@ public class json_model extends ModelChecker
         if (!initialized)
         {
             try {
-            _jm_re_0_pat = Pattern.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$");
+            _jm_re_0_pat = Pattern.compile("^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$");
             _jm_cst_0_set = new HashSet<Object>();
+            _jm_cst_0_set.add(json.safeJSON("\"$STRING\""));
             _jm_cst_0_set.add(json.safeJSON("\"$DATE\""));
             _jm_cst_0_set.add(json.safeJSON("\"$TIME\""));
+            _jm_cst_0_set.add(json.safeJSON("\"$TIMETZ\""));
             _jm_cst_0_set.add(json.safeJSON("\"$DATETIME\""));
+            _jm_cst_0_set.add(json.safeJSON("\"$DURATION\""));
             _jm_cst_0_set.add(json.safeJSON("\"$URL\""));
+            _jm_cst_0_set.add(json.safeJSON("\"$URL_REL\""));
             _jm_cst_0_set.add(json.safeJSON("\"$URI\""));
-            _jm_cst_0_set.add(json.safeJSON("\"$UUID\""));
+            _jm_cst_0_set.add(json.safeJSON("\"$HOST\""));
+            _jm_cst_0_set.add(json.safeJSON("\"$IP4\""));
+            _jm_cst_0_set.add(json.safeJSON("\"$IP6\""));
+            _jm_cst_0_set.add(json.safeJSON("\"$ETH\""));
             _jm_cst_0_set.add(json.safeJSON("\"$EMAIL\""));
+            _jm_cst_0_set.add(json.safeJSON("\"$UUID\""));
             _jm_cst_0_set.add(json.safeJSON("\"$REGEX\""));
             _jm_cst_0_set.add(json.safeJSON("\"$EXREG\""));
+            _jm_cst_0_set.add(json.safeJSON("\"$JSON\""));
+            _jm_cst_0_set.add(json.safeJSON("\"$JSONPT\""));
             _jm_cst_0_set.add(json.safeJSON("\"$SEMVER\""));
-            _jm_cst_0_set.add(json.safeJSON("\"$STRING\""));
+            _jm_cst_0_set.add(json.safeJSON("\"$CARD\""));
             _jm_cst_1_set = new HashSet<Object>();
             _jm_cst_1_set.add(json.safeJSON("\"$NULL\""));
             _jm_cst_1_set.add(json.safeJSON("\"$BOOL\""));
+            _jm_cst_1_set.add(json.safeJSON("\"$BOOLEAN\""));
             _jm_cst_1_set.add(json.safeJSON("\"$FLOAT\""));
             _jm_cst_1_set.add(json.safeJSON("\"$F16\""));
             _jm_cst_1_set.add(json.safeJSON("\"$F32\""));

@@ -18,6 +18,7 @@
 - [x] analyze: check static typing on constrained nodes
 - [x] analyze: display model rejections reasons as a warning
 - [x] bench: handle case failures when reporting
+- [x] model: improve jm meta model
 - [ ] bench: handle case failures for radar (wip)
 - [ ] bench: collect error runs?
 - [ ] bench: add corvus reference?
