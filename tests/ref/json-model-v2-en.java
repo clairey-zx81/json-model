@@ -19,13 +19,16 @@ public class json_model_v2_en extends ModelChecker
 
     Set<Object> _jm_cst_0_set;
     Set<Object> _jm_cst_1_set;
+    Set<Object> _jm_cst_2_set;
+    public Pattern _jm_xre_0_re_pat = null;
+    public Pattern _jm_xre_1_re_pat = null;
     public Pattern _jm_re_0_pat = null;
     public Pattern _jm_re_1_pat = null;
     public Pattern _jm_re_2_pat = null;
-    public Pattern _jm_xre_0_re_pat = null;
-    public Pattern _jm_xre_1_re_pat = null;
     public Pattern _jm_re_3_pat = null;
     public Pattern _jm_re_4_pat = null;
+    public Pattern _jm_xre_2_re_pat = null;
+    public Pattern _jm_xre_3_re_pat = null;
     public Pattern _jm_re_5_pat = null;
     public Pattern _jm_re_6_pat = null;
     public Pattern _jm_re_7_pat = null;
@@ -39,7 +42,7 @@ public class json_model_v2_en extends ModelChecker
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         // .'$Model'
-        boolean res = json_model_42(val, path, rep);
+        boolean res = json_model_43(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$RootModel\" [.'$Model']", path);
@@ -51,7 +54,7 @@ public class json_model_v2_en extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        boolean res = json_model_42(val, path, rep);
+        boolean res = json_model_43(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.]", path);
@@ -60,21 +63,21 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#RootModel (.'$Model#RootModel')
-    public boolean json_model_42(Object val, Path path, Report rep)
+    public boolean json_model_43(Object val, Path path, Report rep)
     {
         // .'$Model#RootModel'
         // .'$Model#RootModel'.'|'.0
-        boolean res = json_model_34(val, path, rep);
+        boolean res = json_model_35(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$ScalarModel\" [.'$Model#RootModel'.'|'.0]", path);
             // .'$Model#RootModel'.'|'.1
-            res = json_model_21(val, path, rep);
+            res = json_model_22(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$Array\" [.'$Model#RootModel'.'|'.1]", path);
                 // .'$Model#RootModel'.'|'.2
-                res = json_model_41(val, path, rep);
+                res = json_model_42(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Root\" [.'$Model#RootModel'.'|'.2]", path);
@@ -93,7 +96,7 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#Array (.'$Model#Array')
-    public boolean json_model_21(Object val, Path path, Report rep)
+    public boolean json_model_22(Object val, Path path, Report rep)
     {
         // .'$Model#Array'
         boolean res = json.isArray(val);
@@ -107,7 +110,7 @@ public class json_model_v2_en extends ModelChecker
                 Object arr_0_item = arr_0_item_loop.next();
                 Path arr_0_lpath = new Path(arr_0_idx, path);
                 // .'$Model#Array'.0
-                res = json_model_20(arr_0_item, (path != null ? arr_0_lpath : null), rep);
+                res = json_model_21(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Model#Array'.0]", (path != null ? arr_0_lpath : null));
@@ -123,16 +126,16 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#CModel (.'$Model#CModel')
-    public boolean json_model_20(Object val, Path path, Report rep)
+    public boolean json_model_21(Object val, Path path, Report rep)
     {
         // .'$Model#CModel'
         // .'$Model#CModel'.'|'.0
-        boolean res = json_model_35(val, path, rep);
+        boolean res = json_model_36(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#CModel'.'|'.0]", path);
             // .'$Model#CModel'.'|'.1
-            res = json_model_7(val, path, rep);
+            res = json_model_8(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$ArrayComment\" [.'$Model#CModel'.'|'.1]", path);
@@ -150,7 +153,7 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#ArrayComment (.'$Model#ArrayComment')
-    public boolean json_model_7(Object val, Path path, Report rep)
+    public boolean json_model_8(Object val, Path path, Report rep)
     {
         // .'$Model#ArrayComment'
         // "/^#/"
@@ -163,16 +166,16 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#ScalarModel (.'$Model#ScalarModel')
-    public boolean json_model_34(Object val, Path path, Report rep)
+    public boolean json_model_35(Object val, Path path, Report rep)
     {
         // .'$Model#ScalarModel'
         // .'$Model#ScalarModel'.'|'.0
-        boolean res = json_model_16(val, path, rep);
+        boolean res = json_model_17(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$ValModel\" [.'$Model#ScalarModel'.'|'.0]", path);
             // .'$Model#ScalarModel'.'|'.1
-            res = json_model_17(val, path, rep);
+            res = json_model_18(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$StrModel\" [.'$Model#ScalarModel'.'|'.1]", path);
@@ -191,7 +194,7 @@ public class json_model_v2_en extends ModelChecker
 
 
     // check $Model#ValModel (.'$Model#ValModel')
-    public boolean json_model_16(Object val, Path path, Report rep)
+    public boolean json_model_17(Object val, Path path, Report rep)
     {
         // .'$Model#ValModel'
         boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
@@ -203,31 +206,31 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#StrModel (.'$Model#StrModel')
-    public boolean json_model_17(Object val, Path path, Report rep)
+    public boolean json_model_18(Object val, Path path, Report rep)
     {
         // .'$Model#StrModel'
         // .'$Model#StrModel'.'|'.0
-        boolean res = json_model_11(val, path, rep);
+        boolean res = json_model_12(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$StrConst\" [.'$Model#StrModel'.'|'.0]", path);
             // .'$Model#StrModel'.'|'.1
-            res = json_model_10(val, path, rep);
+            res = json_model_11(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$ValConst\" [.'$Model#StrModel'.'|'.1]", path);
                 // .'$Model#StrModel'.'|'.2
-                res = json_model_12(val, path, rep);
+                res = json_model_13(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Regex\" [.'$Model#StrModel'.'|'.2]", path);
                     // .'$Model#StrModel'.'|'.3
-                    res = json_model_5(val, path, rep);
+                    res = json_model_6(val, path, rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected value for model \"$PreDef\" [.'$Model#StrModel'.'|'.3]", path);
                         // .'$Model#StrModel'.'|'.4
-                        res = json_model_9(val, path, rep);
+                        res = json_model_10(val, path, rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#StrModel'.'|'.4]", path);
@@ -255,67 +258,37 @@ public class json_model_v2_en extends ModelChecker
 
 
     // check $Model#PreDef (.'$Model#PreDef')
-    public boolean json_model_5(Object val, Path path, Report rep)
+    public boolean json_model_6(Object val, Path path, Report rep)
     {
         // .'$Model#PreDef'
         boolean res = json.isScalar(val) && _jm_cst_1_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$Model#PreDef'.'|']", path);
+            // .'$Model#PreDef'.'|'.0
+            res = json_model_5(val, path, rep);
+            if (res)
+            {
+                if (rep != null) rep.clearEntries();
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected value for model \"$StrPredef\" [.'$Model#PreDef'.'|'.0]", path);
+                if (rep != null) rep.addEntry("no model matched [.'$Model#PreDef'.'|']", path);
+            }
         }
         return res;
     }
 
-    public boolean _jm_re_0(String val, Path path, Report rep)
-    {
-        return _jm_re_0_pat.matcher(val).find();
-    }
 
-    // check $Model#Ref (.'$Model#Ref')
-    public boolean json_model_9(Object val, Path path, Report rep)
+    // check $Model#StrPredef (.'$Model#StrPredef')
+    public boolean json_model_5(Object val, Path path, Report rep)
     {
-        // .'$Model#Ref'
-        // "/^\\$./"
-        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        // .'$Model#StrPredef'
+        boolean res = json.isScalar(val) && _jm_cst_2_set.contains(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\$./\" [.'$Model#Ref']", path);
-        }
-        return res;
-    }
-
-    public boolean _jm_re_1(String val, Path path, Report rep)
-    {
-        return _jm_re_1_pat.matcher(val).find();
-    }
-
-    // check $Model#ValConst (.'$Model#ValConst')
-    public boolean json_model_10(Object val, Path path, Report rep)
-    {
-        // .'$Model#ValConst'
-        // "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-        boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected value for model \"/^=(null|true|false|[-+]?\\\\d+(\\\\.\\\\d+)?([Ee][-+]?\\\\d+)?)$/\" [.'$Model#ValConst']", path);
-        }
-        return res;
-    }
-
-    public boolean _jm_re_2(String val, Path path, Report rep)
-    {
-        return _jm_re_2_pat.matcher(val).find();
-    }
-
-    // check $Model#StrConst (.'$Model#StrConst')
-    public boolean json_model_11(Object val, Path path, Report rep)
-    {
-        // .'$Model#StrConst'
-        // "/^[A-Za-z0-9_]/"
-        boolean res = json.isString(val) && _jm_re_2(json.asString(val), path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected value for model \"/^[A-Za-z0-9_]/\" [.'$Model#StrConst']", path);
+            if (rep != null) rep.addEntry("value not in enum [.'$Model#StrPredef'.'|']", path);
         }
         return res;
     }
@@ -332,7 +305,7 @@ public class json_model_v2_en extends ModelChecker
         if (! match)
             return false;
         String extract = _jm_xre_0_re_match.group("s1");
-        if (! rt.is_valid_regex(extract))
+        if (! json_model_4(json.strToJSON(extract), path, rep))
             return false;
         return true;
     }
@@ -349,13 +322,184 @@ public class json_model_v2_en extends ModelChecker
         if (! match)
             return false;
         String extract = _jm_xre_1_re_match.group("s1");
+        if (! json_model_7(json.strToJSON(extract), path, rep))
+            return false;
+        return true;
+    }
+
+    // check $Model#Ref (.'$Model#Ref')
+    public boolean json_model_10(Object val, Path path, Report rep)
+    {
+        // .'$Model#Ref'
+        boolean res = json.isString(val);
+        if (res)
+        {
+            // .'$Model#Ref'.'|'.0
+            // "/^\\$($Identifier)$/X"
+            res = _jm_xre_1(json.asString(val), path, rep);
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\$($Identifier)$/X\" [.'$Model#Ref'.'|'.0]", path);
+                // .'$Model#Ref'.'|'.1
+                // "/^\\$($Url)$/X"
+                res = _jm_xre_0(json.asString(val), path, rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\$($Url)$/X\" [.'$Model#Ref'.'|'.1]", path);
+                }
+            }
+            if (res)
+            {
+                if (rep != null) rep.clearEntries();
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("no model matched [.'$Model#Ref'.'|']", path);
+            }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$Model#Ref'.'|']", path);
+        }
+        return res;
+    }
+
+    public boolean _jm_re_0(String val, Path path, Report rep)
+    {
+        return _jm_re_0_pat.matcher(val).find();
+    }
+
+    // check $Model#Url (.'$Model#Url')
+    public boolean json_model_4(Object val, Path path, Report rep)
+    {
+        // .'$Model#Url'
+        // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
+        boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*)$/\" [.'$Model#Url']", path);
+        }
+        return res;
+    }
+
+    public boolean _jm_re_1(String val, Path path, Report rep)
+    {
+        return _jm_re_1_pat.matcher(val).find();
+    }
+
+    public boolean _jm_re_2(String val, Path path, Report rep)
+    {
+        return _jm_re_2_pat.matcher(val).find();
+    }
+
+    // check $Model#Identifier (.'$Model#Identifier')
+    public boolean json_model_7(Object val, Path path, Report rep)
+    {
+        // .'$Model#Identifier'
+        boolean res = json.isString(val);
+        if (res)
+        {
+            // .'$Model#Identifier'.'&'.0
+            // "/^\\w(\\w|-)*$/"
+            res = _jm_re_2(json.asString(val), path, rep);
+            if (res)
+            {
+                // .'$Model#Identifier'.'&'.1
+                // "/[^A-Z0-9]/"
+                res = _jm_re_1(json.asString(val), path, rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"/[^A-Z0-9]/\" [.'$Model#Identifier'.'&'.1]", path);
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\w(\\\\w|-)*$/\" [.'$Model#Identifier'.'&'.0]", path);
+            }
+        }
+        if (res)
+        {
+            if (rep != null) rep.clearEntries();
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not all model match [.'$Model#Identifier'.'&']", path);
+        }
+        return res;
+    }
+
+    public boolean _jm_re_3(String val, Path path, Report rep)
+    {
+        return _jm_re_3_pat.matcher(val).find();
+    }
+
+    // check $Model#ValConst (.'$Model#ValConst')
+    public boolean json_model_11(Object val, Path path, Report rep)
+    {
+        // .'$Model#ValConst'
+        // "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
+        boolean res = json.isString(val) && _jm_re_3(json.asString(val), path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"/^=(null|true|false|[-+]?\\\\d+(\\\\.\\\\d+)?([Ee][-+]?\\\\d+)?)$/\" [.'$Model#ValConst']", path);
+        }
+        return res;
+    }
+
+    public boolean _jm_re_4(String val, Path path, Report rep)
+    {
+        return _jm_re_4_pat.matcher(val).find();
+    }
+
+    // check $Model#StrConst (.'$Model#StrConst')
+    public boolean json_model_12(Object val, Path path, Report rep)
+    {
+        // .'$Model#StrConst'
+        // "/^[A-Za-z0-9_]/"
+        boolean res = json.isString(val) && _jm_re_4(json.asString(val), path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"/^[A-Za-z0-9_]/\" [.'$Model#StrConst']", path);
+        }
+        return res;
+    }
+
+    public boolean _jm_xre_2_re(String val, Path path, Report rep)
+    {
+        return _jm_xre_2_re_pat.matcher(val).find();
+    }
+
+    public boolean _jm_xre_2(String val, Path path, Report rep)
+    {
+        Matcher _jm_xre_2_re_match;
+        boolean match = (_jm_xre_2_re_match = _jm_xre_2_re_pat.matcher(val)).find();
+        if (! match)
+            return false;
+        String extract = _jm_xre_2_re_match.group("s1");
+        if (! rt.is_valid_regex(extract))
+            return false;
+        return true;
+    }
+
+    public boolean _jm_xre_3_re(String val, Path path, Report rep)
+    {
+        return _jm_xre_3_re_pat.matcher(val).find();
+    }
+
+    public boolean _jm_xre_3(String val, Path path, Report rep)
+    {
+        Matcher _jm_xre_3_re_match;
+        boolean match = (_jm_xre_3_re_match = _jm_xre_3_re_pat.matcher(val)).find();
+        if (! match)
+            return false;
+        String extract = _jm_xre_3_re_match.group("s1");
         if (! rt.is_valid_exreg(extract))
             return false;
         return true;
     }
 
     // check $Model#Regex (.'$Model#Regex')
-    public boolean json_model_12(Object val, Path path, Report rep)
+    public boolean json_model_13(Object val, Path path, Report rep)
     {
         // .'$Model#Regex'
         boolean res = json.isString(val);
@@ -363,13 +507,13 @@ public class json_model_v2_en extends ModelChecker
         {
             // .'$Model#Regex'.'|'.0
             // "/^/($EXREG)/[a-z]*X[a-z]*$/X"
-            res = _jm_xre_1(json.asString(val), path, rep);
+            res = _jm_xre_3(json.asString(val), path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"/^/($EXREG)/[a-z]*X[a-z]*$/X\" [.'$Model#Regex'.'|'.0]", path);
                 // .'$Model#Regex'.'|'.1
                 // "/^/($REGEX)/[a-z]*$/X"
-                res = _jm_xre_0(json.asString(val), path, rep);
+                res = _jm_xre_2(json.asString(val), path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/^/($REGEX)/[a-z]*$/X\" [.'$Model#Regex'.'|'.1]", path);
@@ -392,21 +536,21 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#Model (.'$Model#Model')
-    public boolean json_model_35(Object val, Path path, Report rep)
+    public boolean json_model_36(Object val, Path path, Report rep)
     {
         // .'$Model#Model'
         // .'$Model#Model'.'|'.0
-        boolean res = json_model_34(val, path, rep);
+        boolean res = json_model_35(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$ScalarModel\" [.'$Model#Model'.'|'.0]", path);
             // .'$Model#Model'.'|'.1
-            res = json_model_21(val, path, rep);
+            res = json_model_22(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$Array\" [.'$Model#Model'.'|'.1]", path);
                 // .'$Model#Model'.'|'.2
-                res = json_model_31(val, path, rep);
+                res = json_model_32(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Element\" [.'$Model#Model'.'|'.2]", path);
@@ -422,6 +566,11 @@ public class json_model_v2_en extends ModelChecker
             if (rep != null) rep.addEntry("no model matched [.'$Model#Model'.'|']", path);
         }
         return res;
+    }
+
+    public boolean _jm_re_5(String val, Path path, Report rep)
+    {
+        return _jm_re_5_pat.matcher(val).find();
     }
 
     // object .'$Model#Element'.'|'.5
@@ -448,20 +597,20 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_28(json.strToJSON(prop), (path != null ? lpath_0 : null), rep))
+            if (json_model_29(json.strToJSON(prop), (path != null ? lpath_0 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Element'.'|'.5.'$Prop'
-                res = json_model_35(pval, (path != null ? lpath_0 : null), rep);
+                res = json_model_36(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Element'.'|'.5.'$Prop']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Element'.'|'.5.'/^#/'
+                // .'$Model#Element'.'|'.5.'/^#./s'
                 res = true;
             else
             {
@@ -500,7 +649,7 @@ public class json_model_v2_en extends ModelChecker
                         Object arr_1_item = arr_1_item_loop.next();
                         Path arr_1_lpath = new Path(arr_1_idx, (path != null ? lpath_1 : null));
                         // .'$Model#Element'.'|'.4.'+'.0
-                        res = json_model_20(arr_1_item, ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null), rep);
+                        res = json_model_21(arr_1_item, ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Model#Element'.'|'.4.'+'.0]", ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null));
@@ -529,9 +678,9 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Element'.'|'.4.'/^#/'
+                // .'$Model#Element'.'|'.4.'/^#./s'
                 res = true;
             else
             {
@@ -581,7 +730,7 @@ public class json_model_v2_en extends ModelChecker
                         Object arr_2_item = arr_2_item_loop.next();
                         Path arr_2_lpath = new Path(arr_2_idx, (path != null ? lpath_2 : null));
                         // .'$Model#Element'.'|'.3.'^'.0
-                        res = json_model_20(arr_2_item, ((path != null ? lpath_2 : null) != null ? arr_2_lpath : null), rep);
+                        res = json_model_21(arr_2_item, ((path != null ? lpath_2 : null) != null ? arr_2_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Model#Element'.'|'.3.'^'.0]", ((path != null ? lpath_2 : null) != null ? arr_2_lpath : null));
@@ -610,9 +759,9 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Element'.'|'.3.'/^#/'
+                // .'$Model#Element'.'|'.3.'/^#./s'
                 res = true;
             else
             {
@@ -662,7 +811,7 @@ public class json_model_v2_en extends ModelChecker
                         Object arr_3_item = arr_3_item_loop.next();
                         Path arr_3_lpath = new Path(arr_3_idx, (path != null ? lpath_3 : null));
                         // .'$Model#Element'.'|'.2.'&'.0
-                        res = json_model_20(arr_3_item, ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null), rep);
+                        res = json_model_21(arr_3_item, ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Model#Element'.'|'.2.'&'.0]", ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null));
@@ -691,9 +840,9 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Element'.'|'.2.'/^#/'
+                // .'$Model#Element'.'|'.2.'/^#./s'
                 res = true;
             else
             {
@@ -743,7 +892,7 @@ public class json_model_v2_en extends ModelChecker
                         Object arr_4_item = arr_4_item_loop.next();
                         Path arr_4_lpath = new Path(arr_4_idx, (path != null ? lpath_4 : null));
                         // .'$Model#Element'.'|'.1.'|'.0
-                        res = json_model_20(arr_4_item, ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null), rep);
+                        res = json_model_21(arr_4_item, ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Model#Element'.'|'.1.'|'.0]", ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null));
@@ -772,9 +921,9 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Element'.'|'.1.'/^#/'
+                // .'$Model#Element'.'|'.1.'/^#./s'
                 res = true;
             else
             {
@@ -796,14 +945,14 @@ public class json_model_v2_en extends ModelChecker
         return true;
     }
 
-    public boolean _jm_re_3(String val, Path path, Report rep)
+    public boolean _jm_re_6(String val, Path path, Report rep)
     {
-        return _jm_re_3_pat.matcher(val).find();
+        return _jm_re_6_pat.matcher(val).find();
     }
 
-    public boolean _jm_re_4(String val, Path path, Report rep)
+    public boolean _jm_re_7(String val, Path path, Report rep)
     {
-        return _jm_re_4_pat.matcher(val).find();
+        return _jm_re_7_pat.matcher(val).find();
     }
 
     // object .'$Model#Element'.'|'.0
@@ -823,7 +972,7 @@ public class json_model_v2_en extends ModelChecker
                 // handle must @ property
                 must_count += 1;
                 // .'$Model#Element'.'|'.0.'@'
-                res = json_model_35(pval, (path != null ? lpath_5 : null), rep);
+                res = json_model_36(pval, (path != null ? lpath_5 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Element'.'|'.0.'@']", (path != null ? lpath_5 : null));
@@ -858,26 +1007,26 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_5(prop, path, rep))
                 // handle 3 re props
-                // .'$Model#Element'.'|'.0.'/^#/'
+                // .'$Model#Element'.'|'.0.'/^#./s'
                 res = true;
-            else if (_jm_re_3(prop, path, rep))
+            else if (_jm_re_6(prop, path, rep))
             {
                 // handle 3 re props
                 // .'$Model#Element'.'|'.0.'/^(<=|>=|<|>)$/'
-                res = json_model_14(pval, (path != null ? lpath_5 : null), rep);
+                res = json_model_15(pval, (path != null ? lpath_5 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$CmpValue\" [.'$Model#Element'.'|'.0.'/^(<=|>=|<|>)$/']", (path != null ? lpath_5 : null));
                     return false;
                 }
             }
-            else if (_jm_re_4(prop, path, rep))
+            else if (_jm_re_7(prop, path, rep))
             {
                 // handle 3 re props
                 // .'$Model#Element'.'|'.0.'/^(=|!=)$/'
-                res = json_model_15(pval, (path != null ? lpath_5 : null), rep);
+                res = json_model_16(pval, (path != null ? lpath_5 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$EqValue\" [.'$Model#Element'.'|'.0.'/^(=|!=)$/']", (path != null ? lpath_5 : null));
@@ -905,7 +1054,7 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#Element (.'$Model#Element')
-    public boolean json_model_31(Object val, Path path, Report rep)
+    public boolean json_model_32(Object val, Path path, Report rep)
     {
         // .'$Model#Element'
         boolean res = json.isObject(val);
@@ -964,7 +1113,7 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#CmpValue (.'$Model#CmpValue')
-    public boolean json_model_14(Object val, Path path, Report rep)
+    public boolean json_model_15(Object val, Path path, Report rep)
     {
         // .'$Model#CmpValue'
         // .'$Model#CmpValue'.'|'.0
@@ -997,7 +1146,7 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#EqValue (.'$Model#EqValue')
-    public boolean json_model_15(Object val, Path path, Report rep)
+    public boolean json_model_16(Object val, Path path, Report rep)
     {
         // .'$Model#EqValue'
         // .'$Model#EqValue'.'|'.0
@@ -1011,7 +1160,7 @@ public class json_model_v2_en extends ModelChecker
             {
                 if (rep != null) rep.addEntry("not a bool [.'$Model#EqValue'.'|'.1]", path);
                 // .'$Model#EqValue'.'|'.2
-                res = json_model_14(val, path, rep);
+                res = json_model_15(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$CmpValue\" [.'$Model#EqValue'.'|'.2]", path);
@@ -1029,46 +1178,52 @@ public class json_model_v2_en extends ModelChecker
         return res;
     }
 
-    public boolean _jm_re_5(String val, Path path, Report rep)
+    public boolean _jm_re_8(String val, Path path, Report rep)
     {
-        return _jm_re_5_pat.matcher(val).find();
+        return _jm_re_8_pat.matcher(val).find();
     }
 
     // check $Model#Prop (.'$Model#Prop')
-    public boolean json_model_28(Object val, Path path, Report rep)
+    public boolean json_model_29(Object val, Path path, Report rep)
     {
         // .'$Model#Prop'
         // .'$Model#Prop'.'|'.0
         // "/^[?!]/"
-        boolean res = json.isString(val) && _jm_re_5(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_8(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"/^[?!]/\" [.'$Model#Prop'.'|'.0]", path);
             // .'$Model#Prop'.'|'.1
-            res = json_model_11(val, path, rep);
+            res = json_model_12(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$StrConst\" [.'$Model#Prop'.'|'.1]", path);
                 // .'$Model#Prop'.'|'.2
-                res = json_model_12(val, path, rep);
+                res = json_model_13(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Regex\" [.'$Model#Prop'.'|'.2]", path);
                     // .'$Model#Prop'.'|'.3
-                    res = json_model_9(val, path, rep);
+                    res = json_model_5(val, path, rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Prop'.'|'.3]", path);
+                        if (rep != null) rep.addEntry("unexpected value for model \"$StrPredef\" [.'$Model#Prop'.'|'.3]", path);
                         // .'$Model#Prop'.'|'.4
-                        res = json_model_13(val, path, rep);
+                        res = json_model_10(val, path, rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected value for model \"$Name\" [.'$Model#Prop'.'|'.4]", path);
+                            if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Prop'.'|'.4]", path);
                             // .'$Model#Prop'.'|'.5
-                            res = json.isString(val) && json.asString(val).compareTo("") == 0;
+                            res = json_model_14(val, path, rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected value for model \"_\" [.'$Model#Prop'.'|'.5]", path);
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Name\" [.'$Model#Prop'.'|'.5]", path);
+                                // .'$Model#Prop'.'|'.6
+                                res = json.isString(val) && json.asString(val).compareTo("") == 0;
+                                if (! res)
+                                {
+                                    if (rep != null) rep.addEntry("unexpected value for model \"_\" [.'$Model#Prop'.'|'.6]", path);
+                                }
                             }
                         }
                     }
@@ -1086,17 +1241,17 @@ public class json_model_v2_en extends ModelChecker
         return res;
     }
 
-    public boolean _jm_re_6(String val, Path path, Report rep)
+    public boolean _jm_re_9(String val, Path path, Report rep)
     {
-        return _jm_re_6_pat.matcher(val).find();
+        return _jm_re_9_pat.matcher(val).find();
     }
 
     // check $Model#Name (.'$Model#Name')
-    public boolean json_model_13(Object val, Path path, Report rep)
+    public boolean json_model_14(Object val, Path path, Report rep)
     {
         // .'$Model#Name'
         // "/^\\..+$/"
-        boolean res = json.isString(val) && _jm_re_6(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_9(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\..+$/\" [.'$Model#Name']", path);
@@ -1145,20 +1300,20 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_7 : null), rep))
+            if (json_model_7(json.strToJSON(prop), (path != null ? lpath_7 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.5.'$'.'$Identifier'
-                res = json_model_35(pval, (path != null ? lpath_7 : null), rep);
+                res = json_model_36(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.5.'$'.'$Identifier']", (path != null ? lpath_7 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Root'.'|'.5.'$'.'/^#/'
+                // .'$Model#Root'.'|'.5.'$'.'/^#./s'
                 res = true;
             else
             {
@@ -1169,14 +1324,14 @@ public class json_model_v2_en extends ModelChecker
         return true;
     }
 
-    public boolean _jm_re_7(String val, Path path, Report rep)
+    public boolean _jm_re_10(String val, Path path, Report rep)
     {
-        return _jm_re_7_pat.matcher(val).find();
+        return _jm_re_10_pat.matcher(val).find();
     }
 
-    public boolean _jm_re_8(String val, Path path, Report rep)
+    public boolean _jm_re_11(String val, Path path, Report rep)
     {
-        return _jm_re_8_pat.matcher(val).find();
+        return _jm_re_11_pat.matcher(val).find();
     }
 
     // object .'$Model#Root'.'|'.5.'%'
@@ -1212,7 +1367,7 @@ public class json_model_v2_en extends ModelChecker
                 // handle may < property
                 // .'$Model#Root'.'|'.5.'%'.'<'
                 // .'$Model#Root'.'|'.5.'%'.'<'.'|'.0
-                res = json_model_9(pval, (path != null ? lpath_8 : null), rep);
+                res = json_model_10(pval, (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.5.'%'.'<'.'|'.0]", (path != null ? lpath_8 : null));
@@ -1228,7 +1383,7 @@ public class json_model_v2_en extends ModelChecker
                             Object arr_5_item = arr_5_item_loop.next();
                             Path arr_5_lpath = new Path(arr_5_idx, (path != null ? lpath_8 : null));
                             // .'$Model#Root'.'|'.5.'%'.'<'.'|'.1.0
-                            res = json_model_9(arr_5_item, ((path != null ? lpath_8 : null) != null ? arr_5_lpath : null), rep);
+                            res = json_model_10(arr_5_item, ((path != null ? lpath_8 : null) != null ? arr_5_lpath : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.5.'%'.'<'.'|'.1.0]", ((path != null ? lpath_8 : null) != null ? arr_5_lpath : null));
@@ -1253,27 +1408,27 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_8 : null), rep))
+            if (json_model_14(json.strToJSON(prop), (path != null ? lpath_8 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.5.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_8 : null), rep);
+                res = json.isString(pval) && _jm_re_10(json.asString(pval), (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Model#Root'.'|'.5.'%'.'$Name']", (path != null ? lpath_8 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 2 re props
-                // .'$Model#Root'.'|'.5.'%'.'/^#/'
+                // .'$Model#Root'.'|'.5.'%'.'/^#./s'
                 res = true;
-            else if (_jm_re_8(prop, path, rep))
+            else if (_jm_re_11(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.5.'%'.'/^\\$.*$/'
-                res = json_model_33(pval, (path != null ? lpath_8 : null), rep);
+                res = json_model_34(pval, (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Transformation\" [.'$Model#Root'.'|'.5.'%'.'/^\\\\$.*$/']", (path != null ? lpath_8 : null));
@@ -1352,20 +1507,20 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_28(json.strToJSON(prop), (path != null ? lpath_6 : null), rep))
+            if (json_model_29(json.strToJSON(prop), (path != null ? lpath_6 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.5.'$Prop'
-                res = json_model_35(pval, (path != null ? lpath_6 : null), rep);
+                res = json_model_36(pval, (path != null ? lpath_6 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.5.'$Prop']", (path != null ? lpath_6 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Root'.'|'.5.'/^#/'
+                // .'$Model#Root'.'|'.5.'/^#./s'
                 res = true;
             else
             {
@@ -1417,20 +1572,20 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_10 : null), rep))
+            if (json_model_7(json.strToJSON(prop), (path != null ? lpath_10 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.4.'$'.'$Identifier'
-                res = json_model_35(pval, (path != null ? lpath_10 : null), rep);
+                res = json_model_36(pval, (path != null ? lpath_10 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.4.'$'.'$Identifier']", (path != null ? lpath_10 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Root'.'|'.4.'$'.'/^#/'
+                // .'$Model#Root'.'|'.4.'$'.'/^#./s'
                 res = true;
             else
             {
@@ -1474,7 +1629,7 @@ public class json_model_v2_en extends ModelChecker
                 // handle may < property
                 // .'$Model#Root'.'|'.4.'%'.'<'
                 // .'$Model#Root'.'|'.4.'%'.'<'.'|'.0
-                res = json_model_9(pval, (path != null ? lpath_11 : null), rep);
+                res = json_model_10(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.4.'%'.'<'.'|'.0]", (path != null ? lpath_11 : null));
@@ -1490,7 +1645,7 @@ public class json_model_v2_en extends ModelChecker
                             Object arr_7_item = arr_7_item_loop.next();
                             Path arr_7_lpath = new Path(arr_7_idx, (path != null ? lpath_11 : null));
                             // .'$Model#Root'.'|'.4.'%'.'<'.'|'.1.0
-                            res = json_model_9(arr_7_item, ((path != null ? lpath_11 : null) != null ? arr_7_lpath : null), rep);
+                            res = json_model_10(arr_7_item, ((path != null ? lpath_11 : null) != null ? arr_7_lpath : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.4.'%'.'<'.'|'.1.0]", ((path != null ? lpath_11 : null) != null ? arr_7_lpath : null));
@@ -1515,27 +1670,27 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_11 : null), rep))
+            if (json_model_14(json.strToJSON(prop), (path != null ? lpath_11 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.4.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_11 : null), rep);
+                res = json.isString(pval) && _jm_re_10(json.asString(pval), (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Model#Root'.'|'.4.'%'.'$Name']", (path != null ? lpath_11 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 2 re props
-                // .'$Model#Root'.'|'.4.'%'.'/^#/'
+                // .'$Model#Root'.'|'.4.'%'.'/^#./s'
                 res = true;
-            else if (_jm_re_8(prop, path, rep))
+            else if (_jm_re_11(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.4.'%'.'/^\\$.*$/'
-                res = json_model_33(pval, (path != null ? lpath_11 : null), rep);
+                res = json_model_34(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Transformation\" [.'$Model#Root'.'|'.4.'%'.'/^\\\\$.*$/']", (path != null ? lpath_11 : null));
@@ -1579,7 +1734,7 @@ public class json_model_v2_en extends ModelChecker
                         Object arr_6_item = arr_6_item_loop.next();
                         Path arr_6_lpath = new Path(arr_6_idx, (path != null ? lpath_9 : null));
                         // .'$Model#Root'.'|'.4.'+'.0
-                        res = json_model_20(arr_6_item, ((path != null ? lpath_9 : null) != null ? arr_6_lpath : null), rep);
+                        res = json_model_21(arr_6_item, ((path != null ? lpath_9 : null) != null ? arr_6_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Model#Root'.'|'.4.'+'.0]", ((path != null ? lpath_9 : null) != null ? arr_6_lpath : null));
@@ -1647,9 +1802,9 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Root'.'|'.4.'/^#/'
+                // .'$Model#Root'.'|'.4.'/^#./s'
                 res = true;
             else
             {
@@ -1712,20 +1867,20 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_13 : null), rep))
+            if (json_model_7(json.strToJSON(prop), (path != null ? lpath_13 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.3.'$'.'$Identifier'
-                res = json_model_35(pval, (path != null ? lpath_13 : null), rep);
+                res = json_model_36(pval, (path != null ? lpath_13 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.3.'$'.'$Identifier']", (path != null ? lpath_13 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Root'.'|'.3.'$'.'/^#/'
+                // .'$Model#Root'.'|'.3.'$'.'/^#./s'
                 res = true;
             else
             {
@@ -1769,7 +1924,7 @@ public class json_model_v2_en extends ModelChecker
                 // handle may < property
                 // .'$Model#Root'.'|'.3.'%'.'<'
                 // .'$Model#Root'.'|'.3.'%'.'<'.'|'.0
-                res = json_model_9(pval, (path != null ? lpath_14 : null), rep);
+                res = json_model_10(pval, (path != null ? lpath_14 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.3.'%'.'<'.'|'.0]", (path != null ? lpath_14 : null));
@@ -1785,7 +1940,7 @@ public class json_model_v2_en extends ModelChecker
                             Object arr_9_item = arr_9_item_loop.next();
                             Path arr_9_lpath = new Path(arr_9_idx, (path != null ? lpath_14 : null));
                             // .'$Model#Root'.'|'.3.'%'.'<'.'|'.1.0
-                            res = json_model_9(arr_9_item, ((path != null ? lpath_14 : null) != null ? arr_9_lpath : null), rep);
+                            res = json_model_10(arr_9_item, ((path != null ? lpath_14 : null) != null ? arr_9_lpath : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.3.'%'.'<'.'|'.1.0]", ((path != null ? lpath_14 : null) != null ? arr_9_lpath : null));
@@ -1810,27 +1965,27 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_14 : null), rep))
+            if (json_model_14(json.strToJSON(prop), (path != null ? lpath_14 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.3.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_14 : null), rep);
+                res = json.isString(pval) && _jm_re_10(json.asString(pval), (path != null ? lpath_14 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Model#Root'.'|'.3.'%'.'$Name']", (path != null ? lpath_14 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 2 re props
-                // .'$Model#Root'.'|'.3.'%'.'/^#/'
+                // .'$Model#Root'.'|'.3.'%'.'/^#./s'
                 res = true;
-            else if (_jm_re_8(prop, path, rep))
+            else if (_jm_re_11(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.3.'%'.'/^\\$.*$/'
-                res = json_model_33(pval, (path != null ? lpath_14 : null), rep);
+                res = json_model_34(pval, (path != null ? lpath_14 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Transformation\" [.'$Model#Root'.'|'.3.'%'.'/^\\\\$.*$/']", (path != null ? lpath_14 : null));
@@ -1874,7 +2029,7 @@ public class json_model_v2_en extends ModelChecker
                         Object arr_8_item = arr_8_item_loop.next();
                         Path arr_8_lpath = new Path(arr_8_idx, (path != null ? lpath_12 : null));
                         // .'$Model#Root'.'|'.3.'^'.0
-                        res = json_model_20(arr_8_item, ((path != null ? lpath_12 : null) != null ? arr_8_lpath : null), rep);
+                        res = json_model_21(arr_8_item, ((path != null ? lpath_12 : null) != null ? arr_8_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Model#Root'.'|'.3.'^'.0]", ((path != null ? lpath_12 : null) != null ? arr_8_lpath : null));
@@ -1942,9 +2097,9 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Root'.'|'.3.'/^#/'
+                // .'$Model#Root'.'|'.3.'/^#./s'
                 res = true;
             else
             {
@@ -2007,20 +2162,20 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_16 : null), rep))
+            if (json_model_7(json.strToJSON(prop), (path != null ? lpath_16 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.2.'$'.'$Identifier'
-                res = json_model_35(pval, (path != null ? lpath_16 : null), rep);
+                res = json_model_36(pval, (path != null ? lpath_16 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.2.'$'.'$Identifier']", (path != null ? lpath_16 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Root'.'|'.2.'$'.'/^#/'
+                // .'$Model#Root'.'|'.2.'$'.'/^#./s'
                 res = true;
             else
             {
@@ -2064,7 +2219,7 @@ public class json_model_v2_en extends ModelChecker
                 // handle may < property
                 // .'$Model#Root'.'|'.2.'%'.'<'
                 // .'$Model#Root'.'|'.2.'%'.'<'.'|'.0
-                res = json_model_9(pval, (path != null ? lpath_17 : null), rep);
+                res = json_model_10(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.2.'%'.'<'.'|'.0]", (path != null ? lpath_17 : null));
@@ -2080,7 +2235,7 @@ public class json_model_v2_en extends ModelChecker
                             Object arr_11_item = arr_11_item_loop.next();
                             Path arr_11_lpath = new Path(arr_11_idx, (path != null ? lpath_17 : null));
                             // .'$Model#Root'.'|'.2.'%'.'<'.'|'.1.0
-                            res = json_model_9(arr_11_item, ((path != null ? lpath_17 : null) != null ? arr_11_lpath : null), rep);
+                            res = json_model_10(arr_11_item, ((path != null ? lpath_17 : null) != null ? arr_11_lpath : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.2.'%'.'<'.'|'.1.0]", ((path != null ? lpath_17 : null) != null ? arr_11_lpath : null));
@@ -2105,27 +2260,27 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_17 : null), rep))
+            if (json_model_14(json.strToJSON(prop), (path != null ? lpath_17 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.2.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_17 : null), rep);
+                res = json.isString(pval) && _jm_re_10(json.asString(pval), (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Model#Root'.'|'.2.'%'.'$Name']", (path != null ? lpath_17 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 2 re props
-                // .'$Model#Root'.'|'.2.'%'.'/^#/'
+                // .'$Model#Root'.'|'.2.'%'.'/^#./s'
                 res = true;
-            else if (_jm_re_8(prop, path, rep))
+            else if (_jm_re_11(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.2.'%'.'/^\\$.*$/'
-                res = json_model_33(pval, (path != null ? lpath_17 : null), rep);
+                res = json_model_34(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Transformation\" [.'$Model#Root'.'|'.2.'%'.'/^\\\\$.*$/']", (path != null ? lpath_17 : null));
@@ -2169,7 +2324,7 @@ public class json_model_v2_en extends ModelChecker
                         Object arr_10_item = arr_10_item_loop.next();
                         Path arr_10_lpath = new Path(arr_10_idx, (path != null ? lpath_15 : null));
                         // .'$Model#Root'.'|'.2.'&'.0
-                        res = json_model_20(arr_10_item, ((path != null ? lpath_15 : null) != null ? arr_10_lpath : null), rep);
+                        res = json_model_21(arr_10_item, ((path != null ? lpath_15 : null) != null ? arr_10_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Model#Root'.'|'.2.'&'.0]", ((path != null ? lpath_15 : null) != null ? arr_10_lpath : null));
@@ -2237,9 +2392,9 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Root'.'|'.2.'/^#/'
+                // .'$Model#Root'.'|'.2.'/^#./s'
                 res = true;
             else
             {
@@ -2302,20 +2457,20 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_19 : null), rep))
+            if (json_model_7(json.strToJSON(prop), (path != null ? lpath_19 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.1.'$'.'$Identifier'
-                res = json_model_35(pval, (path != null ? lpath_19 : null), rep);
+                res = json_model_36(pval, (path != null ? lpath_19 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.1.'$'.'$Identifier']", (path != null ? lpath_19 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Root'.'|'.1.'$'.'/^#/'
+                // .'$Model#Root'.'|'.1.'$'.'/^#./s'
                 res = true;
             else
             {
@@ -2359,7 +2514,7 @@ public class json_model_v2_en extends ModelChecker
                 // handle may < property
                 // .'$Model#Root'.'|'.1.'%'.'<'
                 // .'$Model#Root'.'|'.1.'%'.'<'.'|'.0
-                res = json_model_9(pval, (path != null ? lpath_20 : null), rep);
+                res = json_model_10(pval, (path != null ? lpath_20 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.1.'%'.'<'.'|'.0]", (path != null ? lpath_20 : null));
@@ -2375,7 +2530,7 @@ public class json_model_v2_en extends ModelChecker
                             Object arr_13_item = arr_13_item_loop.next();
                             Path arr_13_lpath = new Path(arr_13_idx, (path != null ? lpath_20 : null));
                             // .'$Model#Root'.'|'.1.'%'.'<'.'|'.1.0
-                            res = json_model_9(arr_13_item, ((path != null ? lpath_20 : null) != null ? arr_13_lpath : null), rep);
+                            res = json_model_10(arr_13_item, ((path != null ? lpath_20 : null) != null ? arr_13_lpath : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.1.'%'.'<'.'|'.1.0]", ((path != null ? lpath_20 : null) != null ? arr_13_lpath : null));
@@ -2400,27 +2555,27 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_20 : null), rep))
+            if (json_model_14(json.strToJSON(prop), (path != null ? lpath_20 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.1.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_20 : null), rep);
+                res = json.isString(pval) && _jm_re_10(json.asString(pval), (path != null ? lpath_20 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Model#Root'.'|'.1.'%'.'$Name']", (path != null ? lpath_20 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 2 re props
-                // .'$Model#Root'.'|'.1.'%'.'/^#/'
+                // .'$Model#Root'.'|'.1.'%'.'/^#./s'
                 res = true;
-            else if (_jm_re_8(prop, path, rep))
+            else if (_jm_re_11(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.1.'%'.'/^\\$.*$/'
-                res = json_model_33(pval, (path != null ? lpath_20 : null), rep);
+                res = json_model_34(pval, (path != null ? lpath_20 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Transformation\" [.'$Model#Root'.'|'.1.'%'.'/^\\\\$.*$/']", (path != null ? lpath_20 : null));
@@ -2464,7 +2619,7 @@ public class json_model_v2_en extends ModelChecker
                         Object arr_12_item = arr_12_item_loop.next();
                         Path arr_12_lpath = new Path(arr_12_idx, (path != null ? lpath_18 : null));
                         // .'$Model#Root'.'|'.1.'|'.0
-                        res = json_model_20(arr_12_item, ((path != null ? lpath_18 : null) != null ? arr_12_lpath : null), rep);
+                        res = json_model_21(arr_12_item, ((path != null ? lpath_18 : null) != null ? arr_12_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Model#Root'.'|'.1.'|'.0]", ((path != null ? lpath_18 : null) != null ? arr_12_lpath : null));
@@ -2532,9 +2687,9 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Root'.'|'.1.'/^#/'
+                // .'$Model#Root'.'|'.1.'/^#./s'
                 res = true;
             else
             {
@@ -2597,20 +2752,20 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_6(json.strToJSON(prop), (path != null ? lpath_22 : null), rep))
+            if (json_model_7(json.strToJSON(prop), (path != null ? lpath_22 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.0.'$'.'$Identifier'
-                res = json_model_35(pval, (path != null ? lpath_22 : null), rep);
+                res = json_model_36(pval, (path != null ? lpath_22 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.0.'$'.'$Identifier']", (path != null ? lpath_22 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Root'.'|'.0.'$'.'/^#/'
+                // .'$Model#Root'.'|'.0.'$'.'/^#./s'
                 res = true;
             else
             {
@@ -2654,7 +2809,7 @@ public class json_model_v2_en extends ModelChecker
                 // handle may < property
                 // .'$Model#Root'.'|'.0.'%'.'<'
                 // .'$Model#Root'.'|'.0.'%'.'<'.'|'.0
-                res = json_model_9(pval, (path != null ? lpath_23 : null), rep);
+                res = json_model_10(pval, (path != null ? lpath_23 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.0.'%'.'<'.'|'.0]", (path != null ? lpath_23 : null));
@@ -2670,7 +2825,7 @@ public class json_model_v2_en extends ModelChecker
                             Object arr_14_item = arr_14_item_loop.next();
                             Path arr_14_lpath = new Path(arr_14_idx, (path != null ? lpath_23 : null));
                             // .'$Model#Root'.'|'.0.'%'.'<'.'|'.1.0
-                            res = json_model_9(arr_14_item, ((path != null ? lpath_23 : null) != null ? arr_14_lpath : null), rep);
+                            res = json_model_10(arr_14_item, ((path != null ? lpath_23 : null) != null ? arr_14_lpath : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#Root'.'|'.0.'%'.'<'.'|'.1.0]", ((path != null ? lpath_23 : null) != null ? arr_14_lpath : null));
@@ -2695,27 +2850,27 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_13(json.strToJSON(prop), (path != null ? lpath_23 : null), rep))
+            if (json_model_14(json.strToJSON(prop), (path != null ? lpath_23 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.0.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_23 : null), rep);
+                res = json.isString(pval) && _jm_re_10(json.asString(pval), (path != null ? lpath_23 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/^([#|&^+/*@~=$%]|[<>!]=?)$/\" [.'$Model#Root'.'|'.0.'%'.'$Name']", (path != null ? lpath_23 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_5(prop, path, rep))
                 // handle 2 re props
-                // .'$Model#Root'.'|'.0.'%'.'/^#/'
+                // .'$Model#Root'.'|'.0.'%'.'/^#./s'
                 res = true;
-            else if (_jm_re_8(prop, path, rep))
+            else if (_jm_re_11(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.0.'%'.'/^\\$.*$/'
-                res = json_model_33(pval, (path != null ? lpath_23 : null), rep);
+                res = json_model_34(pval, (path != null ? lpath_23 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Transformation\" [.'$Model#Root'.'|'.0.'%'.'/^\\\\$.*$/']", (path != null ? lpath_23 : null));
@@ -2748,7 +2903,7 @@ public class json_model_v2_en extends ModelChecker
                 // handle must @ property
                 must_count += 1;
                 // .'$Model#Root'.'|'.0.'@'
-                res = json_model_35(pval, (path != null ? lpath_21 : null), rep);
+                res = json_model_36(pval, (path != null ? lpath_21 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.0.'@']", (path != null ? lpath_21 : null));
@@ -2822,26 +2977,26 @@ public class json_model_v2_en extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_5(prop, path, rep))
                 // handle 3 re props
-                // .'$Model#Root'.'|'.0.'/^#/'
+                // .'$Model#Root'.'|'.0.'/^#./s'
                 res = true;
-            else if (_jm_re_3(prop, path, rep))
+            else if (_jm_re_6(prop, path, rep))
             {
                 // handle 3 re props
                 // .'$Model#Root'.'|'.0.'/^(<=|>=|<|>)$/'
-                res = json_model_14(pval, (path != null ? lpath_21 : null), rep);
+                res = json_model_15(pval, (path != null ? lpath_21 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$CmpValue\" [.'$Model#Root'.'|'.0.'/^(<=|>=|<|>)$/']", (path != null ? lpath_21 : null));
                     return false;
                 }
             }
-            else if (_jm_re_4(prop, path, rep))
+            else if (_jm_re_7(prop, path, rep))
             {
                 // handle 3 re props
                 // .'$Model#Root'.'|'.0.'/^(=|!=)$/'
-                res = json_model_15(pval, (path != null ? lpath_21 : null), rep);
+                res = json_model_16(pval, (path != null ? lpath_21 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$EqValue\" [.'$Model#Root'.'|'.0.'/^(=|!=)$/']", (path != null ? lpath_21 : null));
@@ -2869,7 +3024,7 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#Root (.'$Model#Root')
-    public boolean json_model_41(Object val, Path path, Report rep)
+    public boolean json_model_42(Object val, Path path, Report rep)
     {
         // .'$Model#Root'
         boolean res = json.isObject(val);
@@ -2923,70 +3078,6 @@ public class json_model_v2_en extends ModelChecker
         else
         {
             if (rep != null) rep.addEntry("unexpected type [.'$Model#Root'.'|']", path);
-        }
-        return res;
-    }
-
-    public boolean _jm_re_9(String val, Path path, Report rep)
-    {
-        return _jm_re_9_pat.matcher(val).find();
-    }
-
-    // check $Model#Url (.'$Model#Url')
-    public boolean json_model_4(Object val, Path path, Report rep)
-    {
-        // .'$Model#Url'
-        // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
-        boolean res = json.isString(val) && _jm_re_9(json.asString(val), path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*)$/\" [.'$Model#Url']", path);
-        }
-        return res;
-    }
-
-    public boolean _jm_re_10(String val, Path path, Report rep)
-    {
-        return _jm_re_10_pat.matcher(val).find();
-    }
-
-    public boolean _jm_re_11(String val, Path path, Report rep)
-    {
-        return _jm_re_11_pat.matcher(val).find();
-    }
-
-    // check $Model#Identifier (.'$Model#Identifier')
-    public boolean json_model_6(Object val, Path path, Report rep)
-    {
-        // .'$Model#Identifier'
-        boolean res = json.isString(val);
-        if (res)
-        {
-            // .'$Model#Identifier'.'&'.0
-            // "/^\\w(\\w|-)*$/"
-            res = _jm_re_11(json.asString(val), path, rep);
-            if (res)
-            {
-                // .'$Model#Identifier'.'&'.1
-                // "/[^A-Z0-9]/"
-                res = _jm_re_10(json.asString(val), path, rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"/[^A-Z0-9]/\" [.'$Model#Identifier'.'&'.1]", path);
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\w(\\\\w|-)*$/\" [.'$Model#Identifier'.'&'.0]", path);
-            }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("not all model match [.'$Model#Identifier'.'&']", path);
         }
         return res;
     }
@@ -3051,7 +3142,7 @@ public class json_model_v2_en extends ModelChecker
                 // handle may / property
                 // .'$Model#Transformation'.'|'.1.'/'
                 // .'$Model#Transformation'.'|'.1.'/'.'|'.0
-                res = json_model_15(pval, (path != null ? lpath_24 : null), rep);
+                res = json_model_16(pval, (path != null ? lpath_24 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$EqValue\" [.'$Model#Transformation'.'|'.1.'/'.'|'.0]", (path != null ? lpath_24 : null));
@@ -3094,9 +3185,9 @@ public class json_model_v2_en extends ModelChecker
                 res = true;
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_5(prop, path, rep))
                 // handle 1 re props
-                // .'$Model#Transformation'.'|'.1.'/^#/'
+                // .'$Model#Transformation'.'|'.1.'/^#./s'
                 res = true;
             else
             {
@@ -3108,11 +3199,11 @@ public class json_model_v2_en extends ModelChecker
     }
 
     // check $Model#Transformation (.'$Model#Transformation')
-    public boolean json_model_33(Object val, Path path, Report rep)
+    public boolean json_model_34(Object val, Path path, Report rep)
     {
         // .'$Model#Transformation'
         // .'$Model#Transformation'.'|'.0
-        boolean res = json_model_35(val, path, rep);
+        boolean res = json_model_36(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Transformation'.'|'.0]", path);
@@ -3150,15 +3241,6 @@ public class json_model_v2_en extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("1.0"));
             _jm_cst_0_set.add(json.safeJSON("-1.0"));
             _jm_cst_1_set = new HashSet<Object>();
-            _jm_cst_1_set.add(json.safeJSON("\"$DATE\""));
-            _jm_cst_1_set.add(json.safeJSON("\"$TIME\""));
-            _jm_cst_1_set.add(json.safeJSON("\"$DATETIME\""));
-            _jm_cst_1_set.add(json.safeJSON("\"$URL\""));
-            _jm_cst_1_set.add(json.safeJSON("\"$URI\""));
-            _jm_cst_1_set.add(json.safeJSON("\"$UUID\""));
-            _jm_cst_1_set.add(json.safeJSON("\"$EMAIL\""));
-            _jm_cst_1_set.add(json.safeJSON("\"$REGEX\""));
-            _jm_cst_1_set.add(json.safeJSON("\"$EXREG\""));
             _jm_cst_1_set.add(json.safeJSON("\"$NULL\""));
             _jm_cst_1_set.add(json.safeJSON("\"$BOOL\""));
             _jm_cst_1_set.add(json.safeJSON("\"$FLOAT\""));
@@ -3176,26 +3258,39 @@ public class json_model_v2_en extends ModelChecker
             _jm_cst_1_set.add(json.safeJSON("\"$U16\""));
             _jm_cst_1_set.add(json.safeJSON("\"$U32\""));
             _jm_cst_1_set.add(json.safeJSON("\"$U64\""));
-            _jm_cst_1_set.add(json.safeJSON("\"$STRING\""));
             _jm_cst_1_set.add(json.safeJSON("\"$NONE\""));
             _jm_cst_1_set.add(json.safeJSON("\"$ANY\""));
-            _jm_re_0_pat = Pattern.compile("^\\$.");
-            _jm_re_1_pat = Pattern.compile("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$");
-            _jm_re_2_pat = Pattern.compile("^[A-Za-z0-9_]");
-            _jm_xre_0_re_pat = Pattern.compile("^/(?<s1>.*)/[a-z]*$");
-            _jm_xre_1_re_pat = Pattern.compile("^/(?<s1>.*)/[a-z]*X[a-z]*$");
-            _jm_re_3_pat = Pattern.compile("^(<=|>=|<|>)$");
-            _jm_re_4_pat = Pattern.compile("^(=|!=)$");
-            _jm_re_5_pat = Pattern.compile("^[?!]");
-            _jm_re_6_pat = Pattern.compile("^\\..+$");
-            _jm_re_7_pat = Pattern.compile("^([#|&^+/*@~=$%]|[<>!]=?)$");
-            _jm_re_8_pat = Pattern.compile("^\\$.*$");
-            _jm_re_9_pat = Pattern.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$");
-            _jm_re_10_pat = Pattern.compile("[^A-Z0-9]");
-            _jm_re_11_pat = Pattern.compile("^\\w(\\w|-)*$");
+            _jm_cst_2_set = new HashSet<Object>();
+            _jm_cst_2_set.add(json.safeJSON("\"$DATE\""));
+            _jm_cst_2_set.add(json.safeJSON("\"$TIME\""));
+            _jm_cst_2_set.add(json.safeJSON("\"$DATETIME\""));
+            _jm_cst_2_set.add(json.safeJSON("\"$URL\""));
+            _jm_cst_2_set.add(json.safeJSON("\"$URI\""));
+            _jm_cst_2_set.add(json.safeJSON("\"$UUID\""));
+            _jm_cst_2_set.add(json.safeJSON("\"$EMAIL\""));
+            _jm_cst_2_set.add(json.safeJSON("\"$REGEX\""));
+            _jm_cst_2_set.add(json.safeJSON("\"$EXREG\""));
+            _jm_cst_2_set.add(json.safeJSON("\"$SEMVER\""));
+            _jm_cst_2_set.add(json.safeJSON("\"$STRING\""));
+            _jm_xre_0_re_pat = Pattern.compile("^\\$(?<s1>.*)$");
+            _jm_xre_1_re_pat = Pattern.compile("^\\$(?<s1>.*)$");
+            _jm_re_0_pat = Pattern.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$");
+            _jm_re_1_pat = Pattern.compile("[^A-Z0-9]");
+            _jm_re_2_pat = Pattern.compile("^\\w(\\w|-)*$");
+            _jm_re_3_pat = Pattern.compile("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$");
+            _jm_re_4_pat = Pattern.compile("^[A-Za-z0-9_]");
+            _jm_xre_2_re_pat = Pattern.compile("^/(?<s1>.*)/[a-z]*$");
+            _jm_xre_3_re_pat = Pattern.compile("^/(?<s1>.*)/[a-z]*X[a-z]*$");
+            _jm_re_5_pat = Pattern.compile("(?s)^#.");
+            _jm_re_6_pat = Pattern.compile("^(<=|>=|<|>)$");
+            _jm_re_7_pat = Pattern.compile("^(=|!=)$");
+            _jm_re_8_pat = Pattern.compile("^[?!]");
+            _jm_re_9_pat = Pattern.compile("^\\..+$");
+            _jm_re_10_pat = Pattern.compile("^([#|&^+/*@~=$%]|[<>!]=?)$");
+            _jm_re_11_pat = Pattern.compile("^\\$.*$");
             json_model_v2_en_map_pmap = new HashMap<String, Checker>();
-            json_model_v2_en_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_42(o, p, r);} });
-            json_model_v2_en_map_pmap.put("Model", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_42(o, p, r);} });
+            json_model_v2_en_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_43(o, p, r);} });
+            json_model_v2_en_map_pmap.put("Model", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_43(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
@@ -3211,13 +3306,16 @@ public class json_model_v2_en extends ModelChecker
             super.free();
             _jm_cst_0_set = null;
             _jm_cst_1_set = null;
+            _jm_cst_2_set = null;
+            _jm_xre_0_re_pat = null;
+            _jm_xre_1_re_pat = null;
             _jm_re_0_pat = null;
             _jm_re_1_pat = null;
             _jm_re_2_pat = null;
-            _jm_xre_0_re_pat = null;
-            _jm_xre_1_re_pat = null;
             _jm_re_3_pat = null;
             _jm_re_4_pat = null;
+            _jm_xre_2_re_pat = null;
+            _jm_xre_3_re_pat = null;
             _jm_re_5_pat = null;
             _jm_re_6_pat = null;
             _jm_re_7_pat = null;

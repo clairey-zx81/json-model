@@ -27,6 +27,5 @@
   [ false, {"a": 42} ],
   [ false, "=unexpected" ],
   [ false, "/^[a- unexpected/" ],
-  "# FIXME should be rejected by improving the meta model",
-  [ true, "$UNEXPECTED" ]
+  [ false, "$UNEXPECTED" ]
 ]

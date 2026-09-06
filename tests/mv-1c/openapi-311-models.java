@@ -31,13 +31,19 @@ public class openapi_311_models extends ModelChecker
     public Pattern _jm_re_5_pat = null;
     public Pattern _jm_re_6_pat = null;
     public Pattern _jm_re_7_pat = null;
-    public Pattern _jm_re_8_pat = null;
+    Set<Object> _jm_cst_4_set;
     public Pattern _jm_xre_0_re_pat = null;
     public Pattern _jm_xre_1_re_pat = null;
+    public Pattern _jm_re_8_pat = null;
     public Pattern _jm_re_9_pat = null;
-    Set<Object> _jm_cst_4_set;
-    Set<Object> _jm_cst_5_set;
     public Pattern _jm_re_10_pat = null;
+    public Pattern _jm_re_11_pat = null;
+    public Pattern _jm_xre_2_re_pat = null;
+    public Pattern _jm_xre_3_re_pat = null;
+    public Pattern _jm_re_12_pat = null;
+    Set<Object> _jm_cst_5_set;
+    Set<Object> _jm_cst_6_set;
+    public Pattern _jm_re_13_pat = null;
     public Map<String, Checker> openapi_311_models_map_pmap;
 
     // check $openapi (.'$openapi')
@@ -1312,7 +1318,7 @@ public class openapi_311_models extends ModelChecker
             Path lpath_19 = new Path(prop, path);
             // handle other props
             // .'$openapi#Components'.models.''
-            res = json_model_97(pval, (path != null ? lpath_19 : null), rep);
+            res = json_model_98(pval, (path != null ? lpath_19 : null), rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#Components'.models.'']", (path != null ? lpath_19 : null));
@@ -2424,7 +2430,7 @@ public class openapi_311_models extends ModelChecker
             {
                 // handle may model property
                 // .'$openapi#Parameter'.'|'.0.model
-                res = json_model_97(pval, (path != null ? lpath_27 : null), rep);
+                res = json_model_98(pval, (path != null ? lpath_27 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#Parameter'.'|'.0.model]", (path != null ? lpath_27 : null));
@@ -2727,7 +2733,7 @@ public class openapi_311_models extends ModelChecker
             {
                 // handle may model property
                 // .'$openapi#MediaType'.model
-                res = json_model_97(pval, (path != null ? lpath_31 : null), rep);
+                res = json_model_98(pval, (path != null ? lpath_31 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#MediaType'.model]", (path != null ? lpath_31 : null));
@@ -3816,7 +3822,7 @@ public class openapi_311_models extends ModelChecker
             {
                 // handle may model property
                 // .'$openapi#Header'.'|'.0.model
-                res = json_model_97(pval, (path != null ? lpath_47 : null), rep);
+                res = json_model_98(pval, (path != null ? lpath_47 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#Header'.'|'.0.model]", (path != null ? lpath_47 : null));
@@ -4808,7 +4814,7 @@ public class openapi_311_models extends ModelChecker
     public boolean json_model_64(Object val, Path path, Report rep)
     {
         // .'$openapi#Model'
-        boolean res = json_model_97(val, path, rep);
+        boolean res = json_model_98(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$model#Model\" [.'$openapi#Model']", path);
@@ -4817,21 +4823,21 @@ public class openapi_311_models extends ModelChecker
     }
 
     // check $openapi#model#Model (.'$openapi#model#Model')
-    public boolean json_model_97(Object val, Path path, Report rep)
+    public boolean json_model_98(Object val, Path path, Report rep)
     {
         // .'$openapi#model#Model'
         // .'$openapi#model#Model'.'|'.0
-        boolean res = json_model_96(val, path, rep);
+        boolean res = json_model_97(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$ScalarModel\" [.'$openapi#model#Model'.'|'.0]", path);
             // .'$openapi#model#Model'.'|'.1
-            res = json_model_83(val, path, rep);
+            res = json_model_84(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$Array\" [.'$openapi#model#Model'.'|'.1]", path);
                 // .'$openapi#model#Model'.'|'.2
-                res = json_model_93(val, path, rep);
+                res = json_model_94(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Element\" [.'$openapi#model#Model'.'|'.2]", path);
@@ -4850,7 +4856,7 @@ public class openapi_311_models extends ModelChecker
     }
 
     // check $openapi#model#Array (.'$openapi#model#Array')
-    public boolean json_model_83(Object val, Path path, Report rep)
+    public boolean json_model_84(Object val, Path path, Report rep)
     {
         // .'$openapi#model#Array'
         boolean res = json.isArray(val);
@@ -4864,7 +4870,7 @@ public class openapi_311_models extends ModelChecker
                 Object arr_11_item = arr_11_item_loop.next();
                 Path arr_11_lpath = new Path(arr_11_idx, path);
                 // .'$openapi#model#Array'.0
-                res = json_model_82(arr_11_item, (path != null ? arr_11_lpath : null), rep);
+                res = json_model_83(arr_11_item, (path != null ? arr_11_lpath : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$openapi#model#Array'.0]", (path != null ? arr_11_lpath : null));
@@ -4880,16 +4886,16 @@ public class openapi_311_models extends ModelChecker
     }
 
     // check $openapi#model#CModel (.'$openapi#model#CModel')
-    public boolean json_model_82(Object val, Path path, Report rep)
+    public boolean json_model_83(Object val, Path path, Report rep)
     {
         // .'$openapi#model#CModel'
         // .'$openapi#model#CModel'.'|'.0
-        boolean res = json_model_97(val, path, rep);
+        boolean res = json_model_98(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#model#CModel'.'|'.0]", path);
             // .'$openapi#model#CModel'.'|'.1
-            res = json_model_69(val, path, rep);
+            res = json_model_70(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$ArrayComment\" [.'$openapi#model#CModel'.'|'.1]", path);
@@ -4907,7 +4913,7 @@ public class openapi_311_models extends ModelChecker
     }
 
     // check $openapi#model#ArrayComment (.'$openapi#model#ArrayComment')
-    public boolean json_model_69(Object val, Path path, Report rep)
+    public boolean json_model_70(Object val, Path path, Report rep)
     {
         // .'$openapi#model#ArrayComment'
         // "/^#/"
@@ -4917,6 +4923,11 @@ public class openapi_311_models extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for model \"/^#/\" [.'$openapi#model#ArrayComment']", path);
         }
         return res;
+    }
+
+    public boolean _jm_re_4(String val, Path path, Report rep)
+    {
+        return _jm_re_4_pat.matcher(val).find();
     }
 
     // object .'$openapi#model#Element'.'|'.5
@@ -4943,20 +4954,20 @@ public class openapi_311_models extends ModelChecker
                 }
                 continue;
             }
-            if (json_model_90(json.strToJSON(prop), (path != null ? lpath_61 : null), rep))
+            if (json_model_91(json.strToJSON(prop), (path != null ? lpath_61 : null), rep))
             {
                 // handle 1 key props
                 // .'$openapi#model#Element'.'|'.5.'$Prop'
-                res = json_model_97(pval, (path != null ? lpath_61 : null), rep);
+                res = json_model_98(pval, (path != null ? lpath_61 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.5.'$Prop']", (path != null ? lpath_61 : null));
                     return false;
                 }
             }
-            else if (prop.startsWith("#"))
+            else if (_jm_re_4(prop, path, rep))
                 // handle 1 re props
-                // .'$openapi#model#Element'.'|'.5.'/^#/'
+                // .'$openapi#model#Element'.'|'.5.'/^#./s'
                 res = true;
             else
             {
@@ -4995,7 +5006,7 @@ public class openapi_311_models extends ModelChecker
                         Object arr_12_item = arr_12_item_loop.next();
                         Path arr_12_lpath = new Path(arr_12_idx, (path != null ? lpath_62 : null));
                         // .'$openapi#model#Element'.'|'.4.'+'.0
-                        res = json_model_82(arr_12_item, ((path != null ? lpath_62 : null) != null ? arr_12_lpath : null), rep);
+                        res = json_model_83(arr_12_item, ((path != null ? lpath_62 : null) != null ? arr_12_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$openapi#model#Element'.'|'.4.'+'.0]", ((path != null ? lpath_62 : null) != null ? arr_12_lpath : null));
@@ -5024,9 +5035,9 @@ public class openapi_311_models extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_4(prop, path, rep))
                 // handle 1 re props
-                // .'$openapi#model#Element'.'|'.4.'/^#/'
+                // .'$openapi#model#Element'.'|'.4.'/^#./s'
                 res = true;
             else
             {
@@ -5076,7 +5087,7 @@ public class openapi_311_models extends ModelChecker
                         Object arr_13_item = arr_13_item_loop.next();
                         Path arr_13_lpath = new Path(arr_13_idx, (path != null ? lpath_63 : null));
                         // .'$openapi#model#Element'.'|'.3.'^'.0
-                        res = json_model_82(arr_13_item, ((path != null ? lpath_63 : null) != null ? arr_13_lpath : null), rep);
+                        res = json_model_83(arr_13_item, ((path != null ? lpath_63 : null) != null ? arr_13_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$openapi#model#Element'.'|'.3.'^'.0]", ((path != null ? lpath_63 : null) != null ? arr_13_lpath : null));
@@ -5105,9 +5116,9 @@ public class openapi_311_models extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_4(prop, path, rep))
                 // handle 1 re props
-                // .'$openapi#model#Element'.'|'.3.'/^#/'
+                // .'$openapi#model#Element'.'|'.3.'/^#./s'
                 res = true;
             else
             {
@@ -5157,7 +5168,7 @@ public class openapi_311_models extends ModelChecker
                         Object arr_14_item = arr_14_item_loop.next();
                         Path arr_14_lpath = new Path(arr_14_idx, (path != null ? lpath_64 : null));
                         // .'$openapi#model#Element'.'|'.2.'&'.0
-                        res = json_model_82(arr_14_item, ((path != null ? lpath_64 : null) != null ? arr_14_lpath : null), rep);
+                        res = json_model_83(arr_14_item, ((path != null ? lpath_64 : null) != null ? arr_14_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$openapi#model#Element'.'|'.2.'&'.0]", ((path != null ? lpath_64 : null) != null ? arr_14_lpath : null));
@@ -5186,9 +5197,9 @@ public class openapi_311_models extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_4(prop, path, rep))
                 // handle 1 re props
-                // .'$openapi#model#Element'.'|'.2.'/^#/'
+                // .'$openapi#model#Element'.'|'.2.'/^#./s'
                 res = true;
             else
             {
@@ -5238,7 +5249,7 @@ public class openapi_311_models extends ModelChecker
                         Object arr_15_item = arr_15_item_loop.next();
                         Path arr_15_lpath = new Path(arr_15_idx, (path != null ? lpath_65 : null));
                         // .'$openapi#model#Element'.'|'.1.'|'.0
-                        res = json_model_82(arr_15_item, ((path != null ? lpath_65 : null) != null ? arr_15_lpath : null), rep);
+                        res = json_model_83(arr_15_item, ((path != null ? lpath_65 : null) != null ? arr_15_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$openapi#model#Element'.'|'.1.'|'.0]", ((path != null ? lpath_65 : null) != null ? arr_15_lpath : null));
@@ -5267,9 +5278,9 @@ public class openapi_311_models extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_4(prop, path, rep))
                 // handle 1 re props
-                // .'$openapi#model#Element'.'|'.1.'/^#/'
+                // .'$openapi#model#Element'.'|'.1.'/^#./s'
                 res = true;
             else
             {
@@ -5291,14 +5302,14 @@ public class openapi_311_models extends ModelChecker
         return true;
     }
 
-    public boolean _jm_re_4(String val, Path path, Report rep)
-    {
-        return _jm_re_4_pat.matcher(val).find();
-    }
-
     public boolean _jm_re_5(String val, Path path, Report rep)
     {
         return _jm_re_5_pat.matcher(val).find();
+    }
+
+    public boolean _jm_re_6(String val, Path path, Report rep)
+    {
+        return _jm_re_6_pat.matcher(val).find();
     }
 
     // object .'$openapi#model#Element'.'|'.0
@@ -5318,7 +5329,7 @@ public class openapi_311_models extends ModelChecker
                 // handle must @ property
                 must_count += 1;
                 // .'$openapi#model#Element'.'|'.0.'@'
-                res = json_model_97(pval, (path != null ? lpath_66 : null), rep);
+                res = json_model_98(pval, (path != null ? lpath_66 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.0.'@']", (path != null ? lpath_66 : null));
@@ -5353,26 +5364,26 @@ public class openapi_311_models extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("#"))
+            if (_jm_re_4(prop, path, rep))
                 // handle 3 re props
-                // .'$openapi#model#Element'.'|'.0.'/^#/'
+                // .'$openapi#model#Element'.'|'.0.'/^#./s'
                 res = true;
-            else if (_jm_re_4(prop, path, rep))
+            else if (_jm_re_5(prop, path, rep))
             {
                 // handle 3 re props
                 // .'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>)$/'
-                res = json_model_76(pval, (path != null ? lpath_66 : null), rep);
+                res = json_model_77(pval, (path != null ? lpath_66 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$CmpValue\" [.'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>)$/']", (path != null ? lpath_66 : null));
                     return false;
                 }
             }
-            else if (_jm_re_5(prop, path, rep))
+            else if (_jm_re_6(prop, path, rep))
             {
                 // handle 3 re props
                 // .'$openapi#model#Element'.'|'.0.'/^(=|!=)$/'
-                res = json_model_77(pval, (path != null ? lpath_66 : null), rep);
+                res = json_model_78(pval, (path != null ? lpath_66 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$EqValue\" [.'$openapi#model#Element'.'|'.0.'/^(=|!=)$/']", (path != null ? lpath_66 : null));
@@ -5400,7 +5411,7 @@ public class openapi_311_models extends ModelChecker
     }
 
     // check $openapi#model#Element (.'$openapi#model#Element')
-    public boolean json_model_93(Object val, Path path, Report rep)
+    public boolean json_model_94(Object val, Path path, Report rep)
     {
         // .'$openapi#model#Element'
         boolean res = json.isObject(val);
@@ -5459,7 +5470,7 @@ public class openapi_311_models extends ModelChecker
     }
 
     // check $openapi#model#CmpValue (.'$openapi#model#CmpValue')
-    public boolean json_model_76(Object val, Path path, Report rep)
+    public boolean json_model_77(Object val, Path path, Report rep)
     {
         // .'$openapi#model#CmpValue'
         // .'$openapi#model#CmpValue'.'|'.0
@@ -5492,7 +5503,7 @@ public class openapi_311_models extends ModelChecker
     }
 
     // check $openapi#model#EqValue (.'$openapi#model#EqValue')
-    public boolean json_model_77(Object val, Path path, Report rep)
+    public boolean json_model_78(Object val, Path path, Report rep)
     {
         // .'$openapi#model#EqValue'
         // .'$openapi#model#EqValue'.'|'.0
@@ -5506,7 +5517,7 @@ public class openapi_311_models extends ModelChecker
             {
                 if (rep != null) rep.addEntry("not a bool [.'$openapi#model#EqValue'.'|'.1]", path);
                 // .'$openapi#model#EqValue'.'|'.2
-                res = json_model_76(val, path, rep);
+                res = json_model_77(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$CmpValue\" [.'$openapi#model#EqValue'.'|'.2]", path);
@@ -5524,46 +5535,52 @@ public class openapi_311_models extends ModelChecker
         return res;
     }
 
-    public boolean _jm_re_6(String val, Path path, Report rep)
+    public boolean _jm_re_7(String val, Path path, Report rep)
     {
-        return _jm_re_6_pat.matcher(val).find();
+        return _jm_re_7_pat.matcher(val).find();
     }
 
     // check $openapi#model#Prop (.'$openapi#model#Prop')
-    public boolean json_model_90(Object val, Path path, Report rep)
+    public boolean json_model_91(Object val, Path path, Report rep)
     {
         // .'$openapi#model#Prop'
         // .'$openapi#model#Prop'.'|'.0
         // "/^[?!]/"
-        boolean res = json.isString(val) && _jm_re_6(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_7(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"/^[?!]/\" [.'$openapi#model#Prop'.'|'.0]", path);
             // .'$openapi#model#Prop'.'|'.1
-            res = json_model_73(val, path, rep);
+            res = json_model_74(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$StrConst\" [.'$openapi#model#Prop'.'|'.1]", path);
                 // .'$openapi#model#Prop'.'|'.2
-                res = json_model_74(val, path, rep);
+                res = json_model_75(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Regex\" [.'$openapi#model#Prop'.'|'.2]", path);
                     // .'$openapi#model#Prop'.'|'.3
-                    res = json_model_71(val, path, rep);
+                    res = json_model_67(val, path, rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$openapi#model#Prop'.'|'.3]", path);
+                        if (rep != null) rep.addEntry("unexpected value for model \"$StrPredef\" [.'$openapi#model#Prop'.'|'.3]", path);
                         // .'$openapi#model#Prop'.'|'.4
-                        res = json_model_75(val, path, rep);
+                        res = json_model_72(val, path, rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected value for model \"$Name\" [.'$openapi#model#Prop'.'|'.4]", path);
+                            if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$openapi#model#Prop'.'|'.4]", path);
                             // .'$openapi#model#Prop'.'|'.5
-                            res = json.isString(val) && json.asString(val).compareTo("") == 0;
+                            res = json_model_76(val, path, rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected value for model \"_\" [.'$openapi#model#Prop'.'|'.5]", path);
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Name\" [.'$openapi#model#Prop'.'|'.5]", path);
+                                // .'$openapi#model#Prop'.'|'.6
+                                res = json.isString(val) && json.asString(val).compareTo("") == 0;
+                                if (! res)
+                                {
+                                    if (rep != null) rep.addEntry("unexpected value for model \"_\" [.'$openapi#model#Prop'.'|'.6]", path);
+                                }
                             }
                         }
                     }
@@ -5581,38 +5598,15 @@ public class openapi_311_models extends ModelChecker
         return res;
     }
 
-    public boolean _jm_re_7(String val, Path path, Report rep)
-    {
-        return _jm_re_7_pat.matcher(val).find();
-    }
 
-    // check $openapi#model#Ref (.'$openapi#model#Ref')
-    public boolean json_model_71(Object val, Path path, Report rep)
+    // check $openapi#model#StrPredef (.'$openapi#model#StrPredef')
+    public boolean json_model_67(Object val, Path path, Report rep)
     {
-        // .'$openapi#model#Ref'
-        // "/^\\$./"
-        boolean res = json.isString(val) && _jm_re_7(json.asString(val), path, rep);
+        // .'$openapi#model#StrPredef'
+        boolean res = json.isScalar(val) && _jm_cst_4_set.contains(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\$./\" [.'$openapi#model#Ref']", path);
-        }
-        return res;
-    }
-
-    public boolean _jm_re_8(String val, Path path, Report rep)
-    {
-        return _jm_re_8_pat.matcher(val).find();
-    }
-
-    // check $openapi#model#StrConst (.'$openapi#model#StrConst')
-    public boolean json_model_73(Object val, Path path, Report rep)
-    {
-        // .'$openapi#model#StrConst'
-        // "/^[A-Za-z0-9_]/"
-        boolean res = json.isString(val) && _jm_re_8(json.asString(val), path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected value for model \"/^[A-Za-z0-9_]/\" [.'$openapi#model#StrConst']", path);
+            if (rep != null) rep.addEntry("value not in enum [.'$openapi#model#StrPredef'.'|']", path);
         }
         return res;
     }
@@ -5629,7 +5623,7 @@ public class openapi_311_models extends ModelChecker
         if (! match)
             return false;
         String extract = _jm_xre_0_re_match.group("s1");
-        if (! rt.is_valid_regex(extract))
+        if (! json_model_66(json.strToJSON(extract), path, rep))
             return false;
         return true;
     }
@@ -5646,13 +5640,166 @@ public class openapi_311_models extends ModelChecker
         if (! match)
             return false;
         String extract = _jm_xre_1_re_match.group("s1");
+        if (! json_model_69(json.strToJSON(extract), path, rep))
+            return false;
+        return true;
+    }
+
+    // check $openapi#model#Ref (.'$openapi#model#Ref')
+    public boolean json_model_72(Object val, Path path, Report rep)
+    {
+        // .'$openapi#model#Ref'
+        boolean res = json.isString(val);
+        if (res)
+        {
+            // .'$openapi#model#Ref'.'|'.0
+            // "/^\\$($Identifier)$/X"
+            res = _jm_xre_1(json.asString(val), path, rep);
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\$($Identifier)$/X\" [.'$openapi#model#Ref'.'|'.0]", path);
+                // .'$openapi#model#Ref'.'|'.1
+                // "/^\\$($Url)$/X"
+                res = _jm_xre_0(json.asString(val), path, rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\$($Url)$/X\" [.'$openapi#model#Ref'.'|'.1]", path);
+                }
+            }
+            if (res)
+            {
+                if (rep != null) rep.clearEntries();
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("no model matched [.'$openapi#model#Ref'.'|']", path);
+            }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$openapi#model#Ref'.'|']", path);
+        }
+        return res;
+    }
+
+    public boolean _jm_re_8(String val, Path path, Report rep)
+    {
+        return _jm_re_8_pat.matcher(val).find();
+    }
+
+    // check $openapi#model#Url (.'$openapi#model#Url')
+    public boolean json_model_66(Object val, Path path, Report rep)
+    {
+        // .'$openapi#model#Url'
+        // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
+        boolean res = json.isString(val) && _jm_re_8(json.asString(val), path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*)$/\" [.'$openapi#model#Url']", path);
+        }
+        return res;
+    }
+
+    public boolean _jm_re_9(String val, Path path, Report rep)
+    {
+        return _jm_re_9_pat.matcher(val).find();
+    }
+
+    public boolean _jm_re_10(String val, Path path, Report rep)
+    {
+        return _jm_re_10_pat.matcher(val).find();
+    }
+
+    // check $openapi#model#Identifier (.'$openapi#model#Identifier')
+    public boolean json_model_69(Object val, Path path, Report rep)
+    {
+        // .'$openapi#model#Identifier'
+        boolean res = json.isString(val);
+        if (res)
+        {
+            // .'$openapi#model#Identifier'.'&'.0
+            // "/^\\w(\\w|-)*$/"
+            res = _jm_re_10(json.asString(val), path, rep);
+            if (res)
+            {
+                // .'$openapi#model#Identifier'.'&'.1
+                // "/[^A-Z0-9]/"
+                res = _jm_re_9(json.asString(val), path, rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"/[^A-Z0-9]/\" [.'$openapi#model#Identifier'.'&'.1]", path);
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\w(\\\\w|-)*$/\" [.'$openapi#model#Identifier'.'&'.0]", path);
+            }
+        }
+        if (res)
+        {
+            if (rep != null) rep.clearEntries();
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not all model match [.'$openapi#model#Identifier'.'&']", path);
+        }
+        return res;
+    }
+
+    public boolean _jm_re_11(String val, Path path, Report rep)
+    {
+        return _jm_re_11_pat.matcher(val).find();
+    }
+
+    // check $openapi#model#StrConst (.'$openapi#model#StrConst')
+    public boolean json_model_74(Object val, Path path, Report rep)
+    {
+        // .'$openapi#model#StrConst'
+        // "/^[A-Za-z0-9_]/"
+        boolean res = json.isString(val) && _jm_re_11(json.asString(val), path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"/^[A-Za-z0-9_]/\" [.'$openapi#model#StrConst']", path);
+        }
+        return res;
+    }
+
+    public boolean _jm_xre_2_re(String val, Path path, Report rep)
+    {
+        return _jm_xre_2_re_pat.matcher(val).find();
+    }
+
+    public boolean _jm_xre_2(String val, Path path, Report rep)
+    {
+        Matcher _jm_xre_2_re_match;
+        boolean match = (_jm_xre_2_re_match = _jm_xre_2_re_pat.matcher(val)).find();
+        if (! match)
+            return false;
+        String extract = _jm_xre_2_re_match.group("s1");
+        if (! rt.is_valid_regex(extract))
+            return false;
+        return true;
+    }
+
+    public boolean _jm_xre_3_re(String val, Path path, Report rep)
+    {
+        return _jm_xre_3_re_pat.matcher(val).find();
+    }
+
+    public boolean _jm_xre_3(String val, Path path, Report rep)
+    {
+        Matcher _jm_xre_3_re_match;
+        boolean match = (_jm_xre_3_re_match = _jm_xre_3_re_pat.matcher(val)).find();
+        if (! match)
+            return false;
+        String extract = _jm_xre_3_re_match.group("s1");
         if (! rt.is_valid_exreg(extract))
             return false;
         return true;
     }
 
     // check $openapi#model#Regex (.'$openapi#model#Regex')
-    public boolean json_model_74(Object val, Path path, Report rep)
+    public boolean json_model_75(Object val, Path path, Report rep)
     {
         // .'$openapi#model#Regex'
         boolean res = json.isString(val);
@@ -5660,13 +5807,13 @@ public class openapi_311_models extends ModelChecker
         {
             // .'$openapi#model#Regex'.'|'.0
             // "/^/($EXREG)/[a-z]*X[a-z]*$/X"
-            res = _jm_xre_1(json.asString(val), path, rep);
+            res = _jm_xre_3(json.asString(val), path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"/^/($EXREG)/[a-z]*X[a-z]*$/X\" [.'$openapi#model#Regex'.'|'.0]", path);
                 // .'$openapi#model#Regex'.'|'.1
                 // "/^/($REGEX)/[a-z]*$/X"
-                res = _jm_xre_0(json.asString(val), path, rep);
+                res = _jm_xre_2(json.asString(val), path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/^/($REGEX)/[a-z]*$/X\" [.'$openapi#model#Regex'.'|'.1]", path);
@@ -5688,17 +5835,17 @@ public class openapi_311_models extends ModelChecker
         return res;
     }
 
-    public boolean _jm_re_9(String val, Path path, Report rep)
+    public boolean _jm_re_12(String val, Path path, Report rep)
     {
-        return _jm_re_9_pat.matcher(val).find();
+        return _jm_re_12_pat.matcher(val).find();
     }
 
     // check $openapi#model#Name (.'$openapi#model#Name')
-    public boolean json_model_75(Object val, Path path, Report rep)
+    public boolean json_model_76(Object val, Path path, Report rep)
     {
         // .'$openapi#model#Name'
         // "/^\\..+$/"
-        boolean res = json.isString(val) && _jm_re_9(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_12(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\..+$/\" [.'$openapi#model#Name']", path);
@@ -5707,16 +5854,16 @@ public class openapi_311_models extends ModelChecker
     }
 
     // check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
-    public boolean json_model_96(Object val, Path path, Report rep)
+    public boolean json_model_97(Object val, Path path, Report rep)
     {
         // .'$openapi#model#ScalarModel'
         // .'$openapi#model#ScalarModel'.'|'.0
-        boolean res = json_model_78(val, path, rep);
+        boolean res = json_model_79(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$ValModel\" [.'$openapi#model#ScalarModel'.'|'.0]", path);
             // .'$openapi#model#ScalarModel'.'|'.1
-            res = json_model_79(val, path, rep);
+            res = json_model_80(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$StrModel\" [.'$openapi#model#ScalarModel'.'|'.1]", path);
@@ -5735,10 +5882,10 @@ public class openapi_311_models extends ModelChecker
 
 
     // check $openapi#model#ValModel (.'$openapi#model#ValModel')
-    public boolean json_model_78(Object val, Path path, Report rep)
+    public boolean json_model_79(Object val, Path path, Report rep)
     {
         // .'$openapi#model#ValModel'
-        boolean res = json.isScalar(val) && _jm_cst_4_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_5_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$openapi#model#ValModel'.'|']", path);
@@ -5747,31 +5894,31 @@ public class openapi_311_models extends ModelChecker
     }
 
     // check $openapi#model#StrModel (.'$openapi#model#StrModel')
-    public boolean json_model_79(Object val, Path path, Report rep)
+    public boolean json_model_80(Object val, Path path, Report rep)
     {
         // .'$openapi#model#StrModel'
         // .'$openapi#model#StrModel'.'|'.0
-        boolean res = json_model_73(val, path, rep);
+        boolean res = json_model_74(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$StrConst\" [.'$openapi#model#StrModel'.'|'.0]", path);
             // .'$openapi#model#StrModel'.'|'.1
-            res = json_model_72(val, path, rep);
+            res = json_model_73(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$ValConst\" [.'$openapi#model#StrModel'.'|'.1]", path);
                 // .'$openapi#model#StrModel'.'|'.2
-                res = json_model_74(val, path, rep);
+                res = json_model_75(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Regex\" [.'$openapi#model#StrModel'.'|'.2]", path);
                     // .'$openapi#model#StrModel'.'|'.3
-                    res = json_model_67(val, path, rep);
+                    res = json_model_68(val, path, rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected value for model \"$PreDef\" [.'$openapi#model#StrModel'.'|'.3]", path);
                         // .'$openapi#model#StrModel'.'|'.4
-                        res = json_model_71(val, path, rep);
+                        res = json_model_72(val, path, rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$openapi#model#StrModel'.'|'.4]", path);
@@ -5799,28 +5946,39 @@ public class openapi_311_models extends ModelChecker
 
 
     // check $openapi#model#PreDef (.'$openapi#model#PreDef')
-    public boolean json_model_67(Object val, Path path, Report rep)
+    public boolean json_model_68(Object val, Path path, Report rep)
     {
         // .'$openapi#model#PreDef'
-        boolean res = json.isScalar(val) && _jm_cst_5_set.contains(val);
+        boolean res = json.isScalar(val) && _jm_cst_6_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$openapi#model#PreDef'.'|']", path);
+            // .'$openapi#model#PreDef'.'|'.0
+            res = json_model_67(val, path, rep);
+            if (res)
+            {
+                if (rep != null) rep.clearEntries();
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected value for model \"$StrPredef\" [.'$openapi#model#PreDef'.'|'.0]", path);
+                if (rep != null) rep.addEntry("no model matched [.'$openapi#model#PreDef'.'|']", path);
+            }
         }
         return res;
     }
 
-    public boolean _jm_re_10(String val, Path path, Report rep)
+    public boolean _jm_re_13(String val, Path path, Report rep)
     {
-        return _jm_re_10_pat.matcher(val).find();
+        return _jm_re_13_pat.matcher(val).find();
     }
 
     // check $openapi#model#ValConst (.'$openapi#model#ValConst')
-    public boolean json_model_72(Object val, Path path, Report rep)
+    public boolean json_model_73(Object val, Path path, Report rep)
     {
         // .'$openapi#model#ValConst'
         // "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-        boolean res = json.isString(val) && _jm_re_10(json.asString(val), path, rep);
+        boolean res = json.isString(val) && _jm_re_13(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"/^=(null|true|false|[-+]?\\\\d+(\\\\.\\\\d+)?([Ee][-+]?\\\\d+)?)$/\" [.'$openapi#model#ValConst']", path);
@@ -5879,54 +6037,61 @@ public class openapi_311_models extends ModelChecker
             _jm_map_0_cmap.put(json.safeJSON("\"http\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_33(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("\"oauth2\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_35(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("\"openIdConnect\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_36(o, p, r);} });
-            _jm_re_4_pat = Pattern.compile("^(<=|>=|<|>)$");
-            _jm_re_5_pat = Pattern.compile("^(=|!=)$");
-            _jm_re_6_pat = Pattern.compile("^[?!]");
-            _jm_re_7_pat = Pattern.compile("^\\$.");
-            _jm_re_8_pat = Pattern.compile("^[A-Za-z0-9_]");
-            _jm_xre_0_re_pat = Pattern.compile("^/(?<s1>.*)/[a-z]*$");
-            _jm_xre_1_re_pat = Pattern.compile("^/(?<s1>.*)/[a-z]*X[a-z]*$");
-            _jm_re_9_pat = Pattern.compile("^\\..+$");
+            _jm_re_4_pat = Pattern.compile("(?s)^#.");
+            _jm_re_5_pat = Pattern.compile("^(<=|>=|<|>)$");
+            _jm_re_6_pat = Pattern.compile("^(=|!=)$");
+            _jm_re_7_pat = Pattern.compile("^[?!]");
             _jm_cst_4_set = new HashSet<Object>();
-            _jm_cst_4_set.add(json.safeJSON("null"));
-            _jm_cst_4_set.add(json.safeJSON("true"));
-            _jm_cst_4_set.add(json.safeJSON("0"));
-            _jm_cst_4_set.add(json.safeJSON("1"));
-            _jm_cst_4_set.add(json.safeJSON("-1"));
-            _jm_cst_4_set.add(json.safeJSON("0.0"));
-            _jm_cst_4_set.add(json.safeJSON("1.0"));
-            _jm_cst_4_set.add(json.safeJSON("-1.0"));
+            _jm_cst_4_set.add(json.safeJSON("\"$DATE\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$TIME\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$DATETIME\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$URL\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$URI\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$UUID\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$EMAIL\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$REGEX\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$EXREG\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$SEMVER\""));
+            _jm_cst_4_set.add(json.safeJSON("\"$STRING\""));
+            _jm_xre_0_re_pat = Pattern.compile("^\\$(?<s1>.*)$");
+            _jm_xre_1_re_pat = Pattern.compile("^\\$(?<s1>.*)$");
+            _jm_re_8_pat = Pattern.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$");
+            _jm_re_9_pat = Pattern.compile("[^A-Z0-9]");
+            _jm_re_10_pat = Pattern.compile("^\\w(\\w|-)*$");
+            _jm_re_11_pat = Pattern.compile("^[A-Za-z0-9_]");
+            _jm_xre_2_re_pat = Pattern.compile("^/(?<s1>.*)/[a-z]*$");
+            _jm_xre_3_re_pat = Pattern.compile("^/(?<s1>.*)/[a-z]*X[a-z]*$");
+            _jm_re_12_pat = Pattern.compile("^\\..+$");
             _jm_cst_5_set = new HashSet<Object>();
-            _jm_cst_5_set.add(json.safeJSON("\"$DATE\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$TIME\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$DATETIME\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$URL\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$URI\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$UUID\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$EMAIL\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$REGEX\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$EXREG\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$NULL\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$BOOL\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$FLOAT\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$F16\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$F32\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$F64\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$NUMBER\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$INT\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$INTEGER\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$I8\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$I16\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$I32\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$I64\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$U8\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$U16\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$U32\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$U64\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$STRING\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$NONE\""));
-            _jm_cst_5_set.add(json.safeJSON("\"$ANY\""));
-            _jm_re_10_pat = Pattern.compile("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$");
+            _jm_cst_5_set.add(json.safeJSON("null"));
+            _jm_cst_5_set.add(json.safeJSON("true"));
+            _jm_cst_5_set.add(json.safeJSON("0"));
+            _jm_cst_5_set.add(json.safeJSON("1"));
+            _jm_cst_5_set.add(json.safeJSON("-1"));
+            _jm_cst_5_set.add(json.safeJSON("0.0"));
+            _jm_cst_5_set.add(json.safeJSON("1.0"));
+            _jm_cst_5_set.add(json.safeJSON("-1.0"));
+            _jm_cst_6_set = new HashSet<Object>();
+            _jm_cst_6_set.add(json.safeJSON("\"$NULL\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$BOOL\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$FLOAT\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$F16\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$F32\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$F64\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$NUMBER\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$INT\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$INTEGER\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$I8\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$I16\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$I32\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$I64\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$U8\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$U16\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$U32\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$U64\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$NONE\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$ANY\""));
+            _jm_re_13_pat = Pattern.compile("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$");
             openapi_311_models_map_pmap = new HashMap<String, Checker>();
             openapi_311_models_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             openapi_311_models_map_pmap.put("openapi", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
@@ -5957,13 +6122,19 @@ public class openapi_311_models extends ModelChecker
             _jm_re_5_pat = null;
             _jm_re_6_pat = null;
             _jm_re_7_pat = null;
-            _jm_re_8_pat = null;
+            _jm_cst_4_set = null;
             _jm_xre_0_re_pat = null;
             _jm_xre_1_re_pat = null;
+            _jm_re_8_pat = null;
             _jm_re_9_pat = null;
-            _jm_cst_4_set = null;
-            _jm_cst_5_set = null;
             _jm_re_10_pat = null;
+            _jm_re_11_pat = null;
+            _jm_xre_2_re_pat = null;
+            _jm_xre_3_re_pat = null;
+            _jm_re_12_pat = null;
+            _jm_cst_5_set = null;
+            _jm_cst_6_set = null;
+            _jm_re_13_pat = null;
             openapi_311_models_map_pmap = null;
         }
     }
