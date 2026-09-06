@@ -2355,7 +2355,7 @@ def make_language(
         regex_opt: bool = True,
         unique_opt: bool = True,
         strcmp_cset_partition_threshold: int = 32,
-        js_direct: bool = False,
+        js_direct: bool = True,
     ) -> tuple[Language|None, str|None]:
     """Build the back-end for a target language, and its default package."""
 
@@ -2448,7 +2448,7 @@ def xstatic_compile(
         max_strcmp_cset: int = 64,
         byte_order: str = "le",
         mark: str|None = None,
-        js_direct: bool = False,
+        js_direct: bool = True,
     ) -> Code:
     """Generate the check source code for a model.
 
@@ -2650,7 +2650,7 @@ def ir_compile(
         regex_opt: bool = True,
         unique_opt: bool = True,
         strcmp_cset_partition_threshold: int = 32,
-        js_direct: bool = False,
+        js_direct: bool = True,
     ) -> str:
     """Generate the check source code from a JSON intermediate representation."""
 
