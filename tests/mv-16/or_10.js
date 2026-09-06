@@ -23,15 +23,15 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("name"))
+    if (! (val.name !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.'|'.1]", path])
         return false
     }
     lpath = path ? path.concat(["name"]) : null
-    pval = val["name"]
+    pval = val.name
     // .'|'.1.name
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.name]", (path ? lpath : null)])
@@ -58,7 +58,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         // .'|'.0
@@ -66,7 +66,7 @@ function json_model_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'|'.0]", path])
-            if (val.hasOwnProperty("name"))
+            if (val.name !== undefined)
             {
                 // .'|'.1
                 res = _jm_obj_0(val, path, rep)

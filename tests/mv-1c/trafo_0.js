@@ -16,7 +16,7 @@ function json_model_2(val, path, rep)
 {
     // .'$zero'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$zero']", path])
         return false
@@ -28,30 +28,30 @@ function json_model_2(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("za"))
+    if (! (val.za !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <za> [.'$zero']", path])
         return false
     }
     lpath = path ? path.concat(["za"]) : null
-    pval = val["za"]
+    pval = val.za
     // .'$zero'.za
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$zero'.za]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <za> [.'$zero']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("zb"))
+    if (! (val.zb !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <zb> [.'$zero']", path])
         return false
     }
     lpath = path ? path.concat(["zb"]) : null
-    pval = val["zb"]
+    pval = val.zb
     // .'$zero'.zb
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$zero'.zb]", (path ? lpath : null)])

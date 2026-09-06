@@ -16,7 +16,7 @@ function json_model_1(val, path, rep)
 {
     // escaped property names
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -31,7 +31,7 @@ function json_model_1(val, path, rep)
             //  property
             // .'
             // '
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'\n']", (path ? lpath_0 : null)])
@@ -44,7 +44,7 @@ function json_model_1(val, path, rep)
         {
             // handle may 	 property
             // .'	'
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'\t']", (path ? lpath_0 : null)])
@@ -57,7 +57,7 @@ function json_model_1(val, path, rep)
         {
             // handle may \ property
             // .'\\'
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'\\\\']", (path ? lpath_0 : null)])
@@ -70,7 +70,7 @@ function json_model_1(val, path, rep)
         {
             // handle may ' property
             // .'\''
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'\\'']", (path ? lpath_0 : null)])
@@ -85,7 +85,7 @@ function json_model_1(val, path, rep)
             //  property
             // .'
             // '
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'\f']", (path ? lpath_0 : null)])
@@ -98,7 +98,7 @@ function json_model_1(val, path, rep)
         {
             // handle may " property
             // .'"'
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'\"']", (path ? lpath_0 : null)])
@@ -113,7 +113,7 @@ function json_model_1(val, path, rep)
             //  property
             // .'
             // '
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'\r']", (path ? lpath_0 : null)])

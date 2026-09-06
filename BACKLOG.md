@@ -14,6 +14,7 @@
 - [x] bench: add ajv cli docker and wrapper
 - [x] bench: add ajv external reference (wip)
 - [x] js: add option for more direct/simpler code
+- [x] js: set default to use simpler code
 - [x] analyze: check static typing on constrained nodes
 - [x] analyze: display model rejections reasons as a warning
 - [x] bench: handle case failures when reporting

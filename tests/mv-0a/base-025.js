@@ -16,7 +16,7 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'@'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let ival_0 = Object.keys(val).length

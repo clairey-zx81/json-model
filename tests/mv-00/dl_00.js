@@ -9,7 +9,7 @@ export var check_model_map = new Map()
 
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     for (const [prop, pval] of Object.entries(val))
@@ -23,7 +23,7 @@ function _jm_obj_0(val, path, rep)
 
 function json_model_2(val, path, rep)
 {
-    return (typeof val == 'boolean' || val instanceof Boolean) || _jm_obj_0(val, null, null)
+    return typeof val == 'boolean' || _jm_obj_0(val, null, null)
 }
 
 function json_model_1(val, path, rep)

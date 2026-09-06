@@ -18,7 +18,7 @@ function json_model_2(val, path, rep)
 {
     // .'$d'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -27,21 +27,21 @@ function json_model_2(val, path, rep)
         return false
     pval = val["t"]
     // .'$d'.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "d"
+    let res = typeof pval == 'string' && pval == "d"
     if (! res)
         return false
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
     // .'$d'.d
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 // object .'$alternative'.'|'.0
 function _jm_obj_0(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -50,14 +50,14 @@ function _jm_obj_0(val, path, rep)
         return false
     pval = val["u"]
     // .'$alternative'.'|'.0.u
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
+    let res = typeof pval == 'string' && pval == "a"
     if (! res)
         return false
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
     // .'$alternative'.'|'.0.a
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 
@@ -65,7 +65,7 @@ function _jm_obj_0(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -74,14 +74,14 @@ function _jm_obj_1(val, path, rep)
         return false
     pval = val["t"]
     // .'$alternative'.'|'.1.t
-    let res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
+    let res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_0.has(pval)
     if (! res)
         return false
-    if (! val.hasOwnProperty("bc"))
+    if (! (val.bc !== undefined))
         return false
-    pval = val["bc"]
+    pval = val.bc
     // .'$alternative'.'|'.1.bc
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 
@@ -90,7 +90,7 @@ function json_model_3(val, path, rep)
 {
     // expecting xor-to-or and tag detection, but not for u
     // .'$alternative'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0

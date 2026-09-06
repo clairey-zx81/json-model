@@ -16,7 +16,7 @@ function json_model_1(val, path, rep)
 {
     // ZA
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -29,7 +29,7 @@ function json_model_1(val, path, rep)
         {
             // handle may country property
             // .country
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "South Africa"
+            res = typeof pval == 'string' && pval == "South Africa"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_South Africa\" [.country]", (path ? lpath_0 : null)])

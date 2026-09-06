@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$Foo'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Foo']", path])
         return false
@@ -28,7 +28,7 @@ function json_model_2(val, path, rep)
         {
             // handle may foo property
             // .'$Foo'.foo
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "initial foo"
+            res = typeof pval == 'string' && pval == "initial foo"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_initial foo\" [.'$Foo'.foo]", (path ? lpath_0 : null)])

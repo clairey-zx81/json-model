@@ -13,35 +13,35 @@ const jm_is_ip6_re = new runtime.RX("^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f
 
 function json_model_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "ipv4")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_ip4(pval, null, null)
+            res = typeof pval == 'string' && jm_is_ip4(pval, null, null)
             if (! res)
                 return false
             continue
         }
         else if (prop == "ipv6")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_ip6(pval, null, null)
+            res = typeof pval == 'string' && jm_is_ip6(pval, null, null)
             if (! res)
                 return false
             continue
         }
         else if (prop == "host")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_host(pval, null, null) && runtime.jm_char_length(pval) <= 255
+            res = typeof pval == 'string' && jm_is_host(pval, null, null) && runtime.jm_char_length(pval) <= 255
             if (! res)
                 return false
             continue
         }
         else if (prop == "eth")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && jm_is_eth(pval, null, null)
+            res = typeof pval == 'string' && jm_is_eth(pval, null, null)
             if (! res)
                 return false
             continue

@@ -9,19 +9,19 @@ export var check_model_map = new Map()
 
 function json_model_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let pval
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    let res = (typeof pval == 'string' || pval instanceof String)
+    let res = typeof pval == 'string'
     if (! res)
         return false
     if (! val.hasOwnProperty("b"))
         return false
     pval = val["b"]
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 

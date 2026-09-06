@@ -16,21 +16,21 @@ function json_model_1(val, path, rep)
 {
     // .
     // check open must/may only props
-    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
         return false
     let pval
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
     // .a
-    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
+    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
         return false
     if (! val.hasOwnProperty("b"))
         return false
     pval = val["b"]
     // .b
-    return typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
+    return ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
 }
 
 

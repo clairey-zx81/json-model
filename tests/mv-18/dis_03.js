@@ -16,7 +16,7 @@ export var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'|'.0]", path])
         return false
@@ -28,15 +28,15 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("discriminator"))
+    if (! (val.discriminator !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <discriminator> [.'|'.0]", path])
         return false
     }
     lpath = path ? path.concat(["discriminator"]) : null
-    pval = val["discriminator"]
+    pval = val.discriminator
     // .'|'.0.discriminator
-    let res = ((typeof pval == 'boolean' || pval instanceof Boolean)) && pval == true
+    let res = typeof pval == 'boolean' && pval == true
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=true\" [.'|'.0.discriminator]", (path ? lpath : null)])
@@ -51,7 +51,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["x"]) : null
     pval = val["x"]
     // .'|'.0.x
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.0.x]", (path ? lpath : null)])
@@ -65,7 +65,7 @@ function _jm_obj_0(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'|'.1]", path])
         return false
@@ -77,15 +77,15 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("discriminator"))
+    if (! (val.discriminator !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <discriminator> [.'|'.1]", path])
         return false
     }
     lpath = path ? path.concat(["discriminator"]) : null
-    pval = val["discriminator"]
+    pval = val.discriminator
     // .'|'.1.discriminator
-    let res = ((typeof pval == 'boolean' || pval instanceof Boolean)) && pval == false
+    let res = typeof pval == 'boolean' && pval == false
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=false\" [.'|'.1.discriminator]", (path ? lpath : null)])
@@ -100,7 +100,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["y"]) : null
     pval = val["y"]
     // .'|'.1.y
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.y]", (path ? lpath : null)])
@@ -116,11 +116,11 @@ function json_model_1(val, path, rep)
 {
     // boolean tag
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0
-        if ((tag_0 = val["discriminator"]) != null)
+        if ((tag_0 = val.discriminator) != null)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)

@@ -453,9 +453,9 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--javac", type=str, help="override default Java language compiler")
     arg("--jflags", type=str, help="add Java compiler flags")
 
-    grep = ap.add_argument_group("JavaScript compiler options")
+    grp = ap.add_argument_group("JavaScript compiler options")
     arg = grp.add_argument
-    arg("--js-direct", action="store_true", default=False,
+    arg("--js-direct", action="store_true", default=True,
         help="use more direct operations in JS")
     arg("--no-js-direct", dest="js_direct", action="store_false",
         help="do not use direct operations in JS")

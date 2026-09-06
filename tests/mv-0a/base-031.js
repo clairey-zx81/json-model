@@ -16,7 +16,7 @@ function json_model_2(val, path, rep)
 {
     // .'$bibi'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$bibi']", path])
         return false
@@ -28,13 +28,13 @@ function json_model_2(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("bibi"))
+    if (! (val.bibi !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <bibi> [.'$bibi']", path])
         return false
     }
     lpath = path ? path.concat(["bibi"]) : null
-    pval = val["bibi"]
+    pval = val.bibi
     // .'$bibi'.bibi
     let res = Array.isArray(pval)
     if (res)

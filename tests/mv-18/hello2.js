@@ -16,7 +16,7 @@ function json_model_2(val, path, rep)
 {
     // .
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -28,30 +28,30 @@ function json_model_2(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("hello"))
+    if (! (val.hello !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <hello> [.]", path])
         return false
     }
     lpath = path ? path.concat(["hello"]) : null
-    pval = val["hello"]
+    pval = val.hello
     // .hello
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.hello]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <hello> [.]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("world"))
+    if (! (val.world !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <world> [.]", path])
         return false
     }
     lpath = path ? path.concat(["world"]) : null
-    pval = val["world"]
+    pval = val.world
     // .world
-    res = (typeof pval == 'boolean' || pval instanceof Boolean)
+    res = typeof pval == 'boolean'
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.world]", (path ? lpath : null)])

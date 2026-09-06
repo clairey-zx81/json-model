@@ -23,7 +23,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle 2 re props
             // .'&'.1.'/^s/'
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'&'.1.'/^s/']", (path ? lpath_0 : null)])
@@ -34,7 +34,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle 2 re props
             // .'&'.1.'/^i/'
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'&'.1.'/^i/']", (path ? lpath_0 : null)])
@@ -64,7 +64,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["i"]) : null
     pval = val["i"]
     // .'&'.0.i
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'&'.0.i]", (path ? lpath : null)])
@@ -79,19 +79,19 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'&'.0.b
-    res = (typeof pval == 'boolean' || pval instanceof Boolean)
+    res = typeof pval == 'boolean'
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'&'.0.b]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <b> [.'&'.0]", (path ? lpath : null)])
         return false
     }
-    if (val.hasOwnProperty("ss"))
+    if (val.ss !== undefined)
     {
         lpath = path ? path.concat(["ss"]) : null
-        pval = val["ss"]
+        pval = val.ss
         // .'&'.0.ss
-        res = (typeof pval == 'string' || pval instanceof String)
+        res = typeof pval == 'string'
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'&'.0.ss]", (path ? lpath : null)])
@@ -107,7 +107,7 @@ function json_model_1(val, path, rep)
 {
     // merge object stuff if possible, cannot have ss
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         // .'&'.0

@@ -17,14 +17,14 @@ function json_model_3(val, path, rep)
 {
     // .'$objs0'
     // check close must only props
-    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
         return false
     if (Object.keys(val).length != 1)
         return false
     let pval
-    if (! (val.stuff !== undefined))
+    if (! val.hasOwnProperty("stuff"))
         return false
-    pval = val.stuff
+    pval = val["stuff"]
     // .'$objs0'.stuff
     let res = Array.isArray(pval)
     if (res)
@@ -46,14 +46,14 @@ function json_model_1(val, path, rep)
 {
     // .
     // check close must only props
-    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
         return false
     if (Object.keys(val).length != 1)
         return false
     let pval
-    if (! (val.foo !== undefined))
+    if (! val.hasOwnProperty("foo"))
         return false
-    pval = val.foo
+    pval = val["foo"]
     // .foo
     return json_model_3(pval, null, null)
 }
@@ -63,7 +63,7 @@ function json_model_1(val, path, rep)
 function json_model_6(val, path, rep)
 {
     // .'$objs0#furniture'
-    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
         let tag_0
@@ -83,7 +83,7 @@ function json_model_4(val, path, rep)
 {
     // .'$objs0#table'
     // check close must only props
-    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -92,14 +92,14 @@ function json_model_4(val, path, rep)
         return false
     pval = val["t"]
     // .'$objs0#table'.t
-    let res = typeof pval == 'string' && pval == "table"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "table"
     if (! res)
         return false
-    if (! (val.legs !== undefined))
+    if (! val.hasOwnProperty("legs"))
         return false
-    pval = val.legs
+    pval = val["legs"]
     // .'$objs0#table'.legs
-    return typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
+    return ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
 }
 
 // check $objs0#chair (.'$objs0#chair')
@@ -107,7 +107,7 @@ function json_model_5(val, path, rep)
 {
     // .'$objs0#chair'
     // check close must only props
-    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -116,14 +116,14 @@ function json_model_5(val, path, rep)
         return false
     pval = val["t"]
     // .'$objs0#chair'.t
-    let res = typeof pval == 'string' && pval == "chair"
+    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "chair"
     if (! res)
         return false
-    if (! (val.color !== undefined))
+    if (! val.hasOwnProperty("color"))
         return false
-    pval = val.color
+    pval = val["color"]
     // .'$objs0#chair'.color
-    return typeof pval == 'string'
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 

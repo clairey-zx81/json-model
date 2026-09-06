@@ -23,12 +23,12 @@ function json_model_2(val, path, rep)
     {
         rep !== null && rep.push(["not null [.'$Id'.'|'.0]", path])
         // .'$Id'.'|'.1
-        res = (typeof val == 'number' || val instanceof Number) && Number.isInteger(val)
+        res = typeof val == 'number' && Number.isInteger(val)
         if (! res)
         {
             rep !== null && rep.push(["not a -1 strict int [.'$Id'.'|'.1]", path])
             // .'$Id'.'|'.2
-            res = (typeof val == 'string' || val instanceof String)
+            res = typeof val == 'string'
             if (! res)
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Id'.'|'.2]", path])
         }
@@ -48,7 +48,7 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 function json_model_3(val, path, rep)
 {
     // .'$Notification'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Notification']", path])
         return false
@@ -63,7 +63,7 @@ function json_model_3(val, path, rep)
             // handle must jsonrpc property
             must_count += 1
             // .'$Notification'.jsonrpc
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
+            res = typeof pval == 'string' && pval == "2.0"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$Notification'.jsonrpc]", (path ? lpath_0 : null)])
@@ -78,7 +78,7 @@ function json_model_3(val, path, rep)
             must_count += 1
             // .'$Notification'.method
             // "/./"
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep)
+            res = typeof pval == 'string' && _jm_re_0(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/./\" [.'$Notification'.method]", (path ? lpath_0 : null)])
@@ -97,7 +97,7 @@ function json_model_3(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$Notification'.params.'|'.0]", (path ? lpath_0 : null)])
                 // .'$Notification'.params.'|'.1
-                res = Object.prototype.toString.call(pval) === '[object Object]'
+                res = pval !== null && typeof pval == 'object' && !Array.isArray(pval)
             }
             if (res)
             {
@@ -118,9 +118,9 @@ function json_model_3(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("jsonrpc"))
+            if (! (val.jsonrpc !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <jsonrpc> [.'$Notification']", path])
-            if (! val.hasOwnProperty("method"))
+            if (! (val.method !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <method> [.'$Notification']", path])
         }
         return false
@@ -132,7 +132,7 @@ function json_model_3(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$Request'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Request']", path])
         return false
@@ -147,7 +147,7 @@ function json_model_4(val, path, rep)
             // handle must jsonrpc property
             must_count += 1
             // .'$Request'.jsonrpc
-            res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
+            res = typeof pval == 'string' && pval == "2.0"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$Request'.jsonrpc]", (path ? lpath_1 : null)])
@@ -162,7 +162,7 @@ function json_model_4(val, path, rep)
             must_count += 1
             // .'$Request'.method
             // "/./"
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_1 : null), rep)
+            res = typeof pval == 'string' && _jm_re_0(pval, (path ? lpath_1 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/./\" [.'$Request'.method]", (path ? lpath_1 : null)])
@@ -195,7 +195,7 @@ function json_model_4(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$Request'.params.'|'.0]", (path ? lpath_1 : null)])
                 // .'$Request'.params.'|'.1
-                res = Object.prototype.toString.call(pval) === '[object Object]'
+                res = pval !== null && typeof pval == 'object' && !Array.isArray(pval)
             }
             if (res)
             {
@@ -216,11 +216,11 @@ function json_model_4(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("id"))
+            if (! (val.id !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <id> [.'$Request']", path])
-            if (! val.hasOwnProperty("jsonrpc"))
+            if (! (val.jsonrpc !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <jsonrpc> [.'$Request']", path])
-            if (! val.hasOwnProperty("method"))
+            if (! (val.method !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <method> [.'$Request']", path])
         }
         return false
@@ -309,7 +309,7 @@ function json_model_7(val, path, rep)
 {
     // .'$Response'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Response']", path])
         return false
@@ -321,28 +321,28 @@ function json_model_7(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("jsonrpc"))
+    if (! (val.jsonrpc !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <jsonrpc> [.'$Response']", path])
         return false
     }
     lpath = path ? path.concat(["jsonrpc"]) : null
-    pval = val["jsonrpc"]
+    pval = val.jsonrpc
     // .'$Response'.jsonrpc
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
+    let res = typeof pval == 'string' && pval == "2.0"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$Response'.jsonrpc]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <jsonrpc> [.'$Response']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("id"))
+    if (! (val.id !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$Response']", path])
         return false
     }
     lpath = path ? path.concat(["id"]) : null
-    pval = val["id"]
+    pval = val.id
     // .'$Response'.id
     res = json_model_2(pval, (path ? lpath : null), rep)
     if (! res)
@@ -351,7 +351,7 @@ function json_model_7(val, path, rep)
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$Response']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("result"))
+    if (! (val.result !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <result> [.'$Response']", path])
         return false
@@ -362,7 +362,7 @@ function json_model_7(val, path, rep)
 // object .'$Error'.error
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Error'.error]", path])
         return false
@@ -377,7 +377,7 @@ function _jm_obj_0(val, path, rep)
             // handle must code property
             must_count += 1
             // .'$Error'.error.code
-            res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
+            res = typeof pval == 'number' && Number.isInteger(pval)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1 strict int [.'$Error'.error.code]", (path ? lpath_2 : null)])
@@ -391,7 +391,7 @@ function _jm_obj_0(val, path, rep)
             // handle must message property
             must_count += 1
             // .'$Error'.error.message
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Error'.error.message]", (path ? lpath_2 : null)])
@@ -414,9 +414,9 @@ function _jm_obj_0(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("code"))
+            if (! (val.code !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <code> [.'$Error'.error]", path])
-            if (! val.hasOwnProperty("message"))
+            if (! (val.message !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <message> [.'$Error'.error]", path])
         }
         return false
@@ -429,7 +429,7 @@ function json_model_8(val, path, rep)
 {
     // .'$Error'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Error']", path])
         return false
@@ -441,28 +441,28 @@ function json_model_8(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("jsonrpc"))
+    if (! (val.jsonrpc !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <jsonrpc> [.'$Error']", path])
         return false
     }
     lpath = path ? path.concat(["jsonrpc"]) : null
-    pval = val["jsonrpc"]
+    pval = val.jsonrpc
     // .'$Error'.jsonrpc
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "2.0"
+    let res = typeof pval == 'string' && pval == "2.0"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_2.0\" [.'$Error'.jsonrpc]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <jsonrpc> [.'$Error']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("id"))
+    if (! (val.id !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$Error']", path])
         return false
     }
     lpath = path ? path.concat(["id"]) : null
-    pval = val["id"]
+    pval = val.id
     // .'$Error'.id
     res = json_model_2(pval, (path ? lpath : null), rep)
     if (! res)
@@ -471,13 +471,13 @@ function json_model_8(val, path, rep)
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$Error']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("error"))
+    if (! (val.error !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <error> [.'$Error']", path])
         return false
     }
     lpath = path ? path.concat(["error"]) : null
-    pval = val["error"]
+    pval = val.error
     // .'$Error'.error
     res = _jm_obj_0(pval, (path ? lpath : null), rep)
     if (! res)

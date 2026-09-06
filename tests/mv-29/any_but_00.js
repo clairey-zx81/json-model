@@ -25,7 +25,7 @@ function _jm_obj_0(val, path, rep)
             // handle must a property
             must_count += 1
             // .'|'.6.a
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'|'.6.a]", (path ? lpath_0 : null)])
@@ -38,7 +38,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may b property
             // .'|'.6.b
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'|'.6.b]", (path ? lpath_0 : null)])
@@ -67,7 +67,7 @@ function json_model_1(val, path, rep)
 {
     // typical jsu output for undertyped schemas, whatever but
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         // .'|'.6

@@ -16,15 +16,15 @@ function json_model_1(val, path, rep)
 {
     // .
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let pval
     let res
-    if (val.hasOwnProperty("hello"))
+    if (val.hello !== undefined)
     {
-        pval = val["hello"]
+        pval = val.hello
         // .hello
-        res = (typeof pval == 'string' || pval instanceof String)
+        res = typeof pval == 'string'
         if (! res)
             return false
     }

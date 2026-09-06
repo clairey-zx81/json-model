@@ -16,7 +16,7 @@ export var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.movie.'|'.0]", path])
         return false
@@ -36,22 +36,22 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .movie.'|'.0.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "fr"
+    let res = typeof pval == 'string' && pval == "fr"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"fr\" [.movie.'|'.0.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.0]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("titre"))
+    if (! (val.titre !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <titre> [.movie.'|'.0]", path])
         return false
     }
     lpath = path ? path.concat(["titre"]) : null
-    pval = val["titre"]
+    pval = val.titre
     // .movie.'|'.0.titre
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.movie.'|'.0.titre]", (path ? lpath : null)])
@@ -65,7 +65,7 @@ function _jm_obj_0(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.movie.'|'.1]", path])
         return false
@@ -85,22 +85,22 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .movie.'|'.1.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "en"
+    let res = typeof pval == 'string' && pval == "en"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"en\" [.movie.'|'.1.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.1]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("title"))
+    if (! (val.title !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <title> [.movie.'|'.1]", path])
         return false
     }
     lpath = path ? path.concat(["title"]) : null
-    pval = val["title"]
+    pval = val.title
     // .movie.'|'.1.title
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.movie.'|'.1.title]", (path ? lpath : null)])
@@ -114,7 +114,7 @@ function _jm_obj_1(val, path, rep)
 function _jm_obj_2(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.movie.'|'.2]", path])
         return false
@@ -134,22 +134,22 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .movie.'|'.2.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "de"
+    let res = typeof pval == 'string' && pval == "de"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"de\" [.movie.'|'.2.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.2]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("Title"))
+    if (! (val.Title !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <Title> [.movie.'|'.2]", path])
         return false
     }
     lpath = path ? path.concat(["Title"]) : null
-    pval = val["Title"]
+    pval = val.Title
     // .movie.'|'.2.Title
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.movie.'|'.2.Title]", (path ? lpath : null)])
@@ -163,7 +163,7 @@ function _jm_obj_2(val, path, rep)
 function _jm_obj_3(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.movie.'|'.3]", path])
         return false
@@ -183,22 +183,22 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .movie.'|'.3.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "ru"
+    let res = typeof pval == 'string' && pval == "ru"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"ru\" [.movie.'|'.3.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.3]", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("suti"))
+    if (! (val.suti !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <suti> [.movie.'|'.3]", path])
         return false
     }
     lpath = path ? path.concat(["suti"]) : null
-    pval = val["suti"]
+    pval = val.suti
     // .movie.'|'.3.suti
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.movie.'|'.3.suti]", (path ? lpath : null)])
@@ -214,7 +214,7 @@ function json_model_1(val, path, rep)
 {
     // .
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -226,15 +226,15 @@ function json_model_1(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("movie"))
+    if (! (val.movie !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <movie> [.]", path])
         return false
     }
     lpath = path ? path.concat(["movie"]) : null
-    pval = val["movie"]
+    pval = val.movie
     // .movie
-    let res = Object.prototype.toString.call(pval) === '[object Object]'
+    let res = pval !== null && typeof pval == 'object' && !Array.isArray(pval)
     if (res)
     {
         let tag_0

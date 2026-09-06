@@ -18,7 +18,7 @@ function json_model_2(val, path, rep)
 {
     // .'$a'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$a']", path])
         return false
@@ -38,7 +38,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$a'.t
-    let res = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
+    let res = typeof pval == 'string' && pval == "a"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"a\" [.'$a'.t]", (path ? lpath : null)])
@@ -54,7 +54,7 @@ function json_model_3(val, path, rep)
 {
     // .'$bc'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$bc']", path])
         return false
@@ -74,7 +74,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$bc'.t
-    let res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
+    let res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_0.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$bc'.t.'|']", (path ? lpath : null)])
@@ -89,7 +89,7 @@ function json_model_4(val, path, rep)
 {
     // .'$Nabc'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$Nabc']", path])
         return false
@@ -112,13 +112,13 @@ function json_model_4(val, path, rep)
     // generic xor list
     let xc_0 = 0
     // .'$Nabc'.t.'^'.0
-    let xr_0 = (typeof pval == 'string' || pval instanceof String)
+    let xr_0 = typeof pval == 'string'
     if (xr_0)
         xc_0 += 1
     else
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Nabc'.t.'^'.0]", (path ? lpath : null)])
     // .'$Nabc'.t.'^'.1
-    xr_0 = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
+    xr_0 = typeof pval == 'string' && pval == "a"
     if (xr_0)
         xc_0 += 1
     else
@@ -126,7 +126,7 @@ function json_model_4(val, path, rep)
     if (xc_0 <= 1)
     {
         // .'$Nabc'.t.'^'.2
-        xr_0 = ((typeof pval == 'string' || pval instanceof String)) && pval == "b"
+        xr_0 = typeof pval == 'string' && pval == "b"
         if (xr_0)
             xc_0 += 1
         else
@@ -135,7 +135,7 @@ function json_model_4(val, path, rep)
     if (xc_0 <= 1)
     {
         // .'$Nabc'.t.'^'.3
-        xr_0 = ((typeof pval == 'string' || pval instanceof String)) && pval == "c"
+        xr_0 = typeof pval == 'string' && pval == "c"
         if (xr_0)
             xc_0 += 1
         else
@@ -161,7 +161,7 @@ function json_model_1(val, path, rep)
 {
     // xor-to-or with not constant exclusion behind references
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0

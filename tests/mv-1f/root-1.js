@@ -46,7 +46,7 @@ function json_model_5(val, path, rep)
 {
     // .'$root#Root'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$root#Root']", path])
         return false
@@ -58,30 +58,30 @@ function json_model_5(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("id"))
+    if (! (val.id !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$root#Root']", path])
         return false
     }
     lpath = path ? path.concat(["id"]) : null
-    pval = val["id"]
+    pval = val.id
     // .'$root#Root'.id
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval == 1
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1\" [.'$root#Root'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$root#Root']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("name"))
+    if (! (val.name !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.'$root#Root']", path])
         return false
     }
     lpath = path ? path.concat(["name"]) : null
-    pval = val["name"]
+    pval = val.name
     // .'$root#Root'.name
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$root#Root'.name]", (path ? lpath : null)])

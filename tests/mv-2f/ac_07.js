@@ -9,7 +9,7 @@ export var check_model_map = new Map()
 
 function json_model_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     let must_count = 0
@@ -18,14 +18,14 @@ function json_model_1(val, path, rep)
         if (prop == "a")
         {
             must_count += 1
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
                 return false
             continue
         }
         if (prop == "b")
         {
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
                 return false
             continue

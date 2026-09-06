@@ -12,7 +12,7 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
 function json_model_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 1)
         return false
@@ -20,7 +20,7 @@ function json_model_1(val, path, rep)
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    return ((typeof pval == 'string' || pval instanceof String)) && _jm_re_0(pval, null, null)
+    return typeof pval == 'string' && _jm_re_0(pval, null, null)
 }
 
 

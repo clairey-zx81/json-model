@@ -1,1 +1,1 @@
-JMC.opts    += --no-reporting --js-direct
+JMC.opts    += --no-reporting --no-js-direct

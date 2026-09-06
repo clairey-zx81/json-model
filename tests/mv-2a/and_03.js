@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
             // handle must s property
             must_count += 1
             // .s
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.s]", (path ? lpath_0 : null)])
@@ -43,7 +43,7 @@ function json_model_1(val, path, rep)
         {
             // handle may b property
             // .b
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.b]", (path ? lpath_0 : null)])
@@ -56,7 +56,7 @@ function json_model_1(val, path, rep)
         {
             // handle may i property
             // .i
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.i]", (path ? lpath_0 : null)])
@@ -69,7 +69,7 @@ function json_model_1(val, path, rep)
         {
             // handle may f property
             // .f
-            res = ((typeof pval == 'number' || pval instanceof Number)) && pval > 0.0
+            res = typeof pval == 'number' && pval > 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 1.0 strict float [.f]", (path ? lpath_0 : null)])
@@ -82,7 +82,7 @@ function json_model_1(val, path, rep)
         {
             // handle 4 re props
             // .'/^xs/'
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'/^xs/']", (path ? lpath_0 : null)])
@@ -93,7 +93,7 @@ function json_model_1(val, path, rep)
         {
             // handle 4 re props
             // .'/^xb/'
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'/^xb/']", (path ? lpath_0 : null)])
@@ -104,7 +104,7 @@ function json_model_1(val, path, rep)
         {
             // handle 4 re props
             // .'/^xi/'
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'/^xi/']", (path ? lpath_0 : null)])
@@ -115,7 +115,7 @@ function json_model_1(val, path, rep)
         {
             // handle 4 re props
             // .'/^xf/'
-            res = ((typeof pval == 'number' || pval instanceof Number)) && pval > 0.0
+            res = typeof pval == 'number' && pval > 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 1.0 strict float [.'/^xf/']", (path ? lpath_0 : null)])

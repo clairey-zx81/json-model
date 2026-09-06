@@ -20,7 +20,7 @@ function json_model_2(val, path, rep)
 {
     // .'$oA'
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$oA']", path])
         return false
@@ -35,7 +35,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'$oA'.v
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oA'.v]", (path ? lpath : null)])
@@ -50,7 +50,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$oA'.t
-    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "a"
+    res = typeof pval == 'string' && pval == "a"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_a\" [.'$oA'.t]", (path ? lpath : null)])
@@ -66,7 +66,7 @@ function json_model_3(val, path, rep)
 {
     // .'$oB'
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$oB']", path])
         return false
@@ -81,7 +81,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'$oB'.v
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oB'.v]", (path ? lpath : null)])
@@ -96,7 +96,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$oB'.t
-    res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
+    res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_0.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$oB'.t.'|']", (path ? lpath : null)])
@@ -111,7 +111,7 @@ function json_model_3(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$oC'
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0
@@ -142,7 +142,7 @@ function json_model_5(val, path, rep)
 {
     // .'$oL'
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$oL']", path])
         return false
@@ -157,7 +157,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'$oL'.v
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oL'.v]", (path ? lpath : null)])
@@ -172,7 +172,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$oL'.t
-    res = ((typeof pval == 'string' || pval instanceof String)) && pval == "d"
+    res = typeof pval == 'string' && pval == "d"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_d\" [.'$oL'.t]", (path ? lpath : null)])
@@ -188,7 +188,7 @@ function json_model_6(val, path, rep)
 {
     // .'$oX'
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$oX']", path])
         return false
@@ -203,7 +203,7 @@ function json_model_6(val, path, rep)
     lpath = path ? path.concat(["v"]) : null
     pval = val["v"]
     // .'$oX'.v
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oX'.v]", (path ? lpath : null)])
@@ -218,7 +218,7 @@ function json_model_6(val, path, rep)
     lpath = path ? path.concat(["t"]) : null
     pval = val["t"]
     // .'$oX'.t
-    res = ((pval === null || (typeof pval == 'number' || pval instanceof Number) || (typeof pval == 'boolean' || pval instanceof Boolean) || (typeof pval == 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
+    res = ((pval === null || typeof pval == 'number' || typeof pval == 'boolean' || typeof pval == 'string')) && _jm_cst_1.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$oX'.t.'|']", (path ? lpath : null)])
@@ -233,7 +233,7 @@ function json_model_6(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_1

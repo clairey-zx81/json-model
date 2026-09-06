@@ -16,23 +16,23 @@ function json_model_2(val, path, rep)
 {
     // .'$book'
     // check close must only props
-    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
         return false
     if (Object.keys(val).length != 2)
         return false
     let pval
-    if (! (val.title !== undefined))
+    if (! val.hasOwnProperty("title"))
         return false
-    pval = val.title
+    pval = val["title"]
     // .'$book'.title
-    let res = typeof pval == 'string'
+    let res = (typeof pval == 'string' || pval instanceof String)
     if (! res)
         return false
-    if (! (val.author !== undefined))
+    if (! val.hasOwnProperty("author"))
         return false
-    pval = val.author
+    pval = val["author"]
     // .'$book'.author
-    return typeof pval == 'string'
+    return (typeof pval == 'string' || pval instanceof String)
 }
 
 // check $ (.)

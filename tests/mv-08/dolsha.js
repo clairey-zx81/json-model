@@ -40,7 +40,7 @@ function json_model_2(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false

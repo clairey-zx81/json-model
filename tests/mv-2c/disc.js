@@ -10,7 +10,7 @@ export var check_model_map = new Map()
 
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -18,18 +18,18 @@ function _jm_obj_0(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval == 0
     if (! res)
         return false
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 function _jm_obj_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -37,18 +37,18 @@ function _jm_obj_1(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval == 1
     if (! res)
         return false
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    return ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    return typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
 }
 
 function _jm_obj_2(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -56,7 +56,7 @@ function _jm_obj_2(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 2
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval == 2
     if (! res)
         return false
     if (! val.hasOwnProperty("a"))
@@ -67,7 +67,7 @@ function _jm_obj_2(val, path, rep)
 
 function _jm_obj_3(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
@@ -75,19 +75,19 @@ function _jm_obj_3(val, path, rep)
     if (! val.hasOwnProperty("d"))
         return false
     pval = val["d"]
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 3
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval == 3
     if (! res)
         return false
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    return (typeof pval == 'boolean' || pval instanceof Boolean)
+    return typeof pval == 'boolean'
 }
 
 
 function json_model_1(val, path, rep)
 {
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         let tag_0

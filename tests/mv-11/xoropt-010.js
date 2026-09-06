@@ -14,7 +14,7 @@ export var check_model_map = new Map()
 // object .'|'.1.a
 function _jm_obj_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'|'.1.a]", path])
         return false
@@ -42,7 +42,7 @@ function _jm_obj_0(val, path, rep)
             // handle must b property
             must_count += 1
             // .'|'.1.b
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'|'.1.b]", (path ? lpath_0 : null)])
@@ -99,7 +99,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["b"]) : null
     pval = val["b"]
     // .'|'.0.b
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.0.b]", (path ? lpath : null)])
@@ -114,7 +114,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["a"]) : null
     pval = val["a"]
     // .'|'.0.a
-    res = (typeof pval == 'string' || pval instanceof String)
+    res = typeof pval == 'string'
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.0.a]", (path ? lpath : null)])
@@ -129,7 +129,7 @@ function json_model_1(val, path, rep)
 {
     // ^ to |
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         // .'|'.0

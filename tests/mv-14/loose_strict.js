@@ -17,7 +17,7 @@ function json_model_5(val, path, rep)
     // JSON_MODEL_LOOSE_INT
     // .'$loose'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$loose']", path])
         return false
@@ -29,15 +29,15 @@ function json_model_5(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("li"))
+    if (! (val.li !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <li> [.'$loose']", path])
         return false
     }
     lpath = path ? path.concat(["li"]) : null
-    pval = val["li"]
+    pval = val.li
     // .'$loose'.li
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 loose int [.'$loose'.li]", (path ? lpath : null)])
@@ -53,7 +53,7 @@ function json_model_6(val, path, rep)
     // JSON_MODEL_STRICT_INT
     // .'$strict'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$strict']", path])
         return false
@@ -65,15 +65,15 @@ function json_model_6(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("si"))
+    if (! (val.si !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <si> [.'$strict']", path])
         return false
     }
     lpath = path ? path.concat(["si"]) : null
-    pval = val["si"]
+    pval = val.si
     // .'$strict'.si
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$strict'.si]", (path ? lpath : null)])
@@ -88,7 +88,7 @@ function json_model_4(val, path, rep)
 {
     // .'$combined'
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.'$combined']", path])
         return false
@@ -100,30 +100,30 @@ function json_model_4(val, path, rep)
     }
     let lpath
     let pval
-    if (! val.hasOwnProperty("li"))
+    if (! (val.li !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <li> [.'$combined']", path])
         return false
     }
     lpath = path ? path.concat(["li"]) : null
-    pval = val["li"]
+    pval = val.li
     // .'$combined'.li
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$combined'.li]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <li> [.'$combined']", (path ? lpath : null)])
         return false
     }
-    if (! val.hasOwnProperty("si"))
+    if (! (val.si !== undefined))
     {
         rep !== null && rep.push(["missing mandatory prop <si> [.'$combined']", path])
         return false
     }
     lpath = path ? path.concat(["si"]) : null
-    pval = val["si"]
+    pval = val.si
     // .'$combined'.si
-    res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$combined'.si]", (path ? lpath : null)])

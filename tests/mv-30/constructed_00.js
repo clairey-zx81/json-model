@@ -17,7 +17,7 @@ function json_model_1(val, path, rep)
     // any constructed stuff
     // .
     // .'|'.0
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (! res)
     {
         // .'|'.1

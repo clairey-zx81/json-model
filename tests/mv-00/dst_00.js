@@ -15,13 +15,13 @@ function _jm_obj_0(val, path, rep)
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
         return false
     if (! val.hasOwnProperty("c"))
         return false
     pval = val["c"]
-    return (typeof pval == 'string' || pval instanceof String)
+    return typeof pval == 'string'
 }
 
 function _jm_obj_1(val, path, rep)
@@ -32,18 +32,18 @@ function _jm_obj_1(val, path, rep)
     if (! val.hasOwnProperty("a"))
         return false
     pval = val["a"]
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
         return false
     if (! val.hasOwnProperty("b"))
         return false
     pval = val["b"]
-    return ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+    return typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
 }
 
 function json_model_1(val, path, rep)
 {
-    let res = Object.prototype.toString.call(val) === '[object Object]'
+    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
     if (res)
     {
         if (val.hasOwnProperty("b"))

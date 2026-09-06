@@ -14,52 +14,52 @@ export var check_model_map = new Map()
 // object .mo0
 function _jm_obj_0(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
+    return val !== null && typeof val == 'object' && !Array.isArray(val) && Object.keys(val).length == 0
 }
 
 // object .mo1
 function _jm_obj_1(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 1)
         return false
     let pval
-    if (! val.hasOwnProperty("p10"))
+    if (! (val.p10 !== undefined))
         return false
-    pval = val["p10"]
+    pval = val.p10
     // .mo1.p10
-    return ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    return typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
 }
 
 // object .mo2
 function _jm_obj_2(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     if (Object.keys(val).length != 2)
         return false
     let pval
-    if (! val.hasOwnProperty("p20"))
+    if (! (val.p20 !== undefined))
         return false
-    pval = val["p20"]
+    pval = val.p20
     // .mo2.p20
-    let res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    let res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
     if (! res)
         return false
-    if (! val.hasOwnProperty("p21"))
+    if (! (val.p21 !== undefined))
         return false
-    pval = val["p21"]
+    pval = val.p21
     // .mo2.p21
-    return ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+    return typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
 }
 
 // object .mo3
 function _jm_obj_3(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     let must_count = 0
@@ -70,7 +70,7 @@ function _jm_obj_3(val, path, rep)
             // handle must p30 property
             must_count += 1
             // .mo3.p30
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
                 return false
             continue
@@ -80,7 +80,7 @@ function _jm_obj_3(val, path, rep)
             // handle must p31 property
             must_count += 1
             // .mo3.p31
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
                 return false
             continue
@@ -90,7 +90,7 @@ function _jm_obj_3(val, path, rep)
             // handle must p32 property
             must_count += 1
             // .mo3.p32
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
                 return false
             continue
@@ -104,7 +104,7 @@ function _jm_obj_3(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     for (const [prop, pval] of Object.entries(val))

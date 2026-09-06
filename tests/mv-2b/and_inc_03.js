@@ -21,21 +21,21 @@ const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
 
 function json_model_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
         return false
     let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "a")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_1(pval, null, null) && _jm_re_0(pval, null, null)
+            res = typeof pval == 'string' && _jm_re_1(pval, null, null) && _jm_re_0(pval, null, null)
             if (! res)
                 return false
             continue
         }
         else if (prop == "b")
         {
-            res = ((typeof pval == 'string' || pval instanceof String)) && _jm_re_3(pval, null, null) && _jm_re_2(pval, null, null)
+            res = typeof pval == 'string' && _jm_re_3(pval, null, null) && _jm_re_2(pval, null, null)
             if (! res)
                 return false
             continue

@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -28,7 +28,7 @@ function json_model_1(val, path, rep)
         {
             // handle 3 re props
             // .'/^s/'
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'/^s/']", (path ? lpath_0 : null)])
@@ -39,7 +39,7 @@ function json_model_1(val, path, rep)
         {
             // handle 3 re props
             // .'/^i/'
-            res = (typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)
+            res = typeof pval == 'number' && Number.isInteger(pval)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1 strict int [.'/^i/']", (path ? lpath_0 : null)])
@@ -50,7 +50,7 @@ function json_model_1(val, path, rep)
         {
             // handle 3 re props
             // .'/^b/'
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'/^b/']", (path ? lpath_0 : null)])

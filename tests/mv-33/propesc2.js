@@ -17,7 +17,7 @@ function json_model_1(val, path, rep)
     // one mandatory prop with an escaped character
     // .
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false

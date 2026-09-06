@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
             // handle must must property
             must_count += 1
             // .must
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.must]", (path ? lpath_0 : null)])
@@ -43,7 +43,7 @@ function json_model_1(val, path, rep)
         {
             // handle may may property
             // .may
-            res = (typeof pval == 'boolean' || pval instanceof Boolean)
+            res = typeof pval == 'boolean'
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.may]", (path ? lpath_0 : null)])
@@ -59,7 +59,7 @@ function json_model_1(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("must"))
+            if (! (val.must !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <must> [.]", path])
         }
         return false

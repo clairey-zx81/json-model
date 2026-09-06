@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false
@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
             // handle must nom property
             must_count += 1
             // .nom
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.nom]", (path ? lpath_0 : null)])
@@ -44,7 +44,7 @@ function json_model_1(val, path, rep)
             // handle must prenom property
             must_count += 1
             // .prenom
-            res = (typeof pval == 'string' || pval instanceof String)
+            res = typeof pval == 'string'
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.prenom]", (path ? lpath_0 : null)])
@@ -57,7 +57,7 @@ function json_model_1(val, path, rep)
         {
             // handle may age property
             // .age
-            res = ((typeof pval == 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
+            res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.age]", (path ? lpath_0 : null)])
@@ -73,9 +73,9 @@ function json_model_1(val, path, rep)
     {
         if (rep !== null)
         {
-            if (! val.hasOwnProperty("nom"))
+            if (! (val.nom !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <nom> [.]", path])
-            if (! val.hasOwnProperty("prenom"))
+            if (! (val.prenom !== undefined))
                 rep !== null && rep.push(["missing mandatory prop <prenom> [.]", path])
         }
         return false
