@@ -17,20 +17,30 @@
   {
     "#": "JsonModel 3 with defs",
     "$": {
-      "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+      "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/",
       "StrPredef": {
         "|": [
+          "_$STRING",
           "_$DATE",
           "_$TIME",
+          "_$TIMETZ",
           "_$DATETIME",
+          "_$DURATION",
           "_$URL",
+          "_$URL_REL",
           "_$URI",
-          "_$UUID",
+          "_$HOST",
+          "_$IP4",
+          "_$IP6",
+          "_$ETH",
           "_$EMAIL",
+          "_$UUID",
           "_$REGEX",
           "_$EXREG",
+          "_$JSON",
+          "_$JSONPT",
           "_$SEMVER",
-          "_$STRING"
+          "_$CARD"
         ],
         "#": "JsonModel 5"
       },
@@ -39,6 +49,7 @@
           "$StrPredef",
           "_$NULL",
           "_$BOOL",
+          "_$BOOLEAN",
           "_$FLOAT",
           "_$F16",
           "_$F32",
@@ -532,20 +543,30 @@
     "@": "$RootModel",
     "~": "https://json-model.org/models/json-model"
   },
-  "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+  "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/",
   {
     "|": [
+      "_$STRING",
       "_$DATE",
       "_$TIME",
+      "_$TIMETZ",
       "_$DATETIME",
+      "_$DURATION",
       "_$URL",
+      "_$URL_REL",
       "_$URI",
-      "_$UUID",
+      "_$HOST",
+      "_$IP4",
+      "_$IP6",
+      "_$ETH",
       "_$EMAIL",
+      "_$UUID",
       "_$REGEX",
       "_$EXREG",
+      "_$JSON",
+      "_$JSONPT",
       "_$SEMVER",
-      "_$STRING"
+      "_$CARD"
     ],
     "#": "JsonModel 5"
   },
@@ -554,6 +575,7 @@
       "$StrPredef",
       "_$NULL",
       "_$BOOL",
+      "_$BOOLEAN",
       "_$FLOAT",
       "_$F16",
       "_$F32",

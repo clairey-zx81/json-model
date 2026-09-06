@@ -4,21 +4,31 @@
   "$defs": {
     "Url": {
       "type": "string",
-      "pattern": "^((file|https?)://.+|\\./.*|\\.\\./.*)$"
+      "pattern": "^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$"
     },
     "StrPredef": {
       "enum": [
+        "$STRING",
         "$DATE",
         "$TIME",
+        "$TIMETZ",
         "$DATETIME",
+        "$DURATION",
         "$URL",
+        "$URL_REL",
         "$URI",
-        "$UUID",
+        "$HOST",
+        "$IP4",
+        "$IP6",
+        "$ETH",
         "$EMAIL",
+        "$UUID",
         "$REGEX",
         "$EXREG",
+        "$JSON",
+        "$JSONPT",
         "$SEMVER",
-        "$STRING"
+        "$CARD"
       ]
     },
     "PreDef": {
@@ -31,6 +41,9 @@
         },
         {
           "const": "$BOOL"
+        },
+        {
+          "const": "$BOOLEAN"
         },
         {
           "const": "$FLOAT"
@@ -342,7 +355,7 @@
     "Obj": {
       "type": "object",
       "patternProperties": {
-        "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|(^\\$DATE$|^\\$TIME$|^\\$DATETIME$|^\\$URL$|^\\$URI$|^\\$UUID$|^\\$EMAIL$|^\\$REGEX$|^\\$EXREG$|^\\$SEMVER$|^\\$STRING$)|(^\\$(.*)$|^\\$(.*)$)|^\\..+$|^$)": {
+        "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|(^\\$STRING$|^\\$DATE$|^\\$TIME$|^\\$TIMETZ$|^\\$DATETIME$|^\\$DURATION$|^\\$URL$|^\\$URL_REL$|^\\$URI$|^\\$HOST$|^\\$IP4$|^\\$IP6$|^\\$ETH$|^\\$EMAIL$|^\\$UUID$|^\\$REGEX$|^\\$EXREG$|^\\$JSON$|^\\$JSONPT$|^\\$SEMVER$|^\\$CARD$)|(^\\$(.*)$|^\\$(.*)$)|^\\..+$|^$)": {
           "$ref": "#/$defs/Model"
         }
       },
@@ -487,7 +500,7 @@
           "type": "object",
           "patternProperties": {
             "(?s)^#.": true,
-            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|(^\\$DATE$|^\\$TIME$|^\\$DATETIME$|^\\$URL$|^\\$URI$|^\\$UUID$|^\\$EMAIL$|^\\$REGEX$|^\\$EXREG$|^\\$SEMVER$|^\\$STRING$)|(^\\$(.*)$|^\\$(.*)$)|^\\..+$|^$)": {
+            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|(^\\$STRING$|^\\$DATE$|^\\$TIME$|^\\$TIMETZ$|^\\$DATETIME$|^\\$DURATION$|^\\$URL$|^\\$URL_REL$|^\\$URI$|^\\$HOST$|^\\$IP4$|^\\$IP6$|^\\$ETH$|^\\$EMAIL$|^\\$UUID$|^\\$REGEX$|^\\$EXREG$|^\\$JSON$|^\\$JSONPT$|^\\$SEMVER$|^\\$CARD$)|(^\\$(.*)$|^\\$(.*)$)|^\\..+$|^$)": {
               "$ref": "#/$defs/Model"
             }
           },
@@ -1079,7 +1092,7 @@
           "type": "object",
           "patternProperties": {
             "(?s)^#.": true,
-            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|(^\\$DATE$|^\\$TIME$|^\\$DATETIME$|^\\$URL$|^\\$URI$|^\\$UUID$|^\\$EMAIL$|^\\$REGEX$|^\\$EXREG$|^\\$SEMVER$|^\\$STRING$)|(^\\$(.*)$|^\\$(.*)$)|^\\..+$|^$)": {
+            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|(^\\$STRING$|^\\$DATE$|^\\$TIME$|^\\$TIMETZ$|^\\$DATETIME$|^\\$DURATION$|^\\$URL$|^\\$URL_REL$|^\\$URI$|^\\$HOST$|^\\$IP4$|^\\$IP6$|^\\$ETH$|^\\$EMAIL$|^\\$UUID$|^\\$REGEX$|^\\$EXREG$|^\\$JSON$|^\\$JSONPT$|^\\$SEMVER$|^\\$CARD$)|(^\\$(.*)$|^\\$(.*)$)|^\\..+$|^$)": {
               "$ref": "#/$defs/Model"
             }
           },

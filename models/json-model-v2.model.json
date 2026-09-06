@@ -5,18 +5,27 @@
   "$": {
     "#": "use minimal predefs",
     "": "https://json-model.org/models/json-model",
-    "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+    "#.url": "this may be too restrictive...",
+    "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/",
     "StrPredef": {
       "|": [
-        "_$DATE", "_$TIME", "_$DATETIME", "_$URL", "_$URI",
-        "_$UUID", "_$EMAIL", "_$REGEX", "_$EXREG", "_$SEMVER",
-        "_$STRING"
+        "_$STRING",
+        "# time related",
+        "_$DATE", "_$TIME", "_$TIMETZ", "_$DATETIME", "_$DURATION",
+        "# network related",
+        "_$URL", "_$URL_REL", "_$URI",
+        "_$HOST", "_$IP4", "_$IP6", "_$ETH", "_$EMAIL",
+        "# string formats",
+        "_$UUID", "_$REGEX", "_$EXREG", "_$JSON", "_$JSONPT", "_$SEMVER", "_$CARD",
+        "# missing extensions: color, rel jsonpt"
       ]
     },
     "PreDef": {
       "|": [
         "$StrPredef",
-        "_$NULL", "_$BOOL", "_$FLOAT", "_$F16", "_$F32", "_$F64", "_$NUMBER",
+        "_$NULL",
+        "_$BOOL", "_$BOOLEAN",
+        "_$FLOAT", "_$F16", "_$F32", "_$F64", "_$NUMBER",
         "_$INT", "_$INTEGER", "_$I8", "_$I16", "_$I32", "_$I64", "_$U8", "_$U16", "_$U32", "_$U64",
         "_$NONE", "_$ANY"
       ]

@@ -3579,10 +3579,10 @@ def json_model_72(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $openapi#model#Url (.'$openapi#model#Url')
 def json_model_66(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#model#Url'
-    # "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
+    # "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/"
     res: bool = isinstance(val, str) and _jm_re_8(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*)$/\" [.'$openapi#model#Url']", path))
+        rep is None or rep.append(("unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*|[^#]*#.*)$/\" [.'$openapi#model#Url']", path))
     return res
 
 
@@ -3871,7 +3871,7 @@ def check_model_init():
         _jm_re_7_reco = re.compile("^[?!]")
         _jm_re_7 = lambda s, p, r: _jm_re_7_reco.search(s) is not None
         global _jm_cst_4
-        _jm_cst_4 = {'$DATE', '$DATETIME', '$EMAIL', '$EXREG', '$REGEX', '$SEMVER', '$STRING', '$TIME', '$URI', '$URL', '$UUID'}
+        _jm_cst_4 = {'$CARD', '$DATE', '$DATETIME', '$DURATION', '$EMAIL', '$ETH', '$EXREG', '$HOST', '$IP4', '$IP6', '$JSON', '$JSONPT', '$REGEX', '$SEMVER', '$STRING', '$TIME', '$TIMETZ', '$URI', '$URL', '$URL_REL', '$UUID'}
         global _jm_xre_0_re_reco, _jm_xre_0_re
         _jm_xre_0_re_reco = re.compile("^\\$(?<s1>.*)$")
         _jm_xre_0_re = lambda s, p, r: _jm_xre_0_re_reco.search(s) is not None
@@ -3879,7 +3879,7 @@ def check_model_init():
         _jm_xre_1_re_reco = re.compile("^\\$(?<s1>.*)$")
         _jm_xre_1_re = lambda s, p, r: _jm_xre_1_re_reco.search(s) is not None
         global _jm_re_8_reco, _jm_re_8
-        _jm_re_8_reco = re.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$")
+        _jm_re_8_reco = re.compile("^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$")
         _jm_re_8 = lambda s, p, r: _jm_re_8_reco.search(s) is not None
         global _jm_re_9_reco, _jm_re_9
         _jm_re_9_reco = re.compile("[^A-Z0-9]")
@@ -3900,7 +3900,7 @@ def check_model_init():
         _jm_re_12_reco = re.compile("^\\..+$")
         _jm_re_12 = lambda s, p, r: _jm_re_12_reco.search(s) is not None
         global _jm_cst_5
-        _jm_cst_5 = {'$ANY', '$BOOL', '$F16', '$F32', '$F64', '$FLOAT', '$I16', '$I32', '$I64', '$I8', '$INT', '$INTEGER', '$NONE', '$NULL', '$NUMBER', '$U16', '$U32', '$U64', '$U8'}
+        _jm_cst_5 = {'$ANY', '$BOOL', '$BOOLEAN', '$F16', '$F32', '$F64', '$FLOAT', '$I16', '$I32', '$I64', '$I8', '$INT', '$INTEGER', '$NONE', '$NULL', '$NUMBER', '$U16', '$U32', '$U64', '$U8'}
         global _jm_re_13_reco, _jm_re_13
         _jm_re_13_reco = re.compile("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$")
         _jm_re_13 = lambda s, p, r: _jm_re_13_reco.search(s) is not None

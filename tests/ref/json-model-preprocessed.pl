@@ -421,7 +421,7 @@ sub json_model_10($$$)
 sub _jm_re_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^((file|https?):\/\/.+|\.\/.*|\.\.\/.*)$/;
+    my $res = $val =~ /^((file|https?):\/\/.+|\.\/.*|\.\.\/.*|[^#]*#.*)$/;
     return $res;
 }
 
@@ -430,9 +430,9 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Model#Url'
-    # "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
+    # "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/"
     my $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*)\$/\" [.'\$Model#Url']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*|[^#]*#.*)\$/\" [.'\$Model#Url']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2669,6 +2669,7 @@ sub check_model_init()
         %_jm_cst_0 = (
             "\$NULL" => 1,
             "\$BOOL" => 1,
+            "\$BOOLEAN" => 1,
             "\$FLOAT" => 1,
             "\$F16" => 1,
             "\$F32" => 1,
@@ -2688,17 +2689,27 @@ sub check_model_init()
             "\$ANY" => 1,
         );
         %_jm_cst_1 = (
+            "\$STRING" => 1,
             "\$DATE" => 1,
             "\$TIME" => 1,
+            "\$TIMETZ" => 1,
             "\$DATETIME" => 1,
+            "\$DURATION" => 1,
             "\$URL" => 1,
+            "\$URL_REL" => 1,
             "\$URI" => 1,
-            "\$UUID" => 1,
+            "\$HOST" => 1,
+            "\$IP4" => 1,
+            "\$IP6" => 1,
+            "\$ETH" => 1,
             "\$EMAIL" => 1,
+            "\$UUID" => 1,
             "\$REGEX" => 1,
             "\$EXREG" => 1,
+            "\$JSON" => 1,
+            "\$JSONPT" => 1,
             "\$SEMVER" => 1,
-            "\$STRING" => 1,
+            "\$CARD" => 1,
         );
         %check_model_map = (
             "" => \&json_model_43,

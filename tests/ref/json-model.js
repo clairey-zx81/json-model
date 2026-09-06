@@ -9,7 +9,7 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-const _jm_re_0_re = new runtime.RX("^((file|https?)://.+|\\./.*|\\.\\./.*)$", "")
+const _jm_re_0_re = new runtime.RX("^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$", "")
 let _jm_cst_0 = new Set()
 let _jm_cst_1 = new Set()
 const _jm_re_1_re = new runtime.RX("[^A-Z0-9]", "")
@@ -36,10 +36,10 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 function json_model_2(val, path, rep)
 {
     // .'$Url'
-    // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
+    // "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/"
     let res = typeof val == 'string' && _jm_re_0(val, path, rep)
     if (! res)
-        rep !== null && rep.push(["unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*)$/\" [.'$Url']", path])
+        rep !== null && rep.push(["unexpected value for model \"/^((file|https?)://.+|\\\\./.*|\\\\.\\\\./.*|[^#]*#.*)$/\" [.'$Url']", path])
     return res
 }
 
@@ -3837,19 +3837,30 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
+        _jm_cst_0.add("$STRING")
         _jm_cst_0.add("$DATE")
         _jm_cst_0.add("$TIME")
+        _jm_cst_0.add("$TIMETZ")
         _jm_cst_0.add("$DATETIME")
+        _jm_cst_0.add("$DURATION")
         _jm_cst_0.add("$URL")
+        _jm_cst_0.add("$URL_REL")
         _jm_cst_0.add("$URI")
-        _jm_cst_0.add("$UUID")
+        _jm_cst_0.add("$HOST")
+        _jm_cst_0.add("$IP4")
+        _jm_cst_0.add("$IP6")
+        _jm_cst_0.add("$ETH")
         _jm_cst_0.add("$EMAIL")
+        _jm_cst_0.add("$UUID")
         _jm_cst_0.add("$REGEX")
         _jm_cst_0.add("$EXREG")
+        _jm_cst_0.add("$JSON")
+        _jm_cst_0.add("$JSONPT")
         _jm_cst_0.add("$SEMVER")
-        _jm_cst_0.add("$STRING")
+        _jm_cst_0.add("$CARD")
         _jm_cst_1.add("$NULL")
         _jm_cst_1.add("$BOOL")
+        _jm_cst_1.add("$BOOLEAN")
         _jm_cst_1.add("$FLOAT")
         _jm_cst_1.add("$F16")
         _jm_cst_1.add("$F32")
