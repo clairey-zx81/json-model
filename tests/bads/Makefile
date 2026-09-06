@@ -22,11 +22,15 @@ gen: $(F.gen)
 
 .PHONY: check
 check:
-	$(MAKE) clean
+	$(MAKE) cleaner
 	$(MAKE) gen
 
 .PHONY: clean
 clean:
+	# nope
+
+.PHONY: cleaner
+cleaner: clean
 	$(RM) $(F.gen)
 
 %.check: %.model.json

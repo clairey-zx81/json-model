@@ -18,7 +18,7 @@
     "#": "JsonModel 3 with defs",
     "$": {
       "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
-      "PreDef": {
+      "StrPredef": {
         "|": [
           "_$DATE",
           "_$TIME",
@@ -29,6 +29,14 @@
           "_$EMAIL",
           "_$REGEX",
           "_$EXREG",
+          "_$SEMVER",
+          "_$STRING"
+        ],
+        "#": "JsonModel 5"
+      },
+      "PreDef": {
+        "|": [
+          "$StrPredef",
           "_$NULL",
           "_$BOOL",
           "_$FLOAT",
@@ -46,26 +54,31 @@
           "_$U16",
           "_$U32",
           "_$U64",
-          "_$STRING",
           "_$NONE",
           "_$ANY"
         ],
-        "#": "JsonModel 5"
+        "#": "JsonModel 6"
       },
       "Identifier": {
         "&": [
           "/^\\w(\\w|-)*$/",
           "/[^A-Z0-9]/"
         ],
-        "#": "JsonModel 6"
+        "#": "JsonModel 7"
       },
       "ArrayComment": "/^#/",
       "ObjectComment": {
         "?#": "",
-        "/^#/": "$ANY",
-        "#": "JsonModel 8"
+        "/^#./s": "$ANY",
+        "#": "JsonModel 9"
       },
-      "Ref": "/^\\$./",
+      "Ref": {
+        "|": [
+          "/^\\$($Identifier)$/X",
+          "/^\\$($Url)$/X"
+        ],
+        "#": "JsonModel 10"
+      },
       "ValConst": "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/",
       "StrConst": "/^[A-Za-z0-9_]/",
       "Regex": {
@@ -73,7 +86,7 @@
           "/^/($EXREG)/[a-z]*X[a-z]*$/X",
           "/^/($REGEX)/[a-z]*$/X"
         ],
-        "#": "JsonModel 12"
+        "#": "JsonModel 13"
       },
       "Name": "/^\\..+$/",
       "CmpValue": {
@@ -82,7 +95,7 @@
           -1.0,
           ""
         ],
-        "#": "JsonModel 14"
+        "#": "JsonModel 15"
       },
       "EqValue": {
         "|": [
@@ -90,7 +103,7 @@
           true,
           "$CmpValue"
         ],
-        "#": "JsonModel 15"
+        "#": "JsonModel 16"
       },
       "ValModel": {
         "|": [
@@ -103,7 +116,7 @@
           "=1.0",
           "=-1.0"
         ],
-        "#": "JsonModel 16"
+        "#": "JsonModel 17"
       },
       "StrModel": {
         "|": [
@@ -114,7 +127,7 @@
           "$Ref",
           "_"
         ],
-        "#": "JsonModel 17"
+        "#": "JsonModel 18"
       },
       "Any": "$ANY",
       "None": "$NONE",
@@ -123,7 +136,7 @@
           "$Model",
           "$ArrayComment"
         ],
-        "#": "JsonModel 20"
+        "#": "JsonModel 21"
       },
       "Array": [
         "$CModel"
@@ -134,46 +147,47 @@
         "/^(<=|>=|<|>)$/": "$CmpValue",
         "/^(=|!=)$/": "$EqValue",
         "?!": true,
-        "#": "JsonModel 23"
+        "#": "JsonModel 24"
       },
       "Or": {
         "_|": [
           "$CModel"
         ],
-        "#": "JsonModel 24"
+        "#": "JsonModel 25"
       },
       "And": {
         "_&": [
           "$CModel"
         ],
-        "#": "JsonModel 25"
+        "#": "JsonModel 26"
       },
       "Xor": {
         "_^": [
           "$CModel"
         ],
-        "#": "JsonModel 26"
+        "#": "JsonModel 27"
       },
       "Add": {
         "_+": [
           "$CModel"
         ],
-        "#": "JsonModel 27"
+        "#": "JsonModel 28"
       },
       "Prop": {
         "|": [
           "/^[?!]/",
           "$StrConst",
           "$Regex",
+          "$StrPredef",
           "$Ref",
           "$Name",
           "_"
         ],
-        "#": "JsonModel 28"
+        "#": "JsonModel 29"
       },
       "Obj": {
         "$Prop": "$Model",
-        "#": "JsonModel 29"
+        "#": "JsonModel 30"
       },
       "Elem": {
         "|": [
@@ -184,7 +198,7 @@
           "$Add",
           "$Obj"
         ],
-        "#": "JsonModel 30"
+        "#": "JsonModel 31"
       },
       "Element": {
         "|": [
@@ -192,7 +206,7 @@
             "!@": "$Model",
             "?#": "",
             "?!": true,
-            "/^#/": "$ANY",
+            "/^#./s": "$ANY",
             "/^(<=|>=|<|>)$/": "$CmpValue",
             "/^(=|!=)$/": "$EqValue"
           },
@@ -201,36 +215,36 @@
               "$CModel"
             ],
             "?#": "",
-            "/^#/": "$ANY"
+            "/^#./s": "$ANY"
           },
           {
             "!&": [
               "$CModel"
             ],
             "?#": "",
-            "/^#/": "$ANY"
+            "/^#./s": "$ANY"
           },
           {
             "!^": [
               "$CModel"
             ],
             "?#": "",
-            "/^#/": "$ANY"
+            "/^#./s": "$ANY"
           },
           {
             "!+": [
               "$CModel"
             ],
             "?#": "",
-            "/^#/": "$ANY"
+            "/^#./s": "$ANY"
           },
           {
             "?#": "",
             "$Prop": "$Model",
-            "/^#/": "$ANY"
+            "/^#./s": "$ANY"
           }
         ],
-        "#": "JsonModel 31"
+        "#": "JsonModel 32"
       },
       "Trafo": {
         "?/": {
@@ -245,7 +259,7 @@
           "": ""
         },
         "?*": "$ANY",
-        "#": "JsonModel 32"
+        "#": "JsonModel 33"
       },
       "Transformation": {
         "|": [
@@ -264,17 +278,17 @@
               "": ""
             },
             "?*": "$ANY",
-            "/^#/": "$ANY"
+            "/^#./s": "$ANY"
           }
         ],
-        "#": "JsonModel 33"
+        "#": "JsonModel 34"
       },
       "ScalarModel": {
         "|": [
           "$ValModel",
           "$StrModel"
         ],
-        "#": "JsonModel 34"
+        "#": "JsonModel 35"
       },
       "Model": {
         "|": [
@@ -282,20 +296,20 @@
           "$Array",
           "$Element"
         ],
-        "#": "JsonModel 35"
+        "#": "JsonModel 36"
       },
       "Defs": {
         "?": "$Url",
         "$Identifier": "$Model",
-        "#": "JsonModel 36"
+        "#": "JsonModel 37"
       },
       "Rename": {
         "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-        "#": "JsonModel 37"
+        "#": "JsonModel 38"
       },
       "Rewrite": {
         "/^\\$.*$/": "$Transformation",
-        "#": "JsonModel 38"
+        "#": "JsonModel 39"
       },
       "Import": {
         "?<": {
@@ -306,7 +320,7 @@
             ]
           ]
         },
-        "#": "JsonModel 39"
+        "#": "JsonModel 40"
       },
       "RootOnly": {
         "?~": "$Url",
@@ -314,7 +328,7 @@
           "?#": "",
           "?": "$Url",
           "$Identifier": "$Model",
-          "/^#/": "$ANY"
+          "/^#./s": "$ANY"
         },
         "?%": {
           "?#": "",
@@ -327,10 +341,10 @@
             ]
           },
           "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "/^#/": "$ANY",
+          "/^#./s": "$ANY",
           "/^\\$.*$/": "$Transformation"
         },
-        "#": "JsonModel 40"
+        "#": "JsonModel 41"
       },
       "Root": {
         "|": [
@@ -341,7 +355,7 @@
               "?#": "",
               "?": "$Url",
               "$Identifier": "$Model",
-              "/^#/": "$ANY"
+              "/^#./s": "$ANY"
             },
             "?%": {
               "?#": "",
@@ -354,12 +368,12 @@
                 ]
               },
               "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "/^#/": "$ANY",
+              "/^#./s": "$ANY",
               "/^\\$.*$/": "$Transformation"
             },
             "?#": "",
             "?!": true,
-            "/^#/": "$ANY",
+            "/^#./s": "$ANY",
             "/^(<=|>=|<|>)$/": "$CmpValue",
             "/^(=|!=)$/": "$EqValue"
           },
@@ -372,7 +386,7 @@
               "?#": "",
               "?": "$Url",
               "$Identifier": "$Model",
-              "/^#/": "$ANY"
+              "/^#./s": "$ANY"
             },
             "?%": {
               "?#": "",
@@ -385,11 +399,11 @@
                 ]
               },
               "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "/^#/": "$ANY",
+              "/^#./s": "$ANY",
               "/^\\$.*$/": "$Transformation"
             },
             "?#": "",
-            "/^#/": "$ANY"
+            "/^#./s": "$ANY"
           },
           {
             "!&": [
@@ -400,7 +414,7 @@
               "?#": "",
               "?": "$Url",
               "$Identifier": "$Model",
-              "/^#/": "$ANY"
+              "/^#./s": "$ANY"
             },
             "?%": {
               "?#": "",
@@ -413,11 +427,11 @@
                 ]
               },
               "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "/^#/": "$ANY",
+              "/^#./s": "$ANY",
               "/^\\$.*$/": "$Transformation"
             },
             "?#": "",
-            "/^#/": "$ANY"
+            "/^#./s": "$ANY"
           },
           {
             "!^": [
@@ -428,7 +442,7 @@
               "?#": "",
               "?": "$Url",
               "$Identifier": "$Model",
-              "/^#/": "$ANY"
+              "/^#./s": "$ANY"
             },
             "?%": {
               "?#": "",
@@ -441,11 +455,11 @@
                 ]
               },
               "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "/^#/": "$ANY",
+              "/^#./s": "$ANY",
               "/^\\$.*$/": "$Transformation"
             },
             "?#": "",
-            "/^#/": "$ANY"
+            "/^#./s": "$ANY"
           },
           {
             "!+": [
@@ -456,7 +470,7 @@
               "?#": "",
               "?": "$Url",
               "$Identifier": "$Model",
-              "/^#/": "$ANY"
+              "/^#./s": "$ANY"
             },
             "?%": {
               "?#": "",
@@ -469,11 +483,11 @@
                 ]
               },
               "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "/^#/": "$ANY",
+              "/^#./s": "$ANY",
               "/^\\$.*$/": "$Transformation"
             },
             "?#": "",
-            "/^#/": "$ANY"
+            "/^#./s": "$ANY"
           },
           {
             "?~": "$Url",
@@ -481,7 +495,7 @@
               "?#": "",
               "?": "$Url",
               "$Identifier": "$Model",
-              "/^#/": "$ANY"
+              "/^#./s": "$ANY"
             },
             "?%": {
               "?#": "",
@@ -494,15 +508,15 @@
                 ]
               },
               "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "/^#/": "$ANY",
+              "/^#./s": "$ANY",
               "/^\\$.*$/": "$Transformation"
             },
             "?#": "",
             "$Prop": "$Model",
-            "/^#/": "$ANY"
+            "/^#./s": "$ANY"
           }
         ],
-        "#": "JsonModel 41"
+        "#": "JsonModel 42"
       },
       "RootModel": {
         "|": [
@@ -510,7 +524,7 @@
           "$Array",
           "$Root"
         ],
-        "#": "JsonModel 42"
+        "#": "JsonModel 43"
       },
       "#": "Symbol 3",
       "": "https://json-model.org/models/json-model"
@@ -530,6 +544,14 @@
       "_$EMAIL",
       "_$REGEX",
       "_$EXREG",
+      "_$SEMVER",
+      "_$STRING"
+    ],
+    "#": "JsonModel 5"
+  },
+  {
+    "|": [
+      "$StrPredef",
       "_$NULL",
       "_$BOOL",
       "_$FLOAT",
@@ -547,26 +569,31 @@
       "_$U16",
       "_$U32",
       "_$U64",
-      "_$STRING",
       "_$NONE",
       "_$ANY"
     ],
-    "#": "JsonModel 5"
+    "#": "JsonModel 6"
   },
   {
     "&": [
       "/^\\w(\\w|-)*$/",
       "/[^A-Z0-9]/"
     ],
-    "#": "JsonModel 6"
+    "#": "JsonModel 7"
   },
   "/^#/",
   {
     "?#": "",
-    "/^#/": "$ANY",
-    "#": "JsonModel 8"
+    "/^#./s": "$ANY",
+    "#": "JsonModel 9"
   },
-  "/^\\$./",
+  {
+    "|": [
+      "/^\\$($Identifier)$/X",
+      "/^\\$($Url)$/X"
+    ],
+    "#": "JsonModel 10"
+  },
   "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/",
   "/^[A-Za-z0-9_]/",
   {
@@ -574,7 +601,7 @@
       "/^/($EXREG)/[a-z]*X[a-z]*$/X",
       "/^/($REGEX)/[a-z]*$/X"
     ],
-    "#": "JsonModel 12"
+    "#": "JsonModel 13"
   },
   "/^\\..+$/",
   {
@@ -583,7 +610,7 @@
       -1.0,
       ""
     ],
-    "#": "JsonModel 14"
+    "#": "JsonModel 15"
   },
   {
     "|": [
@@ -591,7 +618,7 @@
       true,
       "$CmpValue"
     ],
-    "#": "JsonModel 15"
+    "#": "JsonModel 16"
   },
   {
     "|": [
@@ -604,7 +631,7 @@
       "=1.0",
       "=-1.0"
     ],
-    "#": "JsonModel 16"
+    "#": "JsonModel 17"
   },
   {
     "|": [
@@ -615,7 +642,7 @@
       "$Ref",
       "_"
     ],
-    "#": "JsonModel 17"
+    "#": "JsonModel 18"
   },
   "$ANY",
   "$NONE",
@@ -624,7 +651,7 @@
       "$Model",
       "$ArrayComment"
     ],
-    "#": "JsonModel 20"
+    "#": "JsonModel 21"
   },
   [
     "$CModel"
@@ -635,46 +662,47 @@
     "/^(<=|>=|<|>)$/": "$CmpValue",
     "/^(=|!=)$/": "$EqValue",
     "?!": true,
-    "#": "JsonModel 23"
+    "#": "JsonModel 24"
   },
   {
     "_|": [
       "$CModel"
     ],
-    "#": "JsonModel 24"
+    "#": "JsonModel 25"
   },
   {
     "_&": [
       "$CModel"
     ],
-    "#": "JsonModel 25"
+    "#": "JsonModel 26"
   },
   {
     "_^": [
       "$CModel"
     ],
-    "#": "JsonModel 26"
+    "#": "JsonModel 27"
   },
   {
     "_+": [
       "$CModel"
     ],
-    "#": "JsonModel 27"
+    "#": "JsonModel 28"
   },
   {
     "|": [
       "/^[?!]/",
       "$StrConst",
       "$Regex",
+      "$StrPredef",
       "$Ref",
       "$Name",
       "_"
     ],
-    "#": "JsonModel 28"
+    "#": "JsonModel 29"
   },
   {
     "$Prop": "$Model",
-    "#": "JsonModel 29"
+    "#": "JsonModel 30"
   },
   {
     "|": [
@@ -685,7 +713,7 @@
       "$Add",
       "$Obj"
     ],
-    "#": "JsonModel 30"
+    "#": "JsonModel 31"
   },
   {
     "|": [
@@ -693,7 +721,7 @@
         "!@": "$Model",
         "?#": "",
         "?!": true,
-        "/^#/": "$ANY",
+        "/^#./s": "$ANY",
         "/^(<=|>=|<|>)$/": "$CmpValue",
         "/^(=|!=)$/": "$EqValue"
       },
@@ -702,36 +730,36 @@
           "$CModel"
         ],
         "?#": "",
-        "/^#/": "$ANY"
+        "/^#./s": "$ANY"
       },
       {
         "!&": [
           "$CModel"
         ],
         "?#": "",
-        "/^#/": "$ANY"
+        "/^#./s": "$ANY"
       },
       {
         "!^": [
           "$CModel"
         ],
         "?#": "",
-        "/^#/": "$ANY"
+        "/^#./s": "$ANY"
       },
       {
         "!+": [
           "$CModel"
         ],
         "?#": "",
-        "/^#/": "$ANY"
+        "/^#./s": "$ANY"
       },
       {
         "?#": "",
         "$Prop": "$Model",
-        "/^#/": "$ANY"
+        "/^#./s": "$ANY"
       }
     ],
-    "#": "JsonModel 31"
+    "#": "JsonModel 32"
   },
   {
     "?/": {
@@ -746,7 +774,7 @@
       "": ""
     },
     "?*": "$ANY",
-    "#": "JsonModel 32"
+    "#": "JsonModel 33"
   },
   {
     "|": [
@@ -765,17 +793,17 @@
           "": ""
         },
         "?*": "$ANY",
-        "/^#/": "$ANY"
+        "/^#./s": "$ANY"
       }
     ],
-    "#": "JsonModel 33"
+    "#": "JsonModel 34"
   },
   {
     "|": [
       "$ValModel",
       "$StrModel"
     ],
-    "#": "JsonModel 34"
+    "#": "JsonModel 35"
   },
   {
     "|": [
@@ -783,20 +811,20 @@
       "$Array",
       "$Element"
     ],
-    "#": "JsonModel 35"
+    "#": "JsonModel 36"
   },
   {
     "?": "$Url",
     "$Identifier": "$Model",
-    "#": "JsonModel 36"
-  },
-  {
-    "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
     "#": "JsonModel 37"
   },
   {
-    "/^\\$.*$/": "$Transformation",
+    "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
     "#": "JsonModel 38"
+  },
+  {
+    "/^\\$.*$/": "$Transformation",
+    "#": "JsonModel 39"
   },
   {
     "?<": {
@@ -807,7 +835,7 @@
         ]
       ]
     },
-    "#": "JsonModel 39"
+    "#": "JsonModel 40"
   },
   {
     "?~": "$Url",
@@ -815,7 +843,7 @@
       "?#": "",
       "?": "$Url",
       "$Identifier": "$Model",
-      "/^#/": "$ANY"
+      "/^#./s": "$ANY"
     },
     "?%": {
       "?#": "",
@@ -828,10 +856,10 @@
         ]
       },
       "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-      "/^#/": "$ANY",
+      "/^#./s": "$ANY",
       "/^\\$.*$/": "$Transformation"
     },
-    "#": "JsonModel 40"
+    "#": "JsonModel 41"
   },
   {
     "|": [
@@ -842,7 +870,7 @@
           "?#": "",
           "?": "$Url",
           "$Identifier": "$Model",
-          "/^#/": "$ANY"
+          "/^#./s": "$ANY"
         },
         "?%": {
           "?#": "",
@@ -855,12 +883,12 @@
             ]
           },
           "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "/^#/": "$ANY",
+          "/^#./s": "$ANY",
           "/^\\$.*$/": "$Transformation"
         },
         "?#": "",
         "?!": true,
-        "/^#/": "$ANY",
+        "/^#./s": "$ANY",
         "/^(<=|>=|<|>)$/": "$CmpValue",
         "/^(=|!=)$/": "$EqValue"
       },
@@ -873,7 +901,7 @@
           "?#": "",
           "?": "$Url",
           "$Identifier": "$Model",
-          "/^#/": "$ANY"
+          "/^#./s": "$ANY"
         },
         "?%": {
           "?#": "",
@@ -886,11 +914,11 @@
             ]
           },
           "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "/^#/": "$ANY",
+          "/^#./s": "$ANY",
           "/^\\$.*$/": "$Transformation"
         },
         "?#": "",
-        "/^#/": "$ANY"
+        "/^#./s": "$ANY"
       },
       {
         "!&": [
@@ -901,7 +929,7 @@
           "?#": "",
           "?": "$Url",
           "$Identifier": "$Model",
-          "/^#/": "$ANY"
+          "/^#./s": "$ANY"
         },
         "?%": {
           "?#": "",
@@ -914,11 +942,11 @@
             ]
           },
           "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "/^#/": "$ANY",
+          "/^#./s": "$ANY",
           "/^\\$.*$/": "$Transformation"
         },
         "?#": "",
-        "/^#/": "$ANY"
+        "/^#./s": "$ANY"
       },
       {
         "!^": [
@@ -929,7 +957,7 @@
           "?#": "",
           "?": "$Url",
           "$Identifier": "$Model",
-          "/^#/": "$ANY"
+          "/^#./s": "$ANY"
         },
         "?%": {
           "?#": "",
@@ -942,11 +970,11 @@
             ]
           },
           "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "/^#/": "$ANY",
+          "/^#./s": "$ANY",
           "/^\\$.*$/": "$Transformation"
         },
         "?#": "",
-        "/^#/": "$ANY"
+        "/^#./s": "$ANY"
       },
       {
         "!+": [
@@ -957,7 +985,7 @@
           "?#": "",
           "?": "$Url",
           "$Identifier": "$Model",
-          "/^#/": "$ANY"
+          "/^#./s": "$ANY"
         },
         "?%": {
           "?#": "",
@@ -970,11 +998,11 @@
             ]
           },
           "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "/^#/": "$ANY",
+          "/^#./s": "$ANY",
           "/^\\$.*$/": "$Transformation"
         },
         "?#": "",
-        "/^#/": "$ANY"
+        "/^#./s": "$ANY"
       },
       {
         "?~": "$Url",
@@ -982,7 +1010,7 @@
           "?#": "",
           "?": "$Url",
           "$Identifier": "$Model",
-          "/^#/": "$ANY"
+          "/^#./s": "$ANY"
         },
         "?%": {
           "?#": "",
@@ -995,15 +1023,15 @@
             ]
           },
           "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "/^#/": "$ANY",
+          "/^#./s": "$ANY",
           "/^\\$.*$/": "$Transformation"
         },
         "?#": "",
         "$Prop": "$Model",
-        "/^#/": "$ANY"
+        "/^#./s": "$ANY"
       }
     ],
-    "#": "JsonModel 41"
+    "#": "JsonModel 42"
   },
   {
     "|": [
@@ -1011,6 +1039,6 @@
       "$Array",
       "$Root"
     ],
-    "#": "JsonModel 42"
+    "#": "JsonModel 43"
   }
 ]

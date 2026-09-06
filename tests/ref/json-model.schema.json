@@ -6,7 +6,7 @@
       "type": "string",
       "pattern": "^((file|https?)://.+|\\./.*|\\.\\./.*)$"
     },
-    "PreDef": {
+    "StrPredef": {
       "enum": [
         "$DATE",
         "$TIME",
@@ -17,26 +17,72 @@
         "$EMAIL",
         "$REGEX",
         "$EXREG",
-        "$NULL",
-        "$BOOL",
-        "$FLOAT",
-        "$F16",
-        "$F32",
-        "$F64",
-        "$NUMBER",
-        "$INT",
-        "$INTEGER",
-        "$I8",
-        "$I16",
-        "$I32",
-        "$I64",
-        "$U8",
-        "$U16",
-        "$U32",
-        "$U64",
-        "$STRING",
-        "$NONE",
-        "$ANY"
+        "$SEMVER",
+        "$STRING"
+      ]
+    },
+    "PreDef": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/StrPredef"
+        },
+        {
+          "const": "$NULL"
+        },
+        {
+          "const": "$BOOL"
+        },
+        {
+          "const": "$FLOAT"
+        },
+        {
+          "const": "$F16"
+        },
+        {
+          "const": "$F32"
+        },
+        {
+          "const": "$F64"
+        },
+        {
+          "const": "$NUMBER"
+        },
+        {
+          "const": "$INT"
+        },
+        {
+          "const": "$INTEGER"
+        },
+        {
+          "const": "$I8"
+        },
+        {
+          "const": "$I16"
+        },
+        {
+          "const": "$I32"
+        },
+        {
+          "const": "$I64"
+        },
+        {
+          "const": "$U8"
+        },
+        {
+          "const": "$U16"
+        },
+        {
+          "const": "$U32"
+        },
+        {
+          "const": "$U64"
+        },
+        {
+          "const": "$NONE"
+        },
+        {
+          "const": "$ANY"
+        }
       ]
     },
     "Identifier": {
@@ -58,7 +104,7 @@
     "ObjectComment": {
       "type": "object",
       "patternProperties": {
-        "^#": true
+        "(?s)^#.": true
       },
       "properties": {
         "#": {
@@ -68,8 +114,16 @@
       "additionalProperties": false
     },
     "Ref": {
-      "type": "string",
-      "pattern": "^\\$."
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^\\$(.*)$"
+        },
+        {
+          "type": "string",
+          "pattern": "^\\$(.*)$"
+        }
+      ]
     },
     "ValConst": {
       "type": "string",
@@ -272,6 +326,9 @@
           "$ref": "#/$defs/Regex"
         },
         {
+          "$ref": "#/$defs/StrPredef"
+        },
+        {
           "$ref": "#/$defs/Ref"
         },
         {
@@ -285,7 +342,7 @@
     "Obj": {
       "type": "object",
       "patternProperties": {
-        "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$.|^\\..+$|^$)": {
+        "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|(^\\$DATE$|^\\$TIME$|^\\$DATETIME$|^\\$URL$|^\\$URI$|^\\$UUID$|^\\$EMAIL$|^\\$REGEX$|^\\$EXREG$|^\\$SEMVER$|^\\$STRING$)|(^\\$(.*)$|^\\$(.*)$)|^\\..+$|^$)": {
           "$ref": "#/$defs/Model"
         }
       },
@@ -318,7 +375,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true,
+            "(?s)^#.": true,
             "^(<=|>=|<|>)$": {
               "$ref": "#/$defs/CmpValue"
             },
@@ -345,7 +402,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true
+            "(?s)^#.": true
           },
           "properties": {
             "|": {
@@ -366,7 +423,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true
+            "(?s)^#.": true
           },
           "properties": {
             "&": {
@@ -387,7 +444,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true
+            "(?s)^#.": true
           },
           "properties": {
             "^": {
@@ -408,7 +465,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true
+            "(?s)^#.": true
           },
           "properties": {
             "+": {
@@ -429,8 +486,8 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true,
-            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$.|^\\..+$|^$)": {
+            "(?s)^#.": true,
+            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|(^\\$DATE$|^\\$TIME$|^\\$DATETIME$|^\\$URL$|^\\$URI$|^\\$UUID$|^\\$EMAIL$|^\\$REGEX$|^\\$EXREG$|^\\$SEMVER$|^\\$STRING$)|(^\\$(.*)$|^\\$(.*)$)|^\\..+$|^$)": {
               "$ref": "#/$defs/Model"
             }
           },
@@ -476,7 +533,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true
+            "(?s)^#.": true
           },
           "properties": {
             "#": {
@@ -590,7 +647,7 @@
         "$": {
           "type": "object",
           "patternProperties": {
-            "^#": true,
+            "(?s)^#.": true,
             "(?s)^.*$": {
               "$ref": "#/$defs/Model"
             }
@@ -608,7 +665,7 @@
         "%": {
           "type": "object",
           "patternProperties": {
-            "^#": true,
+            "(?s)^#.": true,
             "^\\$.*$": {
               "$ref": "#/$defs/Transformation"
             },
@@ -645,7 +702,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true,
+            "(?s)^#.": true,
             "^(<=|>=|<|>)$": {
               "$ref": "#/$defs/CmpValue"
             },
@@ -663,7 +720,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -681,7 +738,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },
@@ -725,7 +782,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true
+            "(?s)^#.": true
           },
           "properties": {
             "|": {
@@ -740,7 +797,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -758,7 +815,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },
@@ -799,7 +856,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true
+            "(?s)^#.": true
           },
           "properties": {
             "&": {
@@ -814,7 +871,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -832,7 +889,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },
@@ -873,7 +930,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true
+            "(?s)^#.": true
           },
           "properties": {
             "^": {
@@ -888,7 +945,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -906,7 +963,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },
@@ -947,7 +1004,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true
+            "(?s)^#.": true
           },
           "properties": {
             "+": {
@@ -962,7 +1019,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -980,7 +1037,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },
@@ -1021,8 +1078,8 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": true,
-            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$.|^\\..+$|^$)": {
+            "(?s)^#.": true,
+            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|(^\\$DATE$|^\\$TIME$|^\\$DATETIME$|^\\$URL$|^\\$URI$|^\\$UUID$|^\\$EMAIL$|^\\$REGEX$|^\\$EXREG$|^\\$SEMVER$|^\\$STRING$)|(^\\$(.*)$|^\\$(.*)$)|^\\..+$|^$)": {
               "$ref": "#/$defs/Model"
             }
           },
@@ -1033,7 +1090,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -1051,7 +1108,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#": true,
+                "(?s)^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },
