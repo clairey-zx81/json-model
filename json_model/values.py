@@ -78,7 +78,7 @@ _FLOAT_BOUNDS = {
     ">=": lambda n: float(n), "<=": lambda n: float(n), "=": lambda n: float(n),
 }
 _TYPE_VIOLATIONS = [None, True, 0, "", [], {}]
-_ROOT_TYPES = [None, True, False, -42, 3.14, "", "abc", [], [1], {}]
+_ROOT_TYPES = [None, True, False, -42, 3.14159, "", "abc", [], [1], {}]
 _EXTRA_NAMES = ["no-such-prop", "no-such-property", "no-such-property1"]
 _UINT_PREDEFS = {"$U32", "$U64"}
 _PREDEFS = {

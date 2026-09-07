@@ -522,7 +522,7 @@ def _merge_values(tests: list, path: str, values: list) -> list:
                 seen.add(key)
                 added.append(value)
             if kept and isinstance(kept[-1], str):
-                kept.pop()
+                kept[-1] = f"{kept[-1]} REDUNDANT"
             continue
         kept.append(item)
         if key not in held:
