@@ -2026,21 +2026,7 @@ _NO_BASE = "no value the compiler accepts, every vector below builds on this one
 
 def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
              resolver: Resolver|None, url: str, extend: bool) -> None:
-    """Settle every unproven mark, and drop to null only what nothing settles.
-
-    A mark says the generator could not establish the verdict itself, so every
-    oracle gets a say before null is written. A certain verdict the file already
-    states about the value elsewhere settles it outright: the vector adds nothing
-    either way and shrinks to its comment. Failing that, the rejection reasoning
-    of this module may prove the model refuses the value, which states false
-    where nothing was known. The validator speaks last and only about what it
-    was asked: it confirms a verdict by agreeing, and where it disagrees the
-    file says which way it went, PASS where it took a value meant to be refused
-    and FAIL where it refused one meant to be taken. A disagreement is never a
-    verdict, so it turns null, and so does a mark the validator says nothing
-    about. A refused base value is called out on its own, since every other
-    vector is built on it.
-    """
+    """Settle every unproven mark against the oracles, null only for what none settles."""
     judged = [entry for *_, entry in entries
               if len(entry) == 2 and isinstance(entry[0], str)]
     if not judged:
@@ -2098,16 +2084,7 @@ def _recheck(entries: list[tuple[int, str, list]], model: ModelType,
 
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             extend: bool = False) -> list:
-    """Test vectors for a model, sorted by model path, valid values before violations.
-
-    The compiler never decides here: a value no oracle proves is kept and marked,
-    so a disagreement is visible. A last pass then rewrites every unproven mark
-    to BAD and drops its expected result to null, and does the same to a proven
-    verdict the validator contradicts. The file states an expectation only where
-    the compiler proved it and nothing refuted it. The mark is a note about the
-    value, never a reason to drop it: every generated vector is kept, so the
-    compiler can be tested against all of them.
-    """
+    """Test vectors for a model, sorted by model path, valid values before violations."""
     entries: list[tuple[int, str, list]] = []
     reasons: list[str] = []
     taken: set[str] = set()

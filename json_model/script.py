@@ -347,13 +347,7 @@ def _read_values(path: str) -> list|None:
     return values
 
 def _values_held(values: list) -> dict[str, tuple[int, int|None, Jsonable]]:
-    """What a values file says about each value it holds.
-
-    The position of a value is its rank among the test vectors of the file,
-    comments aside, as the error files count them. A named case also carries a
-    test case name which no generated vector holds, so it has no index to
-    remove: the entry stays whatever the compiler proves about its value.
-    """
+    """Ordinal, array index (none if named) and stated result of each held value."""
     held: dict[str, tuple[int, int|None, Jsonable]] = {}
     ordinal = 0
     for index, entry in enumerate(values):
@@ -473,12 +467,7 @@ def _errors_render(source: str, indexes: list[int]) -> str:
     return f"[ {inner} ]" if source.startswith("[ ") else f"[{inner}]"
 
 def _renumber_errors(path: str, shift: dict[int, int]) -> None:
-    """Move the test vector indexes of the errors file beside a values file.
-
-    The file states which vector each backend is known to fail on, by position
-    in the values file, so removing a vector moves every index which follows.
-    An index on a removed vector has nothing left to point at and goes away.
-    """
+    """Move the test vector indexes of the errors file beside a values file."""
     if not path.endswith(_VALUES_SUFFIX):
         return
     epath = path[:-len(_VALUES_SUFFIX)] + _ERRORS_SUFFIX
@@ -515,15 +504,7 @@ def _renumber_errors(path: str, shift: dict[int, int]) -> None:
     log.warning(f"{epath}: {len(edits)} expected error list(s) renumbered")
 
 def _merge_values(tests: list, path: str, values: list) -> list:
-    """Test vectors to generate, those still waiting for a verdict left to a values file.
-
-    A vector the compiler could not settle is not generated: it goes to the
-    values file with a null result for the user to state, unless the file
-    already holds the value. A vector the compiler did settle is generated, and
-    the values file loses it, having nothing left to add. A file which expects
-    the opposite keeps its entry: the disagreement is not the generator's to
-    settle, and dropping it would hide it.
-    """
+    """Test vectors to generate, those still waiting for a verdict left to a values file."""
     held = _values_held(values)
     kept: list = []
     added: list = []
