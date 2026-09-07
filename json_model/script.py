@@ -427,8 +427,13 @@ def _write_values(path: str, dropped: set[int], added: list) -> None:
     with open(path, "w", newline="") as f:
         f.write(text)
 
+_MODEL_SUFFIX = ".model.json"
 _VALUES_SUFFIX = ".values.json"
 _ERRORS_SUFFIX = ".errors.json"
+
+def _model_values(path: str) -> str:
+    """Test values file of a model source."""
+    return path[:-len(_MODEL_SUFFIX)] + _VALUES_SUFFIX
 
 def _values_shift(values: list, removed: set[int]) -> dict[int, int]:
     """New position of each test vector a values file keeps."""
@@ -814,7 +819,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
 
     # parameters
     arg("--values", dest="values_file", type=str,
-        help="test values file to read and update")
+        help=f"test values file to read and update, or a model for its {_VALUES_SUFFIX} file")
     arg("--model", dest="model_option", type=str, help="JSON model as an option")
     arg("model", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
     arg("values", nargs="*", help="JSON values to testing")
@@ -843,6 +848,10 @@ def jmc_script(xargs: list[str]|None = None) -> int:
             f = "Pod::Text::Termcap" if args.doc == "man" else "Pod::Text"
             subprocess.run(["pod2usage", "-v", v, "-formatter", f], input=pod.encode("utf8"))
         return 0
+
+    if args.values_file is not None and args.values_file.endswith(_MODEL_SUFFIX) and \
+            args.model is None and args.model_option is None:
+        args.model, args.values_file = args.values_file, _model_values(args.values_file)
 
     # manage model option vs model parameter
     if args.model_option is None:
