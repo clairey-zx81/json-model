@@ -19,6 +19,8 @@
 - [x] analyze: display model rejections reasons as a warning
 - [x] bench: handle case failures when reporting
 - [x] model: improve jm meta model
+- [ ] bench: fix issue wrt compile time with updated reporting script
+- [ ] bench: fix issue on missing results and time display?!
 - [ ] bench: handle case failures for radar (wip, ajv handling)
 - [ ] bench: collect error runs?
 - [ ] bench: add corvus reference?
