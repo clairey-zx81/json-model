@@ -1,0 +1,8 @@
+{
+  "#": "strict regex, non closing ] must be escaped",
+  "pl": [5],
+  "py": [5],
+  "js": [5],
+  "java": [5],
+  "sql": [5]
+}
