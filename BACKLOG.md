@@ -22,6 +22,7 @@
 - [ ] bench: fix issue wrt compile time with updated reporting script
 - [ ] bench: fix issue on missing results and time display?!
 - [ ] bench: better count should ignore bads
+- [ ] bench: investigate blaze 16.10.0 new format rejections? patch test values?
 - [ ] bench: handle case failures for radar (wip, ajv handling)
 - [ ] bench: collect error runs?
 - [ ] bench: add corvus reference?
