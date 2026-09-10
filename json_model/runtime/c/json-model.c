@@ -1091,6 +1091,7 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                 break;
             case '[':
                 c++;
+                // []...] clever positioning
                 if (*c == '[' && *(c+1) == ':')  // [[: something
                 {
                     c += 2;
@@ -1102,15 +1103,21 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                     if (okay)
                         c += 2;
                 }
-                else  // [C] [^C]
+                else  // [C] [^C] []...] [^]...]
                 {
                     // FIXME what about -? ^ in corner cases?
                     if (*c == '^')
+                        c++;
+                    if (*c == ']')
                         c++;
                     while (*c && *c != ']')
                         c++;
                 }
                 okay &= *c == ']';  // else final ] not found!
+                break;
+            case ']':
+                // closing ] without an open is quite often accepted?
+                okay = false;
                 break;
             case '{':  // {123} or {12,34} or {12,}
                 c++;  // to digit
