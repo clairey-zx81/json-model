@@ -28,6 +28,7 @@
 - [ ] bench: add corvus reference?
 - [ ] bench: add stddev performance computation
 - [ ] bench: improve resilience to bad overhead estimation
+- [ ] bench: add case names to generated radar
 - [ ] bench: collect JSON parse times for comparison with validation times
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] pr: add _known limitations_ stuff
