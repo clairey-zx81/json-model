@@ -268,7 +268,7 @@ EXPECT: dict[str, int] = {
     "mv-35:cmp-opts": {"report": False, "comment": False},
     "mv-35:mod-opts": {"single_line": True},
     "mv-35:models": 7,
-    "mv-35:values": 176,
+    "mv-35:values": 186,
     "mv-35:verrors:schema": 1,
     # mv-36
     "mv-36:models": 2,
@@ -606,22 +606,48 @@ def test_ts(directory, tmp_dir):
 
     assert ntests == EXPECT.get(f"{directory}:models", 0)
 
-def expected_errors(directory: pathlib.Path, model: str) -> dict[str, list[int]]:
-    """Expected errors for a model"""
+def expected_errors(directory: pathlib.Path, model: str, source: str|None = None) -> dict:
+    """Expected errors for a model, restricted to one test vector source when named"""
     efile = directory.joinpath(f"{model}.errors.json")
     if not efile.exists():
         return {}
     with open(efile) as ef:
-        return { k: v for k, v in json.load(ef).items() if not k.startswith("#") }
+        errors = { k: v for k, v in json.load(ef).items() if not k.startswith("#") }
+    if source is None:
+        return errors
+    return { k: v for k, v in errors.get(source, {}).items() if not k.startswith("#") }
 
-def check_errors(directory: pathlib.Path, model: str, key: str, observed: set[int]):
+def check_errors(directory: pathlib.Path, model: str, key: str, observed: set[int],
+                 source: str = "values"):
     """Compare observed checker errors to expectations"""
-    expected = set(expected_errors(directory, model).get(key) or [])
+    expected = set(expected_errors(directory, model, source).get(key) or [])
 
     missing, extra = expected - observed, observed - expected
     assert not missing and not extra, \
-        f"{directory}/{model}.values.json [{key}]: " \
+        f"{directory}/{model}.{source}.json [{key}]: " \
         f"missing={sorted(missing)} extra={sorted(extra)}"
+
+def run_vectors(fexec: str, opts: str, vfile: pathlib.Path,
+                source: str) -> tuple[str, int, set[int]]:
+    """Run a checker on a test vector file, keeping the indexes it disagrees about"""
+    with os.popen(f"{fexec} {opts} -t {vfile} | cut -d/ -f2-") as p:
+        result = p.read()
+
+    observed: set[int] = set()
+    nvalues = 0
+
+    for line in result.split("\n")[:-1]:
+        m = re.search(rf"\.{source}\.json\[(\d+)\]: (\w+)", line)
+        if m is None:
+            # continuation of a reported reason holding an end of line
+            assert nvalues, f"unexpected output on {vfile}: {line}"
+            continue
+        nvalues += 1
+        if m.group(2) == "ERROR":
+            observed.add(int(m.group(1)))
+
+    assert result, f"no output from {fexec} on {vfile}"
+    return result, nvalues, observed
 
 def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
                  generate: typing.Callable[[str], str], opts: str = ""):
@@ -660,6 +686,7 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
 
         # values file
         vfile = directory.joinpath(bname + ".values.json")
+        lang = suffix[1:]
 
         if vfile.exists():
 
@@ -674,25 +701,25 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
                 nvalues += len(list(filter(lambda t: isinstance(t, list), values)))
                 continue
 
-            with os.popen(f"{fexec} {opts} -t {vfile} | cut -d/ -f2-") as p:
-                result = p.read()
+            result, nseen, observed = run_vectors(fexec, opts, vfile, "values")
+            nvalues += nseen
             out += result
 
-            lang = suffix[1:]
-            observed: set[int] = set()
-
-            for line in result.split("\n")[:-1]:
-                nvalues += 1
-                m = re.search(r"\.values\.json\[(\d+)\]: (\w+)", line)
-                assert m is not None, f"unexpected output in {directory}/{bname}:{line}"
-
-                idx, verdict = int(m.group(1)), m.group(2)
-                if verdict == "ERROR":
-                    observed.add(idx)
-
-            assert result, f"no output from {fexec} on {vfile}"
             check_errors(directory, bname, lang, observed)
             assert out == ref
+
+        # generated values file
+        afile = directory.joinpath(bname + ".auto.json")
+
+        if afile.exists():
+            with open(afile) as af:
+                generated = json.load(af)
+
+            # a model the generator cannot handle yields comments only
+            if any(isinstance(t, list) for t in generated):
+                _, _, observed = run_vectors(fexec, opts, afile, "auto")
+                check_errors(directory, bname, lang, observed, "auto")
+
         # cleanup
         if suffix.endswith(".c"):
             os.remove(fexec)
