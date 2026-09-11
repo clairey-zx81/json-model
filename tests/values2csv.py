@@ -12,15 +12,9 @@ if len(sys.argv) >= 2 and sys.argv[1] != "-":
 else:
     values = json.load(sys.stdin)
 
-NULL = "\\n"
-
 def tojson(v: Json):
     """Convert value to a JSON string."""
     return json.dumps(v, separators=(",", ":"))
-
-def expect(v: Json):
-    """Convert an expected result, an undecided one to the CSV null marker."""
-    return NULL if v is None else v
 
 out = []
 for v in values:
@@ -28,9 +22,9 @@ for v in values:
         continue
     assert isinstance(v, list)
     if len(v) == 2:
-        out.append((expect(v[0]), "", tojson(v[1])))
+        out.append((v[0], "", tojson(v[1])))
     else:
-        out.append((expect(v[0]), v[1], tojson(v[2])))
+        out.append((v[0], v[1], tojson(v[2])))
 
 if len(sys.argv) >= 3 and sys.argv[2] != "-":
     fout = open(sys.argv[2], "w")

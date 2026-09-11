@@ -18,7 +18,7 @@ CREATE TEMPORARY TABLE json_model_test(
     checked BOOLEAN DEFAULT NULL
 );
 
-\copy json_model_test(expect, name, jval) FROM PSTDIN WITH (FORMAT csv, NULL '\\n')
+\copy json_model_test(expect, name, jval) FROM PSTDIN WITH (FORMAT csv, FORCE_NOT_NULL(name))
 
 UPDATE json_model_test
 SET
