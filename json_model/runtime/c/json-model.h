@@ -24,6 +24,16 @@
 #  error missing regex engine definition
 #endif
 
+// regular expression validation
+# if defined(JMC_REGEX_STRICT)
+  // pass
+# elif defined(JMC_REGEX_LOOSE)
+  // pass
+# else
+#   warning using stricter regex settings
+#   define JMC_REGEX_STRICT
+# endif
+
 /*
  * build generated API names
  */

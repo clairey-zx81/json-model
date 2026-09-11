@@ -191,7 +191,7 @@ for dir ; do
   #  - `--no-reporting`: do not generate invalidation location reporting code
   #  - `--loose`: assume loose integers (42.0 is an int) and floats (42 is a float)
   #
-  jmc_c_opts=""
+  jmc_c_opts="-DJMC_REGEX_LOOSE"
   jmc_x_opts=$jmc_c_opts
 
   # additional options may override the above defaults
