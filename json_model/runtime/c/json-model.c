@@ -1053,6 +1053,7 @@ jm_is_valid_regex_slow(const char *pattern, bool extended, jm_path_t *path, jm_r
 
 // hardcoded regex parser for https://github.com/google/re2/wiki/syntax
 // TODO consider a subset simple regex syntax
+// Suggest: re2? [RFC9485](https://datatracker.ietf.org/doc/html/rfc9485)?
 bool
 jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_report_t *rep)
 {
@@ -1088,6 +1089,11 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                 }
                 else
                     okay &= *c != '\0';
+                break;
+            case '|':
+                c++;
+                // TODO could/should require being inside parentheses
+                // okay &= paren > 0;
                 break;
             case '[':
                 c++;
