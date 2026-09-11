@@ -1,4 +1,3 @@
 {
-  "#.schema": "5 needs format",
-  "schema": [ 5 ]
+  "values": { "#.schema": "5 needs format", "schema": [ 5 ] }
 }

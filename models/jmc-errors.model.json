@@ -1,17 +1,25 @@
 {
   "#": "JMC Expected Test Errors",
   "$": {
-    "ErrorIndex": { "@": [ 0 ], "!": true }
+    "ErrorIndex": { "@": [ 0 ], "!": true },
+    "Errors": {
+      "#.*": "Value indexes of expected errors for the test",
+      "?schema": "$ErrorIndex",
+      "?dynpy": "$ErrorIndex",
+      "?js": "$ErrorIndex",
+      "?sql": "$ErrorIndex",
+      "?pl": "$ErrorIndex",
+      "?java": "$ErrorIndex",
+      "?c": "$ErrorIndex",
+      "?py": "$ErrorIndex",
+      "#.#": "Embedded comment strings",
+      "/^#/": ""
+    }
   },
-  "#.*": "Value indexes of expected errors for the test",
-  "?schema": "$ErrorIndex",
-  "?dynpy": "$ErrorIndex",
-  "?js": "$ErrorIndex",
-  "?sql": "$ErrorIndex",
-  "?pl": "$ErrorIndex",
-  "?java": "$ErrorIndex",
-  "?c": "$ErrorIndex",
-  "?py": "$ErrorIndex",
+  "#.values": "Expected errors on the hand written test values",
+  "?values": "$Errors",
+  "#.auto": "Expected errors on the generated test values",
+  "?auto": "$Errors",
   "#.ts": "Whether the jmc command can fail when generating the interface",
   "?ts": true,
   "?auto.errors": { "@": [ "" ], "!": true },

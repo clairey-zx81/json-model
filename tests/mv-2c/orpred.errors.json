@@ -1,4 +1,3 @@
 {
-  "#.sql": "Postgres accepts 60 as a seconds value in $TIME",
-  "sql": [4]
+  "values": { "#.sql": "Postgres accepts 60 as a seconds value in $TIME", "sql": [4] }
 }
