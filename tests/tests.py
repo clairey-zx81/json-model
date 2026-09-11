@@ -1021,6 +1021,24 @@ def test_values_json(directory):
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nerrors == EXPECT.get(f"{directory}:values:errors", 0)
 
+def test_auto_json(directory):
+    """Check that generated test vectors in directory all carry a verdict."""
+    for fpath in sorted(directory.glob("*.auto.json")):
+        with open(fpath) as af:
+            generated = json.load(af)
+
+        vectors = [t for t in generated if isinstance(t, list)]
+        unsettled = [(i, t) for i, t in enumerate(vectors) if t[0] is None]
+        if not unsettled:
+            continue
+
+        vfile = str(fpath).replace(".auto.json", ".values.json")
+        shown = "\n".join(f"  [ null, {json.dumps(t[-1])} ],  # was auto[{i}]"
+                           for i, t in unsettled)
+        assert False, \
+            f"{fpath}: {len(unsettled)} vector(s) without a verdict, " \
+            f"state each one in {vfile}:\n{shown}"
+
 def test_errors_json(directory):
     """Check *.errors.json files in directory against the jmc-errors meta model."""
     resolver = Resolver(None, dirmap(directory))
