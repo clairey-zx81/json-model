@@ -1021,14 +1021,16 @@ def test_values_json(directory):
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nerrors == EXPECT.get(f"{directory}:values:errors", 0)
 
+def unsettled_vectors(fpath: pathlib.Path) -> list[tuple[int, list]]:
+    """Ordinal and contents of the test vectors of a file which state no result."""
+    with open(fpath) as f:
+        vectors = [t for t in json.load(f) if isinstance(t, list)]
+    return [(i, t) for i, t in enumerate(vectors) if t[0] is None]
+
 def test_auto_json(directory):
     """Check that generated test vectors in directory all carry a verdict."""
     for fpath in sorted(directory.glob("*.auto.json")):
-        with open(fpath) as af:
-            generated = json.load(af)
-
-        vectors = [t for t in generated if isinstance(t, list)]
-        unsettled = [(i, t) for i, t in enumerate(vectors) if t[0] is None]
+        unsettled = unsettled_vectors(fpath)
         if not unsettled:
             continue
 
@@ -1038,6 +1040,18 @@ def test_auto_json(directory):
         assert False, \
             f"{fpath}: {len(unsettled)} vector(s) without a verdict, " \
             f"state each one in {vfile}:\n{shown}"
+
+def test_values_settled(directory):
+    """Check that hand written test vectors in directory all carry a verdict."""
+    for fpath in sorted(directory.glob("*.values.json")):
+        unsettled = unsettled_vectors(fpath)
+        if not unsettled:
+            continue
+
+        shown = "\n".join(f"  [{i}] {json.dumps(t[-1])}" for i, t in unsettled)
+        assert False, \
+            f"{fpath}: {len(unsettled)} vector(s) waiting for a verdict, " \
+            f"set true or false on each:\n{shown}"
 
 def test_errors_json(directory):
     """Check *.errors.json files in directory against the jmc-errors meta model."""
