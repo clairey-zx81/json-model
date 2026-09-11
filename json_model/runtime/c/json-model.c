@@ -1,3 +1,7 @@
+/*
+ * JSON Model Compiler Runtime for C with Jansson and RE2 or PCRE2
+ */
+
 #include <json-model.h>
 
 #include <stdio.h>
@@ -207,23 +211,23 @@ jm_json_cmp(const json_t *v1, const json_t *v2)
  * This is based on blaze core "unique()" implementation which fares quite better
  * for small arrays.
  */
-#ifndef UNIQUE_STRING_ARRAY_HASH_LIMIT
-#define UNIQUE_STRING_ARRAY_HASH_LIMIT 64
-#endif // UNIQUE_STRING_ARRAY_HASH_LIMIT
+# ifndef UNIQUE_STRING_ARRAY_HASH_LIMIT
+#   define UNIQUE_STRING_ARRAY_HASH_LIMIT 64
+# endif // UNIQUE_STRING_ARRAY_HASH_LIMIT
 
 // tested on integers
-#ifndef UNIQUE_JSON_ARRAY_HASH_LIMIT
-#define UNIQUE_JSON_ARRAY_HASH_LIMIT 200
-#endif // UNIQUE_JSON_ARRAY_HASH_LIMIT
+# ifndef UNIQUE_JSON_ARRAY_HASH_LIMIT
+#   define UNIQUE_JSON_ARRAY_HASH_LIMIT 200
+# endif // UNIQUE_JSON_ARRAY_HASH_LIMIT
 
 // even higher seems ok, up to 1024
-#ifndef UNIQUE_OBJECT_ARRAY_HASH_LIMIT
-#define UNIQUE_OBJECT_ARRAY_HASH_LIMIT 512
-#endif // UNIQUE_OBJECT_ARRAY_HASH_LIMIT
+# ifndef UNIQUE_OBJECT_ARRAY_HASH_LIMIT
+#   define UNIQUE_OBJECT_ARRAY_HASH_LIMIT 512
+# endif // UNIQUE_OBJECT_ARRAY_HASH_LIMIT
 
-#ifndef UNIQUE_INTEGER_ARRAY_HASH_LIMIT
-#define UNIQUE_INTEGER_ARRAY_HASH_LIMIT 54
-#endif // UNIQUE_INTEGER_ARRAY_HASH_LIMIT
+# ifndef UNIQUE_INTEGER_ARRAY_HASH_LIMIT
+#   define UNIQUE_INTEGER_ARRAY_HASH_LIMIT 54
+# endif // UNIQUE_INTEGER_ARRAY_HASH_LIMIT
 
 typedef struct {
     json_t *json;
@@ -253,15 +257,15 @@ jm_json_array_unique_hash(const json_t *val, size_t size)
 #  define qsort_r qsort_s
 #endif
 
-#if defined(_WIN64) || defined(__APPLE__)
+# if defined(_WIN64) || defined(__APPLE__)
 typedef int(*jm_cmp_r_fun_t)(void *, const void *, const void *);
-#  define CMP_R(name, vtype) \
-     name(void *duplicate, const vtype *v1, const vtype *v2)
-#else  // ISO - Linux, Unix, whatever
+#   define CMP_R(name, vtype) \
+      name(void *duplicate, const vtype *v1, const vtype *v2)
+# else  // ISO - Linux, Unix, whatever
 typedef int(*jm_cmp_r_fun_t)(const void *, const void *, void *);
-#  define CMP_R(name, vtype) \
-     name(const vtype *v1, const vtype *v2, void *duplicate)
-#endif
+#   define CMP_R(name, vtype) \
+      name(const vtype *v1, const vtype *v2, void *duplicate)
+# endif
 
 /*
  * UNIQUE ANY JSON ARRAY
@@ -977,15 +981,15 @@ jm_is_valid_uuid(const char *uuid, jm_path_t *path, jm_report_t *rep)
 
     size_t i = 0;
 
-#define subsection(upto)                        \
-    while (i < upto)                            \
-        if (unlikely(!isxdigit(uuid[i++])))     \
-            return false
+# define subsection(upto)                        \
+      while (i < upto)                           \
+          if (unlikely(!isxdigit(uuid[i++])))    \
+              return false
 
-#define section(upto)                           \
-    subsection(upto);                           \
-    if (unlikely(uuid[i++] != '-'))             \
-        return false
+# define section(upto)                           \
+      subsection(upto);                          \
+      if (unlikely(uuid[i++] != '-'))            \
+          return false
 
     section(8);
     section(13);
@@ -1005,16 +1009,16 @@ jm_is_valid_eth(const char *eth, jm_path_t *path, jm_report_t *rep)
 
     size_t i = 0;
 
-#define hexhex()                                \
-    if (unlikely(!isxdigit(eth[i++])))          \
-        return false;                           \
-    if (unlikely(!isxdigit(eth[i++])))          \
-        return false
+# define hexhex()                                \
+      if (unlikely(!isxdigit(eth[i++])))         \
+          return false;                          \
+      if (unlikely(!isxdigit(eth[i++])))         \
+          return false
 
-#define hexhexcol()                             \
-    hexhex();                                   \
-    if (unlikely(eth[i++] != ':'))              \
-        return false
+# define hexhexcol()                             \
+      hexhex();                                  \
+      if (unlikely(eth[i++] != ':'))             \
+          return false
 
     hexhexcol();
     hexhexcol();
@@ -1034,7 +1038,7 @@ jm_is_valid_regex_slow(const char *pattern, bool extended, jm_path_t *path, jm_r
     if (!pattern)
         return false;
     bool valid = false;
-#if defined(REGEX_ENGINE_PCRE2)
+# if defined(REGEX_ENGINE_PCRE2)
     int err_code;
     PCRE2_SIZE err_offset;
     pcre2_code *code =
@@ -1043,13 +1047,21 @@ jm_is_valid_regex_slow(const char *pattern, bool extended, jm_path_t *path, jm_r
     valid = code != NULL;
     if (code)
         pcre2_code_free(code);
-#elif defined(REGEX_ENGINE_RE2)
+# elif defined(REGEX_ENGINE_RE2)
     cre2_regexp_t *rx = cre2_new(pattern, strlen(pattern), NULL);
     valid = cre2_error_code(rx) == 0;
     cre2_delete(rx);
-#endif
+# endif
     return valid;
 }
+
+# if defined(JMC_REGEX_STRICT)
+#     define regex_valid_strict(e) (e)
+# elif defined(JMC_REGEX_LOOSE)
+#    define regex_valid_strict(_) true
+# else
+#     error define one of JMC_REGEX_... macros
+# endif
 
 // hardcoded regex parser for https://github.com/google/re2/wiki/syntax
 // TODO consider a subset simple regex syntax
@@ -1092,8 +1104,7 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                 break;
             case '|':
                 c++;
-                // TODO could/should require being inside parentheses
-                // okay &= paren > 0;
+                okay &= regex_valid_strict(paren > 0);
                 break;
             case '[':
                 c++;
@@ -1122,8 +1133,8 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                 okay &= *c == ']';  // else final ] not found!
                 break;
             case ']':
-                // closing ] without an open is quite often accepted?
-                okay = false;
+                // closing ] without an open is quite often accepted
+                okay = regex_valid_strict(false);
                 break;
             case '{':  // {123} or {12,34} or {12,}
                 c++;  // to digit
