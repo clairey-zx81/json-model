@@ -116,7 +116,9 @@ EXPECT: dict[str, int] = {
     "mv-15:js2json": 2,
     "mv-15:models": 12,
     "mv-15:values": 136,
-    "mv-15:verrors:schema": 2,
+    "mv-15:verrors:schema": 3,
+    "mv-15:verrors:dynpy": 1,
+    "mv-15:verrors:ir": 1,
     # chunk 16
     "mv-16:models": 11,
     "mv-16:values": 100,
@@ -196,6 +198,7 @@ EXPECT: dict[str, int] = {
     # mv-28
     "mv-28:cmp-opts": {"strcmp": True, "report": False, "strcmp_cset_partition_threshold": 32},
     "mv-28:models": 7,
+    "mv-28:models:errors-c": 1,  # bracket
     "mv-28:values": 159,
     # mv-29: extensions
     "mv-29:models": 8,
@@ -364,7 +367,7 @@ def clibjm(tmp_dir):
     # compilation settings with re2
     cc = os.environ.get("CC", DEFAULT_CC)
     cppflags = os.environ.get("CPPFLAGS", f"-I{src_dir} -DCHECK_FUNCTION_NAME=check_model")
-    cppflags += " -DREGEX_ENGINE_RE2 -DURL_PARSER_CCA"
+    cppflags += " -DREGEX_ENGINE_RE2 -DJMC_REGEX_LOOSE"
     cflags = os.environ.get("CFLAGS", DEFAULT_CFLAGS)
     ldflags = os.environ.get("LDFLAGS", f"{jm_main} {jm_lib} " + DEFAULT_LDFLAGS)
 

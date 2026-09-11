@@ -213,7 +213,7 @@ clean.schema:
 .PHONY: c
 c: $(F.c)
 
-URLIB   = cca
+RECHK   = STRICT
 RELIB   = re2
 
 %.c: %.model.json
@@ -223,7 +223,7 @@ RT.c    = ../../json_model/runtime/c
 
 CDEBUG    =
 CC        = gcc
-CPPFLAGS  = -DCHECK_FUNCTION_NAME=check_model -I$(RT.c)
+CPPFLAGS  = -DCHECK_FUNCTION_NAME=check_model -I$(RT.c) -DJMC_REGEX_$(RECHK)
 CFLAGS    = -Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -Wno-unused-function \
             -Wno-parentheses -Ofast $(CDEBUG)
 
@@ -233,17 +233,6 @@ LDFLAGS   = json-model.o -ljansson -lpcre2-8 main.o -lm
 else
 CPPFLAGS  += -I/usr/local/include -DREGEX_ENGINE_RE2
 LDFLAGS   = -L/usr/local/lib json-model.o -ljansson -lcre2 -lpthread -lre2 main.o -lm
-endif
-
-ifeq ($(URLIB), curl)
-  CPPFLAGS  += -DURL_PARSER_CURL
-  LDFLAGS   += -lcurl
-else
-  ifeq ($(URLIB), cca)
-    CPPFLAGS  += -DURL_PARSER_CCA
-  else
-    CPPFLAGS  += -DURL_PARSER_NONE
-  endif
 endif
 
 # local makefile

@@ -1080,6 +1080,7 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
 
     while (*c && okay)
     {
+        // fprintf(stderr, "\"%s\"[%ld] = %c\n", pattern, c-pattern, *c);
         if (start) {
             // cannot start with a repeat
             okay &= strchr("*+?{", *c) == NULL;
@@ -1103,7 +1104,6 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                     okay &= *c != '\0';
                 break;
             case '|':
-                c++;
                 okay &= regex_valid_strict(paren > 0);
                 break;
             case '[':
@@ -1122,15 +1122,14 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                 }
                 else  // [C] [^C] []...] [^]...]
                 {
-                    // FIXME what about -? ^ in corner cases?
                     if (*c == '^')
                         c++;
-                    if (*c == ']')
+                    if (*c == ']')  // skip clever positioning
                         c++;
                     while (*c && *c != ']')
                         c++;
                 }
-                okay &= *c == ']';  // else final ] not found!
+                okay &= *c == ']';  // closing ]
                 break;
             case ']':
                 // closing ] without an open is quite often accepted
