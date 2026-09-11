@@ -50,7 +50,7 @@ function json2csv()
 }
 
 for file ; do
-  if [[ "$file" == *.values.json ]] ; then
+  if [[ "$file" == *.values.json || "$file" == *.auto.json ]] ; then
     "$dir"/values2csv.py $file
   else
     json=$(json2csv $file)
