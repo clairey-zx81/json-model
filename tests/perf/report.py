@@ -354,17 +354,18 @@ for c in cases:
 log.info(f"missings: {missings}")
 
 # which results should be ignored
-bad_result: dict[tuple[str, str], bool] = {
+bad_result: dict[tuple[str, str], str] = {
     (c, t): (
-        (c, t) in missings or
-        passed[c, t] + failed[c, t] != case_df.loc[c]["ntests"] or
-        passed[c, t] <= args.threshold * case_df.loc[c]["ntests"]
+        "missing" if (c, t) in missings else
+        "ntests" if passed[c, t] + failed[c, t] != case_df.loc[c]["ntests"] else
+        "partial" if passed[c, t] <= args.threshold * case_df.loc[c]["ntests"] else
+        "okay"
     )
     for c in cases
         for t in tools
 }
 
-bad_results = list(filter(lambda ct: bad_result[ct], bad_result))
+bad_results = { ct: val for ct, val in bad_result.items() if val != "okay" }
 log.info(f"bad results: {bad_results}")
 
 # fill-on or override missings data
