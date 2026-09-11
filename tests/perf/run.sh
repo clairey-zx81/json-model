@@ -300,7 +300,7 @@ for dir ; do
     #
     [ "$trg" = "blaze" -a "$blaze_ko" -eq 0 ] && {
       echo "## $dir blaze run"
-      $js_cli validate $blaze_val_opts -m ${prefix}.blaze.json -b -l $LOOP \
+      $js_cli validate $blaze_val_opts -m ${prefix}.blaze.json -c -b -l $LOOP \
         $dir/schema.json $dir/instances.jsonl \
           > ${prefix}_blaze.out
     }
