@@ -115,7 +115,7 @@ EXPECT: dict[str, int] = {
     # chunk 15
     "mv-15:js2json": 2,
     "mv-15:models": 12,
-    "mv-15:values": 133,
+    "mv-15:values": 136,
     "mv-15:verrors:schema": 2,
     # chunk 16
     "mv-16:models": 11,
