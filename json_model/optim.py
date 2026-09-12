@@ -2,7 +2,7 @@
 # Model Optimizations
 #
 import re
-from .mtypes import ModelPath, ModelType, OperatorError
+from .mtypes import ModelPath, ModelType, OperatorError, TopType
 from .utils import log, is_cst, _structurally_distinct_models, model_type, is_base_model
 from .utils import constant_values, same_model, model_eq, simple_object, is_a_simple_object
 from .recurse import recModel, allFlt, builtFlt, noRwt
@@ -423,8 +423,9 @@ def partial_eval(jm: JsonModel):
                     return land[0]
 
                 # if ultimates types are distinct, no value can match
-                utypes = set(ultimate_type(jm, m) for m in land)
-                if None not in utypes and len(utypes) > 1 or None in utypes and len(utypes) > 2:
+                utypes = set(ultimate_type(jm, m) for m in land) - {TopType}
+                if None in utypes or len(utypes) >= 2:
+                    changes += 1
                     return "$NONE"
 
                 # &( T, <T>...) -> &(<T>...)
@@ -976,6 +977,7 @@ def simpler_regex(jm: JsonModel) -> bool:
 
     jm._model = recModel(jm._model, allFlt, reRwt)
 
+    log.debug(f"{jm._id}: srex {changes}")
     return changes > 0
 
 def optimize(
