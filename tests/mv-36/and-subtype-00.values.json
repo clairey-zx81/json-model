@@ -1,0 +1,16 @@
+[
+  [ true,  {} ],
+  [ true,  {"x": 42} ],
+  [ true,  {"x-foo": 42} ],
+  [ true,  {"bla": "whatever"} ],
+  [ false, {"x1": "not-expected"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

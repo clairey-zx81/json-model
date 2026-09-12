@@ -997,6 +997,86 @@ def elimCommonSub(code: Jsonable) -> int:
     recurseIR(code, cseFlt, cseRwt)
     return changes
 
+def elimEmptySeq(code: Jsonable, reporting: bool) -> int:
+    """Eliminate no-effect sequences with only new variables."""
+    changes = 0
+
+    def eecRwt(code: Jsonable, _: Path) -> Jsonable:
+        nonlocal changes
+        if isinstance(code, list):
+            remove = True
+            for op in code:
+                if _noOp(op, reporting):
+                    pass
+                elif _isOps(op, {"pv", "iv", "bv", "jv"}) and op["declare"]:
+                    # simple declarations
+                    pass
+                elif _isOp(op, "seq") and _noOps(op["seq"], reporting):
+                    pass
+                else:
+                    remove = False
+                    break
+            if code and remove:
+                changes += 1
+                # keep nope to avoid empty else in python: TODO catch in code generator!
+                return list(filter(lambda o: _isOps(o, {"co", "seq", "no"}), code))
+        return code
+
+    recurseIR(code, _goIR, eecRwt)
+    return changes
+
+
+def getComments(code: Jsonable) -> list[dict[str, Jsonable]]:
+    """Extract comments recursively."""
+
+    comments = []
+
+    def keepComments(code: Jsonable, _: Path) -> True:
+        nonlocal comments
+        if isinstance(code, dict):
+            if _isOp(code, "co"):
+                comments.append(copy.deepcopy(code))
+                return False
+            else:
+                return True
+        elif isinstance(code, list):
+            return True
+        else:
+            return False
+
+    recurseIR(code, keepComments, _nopeIR)
+    return comments
+
+def elimEmptyLoop(code: Jsonable, reporting: bool) -> int:
+    """Eliminate empty lists in loops and sequences, but keep comments."""
+    changes = 0
+
+    def eelRwt(code: Jsonable, _: Path) -> Jsonable:
+        nonlocal changes
+        if _isOps(code, {"oL", "aL", "iL"}) and _noOps(code["body"], reporting):
+            changes += 1
+            coms = getComments(code["body"])
+            if coms:
+                return {"o": "seq", "seq": coms}
+            else:
+                return {"o": "ign", "#": "empty loop body"}
+        elif _isOp(code, "seq") and _noOps(code["seq"], reporting):
+            if len(code["seq"]) == 0:
+                return {"o": "ign", "#": "empty sequence"}
+            if all(_isOp(o, "co") for o in code["seq"]):
+                return code
+            # else
+            changes += 1
+            coms = getComments(code["seq"])
+            if coms:
+                return {"o": "seq", "seq": coms}
+            else:
+                return {"o": "ign", "#": "empty sequence"}
+        return code
+
+    recurseIR(code, _goIR, eelRwt)
+    return changes
+
 def elimDeadCode(code: Jsonable, reporting: bool) -> int:
     """Eliminate dead code in simple cases."""
     changes = 0
@@ -1019,11 +1099,8 @@ def elimDeadCode(code: Jsonable, reporting: bool) -> int:
                 else:
                     break
             if ret:
-                # return comments and return
                 changes += 1
-                return list(filter(lambda o: _isOps(o, {"co", "ret", "seq"}), code))
-        elif _isOps(code, {"oL", "aL", "iL"}) and _noOps(code["body"], reporting):
-            return {"o": "ign", "#": "empty loop body"}
+                return list(filter(lambda o: _isOps(o, {"co", "ret", "seq", "ign"}), code))
         return code
 
     recurseIR(code, _goIR, edcRwt)
@@ -1059,6 +1136,7 @@ def elimUnreachableCode(code: Jsonable) -> int:
     recurseIR(code, _goStructIR, eucRwt)
     return changes
 
+# TODO what about other variables?!
 def elimUnusedBoolVars(code: Jsonable) -> int:
     """Bool variables may be set but unused."""
 
@@ -1155,6 +1233,7 @@ def optimizeIR(
         ins = json.loads(c)
         if not _isOp(ins, "sfu"):
             continue
+        log.debug(f"IR optim considering function {ins['name']}")
         changed: bool = False
         changed |= mifToIf(ins) > 0
         if partial:
@@ -1167,11 +1246,14 @@ def optimizeIR(
             changes = callShortcuts(ins, shortcuts)
             calls += changes
             changed |= changes > 0
+        # FIXME should we iterate?
         changed |= elimCommonSub(ins) > 0
         changed |= elimDeadCode(ins, reporting) > 0
         changed |= elimUnreachableCode(ins) > 0
         changed |= elimUnusedBoolVars(ins) > 0
         changed |= simplifySimpleIf(ins, reporting) > 0
+        changed |= elimEmptySeq(ins, reporting) > 0
+        changed |= elimEmptyLoop(ins, reporting) > 0
         if changed:
             code[i] = json.dumps(ins)
 

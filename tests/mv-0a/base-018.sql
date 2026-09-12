@@ -12,7 +12,6 @@ BEGIN
   -- .
   -- .'@'
   -- accept any array
-  NULL;
   RETURN JSONB_TYPEOF(val) = 'array' AND jm_array_is_unique(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;

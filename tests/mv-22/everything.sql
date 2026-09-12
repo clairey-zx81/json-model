@@ -772,7 +772,6 @@ BEGIN
   -- .constraints.cua0
   -- .constraints.cua0.'@'
   -- accept any array
-  NULL;
   RETURN JSONB_TYPEOF(val) = 'array' AND jm_array_is_unique(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;

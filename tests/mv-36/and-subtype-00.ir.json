@@ -1,0 +1,276 @@
+{
+  "o": "gfc",
+  "defs": [
+    {
+      "o": "dfu",
+      "name": "_jm_obj_0"
+    },
+    {
+      "o": "dfu",
+      "name": "_jm_obj_1"
+    },
+    {
+      "o": "dfu",
+      "name": "json_model_1"
+    },
+    {
+      "o": "dpm",
+      "name": "check_model_map",
+      "pmap": {
+        "": "json_model_1"
+      },
+      "public": true
+    }
+  ],
+  "inis": [
+    {
+      "o": "ipm",
+      "name": "check_model_map",
+      "pmap": {
+        "": "json_model_1"
+      },
+      "public": true
+    }
+  ],
+  "dels": [
+    {
+      "o": "rpm",
+      "name": "check_model_map",
+      "pmap": {
+        "": "json_model_1"
+      },
+      "public": true
+    }
+  ],
+  "subs": [
+    {
+      "o": "co",
+      "text": "object .'&'.1",
+      "force": false
+    },
+    {
+      "o": "sfu",
+      "name": "_jm_obj_0",
+      "body": [
+        {
+          "o": "co",
+          "text": "value known to be an object",
+          "force": false
+        },
+        {
+          "o": "ign"
+        },
+        {
+          "o": "ign",
+          "#": "empty loop body"
+        },
+        {
+          "o": "ret",
+          "res": {
+            "o": "cst",
+            "c": true
+          }
+        }
+      ],
+      "inline": true
+    },
+    {
+      "o": "skip"
+    },
+    {
+      "o": "co",
+      "text": "object .'&'.0",
+      "force": false
+    },
+    {
+      "o": "sfu",
+      "name": "_jm_obj_1",
+      "body": [
+        {
+          "o": "co",
+          "text": "value known to be an object",
+          "force": false
+        },
+        {
+          "o": "bv",
+          "var": "res",
+          "val": null,
+          "declare": true
+        },
+        {
+          "o": "oL",
+          "obj": "val",
+          "key": "prop",
+          "val": "pval",
+          "body": [
+            {
+              "o": "pv",
+              "pvar": "lpath_1",
+              "val": {
+                "o": "pvl",
+                "pvar": "path",
+                "pseg": "prop",
+                "is_prop": true,
+                "is_var": true
+              },
+              "declare": true
+            },
+            {
+              "o": "if",
+              "false": [],
+              "cond": {
+                "o": "ss",
+                "val": "prop",
+                "start": {
+                  "o": "cst",
+                  "c": "x"
+                }
+              },
+              "true": [
+                {
+                  "o": "co",
+                  "text": "handle 1 re props",
+                  "force": false
+                },
+                {
+                  "o": "co",
+                  "text": ".'&'.0.'/^x/'",
+                  "force": false
+                },
+                {
+                  "o": "bv",
+                  "var": "res",
+                  "val": {
+                    "o": "&",
+                    "exprs": [
+                      {
+                        "o": "isa",
+                        "var": "pval",
+                        "tval": "integer",
+                        "loose": false
+                      },
+                      {
+                        "o": "nc",
+                        "e1": {
+                          "o": "val",
+                          "var": "pval",
+                          "tvar": "integer",
+                          "loose": false
+                        },
+                        "op": ">=",
+                        "e2": {
+                          "o": "cst",
+                          "c": 1
+                        },
+                        "hexa": false,
+                        "is_int": true
+                      }
+                    ]
+                  },
+                  "declare": false
+                },
+                {
+                  "o": "if",
+                  "cond": {
+                    "o": "not",
+                    "e": "res"
+                  },
+                  "true": [
+                    {
+                      "o": "ret",
+                      "res": {
+                        "o": "cst",
+                        "c": false
+                      }
+                    }
+                  ],
+                  "false": [],
+                  "likely": false
+                }
+              ],
+              "likely": false
+            }
+          ]
+        },
+        {
+          "o": "ret",
+          "res": {
+            "o": "cst",
+            "c": true
+          }
+        }
+      ],
+      "inline": true
+    },
+    {
+      "o": "skip"
+    },
+    {
+      "o": "co",
+      "text": "check $ (.)",
+      "force": false
+    },
+    {
+      "o": "sfu",
+      "name": "json_model_1",
+      "body": [
+        {
+          "o": "co",
+          "text": ".",
+          "force": false
+        },
+        {
+          "o": "seq",
+          "seq": []
+        },
+        {
+          "o": "ret",
+          "res": {
+            "o": "&",
+            "exprs": [
+              {
+                "o": "isa",
+                "var": "val",
+                "tval": "object",
+                "loose": null
+              },
+              {
+                "o": "cc",
+                "name": "_jm_obj_1",
+                "val": "val",
+                "path": "path",
+                "is_ptr": false,
+                "is_raw": false
+              },
+              {
+                "o": "cc",
+                "name": "_jm_obj_0",
+                "val": "val",
+                "path": "path",
+                "is_ptr": false,
+                "is_raw": false
+              }
+            ],
+            "#": "IRO merge and"
+          }
+        }
+      ],
+      "inline": false
+    },
+    {
+      "o": "skip"
+    },
+    {
+      "o": "spm",
+      "name": "check_model_map",
+      "pmap": {
+        "": "json_model_1"
+      },
+      "public": true
+    }
+  ],
+  "entry": "check_model",
+  "package": null,
+  "exe": false,
+  "mark": null
+}
