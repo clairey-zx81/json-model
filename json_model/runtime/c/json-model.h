@@ -24,16 +24,6 @@
 #  error missing regex engine definition
 #endif
 
-// regular expression validation
-# if defined(JMC_REGEX_STRICT)
-  // pass
-# elif defined(JMC_REGEX_LOOSE)
-  // pass
-# else
-#   warning using stricter regex settings
-#   define JMC_REGEX_STRICT
-# endif
-
 /*
  * build generated API names
  */
@@ -233,6 +223,7 @@ extern bool jm_is_valid_uuid(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_eth(const char *, jm_path_t *, jm_report_t *);
 extern size_t jm_str_len(const char *);
 extern size_t jm_any_len(json_t *);
+extern bool jm_valid_regex_strict;
 extern bool jm_is_valid_regex_slow(const char *, bool, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_regex_fast(const char *, bool, jm_path_t *, jm_report_t *);
 extern bool (*jm_is_valid_regex)(const char *, bool, jm_path_t *, jm_report_t *);

@@ -119,6 +119,7 @@ EXPECT: dict[str, int] = {
     "mv-15:verrors:schema": 3,
     "mv-15:verrors:dynpy": 1,
     "mv-15:verrors:ir": 1,
+    "mv-15:opts:c": "--regex-strict",
     # chunk 16
     "mv-16:models": 11,
     "mv-16:values": 100,
@@ -306,7 +307,9 @@ DIR_WITH_EXTENSIONS: set[str] = { "mv-29" }
 # LOCAL FIXTURES
 #
 # test sub directories
-MODEL_DIRS_PATH: list[pathlib.Path] = [ pathlib.Path("./ref") ] + sorted(pathlib.Path(".").glob("mv-*"))
+MODEL_DIRS_PATH: list[pathlib.Path] = [
+    pathlib.Path("./ref")
+] + sorted(pathlib.Path(".").glob("mv-*"))
 
 MODEL_DIRS: list[str] = [ str(d) for d in MODEL_DIRS_PATH ]
 
@@ -367,7 +370,7 @@ def clibjm(tmp_dir):
     # compilation settings with re2
     cc = os.environ.get("CC", DEFAULT_CC)
     cppflags = os.environ.get("CPPFLAGS", f"-I{src_dir} -DCHECK_FUNCTION_NAME=check_model")
-    cppflags += " -DREGEX_ENGINE_RE2 -DJMC_REGEX_LOOSE"
+    cppflags += " -DREGEX_ENGINE_RE2"
     cflags = os.environ.get("CFLAGS", DEFAULT_CFLAGS)
     ldflags = os.environ.get("LDFLAGS", f"{jm_main} {jm_lib} " + DEFAULT_LDFLAGS)
 
@@ -691,7 +694,9 @@ def test_sta_c(model_name, clibjm):
         assert status == 0, f"{fname} compilation success"
         return fexec
 
-    check_values(model_name, "sta-c", ".c", ".c.check", gen_exec, "-r")
+    dirname = model_name.split("/")[0]
+    opts = "-r --regex-loose " + EXPECT.get(f"{dirname}:opts:c", "")
+    check_values(model_name, "sta-c", ".c", ".c.check", gen_exec, opts)
 
 @pytest.mark.py
 def test_sta_py(model_name):

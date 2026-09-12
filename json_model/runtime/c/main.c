@@ -270,17 +270,25 @@ int main(int argc, char* argv[])
     int loop = 1;
 
     const struct option options[] = {
+        // introspection
         { "help", no_argument, NULL, 'h' },
         { "version", no_argument, NULL, 'v' },
         { "list", no_argument, NULL, 'l' },
+        // input
         { "name", required_argument, NULL, 'n' },
-        { "report", no_argument, NULL, 'r' },
         { "test", no_argument, NULL, 't' },
-        { "time", required_argument, NULL, 'T' },
         { "jsonl", no_argument, NULL, 'L' },
-        { "fast", no_argument, NULL, 1000 },
-        { "slow", no_argument, NULL, 1001 },
+        // output
+        { "report", no_argument, NULL, 'r' },
         { "no-report", no_argument, NULL, 1002 },
+        // regex
+        { "regex-fast", no_argument, NULL, 1000 },
+        // fast may be strict or loose
+        { "regex-strict", no_argument, NULL, 1005 },
+        { "regex-loose", no_argument, NULL, 1006 },
+        { "regex-slow", no_argument, NULL, 1001 },
+        // benchmarking
+        { "time", required_argument, NULL, 'T' },
         { "resolution", no_argument, NULL, 1003 },
         { "clock", required_argument, NULL, 'C' },
         { "parse", no_argument, NULL, 1004 },
@@ -337,6 +345,12 @@ int main(int argc, char* argv[])
                 break;
             case 1004:
                 parse = true;
+                break;
+            case 1005:
+                jm_valid_regex_strict = true;
+                break;
+            case 1006:
+                jm_valid_regex_strict = false;
                 break;
             case 'C':
                 if (str_eq(optarg, "monotonic") || str_eq(optarg, "m"))

@@ -368,6 +368,12 @@ bad_result: dict[tuple[str, str], str] = {
 bad_results = { ct: val for ct, val in bad_result.items() if val != "okay" }
 log.info(f"bad results: {bad_results}")
 
+# cannot compare to a failed result!?
+if args.performance != "best":
+    if any(bad_result[(c, args.performance)] != "okay" for c in cases):
+        log.error(f"failed reference {args.performance}")
+        sys.exit(1)
+
 # fill-on or override missings data
 for (c, t), is_bad in bad_result.items():
     if is_bad:
@@ -398,6 +404,8 @@ nbest_tool: dict[str, int] = { t: 0 for t in tools }
 # count how many times tool t is better than the reference
 nbetter_tool: dict[str, int] = { t: 0 for t in tools }
 
+log.info(f"cases: {cases}")
+log.info(f"tools: {tools}")
 for c in cases:
     for t in tools:
         if perf_best[c] == perf_total[c, t]:
@@ -407,6 +415,9 @@ for c in cases:
                 nbetter_tool[t] += 1
         if dobetter and perf_total[c, t] < perf_total[c, args.performance]:
             nbetter_tool[t] += 1
+
+log.info(f"best_tool: {best_tool}")
+assert len(best_tool) == len(cases), f"expecting {len(cases)} best tools"
 
 perf_max = perf_rela.groupby("tool").max()
 # geometrical average over all cases

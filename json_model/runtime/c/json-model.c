@@ -1055,13 +1055,8 @@ jm_is_valid_regex_slow(const char *pattern, bool extended, jm_path_t *path, jm_r
     return valid;
 }
 
-# if defined(JMC_REGEX_STRICT)
-#     define regex_valid_strict(e) (e)
-# elif defined(JMC_REGEX_LOOSE)
-#    define regex_valid_strict(_) true
-# else
-#     error define one of JMC_REGEX_... macros
-# endif
+// whether to use strict or loose $REGEX
+bool jm_valid_regex_strict = false;
 
 // hardcoded regex parser for https://github.com/google/re2/wiki/syntax
 // TODO consider a subset simple regex syntax
@@ -1104,7 +1099,8 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                     okay &= *c != '\0';
                 break;
             case '|':
-                okay &= regex_valid_strict(paren > 0);
+                if (jm_valid_regex_strict)
+                    okay &= paren > 0;
                 break;
             case '[':
                 c++;
@@ -1133,7 +1129,8 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                 break;
             case ']':
                 // closing ] without an open is quite often accepted
-                okay = regex_valid_strict(false);
+                if (jm_valid_regex_strict)
+                    okay = false;
                 break;
             case '{':  // {123} or {12,34} or {12,}
                 c++;  // to digit
