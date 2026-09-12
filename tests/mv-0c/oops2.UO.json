@@ -1,0 +1,54 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "Ax": {
+        "^": [
+          {
+            "": "$ANY",
+            "_a": "$ANY"
+          },
+          {
+            "": "$ANY",
+            "_b": "$ANY"
+          }
+        ],
+        "#": "JsonModel 2"
+      },
+      "Bx": {
+        "|": [
+          null,
+          {
+            "": "$ANY"
+          }
+        ],
+        "#": "JsonModel 3"
+      },
+      "#": "Symbol 1",
+      "": "./oops2.model.json"
+    },
+    "@": "$Ax"
+  },
+  {
+    "^": [
+      {
+        "": "$ANY",
+        "_a": "$ANY"
+      },
+      {
+        "": "$ANY",
+        "_b": "$ANY"
+      }
+    ],
+    "#": "JsonModel 2"
+  },
+  {
+    "|": [
+      null,
+      {
+        "": "$ANY"
+      }
+    ],
+    "#": "JsonModel 3"
+  }
+]

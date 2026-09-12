@@ -274,11 +274,17 @@ def _ultimate_type(jm: JsonModel, model: ModelType, names: set[str]) -> type|Non
                 types = set(_ultimate_type(jm, m, names) for m in models)
                 if len(types) == 1:
                     return types.pop()
+                elif None in types:
+                    return None
                 elif len(types) == 0:  # &() == $ANY
                     return TopType
                 else:
-                    # possibly not feasible
-                    return None
+                    otypes = types - {TopType}
+                    return (
+                        None if len(otypes) > 1 else
+                        otypes.pop() if len(otypes) == 1 else
+                        TopType
+                    )
             elif "+" in model:
                 return dict
             else:

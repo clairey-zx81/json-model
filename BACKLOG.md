@@ -22,7 +22,7 @@
 - [x] c-backend: stricter regex check active by default
 - [x] bench: keep initial schema when testing
 - [x] jsb: patch test values to avoid border or invalid cases
-- [x] optim: fix type check rejection
+- [x] optim: fix type check rejections
 - [ ] check: reject all-caps definitions
 - [ ] bench: fix issue wrt compile time with updated reporting script
 - [ ] bench: fix issue on missing results and time display?!

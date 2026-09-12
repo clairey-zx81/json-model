@@ -349,10 +349,8 @@ def partial_eval(jm: JsonModel):
                             if i == j or i in deletes or j in deletes:
                                 continue
                             if is_submodel(jm, mi, mj):
-                                # log.warning(f"{mi} is submodel of {mj}")
                                 deletes.add(i)
                     if deletes:
-                        # log.warning(f"lor={lor} deletes={deletes}")
                         for d in reversed(sorted(deletes)):
                             changes += 1
                             lor.pop(d)
