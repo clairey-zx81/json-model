@@ -1,0 +1,28 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "Ax": {
+        "^": [
+          "$ANY",
+          {
+            "?c": ""
+          }
+        ],
+        "#": "JsonModel 2"
+      },
+      "#": "Symbol 1",
+      "": "./oops.model.json"
+    },
+    "@": "$Ax"
+  },
+  {
+    "^": [
+      "$ANY",
+      {
+        "?c": ""
+      }
+    ],
+    "#": "JsonModel 2"
+  }
+]

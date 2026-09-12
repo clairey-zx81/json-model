@@ -1,0 +1,14 @@
+[
+  [ true,  {"foo": "bla"} ],
+  [ false, {} ],
+  [ false, {"c": "bla"} ],
+  [ true, null ],
+  [ true, true ],
+  [ true, false ],
+  [ true, -42 ],
+  [ true, 3.1415927 ],
+  [ true, "" ],
+  [ true, "unexpected" ],
+  [ true, [] ],
+  [ true, [1, "expected"] ]
+]
