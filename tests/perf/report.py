@@ -104,6 +104,8 @@ TOOLS: dict[str, tuple[str, str, str, str]] = {
     # external references
     "B": ("blaze", "_blaze_", "blaze", "**blaze** is [Sourcemeta Blaze CLI](https://github.com/sourcemeta/jsonschema) (external reference, in C++)"),
     "A": ("ajv", "_ajv_", "ajv", "**ajv** is [Ajv JSON schema Validator](https://ajv.js.org) (external reference, in JS)"),
+    # JSU model conversion
+    "m": ("jsu", "_model_", "jsu-model", "**model** is JSU schema-to-model conversion"),
     # JMC stuff
     "c": ("jmc-c", "c", "jmc-c-out", "**c** is JMC for C"),
     "v": ("jmc-java-gson", "java", "jmc-java-class", "**java** is JMC for Java with GSON"),
@@ -192,31 +194,6 @@ else:
 
 RESULT_SUCCESS: str = """
 For each tool and cases with a partial success rate, percent of test cases validated.
-"""
-
-# yamllint:{40,58,77,198,238,264,267,458,459,591,680,748,904,905,906,924,953,969}
-RESULT_FIX_COMMENT: str = """
-As of August 2026, the JMC results for `ansible-meta`, `cspell`, `cypress` and `yamllint`
-are not 100.0% because validation checks are stricter and some
-[values](https://github.com/sourcemeta-research/jsonschema-benchmark/pull/155)
-are rightfully rejected.
-
-- ansible-meta:105 - `.depedencies` (typo) unexpected prop (fixed misplaced `additionalProperties`)
-- ansible-meta:{201,312} - `.argument_spec` unexpected prop (idem)
-- cspell:75 - `.languageSettings[2].languageId[0]` is `yaml.ansible`, unexpected `.` in fixed regex
-- cypress:8 - `.reporter` stricter check, file should end with `.js`
-- yamllint:* - 18 unrelated raw strings
-
-Although these different results slightly shorten the checks for the rejected values,
-the overall performance measure is not significantly impacted because of the very few values involved.
-"""
-
-RESULT_CONTENT_COMMENT: str = """
-When running with content validation (aka JSON Schema format or JSON Model predefs),
-a few cases are expected to fail, both for Blaze and JMC:
-
-- helm: - 128 rejected values, mostly because of empty `.dependencies.*.repository` urls
-- openapi:{12,26} - 2 bad urls are rejected
 """
 
 COMP_CASES: str = """
@@ -540,12 +517,6 @@ if any(success_ratio[n, t] != 1.0 for t in tools for n in cases):
                 "".join(f"{100.0 * success_ratio[c, t]:.01f}|" for t in tools)
             )
 
-    if args.standard and args.fix:
-        print(RESULT_FIX_COMMENT, end="")
-    if args.standard and args.content:
-        print(RESULT_CONTENT_COMMENT, end="")
-
-
 if args.standard:
 
     # compilation columns to display and associated labels
@@ -564,7 +535,7 @@ if args.standard:
     }
 
     # subset to display
-    for t in "BAcsv123ylq":
+    for t in "BAcsv123ylqm":
         if t not in args.tools and TOOLS[t][2] in comp_tool:
             del comp_tool[TOOLS[t][2]]
 
