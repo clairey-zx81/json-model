@@ -20,7 +20,8 @@
 - [x] bench: handle case failures when reporting
 - [x] model: improve jm meta model
 - [x] c-backend: stricter regex check active by default
-- [ ] bench: investigate blaze 16.10.0 new format rejections? patch test values?
+- [x] bench: keep initial schema when testing
+- [x] jsb: patch test values to avoid border or invalid cases
 - [ ] bench: fix issue wrt compile time with updated reporting script
 - [ ] bench: fix issue on missing results and time display?!
 - [ ] bench: better count should ignore bads
