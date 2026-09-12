@@ -1,0 +1,21 @@
+{
+  "allOf": [
+    {
+      "type": "object",
+      "patternProperties": {
+        "^x": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    {
+      "type": "object",
+      "patternProperties": {
+        "^x-": true
+      },
+      "additionalProperties": true
+    }
+  ]
+}

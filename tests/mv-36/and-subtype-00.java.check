@@ -1,0 +1,14 @@
+and-subtype-00.values.json[0]: PASS
+and-subtype-00.values.json[1]: PASS
+and-subtype-00.values.json[2]: PASS
+and-subtype-00.values.json[3]: PASS
+and-subtype-00.values.json[4]: FAIL (x1: not a 1 strict int [.'&'.0.'/^x/']; : unexpected element [.'&'.0]; : not all model match [.'&'])
+and-subtype-00.values.json[5]: FAIL (: not all model match [.'&'])
+and-subtype-00.values.json[6]: FAIL (: not all model match [.'&'])
+and-subtype-00.values.json[7]: FAIL (: not all model match [.'&'])
+and-subtype-00.values.json[8]: FAIL (: not all model match [.'&'])
+and-subtype-00.values.json[9]: FAIL (: not all model match [.'&'])
+and-subtype-00.values.json[10]: FAIL (: not all model match [.'&'])
+and-subtype-00.values.json[11]: FAIL (: not all model match [.'&'])
+and-subtype-00.values.json[12]: FAIL (: not all model match [.'&'])
+and-subtype-00.values.json[13]: FAIL (: not all model match [.'&'])
