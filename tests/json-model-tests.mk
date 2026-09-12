@@ -9,6 +9,7 @@ JMC.cmd = \
 	$(JMC) $(JMC.opts) \
         -m "https://json-model.org/models/=../../models/" \
         -m "https://json-model.org/tests/ ./"
+JMC.opts.c  = --regex-loose
 
 # JSON Schema Checker
 # JSC = jsu-check --quiet
@@ -255,8 +256,8 @@ $(F.out): json-model.o main.o
 %.c.check: %.out %.values.json
 	shopt -s nullglob
 	set -o pipefail
-	./$< -r $*.*.{true,false}.json | sort > $@
-	./$< -tr $*.values.json >> $@
+	./$< -r $(JMC.opts.c) $*.*.{true,false}.json | sort > $@
+	./$< -tr $(JMC.opts.c) $*.values.json >> $@
 	status=$$?
 	if [ $$status -ne 0 ] ; then
 	    test -f $*.errors.json && status=0
