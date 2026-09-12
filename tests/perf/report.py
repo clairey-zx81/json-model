@@ -316,6 +316,7 @@ perf_aggreg = perf_df.groupby(["case", "tool", "line"])["runavg"].aggregate(args
 
 # total processing time for each case/tool
 perf_total = perf_aggreg.groupby(["case", "tool"]).sum()
+log.info(f"perf_total: {perf_total}")
 
 # check for missing cases
 missings: set[tuple[str, str]] = set()
@@ -342,7 +343,9 @@ bad_result: dict[tuple[str, str], str] = {
         for t in tools
 }
 
-bad_results = { ct: val for ct, val in bad_result.items() if val != "okay" }
+bad_results: dict[tuple[str, str], float] = {
+    ct: val for ct, val in bad_result.items() if val != "okay"
+}
 log.info(f"bad results: {bad_results}")
 
 # cannot compare to a failed result!?
@@ -352,8 +355,8 @@ if args.performance != "best":
         sys.exit(1)
 
 # fill-on or override missings data
-for (c, t), is_bad in bad_result.items():
-    if is_bad:
+for (c, t), status in bad_result.items():
+    if status != "okay":
         perf_total[c, t] = np.nan
 
 for c, t in missings:
@@ -383,6 +386,7 @@ nbetter_tool: dict[str, int] = { t: 0 for t in tools }
 
 log.info(f"cases: {cases}")
 log.info(f"tools: {tools}")
+log.info(f"perf_best: {perf_best}")
 for c in cases:
     for t in tools:
         if perf_best[c] == perf_total[c, t]:
@@ -417,8 +421,9 @@ speed_lines = case_total_lines / tool_perf
 
 # for each tool, how many cases were not completed
 nerror_tool: dict[str, int] = {
-    t: sum(1 if bad_result[(c, t)] else 0 for c in cases)
-        for t in tools
+    t: sum(1 if bad_result[(c, t)] != "okay" else 0
+        for c in cases)
+            for t in tools
 }
 
 if args.ref:
