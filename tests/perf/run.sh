@@ -211,6 +211,10 @@ for dir ; do
     jmc_js_ko=9 jmc_py_ko=9 jmc_pl_ko=9
     jmc_java_ko=9 jmc_class_ko=9
 
+    # keep initial model
+    [ -f $prefix.schema.json ] ||
+        cp $dir/schema.json $prefix.schema.json
+
     # blaze compilation
     [ "$do_cmp" -a $trg = "blaze" ] && {
       echo "## $dir blaze compile"
