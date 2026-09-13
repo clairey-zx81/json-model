@@ -25,6 +25,7 @@
 - [x] optim: fix type check rejections
 - [x] bench: various report generation fixes
 - [x] optim: fix partial eval over simplification (yet another bool/int issue)
+- [ ] bench: add missing model conversion time
 - [ ] check: reject all-caps definitions
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: fix issue wrt compile time with updated reporting script
