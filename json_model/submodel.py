@@ -135,7 +135,7 @@ def is_submodel(jm: JsonModel, m1: ModelType, m2: ModelType) -> bool:
         if isinstance(m1, (int, float)) and not isinstance(m1, bool):
             assert m1 in (-1, 0, 1, -1.0, 0.0, 1.0)
             return m1 >= m2 if t1 is t2 else False
-        elif const1:
+        elif const1 and t1 in (int, float):
             if t2 is int:
                 if jm._loose_int and isinstance(v1, float) and v1 == int(v1):
                     v1 = int(v1)
