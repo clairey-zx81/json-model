@@ -1,0 +1,3 @@
+WARNING:json-model:all caps reserved for predefs at $RESERVED_FOR_PREDEF
+ERROR:json-model:invalid initial model def_predef.model.json:1
+ERROR:json-model:invalid model def_predef.model.json

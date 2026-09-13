@@ -28,7 +28,7 @@
 - [x] bench: add missing model conversion time for some tools, ensure display order
 - [x] bench: make cron job also check for jsb changes
 - [x] bench: improve summary description depending on displayed data
-- [ ] check: reject all-caps definitions
+- [x] check: model validation rejects all-caps definitions
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: fix issue wrt compile time with updated reporting script
 - [ ] bench: fix issue on missing results and time display?!
