@@ -1,0 +1,13 @@
+constructor.values.json[0]: PASS
+constructor.values.json[1]: PASS
+constructor.values.json[2]: FAIL (.: missing mandatory prop <constructor> [.])
+constructor.values.json[3]: FAIL (.other: unexpected prop [.])
+constructor.values.json[4]: FAIL (.: not an object [.])
+constructor.values.json[5]: FAIL (.: not an object [.])
+constructor.values.json[6]: FAIL (.: not an object [.])
+constructor.values.json[7]: FAIL (.: not an object [.])
+constructor.values.json[8]: FAIL (.: not an object [.])
+constructor.values.json[9]: FAIL (.: not an object [.])
+constructor.values.json[10]: FAIL (.: not an object [.])
+constructor.values.json[11]: FAIL (.: not an object [.])
+constructor.values.json[12]: FAIL (.: not an object [.])
