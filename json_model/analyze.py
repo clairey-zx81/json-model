@@ -195,6 +195,8 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool =
 
     try:
         for name, jmr in jm._defs.items():
+            assert not re.search(r"^[A-Z_][A-Z_0-9]*$", name), \
+                f"all caps reserved for predefs at ${name}"
             assert finiteRef("$" + name), f"finite recursion on ${name}"
         check(jm, validFlt, "JSON Model Structural Validity")
         is_valid = True
@@ -208,6 +210,10 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool =
             raise
 
     return is_valid
+
+#
+# ULTIMATE TYPE
+#
 
 # ultimate type of predefs
 _UTYPE = {
