@@ -197,9 +197,10 @@ For each tool and cases with a partial success rate, percent of test cases valid
 """
 
 COMP_CASES: str = """
-For the 3 first lines, max/average/min compilation times in seconds,
-then for each tool and case, compilation time (schema to model
-conversion and language-specific model compilation) in seconds.
+For the 3 first lines, max/average/min compilation times in seconds, then
+for each tool and case, compilation time (external tools,
+separate schema to model conversion, and
+jmc language-specific model compilation) in seconds.
 """
 
 CASE_DATA: str = """
@@ -524,25 +525,32 @@ if any(success_ratio[n, t] != 1.0 for t in tools for n in cases):
 
 if args.standard:
 
-    # compilation columns to display and associated labels
-    comp_tool = {
+    # compilation columns to display and associated order and label
+    comp_tool: dict[str, tuple[int, str]] = {
         # external stuff
-        "blaze": "blaze",
-        "ajv": "ajv",
+        "blaze": (0, "_blaze_"),
+        "ajv": (1, "_ajv_"),
         # JSU/JMC
-        "jsu-model": "model",
-        "jmc-c-out": "c",
-        "jmc-js": "js",
-        "jmc-java-class": "java",
-        "jmc-py": "py",
-        "jmc-pl": "pl",
-        "jmc-sql": "sql",
+        "jsu-model": (2, "_model_"),
+        "jmc-c-out": (3, "c"),
+        "jmc-js": (4, "js"),
+        "jmc-java-class": (5, "java"),
+        "jmc-py": (6, "py"),
+        "jmc-pl": (7, "pl"),
+        "jmc-sql": (8, "sql"),
     }
 
-    # subset to display
-    for t in "BAcsv123ylqm":
-        if t not in args.tools and TOOLS[t][2] in comp_tool:
-            del comp_tool[TOOLS[t][2]]
+    # show what is relevant
+    show = set()
+    if set("csv123ylqm") & set(args.tools):
+        show.add("jsu-model")
+    for t in "BAcsv123ylq":
+        if t in args.tools:
+            show.add(TOOLS[t][2])
+    for t in comp_tool.keys() - show:
+        del comp_tool[t]
+
+    comp_tool_order: list[str] = sorted(comp_tool.keys(), key=lambda t: comp_tool[t][0])
 
     print()
     print("## Compilation Times")
@@ -563,15 +571,15 @@ if args.standard:
     comp_min = compilation.groupby("tool").min()
 
     print()
-    print("|#|name|" + "".join(f"{comp_tool[t]}|" for t in comp_tool))
-    print("|---:|:---|---:|---:|---:|---:|---:|---:|")
-    print(f"|| _max_ |", "".join(f"{comp_max[t]:.01f}|" for t in comp_tool))
-    print(f"|| _avg_ |", "".join(f"{comp_avg[t]:.01f}|" for t in comp_tool))
-    print(f"|| _min_ |", "".join(f"{comp_min[t]:.01f}|" for t in comp_tool))
+    print("|#|name|" + "".join(f"{comp_tool[t][1]}|" for t in comp_tool_order))
+    print("|---:|:---|" + "---:|" * len(comp_tool))
+    print(f"|| _max_ |", "".join(f"{comp_max[t]:.01f}|" for t in comp_tool_order))
+    print(f"|| _avg_ |", "".join(f"{comp_avg[t]:.01f}|" for t in comp_tool_order))
+    print(f"|| _min_ |", "".join(f"{comp_min[t]:.01f}|" for t in comp_tool_order))
 
     for i, c in enumerate(cases):
         print(f"|{i+1}|{CASE[c]}|" +
-              "".join(f"{compilation[c,t]:.01f}|" for t in comp_tool))
+              "".join(f"{compilation[c,t]:.01f}|" for t in comp_tool_order))
 print()
 print("## Cases Data")
 if args.standard: print(CASE_DATA, end="")
