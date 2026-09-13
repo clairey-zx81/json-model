@@ -1,0 +1,14 @@
+[
+  [ true,  false ],
+  [ true,  0 ],
+  [ true,  42 ],
+  [ false, true ],
+  [ false, -42 ],
+  [ false, null ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

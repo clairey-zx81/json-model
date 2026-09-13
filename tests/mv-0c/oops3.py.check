@@ -1,0 +1,12 @@
+oops3.values.json[0]: PASS
+oops3.values.json[1]: PASS
+oops3.values.json[2]: PASS
+oops3.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=false" [.'|'.1]; .: not a 0 strict int [.'|'.0])
+oops3.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=false" [.'|'.1]; .: not a 0 strict int [.'|'.0])
+oops3.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=false" [.'|'.1]; .: not a 0 strict int [.'|'.0])
+oops3.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=false" [.'|'.1]; .: not a 0 strict int [.'|'.0])
+oops3.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=false" [.'|'.1]; .: not a 0 strict int [.'|'.0])
+oops3.values.json[8]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=false" [.'|'.1]; .: not a 0 strict int [.'|'.0])
+oops3.values.json[9]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=false" [.'|'.1]; .: not a 0 strict int [.'|'.0])
+oops3.values.json[10]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=false" [.'|'.1]; .: not a 0 strict int [.'|'.0])
+oops3.values.json[11]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=false" [.'|'.1]; .: not a 0 strict int [.'|'.0])
