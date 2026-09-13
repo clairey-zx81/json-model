@@ -26,6 +26,7 @@
 - [x] bench: various report generation fixes
 - [x] optim: fix partial eval over simplification (yet another bool/int issue)
 - [ ] check: reject all-caps definitions
+- [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: fix issue wrt compile time with updated reporting script
 - [ ] bench: fix issue on missing results and time display?!
 - [ ] bench: better count should ignore bads
