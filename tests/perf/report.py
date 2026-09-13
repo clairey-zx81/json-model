@@ -147,7 +147,7 @@ if args.best:
 # FIXME should exist!
 if dobetter:
     assert args.performance in TOOL
-    TOOL_SUMMARY += f"number of better-than-reference (_{TOOL[args.performance]}_) performance;\n"
+    TOOL_SUMMARY += f"number of better-than-reference ({TOOL[args.performance]}) performance;\n"
 
 # TODO do not show unless necessary
 TOOL_SUMMARY += """number of case failures (if any).
