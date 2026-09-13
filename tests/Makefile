@@ -38,7 +38,8 @@ clean:
 	$(RM) $(COUNTER).*
 
 LOGLEVEL = info
-PYTEST  = pytest --log-level=$(LOGLEVEL) --durations=10 -n logical
+# keep max scheduled chunk low ge 2 for better balancing
+PYTEST  = pytest --log-level=$(LOGLEVEL) --durations=10 -n logical --maxschedchunk=3
 PYTOPT	=
 
 ifeq ($(LOGLEVEL), debug)
