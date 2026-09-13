@@ -26,6 +26,7 @@
 - [x] bench: various report generation fixes
 - [x] optim: fix partial eval over simplification (yet another bool/int issue)
 - [x] bench: add missing model conversion time for some tools, ensure display order
+- [x] bench: make cron job also check for jsb changes
 - [ ] check: reject all-caps definitions
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: fix issue wrt compile time with updated reporting script
