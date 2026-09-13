@@ -1,0 +1,13 @@
+{
+  "description": "constructor is a predefined js method\u2026",
+  "type": "object",
+  "properties": {
+    "constructor": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "constructor"
+  ],
+  "additionalProperties": false
+}
