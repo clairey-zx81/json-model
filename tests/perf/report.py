@@ -138,26 +138,15 @@ if args.tools:
 TOOL_SUMMARY += """
 For each tool:
 maximum/geometrical average/minimum time performance ratio;
-overall validation speed in bytes per µs and lines per µs;
-"""
+overall validation speed in bytes per µs and lines per µs"""
 
 if args.best:
-    TOOL_SUMMARY += "number of best performance;\n"
+    TOOL_SUMMARY += ";\nnumber of best performance"
 
 # FIXME should exist!
 if dobetter:
     assert args.performance in TOOL
-    TOOL_SUMMARY += f"number of better-than-reference ({TOOL[args.performance]}) performance;\n"
-
-# TODO do not show unless necessary
-TOOL_SUMMARY += """number of case failures (if any).
-
-The most interesting figure, second row in bold, is the geometrical average of the tool performance.
-Speed measures are biased toward the performance of cases with large values (_geojson_ and _openapi_).
-"""
-
-if args.best:
-    TOOL_SUMMARY += "The best count emphasizes how uniformly better is a tool.\n"
+    TOOL_SUMMARY += f";\nnumber of better-than-reference ({TOOL[args.performance]}) performance"
 
 #
 # cases
@@ -426,6 +415,18 @@ nerror_tool: dict[str, int] = {
         for c in cases)
             for t in tools
 }
+
+if any(nerror_tool[t] != 0 for t in tools):
+    TOOL_SUMMARY += ";\nnumber of case failures"
+
+TOOL_SUMMARY += """.
+
+The most interesting figure, second row in bold, is the geometrical average of the tool performance.
+Speed measures are biased toward the performance of cases with large values (_geojson_ and _openapi_).
+"""
+
+if args.best:
+    TOOL_SUMMARY += "The best count emphasizes how uniformly better is a tool.\n"
 
 if args.ref:
 
