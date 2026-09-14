@@ -569,7 +569,7 @@ def test_ts(directory, tmp_dir):
         fin = fname.replace(".model.json", "").replace(f"./{directory}/", "./")
         bname = fpath.name.replace(".model.json", "")
         ntests += 1
-        declared = expected_errors(directory, bname).get("ts", False)
+        declared = expected_flag(directory, bname, "ts")
 
         try:
             jm = model_from_url(fin, resolver=resolver, auto=True, follow=True, **mod_opts)
@@ -606,16 +606,23 @@ def test_ts(directory, tmp_dir):
 
     assert ntests == EXPECT.get(f"{directory}:models", 0)
 
-def expected_errors(directory: pathlib.Path, model: str, source: str|None = None) -> dict:
-    """Expected errors for a model, restricted to one test vector source when named"""
+def errors_file(directory: pathlib.Path, model: str) -> dict:
+    """Contents of the errors file of a model, without its comments"""
     efile = directory.joinpath(f"{model}.errors.json")
     if not efile.exists():
         return {}
     with open(efile) as ef:
-        errors = { k: v for k, v in json.load(ef).items() if not k.startswith("#") }
-    if source is None:
-        return errors
-    return { k: v for k, v in errors.get(source, {}).items() if not k.startswith("#") }
+        return { k: v for k, v in json.load(ef).items() if not k.startswith("#") }
+
+def expected_flag(directory: pathlib.Path, model: str, name: str, default=False):
+    """Whole model flag stated by an errors file, beside its test vector sources"""
+    return errors_file(directory, model).get(name, default)
+
+def expected_errors(directory: pathlib.Path, model: str,
+                    source: str = "values") -> dict[str, list[int]]:
+    """Expected errors for a model on one test vector source"""
+    section = errors_file(directory, model).get(source, {})
+    return { k: v for k, v in section.items() if not k.startswith("#") }
 
 def check_errors(directory: pathlib.Path, model: str, key: str, observed: set[int],
                  source: str = "values"):
