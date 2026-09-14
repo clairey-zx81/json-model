@@ -31,6 +31,7 @@
 - [x] check: model validation rejects all-caps definitions
 - [x] tests: improve default load balancing with `--maxschedchunk=3`
 - [x] pr: remove older artifacts
+- [x] bench: always display the result success section
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: fix issue wrt compile time with updated reporting script
 - [ ] bench: better count should ignore bads

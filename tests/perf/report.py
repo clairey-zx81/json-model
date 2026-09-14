@@ -181,8 +181,8 @@ if args.performance == "best":
 else:
     TOOL_CASES += f"Reference is **1.0** for tool {TOOL[args.performance]}.\n"
 
-RESULT_SUCCESS: str = """
-For each tool and cases with a partial success rate, percent of test cases validated.
+RESULT_SUCCESS: str = """For each tool and cases with a partial success rate,
+percent of test cases validated.
 """
 
 COMP_CASES: str = """
@@ -508,13 +508,14 @@ for i, c in enumerate(cases):
           f"{perf_best[c]:.01f}|{TOOL[best_tool[c]]}|", end="")
     print("".join(f"{perf_display[(c, t)]}|" for t in tools))
 
-if any(success_ratio[n, t] != 1.0 for t in tools for n in cases):
+print()
+print("## Result Success")
+print()
 
-    print("\n## Result Success")
+if any(success_ratio[n, t] != 1.0 for t in tools for n in cases):
 
     if args.standard: print(RESULT_SUCCESS, end="")
 
-    print()
     print("|#|name|" + "|".join(TOOL[t] for t in tools) + "|")
     print("|---:|:---|" + "".join("---:|" for t in tools))
     for i, c in enumerate(cases):
@@ -523,6 +524,8 @@ if any(success_ratio[n, t] != 1.0 for t in tools for n in cases):
                 f"|{i+1}|{CASE[c]}|" +
                 "".join(f"{100.0 * success_ratio[c, t]:.01f}|" for t in tools)
             )
+else:
+    print("All tools validate all values, as expected.")
 
 if args.standard:
 
