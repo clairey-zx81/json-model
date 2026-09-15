@@ -1,5 +1,39 @@
 # JSON Model Compiler Versions
 
+## 2.0.60 on 2026-09-15
+
+- pr: jm site added to [awesome docsify](https://github.com/docsifyjs/awesome-docsify/commit/3950ece64978f41294463e1a2b12e809c65a6379)
+- bench: show rounded minutes run time
+- clang: remove useless empty line from string constant set functions
+- bench: use uc for external tools, report in italic
+- bench: show versions of used languages, not all
+- bench: radar data with added speed property
+- model: improve internal doc for some example models
+- model: simplify JSTS model with `$SEMVER`
+- pr: generate model examples pages from json
+- bench: add ajv cli docker and wrapper
+- bench: add ajv external reference
+- js: add option for more direct/simpler code
+- js: set default to use simpler code
+- analyze: check static typing on constrained nodes
+- analyze: display model rejections reasons as a warning
+- bench: handle case failures when reporting
+- model: improve jm meta model
+- c-backend: stricter regex check active by default
+- bench: keep initial schema when testing
+- jsb: patch test values to avoid border or invalid cases
+- optim: fix type check rejections
+- bench: various report generation fixes
+- optim: fix partial eval over simplification (yet another bool/int issue)
+- bench: add missing model conversion time for some tools, ensure display order
+- bench: make cron job also check for jsb changes
+- bench: improve summary description depending on displayed data
+- check: model validation rejects all-caps definitions
+- tests: improve default load balancing with `--maxschedchunk=3`
+- pr: remove older artifacts
+- bench: always display the result success section
+- pr: list at most 10 latests artifacts on bench page
+
 ## 2.0.59 on 2026-08-28
 
 - bench: fix standard cron runs

@@ -2,37 +2,6 @@
 
 ## Current Tasks
 
-- [x] pr: jm site added to [awesome docsify](https://github.com/docsifyjs/awesome-docsify/commit/3950ece64978f41294463e1a2b12e809c65a6379)
-- [x] bench: show rounded minutes run time
-- [x] clang: remove useless empty line from string constant set functions
-- [x] bench: use uc for external tools, report in italic
-- [x] bench: show versions of used languages, not all
-- [x] bench: radar data with added speed property
-- [x] model: improve internal doc for some example models
-- [x] model: simplify JSTS model with `$SEMVER`
-- [x] pr: generate model examples pages from json
-- [x] bench: add ajv cli docker and wrapper
-- [x] bench: add ajv external reference
-- [x] js: add option for more direct/simpler code
-- [x] js: set default to use simpler code
-- [x] analyze: check static typing on constrained nodes
-- [x] analyze: display model rejections reasons as a warning
-- [x] bench: handle case failures when reporting
-- [x] model: improve jm meta model
-- [x] c-backend: stricter regex check active by default
-- [x] bench: keep initial schema when testing
-- [x] jsb: patch test values to avoid border or invalid cases
-- [x] optim: fix type check rejections
-- [x] bench: various report generation fixes
-- [x] optim: fix partial eval over simplification (yet another bool/int issue)
-- [x] bench: add missing model conversion time for some tools, ensure display order
-- [x] bench: make cron job also check for jsb changes
-- [x] bench: improve summary description depending on displayed data
-- [x] check: model validation rejects all-caps definitions
-- [x] tests: improve default load balancing with `--maxschedchunk=3`
-- [x] pr: remove older artifacts
-- [x] bench: always display the result success section
-- [x] pr: list at most 10 latests artifacts on bench page
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
 - [ ] bench: handle case failures for radar (wip, ajv handling)
