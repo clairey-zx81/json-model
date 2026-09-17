@@ -170,6 +170,9 @@ jmc.1: json_model/data/jmc.pod dev
 	year=$$(date +%Y)
 	pod2man $< | sed "s/^\.TH JMC 1.*/.TH JMC 1 $$year \"v$$version\" \"User Documentation\"/" > $@
 
+.PHONY: build.site
+build.site: site/models.json site/JMC.md site/ABOUT.md site/BENCH.md
+
 _site: build.site
 	cp -rL site _site
 	find _site -type d -print | xargs chmod a+rx
@@ -185,9 +188,6 @@ www: build.site
 #
 # SITE and SITEPATH are out of the git repository
 -include local.mk
-
-.PHONY: build.site
-build.site: site/models.json site/JMC.md site/ABOUT.md site/BENCH.md
 
 .PHONY: publish.site
 publish.site: build.site
