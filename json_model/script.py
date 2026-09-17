@@ -33,9 +33,11 @@ LANG = {
   "json": "IR",
 }
 
-def process_model(model: JsonModel, *,
-                  check: bool = True, merge: bool = True, optimize: bool = True,
-                  disabled_optims: list[str] = [], extend: bool = False, debug: int = 0):
+def process_model(
+            model: JsonModel, *,
+            check: bool = True, merge: bool = True, optimize: bool = True,
+            disabled_optims: list[str] = [], extend: bool = False, caps: bool = True,
+            debug: int = 0):
     """Apply necessary preprocessing to JsonModel."""
 
     # initial sanity check
@@ -48,7 +50,7 @@ def process_model(model: JsonModel, *,
 
     if debug or check:
         for m in all_models:
-            if not analyze.valid(m, extend=extend):
+            if not analyze.valid(m, extend=extend, caps=caps):
                 raise ModelError(f"invalid initial model {m._url}:{m._id}")
 
     # simplify before merging
@@ -60,7 +62,7 @@ def process_model(model: JsonModel, *,
     if debug or check:
         # log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
         for m in all_models:
-            if not analyze.valid(m, extend=extend):
+            if not analyze.valid(m, extend=extend, caps=caps):
                 raise ModelError(f"invalid optimized model {m._url}:{m._id}")
 
     # merge in reverse order to move alts up before inlining?!
@@ -76,7 +78,7 @@ def process_model(model: JsonModel, *,
     # check after merge & optimize
     if debug or check:
         for m in all_models:
-            if not analyze.valid(m, extend=extend):
+            if not analyze.valid(m, extend=extend, caps=caps):
                 raise ModelError(f"invalid merged model {m._url}:{m._id}")
 
 
@@ -88,7 +90,7 @@ def model_from_json(
             loose_int: bool|None = None, loose_float: bool|None = None,
             # processing stuff
             check: bool = True, merge: bool = True, optimize: bool = True,
-            extend: bool = False, disabled_optims: list[str] = [],
+            extend: bool = False, caps: bool = True, disabled_optims: list[str] = [],
         ) -> JsonModel:
     """JsonModel instanciation from JSON data."""
 
@@ -117,7 +119,7 @@ def model_from_json(
     if check or merge or optimize or extend:
         process_model(
             jm, debug=debug, extend=extend, check=check, merge=merge,
-            optimize=optimize, disabled_optims=disabled_optims,
+            optimize=optimize, disabled_optims=disabled_optims, caps=caps,
         )
 
     return jm
@@ -148,8 +150,8 @@ def model_from_str(
     return model_from_json(json_loads(mstring, allow_duplicates=allow_duplicates), **kwargs)
 
 
-# it is unclear if this tricks actually works
 def _model_checker(jm: JsonModel, *, debug: bool = False, **options):
+    """Return the python checker function for the model."""
     code = xstatic_compile(jm, lang="py", debug=debug, **options)
     env = {}
     exec(str(code), env)
@@ -166,13 +168,14 @@ def model_checker(jm: JsonModel, *, debug: bool = False, **options) -> EntryChec
 def model_checker_from_json(
         mjson: Jsonable, *, auto: bool = False, debug: int = 0,
         resolver: Resolver|None = None, single_line: bool = False,
-        loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
+        loose_int: bool|None = None, loose_float: bool|None = None,
+        extend: bool = False, caps: bool = True,
         **options,
     ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_json(
         mjson, auto=auto, debug=debug, resolver=resolver, single_line=single_line,
-        loose_int=loose_int, loose_float=loose_float, extend=extend
+        loose_int=loose_int, loose_float=loose_float, extend=extend, caps=caps,
     )
     return model_checker(jm, debug=debug > 0, **options)
 
@@ -181,12 +184,14 @@ def model_checker_from_url(
         murl: str, *, auto: bool = False, debug: int = 0,
         resolver: Resolver|None = None, follow: bool = True, single_line: bool = False,
         loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
+        caps: bool = True,
         **options,
     ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_url(
         murl, auto=auto, debug=debug, resolver=resolver, follow=follow,
-        loose_int=loose_int, loose_float=loose_float, extend=extend, single_line=single_line,
+        loose_int=loose_int, loose_float=loose_float, extend=extend,
+        caps=caps, single_line=single_line,
     )
     return model_checker(jm, debug=debug > 0, **options)
 
@@ -196,13 +201,13 @@ def create_model(
             auto: bool = False, follow: bool = True, debug: int = 0,
             check: bool = True, merge: bool = True, optimize: bool = True,
             loose_int: bool|None = None, loose_float: bool|None = None,
-            extend: bool = False, single_line: bool = False
+            extend: bool = False, caps: bool = True, single_line: bool = False
         ) -> JsonModel:
     """JsonModel instanciation without preprocessing."""
     return model_from_url(
         murl, auto=auto, follow=follow, debug=debug, resolver=resolver,
         loose_int=loose_int, loose_float=loose_float, single_line=single_line,
-        check=check, merge=merge, optimize=optimize, extend=extend
+        check=check, merge=merge, optimize=optimize, extend=extend, caps=caps,
     )
 
 
@@ -368,11 +373,13 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     grp = ap.add_argument_group("Model input")
     arg = grp.add_argument
     arg("--allow-duplicates", "-ad", action="store_true", default=False,
-        help="allow duplicated properties in parsed model, probably a bad idea.""")
+        help="allow duplicated properties in parsed model, probably a bad idea.")
     arg("--maps", "-m", action="append", default=[], help="URL mappings")
     arg("--auto", "-a", action="store_true", help="automatic URL mapping")
     arg("--extend", default=False, action="store_true", help="allow some extensions")
     arg("--no-extend", dest="extend", action="store_false", help="do not allow some extensions")
+    arg("--caps", action="store_true", default=True, help="reject all-caps defs")
+    arg("--no-caps", dest="caps", action="store_false", help="accept all-caps defs")
     arg("--from-ir", "-fir", action="store_true", default=False,
         help="input is a JSON IR file instead of a JSON model")
 
@@ -852,7 +859,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
                 args.model, resolver, auto=args.auto, debug=args.debug,
                 loose_int=args.loose_int, loose_float=args.loose_float,
                 check=args.check, merge=args.op != "N", single_line=args.single_line_regex,
-                optimize=args.optimize, extend=args.extend, follow=False
+                optimize=args.optimize, extend=args.extend, caps=args.caps, follow=False
             )
         except Exception as e:
             log.error(e)

@@ -65,7 +65,12 @@ def check(jm: JsonModel, assertion: ModelFilter, what: str = "?", short: bool = 
     return okay
 
 # FIXME must tell why it is unhappy!
-def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool = False) -> bool:
+def valid(jm: JsonModel,
+          path: ModelPath = [],
+          root: bool = True,      # expect a root model (start recursion)
+          extend: bool = False,   # allow model extensions (.mo, .in)
+          caps: bool = True,      # all-caps defs are rejected
+        ) -> bool:
     """Check JSON Model structural (and slightly more) validity."""
 
     is_valid = True
@@ -195,8 +200,9 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool =
 
     try:
         for name, jmr in jm._defs.items():
-            assert not re.search(r"^[A-Z_][A-Z_0-9]*$", name), \
-                f"all caps reserved for predefs at ${name}"
+            if caps:
+                assert not re.search(r"^[A-Z_][A-Z_0-9]*$", name), \
+                    f"all caps reserved for predefs at ${name}"
             assert finiteRef("$" + name), f"finite recursion on ${name}"
         check(jm, validFlt, "JSON Model Structural Validity")
         is_valid = True

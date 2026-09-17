@@ -104,6 +104,10 @@ Accept JSON with objects containing duplicated properties.
 
 Allow some extensions to help with JSU back-end implementation.
 
+=item B<--caps> or B<--no-caps>
+
+Reject (the default) or accept all-caps definitions.
+
 =item B<--from-ir>/B<-fir>
 
 Read a JSON intermediate representation, as generated with C<-C -F json>, instead of a

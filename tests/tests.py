@@ -259,10 +259,16 @@ EXPECT: dict[str, int] = {
     "mv-34:verrors:ir": 1,
     # mv-35
     "mv-35:cmp-opts": {"report": False, "comment": False},
-    "mv-35:mod-opts": {"single_line": True},
-    "mv-35:models": 7,
-    "mv-35:values": 176,
+    "mv-35:mod-opts": {"single_line": True, "caps": False},
+    "mv-35:models": 8,
+    "mv-35:values": 187,
     "mv-35:verrors:schema": 1,
+    "mv-35:models:errors-c": 1,
+    "mv-35:models:errors-js": 1,
+    "mv-35:models:errors-pl": 1,
+    "mv-35:models:errors-py": 1,
+    "mv-35:models:errors-sql": 1,
+    "mv-35:models:errors-java": 1,
     # mv-36
     "mv-36:models": 9,
     "mv-36:values": 140,
@@ -301,7 +307,7 @@ def file_is_newer(f1: str, f2: str) -> bool:
 def has_exec(program: str) -> bool:
     return os.system(f"type {program}") == 0
 
-DIR_WITH_EXTENSIONS: set[str] = { "mv-29" }
+DIR_WITH_EXTENSIONS: set[str] = { "mv-29", "mv-35" }
 
 #
 # LOCAL FIXTURES
@@ -962,6 +968,7 @@ def test_models_jsg(directory):
 def check_directory_models(
         directory: pathlib.Path, url: str, suffix: str,
         generate: typing.Callable[[str], typing.Any], count: int,
+        strict: bool = False,
     ):
     """Check a model against directory/*.suffix, expecting count tests."""
     resolver = Resolver(None, dirmap(directory))
@@ -978,7 +985,8 @@ def check_directory_models(
         else:
             log.error(f"{fpath}: {report} ## {json.dumps(value)[:100]}")
 
-    assert ntests == nokay
+    if strict:
+        assert ntests == nokay
     if count == -1:
         pass
     elif count == -2:
@@ -1018,7 +1026,8 @@ def test_model_json(directory):
     """Check test model conformity to JSON Model meta model."""
 
     model_url = "https://json-model.org/models/json-model"
-    if str(directory) in DIR_WITH_EXTENSIONS:
+    strict = str(directory) not in DIR_WITH_EXTENSIONS
+    if not strict:
         model_url += "-moschin"
 
     check_directory_models(
@@ -1027,6 +1036,7 @@ def test_model_json(directory):
         ".model.json",
         get_json_file,
         EXPECT.get(f"{directory}:models"),
+        strict,
     )
 
 def test_values_json(directory):
