@@ -1,0 +1,9 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "OK": "",
+    "#": "Symbol 1",
+    "": "./caps"
+  },
+  "@": "$OK"
+}
