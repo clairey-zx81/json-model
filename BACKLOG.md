@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] ir: ensure that a nope is kept when optimizing sequences
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
 - [ ] bench: handle case failures for radar (wip, ajv handling)

@@ -807,6 +807,10 @@ def recurseIR(code: Jsonable,
               rwt: Callable[[Jsonable, Path], Jsonable]):
     _recIR(code, [], flt, rwt)
 
+#
+# Actual IR optimizations
+#
+
 def callShortcuts(code: Jsonable, shortcuts: dict[str, str]) -> int:
     """Update check function calls based on shortcuts."""
 
@@ -837,6 +841,7 @@ def callShortcuts(code: Jsonable, shortcuts: dict[str, str]) -> int:
 
     recurseIR(code, _goStructIR, repRwt)
 
+    log.debug(f"csc {changes}")
     return changes
 
 SCALAR_TYPES = { "int", "float", "bool", "str" }
@@ -898,6 +903,7 @@ def partialEval(code: Jsonable, reporting: bool) -> int:
 
     recurseIR(code, _goStructIR, peRwt)
 
+    log.debug(f"pev {changes}")
     return changes
 
 def elimCommonSub(code: Jsonable) -> int:
@@ -995,6 +1001,8 @@ def elimCommonSub(code: Jsonable) -> int:
         return code
 
     recurseIR(code, cseFlt, cseRwt)
+
+    log.debug(f"cse {changes}")
     return changes
 
 def elimEmptySeq(code: Jsonable, reporting: bool) -> int:
@@ -1018,11 +1026,12 @@ def elimEmptySeq(code: Jsonable, reporting: bool) -> int:
                     break
             if code and remove:
                 changes += 1
-                # keep nope to avoid empty else in python: TODO catch in code generator!
-                return list(filter(lambda o: _isOps(o, {"co", "seq", "no"}), code))
+                code = getComments(code) + [ {"o": "no"} ]
         return code
 
     recurseIR(code, _goIR, eecRwt)
+
+    log.debug(f"ees {changes}")
     return changes
 
 
@@ -1075,6 +1084,8 @@ def elimEmptyLoop(code: Jsonable, reporting: bool) -> int:
         return code
 
     recurseIR(code, _goIR, eelRwt)
+
+    log.debug(f"eel {changes}")
     return changes
 
 def elimDeadCode(code: Jsonable, reporting: bool) -> int:
@@ -1104,6 +1115,8 @@ def elimDeadCode(code: Jsonable, reporting: bool) -> int:
         return code
 
     recurseIR(code, _goIR, edcRwt)
+
+    log.debug(f"edc {changes}")
     return changes
 
 def elimUnreachableCode(code: Jsonable) -> int:
@@ -1134,6 +1147,8 @@ def elimUnreachableCode(code: Jsonable) -> int:
         return code
 
     recurseIR(code, _goStructIR, eucRwt)
+
+    log.debug(f"euc {changes}")
     return changes
 
 # TODO what about other variables?!
@@ -1165,6 +1180,7 @@ def elimUnusedBoolVars(code: Jsonable) -> int:
                 bop.clear()
                 bop.update(o="ign")
 
+    log.debug(f"eub {changes}")
     return changes
 
 def mifToIf(code: Jsonable) -> int:
@@ -1183,6 +1199,7 @@ def mifToIf(code: Jsonable) -> int:
 
     recurseIR(code, _goStructIR, mif2ifRwt)
 
+    log.debug(f"m2i {changes}")
     return changes
 
 def simplifySimpleIf(code: Jsonable, reporting: bool) -> int:
@@ -1211,6 +1228,7 @@ def simplifySimpleIf(code: Jsonable, reporting: bool) -> int:
 
     recurseIR(code, _goStructIR, sisifRwt)
 
+    log.debug(f"ssi {changes}")
     return changes
 
 def optimizeIR(

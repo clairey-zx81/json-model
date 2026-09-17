@@ -1,0 +1,12 @@
+oops3.values.json[0]: PASS
+oops3.values.json[1]: PASS
+oops3.values.json[2]: PASS
+oops3.values.json[3]: FAIL (.: not an object [.])
+oops3.values.json[4]: FAIL (.: not an object [.])
+oops3.values.json[5]: FAIL (.: not an object [.])
+oops3.values.json[6]: FAIL (.: not an object [.])
+oops3.values.json[7]: FAIL (.: not an object [.])
+oops3.values.json[8]: FAIL (.: not an object [.])
+oops3.values.json[9]: FAIL (.: not an object [.])
+oops3.values.json[10]: FAIL (.: not an object [.])
+oops3.values.json[11]: FAIL (.: not an object [.])
