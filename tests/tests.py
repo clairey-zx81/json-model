@@ -177,8 +177,8 @@ EXPECT: dict[str, int] = {
     "mv-22:values": 725,
     "mv-22:verrors:schema": 27,
     # mv-23
-    "mv-23:models": 4,
-    "mv-23:values": 83,
+    "mv-23:models": 5,
+    "mv-23:values": 95,
     # mv-24
     "mv-24:cmp-opts": {"report": False},
     "mv-24:models": 5,
@@ -271,12 +271,12 @@ EXPECT: dict[str, int] = {
     "bads:models": 69,
     "jsts-files": 309,
     # tests json models of json schema versions
-    "draft3:jsts": 104,
+    "draft3:jsts": 105,
     "draft4:jsts": 160,
-    "draft6:jsts": 232,
-    "draft7:jsts": 257,
-    "draft2019-09:jsts": 372,
-    "draft2020-12:jsts": 383,
+    "draft6:jsts": 233,
+    "draft7:jsts": 258,
+    "draft2019-09:jsts": 373,
+    "draft2020-12:jsts": 384,
     "draft-next:jsts": 369,
 }
 
