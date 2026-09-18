@@ -17,13 +17,18 @@
   <body class="sidebar-chevron-right sitebar-group-box loading">
     <div id="app"></div>
     <script>
+      // local tests vs github vs project domain
+      basePath = (
+        document.URL.match(/^http:\/\/(localhost|127\.\d+\.\d+\.\d+)(:\d+)?/) ? "" :
+        document.URL.match(/^https:\/\/clairey-zx81\.github\.io\/json-model/) ? "https://clairey-zx81.github.io/json-model/" :
+        "https://json-model.org/"
+      )
       window.$docsify = {
         name: "JSON Model",
         logo: "json_logo.svg",
         homepage: "README.md",
         repo: "https://github.com/clairey-zx81/json-model",
-        // comment out for local tests
-        basePath: "https://json-model.org/",
+        basePath: basePath,
         relativePath: true,
         auto2top: true,
         coverpage: true,
