@@ -18,11 +18,12 @@
     <div id="app"></div>
     <script>
       // local tests vs github vs project domain
-      const GH_SITE = "https://clairey-zx81.github.io/json-model/"
+      const GH_URL = "https://clairey-zx81.github.io/json-model/"
+      const JM_URL = "https://json-model.org/"
       const basePath = (
         document.URL.match(/^http:\/\/(localhost|127\.\d+\.\d+\.\d+)(:\d+)?/) ? "" :
-        document.URL.startsWith(GH_SITE) ? GH_SITE :
-        "https://json-model.org/"
+        document.URL.startsWith(GH_URL) ? GH_URL :
+        JM_URL
       )
       window.$docsify = {
         name: "JSON Model",
@@ -99,7 +100,7 @@
         const resp = await fetch(source)
         const res = await resp.json()
         // data model: { "?labels": [""], "datasets": [ {"label": "", "data": [0.0]} ] }
-        const data = res.datasets.map((x) => {
+        const datasets = res.datasets.map((x) => {
           return {
             data: x.data,
             label: x.label + (x.speed ? (" — " + x.speed.toFixed(3)) : ""),
@@ -110,9 +111,9 @@
         // only keep used bench indexes
         let indexes = []
 
-        for (let bench = 0; bench < data[0].data.length; bench++)
-          for (let tool = 0; tool < data.length; tool++)
-            if (data[tool].data[bench] > 0.0) {
+        for (let bench = 0; bench < datasets[0].data.length; bench++)
+          for (let tool = 0; tool < datasets.length; tool++)
+            if (datasets[tool].data[bench] > 0.0) {
               indexes.push(bench)
               break
             }
@@ -121,17 +122,17 @@
           // count wins and adjust with overall performance
           let wins = [], winners = []
 
-          for (let tool = 0; tool < data.length; tool++) {
+          for (let tool = 0; tool < datasets.length; tool++) {
               // number of wins, aka ranked first
-              wins[tool] = data[tool].data.filter(s => s === 1.0).length
+              wins[tool] = datasets[tool].data.filter(s => s === 1.0).length
               wins[tool] && winners.push(tool)
               // add a fractionnal part to avoid ties
-              wins[tool] += data[tool].data.filter(s => s !== null).reduce((a, v) => a + v, 0.0) / data[tool].data.length
+              wins[tool] += datasets[tool].data.filter(s => s !== null).reduce((a, v) => a + v, 0.0) / datasets[tool].data.length
           }
 
           // ensure that we have a secondary sort criterion
-          const tools = Array.from({length: data.length}, (_, i) => i)
-          if (winners.length == 1 && data.length > 1) {
+          const tools = Array.from({length: datasets.length}, (_, i) => i)
+          if (winners.length == 1 && datasets.length > 1) {
             tools.sort( (i, j) => wins[j] - wins[i] )
             winners.push(tools[1])
           }
@@ -144,18 +145,18 @@
             // this exits because one tool has the best 1.0 performance for bench
             for (let rank = 0; rank < winners.length; rank++) {
               const tool = winners[rank]
-              if (data[tool].data[bench] === 1.0)
-                return (winners.length - rank) + data[winners[(rank ? 0 : 1) % tools.length]].data[bench]
+              if (datasets[tool].data[bench] === 1.0)
+                return (winners.length - rank) + datasets[winners[(rank ? 0 : 1) % tools.length]].data[bench]
             }
           }
 
           // sort cases according to previous function criterion
-          const keys = indexes.map(i => key(data, i))
+          const keys = indexes.map(i => key(datasets, i))
           indexes.sort( (i, j) => keys[j] - keys[i] )
         }
 
         // extract needed data in computed order
-        data.forEach(o => {
+        datasets.forEach(o => {
           o.data = indexes.map(i => o.data[i])
         })
 
@@ -190,7 +191,7 @@
         // create actual radar with prepared data
         const radar = new Chart(ctx, {
           type: "radar",
-          data: { labels: labels, datasets: data },
+          data: { labels: labels, datasets: datasets },
           options: {
             // slower animation on click
             animation: {
