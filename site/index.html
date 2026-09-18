@@ -161,7 +161,11 @@
         })
 
         // labels start from 1
-        const labels = indexes.map(i => i + 1)
+        const labels = (
+            res.labels === undefined ?
+                indexes.map(i => i + 1) :
+                indexes.map(i => `${i + 1} - ${res.labels[i]}`)
+        )
         const ctx = document.getElementById(display).getContext("2d")
 
         // when a dataset is hidden or shown, adjust values wrt the fastest visible tool
