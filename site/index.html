@@ -18,9 +18,10 @@
     <div id="app"></div>
     <script>
       // local tests vs github vs project domain
-      basePath = (
+      const GH_SITE = "https://clairey-zx81.github.io/json-model/"
+      const basePath = (
         document.URL.match(/^http:\/\/(localhost|127\.\d+\.\d+\.\d+)(:\d+)?/) ? "" :
-        document.URL.match(/^https:\/\/clairey-zx81\.github\.io\/json-model/) ? "https://clairey-zx81.github.io/json-model/" :
+        document.URL.startsWith(GH_SITE) ? GH_SITE :
         "https://json-model.org/"
       )
       window.$docsify = {
