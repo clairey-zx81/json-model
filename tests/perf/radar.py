@@ -19,8 +19,8 @@ perf = pd.read_csv(
     index_col=["case", "tool", "iter", "line"]
 )
 
-tools = perf.index.get_level_values("tool").unique()
-cases = perf.index.get_level_values("case").unique()
+tools = sorted(perf.index.get_level_values("tool").unique())
+cases = sorted(perf.index.get_level_values("case").unique())
 
 perf_median = perf.groupby(["case", "tool", "line"])["runavg"].median()
 perf_total = perf_median.groupby(["case", "tool"]).sum()
@@ -66,4 +66,4 @@ for t in sorted(tools):
         "data": [ float(v) for v in perf_per_tool.get_group(t).values ]
     })
 
-print(json.dumps({"datasets": radar}, indent=2))
+print(json.dumps({"labels": cases, "datasets": radar}, indent=2))
