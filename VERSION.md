@@ -1,5 +1,10 @@
 # JSON Model Compiler Versions
 
+## 2.0.61 on 2026-09-18
+
+- ir: ensure that a nope is kept when optimizing sequences
+- front: allow to accept all-caps definitions with `--no-caps`
+
 ## 2.0.60 on 2026-09-15
 
 - pr: jm site added to [awesome docsify](https://github.com/docsifyjs/awesome-docsify/commit/3950ece64978f41294463e1a2b12e809c65a6379)

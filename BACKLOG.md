@@ -2,8 +2,6 @@
 
 ## Current Tasks
 
-- [x] ir: ensure that a nope is kept when optimizing sequences
-- [x] front: allow to accept all-caps definitions with `--no-caps`
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
 - [ ] bench: handle case failures for radar (wip, ajv handling)
