@@ -66,4 +66,4 @@ for t in sorted(tools):
         "data": [ float(v) for v in perf_per_tool.get_group(t).values ]
     })
 
-print(json.dumps(radar, indent=2))
+print(json.dumps({"datasets": radar}, indent=2))
