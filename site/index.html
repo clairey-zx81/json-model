@@ -195,7 +195,10 @@
         // create actual radar with prepared data
         const radar = new Chart(ctx, {
           type: "radar",
-          data: { labels: labels, datasets: datasets },
+          data: {
+            labels: labels,
+            datasets: datasets
+          },
           options: {
             // slower animation on click
             animation: {
@@ -205,6 +208,10 @@
             // rescale chart on legend clicks
             plugins: {
               legend: {
+                title: {
+                  text: "Tools",
+                  display: true
+                },
                 onClick: updateVisible,
                 position: "right",
               }
