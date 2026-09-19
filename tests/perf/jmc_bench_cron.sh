@@ -2,28 +2,47 @@
 #
 # run performance script from cron
 #
+# NOTE running cron script is a copy
 
-# running script is a copy
+#
+# Bench setup
+#
+# latest performance scripts
 PERF=$HOME/dev/json-model/tests/perf
+
+# git working directory for json-model publication
 WORK=$HOME/dev/cron-json-model
+
+# directory for performance benchmark runs
 TARGET=$HOME/perf
+
+# where to store latest run versions
+VERSION=$TARGET/.bench_version
 
 #
 # Environment overrides:
 #
-# - JMC: docker tag for jmc image (main)
-# - JMC_BENCH: docker tag for jmc-bench image  (main)
-# - SBC: docker tag for sourcemeta blaze cli (latest)
 # - PARA: bench parallelism (12)
 # - LOOP: bench iterations (1000)
 # - RUNS: number of runs (11)
+# - JMC: docker tag for jmc image (main)
+# - JMC_BENCH: docker tag for jmc-bench image  (main)
+# - SBC: docker tag for sourcemeta blaze cli (latest)
 #
-export JMC=${JMC:-main}
-export JMC_BENCH=${JMC_BENCH:-main}
-export SBC=${SBC:-latest}
+# benchmarking parameters
 export PARA=${PARA:-12}
 export LOOP=${LOOP:-1000}
 export RUNS=${RUNS:-11}
+
+# docker tags
+export JMC=${JMC:-main}
+export JMC_BENCH=${JMC_BENCH:-main}
+export SBC=${SBC:-latest}
+
+# docker images
+SBC_IMG=ghcr.io/sourcemeta/jsonschema:$SBC
+JMC_IMG=docker.io/zx80/jmc:$JMC
+BENCH_IMG=docker.io/zx80/jmc-bench-docker:$JMC_BENCH
 
 # setup standard run
 export JMC_OPTS="--single-line-regex --cc=clang --precompiled --short-version"
@@ -38,7 +57,7 @@ function err()
 {
   local status=$1
   shift 1
-  echo "$@" >&2
+  echo "[bench] $@" >&2
   exit $status
 }
 
@@ -84,7 +103,7 @@ test -x $PERF/start_bench.sh || err 3 "missing executable: $PERF/start_bench.sh"
 test -d $TARGET || err 2 "missing target directory: $TARGET"
 test -d $JSB_DIR || err 2 "missing json-schema benchmark directory: $JSB_DIR"
 
-if [ "$publish" ] ; then
+if [ ! "$no_publish" ] ; then
   test -d $WORK || err 2 "missing working directory: $WORK"
 fi
 
@@ -97,13 +116,6 @@ done
 #
 if [ "$check" ] ; then
   cd $TARGET || err 5 "cannot cd to: $TARGET"
-
-  VERSION=$TARGET/.bench_version
-
-  # docker images
-  SBC_IMG=ghcr.io/sourcemeta/jsonschema:$SBC
-  JMC_IMG=docker.io/zx80/jmc:$JMC
-  BENCH_IMG=docker.io/zx80/jmc-bench-docker:$JMC_BENCH
 
   docker pull $SBC_IMG || err 6 "cannot docker pull: $SBC_IMG"
   docker pull $JMC_IMG || err 6 "cannot docker pull: $JMC_IMG"
@@ -137,8 +149,6 @@ if [ "$run" ] ; then
     echo "using bench_id: $bench_id"
   fi
 
-  PARA=${PARA:-12} LOOP=${LOOP:-1000} RUNS=${RUNS:-11}
-
   $PERF/calcutta.sh on
   $PERF/start_bench.sh $JMC_BENCH $bench_id -p $PARA -l $LOOP -r $RUNS -L -c "$@"
   $PERF/calcutta.sh off
@@ -169,7 +179,7 @@ if [ "$run" ] ; then
 fi
 
 #
-# publish (new) artifact
+# publish (new) artifact on the "post" branch
 #
 if [ "$publish" ] ; then
 
@@ -177,7 +187,7 @@ if [ "$publish" ] ; then
 
   cd $WORK || err 10 "cannot cd to: $WORK"
 
-  # should be auth with a github PAT
+  # should be auth'ed with a github PAT
   git checkout post || err 11 "cannot git checkout post"
   git pull || err 11 "cannot git pull"
   git submodule update || err 11 "cannot git submodule update"
