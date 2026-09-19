@@ -12,75 +12,38 @@ use JSON::JsonModel;
 use constant JMC_VERSION => "2";
 
 
-sub _jm_obj_0($$$);
-sub _jm_obj_1($$$);
 sub json_model_1($$$);
 my %check_model_map;
-
-# object .'&'.1
-sub _jm_obj_0($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # value known to be an object
-    return 1;
-}
-
-# object .'&'.0
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # value known to be an object
-    my $res;
-    scalar keys %$val;
-    for my $prop (sort keys %$val)
-    {
-        my $pval = $$val{$prop};
-        my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
-        if (jm_starts_with($prop, "x"))
-        {
-            # handle 1 re props
-            # .'&'.0.'/^x/'
-            $res = jm_is_integer($pval) && $pval >= 1;
-            unless ($res)
-            {
-                push @$rep, ["not a 1 strict int [.'&'.0.'/^x/']", defined $path ? $lpath_1 : undef] if defined $rep;
-                return 0;
-            }
-        }
-    }
-    return 1;
-}
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    my $res = jm_is_object($val);
-    if ($res)
+    unless (jm_is_object($val))
     {
-        # .'&'.0
-        $res = _jm_obj_1($val, $path, $rep);
-        if ($res)
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    for my $prop (sort keys %$val)
+    {
+        my $pval = $$val{$prop};
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
+        if (jm_starts_with($prop, "x"))
         {
-            # .'&'.1
-            $res = _jm_obj_0($val, $path, $rep);
-            push @$rep, ["unexpected element [.'&'.1]", $path] if defined $rep and not $res;
+            # handle 1 re props
+            # .'/^x/'
+            $res = jm_is_integer($pval) && $pval >= 1;
+            unless ($res)
+            {
+                push @$rep, ["not a 1 strict int [.'/^x/']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
-        else
-        {
-            push @$rep, ["unexpected element [.'&'.0]", $path] if defined $rep;
-        }
     }
-    if ($res)
-    {
-        @$rep = () if defined $rep;
-    }
-    else
-    {
-        push @$rep, ["not all model match [.'&']", $path] if defined $rep;
-    }
-    return $res;
+    return 1;
 }
 
 

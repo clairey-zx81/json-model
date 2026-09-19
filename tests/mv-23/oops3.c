@@ -19,26 +19,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
     }
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_1(prop, 0x61)))
-        {
-            // handle 2 re props
-            // .'/^a/'
-        }
-        else if (unlikely(jm_str_eq_1(prop, 0x62)))
-        {
-            // handle 2 re props
-            // .'/^b/'
-        }
-        else
-        {
-            // accept any other props
-        }
-    }
+    // accept any object
     return true;
 }
 

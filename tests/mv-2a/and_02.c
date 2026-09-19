@@ -125,13 +125,9 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             }
             continue;
         }
-        if (unlikely(jm_str_eq_1(prop, 0x7a)))
-            // handle 2 re props
-            // .'&'.0.'/^z/'
-            res = true;
-        else if (unlikely(_jm_re_1(prop, path, rep)))
+        if (unlikely(_jm_re_1(prop, path, rep)))
         {
-            // handle 2 re props
+            // handle 1 re props
             // .'&'.0.'/^d[a-z]/'
             res = json_is_string(pval);
             if (unlikely(! res))
@@ -139,10 +135,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'&'.0.'/^d[a-z]/']", (path ? &lpath_1 : NULL));
                 return false;
             }
-        }
-        else
-        {
-            // accept any other props
         }
     }
     if (unlikely(must_count != 3))

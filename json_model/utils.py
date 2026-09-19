@@ -113,13 +113,6 @@ def model_eq(m1: ModelType, m2: ModelType) -> bool:
     else:
         raise ModelError(f"unexpected model element type ({t1.__name__})")
 
-# TODO maybe we should accept some simple type inclusions
-def same_model(m1: ModelType, m2: ModelType) -> bool:
-    """Compare models…"""
-    # beware that True == 1 and False == 0
-    # return type(m1) == type(m2) and m1 == m2
-    return model_eq(m1, m2)
-
 def model_in_models(m: ModelType, lm: list[ModelType]) -> bool:
     for i in lm:
         if model_eq(i, m):
@@ -505,7 +498,7 @@ def merge_objects(models: list[ModelObject], path: ModelPath) -> JsonObject|str:
             lppath = path + [prop]
             if prop in must:
                 mumod = must[prop]
-                if mumod != "$ANY" and mod != "$ANY" and not same_model(mod, mumod):
+                if mumod != "$ANY" and mod != "$ANY" and not model_eq(mod, mumod):
                     raise ModelError(f"incompatible must property {prop} while merging: "
                                      f"{m0} / {m} {lppath}")
                 # else keep best
@@ -513,7 +506,7 @@ def merge_objects(models: list[ModelObject], path: ModelPath) -> JsonObject|str:
                     must[prop] = mod
             elif prop in may:
                 mamod = may[prop]
-                if mamod != "$ANY" and mod != "$ANY" and not same_model(mod, mamod):
+                if mamod != "$ANY" and mod != "$ANY" and not model_eq(mod, mamod):
                     raise ModelError(f"incompatible must property {prop} while merging: "
                                      f"{m0} / {m} {lppath}")
                 must[prop] = mod if mod != "$ANY" else mamod
@@ -526,7 +519,7 @@ def merge_objects(models: list[ModelObject], path: ModelPath) -> JsonObject|str:
             lppath = path + [prop]
             if prop in must:
                 mumod = must[prop]
-                if mod != "$ANY" and "mumod" != "$ANY" and not same_model(mod, must[prop]):  # ???
+                if mod != "$ANY" and "mumod" != "$ANY" and not model_eq(mod, must[prop]):  # ???
                     raise ModelError(f"incompatible may property {prop} while merging: "
                                      f"{m0} / {m} {lppath}")
                 # else keep best
@@ -534,7 +527,7 @@ def merge_objects(models: list[ModelObject], path: ModelPath) -> JsonObject|str:
                     must[prop] = mod
             elif prop in may:
                 mamod = may[prop]
-                if mod != "$ANY" and mamod != "$ANY" and not same_model(mod, mamod):
+                if mod != "$ANY" and mamod != "$ANY" and not model_eq(mod, mamod):
                     raise ModelError(f"incompatible may property {prop} while merging: "
                                      f"{m0} / {m} {lppath}")
                 # else keep best
@@ -549,7 +542,7 @@ def merge_objects(models: list[ModelObject], path: ModelPath) -> JsonObject|str:
                 lppath = path + [prop]
                 if prop in dst:
                     dstmod = dst[prop]
-                    if mod != "$ANY" and dstmod != "$ANY" and not same_model(mod, dstmod):
+                    if mod != "$ANY" and dstmod != "$ANY" and not model_eq(mod, dstmod):
                         raise ModelError(f"incompatible {cat} property {prop} while merging:"
                                          f"{m0} / {m} {lppath}")
                     # else keep best
@@ -566,7 +559,7 @@ def merge_objects(models: list[ModelObject], path: ModelPath) -> JsonObject|str:
             mod = ot[""]
             if "" in others:
                 omod = others[""]
-                if mod != "$ANY" and omod != "$ANY" and not same_model(mod, omod):
+                if mod != "$ANY" and omod != "$ANY" and not model_eq(mod, omod):
                     raise ModelError("incompatible catchall while merging: "
                                      f"{m0} / {m} [{lpath}.'']")
                 # else keep best

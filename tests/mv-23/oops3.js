@@ -20,24 +20,7 @@ function json_model_1(val, path, rep)
         rep !== null && rep.push(["not an object [.]", path])
         return false
     }
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_0 = path ? path.concat([prop]) : null
-        if (prop.startsWith("a"))
-        {
-            // handle 2 re props
-            // .'/^a/'
-        }
-        else if (prop.startsWith("b"))
-        {
-            // handle 2 re props
-            // .'/^b/'
-        }
-        else
-        {
-            // accept any other props
-        }
-    }
+    // accept any object
     return true
 }
 

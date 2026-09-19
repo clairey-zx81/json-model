@@ -6,76 +6,38 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
-
-// object .'&'.1
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    // value known to be an object
-    return true;
-}
-
-// object .'&'.0
-static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    // value known to be an object
-    bool res;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_1(prop, 0x78)))
-        {
-            // handle 1 re props
-            // .'&'.0.'/^x/'
-            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'&'.0.'/^x/']", (path ? &lpath_1 : NULL));
-                return false;
-            }
-        }
-    }
-    return true;
-}
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    bool res = json_is_object(val);
-    if (likely(res))
+    if (unlikely(! json_is_object(val)))
     {
-        // .'&'.0
-        res = _jm_obj_1(val, path, rep);
-        if (likely(res))
+        if (rep) jm_report_add_entry(rep, "not an object [.]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
+        if (unlikely(jm_str_eq_1(prop, 0x78)))
         {
-            // .'&'.1
-            res = _jm_obj_0(val, path, rep);
+            // handle 1 re props
+            // .'/^x/'
+            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'&'.1]", path);
+                if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'/^x/']", (path ? &lpath_0 : NULL));
+                return false;
             }
         }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected element [.'&'.0]", path);
-        }
     }
-    if (likely(res))
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "not all model match [.'&']", path);
-    }
-    return res;
+    return true;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

@@ -23,45 +23,23 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object .'&'.1
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    # value known to be an object
-    return True
-
-# object .'&'.0
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    # value known to be an object
-    res: bool
-    for prop, pval in val.items():
-        lpath_1: Path = (path + [ prop ]) if path is not None else None
-        if prop.startswith("x"):
-            # handle 1 re props
-            # .'&'.0.'/^x/'
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
-            if not res:
-                rep is None or rep.append(("not a 1 strict int [.'&'.0.'/^x/']", lpath_1 if path is not None else None))
-                return False
-    return True
-
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
-    res: bool = isinstance(val, dict)
-    if res:
-        # .'&'.0
-        res = _jm_obj_1(val, path, rep)
-        if res:
-            # .'&'.1
-            res = _jm_obj_0(val, path, rep)
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        lpath_0: Path = (path + [ prop ]) if path is not None else None
+        if prop.startswith("x"):
+            # handle 1 re props
+            # .'/^x/'
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
             if not res:
-                rep is None or rep.append(("unexpected element [.'&'.1]", path))
-        else:
-            rep is None or rep.append(("unexpected element [.'&'.0]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("not all model match [.'&']", path))
-    return res
+                rep is None or rep.append(("not a 1 strict int [.'/^x/']", lpath_0 if path is not None else None))
+                return False
+    return True
 
 
 # initialization guard

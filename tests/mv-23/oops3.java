@@ -28,27 +28,7 @@ public class oops3 extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.]", path);
             return false;
         }
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
-        {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_0 = new Path(prop, path);
-            if (prop.startsWith("a"))
-            {
-                // handle 2 re props
-                // .'/^a/'
-            }
-            else if (prop.startsWith("b"))
-            {
-                // handle 2 re props
-                // .'/^b/'
-            }
-            else
-            {
-                // accept any other props
-            }
-        }
+        // accept any object
         return true;
     }
 

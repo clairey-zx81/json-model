@@ -90,20 +90,13 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'&'.0.u]", lpath_1 if path is not None else None))
                 return False
             continue
-        if prop.startswith("z"):
-            # handle 2 re props
-            # .'&'.0.'/^z/'
-            res = True
-        elif _jm_re_1(prop, path, rep):
-            # handle 2 re props
+        if _jm_re_1(prop, path, rep):
+            # handle 1 re props
             # .'&'.0.'/^d[a-z]/'
             res = isinstance(pval, str)
             if not res:
                 rep is None or rep.append(("unexpected value for model \"\" [.'&'.0.'/^d[a-z]/']", lpath_1 if path is not None else None))
                 return False
-        else:
-            # accept any other props
-            pass
     if must_count != 3:
         if rep is not None:
             if not "b" in val:

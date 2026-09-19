@@ -11,62 +11,32 @@ const JSON_MODEL_VERSION = "2";
 
 export var check_model_map = new Map()
 
-// object .'&'.1
-function _jm_obj_0(val, path, rep)
+// check $ (.)
+function json_model_1(val, path, rep)
 {
-    // value known to be an object
-    return true
-}
-
-// object .'&'.0
-function _jm_obj_1(val, path, rep)
-{
-    // value known to be an object
+    // .
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
+    {
+        rep !== null && rep.push(["not an object [.]", path])
+        return false
+    }
     let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_1 = path ? path.concat([prop]) : null
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop.startsWith("x"))
         {
             // handle 1 re props
-            // .'&'.0.'/^x/'
+            // .'/^x/'
             res = typeof pval == 'number' && Number.isInteger(pval) && pval >= 1
             if (! res)
             {
-                rep !== null && rep.push(["not a 1 strict int [.'&'.0.'/^x/']", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["not a 1 strict int [.'/^x/']", (path ? lpath_0 : null)])
                 return false
             }
         }
     }
     return true
-}
-
-// check $ (.)
-function json_model_1(val, path, rep)
-{
-    // .
-    let res = val !== null && typeof val == 'object' && !Array.isArray(val)
-    if (res)
-    {
-        // .'&'.0
-        res = _jm_obj_1(val, path, rep)
-        if (res)
-        {
-            // .'&'.1
-            res = _jm_obj_0(val, path, rep)
-            if (! res)
-                rep !== null && rep.push(["unexpected element [.'&'.1]", path])
-        }
-        else
-            rep !== null && rep.push(["unexpected element [.'&'.0]", path])
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-        rep !== null && rep.push(["not all model match [.'&']", path])
-    return res
 }
 
 

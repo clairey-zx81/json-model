@@ -104,13 +104,9 @@ function _jm_obj_1(val, path, rep)
             }
             continue
         }
-        if (prop.startsWith("z"))
-            // handle 2 re props
-            // .'&'.0.'/^z/'
-            res = true
-        else if (_jm_re_1(prop, path, rep))
+        if (_jm_re_1(prop, path, rep))
         {
-            // handle 2 re props
+            // handle 1 re props
             // .'&'.0.'/^d[a-z]/'
             res = typeof pval == 'string'
             if (! res)
@@ -118,10 +114,6 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["unexpected value for model \"\" [.'&'.0.'/^d[a-z]/']", (path ? lpath_1 : null)])
                 return false
             }
-        }
-        else
-        {
-            // accept any other props
         }
     }
     if (must_count != 3)

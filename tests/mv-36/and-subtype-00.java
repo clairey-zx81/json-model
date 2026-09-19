@@ -19,71 +19,35 @@ public class and_subtype_00 extends ModelChecker
 
     public Map<String, Checker> and_subtype_00_map_pmap;
 
-    // object .'&'.1
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
-        // value known to be an object
-        return true;
-    }
-
-    // object .'&'.0
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
-        // value known to be an object
+        // .
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.]", path);
+            return false;
+        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_1 = new Path(prop, path);
+            Path lpath_0 = new Path(prop, path);
             if (prop.startsWith("x"))
             {
                 // handle 1 re props
-                // .'&'.0.'/^x/'
+                // .'/^x/'
                 res = json.isInteger(pval) && json.asLong(pval) >= 1;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 1 strict int [.'&'.0.'/^x/']", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("not a 1 strict int [.'/^x/']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
         }
         return true;
-    }
-
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        // .
-        boolean res = json.isObject(val);
-        if (res)
-        {
-            // .'&'.0
-            res = _jm_obj_1(val, path, rep);
-            if (res)
-            {
-                // .'&'.1
-                res = _jm_obj_0(val, path, rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'&'.1]", path);
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected element [.'&'.0]", path);
-            }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("not all model match [.'&']", path);
-        }
-        return res;
     }
 
 

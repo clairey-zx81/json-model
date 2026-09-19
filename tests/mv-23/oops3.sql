@@ -8,29 +8,10 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  prop TEXT;
-  pval JSONB;
 BEGIN
   -- .
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF STARTS_WITH(prop, 'a') THEN
-      -- handle 2 re props
-      -- .'/^a/'
-      NULL;
-    ELSEIF STARTS_WITH(prop, 'b') THEN
-      -- handle 2 re props
-      -- .'/^b/'
-      NULL;
-    ELSE
-      -- accept any other props
-      NULL;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
+  -- accept any object
+  RETURN JSONB_TYPEOF(val) = 'object';
 END;
 $$ LANGUAGE PLpgSQL;
 

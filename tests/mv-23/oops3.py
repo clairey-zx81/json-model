@@ -29,19 +29,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.]", path))
         return False
-    for prop, pval in val.items():
-        lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if prop.startswith("a"):
-            # handle 2 re props
-            # .'/^a/'
-            pass
-        elif prop.startswith("b"):
-            # handle 2 re props
-            # .'/^b/'
-            pass
-        else:
-            # accept any other props
-            pass
+    # accept any object
     return True
 
 

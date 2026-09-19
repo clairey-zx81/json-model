@@ -124,13 +124,9 @@ public class and_02 extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("z"))
-                // handle 2 re props
-                // .'&'.0.'/^z/'
-                res = true;
-            else if (_jm_re_1(prop, path, rep))
+            if (_jm_re_1(prop, path, rep))
             {
-                // handle 2 re props
+                // handle 1 re props
                 // .'&'.0.'/^d[a-z]/'
                 res = json.isString(pval);
                 if (! res)
@@ -138,10 +134,6 @@ public class and_02 extends ModelChecker
                     if (rep != null) rep.addEntry("unexpected value for model \"\" [.'&'.0.'/^d[a-z]/']", (path != null ? lpath_1 : null));
                     return false;
                 }
-            }
-            else
-            {
-                // accept any other props
             }
         }
         if (must_count != 3)

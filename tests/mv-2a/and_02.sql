@@ -93,20 +93,13 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF STARTS_WITH(prop, 'z') THEN
-      -- handle 2 re props
-      -- .'&'.0.'/^z/'
-      res := TRUE;
-    ELSEIF _jm_re_1(prop, NULL, NULL) THEN
-      -- handle 2 re props
+    IF _jm_re_1(prop, NULL, NULL) THEN
+      -- handle 1 re props
       -- .'&'.0.'/^d[a-z]/'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
     END IF;
   END LOOP;
   RETURN must_count = 3;

@@ -5,28 +5,22 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- object .'&'.1
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- value known to be an object
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'&'.0
-CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $ (.)
+CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
-  -- value known to be an object
+  -- .
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF STARTS_WITH(prop, 'x') THEN
       -- handle 1 re props
-      -- .'&'.0.'/^x/'
+      -- .'/^x/'
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
       IF NOT res THEN
         RETURN FALSE;
@@ -34,17 +28,6 @@ BEGIN
     END IF;
   END LOOP;
   RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check $ (.)
-CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .
-  -- .'&'.0
-  -- .'&'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND _jm_obj_1(val, NULL, NULL) AND _jm_obj_0(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

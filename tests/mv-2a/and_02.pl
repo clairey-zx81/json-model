@@ -124,15 +124,9 @@ sub _jm_obj_1($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, "z"))
+        if (_jm_re_1($prop, $path, $rep))
         {
-            # handle 2 re props
-            # .'&'.0.'/^z/'
-            $res = 1;
-        }
-        elsif (_jm_re_1($prop, $path, $rep))
-        {
-            # handle 2 re props
+            # handle 1 re props
             # .'&'.0.'/^d[a-z]/'
             $res = jm_is_string($pval);
             unless ($res)
@@ -140,11 +134,6 @@ sub _jm_obj_1($$$)
                 push @$rep, ["unexpected value for model \"\" [.'&'.0.'/^d[a-z]/']", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
-        }
-        else
-        {
-            # accept any other props
-            ;
         }
     }
     if ($must_count != 3)

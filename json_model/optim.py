@@ -4,7 +4,7 @@
 import re
 from .mtypes import ModelPath, ModelType, OperatorError, TopType
 from .utils import log, is_cst, _structurally_distinct_models, model_type, is_base_model
-from .utils import constant_values, same_model, model_eq, simple_object, is_a_simple_object
+from .utils import constant_values, model_eq, simple_object, is_a_simple_object
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
 from .submodel import normalizeModel, is_submodel
@@ -285,8 +285,7 @@ def const_prop(jm: JsonModel):
 ANY_PROP = [
     "",
     "$STRING",
-    "/.*$/s", "/.*$/", "/.*/s", "/^.*/s", "/^.*/", "/^.*$/s", "/.*/",
-    "//s", "//", "/(.*)/",
+    "/.*$/s", "/.*$/", "/.*/s", "/^.*/s", "/^.*/", "/^.*$/s", "/.*/", "//s", "//", "/(.*)/",
 ]
 
 def partial_eval(jm: JsonModel):
@@ -442,7 +441,7 @@ def partial_eval(jm: JsonModel):
                 assert isinstance(lxor, list)
                 changes += normalizeModels(lxor)
                 if len(lxor) == 2:
-                    if same_model(lxor[0], lxor[1]):
+                    if model_eq(lxor[0], lxor[1]):
                         changes += 1
                         return "$NONE"
                     # NOTE could be generalized to only pairs, but this makes little sense
@@ -576,7 +575,7 @@ def partial_eval(jm: JsonModel):
                     log.warning(f"multiple concurrent catch-all properties: {anys}")
                 # beware of masking { "$STRING": "$NONE", "": "$ANY" }
                 kept = None
-                for prop in ANY_PROP:  # we must rescan for priority
+                for prop in ANY_PROP:  # we scan from lowest priority
                     if prop in model:
                         if model[prop] == "$NONE":
                             changes += 1
@@ -593,6 +592,33 @@ def partial_eval(jm: JsonModel):
                 if kept is not None and kept != "":
                     model[""] = model[kept]
                     del model[kept]
+                # merge equal submodels in some cases
+                if "" in model:
+                    okay, drop, smodel = True, [], model[""]
+                    for prop, sm in model.items():
+                        if prop == "" or prop in "#~$%/":  # specials
+                            pass
+                        elif prop[0] == "#":  # comment
+                            pass
+                        elif prop[0] in "/$":  # regex or def props
+                            if model_eq(sm, smodel):
+                                drop.append(prop)
+                            else:
+                                # unsafe: possible interactions
+                                okay = False
+                                break
+                        elif prop[0] == "?":  # optional prop
+                            if model_eq(sm, smodel):
+                                drop.append(prop)
+                            # else ignore
+                        else:  # mandatory prop
+                            pass
+                    if okay and drop:
+                        # log.debug(f"removing redundant properties: {drop}")
+                        for prop in drop:
+                            changes += 1
+                            del model[prop]
+
         return model
 
     # log.debug(f"{jm._id}: eval in = {jm._model}")
@@ -654,7 +680,7 @@ def simplify(jm: JsonModel):
                 if has_optprop and not has_regprop and not has_refprop and has_anyprop:
                     any_model = model[""]
                     for prop, mod in list(model.items()):
-                        if prop.startswith("?") and same_model(mod, any_model):
+                        if prop.startswith("?") and model_eq(mod, any_model):
                             changes += 1
                             del model[prop]
             # simpler constraints

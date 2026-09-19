@@ -25,29 +25,7 @@ sub json_model_1($$$)
         push @$rep, ["not an object [.]", $path] if defined $rep;
         return 0;
     }
-    scalar keys %$val;
-    for my $prop (sort keys %$val)
-    {
-        my $pval = $$val{$prop};
-        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
-        if (jm_starts_with($prop, "a"))
-        {
-            # handle 2 re props
-            # .'/^a/'
-            ;
-        }
-        elsif (jm_starts_with($prop, "b"))
-        {
-            # handle 2 re props
-            # .'/^b/'
-            ;
-        }
-        else
-        {
-            # accept any other props
-            ;
-        }
-    }
+    # accept any object
     return 1;
 }
 
