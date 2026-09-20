@@ -57,7 +57,8 @@ RUN . $NVM_DIR/nvm.sh && \
     nvm use default
 # FIXME is this useful?
 RUN ln -s $NVM_DIR/versions/node/v* $NVM_DIR/versions/node/stable
-# NOTE NODE_PATH is ignored by "import" on node :-/
+# NOTE NODE_PATH is coldly ignored by "import" on node, and authors are happy with that :-/
+# NOTE NODE_PATH should work for bun, though
 ENV NODE_PATH=/app/node_modules
 ENV PATH=$NVM_DIR/versions/node/stable/bin:$PATH
 
