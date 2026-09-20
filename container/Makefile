@@ -52,21 +52,13 @@ BASE.pots =
 JMC     = $(BRANCH)
 JSU     = $(BRANCH)  # for consistency use same branch as JMC
 
+#
+# global commands
+#
 .PHONY: pod.build
-pod.build: .build.base .build.jmc
-
-.build.base: base.container
-	$(POD) build $(BASE.opts) -t jmc-base -f base.container . && date -Iseconds > $@
-	$(POD) tag jmc-base $(ZX80)/jmc-base:latest
-	$(POD) tag jmc-base $(ZX80)/jmc-base:26.04
-
-.build.jmc: jmc.container
-	$(POD) build $(JMC.opts) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
-	    -t jmc -f jmc.container . && date -Iseconds > $@
-
-.PHONY: pod.run
-pod.run: pod.build
-	@echo $(POD) run --user $$UID:$$GID -v .:/workspace -it --rm --entrypoint /bin/bash jmc
+pod.build:
+	$(MAKE) .build.base
+	$(MAKE) .build.jmc
 
 .PHONY: pod.status
 pod.status:
@@ -74,6 +66,13 @@ pod.status:
 	$(POD) system df
 	$(POD) container ps -a
 	$(POD) image ls -a
+
+IMG = $(ZX80)/jmc
+
+.PHONY: any.run
+any.run:
+	@GID=$$(id -g)
+	echo $(POD) run --user $$UID:$$GID -v .:/workspace -it --rm --entrypoint /bin/bash $(IMG)
 
 .PHONY: versions
 versions:
@@ -83,15 +82,30 @@ versions:
 	echo " - gitvers: $(GITVERS)"; \
 	echo " - version: $(VERSION)"
 
-.PHONY: pod.tag
-pod.tag: .build.jmc
+#
+# build
+#
+.build.base: base.container
+	$(POD) build $(BASE.opts) -t jmc-base -f $< . && date -Iseconds > $@
+	$(POD) tag jmc-base $(ZX80)/jmc-base:latest
+	$(POD) tag jmc-base $(ZX80)/jmc-base:26.04
+
+.build.jmc: jmc.container
+	$(POD) build $(JMC.opts) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
+	    -t jmc -f $< . && date -Iseconds > $@
+
+.PHONY: base.build
+base.build: .build.base
+
+.PHONY: jmc.tag
+jmc.tag: .build.jmc
 	export POD=$(POD)
 	$(POD) tag jmc $(ZX80)/jmc:$(TAG)
 	$(POD) tag jmc $(ZX80)/jmc:$(BRANCH)
 	$(POD) tag jmc $(ZX80)/jmc:$$(JMC=$(BRANCH) ./jmc --version)
 
-.PHONY: pod.push
-pod.push: pod.tag
+.PHONY: jmc.push
+jmc.push: jmc.tag
 	# if needed: docker login
 	$(POD) push -a $(ZX80)/jmc
 
@@ -100,7 +114,19 @@ base.push: .build.base
 	$(POD) push $(ZX80)/jmc-base:latest
 	$(POD) push $(ZX80)/jmc-base:26.04
 
-.PHONY: quick-pod.push
-quick-pod.push: pod.tag
+.PHONY: quick-jmc.push
+quick-jmc.push: jmc.tag
 	$(POD) push $(ZX80)/jmc:$(BRANCH)
 	$(POD) push $(ZX80)/jmc:$(TAG)
+
+#
+# run
+#
+
+.PHONY: jmc.run
+jmc.run: .build.jmc
+	$(MAKE) any.run
+
+.PHONY: base.run
+base.run: .build.base
+	$(MAKE) IMG=$(ZX80)/jmc-base any.run
