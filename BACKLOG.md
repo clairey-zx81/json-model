@@ -6,6 +6,7 @@
 - [x] optim: merge props handling if submodel are equal if possible
 - [x] container: update versions, add bun as a js runtime
 - [x] front: add `--js-runtime` option
+- [x] bench: report "bun" version if appropriate
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
 - [ ] bench: handle case failures for radar (wip, ajv handling)

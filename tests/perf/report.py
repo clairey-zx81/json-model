@@ -112,7 +112,7 @@ TOOLS: dict[str, tuple[str, str, str, str]] = {
     "1": ("jmc-java-gson", "jv1", "jmc-java-class", "**jv1** is JMC for Java with GSON"),
     "2": ("jmc-java-jackson", "jv2", "jmc-java-class", "**jv2** is JMC for Java with Jackson"),
     "3": ("jmc-java-jsonp", "jv3", "jmc-java-class", "**jv3** is JMC for Java with JSONP"),
-    "s": ("jmc-js", "js", "jmc-js", "**js** is JMC for JavaScript"),
+    "s": ("jmc-js", "js", "jmc-js", "**js** is JMC for JavaScript"),  # node or bun or …
     "y": ("jmc-py", "py", "jmc-py", "**py** is JMC for Python"),
     "l": ("jmc-pl", "pl", "jmc-pl", "**pl** is JMC for Perl"),
     "q": ("jmc-sql", "sql", "jmc-sql", "**sql** is JMC for PL/pgSQL"),

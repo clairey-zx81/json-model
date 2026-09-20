@@ -454,7 +454,15 @@ EOF
   fi
 
   [[ $TASK =~ y ]] && echo "- **python version:** $(jmc exec python --version|head -1)"
-  [[ $TASK =~ s ]] && echo "- **node version:** $(jmc exec node --version|head -1)"
+  if [[ $TASK =~ s ]] ; then
+    if [[ "$JMC_OPTS" == *--js-runtime=bun* ]] ; then
+      echo "- **bun version:** $(jmc exec bun --version|head -1)"
+    elif [[ "$JMC_OPTS" == *--js-runtime=node* ]] ; then
+      echo "- **node version:** $(jmc exec node --version|head -1)"
+    else  # default is node
+      echo "- **node version:** $(jmc exec node --version|head -1)"
+    fi
+  fi
   [[ $TASK =~ [v123] ]] && echo "- **javac version:** $(jmc exec javac --version|head -1)"
   [[ $TASK =~ l ]] && echo "- **perl version:** $(jmc exec perl -e 'print "$^V\n"'|head -1)"
 } >> "$ID.md"
