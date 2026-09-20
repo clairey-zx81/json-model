@@ -1,5 +1,15 @@
 # JSON Model Compiler Versions
 
+## 2.0.62 on 2026-09-20
+
+- bench: add case names to generated radar
+- pr: use case names for radar display if available
+- optim: merge props handling if submodel are equal if possible
+- container: update versions, add bun as a js runtime, use node 26 (10% faster)
+- front: add `--js-runtime` option
+- bench: report "bun" version if appropriate
+- backend: refactor ir optimizations
+
 ## 2.0.61 on 2026-09-18
 
 - ir: ensure that a nope is kept when optimizing sequences
