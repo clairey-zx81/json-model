@@ -45,9 +45,8 @@ ENV PATH=/app/venv/bin:$PATH
 
 # nodejs >= 20.0.0
 # ARG NODE=stable
-ARG NODE=24
+ARG NODE=26
 
-# FIXME https://github.com/nodejs/nan/pull/1016: node 26 not supported, needed for re2
 ENV NVM_DIR=/usr/local/nvm
 RUN mkdir -p $NVM_DIR
 RUN curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.7/install.sh | bash
@@ -62,7 +61,7 @@ RUN ln -s $NVM_DIR/versions/node/v* $NVM_DIR/versions/node/stable
 ENV NODE_PATH=/app/node_modules
 ENV PATH=$NVM_DIR/versions/node/stable/bin:$PATH
 
-# js runtime
+# jmc js runtime
 RUN echo '{"name":"zx80-jmc","type":"module"}' | jq > package.json
 RUN npm install re2
 
