@@ -22,6 +22,13 @@ perf = pd.read_csv(
 tools = sorted(perf.index.get_level_values("tool").unique())
 cases = sorted(perf.index.get_level_values("case").unique())
 
+# ensure a consistent ordering? The default is ab, which suit us
+# tools_order = { k: i for i, k in enumerate(tools) }
+# perf = perf.sort_index(level="tool", key=lambda idx: idx.map(tools_order))
+# cases_order = { k: i for i, k in enumerate(cases) }
+# perf = perf.sort_index(level="case", key=lambda idx: idx.map(cases_order))
+
+# compute performance
 perf_median = perf.groupby(["case", "tool", "line"])["runavg"].median()
 perf_total = perf_median.groupby(["case", "tool"]).sum()
 perf_best = perf_total.groupby("case").min()
