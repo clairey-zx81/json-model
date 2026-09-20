@@ -2,7 +2,8 @@
 
 ## Current Tasks
 
-- [x] bench: add unused case names to generated radar
+- [x] bench: add case names to generated radar
+- [x] pr: use case names for radar display if available
 - [x] optim: merge props handling if submodel are equal if possible
 - [x] container: update versions, add bun as a js runtime, use node 26 (10% faster)
 - [x] front: add `--js-runtime` option
