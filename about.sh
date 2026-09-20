@@ -52,6 +52,7 @@ cloc --md \
     json_model/utils.py \
     json_model/xstatic.py \
     json_model/irep.py \
+    json_model/iroptim.py \
     json_model/ts_export.py \
     | sed -n -e '/^$/,$p' | head -4
 

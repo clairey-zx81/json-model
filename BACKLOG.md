@@ -8,6 +8,7 @@
 - [x] container: update versions, add bun as a js runtime, use node 26 (10% faster)
 - [x] front: add `--js-runtime` option
 - [x] bench: report "bun" version if appropriate
+- [x] backend: refactor ir optimizations
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
 - [ ] bench: handle case failures for radar (wip, ajv handling)
@@ -86,7 +87,6 @@
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"
 - [ ] backend: simplify assignment patterns with ternary operator when available?
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `black`…
-- [ ] backend: actually remove ignore code and sequences
 - [ ] c-backend: get pval string into a variable for strcmp unrolling and inlining
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] c-backend: strcmp to const inlining and unrolling for all instances
@@ -95,7 +95,6 @@
 - [ ] static: optimize not string cst test?
 - [ ] static: close may/must? merge with open?
 - [ ] static: add a dynamic test for different strategies in object checking
-- [ ] backend: refactor ir optimizations
 - [ ] artifact: make work with dind (docker compose?)
 - [ ] static: recognize already compile objects and reuse function esp under no-reporting?
 - [ ] tests: add non regression tests to docker build

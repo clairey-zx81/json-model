@@ -14,7 +14,8 @@ from .runtime.support import _path as json_path
 from .analyze import ultimate_type, disjunct_analyse, distinct_prop_objects, ultimate_model
 from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr, PathExpr, PropMap, JsonExpr, StrExpr, Var
-from .irep import IRep, optimizeIR, evaluate, ir_evaluate
+from .irep import IRep, evaluate, ir_evaluate
+from .iroptim import optimizeIR
 
 # probability of named optional props in an object
 MAY_P = 0.5
