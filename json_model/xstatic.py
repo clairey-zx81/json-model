@@ -2356,6 +2356,7 @@ def make_language(
         unique_opt: bool = True,
         strcmp_cset_partition_threshold: int = 32,
         js_direct: bool = True,
+        js_runtime: str = "node",
     ) -> tuple[Language|None, str|None]:
     """Build the back-end for a target language, and its default package."""
 
@@ -2378,7 +2379,7 @@ def make_language(
         from .javascript import JavaScript
         language = JavaScript(
             debug=debug, with_report=report, with_path=report, with_comment=comment,
-            with_predef=predef, relib=relib or "re", direct=js_direct,
+            with_predef=predef, relib=relib or "re", direct=js_direct, runtime=js_runtime,
         )
     elif lang in ("plpgsql", "sql"):
         from .plpgsql import PLpgSQL
@@ -2449,6 +2450,7 @@ def xstatic_compile(
         byte_order: str = "le",
         mark: str|None = None,
         js_direct: bool = True,
+        js_runtime: str = "node",
     ) -> Code:
     """Generate the check source code for a model.
 
@@ -2490,6 +2492,7 @@ def xstatic_compile(
     - homogeneous_list: factor out type check on homogeneous lists (or, and…)
     - byte_order: le, be or dpd
     - js_direct: use more direct code in some cases
+    - js_runtime: JS runtime
     """
 
     # set default threshold for must-only scheme
@@ -2583,7 +2586,8 @@ def xstatic_compile(
     language, package = make_language(
         lang, package=package,
         debug=debug, report=report, comment=comment, predef=predef, relib=relib,
-        inline=inline, strcmp=strcmp, byte_order=byte_order, js_direct=js_direct,
+        inline=inline, strcmp=strcmp, byte_order=byte_order,
+        js_direct=js_direct, js_runtime=js_runtime,
         max_strcmp_cset=max_strcmp_cset, regex_opt=regex_opt, unique_opt=unique_opt,
         strcmp_cset_partition_threshold=strcmp_cset_partition_threshold,
     )
@@ -2651,6 +2655,7 @@ def ir_compile(
         unique_opt: bool = True,
         strcmp_cset_partition_threshold: int = 32,
         js_direct: bool = True,
+        js_runtime: str = "node",
     ) -> str:
     """Generate the check source code from a JSON intermediate representation."""
 
@@ -2666,7 +2671,8 @@ def ir_compile(
     language, package = make_language(
         lang, package=package,
         debug=debug, report=report, comment=comment, predef=predef, relib=relib,
-        inline=inline, strcmp=strcmp, byte_order=byte_order, js_direct=js_direct,
+        inline=inline, strcmp=strcmp, byte_order=byte_order,
+        js_direct=js_direct, js_runtime=js_runtime,
         max_strcmp_cset=max_strcmp_cset, regex_opt=regex_opt, unique_opt=unique_opt,
         strcmp_cset_partition_threshold=strcmp_cset_partition_threshold,
     )

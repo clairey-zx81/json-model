@@ -48,7 +48,7 @@ class JavaScript(Language):
             self, *,
             debug: bool = False, relib: str = "re", with_predef: bool = True,
             with_path: bool = True, with_report: bool = True, with_comment: bool = True,
-            direct: bool = False,
+            direct: bool = False, runtime: str = "node",
         ):
 
         super().__init__(
@@ -65,12 +65,17 @@ class JavaScript(Language):
 
         self._json_esc_table = str.maketrans(_ESC_TABLE)
         self._direct = direct
+        self._runtime = runtime
 
     #
     # file
     #
     def file_header(self, exe: bool = True, mark: str|None = None) -> Block:
-        code: Block = self.file_load("javascript_exe.js") if exe else []
+        code: Block = []
+        if exe:
+            if self._runtime != "none":
+                code += [ f"#! /bin/env {self._runtime}" ]
+            code += self.file_load("javascript_exe.js")
         code += super().file_header(exe, mark)
         code += self.file_load("javascript_head.js")
         code += [ f"const JSON_MODEL_VERSION = {self.esc(self.version())};" ]

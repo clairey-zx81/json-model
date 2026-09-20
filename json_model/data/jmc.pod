@@ -335,6 +335,22 @@ Java compiler flags.
 
 =back
 
+=head2 JavaScript Compilation
+
+=over 4
+
+=item B<--js-runtime JS>
+
+Set JavaScript runtime for generated executable, eg C<bun>.
+Skip with C<none>.
+Default is C<node>.
+
+=item B<--js-direct> or B<--no-js-direct>
+
+Use more direct operations in generated JS code.
+
+=back
+
 =head2 JSON Schema Export
 
 =over 4

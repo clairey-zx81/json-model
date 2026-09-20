@@ -439,7 +439,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         default=None, help="output language")
 
     # C-specific options
-    grp = ap.add_argument_group("C compiler options")
+    grp = ap.add_argument_group("C options")
     arg = grp.add_argument
     arg("--cc", type=str, help="override default C language compiler")
     arg("--cflags", type=str, help="override C compiler flags")
@@ -454,14 +454,15 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--precompiled", action="store_true", default=False, help="use precompiled C runtime")
     arg("--no-precompiled", dest="precompiled", action="store_false", help="do not use precompiled C runtime")
 
-    # TODO java-specific options
-    grp = ap.add_argument_group("Java compiler options")
+    grp = ap.add_argument_group("Java options")
     arg = grp.add_argument
     arg("--javac", type=str, help="override default Java language compiler")
     arg("--jflags", type=str, help="add Java compiler flags")
 
-    grp = ap.add_argument_group("JavaScript compiler options")
+    grp = ap.add_argument_group("JavaScript options")
     arg = grp.add_argument
+    arg("--js-runtime", type=str, default="node",
+        help="javascript runtime for generated executable, default is node, none to skip")
     arg("--js-direct", action="store_true", default=True,
         help="use more direct operations in JS")
     arg("--no-js-direct", dest="js_direct", action="store_false",
@@ -937,7 +938,6 @@ def jmc_script(xargs: list[str]|None = None) -> int:
                 unique_opt=args.unique_opt,
                 max_strcmp_cset=args.max_strcmp_cset,
                 mark=args.mark,
-                js_direct=args.js_direct,
             )
         else:
             assert model is not None
@@ -978,6 +978,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
                 array_unrolling_size=args.array_unrolling_size,
                 mark=args.mark,
                 js_direct=args.js_direct,
+                js_runtime=args.js_runtime,
             )
             source = str(code)
 
@@ -989,8 +990,11 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         elif args.gen != "none":
             print(source, file=output, end="", flush=True)
             if args.output != "-" and args.gen == "exec":
-                # executable script file: rwxr-xr-w
-                os.chmod(args.output, 0o755)
+                if args.format == "js" and args.js_runtime == "none":
+                    pass
+                else:
+                    # executable script file: rwxr-xr-w
+                    os.chmod(args.output, 0o755)
 
         # import for checks
         if args.format == "py" and args.values:
