@@ -4,7 +4,7 @@
 
 - [x] bench: add unused case names to generated radar
 - [x] optim: merge props handling if submodel are equal if possible
-- [x] container: update versions, add bun as a js runtime
+- [x] container: update versions, add bun as a js runtime, use node 26 (10% faster)
 - [x] front: add `--js-runtime` option
 - [x] bench: report "bun" version if appropriate
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
