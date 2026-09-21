@@ -209,8 +209,9 @@ EXPECT: dict[str, int] = {
     "mv-29:models:errors": 5,
     "mv-29:verrors:schema": 3,
     # mv-2a
-    "mv-2a:models": 7,
-    "mv-2a:values": 145,
+    "mv-2a:mod-opts": {"extend": True},
+    "mv-2a:models": 8,
+    "mv-2a:values": 162,
     # mv-2b
     "mv-2b:cmp-opts": {"report": False, "comment": False},
     "mv-2b:models": 8,
@@ -307,7 +308,7 @@ def file_is_newer(f1: str, f2: str) -> bool:
 def has_exec(program: str) -> bool:
     return os.system(f"type {program}") == 0
 
-DIR_WITH_EXTENSIONS: set[str] = { "mv-29", "mv-35" }
+DIR_WITH_EXTENSIONS: set[str] = { "mv-29", "mv-2a", "mv-35" }
 
 #
 # LOCAL FIXTURES

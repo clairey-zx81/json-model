@@ -1,0 +1,17 @@
+v105.values.json[0]: PASS
+v105.values.json[1]: PASS
+v105.values.json[2]: FAIL (.: not a 1 strict int [.'&'.0.'@']; .: not all model match [.'&'])
+v105.values.json[3]: FAIL (.: constraints failed [.'&'.0]; .: not all model match [.'&'])
+v105.values.json[4]: FAIL (.: not a 1 strict int [.'&'.0.'@']; .: not all model match [.'&'])
+v105.values.json[5]: FAIL (.: constraints failed [.'&'.0]; .: not all model match [.'&'])
+v105.values.json[6]: FAIL (.: constraints failed [.'&'.0]; .: not all model match [.'&'])
+v105.values.json[7]: FAIL (.: not all model match [.'&'])
+v105.values.json[8]: FAIL (.: not all model match [.'&'])
+v105.values.json[9]: FAIL (.: not all model match [.'&'])
+v105.values.json[10]: FAIL (.: not all model match [.'&'])
+v105.values.json[11]: FAIL (.: not all model match [.'&'])
+v105.values.json[12]: FAIL (.: not all model match [.'&'])
+v105.values.json[13]: FAIL (.: not all model match [.'&'])
+v105.values.json[14]: FAIL (.: not all model match [.'&'])
+v105.values.json[15]: FAIL (.: not all model match [.'&'])
+v105.values.json[16]: FAIL (.: not all model match [.'&'])

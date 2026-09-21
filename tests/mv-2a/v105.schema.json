@@ -1,0 +1,19 @@
+{
+  "allOf": [
+    {
+      "type": "integer",
+      "minimum": 1,
+      "multipleOf": 7
+    },
+    {
+      "type": "integer",
+      "minimum": 1,
+      "multipleOf": 3
+    },
+    {
+      "type": "integer",
+      "minimum": 1,
+      "multipleOf": 5
+    }
+  ]
+}
