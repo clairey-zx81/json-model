@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] pr: center logo in sidebar
+- [x] optim: handle indirect number models
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
 - [ ] bench: handle case failures for radar (wip, ajv handling)
