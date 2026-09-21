@@ -1,0 +1,19 @@
+[
+  [ true,  105 ],
+  [ true,  210 ],
+  [ false, 0 ],
+  [ false, 1 ],
+  [ false, -42 ],
+  [ false, 104 ],
+  [ false, 106 ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

@@ -321,13 +321,13 @@ def intersect(
         return in1
     # type strict inclusions
     # TODO loose ints/floats?
-    if t1t is int:
+    if t1t is int and isinstance(m1, int) and isinstance(m2, int):
         mm, mM = min(m1, m2), max(m1, m2)
         if mm == -1 and mM in (0, 1):
             return mM
         elif mm == 0 and mM == 1:
             return 1
-    if t1t is float:
+    if t1t is float and isinstance(m1, (int, float)) and isinstance(m2, (int, float)):
         mm, mM = min(m1, m2), max(m1, m2)
         if mm == -1.0 and mM in (0.0, 1.0):
             return mM
