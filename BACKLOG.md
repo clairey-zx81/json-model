@@ -5,6 +5,10 @@
 - [x] pr: center logo in sidebar
 - [x] optim: handle indirect number models
 - [x] optim: improve partial eval for more num nones
+- [x] optim: simplify some '!=' cases
+- [x] perf: ~add another loop over performance collection?~
+- [x] pr: add simple compiler description page
+- [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
 - [ ] bench: handle case failures for radar (wip, ajv handling)
@@ -24,15 +28,12 @@
 - [ ] static: check for common object part?
 - [ ] front: generate valid minimal, maximal and random values from a model
 - [ ] front: generate invalid minimal values from a model
-- [ ] optim: simplify some '!=' cases
 - [ ] optim: collect and display stats about what works
 - [ ] spec: allow to _remove_ definitions, eg `{ "$stuff": {"/": "$foo"}}`
 - [ ] spec: restrict regex syntax to a smaller subset
-- [ ] perf: add another loop over performance collection?
 - [ ] perf: drop and/or merge identical results when comparing
 - [ ] backend: check `mv-34/mu` test case which may require some utf normalization
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
-- [ ] pr: better document optimizations, eg add compiler optimization page
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
 - [ ] js: implement cset as an or-expression
 - [ ] c-backend: factor out str extraction in or-list in more cases
