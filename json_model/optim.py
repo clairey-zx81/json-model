@@ -461,7 +461,7 @@ def partial_eval(jm: JsonModel):
                              lxor)):
 
                     # beware of type inclusions!
-                    if len(list(filter(lambda m: m == "", lxor))) == 2:
+                    if len(list(filter(lambda m: m == "", lxor))) >= 2:
                         changes += 1
                         return "$NONE"
                     has_str = "" in lxor
