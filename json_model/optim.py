@@ -459,6 +459,7 @@ def partial_eval(jm: JsonModel):
                     return "$NONE"
                 elif all(map(lambda m: isinstance(m, str) and (m == "" or m[0] not in "$/="),
                              lxor)):
+                    # only direct strings
 
                     # beware of type inclusions!
                     if len(list(filter(lambda m: m == "", lxor))) >= 2:
