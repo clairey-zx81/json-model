@@ -198,9 +198,8 @@ EXPECT: dict[str, int] = {
     "mv-27:values": 105,
     # mv-28
     "mv-28:cmp-opts": {"strcmp": True, "report": False, "strcmp_cset_partition_threshold": 32},
-    "mv-28:models": 7,
-    # "mv-28:models:errors-c": 1,  # bracket
-    "mv-28:values": 159,
+    "mv-28:models": 8,
+    "mv-28:values": 170,
     # mv-29: extensions
     "mv-29:models": 8,
     "mv-29:values": 129,

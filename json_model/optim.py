@@ -542,6 +542,11 @@ def partial_eval(jm: JsonModel):
                         v = float(model["="])
                         lev = v if lev is None else min(lev, v)
                         gev = v if gev is None else max(gev, v)
+                # constant num model
+                if isinstance(model["@"], str) and re.match(r"^=[-+]?\d+(\.\d*)?([eE][-+]?\d+)?$", model["@"]):
+                        v = float(model["@"][1:])
+                        lev = v if lev is None else min(lev, v)
+                        gev = v if gev is None else max(gev, v)
                 # conclude for < <= = > >=
                 if gev is not None and lev is not None and gev > lev:
                     changes += 1
@@ -553,6 +558,9 @@ def partial_eval(jm: JsonModel):
                         if gev is not None and nev < gev or lev is not None and lev < nev:
                             changes += 1
                             del model["!="]
+                        if gev is not None and lev is not None and nev == lev and nev == gev:
+                            changes += 1
+                            return "$NONE"
                 # .mo
                 if ".mo" in model:
                     mo = model[".mo"]

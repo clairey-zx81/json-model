@@ -4,6 +4,7 @@
 
 - [x] pr: center logo in sidebar
 - [x] optim: handle indirect number models
+- [x] optim: improve partial eval for more num nones
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
 - [ ] bench: handle case failures for radar (wip, ajv handling)
