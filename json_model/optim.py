@@ -467,7 +467,13 @@ def partial_eval(jm: JsonModel):
                         return "$NONE"
                     has_str = "" in lxor
 
-                    # move doubled (or more) string constants
+                    # normalize string constants with a _
+                    normal = [ f"_{m}" if m and m[0] != "_" else m for m in lxor ]
+                    if normal != lxor:
+                        changes += 1
+                        lxor = normal
+
+                    # remove doubled (or more) string constants
                     seen, doubled = set(), set()
                     for m in lxor:
                         if m in seen:
