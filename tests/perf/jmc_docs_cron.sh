@@ -45,3 +45,6 @@ rsync -rav _site/. $DEST/. || err 5 "cannot rsync site: $?"
 
 # status
 cp .published.tmp .published.last || err 6 "cannot update status: .published.last"
+
+# cleanup
+make clean.site || err 4 "cannot re-clean site: $?"
