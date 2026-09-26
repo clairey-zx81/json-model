@@ -1,0 +1,15 @@
+any_obj.values.json[0]: PASS
+any_obj.values.json[1]: PASS
+any_obj.values.json[2]: PASS
+any_obj.values.json[3]: PASS
+any_obj.values.json[4]: PASS
+any_obj.values.json[5]: FAIL (.: missing mandatory prop <a> [.])
+any_obj.values.json[6]: FAIL (.: not an object [.])
+any_obj.values.json[7]: FAIL (.: not an object [.])
+any_obj.values.json[8]: FAIL (.: not an object [.])
+any_obj.values.json[9]: FAIL (.: not an object [.])
+any_obj.values.json[10]: FAIL (.: not an object [.])
+any_obj.values.json[11]: FAIL (.: not an object [.])
+any_obj.values.json[12]: FAIL (.: not an object [.])
+any_obj.values.json[13]: FAIL (.: not an object [.])
+any_obj.values.json[14]: FAIL (.: not an object [.])

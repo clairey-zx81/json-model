@@ -1,0 +1,11 @@
+{
+  "#": "any catchall reduction",
+  "$": {
+    "Dd": "_d"
+  },
+  "a": "",
+  "?b": "$ANY",
+  "/^c/": "$ANY",
+  "$Dd": "$ANY",
+  "": "$ANY"
+}
