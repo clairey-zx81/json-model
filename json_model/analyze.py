@@ -186,14 +186,16 @@ def valid(jm: JsonModel,
                 else:  # check object
                     props = set()  # check property name collisions
                     for p, m in model.items():
-                        if p == "#":
+                        if p == "#" or p and p[0] == "#":  # skip comments
                             continue
                         assert isinstance(p, str), f"property name {p} is a string at {spath}"
-                        if p and p[0] not in ("$", "/"):
+                        if p and p[0] not in "$/":
                             name = p[1:] if p[0] in ("?", "_", "!") else p
                             assert name not in props, f"no property name collison at {spath}"
                             props.add(name)
-                        # more checks on p if p[0] == "$"
+                        elif p and p[0] == "$":  # check property name type
+                            assert ultimate_type(jm, p) is str, f"property name reference {p} is a string at {spath}"
+                        # else p == "" or p is a regex
             case _:
                 assert False, f"unexpected model base type at {spath}"
         return True
