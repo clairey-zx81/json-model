@@ -196,7 +196,9 @@ Property names are matched as follow:
 - `"?XXX"`: optional properties directly provided after the `?`.
 - `"/.../"`: optional property names matching a regular expression:
   eg `{"/^a/": ""}` means property names starting with _a_ must have string values.
-- `"$XXX"`: optional property reference to a **string** [definition](#definitions-and-scope).
+- `"$XXX"`: optional property reference to a **string** [definition](#definitions-and-scope)
+  or predef. The target definition type must be resolved as a string according to
+  the [typing lattice](#static-typing-lattice).
 - `""` catch all property: any property name matches.
   This is consistent with `""` standing for any string.
 - property names starting with other characters are reserved for future uses and must be rejected.
@@ -216,7 +218,7 @@ property specifications are **not** cumulative.
 
 The matching search **should** follow the specification order within these classes
 if the language JSON representation allows it.
-However, a model **should nots** rely on the fact that the specification order is preserved
+However, a model **should not** rely on the fact that the specification order is preserved
 for its expected semantics.
 This allows to hint optimization by putting more likely properties ahead of the check.
 
