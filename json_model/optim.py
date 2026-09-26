@@ -633,7 +633,22 @@ def partial_eval(jm: JsonModel):
                         for prop in drop:
                             changes += 1
                             del model[prop]
-
+                # check for mandatory none props
+                for prop, smodel in model.items():
+                    if prop and prop[0] not in "#/$?" and smodel == "$NONE":
+                        changes += 1
+                        return "$NONE"
+                # simplify optional none catchall prop
+                if "" in model and model[""] == "$NONE":
+                    changes += 1
+                    del model[""]
+                # simplify optional none props
+                # TODO improve, but props masking to consider
+                optprops = {p for p in model if p == "" or p[0] in "/$?"}
+                if all(model[p] == "$NONE" for p in optprops):  # safe case
+                    changes += len(optprops)
+                    for p in optprops:
+                        del model[p]
         return model
 
     # log.debug(f"{jm._id}: eval in = {jm._model}")
