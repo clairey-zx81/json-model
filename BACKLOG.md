@@ -12,6 +12,8 @@
 - [x] optim: `{"a":"$NONE"}` is `"$NONE"`
 - [x] optim: `{"?a":"$NONE"}` or `{"": "$NONE"}` is `{}`
 - [x] check: prop references must be strings
+- [ ] static: shortcut on open one opt prop may only?
+- [ ] static: shortcut on open several opt props may only?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
