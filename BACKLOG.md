@@ -9,8 +9,9 @@
 - [x] perf: ~add another loop over performance collection?~
 - [x] pr: add simple compiler description page
 - [x] optim: fix xor bad deduplication optimization when 3 models are equal
-- [x] optim: check `{"a":"$NONE"}` is `"$NONE"`
-- [x] optim: check `{"?a":"$NONE"}` or `{"": "$NONE"}` is `{}`
+- [x] optim: `{"a":"$NONE"}` is `"$NONE"`
+- [x] optim: `{"?a":"$NONE"}` or `{"": "$NONE"}` is `{}`
+- [x] check: prop references must be strings
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
