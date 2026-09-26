@@ -4034,6 +4034,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.46]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4051,6 +4052,9 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.46.name]", (path ? &lpath_47 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4080,6 +4084,9 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.46.versions]", (path ? &lpath_47 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4108,6 +4115,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.45]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4125,6 +4133,9 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.45.name]", (path ? &lpath_48 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4154,6 +4165,9 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.45.versions]", (path ? &lpath_48 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4169,6 +4183,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.44]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4187,6 +4202,9 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.44.name]", (path ? &lpath_49 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4216,6 +4234,9 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.44.versions]", (path ? &lpath_49 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4244,6 +4265,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.43]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4261,6 +4283,9 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.43.name]", (path ? &lpath_50 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4290,6 +4315,9 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.43.versions]", (path ? &lpath_50 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4347,6 +4375,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.42]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4364,6 +4393,9 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.42.name]", (path ? &lpath_51 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4393,6 +4425,9 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.42.versions]", (path ? &lpath_51 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4419,6 +4454,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.41]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4436,6 +4472,9 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.41.name]", (path ? &lpath_52 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4465,6 +4504,9 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.41.versions]", (path ? &lpath_52 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4491,6 +4533,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.40]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4509,6 +4552,9 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.40.name]", (path ? &lpath_53 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4538,6 +4584,9 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.40.versions]", (path ? &lpath_53 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4566,6 +4615,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.39]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4583,6 +4633,9 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.39.name]", (path ? &lpath_54 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4612,6 +4665,9 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.39.versions]", (path ? &lpath_54 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4627,6 +4683,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.38]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4644,6 +4701,9 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.38.name]", (path ? &lpath_55 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4673,6 +4733,9 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.38.versions]", (path ? &lpath_55 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4715,6 +4778,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.37]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4732,6 +4796,9 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.37.name]", (path ? &lpath_56 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4761,6 +4828,9 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.37.versions]", (path ? &lpath_56 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4795,6 +4865,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.36]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4812,6 +4883,9 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.36.name]", (path ? &lpath_57 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4841,6 +4915,9 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.36.versions]", (path ? &lpath_57 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4867,6 +4944,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.35]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4884,6 +4962,9 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.35.name]", (path ? &lpath_58 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4913,6 +4994,9 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.35.versions]", (path ? &lpath_58 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -4928,6 +5012,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.34]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -4945,6 +5030,9 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.34.name]", (path ? &lpath_59 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -4974,6 +5062,9 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.34.versions]", (path ? &lpath_59 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5022,6 +5113,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.33]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5040,6 +5132,9 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.33.name]", (path ? &lpath_60 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5069,6 +5164,9 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.33.versions]", (path ? &lpath_60 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5098,6 +5196,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.32]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5115,6 +5214,9 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.32.name]", (path ? &lpath_61 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5144,6 +5246,9 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.32.versions]", (path ? &lpath_61 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5180,6 +5285,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.31]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5198,6 +5304,9 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.31.name]", (path ? &lpath_62 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5227,6 +5336,9 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.31.versions]", (path ? &lpath_62 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5267,6 +5379,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.30]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5284,6 +5397,9 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.30.name]", (path ? &lpath_63 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5313,6 +5429,9 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.30.versions]", (path ? &lpath_63 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5328,6 +5447,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.29]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5345,6 +5465,9 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.29.name]", (path ? &lpath_64 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5374,6 +5497,9 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.29.versions]", (path ? &lpath_64 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5398,6 +5524,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.28]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5415,6 +5542,9 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.28.name]", (path ? &lpath_65 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5444,6 +5574,9 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.28.versions]", (path ? &lpath_65 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5475,6 +5608,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.27]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5492,6 +5626,9 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.27.name]", (path ? &lpath_66 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5521,6 +5658,9 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.27.versions]", (path ? &lpath_66 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5551,6 +5691,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.26]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5568,6 +5709,9 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.26.name]", (path ? &lpath_67 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5597,6 +5741,9 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.26.versions]", (path ? &lpath_67 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5628,6 +5775,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.25]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5645,6 +5793,9 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.25.name]", (path ? &lpath_68 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5674,6 +5825,9 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.25.versions]", (path ? &lpath_68 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5689,6 +5843,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.24]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5706,6 +5861,9 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.24.name]", (path ? &lpath_69 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5735,6 +5893,9 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.24.versions]", (path ? &lpath_69 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5750,6 +5911,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.23]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5767,6 +5929,9 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.23.name]", (path ? &lpath_70 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5796,6 +5961,9 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.23.versions]", (path ? &lpath_70 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5820,6 +5988,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.22]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5838,6 +6007,9 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.22.name]", (path ? &lpath_71 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5867,6 +6039,9 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.22.versions]", (path ? &lpath_71 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5882,6 +6057,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.21]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5899,6 +6075,9 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.21.name]", (path ? &lpath_72 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5928,6 +6107,9 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.21.versions]", (path ? &lpath_72 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -5943,6 +6125,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.20]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -5961,6 +6144,9 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.20.name]", (path ? &lpath_73 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -5990,6 +6176,9 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.20.versions]", (path ? &lpath_73 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6005,6 +6194,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.19]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6023,6 +6213,9 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.19.name]", (path ? &lpath_74 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6052,6 +6245,9 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.19.versions]", (path ? &lpath_74 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6067,6 +6263,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.18]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6085,6 +6282,9 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.18.name]", (path ? &lpath_75 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6114,6 +6314,9 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.18.versions]", (path ? &lpath_75 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6162,6 +6365,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.17]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6179,6 +6383,9 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.17.name]", (path ? &lpath_76 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6208,6 +6415,9 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.17.versions]", (path ? &lpath_76 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6257,6 +6467,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.16]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6274,6 +6485,9 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.16.name]", (path ? &lpath_77 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6303,6 +6517,9 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.16.versions]", (path ? &lpath_77 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6318,6 +6535,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.15]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6335,6 +6553,9 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.15.name]", (path ? &lpath_78 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6364,6 +6585,9 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.15.versions]", (path ? &lpath_78 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6392,6 +6616,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.14]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6409,6 +6634,9 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.14.name]", (path ? &lpath_79 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6438,6 +6666,9 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.14.versions]", (path ? &lpath_79 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6467,6 +6698,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.13]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6485,6 +6717,9 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.13.name]", (path ? &lpath_80 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6514,6 +6749,9 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.13.versions]", (path ? &lpath_80 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6541,6 +6779,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.12]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6558,6 +6797,9 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.12.name]", (path ? &lpath_81 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6587,6 +6829,9 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.12.versions]", (path ? &lpath_81 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6612,6 +6857,7 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.11]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6629,6 +6875,9 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.11.name]", (path ? &lpath_82 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6658,6 +6907,9 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.11.versions]", (path ? &lpath_82 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6691,6 +6943,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.10]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6708,6 +6961,9 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.10.name]", (path ? &lpath_83 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6737,6 +6993,9 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.10.versions]", (path ? &lpath_83 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6767,6 +7026,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.9]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6784,6 +7044,9 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.9.name]", (path ? &lpath_84 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6813,6 +7076,9 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.9.versions]", (path ? &lpath_84 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6842,6 +7108,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.8]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6859,6 +7126,9 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.8.name]", (path ? &lpath_85 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6888,6 +7158,9 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.8.versions]", (path ? &lpath_85 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6903,6 +7176,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.7]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6921,6 +7195,9 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.7.name]", (path ? &lpath_86 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -6950,6 +7227,9 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.7.versions]", (path ? &lpath_86 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -6976,6 +7256,7 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.6]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -6994,6 +7275,9 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.6.name]", (path ? &lpath_87 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -7023,6 +7307,9 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.6.versions]", (path ? &lpath_87 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -7038,6 +7325,7 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.5]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -7056,6 +7344,9 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.5.name]", (path ? &lpath_88 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -7085,6 +7376,9 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.5.versions]", (path ? &lpath_88 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -7100,6 +7394,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.4]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -7117,6 +7412,9 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.4.name]", (path ? &lpath_89 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -7146,6 +7444,9 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.4.versions]", (path ? &lpath_89 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -7171,6 +7472,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.3]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -7189,6 +7491,9 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.3.name]", (path ? &lpath_90 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -7218,6 +7523,9 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.3.versions]", (path ? &lpath_90 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -7253,6 +7561,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.2]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -7270,6 +7579,9 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.2.name]", (path ? &lpath_91 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -7299,6 +7611,9 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.2.versions]", (path ? &lpath_91 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -7314,6 +7629,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.1]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -7331,6 +7647,9 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.1.name]", (path ? &lpath_92 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -7360,6 +7679,9 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.1.versions]", (path ? &lpath_92 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props
@@ -7385,6 +7707,7 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.0]", path);
         return false;
     }
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -7402,6 +7725,9 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.0.name]", (path ? &lpath_93 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_8(prop, 0x736e6f6973726576LL) && jm_str_eq_0(prop + 8)))
@@ -7431,6 +7757,9 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.0.versions]", (path ? &lpath_93 : NULL));
                 return false;
             }
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props

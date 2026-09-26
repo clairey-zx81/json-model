@@ -42,6 +42,7 @@ class CodeGenerator:
     - map_share: whether to share property maps
     - may_must_open_threshold: max number of optional props to mmop scheme, default 5
     - must_only_threshold: max number of mandatory props for must-only scheme, default 5
+    - may_only_open_threshold: max may only props count to shorten open objects, default 3
     - partition_threshold: max number of strings without search partitioning, 0 for no partitioning
     - or_must_prop: threshold to try or-list shortcut based on mandatory properties
     - sort_must: whether to sort must properties, default False
@@ -64,6 +65,7 @@ class CodeGenerator:
                 prefix: str = "", mark: str|None = None,
                 map_threshold: int = 3, map_share: bool = False,
                 may_must_open_threshold: int = 5, must_only_threshold: int = 5,
+                may_only_open_threshold: int = 3,
                 array_unrolling_size: int = 8, partition_threshold: int = 0,
                 sort_must: bool = False, sort_may: bool = False, or_must_prop: int = 0,
                 regex_pattern: bool = True, call_shortcut: bool = True,
@@ -88,6 +90,7 @@ class CodeGenerator:
         self._map_threshold = map_threshold
         self._may_must_open_threshold = may_must_open_threshold
         self._must_only_threshold = must_only_threshold
+        self._may_only_open_threshold = may_only_open_threshold
         self._sort_must = sort_must
         self._sort_may = sort_may
         self._partition_threshold = partition_threshold
@@ -1077,12 +1080,12 @@ class CodeGenerator:
         # separate properties
         must, may, defs, regs, oth = split_object(model, mpath)
         smpath = json_path(mpath)
+        is_open = oth == {"": "$ANY"}
 
         # shortcut for open object with simple props only
         # TODO accept any other prop?
-        if not defs and not regs and (must or may) and oth == {"": "$ANY"}:
+        if not defs and not regs and (must or may) and is_open:
             # if there are many may values, this may be too costly…
-            # # if (len(may) / (len(must) + len(may)) < self._may_must_open_ratio or
             if (len(must) + len(may)) <= self._may_must_open_threshold:
                 return self._openMuMaObject(jm, must, may, mpath, oname, res, val, vpath, known)
 
@@ -1096,7 +1099,7 @@ class CodeGenerator:
         code: Block = []
         body_code: Block = []
         multi_if: list[tuple[BoolExpr, bool|None, Block]] = []
-        prop, pval, must_c, pfun = "prop", "pval", "must_count", "pfun"
+        prop, pval, must_c, may_c, pfun = "prop", "pval", "must_count", "may_count", "pfun"
 
         # should be an object
         obj_test = gen.is_a(val, dict)
@@ -1107,6 +1110,10 @@ class CodeGenerator:
             known = known | {obj_test}
         else:
             code += gen.lcom("value known to be an object")
+
+        may_count = not defs and not regs and not must and 1 < len(may) <= self._may_only_open_threshold and is_open
+        if may_count:
+            code += gen.int_var(may_c, gen.const(0), declare=True)
 
         # NOTE there may be different tradeoffs depending on the target languages,
         # libraries and the complexity of underlying operations.
@@ -1124,11 +1131,10 @@ class CodeGenerator:
                         likely=True
                     )
                 return code
-            elif oth == { "": "$ANY" }:  # any object (empty must/may/defs/regs)
+            elif is_open:  # any object (empty must/may/defs/regs)
                 code += gen.lcom("accept any object") + gen.ret(gen.true())
                 return code
             # only check values, fine code will be generated below
-
 
         # used for evaluating likely-ness
         expected_nprops = (
@@ -1142,7 +1148,7 @@ class CodeGenerator:
         lpath_ref: PathExpr = gen.path_lvar(lpath, vpath)
 
         # else we have some work to do!
-        if defs or regs or oth and oth[""] != "$ANY" or \
+        if defs or regs or oth and not is_open or \
                 1 <= len(must) <= self._map_threshold or \
                 1 <= len(may) <= self._map_threshold:
             code += gen.bool_var(res, declare=True)
@@ -1322,12 +1328,19 @@ class CodeGenerator:
                                 likely=False)
                         )
 
-                        # shortcut on expecting only one may prop and no other checks needed
+                        if may_count:
+                            ma_code += gen.inc_var(may_c)
+                        # shortcut when expecting only one may props
                         if len(must) == 0 and len(may) == 1 and len(regs) == 0 and len(defs) == 0:
-                            if oth == {"": "$ANY"}:
+                            if is_open:
                                 ma_code += gen.ret(gen.const(True))
                             else:
                                 ma_code += gen.cont()
+                        elif may_count:
+                            ma_code += (
+                                gen.if_stmt(gen.num_cmp(may_c, "=", len(may)), gen.brk()) +
+                                gen.cont()
+                            )
                         else:
                             ma_code += gen.cont()
 
@@ -2421,6 +2434,7 @@ def xstatic_compile(
         map_share: bool = False,
         may_must_open_threshold: int|None = None,
         must_only_threshold: int|None = None,
+        may_only_open_threshold: int|None = None,
         sort_must: bool = False,
         sort_may: bool = False,
         partition_threshold: int|None = None,
@@ -2464,6 +2478,7 @@ def xstatic_compile(
     - map_share: share generated property maps.
     - may_must_open_threshold: mmop scheme if below threshold opt props
     - must_only_threshold: must-only scheme if below threshold mandatory props
+    - may_only_open_threshold: count shorcut on may-only props
     - sort_must: whether to sort must properties
     - sort_may: whether to sort may properties
     - partition_threshold: property test partition if over this threshold, 0 for no partitioning
@@ -2526,6 +2541,10 @@ def xstatic_compile(
     }
     if may_must_open_threshold is None:
         may_must_open_threshold = MAY_MUST_OPEN_THRESHOLD.get(lang, 16)
+
+    # TODO test limit values, 0 or 1 is disabled
+    if may_only_open_threshold is None:
+        may_only_open_threshold = 3
 
     # set default map threshold depending on target language
     MAP_THRESHOLD: dict[str, int] = {

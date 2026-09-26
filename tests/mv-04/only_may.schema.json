@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "a": {
+      "type": "string"
+    },
+    "b": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

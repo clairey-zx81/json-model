@@ -47,8 +47,8 @@ EXPECT: dict[str, int] = {
     "mv-03:verrors:schema": 26,
     # chunk 04
     "mv-04:js2json": 2,
-    "mv-04:models": 8,
-    "mv-04:values": 98,
+    "mv-04:models": 9,
+    "mv-04:values": 115,
     "mv-04:verrors:schema": 15,
     # chunk 05
     "mv-05:models": 9,
@@ -274,7 +274,7 @@ EXPECT: dict[str, int] = {
     "mv-36:values": 140,
     "mv-36:verrors:schema": 1,
     # miscellaneous tests
-    "bads:models": 69,
+    "bads:models": 72,
     "jsts-files": 309,
     # tests json models of json schema versions
     "draft3:jsts": 105,

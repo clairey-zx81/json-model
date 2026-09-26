@@ -2619,6 +2619,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -2628,6 +2629,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -2635,6 +2637,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Windows';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -2653,6 +2659,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -2676,6 +2686,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -2685,6 +2696,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -2692,6 +2704,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'vSphere';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -2711,6 +2727,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -2724,6 +2744,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -2733,6 +2754,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -2740,6 +2762,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Void Linux';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -2758,6 +2784,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -2781,6 +2811,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -2790,6 +2821,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -2797,6 +2829,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'vCenter';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -2815,6 +2851,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -2838,6 +2878,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -2847,6 +2888,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -2854,6 +2896,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Ubuntu';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -2872,6 +2918,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -2895,6 +2945,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -2904,6 +2955,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -2911,6 +2963,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'TMOS';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -2929,6 +2985,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -2952,6 +3012,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -2961,6 +3022,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -2968,6 +3030,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Synology';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -2986,6 +3052,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3009,6 +3079,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3018,6 +3089,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3025,6 +3097,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Solaris';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3044,6 +3120,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -3057,6 +3137,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3066,6 +3147,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3073,6 +3155,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'SmartOS';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3091,6 +3177,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3114,6 +3204,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3123,6 +3214,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3130,6 +3222,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'SLES';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3148,6 +3244,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3171,6 +3271,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3180,6 +3281,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3187,6 +3289,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Rocky';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3205,6 +3311,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3228,6 +3338,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3237,6 +3348,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3244,6 +3356,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'PAN-OS';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3263,6 +3379,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -3276,6 +3396,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3285,6 +3406,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3292,6 +3414,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'os10';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3310,6 +3436,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3333,6 +3463,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3342,6 +3473,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3349,6 +3481,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'OracleLinux';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3367,6 +3503,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3390,6 +3530,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3399,6 +3540,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3406,6 +3548,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'OpenWrt';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3424,6 +3570,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3447,6 +3597,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3456,6 +3607,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3463,6 +3615,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'opensuse';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3481,6 +3637,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3504,6 +3664,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3513,6 +3674,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3520,6 +3682,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'OpenBSD';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3539,6 +3705,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -3552,6 +3722,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3561,6 +3732,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3568,6 +3740,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'NXOS';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3586,6 +3762,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3609,6 +3789,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3618,6 +3799,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3625,6 +3807,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Megeia';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3643,6 +3829,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3666,6 +3856,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3675,6 +3866,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3682,6 +3874,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Kali';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3700,6 +3896,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3723,6 +3923,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3732,6 +3933,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3739,6 +3941,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'macOS';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3757,6 +3963,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3780,6 +3990,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3789,6 +4000,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3796,6 +4008,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Kali';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3815,6 +4031,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -3828,6 +4048,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3837,6 +4058,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3844,6 +4066,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Junos';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3863,6 +4089,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -3876,6 +4106,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3885,6 +4116,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3892,6 +4124,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'IOS';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3910,6 +4146,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -3933,6 +4173,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3942,6 +4183,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3949,6 +4191,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'HardenedBSD';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -3968,6 +4214,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -3981,6 +4231,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -3990,6 +4241,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -3997,6 +4249,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Gentoo';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4016,6 +4272,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -4029,6 +4289,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4038,6 +4299,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4045,6 +4307,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'GenericUNIX';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4064,6 +4330,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -4077,6 +4347,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4086,6 +4357,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4093,6 +4365,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'GenericLinux';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4112,6 +4388,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -4125,6 +4405,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4134,6 +4415,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4141,6 +4423,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'GenericBSD';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4159,6 +4445,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -4182,6 +4472,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4191,6 +4482,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4198,6 +4490,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'FreeBSD';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4216,6 +4512,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -4239,6 +4539,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4248,6 +4549,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4255,6 +4557,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Fedora';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4274,6 +4580,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -4287,6 +4597,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4296,6 +4607,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4303,6 +4615,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'eos';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4321,6 +4637,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -4344,6 +4664,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4353,6 +4674,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4360,6 +4682,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'EL';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4378,6 +4704,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -4401,6 +4731,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4410,6 +4741,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4417,6 +4749,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'DragonFlyBSD';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4435,6 +4771,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -4458,6 +4798,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4467,6 +4808,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4474,6 +4816,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Devuan';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4492,6 +4838,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -4515,6 +4865,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4524,6 +4875,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4531,6 +4883,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'DellOS';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4549,6 +4905,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -4572,6 +4932,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4581,6 +4942,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4588,6 +4950,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Debian';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4606,6 +4972,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -4629,6 +4999,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4638,6 +5009,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4645,6 +5017,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'NetBSD';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4663,6 +5039,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -4686,6 +5066,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4695,6 +5076,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4702,6 +5084,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Cumulus';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4721,6 +5107,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -4734,6 +5124,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4743,6 +5134,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4750,6 +5142,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'ClearLinux';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4768,6 +5164,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -4791,6 +5191,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4800,6 +5201,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4807,6 +5209,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Astra Linux';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4826,6 +5232,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -4839,6 +5249,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_41(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4848,6 +5259,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4855,6 +5267,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'ArchLinux';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4874,6 +5290,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -4887,6 +5307,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_42(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4896,6 +5317,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4903,6 +5325,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'aos';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4921,6 +5347,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -4944,6 +5374,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -4953,6 +5384,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -4960,6 +5392,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Amazon Linux';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -4978,6 +5414,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -5001,6 +5441,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -5010,6 +5451,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -5017,6 +5459,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Amazon';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -5036,6 +5482,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     END IF;
     -- accept any other props
@@ -5049,6 +5499,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -5058,6 +5509,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -5065,6 +5517,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Alpine';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -5083,6 +5539,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
@@ -5106,6 +5566,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -5115,6 +5576,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
@@ -5122,6 +5584,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'AIX';
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     ELSEIF prop = 'versions' THEN
@@ -5140,6 +5606,10 @@ BEGIN
       END IF;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;
