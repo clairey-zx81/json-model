@@ -57,6 +57,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  may_count int;
   res bool;
   prop TEXT;
   pval JSONB;
@@ -65,6 +66,7 @@ BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
+  may_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'a' THEN
       -- handle may a property
@@ -73,6 +75,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
+      END IF;
       CONTINUE;
     ELSEIF prop = 'b' THEN
       -- handle may b property
@@ -80,6 +86,10 @@ BEGIN
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
+      END IF;
+      may_count := may_count + 1;
+      IF may_count = 2 THEN
+        EXIT;
       END IF;
       CONTINUE;
     END IF;

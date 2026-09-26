@@ -204,6 +204,12 @@ is below the provided threshold, default is depends on target.
 Consider must-only object property scheme if the number of mandatory
 properties is below the provided threshold, default depends on target.
 
+=item B<--may-only-open-threshold THRESHOLD>
+
+Count-based shorcut for may-only open objects if the number of optional
+properties is greater than 1 and below the provided threshold.
+Default is 3, 0 to disable.
+
 =item B<--partition-threshold THRESHOLD>
 
 Number of properties to trigger partitioning inlined property checks,

@@ -58,6 +58,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$merge'
     if (unlikely(! json_is_object(val)))
         return false;
+    int64_t may_count = 0;
     bool res;
     const char *prop;
     json_t *pval;
@@ -70,6 +71,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         else if (unlikely(jm_str_eq_2(prop, 0x00000062)))
@@ -79,6 +83,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
+            may_count += 1;
+            if (may_count == 2)
+                break;
             continue;
         }
         // accept any other props

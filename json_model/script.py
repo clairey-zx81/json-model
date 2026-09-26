@@ -516,6 +516,9 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--must-only-threshold", "-mot", default=None, type=int,
         help="must-only scheme if number of mandatory props below threshold,"
              " target-dependent default, 0 to disable")
+    arg("--may-only-open-threshold", "-moot", default=None, type=int,
+        help="count shortcut for on open may-only props objects below threshold but > 1,"
+             " default is 3, 0 to disable")
     arg("--partition-threshold", "-pt", default=None, type=int,
         help="threshold to trigger unrolled string search partitioning")
     arg("--or-must-prop", "-omp", default=None, type=int,
@@ -963,6 +966,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
                 regex_pattern=args.regex_pattern,
                 may_must_open_threshold=args.may_must_open_threshold,
                 must_only_threshold=args.must_only_threshold,
+                may_only_open_threshold=args.may_only_open_threshold,
                 partition_threshold=args.partition_threshold,
                 or_must_prop=args.or_must_prop,
                 sort_must=args.sort_must,

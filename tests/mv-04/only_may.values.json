@@ -1,0 +1,19 @@
+[
+  [ true,  {} ],
+  [ true,  {"a": "Susie"} ],
+  [ true,  {"b": "Calvin"} ],
+  [ true,  {"d": null, "e": null} ],
+  [ true,  {"a": "S", "b": "C"} ],
+  [ true,  {"c": null, "a": "", "b": "", "d": null, "e": null} ],
+  [ false, {"a": null} ],
+  [ false, {"b": -42} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]
