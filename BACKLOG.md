@@ -13,6 +13,7 @@
 - [x] optim: `{"?a":"$NONE"}` or `{"": "$NONE"}` is `{}`
 - [x] check: prop references must be strings
 - [x] static: shortcut on open may-only props
+- [x] sql: capitalize bool and int type names for consistency
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
