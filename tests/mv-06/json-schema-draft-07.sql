@@ -18,10 +18,10 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
+  res BOOL;
   arr_0_idx INT8;
   arr_0_item JSONB;
-  ival_0 int;
+  ival_0 INT;
 BEGIN
   -- .'$schemaArray'
   -- .'$schemaArray'.'@'
@@ -66,10 +66,10 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
+  res BOOL;
   arr_1_idx INT8;
   arr_1_item JSONB;
-  ival_1 int;
+  ival_1 INT;
 BEGIN
   -- .'$arrayTypes'
   -- .'$arrayTypes'.'@'
@@ -150,7 +150,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
+  res BOOL;
   prop TEXT;
   pval JSONB;
 BEGIN
@@ -174,7 +174,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
+  res BOOL;
   prop TEXT;
   pval JSONB;
   arr_2_idx INT8;
@@ -224,8 +224,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  ival_2 int;
+  res BOOL;
+  ival_2 INT;
 BEGIN
   -- .'$ObjectSchema'.enum
   -- .'$ObjectSchema'.enum.'@'
@@ -381,7 +381,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
+  res BOOL;
   prop TEXT;
   pval JSONB;
 BEGIN
@@ -409,7 +409,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_f_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
+  res BOOL;
   prop TEXT;
   pval JSONB;
 BEGIN
@@ -442,7 +442,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
+  res BOOL;
   arr_3_idx INT8;
   arr_3_item JSONB;
 BEGIN

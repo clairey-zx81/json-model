@@ -9,10 +9,10 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
+  res BOOL;
   arr_0_idx INT8;
   arr_0_item JSONB;
-  ival_0 int;
+  ival_0 INT;
 BEGIN
   -- just 1 or 2 strings
   -- .

@@ -4,8 +4,8 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  ival_0 int;
+  res BOOL;
+  ival_0 INT;
 BEGIN
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
   IF res THEN

@@ -9,7 +9,7 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
+  res BOOL;
 BEGIN
   -- .'$r'
   res := JSONB_TYPEOF(val) = 'array' AND JSONB_ARRAY_LENGTH(val) = 2;

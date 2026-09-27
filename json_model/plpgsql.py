@@ -49,7 +49,7 @@ class PLpgSQL(Language):
              eq="=", ne="<>", indent="  ",
              not_op="NOT", and_op="AND", or_op="OR", lcom="--",
              true="TRUE", false="FALSE", null="NULL",
-             check_t="TEXT", json_t="JSONB",
+             int_t="INT", bool_t="BOOL", check_t="TEXT", json_t="JSONB",
              path_t="TEXT[]", float_t="FLOAT8", str_t="TEXT", match_t="TEXT[]",
              eoi=";", relib=relib, debug=debug, predefs=set(PLPGSQL_RUNTIME_PREDEFS),
              set_caps=(type(None), bool, int, float, str)
