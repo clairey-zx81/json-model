@@ -275,6 +275,8 @@ EXPECT: dict[str, int] = {
     "mv-36:verrors:schema": 1,
     # miscellaneous tests
     "bads:models": 72,
+    "bads:models:errors-jsm": 2,
+    "bads:models:errors-jsg": 2,
     "jsts-files": 309,
     # tests json models of json schema versions
     "draft3:jsts": 105,
@@ -1079,22 +1081,29 @@ def test_bench_json():
 # BAD MODELS
 #
 
-def check_bads(jmchecker: str):
-    ntests = 0
+def check_bads(jmchecker: str, errors: int = 0):
+    ntests, nerrors = 0, 0
     bads_dir = pathlib.Path("./bads")
+    # bad models that fail the meta
     nbad_models = " ".join(map(str, sorted(bads_dir.glob(f"[a-z]*.model.json"))))
     for line in os.popen(f"{jmchecker} {nbad_models}"):
         ntests += 1
-        assert ": FAIL" in line
+        if ": FAIL" not in line:
+            nerrors += 1
+    # bad models that pass the meta
     _bad_models = " ".join(map(str, sorted(bads_dir.glob(f"_*.model.json"))))
     for line in os.popen(f"{jmchecker} {_bad_models}"):
         ntests += 1
-        assert ": PASS" in line
+        if ": PASS" not in line:
+            nerrors += 1
+    # bad models that do not get there
     xbad_models = " ".join(map(str, sorted(bads_dir.glob(f"X*.model.json"))))
     for line in os.popen(f"{jmchecker} {xbad_models}"):
         ntests += 1
-        assert ": ERROR" in line
+        if ": ERROR" not in line:
+            nerrors += 1
     assert ntests == EXPECT.get(f"bads:models", 0)
+    assert nerrors == errors, f"expecting {errors} errors"
 
 @pytest.mark.c
 @pytest.mark.skipif(not has_exec("cc"), reason="missing cc")
@@ -1120,13 +1129,14 @@ def test_bads_pl():
 def test_bads_java():
     check_bads("./test_java.sh ./ref/json-model.java")
 
+# NOTE the meta schema is less strict than the meta model
 @pytest.mark.schema
 def test_bads_jsm():
-    check_bads("jsu-check -e jsonschema --quiet ./json-model.schema.json")
+    check_bads("jsu-check -e jsonschema --quiet ./json-model.schema.json", EXPECT.get("bads:models:errors-jsm", 0))
 
 @pytest.mark.schema
 def test_bads_jsg():
-    check_bads("jsu-check -e jschon --quiet ./ref/json-model.schema.json")
+    check_bads("jsu-check -e jschon --quiet ./ref/json-model.schema.json", EXPECT.get("bads:models:errors-jsg", 0))
 
 #
 # JSON SCHEMA DRAFT TESTS
