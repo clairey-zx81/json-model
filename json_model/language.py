@@ -103,12 +103,27 @@ class Language:
         self.reindent = False
         self._predefs: set[str] = predefs    # implemented by language runtime
 
+        # code generator settings
+        self._settings: dict[str, int] = {
+            "mot": 8,    # must only threshold
+            "mmo": 16,   # may must open threshold
+            "moo": 3,    # may only open threshold (max, untested)
+            "map": 12,   # map threshold
+            "par": 0,    # partition threshold
+            "omu": 0,    # or-must threshold
+            "aun": 0,    # array unroll size
+        }
+
         # Hmmm…
         self._lang = self
 
     def version(self) -> str:
         """Version string in generated code."""
         return self._version.split(".", 1)[0] if self._short_version else self._version
+
+    def setting(self, name: str, val: int|None = None) -> int:
+        """Language-specific code generation default settings."""
+        return self._settings[name] if val is None else val
 
     def ident(self, prefix: str) -> Var:
         """Return a new identifier using prefix."""

@@ -66,6 +66,15 @@ class JavaScript(Language):
         self._json_esc_table = str.maketrans(_ESC_TABLE)
         self._direct = direct
         self._runtime = runtime
+        self._settings |= {
+            "mot": 256,
+            "mmo": 16,
+            "moo": 3,
+            "map": 20,
+            "par": 0,
+            "omu": 2,
+            "aun": 0,
+        }
 
     #
     # file

@@ -58,6 +58,15 @@ class PLpgSQL(Language):
         assert relib in ("re"), f"regex engine {relib} is not supported, try: re"
 
         self._json_esc_table = str.maketrans(_ESC_TABLE)
+        self._settings |= {  # untested…
+            "mot": 0,
+            "mmo": 0,
+            "moo": 3,
+            "map": 8,
+            "par": 0,
+            "omu": 0,
+            "aun": 0,
+        }
 
     #
     # file

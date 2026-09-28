@@ -46,6 +46,15 @@ class Java(Language):
 
         self._json_esc_table = str.maketrans(_ESC_TABLE)
         self.reindent = True
+        self._settings |= {
+            "mot": 8,
+            "mmo": 8,
+            "moo": 3,
+            "map": 12,
+            "par": 0,
+            "omu": 2,
+            "aun": 3,
+        }
 
     #
     # file

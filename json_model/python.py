@@ -40,6 +40,15 @@ class Python(Language):
 
         # TODO check actual use to desactivate
         self._setmap_used = True
+        self._settings |= {
+            "mot": 256,
+            "mmo": 16,
+            "moo": 3,
+            "map": 10,
+            "par": 0,
+            "omu": 2,
+            "aun": 0,
+        }
 
     def is_num(self, var: Var) -> BoolExpr:
         return f"isinstance({var}, (int, float)) and not isinstance({var}, bool)"
