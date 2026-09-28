@@ -2511,96 +2511,7 @@ def xstatic_compile(
     - js_runtime: JS runtime
     """
 
-    # set default threshold for must-only scheme
-    MUST_ONLY_THRESHOLD: dict[str, int] = {
-        "c": 0,        # never good enough vs unroll
-        "js": 256,     # no cutoff?
-        "py": 256,     # no cutoff?
-        "pl": 128,     # ?
-        "java": 256,   # GSON
-        "sql": 0,      # FIXME not tested
-        "plpgsql": 0,  # FIXME not tested
-    }
-    if must_only_threshold is None:
-        must_only_threshold = MUST_ONLY_THRESHOLD.get(lang, 8)
-
-    # set default threshold for may-must-open scheme
-    MAY_MUST_OPEN_THRESHOLD: dict[str, int] = {
-        "c": 0,        # never good enough vs unroll, but faster than map
-        # FIXME this is only beneficial the number of value props is significant on mays?
-        # there is no cutoff in that case, but otherwise it reduces performance
-        # TODO decision process should also involve may/must ratio or take into account
-        # likelyhood of may props…
-        # 256, 256, 256, 128 -> 16, 16, 16, 8 for now
-        "js": 16,      # no cutoff? better than unroll and map *if* significant may numbers
-        "py": 16,      # much better than unroll, slightly better than map
-        "pl": 16,      # idem py
-        "java": 8,     # better than map < 256
-        "sql": 0,      # FIXME not tested
-        "plpgsql": 0,  # FIXME not tested
-    }
-    if may_must_open_threshold is None:
-        may_must_open_threshold = MAY_MUST_OPEN_THRESHOLD.get(lang, 16)
-
-    # TODO test limit values, 0 or 1 is disabled
-    if may_only_open_threshold is None:
-        may_only_open_threshold = 3
-
-    # set default map threshold depending on target language
-    MAP_THRESHOLD: dict[str, int] = {
-        "c": 256,      # NOTE the actual cutoff is _very_ far, probably over 1000/1300
-        # FIXME unclear… 40 -> 20 for now
-        "js": 20,
-        "py": 10,
-        "pl": 8,
-        "java": 12,
-        "sql": 8,      # FIXME not tested
-        "plpgsql": 8,  # FIXME not tested
-    }
-    if map_threshold is None:
-        map_threshold = MAP_THRESHOLD.get(lang, 12)
-
-    # partition threshold to generate a dichotomy on unrolled tests
-    PARTITION_THRESHOLD: dict[str, int] = {
-        "c": 6,
-        # TODO other languages once tested
-    }
-    if partition_threshold is None:
-        partition_threshold = PARTITION_THRESHOLD.get(lang, 0)
-    if partition_threshold and lang not in PARTITION_THRESHOLD:
-        log.warning(f"partitioning not implemented for {lang}, ignoring")
-        partition_threshold = 0
-
-    # length threshold about whether to shortcut or-list based on mandatory properties
-    OR_MUST_PROP: dict[str, bool] = {
-        "c": 4,
-        "js": 2,
-        "py": 2,
-        "java": 2,
-        "pl": 3,
-        # UNTESTED
-        "sql": 0,
-        "plpgsql": 0,
-    }
-    if or_must_prop is None:
-        or_must_prop = OR_MUST_PROP.get(lang, 0)
-
-    # hardly interesting
-    ARRAY_UNROLL: dict[str, int] = {
-        "c": 4,
-        "java": 3,
-        "js": 0,
-        "pl": 0,
-        # UNTESTED
-        "sql": 0,
-        "plpgsql": 0,
-    }
-    if array_unrolling_size is None:
-        array_unrolling_size = ARRAY_UNROLL.get(lang, 0)
-
-    log.info(f"lang={lang} mt={map_threshold} mmo={may_must_open_threshold} "
-             f"mo={must_only_threshold} pt={partition_threshold} omp={or_must_prop}"
-             f"aus={array_unrolling_size}")
+    # log.info(f"lang={lang}")
 
     # target language
     language, package = make_language(
@@ -2627,12 +2538,15 @@ def xstatic_compile(
     # source code generator
     gen = CodeGenerator(
         model._globs, target, fname, prefix=prefix, mark=mark,  # type: ignore
-        map_share=map_share, map_threshold=map_threshold,
-        may_must_open_threshold=may_must_open_threshold,
-        must_only_threshold=must_only_threshold,
-        partition_threshold=partition_threshold,
-        array_unrolling_size=array_unrolling_size,
-        or_must_prop=or_must_prop, sort_must=sort_must, sort_may=sort_may,
+        map_share=map_share,
+        map_threshold=target.setting("map", map_threshold),
+        may_must_open_threshold=target.setting("mmo", may_must_open_threshold),
+        must_only_threshold=target.setting("mot", must_only_threshold),
+        partition_threshold=target.setting("par", partition_threshold),
+        array_unrolling_size=target.setting("aun", array_unrolling_size),
+        or_must_prop=target.setting("omu", or_must_prop),
+        may_only_open_threshold=target.setting("moo", may_only_open_threshold),
+        sort_must=sort_must, sort_may=sort_may,
         regex_pattern=regex_pattern, call_shortcut=call_shortcut,
         disjunction=disjunction, all_but_one=all_but_one, missing_basics=missing_basics,
         xor_repeats=xor_repeats, xor_is_not=xor_is_not, homogeneous_list=homogeneous_list,

@@ -96,6 +96,10 @@ class IRep(Language):
         self._if_optim = if_optim
         self._byte_order = lang._byte_order if lang else "le"
 
+    def setting(self, name: str, val: int|None) -> int:
+        # FORWARD to lang if distinct, else use common defaults
+        return self._lang.setting(name, val) if self != self._lang else super().setting(name, val)
+
     # language dependent stuff is forwarded to the underlying language if any
     def fast_strlen(self) -> bool:
         return self._lang._fast_strlen

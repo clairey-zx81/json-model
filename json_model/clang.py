@@ -301,6 +301,15 @@ class CLangJansson(Language):
         self._partition_threshold = partition_threshold
         self._byte_order = byte_order
 
+        self._settings |= {
+            "mot": 0,
+            "mmo": 0,
+            "moo": 3,
+            "map": 256,
+            "par": 6,
+            "omu": 4,
+            "aun": 4,
+        }
         # instance counter
         self._count = Counter()
 

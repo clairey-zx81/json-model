@@ -53,6 +53,15 @@ class Perl(Language):
         self._json_esc_table = str.maketrans(_ESC_TABLE)
         # TODO check actual use to desactivate
         self._setmap_used = True
+        self._settings |= {
+            "mot": 128,
+            "mmo": 16,
+            "moo": 3,
+            "map": 8,
+            "par": 0,
+            "omu": 3,
+            "aun": 0,
+        }
 
     def esc(self, s: str) -> StrExpr:
         return "\"" + s.translate(self._json_esc_table) + "\""
