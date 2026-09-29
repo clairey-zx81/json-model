@@ -7,6 +7,6 @@
     {"@": "", ">=": 3},
     {"a": "$ANY", "": "$ANY"},
     "# subtype of [3], FIXME not detected",
-    {"a": 0, "b": 0}
+    {"a": 0, "?b": 0}
   ]
 }

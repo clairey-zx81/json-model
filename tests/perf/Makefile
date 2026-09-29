@@ -99,7 +99,9 @@ docker-podman.build:
 podman-podman.build:
 	$(MAKE) POD=podman VARIANT=podman build
 
-.PHONY: ajv.build
+SUB = ajv
+
+.PHONY: $(SUB).build
 ajv.build: .ajv.build
 
 .ajv.build: ajv/ajv.docker ajv/ajv-wrapper.sh
