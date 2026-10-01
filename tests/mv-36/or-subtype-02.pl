@@ -21,47 +21,54 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check close must only props
     unless (jm_is_object($val))
     {
         push @$rep, ["not an object [.'|'.2]", $path] if defined $rep;
         return 0;
     }
-    if (jm_obj_size($val) != 2)
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    for my $prop (sort keys %$val)
     {
-        push @$rep, ["bad property count [.'|'.2]", $path] if defined $rep;
+        my $pval = $$val{$prop};
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
+        if ($prop eq "a")
+        {
+            # handle must a property
+            $must_count++;
+            # .'|'.2.a
+            $res = jm_is_integer($pval) && $pval >= 0;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.'|'.2.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'|'.2.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
+            next;
+        }
+        if ($prop eq "b")
+        {
+            # handle may b property
+            # .'|'.2.b
+            $res = jm_is_integer($pval) && $pval >= 0;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.'|'.2.b]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'|'.2.b]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
+            next;
+        }
+        push @$rep, ["unexpected prop [.'|'.2]", defined $path ? $lpath_0 : undef] if defined $rep;
         return 0;
     }
-    my $lpath;
-    my $pval;
-    unless (exists $$val{"a"})
+    if ($must_count != 1)
     {
-        push @$rep, ["missing mandatory prop <a> [.'|'.2]", $path] if defined $rep;
-        return 0;
-    }
-    $lpath = defined $path ? [@{$path}, "a"] : undef;
-    $pval = $$val{"a"};
-    # .'|'.2.a
-    my $res = jm_is_integer($pval) && $pval >= 0;
-    unless ($res)
-    {
-        push @$rep, ["not a 0 strict int [.'|'.2.a]", defined $path ? $lpath : undef] if defined $rep;
-        push @$rep, ["unexpected value for mandatory prop <a> [.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
-        return 0;
-    }
-    unless (exists $$val{"b"})
-    {
-        push @$rep, ["missing mandatory prop <b> [.'|'.2]", $path] if defined $rep;
-        return 0;
-    }
-    $lpath = defined $path ? [@{$path}, "b"] : undef;
-    $pval = $$val{"b"};
-    # .'|'.2.b
-    $res = jm_is_integer($pval) && $pval >= 0;
-    unless ($res)
-    {
-        push @$rep, ["not a 0 strict int [.'|'.2.b]", defined $path ? $lpath : undef] if defined $rep;
-        push @$rep, ["unexpected value for mandatory prop <b> [.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <a> [.'|'.2]", $path] if defined $rep and not exists $$val{"a"};
+        }
         return 0;
     }
     return 1;
