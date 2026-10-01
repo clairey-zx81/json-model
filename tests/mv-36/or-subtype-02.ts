@@ -9,7 +9,7 @@ export interface RootModel_1 {
 
 export interface RootModel_2 {
 	a: number
-	b: number
+	b?: number
 }
 
 export type RootModel = (string | RootModel_1 | RootModel_2)

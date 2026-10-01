@@ -28,9 +28,9 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'b' THEN
-      -- handle must b property
-      must_count := must_count + 1;
+    END IF;
+    IF prop = 'b' THEN
+      -- handle may b property
       -- .'|'.2.b
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
@@ -40,7 +40,7 @@ BEGIN
     END IF;
     RETURN FALSE;
   END LOOP;
-  RETURN must_count = 2;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
