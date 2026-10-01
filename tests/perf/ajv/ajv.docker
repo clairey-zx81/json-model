@@ -18,4 +18,4 @@ RUN find . -type f -print0 | xargs -0 chmod a+r
 ENV PATH=/app/node_modules/.bin:$PATH
 RUN mkdir /app/workspace
 WORKDIR /app/workspace
-ENTRYPOINT ["/app/ajv-wrapper.sh"]
+ENTRYPOINT ["/app/wrapper.sh"]
