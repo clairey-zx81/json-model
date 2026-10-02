@@ -102,8 +102,9 @@ if args.tools in TOOL_SHORTCUT:
 # task letter -> task, column, compilation, description
 TOOLS: dict[str, tuple[str, str, str, str]] = {
     # external references
-    "B": ("blaze", "_blaze_", "blaze", "**blaze** is [Sourcemeta Blaze CLI](https://github.com/sourcemeta/jsonschema) (external reference, in C++)"),
-    "A": ("ajv", "_ajv_", "ajv", "**ajv** is [Ajv JSON schema Validator](https://ajv.js.org) (external reference, in JS)"),
+    "B": ("blaze", "_blaze_", "blaze", "**blaze** is [Sourcemeta Blaze CLI](https://github.com/sourcemeta/jsonschema) (external reference, C++)"),
+    "A": ("ajv", "_ajv_", "ajv", "**ajv** is [Ajv JSON schema Validator](https://ajv.js.org) (external reference, JS)"),
+    "C": ("corvus", "_corvus_", "corvus", "**corvus** is [Corvus.Text.Json](https://https://github.com/corvus-dotnet/Corvus.JsonSchema) (external reference, C#)"),
     # JSU model conversion
     "m": ("jsu", "_model_", "jsu-model", "**model** is JSU schema-to-model conversion"),
     # JMC stuff
