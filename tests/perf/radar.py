@@ -54,6 +54,7 @@ perf_geo = np.exp(- np.log(perf_speed).groupby("tool").mean())
 LABEL = {
     "blaze": "Blaze CLI C++",
     "ajv": "AJV CLI JS",
+    "corvus": "Corvus CLI C#",
     "jmc-c": "JMC C",
     "jmc-java-gson": "JMC Java GSON",
     "jmc-java-jackson": "JMC Java Jackson",

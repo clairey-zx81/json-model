@@ -9,6 +9,7 @@ export TMPDIR=.
 # container wrappers
 js_cli=js-cli
 ajv_cli=ajv-cli
+crv_cli=corvus-cli
 jmc=jmc
 jsu_compile="$jmc exec jsu-compile"
 
@@ -57,7 +58,8 @@ Environment:
 - JSU_OPTS: jsu compiler options override
 - JSC: jsonschema blaze cli container tag
 - AJV: ajv cli container tag
-- PATH: where to find "jmc" and "js-cli" wrappers
+- CORVUS: corvus cli container tag
+- PATH: where to find "jmc", "js-cli" and other wrappers
 - WORKDIR: working directory to use
 - JSB_DIR: jsonschema benchmark directory
 EOF
@@ -74,7 +76,8 @@ LOOP=1000 TASK="all"
 jsu_opts_2=" $JSU_OPTS"
 jmc_opts_2=
 ajv_cmp_opts=" --messages=false --code-optimize=2 --strict=false" ajv_val_opts=
-blaze_cmp_opts= blaze_val_opts=
+blaze_cmp_opts=" -f" blaze_val_opts=
+corvus_cmp_opts= corvus_val_opts=" --no-diag"
 
 # handle options
 while [[ "$1" == -* ]] ; do
@@ -98,15 +101,29 @@ while [[ "$1" == -* ]] ; do
     --task=*)
       TASK=${1#*=}
       ;;
-    -c|--content)  # check contents
+    # check contents (schema formats, model predefs)
+    -c|--content)
+      ajv_cmp_opts+=" --validate-formats=true"
       blaze_cmp_opts+=" -F"
+      corvus_cmp_opts+=" -f"
       jsu_opts_2+=" --format"
       jmc_opts_2+=" --predef"
       ;;
     -nc|--no-content)
+      ajv_cmp_opts+=" --validate-formats=false"
       blaze_cmp_opts=${blaze_cmp_opts/-F/}
+      corvus_cmp_opts+=" --no-format"
       jsu_opts_2+=" --no-format"
       jmc_opts_2+=" --no-predef"
+      ;;
+    # collect rejection reasons
+    -C|--collect)
+      blaze_cmp_opts=${blaze_cmp_opts/-f/}
+      corvus_val_opts+=" --diag"
+      ;;
+    -nC|--no-collect)
+      blaze_cmp_opts+=" -f"
+      corvus_val_opts+=" --no-diag"
       ;;
     --)  # end of options
       break
@@ -131,7 +148,7 @@ case $TARGET in
   all) targets="blaze jsu jmc-c jmc-js jmc-java jmc-py jmc-pl" ;;
   jmc) targets="jsu jmc-c jmc-js jmc-java jmc-py jmc-pl" ;;
   jmc-c|jmc-js|jmc-java|jmc-py|jmc-pl) targets="jsu $TARGET" ;;
-  blaze|ajv) targets=$TARGET ;;
+  blaze|ajv|corvus) targets=$TARGET ;;
   *) err 1 "unexpected target: $TARGET" ;;
 esac
 
@@ -219,7 +236,7 @@ for dir ; do
     [ "$do_cmp" -a $trg = "blaze" ] && {
       echo "## $dir blaze compile"
       ctime "$name,blaze,$now," "$prefix" blaze \
-        $js_cli compile $blaze_cmp_opts -m -f $dir/schema.json > ${prefix}.blaze.json
+        $js_cli compile $blaze_cmp_opts -m $dir/schema.json > ${prefix}.blaze.json
       blaze_ko=$?
       echo "## blaze ko: $blaze_ko"
     }
@@ -231,6 +248,15 @@ for dir ; do
         $ajv_cli compile $ajv_cmp_opts -s $dir/schema.json -o ${prefix}_ajv.cjs
       ajv_ko=$?
       echo "## ajv ko: $ajv_ko"
+    }
+
+    # corvus compilation
+    [ "$do_cmp" -a $trg = "corvus" ] && {
+      echo "## $dir corvus compile"
+      ctime "$name,corvus,$now," "$prefix" corvus \
+        $corvus_cli compile $corvus_cmp_opts -o ${prefix}_corvus.exe $dir/schema.json
+      corvus_ko=$?
+      echo "## corvus ko: $corvus_ko"
     }
 
     # schema to model
@@ -304,6 +330,7 @@ for dir ; do
     #
     [ "$trg" = "blaze" -a "$blaze_ko" -eq 0 ] && {
       echo "## $dir blaze run"
+     # -c continue, -b benchmark, -l loop
       $js_cli validate $blaze_val_opts -m ${prefix}.blaze.json -c -b -l $LOOP \
         $dir/schema.json $dir/instances.jsonl \
           > ${prefix}_blaze.out
@@ -311,8 +338,15 @@ for dir ; do
 
     [ "$trg" = "ajv" -a "$ajv_ko" -eq 0 ] && {
       echo "## $dir ajv run"
-      $ajv_cli node $ajv_val_opts ${prefix}_ajv.cjs -T $LOOP --jsonl $dir/instances.jsonl \
+      $ajv_cli node ${prefix}_ajv.cjs $ajv_val_opts -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_ajv.out
+    }
+
+    [ "$trg" = "corvus" -a "$corvus_ko" -eq 0 ] && {
+      echo "## $dir corvus run"
+      $corvus_cli validate $corvus_val_opts -J -T $LOOP \
+        ${prefix}_corvus.exe $dir/instances.jsonl \
+          2> ${prefix}_corvus.out
     }
 
     [ "$trg" = "jmc-c" -a "$jmc_out_ko" -eq 0 ] && {

@@ -42,7 +42,7 @@ function usage()
      --cap: reduce loop iterations for slow scripts (default)
      --no-cap: do not reduce loop iterations for slow scripts
      --env|-e VARS: environment variables to export to jmc container
-     --task|-T TASK: comparisons to perform (B=blaze A=ajv c=C s=JS v=Java/GSON y=Python l=Perl)
+     --task|-T TASK: comparisons to perform (B=blaze A=ajv C=corvus c=C s=JS v=Java/GSON y=Python l=Perl)
      --unshift|-u: unshift overhead estimation from measures
      --load|-L: reduce load by half for java tests
 EOF
@@ -57,7 +57,7 @@ DEFAULT_TASK="Bcvsy"
 # defaults
 PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK=$DEFAULT_TASK
 cap=1 debug= show_opts= load= content= run_opts=
-export JMC=latest JSC=latest AJV=latest JMC_ENV=$JMC_ENV
+export JMC=latest JSC=latest AJV=latest CORVUS=latest JMC_ENV=$JMC_ENV
 
 # get options
 while [[ "$1" == -* ]] ; do
@@ -183,7 +183,8 @@ done
 export JMC_BENCH_DEBUG=$debug
 export PATH=$script_dir:$PATH
 
-for cmd in run.sh jmc js-cli ajv-cli run-to-csv.py compile-to-csv.sh res-to-csv.py src-to-csv.py report.py radar.py ; do
+for cmd in run.sh jmc js-cli ajv-cli corvus-cli \
+    run-to-csv.py compile-to-csv.sh res-to-csv.py src-to-csv.py report.py radar.py ; do
   type $cmd || err 5 "script $cmd not found"
 done
 
@@ -236,6 +237,7 @@ tasks=""
 [[ $TASK =~ l ]] && tasks+=" jmc-pl"
 [[ $TASK =~ y ]] && tasks+=" jmc-py"
 [[ $TASK =~ A ]] && tasks+=" ajv"
+[[ $TASK =~ C ]] && tasks+=" corvus"
 [[ $TASK =~ s ]] && tasks+=" jmc-js"
 [[ $TASK =~ [v123] ]] && tasks+=" jmc-java"
 [[ $TASK =~ B ]] && tasks+=" blaze" show_opts+=" --performance=blaze --no-best"
@@ -283,10 +285,11 @@ for trg in $tasks ; do
         para=$PARA
       fi
       do_wait $para
-      # forward target as a label to underlying jmc/js-cli/ajv-cli command
+      # forward target as a label to underlying jmc/*-cli command
       JMC_POD_OPTS="$JMC_POD_OPTS --label $trg" \
       JSC_POD_OPTS="$JSC_POD_OPTS --label $trg" \
       AJV_POD_OPTS="$AJV_POD_OPTS --label $trg" \
+      CORVUS_POD_OPTS="$CORVUS_POD_OPTS --label $trg" \
         do_start run.sh -l $loop -t all $run_opts tmp/$run/ $trg $dir
     done
   done
@@ -356,7 +359,6 @@ read cur_freq < $cpu/cpu0/cpufreq/scaling_cur_freq
 read min_freq < $cpu/cpu0/cpufreq/scaling_min_freq
 read max_freq < $cpu/cpu0/cpufreq/scaling_max_freq
 read hyper_threading < $cpu/smt/active
-
 
 # show convenient unit for data in K
 function unit()
@@ -444,6 +446,7 @@ EOF
 {
   [[ $TASK =~ B ]] && echo "- **jsonschema-cli version:** $(js-cli --version)"
   [[ $TASK =~ A ]] && echo "- **ajv-cli version:** $(ajv-cli --version)"
+  [[ $TASK =~ C ]] && echo "- **corvus-cli version:** $(corvus-cli --version)"
 
   if [[ $TASK =~ c ]] ; then
     if [[ "$JMC_OPTS" =~ clang ]] ; then
@@ -480,6 +483,7 @@ EOF
   [[ $TASK =~ [cv123syl] ]] && echo "- **jmc container version:** $JMC ($(pod_id docker.io/zx80/jmc:$JMC))"
   [[ $TASK =~ B ]] && echo "- **jsc container version:** $JSC ($(pod_id ghcr.io/sourcemeta/jsonschema:$JSC))"
   [[ $TASK =~ A ]] && echo "- **ajv container version:** $AJV ($(pod_id docker.io/zx80/ajv-cli:$AJV))"
+  [[ $TASK =~ C ]] && echo "- **corvus container version:** $CORVUS ($(pod_id docker.io/zx80/corvus-cli:$CORVUS))"
 } >> "$ID.md"
 
 cat <<EOF >> "$ID.md"
