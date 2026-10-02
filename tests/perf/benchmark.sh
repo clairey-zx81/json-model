@@ -37,6 +37,7 @@ function usage()
      --jmc=TAG: container tag for JSON Model Compiler container image ($JMC)
      --jsc=TAG: container tag for JSON Schema CLI (Blaze) container image ($JSC)
      --ajv=TAG: container tag for Ajv CLI (AJV) container image ($AJV)
+     --corvus=TAG: container tag for Corvus CLI container image ($CORVUS)
      --content|-c: also check for value content (aka schema formats and model predefs)
      --no-content|-nc: do not check value content
      --cap: reduce loop iterations for slow scripts (default)
@@ -97,6 +98,8 @@ while [[ "$1" == -* ]] ; do
     --jsc=*) JSC=${opt#*=} ;;
     --ajv) AJV=$1 ; shift ;;
     --ajv=*) AJV=${opt#*=} ;;
+    --corvus) CORVUS=$1 ; shift ;;
+    --corvus=*) CORVUS=${opt#*=} ;;
     --env=*) JMC_ENV+=" ${opt#*=}" ;;
     -e|--env) JMC_ENV+=" $1" ; shift ;;
     # parallelism management
@@ -128,7 +131,7 @@ done
 [ $LOOP -ge 1 ] || err 1 "unexpected loop value, must be >= 1: $LOOP"
 [ $RUNS -ge 1 ] || err 1 "unexpected runs value, must be >= 1: $RUNS"
 
-echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC ajv=$AJV env=<$JMC_ENV> task=$TASK"
+echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC ajv=$AJV corvus=$CORVUS env=<$JMC_ENV> task=$TASK"
 
 #
 # PARA RUNS
@@ -203,7 +206,12 @@ START=$SECONDS
 
 if [ "$POD_PULL" = "1" ] ; then
   echo "# pulling $POD images"
-  for img in docker.io/zx80/jmc:$JMC ghcr.io/sourcemeta/jsonschema:$JSC docker.io/zx80/ajv-cli:$AJV ; do
+  for img in \
+        docker.io/zx80/jmc:$JMC \
+        ghcr.io/sourcemeta/jsonschema:$JSC \
+        docker.io/zx80/corvus-cli:$CORVUS \
+        docker.io/zx80/ajv-cli:$AJV ;
+  do
     $POD pull $img || err 4 "cannot $POD pull $img"
   done
 else
@@ -237,10 +245,10 @@ tasks=""
 [[ $TASK =~ l ]] && tasks+=" jmc-pl"
 [[ $TASK =~ y ]] && tasks+=" jmc-py"
 [[ $TASK =~ A ]] && tasks+=" ajv"
-[[ $TASK =~ C ]] && tasks+=" corvus"
 [[ $TASK =~ s ]] && tasks+=" jmc-js"
 [[ $TASK =~ [v123] ]] && tasks+=" jmc-java"
 [[ $TASK =~ B ]] && tasks+=" blaze" show_opts+=" --performance=blaze --no-best"
+[[ $TASK =~ C ]] && tasks+=" corvus"
 [[ $TASK =~ c ]] && tasks+=" jmc-c"
 
 # standard comparison: include both blaze and some jmc
