@@ -346,7 +346,7 @@ for dir ; do
       echo "## $dir corvus run"
       $corvus_cli validate $corvus_val_opts -J -T $LOOP \
         ${prefix}_corvus.exe $dir/instances.jsonl \
-          2> ${prefix}_corvus.out
+          > ${prefix}_corvus.out
     }
 
     [ "$trg" = "jmc-c" -a "$jmc_out_ko" -eq 0 ] && {
