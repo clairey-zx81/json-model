@@ -57,20 +57,20 @@ internal static class Program
                 case "-f" or "--format":
                     assertFormat = true;
                     break;
+                case "-nf" or "--no-format":
+                    assertFormat = false;
+                    break;
                 case "-d" or "--dialect":
                     string name = args[++i];
                     if (!Enum.TryParse(name, ignoreCase: true, out JsonSchemaDialect parsed))
                         throw new Exception ($"Unknown dialect '{name}'. Valid: {string.Join(", ", Enum.GetNames<JsonSchemaDialect>())}.");
-
                     dialect = parsed;
                     break;
                 default:
                     if (args[i].StartsWith('-'))
                         throw new Exception($"Unknown option '{args[i]}'.");
-
                     if (schemaPath is not null)
                         throw new Exception("compile takes exactly one schema file.");
-
                     schemaPath = args[i];
                     break;
             }
@@ -154,6 +154,9 @@ internal static class Program
                     break;
                 case "-d" or "--diagnostics":
                     diagnostics = true;
+                    break;
+                case "-nd" or "--no-diag" or "--no-diagnostics":
+                    diagnostics = false;
                     break;
                 case "-T" or "--times":
                     times = int.Parse(args[++i]);
