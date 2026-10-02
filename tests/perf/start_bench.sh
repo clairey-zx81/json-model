@@ -9,6 +9,7 @@ export POD_PULL=${POD_PULL:-1}
 export JMC_POD_OPTS=
 export JSC_POD_OPTS=
 export AJV_POD_OPTS=
+export CORVUS_POD_OPTS=
 
 if [ $1 = "-h" -o $1 = "--help" ] ; then
   cat <<EOF
@@ -28,6 +29,7 @@ Environment:
 - JMC: docker.io/zx80/jmc container tag, default is "latest" ($JMC)
 - JSC: ghcr.io/sourcemeta/jsonschema container tag, default is "latest" ($JSC)
 - AJV: zx80/ajv-cli container tag, default is "latest" ($AJV)
+- CORVUS: zx80/corvus-cli container tag, default is "latest" ($CORVUS)
 - JMC_OPTS: options for jmc ($JMC_OPTS)
 - JSU_OPTS: options for jsu-model ($JSU_OPTS)
 - JSB_DIR: JSON Schema Benchmark directory, default is to clone ($JSB_DIR)
@@ -118,6 +120,8 @@ if [ "$JSB_DIR" ] ; then
   AJV_POD_OPTS="-v $JSB_DIR:/app/workspace/jsb"
   # this is for "js-cli"
   JSC_POD_OPTS="-v $JSB_DIR:/workspace/jsb"
+  # this is for "corvus-cli"
+  CORVUS_POD_OPTS="-v $JSB_DIR:/workspace/jsb"
   # forwarding? not needed, this is used directly by the bench/run scripts
   # bench_opts+=(--env JMC_POD_OPTS --env JSC_POD_OPTS)
 fi
@@ -132,6 +136,10 @@ fi
 
 if [ "$AJV" ] ; then
   bench_opts+=(--ajv "$AJV")
+fi
+
+if [ "$CORVUS" ] ; then
+  bench_opts+=(--corvus "$CORVUS")
 fi
 
 # hackish container-in-container
@@ -170,6 +178,7 @@ exec $POD run \
   -e JMC_POD_OPTS="$JMC_POD_OPTS" \
   -e JSC_POD_OPTS="$JSC_POD_OPTS" \
   -e AJV_POD_OPTS="$AJV_POD_OPTS" \
+  -e CORVUS_POD_OPTS="$CORVUS_POD_OPTS" \
   "${container_opts[@]}" \
     "$image" \
       --id=$bench_id "${bench_opts[@]}" "$@" > $bench_id.output 2>&1
