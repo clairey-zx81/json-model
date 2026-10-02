@@ -27,7 +27,7 @@ endif
 
 .PHONY: clean
 clean:
-	$(RM) .*-*-build.* .version .ajv.build ajv/.jmc_version
+	$(RM) .*-*-build.* .version .{ajv,corvus}.* {ajv,corvus}/.jmc_version
 	$(RM) -rf jsb/ tmp/
 
 #
@@ -99,25 +99,33 @@ docker-podman.build:
 podman-podman.build:
 	$(MAKE) POD=podman VARIANT=podman build
 
-SUB = ajv
+#
+# external tools
+#
+# SUB = corvus
+# SUB = ajv
 
-.PHONY: $(SUB).build
-ajv.build: .ajv.build
+.$(SUB).build: $(SUB)/$(SUB).docker $(SUB)/wrapper.sh
+	echo $(VERSION) > $(SUB)/.jmc_version
+	$(POD) build -t $(SUB)-cli:$(TAG) -f $(SUB)/$(SUB).docker $(SUB)/. && touch $@
 
-.ajv.build: ajv/ajv.docker ajv/ajv-wrapper.sh
-	echo $(VERSION) > ajv/.jmc_version
-	$(POD) build -t ajv-cli:$(TAG) -f ajv/ajv.docker ajv/.
+.$(SUB).tag: .$(SUB).build
+	$(POD) tag $(SUB)-cli:$(TAG) $(ZX80)/$(SUB)-cli:$(BRANCH)
+	$(POD) tag $(SUB)-cli:$(TAG) $(ZX80)/$(SUB)-cli:$(TAG)
 	touch $@
 
-.PHONY: ajv.tag
-ajv.tag: ajv.build
-	$(POD) tag ajv-cli:$(TAG) $(ZX80)/ajv-cli:$(BRANCH)
-	$(POD) tag ajv-cli:$(TAG) $(ZX80)/ajv-cli:$(TAG)
+.$(SUB).push: .$(SUB).tag
+	$(POD) push $(ZX80)/$(SUB)-cli:$(TAG)
+	$(POD) push $(ZX80)/$(SUB)-cli:$(BRANCH)
+	touch $@
 
-.PHONY: ajv.push
-ajv.push: ajv.tag
-	$(POD) push $(ZX80)/ajv-cli:$(TAG)
-	$(POD) push $(ZX80)/ajv-cli:$(BRANCH)
+ajv.%:
+	$(MAKE) SUB=ajv .$@
+
+corvus.%:
+	$(MAKE) SUB=corvus .$@
+
+.corvus.build: corvus/Program.cs
 
 #
 # LOCAL SANITY TESTING

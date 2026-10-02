@@ -1,5 +1,6 @@
 .*-build.*
-.ajv.build
+.ajv.*
+.corvus.*
 .version
 tmp/
 jsb/
