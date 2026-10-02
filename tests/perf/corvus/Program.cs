@@ -152,7 +152,7 @@ internal static class Program
                 case "-J" or "--jsonl":
                     jsonl = true;
                     break;
-                case "-d" or "--diagnostics":
+                case "-d" or "--diag" or "--diagnostics":
                     diagnostics = true;
                     break;
                 case "-nd" or "--no-diag" or "--no-diagnostics":
