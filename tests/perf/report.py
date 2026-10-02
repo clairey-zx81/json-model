@@ -515,7 +515,7 @@ print()
 
 if any(success_ratio[n, t] != 1.0 for t in tools for n in cases):
 
-    if args.standard: print(RESULT_SUCCESS, end="")
+    if args.standard: print(RESULT_SUCCESS)
 
     print("|#|name|" + "|".join(TOOL[t] for t in tools) + "|")
     print("|---:|:---|" + "".join("---:|" for t in tools))
@@ -535,21 +535,22 @@ if args.standard:
         # external stuff
         "blaze": (0, "_blaze_"),
         "ajv": (1, "_ajv_"),
+        "corvus": (2, "_corvus_"),
         # JSU/JMC
-        "jsu-model": (2, "_model_"),
-        "jmc-c-out": (3, "c"),
-        "jmc-js": (4, "js"),
-        "jmc-java-class": (5, "java"),
-        "jmc-py": (6, "py"),
-        "jmc-pl": (7, "pl"),
-        "jmc-sql": (8, "sql"),
+        "jsu-model": (3, "_model_"),
+        "jmc-c-out": (4, "c"),
+        "jmc-js": (5, "js"),
+        "jmc-java-class": (6, "java"),
+        "jmc-py": (7, "py"),
+        "jmc-pl": (8, "pl"),
+        "jmc-sql": (9, "sql"),
     }
 
     # show what is relevant
     show = set()
     if set("csv123ylqm") & set(args.tools):
         show.add("jsu-model")
-    for t in "BAcsv123ylq":
+    for t in "BACcsv123ylq":
         if t in args.tools:
             show.add(TOOLS[t][2])
     for t in comp_tool.keys() - show:
