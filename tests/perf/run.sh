@@ -9,7 +9,7 @@ export TMPDIR=.
 # container wrappers
 js_cli=js-cli
 ajv_cli=ajv-cli
-crv_cli=corvus-cli
+corvus_cli=corvus-cli
 jmc=jmc
 jsu_compile="$jmc exec jsu-compile"
 
