@@ -15,12 +15,12 @@
 - [x] static: shortcut on open may-only props
 - [x] sql: capitalize bool and int type names for consistency
 - [x] backends: refactor language-specific code generation settings to each language
+- [x] bench: add corvus reference (wip)
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
 - [ ] bench: handle case failures for radar (wip, ajv handling)
 - [ ] bench: collect error runs?
-- [ ] bench: add corvus reference?
 - [ ] bench: add stddev performance computation
 - [ ] bench: improve resilience to bad overhead estimation
 - [ ] bench: collect JSON parse times for comparison with validation times
