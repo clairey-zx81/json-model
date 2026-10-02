@@ -223,7 +223,7 @@ for dir ; do
     #
     # COMPILE
     #
-    blaze_ko=9
+    blaze_ko=9 corvus_ko=9 ajv_ko=9
     jmc_c_ko=9 jmc_out_ko=9
     jmc_js_ko=9 jmc_py_ko=9 jmc_pl_ko=9
     jmc_java_ko=9 jmc_class_ko=9
