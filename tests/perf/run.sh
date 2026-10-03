@@ -73,8 +73,7 @@ EOF
 # defaults
 LOOP=1000 TASK="all"
 # command options
-jsu_opts_2=" $JSU_OPTS"
-jmc_opts_2=
+jsu_opts_2=" $JSU_OPTS" jmc_opts_2= jmc_run_opts=
 ajv_cmp_opts=" --messages=false --code-optimize=2 --strict=false" ajv_val_opts=
 blaze_cmp_opts=" -f" blaze_val_opts=
 corvus_cmp_opts= corvus_val_opts=" --no-diag"
@@ -118,12 +117,18 @@ while [[ "$1" == -* ]] ; do
       ;;
     # collect rejection reasons
     -C|--collect)
+      # AJV default
       blaze_cmp_opts=${blaze_cmp_opts/-f/}
       corvus_val_opts+=" --diag"
+      jsu_opts_2+=" --reporting"
+      jmc_run_opts+=" --report"
       ;;
     -nC|--no-collect)
+      # AJV not implemented
       blaze_cmp_opts+=" -f"
       corvus_val_opts+=" --no-diag"
+      jsu_opts_2+=" --no-reporting"
+      jmc_run_opts+=" --no-report"
       ;;
     --)  # end of options
       break
@@ -351,19 +356,19 @@ for dir ; do
 
     [ "$trg" = "jmc-c" -a "$jmc_out_ko" -eq 0 ] && {
       echo "## $dir jmc-c run"
-      $jmc exec ${prefix}.exe -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.exe $jmc_run_opts -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-c.out
     }
 
     [ "$trg" = "jmc-js" -a "$jmc_js_ko" -eq 0 ] && {
       echo "## $dir jmc-js run"
-      $jmc exec ${prefix}.js -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.js $jmc_run_opts -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-js.out
     }
 
     [ "$trg" = "jmc-py" -a "$jmc_py_ko" -eq 0 ] && {
       echo "## $dir jmc-py run"
-      $jmc exec ${prefix}.py -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.py $jmc_run_opts -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-py.out
     }
 
@@ -372,14 +377,14 @@ for dir ; do
       # maybe we could do better with some wrapper to fix CLASSPATH on the fly
       echo "## $dir jmc-java run"
       for lib in $JMC_JAVA_LIBS ; do
-        $jmc exec java ${sprefix}.java -j $lib -T $LOOP --jsonl $dir/instances.jsonl \
+        $jmc exec java ${sprefix}.java -j $lib $jmc_run_opts -T $LOOP --jsonl $dir/instances.jsonl \
           2> ${prefix}_jmc-java-$lib.out
       done
     }
 
     [ "$trg" = "jmc-pl" -a "$jmc_pl_ko" -eq 0 ] && {
       echo "## $dir jmc-pl run"
-      $jmc exec ${prefix}.pl -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.pl $jmc_run_opts -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-pl.out
     }
   done

@@ -15,7 +15,8 @@
 - [x] static: shortcut on open may-only props
 - [x] sql: capitalize bool and int type names for consistency
 - [x] backends: refactor language-specific code generation settings to each language
-- [x] bench: add corvus reference (wip)
+- [x] bench: add corvus external reference
+- [x] bench: add untested `--collect` option
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads

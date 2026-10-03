@@ -40,6 +40,8 @@ function usage()
      --corvus=TAG: container tag for Corvus CLI container image ($CORVUS)
      --content|-c: also check for value content (aka schema formats and model predefs)
      --no-content|-nc: do not check value content
+     --collect: collect rejection reasons
+     --no-collect: do not collect (default)
      --cap: reduce loop iterations for slow scripts (default)
      --no-cap: do not reduce loop iterations for slow scripts
      --env|-e VARS: environment variables to export to jmc container
@@ -57,7 +59,7 @@ DEFAULT_TASK="Bcvsy"
 
 # defaults
 PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK=$DEFAULT_TASK
-cap=1 debug= show_opts= load= content= run_opts=
+cap=1 debug= show_opts= load= content= collect= run_opts=
 export JMC=latest JSC=latest AJV=latest CORVUS=latest JMC_ENV=$JMC_ENV
 
 # get options
@@ -119,6 +121,8 @@ while [[ "$1" == -* ]] ; do
     -u|--unshift) show_opts+=" --unshift" ;;
     -c|--content) run_opts+=" --content" ; show_opts+=" --content" ; content=1 ;;
     -nc|--no-content) run_opts+=" --no-content" ; show_opts+=" --no-content" ; content= ;;
+    --collect) run_opts+=" --collect"; collect=1 ;;
+    --no-collect) run_opts+=" --no-collect"; collect= ;;
     --) break ;;
     *) err 1 "unexpected option: $opt" ;;
   esac
@@ -411,7 +415,13 @@ debug_status="no"
 if [ "$content" ] ; then
   content_status="yes (JSON Schema formats, JSON Model predefs)"
 else
-  content_status="no"
+  content_status="no (values' contents is not cheched)"
+fi
+
+if [ "$collect" ] ; then
+  collect_status="yes (collect rejection reasons)"
+else
+  collect_status="no (fast mode, do not collect rejection reasons)"
 fi
 
 fix_status="yes, models may correct some schema deficiencies"
@@ -503,6 +513,7 @@ cat <<EOF >> "$ID.md"
 - **debug:** $debug_status
 - **tasks:** $tasks
 - **content:** $content_status
+- **collect:** $collect_status
 - **fix:** $fix_status
 - **report:** \`$show_opts\`
 - **exported environment variables:** \`$JMC_ENV\`
