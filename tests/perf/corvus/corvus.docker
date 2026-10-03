@@ -1,13 +1,18 @@
 # The -aot image variants carry the native toolchain (clang, zlib) that native AOT publishing needs
-FROM mcr.microsoft.com/dotnet/sdk:10.0.401-noble-aot
+# FROM mcr.microsoft.com/dotnet/sdk:10.0.401-noble-aot
+FROM mcr.microsoft.com/dotnet/sdk:10.0-aot
 
+# install: we assume an ubuntu/debian base
 RUN apt update && apt install -y --no-install-recommends jq && rm -rf /var/lib/apt/lists/*
 
+# build
 COPY . /app
 WORKDIR /app
 RUN chmod a+r /app/*
 RUN dotnet publish --configuration Release --output /app/publish
 RUN dotnet list package --format json > versions.json
-ENTRYPOINT ["/app/wrapper.sh"]
+
+# run
 WORKDIR /workspace
+ENTRYPOINT ["/app/wrapper.sh"]
 CMD []
