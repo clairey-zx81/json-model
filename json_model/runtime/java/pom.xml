@@ -3,7 +3,7 @@
 
   <groupId>org.json-model</groupId>
   <artifactId>json-model</artifactId>
-  <version>2.0.52</version>
+  <version>2.0.63</version>
   <packaging>jar</packaging>
 
   <name>JSON Model Java Runtime</name>
@@ -52,10 +52,10 @@
     <maven.compiler.version>3.15.0</maven.compiler.version>
     <getopt.version>1.0.13</getopt.version>
     <gson.version>2.14</gson.version>
-    <jackson.version>3.1</jackson.version>
+    <jackson.version>3.2</jackson.version>
     <jackson.ann.version>2.22</jackson.ann.version>
     <jakarta.version>2.1</jakarta.version>
-    <johnzon.version>2.1</johnzon.version>
+    <johnzon.version>2.2</johnzon.version>
   </properties>
 
   <!--
