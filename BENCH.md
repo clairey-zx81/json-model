@@ -36,7 +36,7 @@ which will spawn the necessary containers:
 
 ```sh
 JMC=latest JMC_OPTS="--predef --cc=clang" \
-  nohup ./start_bench.sh latest -p 12 -l 1000 -r 5 -c &
+  nohup ./start_bench.sh latest -p 12 -l 1000 -r 5 -L -c &
 # in the generated directory, look for the summary markdown and radar json files.
 ```
 
@@ -59,16 +59,15 @@ misplaced keywords or bad regex, or better native models), and induce small
 differences in the validated results, in which case they are manually
 validated and discussed.
 
-Performance elapsed times for each test are collected over a loop to compute
-an average and standard deviation. The repetition also intends to catch hidden costs
-such as JIT and GC runs.
-
-Runs are usually performed in _fast_ mode: the rejection reasons are not collected, and
-the run stops as soon as possible.
-
-- To smooth out the wide range of collected performances (from 10 ns to
-  over 300 µs for validating one value), a relative comparison ratio is shown.
+- Performance elapsed times for each test are collected over a loop to compute
+  an average and standard deviation. The repetition also intends to catch hidden costs
+  such as JIT compilation, GC runs and lazy initializations.
+- Several independent runs are performed to reduce host load effects.
 - Compilation times and performance times are the _median_ encountered over the runs.
+- Runs are usually performed in _fast_ mode: the rejection reasons are not collected,
+  and the run stops as soon as possible.
+- The benchmark presents relative comparison ratios to smooth out the wide range of
+  collected performances (from 10 ns to over 300 µs for validating one value).
 
 Note that performance figures **must** be taken with a pinch of salt, please consider
 the following caveats, and others:
