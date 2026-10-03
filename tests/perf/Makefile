@@ -125,7 +125,8 @@ ajv.%:
 corvus.%:
 	$(MAKE) SUB=corvus .$@
 
-.corvus.build: corvus/Program.cs
+# additional dependencies
+.corvus.build: corvus/Program.cs corvus/CorvusBench.csproj
 
 #
 # LOCAL SANITY TESTING
