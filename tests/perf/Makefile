@@ -107,7 +107,9 @@ podman-podman.build:
 
 .$(SUB).build: $(SUB)/$(SUB).docker $(SUB)/wrapper.sh
 	echo $(VERSION) > $(SUB)/.jmc_version
-	$(POD) build -t $(SUB)-cli:latest -f $(SUB)/$(SUB).docker $(SUB)/. && touch $@
+	$(POD) build -t $(SUB)-cli:latest -f $(SUB)/$(SUB).docker $(SUB)/. && \
+	  $(POD) tag $(SUB)-cli:latest $(ZX80)/$(SUB)-cli:latest && \
+	  touch $@
 
 .$(SUB).push: .$(SUB).build
 	$(POD) push $(ZX80)/$(SUB)-cli:latest
