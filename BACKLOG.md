@@ -17,8 +17,12 @@
 - [x] backends: refactor language-specific code generation settings to each language
 - [x] bench: add corvus external reference
 - [x] bench: add untested `--collect` option
+- [x] bench: submit `negatives.jsonl` to jsb for sanity checks (wip)
+- [ ] bench: run negatives to access tool accuracy
+- [ ] bench: extract and report tool accuracy
+- [ ] bench: re-build corvus image automatically
+- [ ] bench: run cron bench with corvus (wip)
 - [ ] pr: improve compiler page, list and describe optimizations?
-- [ ] bench: submit `negatives.jsonl` to jsb for sanity checks
 - [ ] bench: better count should ignore bads
 - [ ] bench: handle case failures for radar (wip, ajv handling)
 - [ ] bench: collect error runs?
