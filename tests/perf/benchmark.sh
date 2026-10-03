@@ -344,6 +344,9 @@ echo "## run times $(( $SECONDS - $START ))"
 
 START=$SECONDS
 res-to-csv.py tmp/[0-9]*/*.out > result.csv
+if [ "$negs" ] ; then
+  res-to-csv.py tmp/n/*.out > negs.csv
+fi
 echo "## result counts $(( $SECONDS - $START ))"
 
 START=$SECONDS
