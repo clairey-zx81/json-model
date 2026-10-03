@@ -7,7 +7,7 @@
 #
 # Bench setup
 #
-# latest performance scripts
+# use latest performance scripts
 PERF=$HOME/dev/json-model/tests/perf
 
 # git working directory for json-model publication
@@ -24,25 +24,28 @@ VERSION=$TARGET/.bench_version
 #
 # - PARA: bench parallelism (12)
 # - LOOP: bench iterations (1000)
-# - RUNS: number of runs (11)
+# - RUNS: number of runs (7)
 # - JMC: docker tag for jmc image (main)
 # - JMC_BENCH: docker tag for jmc-bench image  (main)
 # - SBC: docker tag for sourcemeta blaze cli (latest)
+# - CORVUS: docker tag for corvus-cli bench image (latest)
 #
 # benchmarking parameters
 export PARA=${PARA:-12}
 export LOOP=${LOOP:-1000}
-export RUNS=${RUNS:-11}
+export RUNS=${RUNS:-7}
 
 # docker tags
 export JMC=${JMC:-main}
 export JMC_BENCH=${JMC_BENCH:-main}
 export SBC=${SBC:-latest}
+export CORVUS=${CORVUS:-latest}
 
 # docker images
 SBC_IMG=ghcr.io/sourcemeta/jsonschema:$SBC
 JMC_IMG=docker.io/zx80/jmc:$JMC
 BENCH_IMG=docker.io/zx80/jmc-bench-docker:$JMC_BENCH
+CORVUS_IMG=docker.io/zx80/corvus-cli:$CORVUS
 
 # setup standard run
 export JMC_OPTS="--single-line-regex --cc=clang --precompiled --short-version"
@@ -119,20 +122,22 @@ if [ "$check" ] ; then
 
   docker pull $SBC_IMG || err 6 "cannot docker pull: $SBC_IMG"
   docker pull $JMC_IMG || err 6 "cannot docker pull: $JMC_IMG"
+  docker pull $CORVUS_IMG || err 6 "cannot docker pull: $CORVUS_IMG"
   docker pull $BENCH_IMG || err 6 "cannot docker pull: $JMC_BENCH_IMG"
 
   docker run --rm --name sbc_version_$$ $SBC_IMG --version > $VERSION.sbc.tmp || err 7 "error getting version: $SBC_IMG"
   docker run --rm --name jmc_version_$$ --entrypoint jsu-compile $JMC_IMG --version > $VERSION.jmc.tmp || err 7 "error getting version: $JMC_IMG"
+  docker run --rm --name corvus_version_$$ $CORVUS_IMG --version > $VERSION.corvus.tmp || err 7 "error getting version: $CORVUS_IMG"
   git -C "$JSB_DIR" rev-parse HEAD > $VERSION.jsb.tmp || err 7 "error getting git version: $JSB_DIR"
 
   # run if versions differ
-  for tool in sbc jmc jsb ; do
+  for tool in sbc jmc jsb corvus ; do
     cmp -s $VERSION.$tool $VERSION.$tool.tmp || run=1
   done
 fi
 
 #
-# run bench if required
+# run default bench if required
 #
 if [ "$run" ] ; then
 
