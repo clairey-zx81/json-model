@@ -190,6 +190,15 @@ internal static class Program
             empty = empty == 0.0 ? edelay : edelay < empty ? edelay : empty;
         }
 
+        if (verbose)
+        {
+            double µs_precision = 1_000_000.0 / Stopwatch.Frequency;
+            Console.Error.WriteLine(
+                $"Clock precision {µs_precision:F3} µs (high: {Stopwatch.IsHighResolution})"
+            );
+        }
+
+        // loop over value files
         foreach (string file in positional.Skip(1))
         {
             if (verbose)
