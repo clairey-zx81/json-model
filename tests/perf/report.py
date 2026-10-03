@@ -104,7 +104,7 @@ TOOLS: dict[str, tuple[str, str, str, str]] = {
     # external references
     "B": ("blaze", "_blaze_", "blaze", "**blaze** is [Sourcemeta Blaze CLI](https://github.com/sourcemeta/jsonschema) (external reference, C++)"),
     "A": ("ajv", "_ajv_", "ajv", "**ajv** is [Ajv JSON schema Validator](https://ajv.js.org) (external reference, JS)"),
-    "C": ("corvus", "_corvus_", "corvus", "**corvus** is [Corvus.Text.Json](https://https://github.com/corvus-dotnet/Corvus.JsonSchema) (external reference, C#)"),
+    "C": ("corvus", "_corvus_", "corvus", "**corvus** is [Corvus.Text.Json](https://corvus-oss.org/Corvus.JsonSchema/) (external reference, C#)"),
     # JSU model conversion
     "m": ("jsu", "_model_", "jsu-model", "**model** is JSU schema-to-model conversion"),
     # JMC stuff
