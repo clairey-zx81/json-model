@@ -48,6 +48,7 @@ function usage()
      --task|-T TASK: comparisons to perform (B=blaze A=ajv C=corvus c=C s=JS v=Java/GSON y=Python l=Perl)
      --unshift|-u: unshift overhead estimation from measures
      --load|-L: reduce load by half for java tests
+     --negs|-N: also run negative tests (once)
 EOF
   exit 0
 }
@@ -59,7 +60,7 @@ DEFAULT_TASK="Bcvsy"
 
 # defaults
 PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK=$DEFAULT_TASK
-cap=1 debug= show_opts= load= content= collect= run_opts=
+cap=1 debug= show_opts= load= content= collect= run_opts= negs=
 export JMC=latest JSC=latest AJV=latest CORVUS=latest JMC_ENV=$JMC_ENV
 
 # get options
@@ -117,6 +118,8 @@ while [[ "$1" == -* ]] ; do
     --runs=*) RUNS=${opt#*=} ;;
     --cap) cap=1 ;;
     --no-cap) cap= ;;
+    --negs) negs=1 ;;
+    --no-negs) negs= ;;
     # output
     -u|--unshift) show_opts+=" --unshift" ;;
     -c|--content) run_opts+=" --content" ; show_opts+=" --content" ; content=1 ;;
@@ -240,6 +243,8 @@ while let run-- ; do
   mkdir tmp/$run || err 4 "mkdir tmp/$run failed"
 done
 
+[ "$negs" ] && mkdir tmp/n || err 4 "mkdir tmp/n failed"
+
 #
 # RUN (hundreds of parallel tasks with default settings)
 #
@@ -272,6 +277,18 @@ START=$SECONDS
 
 echo "# validation runs (include at least one compilation each)"
 
+function do_spawn()
+{
+  local trg=$1 run=$2 loop=$3 dir=$4
+  shift 4
+  # forward target as a label to underlying jmc/*-cli command
+  JMC_POD_OPTS="$JMC_POD_OPTS --label $trg" \
+  JSC_POD_OPTS="$JSC_POD_OPTS --label $trg" \
+  AJV_POD_OPTS="$AJV_POD_OPTS --label $trg" \
+  CORVUS_POD_OPTS="$CORVUS_POD_OPTS --label $trg" \
+    do_start run.sh -l $loop -t all $run_opts "$@" tmp/$run/ $trg $dir
+}
+
 for trg in $tasks ; do
   let run=$RUNS
   while let run-- ; do
@@ -296,13 +313,14 @@ for trg in $tasks ; do
       else
         para=$PARA
       fi
+      # run task
       do_wait $para
-      # forward target as a label to underlying jmc/*-cli command
-      JMC_POD_OPTS="$JMC_POD_OPTS --label $trg" \
-      JSC_POD_OPTS="$JSC_POD_OPTS --label $trg" \
-      AJV_POD_OPTS="$AJV_POD_OPTS --label $trg" \
-      CORVUS_POD_OPTS="$CORVUS_POD_OPTS --label $trg" \
-        do_start run.sh -l $loop -t all $run_opts tmp/$run/ $trg $dir
+      do_spawn $trg $run $loop $dir
+      # negatives on last
+      if [ "$negs" -a $run -eq 0 ] ; then
+        do_wait $para
+        do_spawn $trg n $loop $dir -T negatives.jsonl
+      fi
     done
   done
 done
