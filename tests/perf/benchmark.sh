@@ -118,8 +118,8 @@ while [[ "$1" == -* ]] ; do
     --runs=*) RUNS=${opt#*=} ;;
     --cap) cap=1 ;;
     --no-cap) cap= ;;
-    --negs) negs=1 ;;
-    --no-negs) negs= ;;
+    -N|--negs) negs=1 ;;
+    -nN|--no-negs) negs= ;;
     # output
     -u|--unshift) show_opts+=" --unshift" ;;
     -c|--content) run_opts+=" --content" ; show_opts+=" --content" ; content=1 ;;
