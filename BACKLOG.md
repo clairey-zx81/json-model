@@ -18,6 +18,7 @@
 - [x] bench: add corvus external reference
 - [x] bench: add untested `--collect` option
 - [x] bench: submit `negatives.jsonl` to jsb for sanity checks (wip)
+- [x] bench: always use `latest` tag for external tools (ajv, corvus)
 - [ ] bench: run negatives to access tool accuracy
 - [ ] bench: extract and report tool accuracy
 - [ ] bench: re-build corvus image automatically
