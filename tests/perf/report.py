@@ -43,7 +43,7 @@ arg("--progress", "-p", default=False, action="store_true",
 arg("--hide", default=False, action="store_true",
     help="hide uneffective options from report, default is not")
 arg("--tools", default=".",
-    help="report about these tools, in . * / or [Bc123vsyl]+")
+    help="report about these tools, in . * / or [ABCc123vsyl]+")
 arg("--unshift", "-u", action="store_true", default=False,
     help="unshift measure overhead estimation from reported measures, default is not")
 arg("--compact", "-c", action="store_true", default=False,
@@ -107,7 +107,7 @@ TOOLS: dict[str, tuple[str, str, str, str]] = {
     "C": ("corvus", "_corvus_", "corvus", "**corvus** is [Corvus.Text.Json](https://corvus-oss.org/Corvus.JsonSchema/) (external reference, C#)"),
     # JSU model conversion
     "m": ("jsu", "_model_", "jsu-model", "**model** is JSU schema-to-model conversion"),
-    # JMC stuff
+    # JMC backends
     "c": ("jmc-c", "c", "jmc-c-out", "**c** is JMC for C"),
     "v": ("jmc-java-gson", "java", "jmc-java-class", "**java** is JMC for Java with GSON"),
     "1": ("jmc-java-gson", "jv1", "jmc-java-class", "**jv1** is JMC for Java with GSON"),
@@ -227,7 +227,7 @@ resu_df = pd.read_csv(
     index_col=[0, 1]
 )
 
-# sort tools
+# sort tools, with pl last
 tools: list[str] = sorted(
     resu_df.index.get_level_values("tool").unique(),
     key=lambda n: "jmc-zz" if n == "jmc-pl" else n
