@@ -47,7 +47,7 @@ pod.cleaner:
 #
 # consider: --no-cache
 JMC.opts  =
-BASE.pots =
+BASE.opts =
 
 JMC     = $(BRANCH)
 JSU     = $(BRANCH)  # for consistency use same branch as JMC
