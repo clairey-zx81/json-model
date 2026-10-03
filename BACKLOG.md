@@ -22,7 +22,7 @@
 - [x] java-runtime: update dependent java lib versions (base container, runtime)
 - [x] bench: run negatives to access tool accuracy
 - [ ] java-runtime: consider automatic updates?
-- [ ] bench: extract and report tool accuracy
+- [ ] bench: extract and report tool accuracy / precision
 - [ ] bench: re-build corvus image automatically
 - [ ] bench: run cron bench with corvus (wip)
 - [ ] pr: improve compiler page, list and describe optimizations?
