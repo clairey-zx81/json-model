@@ -20,8 +20,8 @@
 - [x] bench: submit `negatives.jsonl` to jsb for sanity checks (wip)
 - [x] bench: always use `latest` tag for external tools (ajv, corvus)
 - [x] java-runtime: update dependent java lib versions (base container, runtime)
+- [x] bench: run negatives to access tool accuracy
 - [ ] java-runtime: consider automatic updates?
-- [ ] bench: run negatives to access tool accuracy
 - [ ] bench: extract and report tool accuracy
 - [ ] bench: re-build corvus image automatically
 - [ ] bench: run cron bench with corvus (wip)

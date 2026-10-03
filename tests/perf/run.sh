@@ -41,6 +41,7 @@ Options:
 - -l loop: number of performance loop iterations, eg 1000 or 10000
 - -t task: cmp (aka compile) or all = cmp + run
 - -c: check for contents
+- -C: collect rejection reasons
 
 Arguments:
 - prefix: directory where to write results
@@ -71,7 +72,7 @@ EOF
 #
 
 # defaults
-LOOP=1000 TASK="all"
+LOOP=1000 TASK="all" TEST="instances.jsonl"
 # command options
 jsu_opts_2=" $JSU_OPTS" jmc_opts_2= jmc_run_opts=
 ajv_cmp_opts=" --messages=false --code-optimize=2 --strict=false" ajv_val_opts=
@@ -129,6 +130,14 @@ while [[ "$1" == -* ]] ; do
       corvus_val_opts+=" --no-diag"
       jsu_opts_2+=" --no-reporting"
       jmc_run_opts+=" --no-report"
+      ;;
+    # change test jsonl input file
+    -T|--test)
+      TEST=$1
+      shift
+      ;;
+    --test=*)
+      TEST=${1#*=}
       ;;
     --)  # end of options
       break
@@ -337,38 +346,38 @@ for dir ; do
       echo "## $dir blaze run"
      # -c continue, -b benchmark, -l loop
       $js_cli validate $blaze_val_opts -m ${prefix}.blaze.json -c -b -l $LOOP \
-        $dir/schema.json $dir/instances.jsonl \
+        $dir/schema.json $dir/$TEST \
           > ${prefix}_blaze.out
     }
 
     [ "$trg" = "ajv" -a "$ajv_ko" -eq 0 ] && {
       echo "## $dir ajv run"
-      $ajv_cli node ${prefix}_ajv.cjs $ajv_val_opts -T $LOOP --jsonl $dir/instances.jsonl \
+      $ajv_cli node ${prefix}_ajv.cjs $ajv_val_opts -T $LOOP --jsonl $dir/$TEST \
         2> ${prefix}_ajv.out
     }
 
     [ "$trg" = "corvus" -a "$corvus_ko" -eq 0 ] && {
       echo "## $dir corvus run"
       $corvus_cli validate $corvus_val_opts -J -T $LOOP \
-        ${prefix}_corvus.exe $dir/instances.jsonl \
+        ${prefix}_corvus.exe $dir/$TEST \
           > ${prefix}_corvus.out
     }
 
     [ "$trg" = "jmc-c" -a "$jmc_out_ko" -eq 0 ] && {
       echo "## $dir jmc-c run"
-      $jmc exec ${prefix}.exe $jmc_run_opts -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.exe $jmc_run_opts -T $LOOP --jsonl $dir/$TEST \
         2> ${prefix}_jmc-c.out
     }
 
     [ "$trg" = "jmc-js" -a "$jmc_js_ko" -eq 0 ] && {
       echo "## $dir jmc-js run"
-      $jmc exec ${prefix}.js $jmc_run_opts -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.js $jmc_run_opts -T $LOOP --jsonl $dir/$TEST \
         2> ${prefix}_jmc-js.out
     }
 
     [ "$trg" = "jmc-py" -a "$jmc_py_ko" -eq 0 ] && {
       echo "## $dir jmc-py run"
-      $jmc exec ${prefix}.py $jmc_run_opts -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.py $jmc_run_opts -T $LOOP --jsonl $dir/$TEST \
         2> ${prefix}_jmc-py.out
     }
 
@@ -377,14 +386,14 @@ for dir ; do
       # maybe we could do better with some wrapper to fix CLASSPATH on the fly
       echo "## $dir jmc-java run"
       for lib in $JMC_JAVA_LIBS ; do
-        $jmc exec java ${sprefix}.java -j $lib $jmc_run_opts -T $LOOP --jsonl $dir/instances.jsonl \
+        $jmc exec java ${sprefix}.java -j $lib $jmc_run_opts -T $LOOP --jsonl $dir/$TEST \
           2> ${prefix}_jmc-java-$lib.out
       done
     }
 
     [ "$trg" = "jmc-pl" -a "$jmc_pl_ko" -eq 0 ] && {
       echo "## $dir jmc-pl run"
-      $jmc exec ${prefix}.pl $jmc_run_opts -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.pl $jmc_run_opts -T $LOOP --jsonl $dir/$TEST \
         2> ${prefix}_jmc-pl.out
     }
   done
