@@ -59,7 +59,11 @@ misplaced keywords or bad regex, or better native models), and induce small
 differences in the validated results, in which case they are manually
 validated and discussed.
 
-Runs are performed in _fast_ mode: the rejection reasons are not collected, and
+Performance elapsed times for each test are collected over a loop to compute
+an average and standard deviation. The repetition also intends to catch hidden costs
+such as JIT and GC runs.
+
+Runs are usually performed in _fast_ mode: the rejection reasons are not collected, and
 the run stops as soon as possible.
 
 - To smooth out the wide range of collected performances (from 10 ns to
