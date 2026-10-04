@@ -606,7 +606,7 @@ if args.negs:
     print("|precision|" + "".join(f"{percent(precision_avg.loc[t])}|" for t in tools))
     print("|recall|" + "".join(f"{percent(recall_avg.loc[t])}|" for t in tools))
     print("|specificity|" + "".join(f"{percent(specificity_avg.loc[t])}|" for t in tools))
-    print(RESULT_SUMMARY_NOTE)
+    print(RESULT_SUMMARY_NOTE, end="")
 
 # detail recall/sensitivity
 if any(success_ratio[c, t] != 1.0 for t in tools for c in cases):
