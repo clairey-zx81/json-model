@@ -186,8 +186,22 @@ if args.performance == "best":
 else:
     TOOL_CASES += f"Reference is **1.0** for tool {TOOL[args.performance]}.\n"
 
-RESULT_SUCCESS: str = """For each tool and cases with a partial success rate,
-percent of test cases validated.
+RESULT_SUMMARY_INTRO: str = """
+Tool summary metrics (percent):
+
+- **Accuracy**: rate of well classified values.
+- **Precision**: rate of true positives over reported positives.
+- **Recall or Sensitivity**: rate of true positives over actual positives.
+- **Specificity**: rate of true negatives over actual negatives.
+"""
+
+RESULT_SUMMARY_NOTE: str = """
+Note: for external tools, a non perfect result does _not_ imply a tool bug, see below.
+"""
+
+RESULT_SUCCESS: str = """
+For each tool and cases with a partial success rate,
+percent of test cases validated (aka recall, sensitivity).
 """
 
 COMP_CASES: str = """
@@ -526,8 +540,14 @@ log.debug(f"cases = ({len(cases)}) {cases}")
 
 # generate markdown report
 log.info("generating report")
+
+#
+# PERFORMANCE
+#
+
 print()
 print("## Tool Performance Summary")
+
 if args.standard: print(TOOL_SUMMARY, end="")
 
 print()
@@ -563,22 +583,12 @@ for i, c in enumerate(cases):
           f"{perf_best[c]:.01f}|{TOOL[best_tool[c]]}|", end="")
     print("".join(f"{perf_display[(c, t)]}|" for t in tools))
 
+#
+# RESULTS
+#
+
 print()
 print("## Results")
-print()
-
-RESULT_SUMMARY_INTRO: str = """
-Tool summary metrics (percent):
-
-- **Accuracy**: rate of well classified values.
-- **Precision**: rate of true positives over reported positives.
-- **Recall or Sensitivity**: rate of true positives over actual positives.
-- **Specificity**: rate of true negatives over actual negatives.
-"""
-
-RESULT_SUMMARY_NOTE: str = """
-Note: for external tools, a non perfect result does _not_ imply a tool bug, see below.
-"""
 
 def percent(rate: float) -> str:
     """Convert rate to percent."""
@@ -601,7 +611,10 @@ if args.negs:
 # detail recall/sensitivity
 if any(success_ratio[c, t] != 1.0 for t in tools for c in cases):
 
-    if args.standard: print(RESULT_SUCCESS)
+    if args.standard:
+        print(RESULT_SUCCESS)
+    else:
+        print()
 
     print("|#|name|" + "".join(f"{TOOL[t]}|" for t in tools))
     print("|---:|:---|" + "".join("---:|" for t in tools))
@@ -613,6 +626,7 @@ if any(success_ratio[c, t] != 1.0 for t in tools for c in cases):
             )
 
 else:
+    print()
     print("All tools validate all good values on all cases, aka no false negatives.")
 
 if args.negs:
@@ -634,6 +648,10 @@ if args.negs:
         print("As of October 2026, for external tools, non perfect specificity reflect an imprecise schema.")
     else:
         print("All tools reject all bad values on all cases, aka no false positives.")
+
+#
+# COMPILATION
+#
 
 if args.standard:
 
@@ -657,7 +675,7 @@ if args.standard:
     show = set()
     if set("csv123ylqm") & set(args.tools):
         show.add("jsu-model")
-    for t in "BACcsv123ylq":
+    for t in "ABCcsv123ylq":
         if t in args.tools:
             show.add(TOOLS[t][2])
     for t in comp_tool.keys() - show:
@@ -693,9 +711,16 @@ if args.standard:
     for i, c in enumerate(cases):
         print(f"|{i+1}|{CASE[c]}|" +
               "".join(f"{compilation[c,t]:.01f}|" for t in comp_tool_order))
+
+#
+# CASES
+#
+
 print()
 print("## Cases Data")
+
 if args.standard: print(CASE_DATA, end="")
+
 print()
 print(f"|#|name|schema|normal|model|nb|min (B)|avg (B)|max (B)|")
 print(f"|---:|:---|---:|---:|---:|---:|---:|---:|---:|")
@@ -733,8 +758,9 @@ print(f"|| _summary_ ||||| _{min_vs}_ | _{avg_vs:.0f}_ | _{max_vs}_ |")
 print(end="", flush=True)
 
 #
-# statistical analysis
+# COMPARISON STATISTICS
 #
+
 if args.ref:
 
     # NOTE this is quite slow
