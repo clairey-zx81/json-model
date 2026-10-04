@@ -3900,7 +3900,7 @@ def check_model_init():
         _jm_re_12_reco = re.compile("^\\..+$")
         _jm_re_12 = lambda s, p, r: _jm_re_12_reco.search(s) is not None
         global _jm_cst_5
-        _jm_cst_5 = {'$ANY', '$BOOL', '$BOOLEAN', '$F16', '$F32', '$F64', '$FLOAT', '$I16', '$I32', '$I64', '$I8', '$INT', '$INTEGER', '$NONE', '$NULL', '$NUMBER', '$U16', '$U32', '$U64', '$U8'}
+        _jm_cst_5 = {'$ANY', '$BOOL', '$BOOLEAN', '$F16', '$F32', '$F64', '$FLOAT', '$I16', '$I32', '$I64', '$I8', '$INT', '$INTEGER', '$NONE', '$NULL', '$NUMBER', '$RATE', '$U16', '$U32', '$U64', '$U8'}
         global _jm_re_13_reco, _jm_re_13
         _jm_re_13_reco = re.compile("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$")
         _jm_re_13 = lambda s, p, r: _jm_re_13_reco.search(s) is not None

@@ -6090,6 +6090,7 @@ public class openapi_311_models extends ModelChecker
             _jm_cst_6_set.add(json.safeJSON("\"$F32\""));
             _jm_cst_6_set.add(json.safeJSON("\"$F64\""));
             _jm_cst_6_set.add(json.safeJSON("\"$NUMBER\""));
+            _jm_cst_6_set.add(json.safeJSON("\"$RATE\""));
             _jm_cst_6_set.add(json.safeJSON("\"$INT\""));
             _jm_cst_6_set.add(json.safeJSON("\"$INTEGER\""));
             _jm_cst_6_set.add(json.safeJSON("\"$I8\""));
