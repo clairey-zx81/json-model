@@ -53,6 +53,7 @@ export JMC_OPTS="--single-line-regex --cc=clang --precompiled --short-version"
 # export JSU_OPTS="--id --fix --no-strict"
 # export JSU_OPTS="--id --no-fix --no-strict"
 # export JSU_OPTS="--no-id --no-fix --no-strict"
+# NOTE the jsonschema-benchmark directory is currently maintained manually
 export JSB_DIR="$TARGET/jsb_dir"
 export POD_PULL=0  # do not pull images again!
 
@@ -73,11 +74,12 @@ Usage: $0 [ -c -f -p -i id ] [ -- benchmark options... ]
   -f/-nf: force run (no)
   -p/-np: publish to git repos (yes)
   -i id/-ni: use existing benchmark id (auto)
+  -b: build external images (no)
 EOF
 }
 
 # option management
-check=1 run= publish= no_publish=
+check=1 run= publish= no_publish= build=
 
 while [[ $1 == -* ]] ; do
   opt=$1
@@ -93,6 +95,8 @@ while [[ $1 == -* ]] ; do
     --id|-i) bench_id=$1 ; shift ;;
     --id=*) bench_id=${opt#*=} ;;
     --no-id|-ni) bench_id= ;;
+    --build|-b) build=1 ;;
+    --no-build|-nb) build= ;;
     --) break ;;
     -*) usage ; err 1 "unexpected option: $opt" ;;
   esac
@@ -113,6 +117,16 @@ fi
 for cmd in docker git ; do
   type $cmd > /dev/null 2>&1 || err 3 "missing command: $cmd"
 done
+
+#
+# build external images
+#
+
+if [ "$build" ] ; then
+  WORK_PERF=$WORK/tests/perf
+  make -C $WORK_PERF corvus.build || err 6 "cannot build corvus image"
+  make -C $WORK_PERF corvus.push || err 6 "cannot push corvus image"
+fi
 
 #
 # check for new versions

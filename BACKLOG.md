@@ -23,6 +23,7 @@
 - [x] bench: run negatives to access tool accuracy
 - [x] bench: extract and report tool accuracy, precision, recall…
 - [x] spec: add `$RATE` predef, float in [0.0, 1.0]
+- [x] bench: add build option to cron script
 - [ ] java-runtime: consider automatic updates?
 - [ ] bench: re-build corvus image automatically
 - [ ] bench: run cron bench with corvus (wip)
