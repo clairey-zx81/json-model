@@ -26,7 +26,7 @@ INT_MODEL_PREDEFS = {
 }
 
 FLOAT_MODEL_PREDEFS = {
-    "$FLOAT", "$F32", "$F64", "$NUMBER",
+    "$FLOAT", "$F32", "$F64", "$NUMBER", "$RATE",
 }
 
 MODEL_PREDEFS = {
@@ -188,6 +188,7 @@ PREDEFS: dict[str, ModelType] = {
     "F32": -1.0,
     "F64": -1.0,
     "NUMBER": {"|": [-1, -1.0]},
+    "RATE": {"@": 0.0, "<=": 1.0},
     "STRING": "",
     "REGEX": "",
     "EXREG": "",

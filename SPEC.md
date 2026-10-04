@@ -127,6 +127,7 @@ for all possible values for that type.
   - `"$F16"`, `"$F32"`, `"$F64"`: 16/32/64 bit precision
     [IEEE 754](https://standards.ieee.org/ieee/754/6210/) floats.
   - "`$STRING"`: a string.
+  - `"$RATE"`: a float between _0.0_ and _1.0_.
 
   In addition, the following string predefs are defined:
 

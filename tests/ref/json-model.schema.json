@@ -61,6 +61,9 @@
           "const": "$NUMBER"
         },
         {
+          "const": "$RATE"
+        },
+        {
           "const": "$INT"
         },
         {

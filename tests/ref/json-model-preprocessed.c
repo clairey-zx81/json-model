@@ -341,6 +341,7 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000004c4f4f4224LL)  // "$BOOL"
         || jm_str_eq_6(s, 0x000000454e4f4e24LL)  // "$NONE"
         || jm_str_eq_6(s, 0x0000004c4c554e24LL)  // "$NULL"
+        || jm_str_eq_6(s, 0x0000004554415224LL)  // "$RATE"
         || jm_str_eq_7(s, 0x000054414f4c4624LL)  // "$FLOAT"
         || jm_str_eq_8(s, 0x005245424d554e24LL)  // "$NUMBER"
         || jm_str_eq_8(s, 0x4e41454c4f4f4224LL) && jm_str_eq_0(s + 8)  // "$BOOLEAN"

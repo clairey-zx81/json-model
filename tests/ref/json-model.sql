@@ -44,7 +44,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_cst_1(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  constants JSONB = JSONB '["$NULL","$BOOL","$BOOLEAN","$FLOAT","$F16","$F32","$F64","$NUMBER","$INT","$INTEGER","$I8","$I16","$I32","$I64","$U8","$U16","$U32","$U64","$NONE","$ANY"]';
+  constants JSONB = JSONB '["$NULL","$BOOL","$BOOLEAN","$FLOAT","$F16","$F32","$F64","$NUMBER","$RATE","$INT","$INTEGER","$I8","$I16","$I32","$I64","$U8","$U16","$U32","$U64","$NONE","$ANY"]';
 BEGIN
   RETURN constants @> value;
 END;

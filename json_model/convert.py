@@ -9,12 +9,15 @@ from .predefs import PREDEF_RE, PREDEFS
 
 PREDEF_TYPES: dict[str, str] = {
     "$NUMBER": "number",
+    "$RATE": "number",
 }
 
 for name, model in PREDEFS.items():
     if name[0] == "o":  # skip $oXXX
         continue
     pname = "$" + name
+    if pname in PREDEF_TYPES:
+        continue
     match model:
         case None:
             PREDEF_TYPES[pname] = "null"
@@ -146,6 +149,9 @@ def _m2s(model: ModelType, path: ModelPath, defs: Symbols) -> JsonSchema:
                     schema["contentMediaType"] = "application/json"
                 elif model in PREDEF_RE:
                     schema["pattern"] = PREDEF_RE[model][1]
+                elif model == "$RATE":
+                    schema["minimum"] = 0.0
+                    schema["maximum"] = 1.0
                 # else: ignore
             elif model[0] == "$":
                 if model == "$#":

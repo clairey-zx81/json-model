@@ -3249,6 +3249,7 @@ public class json_model_v2_en extends ModelChecker
             _jm_cst_1_set.add(json.safeJSON("\"$F32\""));
             _jm_cst_1_set.add(json.safeJSON("\"$F64\""));
             _jm_cst_1_set.add(json.safeJSON("\"$NUMBER\""));
+            _jm_cst_1_set.add(json.safeJSON("\"$RATE\""));
             _jm_cst_1_set.add(json.safeJSON("\"$INT\""));
             _jm_cst_1_set.add(json.safeJSON("\"$INTEGER\""));
             _jm_cst_1_set.add(json.safeJSON("\"$I8\""));

@@ -29,8 +29,8 @@ EXPECT: dict[str, int] = {
     "ref:models:errors-jsm": 2,
     # chunk 00
     "mv-00:cmp-opts": {"report": False, "comment": False, "relib": "re"},
-    "mv-00:models": 9,
-    "mv-00:values": 89,
+    "mv-00:models": 10,
+    "mv-00:values": 105,
     # chunk 01
     "mv-01:models": 11,
     "mv-01:values": 116,

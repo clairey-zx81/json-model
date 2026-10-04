@@ -231,12 +231,20 @@ class Language:
         elif name in ("$INT", "$INTEGER", "$I32", "$I64"):
             return self.is_a(var, int)
         elif name in ("$U32", "$U64"):
-            return self.and_op(self.is_a(var, int),
-                               self.num_cmp(self.value(var, int), ">=", self.const(0), False, True))
+            return self.and_op(
+                self.is_a(var, int),
+                self.num_cmp(self.value(var, int), ">=", self.const(0), False, True)
+            )
         elif name in ("$FLOAT", "$F32", "$F64"):
             return self.is_a(var, float)
         elif name == "$NUMBER":
             return self.is_a(var, Number)  # type: ignore
+        elif name == "$RATE":
+            return self.and_op(
+                self.is_a(var, float),
+                self.num_cmp(self.value(var, float), ">=", self.const(0.0)),
+                self.num_cmp(self.value(var, float), "<=", self.const(1.0)),
+            )
         elif name == "$STRING":
             return self.is_a(var, str) if not is_str else self.true()
         elif self.str_content_predef(name):

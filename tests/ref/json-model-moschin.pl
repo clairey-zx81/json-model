@@ -3638,6 +3638,7 @@ sub check_model_init()
             "\$F32" => 1,
             "\$F64" => 1,
             "\$NUMBER" => 1,
+            "\$RATE" => 1,
             "\$INT" => 1,
             "\$INTEGER" => 1,
             "\$I8" => 1,
