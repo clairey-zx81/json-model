@@ -31,13 +31,16 @@ for artifact in $(ls site/benchmarks/*.md | sort -r) ; do
   jsu=$(get_version jsu $artifact)
   jmc=$(get_version jmc $artifact)
   sbc=$(get_version jsonschema-cli $artifact)
+  crv=$(get_version corvus-cli $artifact)
   message=""
   [ "$(grep 'content:.*yes' $artifact)" ] && message+="content" || message+="no content"
   [ "$(grep 'JSU_OPT.*--no-id' $artifact)" ] && message+=", no id" || message+=", id"
   [ "$(grep 'fix:.*yes' $artifact)" ] && message+=", fix" || message+=", no fix"
-  echo "- Artifact [$name]($link) using [JMC $jmc]($PYPI/json-model-compiler/$jmc/), "
-  echo "  [JSU $jsu]($PYPI/json-schema-utils/$jsu/) and "
-  echo "  [SBC $sbc](https://github.com/sourcemeta/jsonschema/releases/tag/v$sbc), "
+  echo "- Artifact [$name]($link) using"
+  echo "  [JMC $jmc]($PYPI/json-model-compiler/$jmc/), "
+  echo "  [JSU $jsu]($PYPI/json-schema-utils/$jsu/), "
+  echo "  [SBC $sbc](https://github.com/sourcemeta/jsonschema/releases/tag/v$sbc) and "
+  echo "  [Corvus $crv](https://corvus-oss.org/Corvus.JsonSchema/)"
   echo "  $message."
 
   [ $nartifacts -eq $MAX ] && break
