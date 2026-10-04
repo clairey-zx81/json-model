@@ -39,8 +39,8 @@ for artifact in $(ls site/benchmarks/*.md | sort -r) ; do
   echo "- Artifact [$name]($link) using"
   echo "  [JMC $jmc]($PYPI/json-model-compiler/$jmc/), "
   echo "  [JSU $jsu]($PYPI/json-schema-utils/$jsu/), "
-  echo "  [SBC $sbc](https://github.com/sourcemeta/jsonschema/releases/tag/v$sbc) and "
-  echo "  [Corvus $crv](https://corvus-oss.org/Corvus.JsonSchema/)"
+  [ "$sbc" ] && echo "  [SBC $sbc](https://github.com/sourcemeta/jsonschema/releases/tag/v$sbc),"
+  [ "$crv" ] && echo "  [Corvus $crv](https://corvus-oss.org/Corvus.JsonSchema/),"
   echo "  $message."
 
   [ $nartifacts -eq $MAX ] && break
