@@ -21,8 +21,8 @@
 - [x] bench: always use `latest` tag for external tools (ajv, corvus)
 - [x] java-runtime: update dependent java lib versions (base container, runtime)
 - [x] bench: run negatives to access tool accuracy
+- [x] bench: extract and report tool accuracy, precision, recall…
 - [ ] java-runtime: consider automatic updates?
-- [ ] bench: extract and report tool accuracy / precision
 - [ ] bench: re-build corvus image automatically
 - [ ] bench: run cron bench with corvus (wip)
 - [ ] pr: improve compiler page, list and describe optimizations?

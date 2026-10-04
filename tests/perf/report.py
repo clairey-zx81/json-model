@@ -58,6 +58,10 @@ arg("--content", action="store_true", default=False,
     help="content checks are included")
 arg("--no-content", dest="content", action="store_false",
     help="content checks are not included")
+arg("--negs", "-N", action="store_true", default=False,
+    help="report about negative tests")
+arg("--no-negs", "-nN", action="store_false", dest="negs",
+    help="do not report about negative tests (default)")
 arg("--fix", action="store_true", default=True,
     help="models are fixed wrt schema thus may show differing results")
 arg("--no-fix", dest="fix", action="store_false",
@@ -66,8 +70,8 @@ arg("--best", default=True, action="store_true",
     help="show best line in summary")
 arg("--no-best", dest="best", action="store_false",
     help="do not show best line in summary")
-arg("--threshold", type=float, default=0.96,
-    help="minimum rate of passed values")
+arg("--recall-threshold", type=float, default=0.96,
+    help="minimum recall rate for inclusion in performance measure")
 args = ap.parse_args()
 
 if args.hide and not args.ref:
@@ -224,7 +228,7 @@ log.info("loading data")
 resu_df = pd.read_csv(
     "result.csv",
     names=["case", "tool", "iter", "pass", "fail"],
-    index_col=[0, 1]
+    index_col=[0, 1, 2]
 )
 
 # sort tools, with pl last
@@ -232,6 +236,15 @@ tools: list[str] = sorted(
     resu_df.index.get_level_values("tool").unique(),
     key=lambda n: "jmc-zz" if n == "jmc-pl" else n
 )
+
+# NOTE negs are run only one
+negs_df = None
+if args.negs:
+    negs_df = pd.read_csv(
+        "negs.csv",
+        names=["case", "tool", "iter", "pass", "fail"],
+        index_col=[0, 1]
+    )
 
 loaded_tools = tools
 if report_tools:
@@ -245,19 +258,29 @@ for t in tools:
     if t not in TOOL:
         TOOL[t] = t
 
-if args.standard:
-    assert args.tools and "B" in args.tools and "c" in args.tools
-
 # and list of cases
 cases: list[str] = sorted(
     resu_df.index.get_level_values("case").unique()
 )
 
+iters: int = len(resu_df.index.get_level_values("iter").unique())
+
+# run consistency implies pass/fail counts are independent of iter
+for c in cases:
+    for t in tools:
+        npass, nfail = resu_df.loc[(c, t, 0), ("pass", "fail")]
+        for i in range(1, iters):
+            npassi, nfaili = resu_df.loc[(c, t, i), ("pass", "fail")]
+            assert npass == npassi and nfail == nfaili, "consistent results"
+
+# add missing non shorten names in CASE
 for c in cases:
     if c not in CASE:
         CASE[c] = c
 
+# check standard comparison assumptions
 if args.standard:
+    assert args.tools and "B" in args.tools and "c" in args.tools, "required tools for standard comparison"
     assert len(cases) == 37, f"check expected number of cases: {len(cases)}"
 
 # other data
@@ -298,9 +321,9 @@ if args.unshift:
 log.info("analyzing data")
 
 # results
-passed = resu_df.groupby(["case", "tool"])["pass"].min()
-failed = resu_df.groupby(["case", "tool"])["fail"].max()
-success_ratio = passed / (passed + failed)
+TP = resu_df.groupby(["case", "tool"])["pass"].min()
+FN = resu_df.groupby(["case", "tool"])["fail"].max()
+success_ratio = TP / (TP + FN)
 
 # aggregate performance for each case/tool/line in µs
 perf_aggreg = perf_df.groupby(["case", "tool", "line"])["runavg"].aggregate(args.aggregate)
@@ -322,12 +345,12 @@ for c in cases:
 
 log.info(f"missings: {missings}")
 
-# which results should be ignored
+# which results should be fully ignored
 bad_result: dict[tuple[str, str], str] = {
     (c, t): (
         "missing" if (c, t) in missings else
-        "ntests" if passed[c, t] + failed[c, t] != case_df.loc[c]["ntests"] else
-        "partial" if passed[c, t] <= args.threshold * case_df.loc[c]["ntests"] else
+        "ntests" if TP[c, t] + FN[c, t] != case_df.loc[c]["ntests"] else
+        "partial" if TP[c, t] <= args.recall_threshold * case_df.loc[c]["ntests"] else
         "okay"
     )
     for c in cases
@@ -338,6 +361,37 @@ bad_results: dict[tuple[str, str], float] = {
     ct: val for ct, val in bad_result.items() if val != "okay"
 }
 log.info(f"bad results: {bad_results}")
+
+negs_results: dict[tuple[str, str], float] = {}
+negs_cases: dict[str, bool] = {}
+if args.negs:
+    # this is specificity
+    negs_results = {
+        (c, t): 1.0 * negs_df.loc[c, t]["fail"] / (negs_df.loc[c, t]["fail"] + negs_df.loc[c, t]["pass"])
+            for c in cases
+                for t in tools
+    }
+    # cases to display
+    negs_bad_cases = {
+        c: any(negs_results[(c, t)] != 1.0 for t in tools)
+            for c in cases
+    }
+    # outcome of negatives
+    FP = negs_df.groupby(["case", "tool"])["pass"].min()  # FIXME there is only one value…
+    TN = negs_df.groupby(["case", "tool"])["fail"].min()  # idem
+    # common metrics
+    accuracy = (TP + TN) / (TP + FP + TN + FN)  # rate of well classified tests
+    precision = TP / (TP + FP)                  # rate of pos among classified as pos
+    # FPR = FP / (FP + TN)                        # rate of bad negs among actual negs
+    specificity = TN / (TN + FP)                # rate of negs among actual negs (1 - FPR)
+    recall = TP / (TP + FN)                     # rate of pos among actual pos (sensitivity, TPR)
+    F1 = 2 * precision * recall / (precision + recall)
+    # tool summaries: tool -> rate
+    accuracy_avg = accuracy.groupby("tool").mean()
+    precision_avg = precision.groupby("tool").mean()
+    # FPR_avg = FPR.groupby("tool").mean()
+    specificity_avg = specificity.groupby("tool").mean()
+    recall_avg = recall.groupby("tool").mean()
 
 # cannot compare to a failed result!?
 if args.performance != "best":
@@ -510,23 +564,76 @@ for i, c in enumerate(cases):
     print("".join(f"{perf_display[(c, t)]}|" for t in tools))
 
 print()
-print("## Result Success")
+print("## Results")
 print()
 
-if any(success_ratio[n, t] != 1.0 for t in tools for n in cases):
+RESULT_SUMMARY_INTRO: str = """
+Tool summary metrics (percent):
+
+- **Accuracy**: rate of well classified values.
+- **Precision**: rate of true positives over reported positives.
+- **Recall or Sensitivity**: rate of true positives over actual positives.
+- **Specificity**: rate of true negatives over actual negatives.
+"""
+
+RESULT_SUMMARY_NOTE: str = """
+Note: for external tools, a non perfect result does _not_ imply a tool bug, see below.
+"""
+
+def percent(rate: float) -> str:
+    """Convert rate to percent."""
+    assert 0.0 <= rate <= 1.0
+    pc = f"{100.0 * rate:.01f}"
+    if pc == "100.0" and rate != 1.0:
+        pc = "99.9"  # avoid a misleading 100.0
+    return pc
+
+if args.negs:
+    print(RESULT_SUMMARY_INTRO)
+    print("|metrics|" + "".join(f"{TOOL[t]}|" for t in tools))
+    print("|:---|" + "".join("---:|" for t in tools))
+    print("|accuracy|" + "".join(f"{percent(accuracy_avg.loc[t])}|" for t in tools))
+    print("|precision|" + "".join(f"{percent(precision_avg.loc[t])}|" for t in tools))
+    print("|recall|" + "".join(f"{percent(recall_avg.loc[t])}|" for t in tools))
+    print("|specificity|" + "".join(f"{percent(specificity_avg.loc[t])}|" for t in tools))
+    print(RESULT_SUMMARY_NOTE)
+
+# detail recall/sensitivity
+if any(success_ratio[c, t] != 1.0 for t in tools for c in cases):
 
     if args.standard: print(RESULT_SUCCESS)
 
-    print("|#|name|" + "|".join(TOOL[t] for t in tools) + "|")
+    print("|#|name|" + "".join(f"{TOOL[t]}|" for t in tools))
     print("|---:|:---|" + "".join("---:|" for t in tools))
     for i, c in enumerate(cases):
         if any(success_ratio[c, t] != 1.0 for t in tools):
             print(
                 f"|{i+1}|{CASE[c]}|" +
-                "".join(f"{100.0 * success_ratio[c, t]:.01f}|" for t in tools)
+                "".join(f"{percent(success_ratio[c, t])}|" for t in tools)
             )
+
 else:
-    print("All tools validate all values, as expected.")
+    print("All tools validate all good values on all cases, aka no false negatives.")
+
+if args.negs:
+    # detail specificity
+    print()
+    if any(negs_bad_cases[c] for c in cases):
+
+        print("For each tool, rate of bad values reported as failed, as expected:")
+        print()
+        print("|#|name|" + "".join(f"{TOOL[t]}|" for t in tools))
+        print("|---:|:---|" + "".join("---:|" for t in tools))
+        for i, c in enumerate(cases):
+            if negs_bad_cases[c]:
+                print(
+                    f"|{i+1}|{CASE[c]}|" +
+                    "".join(f"{percent(negs_results[c, t])}|" for t in tools)
+                )
+        print()
+        print("As of October 2026, for external tools, non perfect specificity reflect an imprecise schema.")
+    else:
+        print("All tools reject all bad values on all cases, aka no false positives.")
 
 if args.standard:
 
