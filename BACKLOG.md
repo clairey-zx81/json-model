@@ -22,6 +22,7 @@
 - [x] java-runtime: update dependent java lib versions (base container, runtime)
 - [x] bench: run negatives to access tool accuracy
 - [x] bench: extract and report tool accuracy, precision, recall…
+- [ ] spec: add `$RATE` predef, float in [0.0, 1.0]
 - [ ] java-runtime: consider automatic updates?
 - [ ] bench: re-build corvus image automatically
 - [ ] bench: run cron bench with corvus (wip)
