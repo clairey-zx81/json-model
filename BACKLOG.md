@@ -2,29 +2,6 @@
 
 ## Current Tasks
 
-- [x] pr: center logo in sidebar
-- [x] optim: handle indirect number models
-- [x] optim: improve partial eval for more num nones
-- [x] optim: simplify some '!=' cases
-- [x] perf: ~add another loop over performance collection?~
-- [x] pr: add simple compiler description page
-- [x] optim: fix xor bad deduplication optimization when 3 models are equal
-- [x] optim: `{"a":"$NONE"}` is `"$NONE"`
-- [x] optim: `{"?a":"$NONE"}` or `{"": "$NONE"}` is `{}`
-- [x] check: prop references must be strings
-- [x] static: shortcut on open may-only props
-- [x] sql: capitalize bool and int type names for consistency
-- [x] backends: refactor language-specific code generation settings to each language
-- [x] bench: add corvus external reference
-- [x] bench: add untested `--collect` option
-- [x] bench: submit `negatives.jsonl` to jsb for sanity checks (wip)
-- [x] bench: always use `latest` tag for external tools (ajv, corvus)
-- [x] java-runtime: update dependent java lib versions (base container, runtime)
-- [x] bench: run negatives to access tool accuracy
-- [x] bench: extract and report tool accuracy, precision, recall…
-- [x] spec: add `$RATE` predef, float in [0.0, 1.0]
-- [x] bench: add build option to cron script
-- [x] bench: disactivate reruns on jsb changes
 - [ ] java-runtime: consider automatic updates?
 - [ ] bench: re-build corvus image automatically
 - [ ] bench: run cron bench with corvus (wip)

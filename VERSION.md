@@ -1,5 +1,31 @@
 # JSON Model Compiler Versions
 
+## 2.0.63 on 2026-10-05
+
+- pr: center logo in sidebar
+- optim: handle indirect number models
+- optim: improve partial eval for more num nones
+- optim: simplify some '!=' cases
+- perf: ~add another loop over performance collection?~
+- pr: add simple compiler description page
+- optim: fix xor bad deduplication optimization when 3 models are equal
+- optim: `{"a":"$NONE"}` is `"$NONE"`
+- optim: `{"?a":"$NONE"}` or `{"": "$NONE"}` is `{}`
+- check: prop references must be strings
+- static: shortcut on open may-only props
+- sql: capitalize bool and int type names for consistency
+- backends: refactor language-specific code generation settings to each language
+- bench: add corvus external reference
+- bench: add untested `--collect` option
+- bench: submit `negatives.jsonl` to jsb for sanity checks (wip)
+- bench: always use `latest` tag for external tools (ajv, corvus)
+- java-runtime: update dependent java lib versions (base container, runtime)
+- bench: run negatives to access tool accuracy
+- bench: extract and report tool accuracy, precision, recall…
+- spec: add `$RATE` predef, float in [0.0, 1.0]
+- bench: add build option to cron script
+- bench: disactivate reruns on jsb changes
+
 ## 2.0.62 on 2026-09-20
 
 - bench: add case names to generated radar
