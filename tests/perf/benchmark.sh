@@ -56,7 +56,7 @@ EOF
 # script directory
 script_dir=$(dirname $0)
 
-DEFAULT_TASK="Bcvsy"
+DEFAULT_TASK="BCcvsy"
 
 # defaults
 PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK=$DEFAULT_TASK
