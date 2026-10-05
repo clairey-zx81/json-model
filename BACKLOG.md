@@ -4,9 +4,9 @@
 
 - [x] bench: do not link same version artifacts, keep first encountered
 - [x] bench: move corvus at then end of the radar to keep colors consistent
+- [x] bench: run cron bench with corvus
 - [ ] java-runtime: consider automatic updates?
 - [ ] bench: re-build corvus image automatically
-- [ ] bench: run cron bench with corvus (wip)
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads
 - [ ] bench: handle case failures for radar (wip, ajv handling)
