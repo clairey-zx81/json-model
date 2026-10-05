@@ -51,6 +51,13 @@ if missings:
 
 perf_geo = np.exp(- np.log(perf_speed).groupby("tool").mean())
 
+def sorter(name: str) -> str:
+    return (
+        (0, name) if name == "blaze" else
+        (1, name) if name.startswith("jmc") else
+        (2, name)
+    )
+
 LABEL = {
     "blaze": "Blaze CLI C++",
     "ajv": "AJV CLI JS",
@@ -67,7 +74,7 @@ LABEL = {
 perf_per_tool = perf_speed.groupby("tool")
 
 radar = []
-for t in sorted(tools):
+for t in sorted(tools, key=sorter):
     radar.append({
         "label": LABEL[t],
         "speed": perf_geo["blaze"] / perf_geo[t],
