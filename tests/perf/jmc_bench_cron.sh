@@ -10,7 +10,7 @@
 # use latest performance scripts
 PERF=$HOME/dev/json-model/tests/perf
 
-# git working directory for json-model publication
+# git working directory for json-model publication and docker build
 WORK=$HOME/dev/cron-json-model
 
 # directory for performance benchmark runs
