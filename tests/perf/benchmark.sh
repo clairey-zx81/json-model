@@ -243,7 +243,9 @@ while let run-- ; do
   mkdir tmp/$run || err 4 "mkdir tmp/$run failed"
 done
 
-[ "$negs" ] && mkdir tmp/n || err 4 "mkdir tmp/n failed"
+if [ "$negs" ] ; then
+  mkdir tmp/n || err 4 "mkdir tmp/n failed"
+fi
 
 #
 # RUN (hundreds of parallel tasks with default settings)
