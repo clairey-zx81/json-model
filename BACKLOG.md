@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] bench: do not link same version artifacts, keep first encountered
+- [ ] bench: move corvus at then end of the radar to keep colors consistent
 - [ ] java-runtime: consider automatic updates?
 - [ ] bench: re-build corvus image automatically
 - [ ] bench: run cron bench with corvus (wip)
