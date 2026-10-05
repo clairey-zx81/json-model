@@ -144,8 +144,8 @@ if [ "$check" ] ; then
   docker run --rm --name corvus_version_$$ $CORVUS_IMG --version > $VERSION.corvus.tmp || err 7 "error getting version: $CORVUS_IMG"
   git -C "$JSB_DIR" rev-parse HEAD > $VERSION.jsb.tmp || err 7 "error getting git version: $JSB_DIR"
 
-  # run if versions differ
-  for tool in sbc jmc jsb corvus ; do
+  # run if versions differ (but skip jsonschema benchmark)
+  for tool in jmc jsb corvus ; do
     cmp -s $VERSION.$tool $VERSION.$tool.tmp || run=1
   done
 fi
@@ -187,7 +187,7 @@ if [ "$run" ] ; then
 
   # record benchmark version
   if [ "$check" ] ; then
-    for tool in sbc jmc jsb ; do
+    for tool in sbc corvus jmc jsb ; do
       cp $VERSION.$tool.tmp $VERSION.$tool
       rm -f $VERSION.$tool.tmp
     done
