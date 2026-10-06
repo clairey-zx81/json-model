@@ -199,9 +199,14 @@ RESULT_SUMMARY_NOTE: str = """
 Note: for external tools, a non perfect result does _not_ imply a tool bug, see below.
 """
 
-RESULT_SUCCESS: str = """
-For each tool and cases with a partial success rate,
-percent of test cases validated (aka recall, sensitivity).
+RESULT_GOODS: str = """
+For each tool and cases with a partial rate of validation of good values,
+percent of test cases correctly validated (aka recall or sensitivity).
+"""
+
+RESULT_BADS: str = """
+For each tool and cases with a partial rate of rejection of bad values,
+percent of test cases correctly rejected (aka specificity).
 """
 
 COMP_CASES: str = """
@@ -612,10 +617,9 @@ if args.negs:
 if any(success_ratio[c, t] != 1.0 for t in tools for c in cases):
 
     if args.standard:
-        print(RESULT_SUCCESS)
-    else:
-        print()
+        print(RESULT_GOODS)
 
+    print()
     print("|#|name|" + "".join(f"{TOOL[t]}|" for t in tools))
     print("|---:|:---|" + "".join("---:|" for t in tools))
     for i, c in enumerate(cases):
@@ -634,7 +638,7 @@ if args.negs:
     print()
     if any(negs_bad_cases[c] for c in cases):
 
-        print("For each tool, rate of bad values reported as failed, as expected:")
+        print(RESULT_BADS)
         print()
         print("|#|name|" + "".join(f"{TOOL[t]}|" for t in tools))
         print("|---:|:---|" + "".join("---:|" for t in tools))
@@ -645,7 +649,7 @@ if args.negs:
                     "".join(f"{percent(negs_results[c, t])}|" for t in tools)
                 )
         print()
-        print("As of October 2026, for external tools, non perfect specificity reflect an imprecise schema.")
+        print("As of October 2026, for external tools, non perfect specificity reflects an imprecise schema.")
     else:
         print("All tools reject all bad values on all cases, aka no false positives.")
 
