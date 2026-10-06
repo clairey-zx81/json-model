@@ -124,9 +124,9 @@
 - [x] export: generate ts interfaces
 - [x] model: fix IR model and tests
 - [x] front: IR re-entrance
-- [ ] tests: generate valid (pseudo-random) values
-- [ ] tests: generate invalid minimal, maximal, pseudo-random values
-- [ ] tests: generate invalid values on each constraint
+- [x] tests: generate valid (pseudo-random) values
+- [x] tests: generate invalid minimal, maximal, pseudo-random values
+- [x] tests: generate invalid values on each constraint
 - [ ] backend: C and runtime with json-c (\*, but beware of runtime integration)
 - [ ] backend: C# (\*\*)
 - [ ] backend: go (\*\*\*)
