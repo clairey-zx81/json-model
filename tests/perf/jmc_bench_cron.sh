@@ -124,8 +124,9 @@ done
 
 if [ "$build" ] ; then
   WORK_PERF=$WORK/tests/perf
-  make -C $WORK_PERF corvus.build || err 6 "cannot build corvus image"
-  make -C $WORK_PERF corvus.push || err 6 "cannot push corvus image"
+  make -C "$WORK_PERF" clean
+  make -C "$WORK_PERF" corvus.build || err 6 "cannot build corvus image"
+  make -C "$WORK_PERF" corvus.push || err 6 "cannot push corvus image"
 fi
 
 #
