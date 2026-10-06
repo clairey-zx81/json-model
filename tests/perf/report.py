@@ -189,10 +189,10 @@ else:
 RESULT_SUMMARY_INTRO: str = """
 Tool summary metrics (percent):
 
-- **Accuracy**: rate of well classified values.
-- **Precision**: rate of true positives over reported positives.
-- **Recall or Sensitivity**: rate of true positives over actual positives.
-- **Specificity**: rate of true negatives over actual negatives.
+- **Accuracy**: rate of well classified values (TP + TN / TP + TN + FP + FN).
+- **Precision**: rate of true positives over reported positives (TP / TP + FP).
+- **Recall or sensitivity**: rate of true positives over real positives (TP / TP + FN).
+- **Specificity**: rate of true negatives over real negatives (TN / TN + FP).
 """
 
 RESULT_SUMMARY_NOTE: str = """
