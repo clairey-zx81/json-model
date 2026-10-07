@@ -62,7 +62,8 @@ validated and discussed.
 - Performance elapsed times for each test are collected over a loop to compute
   an average and standard deviation.
   The repetition also intends to catch hidden costs such as JIT compilation, GC runs and
-  lazy initializations, possibly amortized over the loop.
+  lazy initializations, amortized over the loop and tests, typically _1,000,000_ validations
+  for a _1000_ iteration loop over _1000_ test values.
 - Several independent runs are performed to reduce host load effects.
 - Compilation times and performance times are the _median_ encountered over the runs.
 - Runs are usually performed in _fast_ mode: the rejection reasons are not collected,
