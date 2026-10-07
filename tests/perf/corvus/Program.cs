@@ -237,7 +237,7 @@ internal static class Program
             for(int i = 0; i < jsons.Count; i++)
             {
                 var entry = jsonl ? $"{file}[{i+1}]" : file;
-                ProcessValue(evaluator, entry, jsons[i], diagnostics, times, empty);
+                ProcessValue(evaluator, entry, jsons[i], diagnostics, verbose, times, empty);
             }
         }
 
@@ -249,6 +249,7 @@ internal static class Program
         string label,
         ParsedJsonDocument<JsonElement> doc,
         bool diagnostics,
+        bool verbose,
         int times,
         double empty)
     {
@@ -287,6 +288,20 @@ internal static class Program
         Console.WriteLine(
             $"{label}: {(ok ? "PASS" : "FAIL")} {avg:F3} ± {stdev:F3} µs/check ({empty:F3})"
         );
+
+        if (!ok && verbose)
+        {
+            // rerun to display result explanation
+            using var collector = JsonSchemaResultsCollector.Create(JsonSchemaResultsLevel.Verbose);
+            ok = evaluator.Evaluate(root, collector);
+            foreach (JsonSchemaResultsCollector.Result r in collector.EnumerateResults())
+            {
+                string at = r.GetDocumentEvaluationLocationText();
+                Console.WriteLine(
+                    $"    failed at {(at.Length == 0 ? "(root)" : at)} " +
+                    $"(schema {r.GetSchemaEvaluationLocationText()}): {r.GetMessageText()}");
+            }
+        }
     }
 
     private static double toMicroSeconds(long ticks) => ticks * (1_000_000.0 / Stopwatch.Frequency);
