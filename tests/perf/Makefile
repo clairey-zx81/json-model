@@ -121,6 +121,9 @@ ajv.%:
 corvus.%:
 	$(MAKE) SUB=corvus .$@
 
+%.version:
+	docker run --rm $*-cli:latest --version
+
 # additional dependencies
 .corvus.build: corvus/Program.cs corvus/CorvusBench.csproj
 
