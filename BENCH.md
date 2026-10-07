@@ -60,14 +60,15 @@ differences in the validated results, in which case they are manually
 validated and discussed.
 
 - Performance elapsed times for each test are collected over a loop to compute
-  an average and standard deviation. The repetition also intends to catch hidden costs
-  such as JIT compilation, GC runs and lazy initializations.
+  an average and standard deviation.
+  The repetition also intends to catch hidden costs such as JIT compilation, GC runs and
+  lazy initializations, possibly amortized over the loop.
 - Several independent runs are performed to reduce host load effects.
 - Compilation times and performance times are the _median_ encountered over the runs.
 - Runs are usually performed in _fast_ mode: the rejection reasons are not collected,
   and the run stops as soon as possible.
 - The benchmark presents relative comparison ratios to smooth out the wide range of
-  collected performances (from 10 ns to over 300 µs for validating one value).
+  collected performances (from 10 ns to over 300 µs for validating one test value).
 
 Note that performance figures **must** be taken with a pinch of salt, please consider
 the following caveats, and others:
@@ -84,6 +85,14 @@ the following caveats, and others:
   so it is often disabled.
 - The measure overhead is estimated and deduced from the performance figures by default,
   which leads to potentially fuzzy results when testing very small values.
+- Parsing is not taken into account:
+  From a user perspective, the combined time for parsing or building, checking, and
+  using or serializing makes more sense.
+  From our tool perspective, it is built around external representations, and
+  aims at being _inserted_ into existing code, without changing the underlying
+  JSON libraries, so the validation is the only new overhead to consider.
+  For other tools which force using their own representation (eg Blaze or Corvus C#)
+  and may imply conversion costs, an end-to-end measure seems more appropriate.
 - Compilers, libraries and other design and updates can have dramatic effects:
   for faster parsing, a library may use linked-list for properties, which means
   that retrieving a given property value will cost more than a library which uses
