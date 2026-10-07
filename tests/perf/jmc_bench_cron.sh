@@ -119,7 +119,7 @@ if [ ! "$no_publish" ] ; then
   test -d $WORK || err 2 "missing working directory: $WORK"
 fi
 
-for cmd in docker git ; do
+for cmd in docker git make ; do
   type $cmd > /dev/null 2>&1 || err 3 "missing command: $cmd"
 done
 
@@ -132,7 +132,7 @@ msg "buid=$build check=$check force=$force publish=$publish"
 if [ "$build" ] ; then
   msg "building"
   WORK_PERF=$WORK/tests/perf
-  make -C "$WORK_PERF" clean
+  make -C "$WORK_PERF" clean || err 6 "cannot clean for corvus build"
   make -C "$WORK_PERF" corvus.build || err 6 "cannot build corvus image"
   make -C "$WORK_PERF" corvus.push || err 6 "cannot push corvus image"
 else
