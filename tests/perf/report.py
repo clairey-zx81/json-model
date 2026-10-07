@@ -196,7 +196,10 @@ Tool summary metrics (percent):
 """
 
 RESULT_SUMMARY_NOTE: str = """
-Note: for external tools, a non perfect result does _not_ imply a tool bug, see below.
+Note: for external tools, a non perfect result does _not_ imply a tool bug.
+As of October 2026, for external tools, non perfect _specificity_ reflects
+an imprecise schema which fails to reject some (nonsensical) bad values.
+However, the benchmark good test cases are built so that the _accuracy_ must be 100%.
 """
 
 RESULT_GOODS: str = """
@@ -648,8 +651,6 @@ if args.negs:
                     f"|{i+1}|{CASE[c]}|" +
                     "".join(f"{percent(negs_results[c, t])}|" for t in tools)
                 )
-        print()
-        print("As of October 2026, for external tools, non perfect specificity reflects an imprecise schema.")
     else:
         print("All tools reject all bad values on all cases, aka no false positives.")
 
