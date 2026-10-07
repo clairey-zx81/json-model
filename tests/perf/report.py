@@ -151,7 +151,7 @@ if args.best:
 # FIXME should exist!
 if dobetter:
     assert args.performance in TOOL
-    TOOL_SUMMARY += f";\nnumber of better-than-reference ({TOOL[args.performance]}) performance"
+    TOOL_SUMMARY += f";\nnumber of better-than-reference ({TOOL[args.performance]}) performance (or for the reference, number of best performance)"
 
 #
 # cases
