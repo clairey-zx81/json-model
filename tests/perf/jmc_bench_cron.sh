@@ -57,11 +57,16 @@ export JMC_OPTS="--single-line-regex --cc=clang --precompiled --short-version"
 export JSB_DIR="$TARGET/jsb_dir"
 export POD_PULL=0  # do not pull images again!
 
+function msg()
+{
+  echo "[bench] $@" >&2
+}
+
 function err()
 {
   local status=$1
   shift 1
-  echo "[bench] $@" >&2
+  msg "$@"
   exit $status
 }
 
@@ -118,6 +123,8 @@ for cmd in docker git ; do
   type $cmd > /dev/null 2>&1 || err 3 "missing command: $cmd"
 done
 
+msg "buid=$build check=$check force=$force publish=$publish"
+
 #
 # build external images
 #
@@ -127,6 +134,8 @@ if [ "$build" ] ; then
   make -C "$WORK_PERF" clean
   make -C "$WORK_PERF" corvus.build || err 6 "cannot build corvus image"
   make -C "$WORK_PERF" corvus.push || err 6 "cannot push corvus image"
+else
+  msg "no build"
 fi
 
 #
@@ -147,8 +156,13 @@ if [ "$check" ] ; then
 
   # run if versions differ (but skip jsonschema benchmark)
   for tool in jmc jsb corvus ; do
-    cmp -s $VERSION.$tool $VERSION.$tool.tmp || run=1
+    if ! cmp -s $VERSION.$tool $VERSION.$tool.tmp ; then
+      msg "$tool changed, running"
+      run=1
+    fi
   done
+else
+  msg "no check"
 fi
 
 #
@@ -196,6 +210,8 @@ if [ "$run" ] ; then
 
   # switch publish unless disabled
   [ "$no_publish" ] || publish=1
+else
+  msg "no run"
 fi
 
 #
@@ -217,4 +233,6 @@ if [ "$publish" ] ; then
 
   git commit -m "add artifact $bench_id from cron job" || err 11 "cannot git commit artifact"
   git push || err 11 "cannot git push"
+else
+  msg "no publish"
 fi
