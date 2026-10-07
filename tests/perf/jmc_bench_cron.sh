@@ -130,6 +130,7 @@ msg "buid=$build check=$check force=$force publish=$publish"
 #
 
 if [ "$build" ] ; then
+  msg "building"
   WORK_PERF=$WORK/tests/perf
   make -C "$WORK_PERF" clean
   make -C "$WORK_PERF" corvus.build || err 6 "cannot build corvus image"
@@ -142,6 +143,7 @@ fi
 # check for new versions
 #
 if [ "$check" ] ; then
+  msg "checking"
   cd $TARGET || err 5 "cannot cd to: $TARGET"
 
   docker pull $SBC_IMG || err 6 "cannot docker pull: $SBC_IMG"
@@ -155,7 +157,7 @@ if [ "$check" ] ; then
   git -C "$JSB_DIR" rev-parse HEAD > $VERSION.jsb.tmp || err 7 "error getting git version: $JSB_DIR"
 
   # run if versions differ (but skip jsonschema benchmark)
-  for tool in jmc jsb corvus ; do
+  for tool in jmc sbc corvus ; do
     if ! cmp -s $VERSION.$tool $VERSION.$tool.tmp ; then
       msg "$tool changed, running"
       run=1
@@ -169,6 +171,7 @@ fi
 # run default bench if required
 #
 if [ "$run" ] ; then
+  msg "checking"
 
   if [ ! "$bench_id" ] ; then
     # generate unique bench id
@@ -218,6 +221,7 @@ fi
 # publish (new) artifact on the "post" branch
 #
 if [ "$publish" ] ; then
+  msg "publishing"
 
   [ "$bench_id" ] || err 12 "missing bench id for publish"
 
