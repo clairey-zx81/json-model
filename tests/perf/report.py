@@ -191,7 +191,7 @@ Tool summary metrics (percent):
 
 - **Accuracy**: rate of well classified values (TP + TN / TP + TN + FP + FN).
 - **Precision**: rate of true positives over reported positives (TP / TP + FP).
-- **Recall or sensitivity**: rate of true positives over real positives (TP / TP + FN).
+- **Sensitivity (aka Recall)**: rate of true positives over real positives (TP / TP + FN).
 - **Specificity**: rate of true negatives over real negatives (TN / TN + FP).
 """
 
@@ -199,12 +199,12 @@ RESULT_SUMMARY_NOTE: str = """
 Note: for external tools, a non perfect result does _not_ imply a tool bug.
 As of October 2026, for external tools, non perfect _specificity_ reflects
 an imprecise schema which fails to reject some (nonsensical) bad values.
-However, the benchmark good test cases are built so that the _accuracy_ must be 100%.
+However, the benchmark good test cases are built so that the _sensitivity_ should be 100%.
 """
 
 RESULT_GOODS: str = """
 For each tool and cases with a partial rate of validation of good values,
-percent of test cases correctly validated (aka recall or sensitivity).
+percent of test cases correctly validated (aka sensitivity or recall).
 """
 
 RESULT_BADS: str = """
