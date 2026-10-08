@@ -1,6 +1,6 @@
 import copy
-import re
 import typing
+import re
 from collections.abc import MutableMapping
 import json
 
@@ -99,7 +99,7 @@ class JsonModel:
     ROOT_KW = ["$", "%", "~"]
     SCAL_KW = ["@"]
     CONS_KW = ["!", "#", "<", "<=", ">", ">=", "=", "!="]
-    TRAN_KW = ["*", "/"]
+    TRAN_KW = ["*", "/", ":"]
     KEYWORDS = LIST_KW + ROOT_KW + SCAL_KW + CONS_KW + TRAN_KW
 
     # sentinel characters
@@ -937,7 +937,7 @@ class JsonModel:
         self._model = recModel(self._model, allFlt, globRwt, True)
 
     #
-    # Rename and Rewrite Transformations
+    # Rename Transformation
     #
     def rename(self, model: ModelType, path: ModelPath = [], root: bool = False) -> ModelType:
         """Apply keyword renaming."""
@@ -964,6 +964,9 @@ class JsonModel:
 
         return recModel(model, rnFlt, noRwt)
 
+    #
+    # Rewrite Transformations
+    #
     # FIXME parsing should conform to JSON Path
     # TODO think transformation path spec
     def _parsePath(self, tpath: str, path: ModelPath) -> tuple[JsonModel, ModelPath]:
@@ -980,15 +983,16 @@ class JsonModel:
             name, xpath = tpath, []
         log.debug(f"{self._id}: parsePath name={name} xpath={xpath}")
         jm = self.resolveRef(name, path, True)
+        log.debug(f"{self._id}: {name} resolved to {jm._id}")
         return (jm, xpath)
 
     def _isTrafo(self, trafo: ModelTrafo):
-        return isinstance(trafo, dict) and set(trafo.keys()).issubset({"#", "/", "*"})
+        return isinstance(trafo, dict) and set(trafo.keys()).issubset({"#", "/", "*", ":"})
 
     def _applyTrafo(self, j: Jsonable, trafo: ModelTrafo, path: ModelPath):
         """Apply this transformation on j."""
 
-        if not isinstance(trafo, dict) or "/" not in trafo and "*" not in trafo:
+        if not isinstance(trafo, dict) or "/" not in trafo and "*" not in trafo and ":" not in trafo:
             return trafo
         assert self._isTrafo(trafo)
         assert isinstance(trafo, dict)  # pyright hint
@@ -1034,6 +1038,27 @@ class JsonModel:
             else:
                 raise ModelError(f"unexpected add type at {path}")
 
+        if ":" in trafo:
+            log.error(f"trafo : on {j}")
+            # rename properties
+            reprop = trafo[":"]
+            if not isinstance(reprop, dict):
+                raise ModelError(f"rename requires an object at {path}")
+            if not all(isinstance(p, str) and isinstance(v, str) for p, v in reprop.items()):
+                raise ModelError(f"rename must be a string map at {path}")
+
+            if isinstance(j, dict):
+                new = {}
+                for p, v in reprop.items():
+                    if p in j:
+                        new[v] = j[p]
+                        del j[p]
+                    else:
+                        raise ModelError(f"unexpected property {p} to rename at {path}")
+                j.update(**new)
+            else:
+                raise ModelError(f"unexpected rename type at {path}")
+
         return j
 
     def _applyTrafoAtPath(self, jm: JsonModel, tpath: ModelPath,
@@ -1041,7 +1066,7 @@ class JsonModel:
         """Apply a transformation into a JSON Model."""
 
         if self._debug:
-            log.debug(f"{jm._id}: trafo at {path}: {tpath}")
+            log.debug(f"{jm._id}: {trafo} at {path}: {tpath}")
 
         j = jm._model
 
@@ -1082,7 +1107,7 @@ class JsonModel:
                 log.debug(f"{jm._id}: moving forward on p={p}")
                 j = j[p]  # type: ignore
         if not tpath:
-            log.debug(f"{jm._id}: empty tpath on {jm._model}")
+            log.debug(f"{jm._id}: empty tpath on {jm._model} for {trafo}")
             jm._model = self._applyTrafo(jm._model, trafo, path)
 
     def rewrite(self):
@@ -1090,6 +1115,7 @@ class JsonModel:
 
         # NOTE transformation specs may be empty
         for tpath, trafo in self._rewrite.items():
+            log.warning(f"tpath={tpath} trafo={trafo}")
             lpath = ["$", "%", tpath]  # FIXME
             # typing issue, cannot assign list[str] to list[str|int] !?
             jm, path = self._parsePath(tpath, lpath)  # type: ignore
