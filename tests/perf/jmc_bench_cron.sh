@@ -131,7 +131,8 @@ msg "buid=$build check=$check force=$force publish=$publish"
 
 if [ "$build" ] ; then
   msg "building"
-  WORK_PERF=$WORK/tests/perf
+  # WORK_PERF=$WORK/tests/perf
+  WORK_PERF=$PERF
   make -C "$WORK_PERF" clean || err 6 "cannot clean for corvus build"
   make -C "$WORK_PERF" corvus.build || err 6 "cannot build corvus image"
   make -C "$WORK_PERF" corvus.push || err 6 "cannot push corvus image"
