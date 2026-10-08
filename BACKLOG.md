@@ -5,6 +5,7 @@
 - [x] bench: move corvus at then end of the radar to keep colors consistent
 - [x] bench: run cron bench with corvus
 - [x] bench: re-build corvus image automatically
+- [ ] model: make transformations work on import
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads
