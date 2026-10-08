@@ -187,19 +187,20 @@ else:
     TOOL_CASES += f"Reference is **1.0** for tool {TOOL[args.performance]}.\n"
 
 RESULT_SUMMARY_INTRO: str = """
-Tool summary metrics (percent):
+Tool summary metrics (average over all cases, percent):
 
 - **Accuracy**: rate of well classified values (TP + TN / TP + TN + FP + FN).
 - **Precision**: rate of true positives over reported positives (TP / TP + FP).
 - **Sensitivity (aka Recall)**: rate of true positives over real positives (TP / TP + FN).
 - **Specificity**: rate of true negatives over real negatives (TN / TN + FP).
+- **F-score**: harmonic mean of precision and recall (2 TP / 2 TP + FP + FN).
 """
 
 RESULT_SUMMARY_NOTE: str = """
-Note: for external tools, a non perfect result does _not_ imply a tool bug.
-As of October 2026, for external tools, non perfect _specificity_ reflects
-an imprecise schema which fails to reject some (nonsensical) bad values.
-However, the benchmark good test cases are built so that the _sensitivity_ should be 100%.
+For external tools, a non perfect result does _not_ imply a tool bug: a non perfect
+_specificity_ reflects an imprecise schema which fails to reject some (nonsensical) bad values.
+However, the benchmark good test cases are built so that the _sensitivity_ should be 100%:
+As of October 2026, _Corvus_ rejects some string values (eg URI's) which are accepted by others.
 """
 
 RESULT_GOODS: str = """
@@ -404,7 +405,6 @@ if args.negs:
     # common metrics
     accuracy = (TP + TN) / (TP + FP + TN + FN)  # rate of well classified tests
     precision = TP / (TP + FP)                  # rate of pos among classified as pos
-    # FPR = FP / (FP + TN)                        # rate of bad negs among actual negs
     specificity = TN / (TN + FP)                # rate of negs among actual negs (1 - FPR)
     recall = TP / (TP + FN)                     # rate of pos among actual pos (sensitivity, TPR)
     F1 = 2 * precision * recall / (precision + recall)
@@ -414,6 +414,7 @@ if args.negs:
     # FPR_avg = FPR.groupby("tool").mean()
     specificity_avg = specificity.groupby("tool").mean()
     recall_avg = recall.groupby("tool").mean()
+    F1_avg = F1.groupby("tool").mean()
 
 # cannot compare to a failed result!?
 if args.performance != "best":
@@ -614,6 +615,7 @@ if args.negs:
     print("|precision|" + "".join(f"{percent(precision_avg.loc[t])}|" for t in tools))
     print("|recall|" + "".join(f"{percent(recall_avg.loc[t])}|" for t in tools))
     print("|specificity|" + "".join(f"{percent(specificity_avg.loc[t])}|" for t in tools))
+    print("|F1-score|" + "".join(f"{percent(F1_avg.loc[t])}|" for t in tools))
     print(RESULT_SUMMARY_NOTE, end="")
 
 # detail recall/sensitivity
