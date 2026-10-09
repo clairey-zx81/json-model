@@ -6,8 +6,9 @@
 - [x] bench: run cron bench with corvus
 - [x] bench: re-build corvus image automatically
 - [x] model: transformation rename properties with `:` (experimental)
+- [x] model: transformation make work on import? checked!
+- [ ] model: remove definitions on `$foo#` path (definition namespace) vs `$foo` (eg root object)
 - [ ] models: add `:` trafo to json model meta model and `--check`
-- [ ] model: transformation make work on import? check
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads
