@@ -6,7 +6,7 @@
     "schema": "$https://json-model.org/models/json-schema-draft-01"
   },
   "%": {
-    "$schema#": { "*": { "": "$ANY" } }
+    "$schema": { "*": { "": "$ANY" } }
   },
   "@": "$schema"
 }
