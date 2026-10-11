@@ -19,7 +19,7 @@
         "binData", "objectId", "date", "regex", "javascript", "timestamp", "minKey", "maxKey"
       ]
     },
-    "$schema#": {
+    "$schema": {
       "#": "remove and add properties to draft 04 root model",
       "/": ["?$ref", "?$schema", "?default", "?definitions", "?format", "?id"],
       "*": { "?bsonType": { "|": [ "$bsonType", [ "$bsonType" ] ] } }
