@@ -8,7 +8,7 @@
 - [x] model: transformation rename properties with `:` (experimental)
 - [x] model: transformation make work on import? checked!
 - [x] model: allow to edit definitions (namespace `$foo#`) with transformations
-- [ ] models: add `:` trafo to json model meta model
+- [x] models: add `:` trafo to json model meta model
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads
