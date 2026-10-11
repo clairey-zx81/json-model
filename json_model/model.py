@@ -974,6 +974,8 @@ class JsonModel:
         if self._debug:
             log.debug(f"{self._id}: parsePath at {path}: {tpath}")
         assert tpath and tpath[0] == "$", f"tpath must be a reference: {tpath}"
+        if tpath == "$":
+            return self, []
         if "." in tpath:
             name, jpath = tpath.split(".", 1)
             if jpath == "":
@@ -1061,27 +1063,18 @@ class JsonModel:
 
         return j
 
-    def _applyTrafoAtPath(self, jm: JsonModel, tpath: ModelPath,
-                          trafo: ModelTrafo, path: ModelPath):
+    def _applyModelTrafoAtPath(self,
+                jm: JsonModel,
+                tpath: ModelPath,
+                trafo: ModelTrafo,
+                path: ModelPath,
+            ):
         """Apply a transformation into a JSON Model."""
 
         if self._debug:
             log.debug(f"{jm._id}: {trafo} at {path}: {tpath}")
 
         j = jm._model
-
-        # if tpath == ["$"]:
-        #     log.warning("TODO add/remove definitions ?!")
-        #     if "/" in trafo:
-        #         assert isinstance(trafo["/"], list)
-        #         for name in trafo["/"]:
-        #             assert isinstance(name, str)
-        #             if name in jm._defs:
-        #                 del jm._defs[name]
-        #             else:
-        #                 log.warning(f"cannot remove definition for {name}")
-        #     assert "*" not in trafo, f"not implemented yet"
-        #     return
 
         # follow the JSON path
         for i, p in enumerate(tpath):
@@ -1110,13 +1103,65 @@ class JsonModel:
             log.debug(f"{jm._id}: empty tpath on {jm._model} for {trafo}")
             jm._model = self._applyTrafo(jm._model, trafo, path)
 
+    def _applyHeadTrafoAtPath(self,
+                jm: JsonModel,
+                tpath: ModelPath,
+                trafo: ModelTrafo,
+                path: ModelPath,
+            ):
+        """Apply a transformation on a namespace."""
+        # sanity
+        if not jm._is_head:
+            raise ModelError(f"expecting a head model at {path}")
+        if not isinstance(trafo, dict):
+            raise ModelError(f"namespace trafo must be a dict at {path}")
+        if tpath:
+            raise ModelError(f"unresolved namespace at {path}")
+        # remove definitions
+        if "/" in trafo:
+            names = trafo["/"]
+            if isinstance(names, str):  # scalar case
+                names = [names]
+            if not isinstance(names, list) or not all(isinstance(s, str) for s in names):
+                raise ModelError(f"namespace remove must be a list of names at {path}")
+            for name in names:
+                if name not in jm._defs:
+                    raise ModelError(f"missing {name} definition in model {jm._id} at {path}")
+                del jm._defs[name]
+        # add new definitions
+        if "*" in trafo:
+            defs = trafo["*"]
+            if not isinstance(defs, dict):
+                raise ModelError(f"expecting definitions at {path}")
+            for n, m in defs.items():
+                if not isinstance(n, str):
+                    raise ModelError(f"expecting a string name for * definitions at {path}")
+                # may override
+                jm._defs[n] = JsonModel(m, self._resolver, head=self)
+        # rename definitions
+        if ":" in trafo:
+            renames = trafo[":"]
+            if not isinstance(renames, dict):
+                raise ModelError(f"expecting an object for : at {path}")
+            if not all(isinstance(p, str) and isinstance(v, str) for p, v in renames.items()):
+                raise ModelError(f"expecting a string mapping for : at {path}")
+            for po, pn in renames.items():
+                if po not in self._defs:
+                    raise ModelError(f"missing definition {po} at {path}")
+                # may override?!
+                self._defs[pn] = self._defs[po]
+                del self._defs[po]
+
     def rewrite(self):
         """Apply model rewriting to current JSON Model."""
 
         # NOTE transformation specs may be empty
         for tpath, trafo in self._rewrite.items():
             log.warning(f"tpath={tpath} trafo={trafo}")
-            lpath = ["$", "%", tpath]  # FIXME
+            lpath = ["%", tpath]  # FIXME
             # typing issue, cannot assign list[str] to list[str|int] !?
             jm, path = self._parsePath(tpath, lpath)  # type: ignore
-            self._applyTrafoAtPath(jm, path, trafo, lpath)  # type: ignore
+            if tpath.endswith("#"):  # model namespace
+                self._applyHeadTrafoAtPath(jm, path, trafo, lpath)
+            else:
+                self._applyModelTrafoAtPath(jm, path, trafo, lpath)  # type: ignore
