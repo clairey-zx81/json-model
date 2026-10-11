@@ -1,0 +1,28 @@
+{
+  "#": "Edit model namespace vs model",
+  "$": {
+    "Aa": "/^a/",
+    "Bb": "/^b/",
+    "Cc": "/^c/"
+  },
+  "#.o": "root model is an object with 1 to 3 props",
+  "a": "$Aa",
+  "?b": "$Bb",
+  "?c": "$Cc",
+  "#.%": "namespace vs model operations",
+  "%": {
+    "#.$#": "definitions removed, added and renamed",
+    "$#": {
+      "/": "Cc",
+      "*": { "Dd": "/^d/" },
+      ":": { "Bb": "bb" }
+    },
+    "#.$": "root model editions",
+    "$": {
+      "/": "?c",
+      "*": { "?d": "$Dd" },
+      ":": { "a": "A" }
+    },
+    "$#.?b": "$bb"
+  }
+}

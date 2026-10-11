@@ -8,7 +8,7 @@
 - [x] bench: re-build corvus image automatically
 - [x] model: transformation rename properties with `:` (experimental)
 - [x] model: transformation make work on import? checked!
-- [ ] model: remove definitions on `$foo#` path (definition namespace) vs `$foo` (eg root object)
+- [x] model: allow to edit definitions (namespace `$foo#`) with transformations
 - [ ] models: add `:` trafo to json model meta model and `--check`
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?

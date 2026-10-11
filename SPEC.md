@@ -540,6 +540,13 @@ may include symbol renamings, model importations and model editions.
   - if the transformation value is a model (i.e. an object without any `/ *` property),
     the target value is _replaced_ by this value, in place.
 
+  Moreover, operations can also apply on model definitions when the path ends with `#` and
+  must designate a _head_ model, not a submodel:
+
+  - `/`: remove one (scalar) or several (array) definitions
+  - `*`: add or override definitions
+  - `:`: Rename, and possibly override, existing definitions
+
   These additions and editions are performed _after_ property renamings and imports,
   and _before_ merge pre-processing.
 
