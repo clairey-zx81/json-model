@@ -83,6 +83,9 @@ def valid(jm: JsonModel,
     ARR_KW = {"!"}
     OP_KW = {"@", "|", "&", "^", "+"}
 
+    # trafo are applied before checking model validity
+    # TRAFO_KW = {"/", "*", ":"}
+
     if extend:  # multiple-of: number, contains: model
         CMP_KW |= {".mo"}
         ARR_KW |= {".in"}
