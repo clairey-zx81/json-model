@@ -1979,19 +1979,19 @@ def json_model_42(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected type [.'$Model#Root'.'|']", path))
     return res
 
-# object .'$Model#Transformation'.'|'.1.'~'
+# object .'$Model#Transformation'.'|'.1.':'
 def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Model#Transformation'.'|'.1.'~']", path))
+        rep is None or rep.append(("not an object [.'$Model#Transformation'.'|'.1.':']", path))
         return False
     res: bool
     for prop, pval in val.items():
         lpath_25: Path = (path + [ prop ]) if path is not None else None
         # handle other props
-        # .'$Model#Transformation'.'|'.1.'~'.''
+        # .'$Model#Transformation'.'|'.1.':'.''
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected value for model \"\" [.'$Model#Transformation'.'|'.1.'~'.'']", lpath_25 if path is not None else None))
+            rep is None or rep.append(("unexpected value for model \"\" [.'$Model#Transformation'.'|'.1.':'.'']", lpath_25 if path is not None else None))
             return False
     return True
 
@@ -2030,13 +2030,13 @@ def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$Model#Transformation'.'|'.1.'/']", lpath_24 if path is not None else None))
                 return False
             continue
-        elif prop == "~":
-            # handle may ~ property
-            # .'$Model#Transformation'.'|'.1.'~'
+        elif prop == ":":
+            # handle may : property
+            # .'$Model#Transformation'.'|'.1.':'
             res = _jm_obj_25(pval, lpath_24 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$Model#Transformation'.'|'.1.'~']", lpath_24 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$Model#Transformation'.'|'.1.'~']", lpath_24 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$Model#Transformation'.'|'.1.':']", lpath_24 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Transformation'.'|'.1.':']", lpath_24 if path is not None else None))
                 return False
             continue
         elif prop == "*":
