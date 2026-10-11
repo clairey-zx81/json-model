@@ -528,7 +528,7 @@ may include symbol renamings, model importations and model editions.
         If a property already exists, this is an error and must be rejected.
       - `:` value must be an object, which is a string mapping to rename properties
         in the target object. All renamed properties **must** exists.
-        Specifying `{"a":"b", "b": "a"}` exchanges property values.
+        Specifying `{"?a":"b", "?b": "a"}` exchanges optional property values and makes them mandatory.
     - if the target is a JSON array (not necessarily a model for an array):
       - `/`: may be value or a list of values.
         Array items equal to these values are removed.
