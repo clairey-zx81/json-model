@@ -3161,12 +3161,12 @@ function json_model_42(val, path, rep)
     return res
 }
 
-// object .'$Model#Transformation'.'|'.1.'~'
+// object .'$Model#Transformation'.'|'.1.':'
 function _jm_obj_25(val, path, rep)
 {
     if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
-        rep !== null && rep.push(["not an object [.'$Model#Transformation'.'|'.1.'~']", path])
+        rep !== null && rep.push(["not an object [.'$Model#Transformation'.'|'.1.':']", path])
         return false
     }
     let res
@@ -3174,11 +3174,11 @@ function _jm_obj_25(val, path, rep)
     {
         let lpath_25 = path ? path.concat([prop]) : null
         // handle other props
-        // .'$Model#Transformation'.'|'.1.'~'.''
+        // .'$Model#Transformation'.'|'.1.':'.''
         res = typeof pval == 'string'
         if (! res)
         {
-            rep !== null && rep.push(["unexpected value for model \"\" [.'$Model#Transformation'.'|'.1.'~'.'']", (path ? lpath_25 : null)])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'$Model#Transformation'.'|'.1.':'.'']", (path ? lpath_25 : null)])
             return false
         }
     }
@@ -3248,15 +3248,15 @@ function _jm_obj_24(val, path, rep)
             }
             continue
         }
-        else if (prop == "~")
+        else if (prop == ":")
         {
-            // handle may ~ property
-            // .'$Model#Transformation'.'|'.1.'~'
+            // handle may : property
+            // .'$Model#Transformation'.'|'.1.':'
             res = _jm_obj_25(pval, (path ? lpath_24 : null), rep)
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Transformation'.'|'.1.'~']", (path ? lpath_24 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Model#Transformation'.'|'.1.'~']", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["unexpected element [.'$Model#Transformation'.'|'.1.':']", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Transformation'.'|'.1.':']", (path ? lpath_24 : null)])
                 return false
             }
             continue

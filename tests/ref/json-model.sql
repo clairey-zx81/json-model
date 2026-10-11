@@ -1094,7 +1094,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Trafo'.'~'
+-- object .'$Trafo'.':'
 CREATE OR REPLACE FUNCTION _jm_obj_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1107,7 +1107,7 @@ BEGIN
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
-    -- .'$Trafo'.'~'.''
+    -- .'$Trafo'.':'.''
     res := JSONB_TYPEOF(pval) = 'string';
     IF NOT res THEN
       RETURN FALSE;
@@ -1141,9 +1141,9 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Trafo'.'~'
+    ELSEIF prop = ':' THEN
+      -- handle may : property
+      -- .'$Trafo'.':'
       res := _jm_obj_6(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
@@ -1161,7 +1161,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Transformation'.'|'.1.'~'
+-- object .'$Transformation'.'|'.1.':'
 CREATE OR REPLACE FUNCTION _jm_obj_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1174,7 +1174,7 @@ BEGIN
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
-    -- .'$Transformation'.'|'.1.'~'.''
+    -- .'$Transformation'.'|'.1.':'.''
     res := JSONB_TYPEOF(pval) = 'string';
     IF NOT res THEN
       RETURN FALSE;
@@ -1214,9 +1214,9 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Transformation'.'|'.1.'~'
+    ELSEIF prop = ':' THEN
+      -- handle may : property
+      -- .'$Transformation'.'|'.1.':'
       res := _jm_obj_8(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
