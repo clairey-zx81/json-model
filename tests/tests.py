@@ -324,15 +324,16 @@ MODEL_DIRS_PATH: list[pathlib.Path] = [
 
 MODEL_DIRS: list[str] = [ str(d) for d in MODEL_DIRS_PATH ]
 
-MODEL_SUFFIX: str = ".model.json"
+MODEL_JSON: str = ".model.json"
+ERROR_JSON: str = ".errors.json"
 
 MODEL_FILES_PATH: list[pathlib.Path] = reduce(
     lambda l1, l2: l1 + l2,
-    (sorted(d.glob(f"*{MODEL_SUFFIX}")) for d in MODEL_DIRS_PATH),
+    (sorted(d.glob("*" + MODEL_JSON)) for d in MODEL_DIRS_PATH),
     []
 )
 
-MODEL_NAMES: list[str] = [ str(p)[:-len(MODEL_SUFFIX)] for p in MODEL_FILES_PATH ]
+MODEL_NAMES: list[str] = [ str(p)[:-len(MODEL_JSON)] for p in MODEL_FILES_PATH ]
 
 @pytest.fixture(params=MODEL_DIRS)
 def directory(request):
@@ -446,7 +447,7 @@ def jmchecker(clibjm):
 # GENERATED STUFF
 #
 def check_generated(directory: pathlib.Path, name: str, suffix: str,
-                    generate, srcsuff: str = ".model.json", expect: int|None = None):
+                    generate, srcsuff: str = MODEL_JSON, expect: int|None = None):
     """Generic test against generated stuff."""
 
     assert callable(generate)
@@ -486,9 +487,9 @@ def test_2json(directory):
     def generate_json(fmodel: str):
         return resolver(fmodel, follow=True)
 
-    check_generated(directory, "js2json", ".model.json", generate_json, ".model.js",
+    check_generated(directory, "js2json", MODEL_JSON, generate_json, ".model.js",
                     EXPECT.get(f"{directory}:js2json", 0))
-    check_generated(directory, "yaml2json", ".model.json", generate_json, ".model.yaml",
+    check_generated(directory, "yaml2json", MODEL_JSON, generate_json, ".model.yaml",
                     EXPECT.get(f"{directory}:yaml2json", 0))
 
 
@@ -551,10 +552,10 @@ def test_ts(directory, tmp_dir):
     mod_opts = EXPECT.get(f"{directory}:mod-opts", {})
     ntests = 0
 
-    for fpath in sorted(directory.glob("*.model.json")):
+    for fpath in sorted(directory.glob("*" + MODEL_JSON)):
         fname = "./" + str(fpath)
-        fin = fname.replace(".model.json", "").replace(f"./{directory}/", "./")
-        bname = fpath.name.replace(".model.json", "")
+        fin = fname.replace(MODEL_JSON, "").replace(f"./{directory}/", "./")
+        bname = fpath.name.replace(MODEL_JSON, "")
         ntests += 1
         declared = expected_errors(directory, bname).get("ts", False)
 
@@ -570,7 +571,7 @@ def test_ts(directory, tmp_dir):
             assert declared, f"{directory}/{bname}: undeclared ts generation error: {e}"
             continue
 
-        tsref = fname.replace(".model.json", ".ts")
+        tsref = fname.replace(MODEL_JSON, ".ts")
         with open(tsref) as f:
             assert generated == f.read(), f"generated TS differs from committed {tsref}"
 
@@ -586,7 +587,7 @@ def test_ts(directory, tmp_dir):
         failed = proc.returncode != 0
 
         assert failed == declared, \
-            f"{directory}/{bname}.errors.json [ts]: " + (
+            f"{directory}/{bname}{ERROR_JSON} [ts]: " + (
                 f"undeclared tsc failure:\n{proc.stdout}{proc.stderr}" if failed else
                 "declared as failing, but tsc accepts it"
             )
@@ -595,7 +596,7 @@ def test_ts(directory, tmp_dir):
 
 def expected_errors(directory: pathlib.Path, model: str) -> dict[str, list[int]]:
     """Expected errors for a model"""
-    efile = directory.joinpath(f"{model}.errors.json")
+    efile = directory.joinpath(f"{model}{ERROR_JSON}")
     if not efile.exists():
         return {}
     with open(efile) as ef:
@@ -755,12 +756,12 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
 
     nfiles, ntests, nmerrors, nverrors = 0, 0, 0, 0
 
-    for fpath in sorted(directory.glob("*.model.json")):
+    for fpath in sorted(directory.glob("*" + MODEL_JSON)):
         nmtests = 0
         nfiles += 1
 
         fmodel = f"./{fpath}"
-        model = fmodel.replace(f"{directory}/", "").replace(".model.json", "")
+        model = fmodel.replace(f"{directory}/", "").replace(MODEL_JSON, "")
         log.debug(f"dyn[{directory}]: {model} ({fpath})")
 
         checker = gen_checker(f"./{fpath}")
@@ -836,8 +837,8 @@ def test_dyn_py(directory: pathlib.Path):
     options = EXPECT.get(f"{directory}:mod-opts", {})
 
     def gen_py_checker(fmodel: str):
-        assert fmodel.endswith(".model.json")
-        model = fmodel.replace(".model.json", "").replace(f"{directory}/", "")
+        assert fmodel.endswith(MODEL_JSON)
+        model = fmodel.replace(MODEL_JSON, "").replace(f"{directory}/", "")
         return model_checker_from_url(model, resolver=resolver, follow=True, debug=False, **options)
 
     run_dyn(directory, gen_py_checker, "dynpy")
@@ -851,8 +852,8 @@ def test_dyn_ir(directory: pathlib.Path):
     options = EXPECT.get(f"{directory}:mod-opts", {})
 
     def gen_ir_checker(fmodel: str):
-        assert fmodel.endswith(".model.json")
-        model = fmodel.replace(".model.json", "").replace(f"{directory}/", "")
+        assert fmodel.endswith(MODEL_JSON)
+        model = fmodel.replace(MODEL_JSON, "").replace(f"{directory}/", "")
         jm = model_from_url(model, resolver=resolver, follow=True, debug=False, **options)
         ir = json.loads(str(xstatic_compile(jm, lang="json")))
         env = {}
@@ -876,10 +877,10 @@ def test_dyn_json_schema(directory: pathlib.Path):
     import jsonschema
 
     def gen_jschema_checker(fmodel: str):
-        assert fmodel.endswith(".model.json")
+        assert fmodel.endswith(MODEL_JSON)
 
         # load schema
-        fschema = fmodel.replace(".model.json", ".schema.json")
+        fschema = fmodel.replace(MODEL_JSON, ".schema.json")
         with open(fschema) as f:
             js = json.loads(f.read())
 
@@ -1018,7 +1019,7 @@ def test_ir(directory):
     check_directory_models(
         directory,
         "https://json-model.org/models/jmc-ir",
-        ".model.json",
+        MODEL_JSON,
         generate_ir,
         EXPECT.get(f"{directory}:models"),
     )
@@ -1040,7 +1041,7 @@ def test_model_json(directory):
     check_directory_models(
         directory,
         model_url,
-        ".model.json",
+        MODEL_JSON,
         get_json_file,
         EXPECT.get(f"{directory}:models"),
         strict,
@@ -1063,13 +1064,13 @@ def test_errors_json(directory):
     check_directory_models(
         directory,
         "https://json-model.org/models/jmc-errors",
-        ".errors.json",
+        ERROR_JSON,
         get_json_file,
         -1,
     )
 
     # TODO check that model file exists
-    # model = fname.replace(".errors.json", ".model.json")
+    # model = fname.replace(".errors.json", MODEL_JSON)
     # assert os.path.exists(model), f"{fname}: no corresponding {model}"
 
 def test_bench_json():
