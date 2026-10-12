@@ -324,13 +324,15 @@ MODEL_DIRS_PATH: list[pathlib.Path] = [
 
 MODEL_DIRS: list[str] = [ str(d) for d in MODEL_DIRS_PATH ]
 
+MODEL_SUFFIX: str = ".model.json"
+
 MODEL_FILES_PATH: list[pathlib.Path] = reduce(
     lambda l1, l2: l1 + l2,
-    (sorted(d.glob("*.model.json")) for d in MODEL_DIRS_PATH),
+    (sorted(d.glob(f"*{MODEL_SUFFIX}")) for d in MODEL_DIRS_PATH),
     []
 )
 
-MODEL_NAMES: list[str] = [ str(p)[:-11] for p in MODEL_FILES_PATH ]
+MODEL_NAMES: list[str] = [ str(p)[:-len(MODEL_SUFFIX)] for p in MODEL_FILES_PATH ]
 
 @pytest.fixture(params=MODEL_DIRS)
 def directory(request):
