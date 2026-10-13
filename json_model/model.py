@@ -974,7 +974,7 @@ class JsonModel:
         if self._debug:
             log.debug(f"{self._id}: parsePath at {path}: {tpath}")
         assert tpath and tpath[0] == "$", f"tpath must be a reference: {tpath}"
-        if tpath == "$":
+        if tpath == "$" or tpath == "$#":
             return self, []
         if "." in tpath:
             name, jpath = tpath.split(".", 1)
@@ -1112,6 +1112,7 @@ class JsonModel:
         """Apply a transformation on a namespace."""
         # sanity
         if not jm._is_head:
+            # log.warning(f"expecting a head model at {path}")
             raise ModelError(f"expecting a head model at {path}")
         if not isinstance(trafo, dict):
             raise ModelError(f"namespace trafo must be a dict at {path}")
