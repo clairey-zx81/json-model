@@ -1,0 +1,30 @@
+{
+  "#": "JSON Schema Draft 02 as a diff from Draft 01",
+  "~": "https://json-model.org/models/json-schema-draft-02-diff",
+  "$": {
+    "v1": "$https://json-model.org/models/json-schema-draft-01"
+  },
+  "%": {
+    "$v1#": {
+      "#": "add one definition",
+      "*": { "distinctStringArray": { "@": [""], "!": true } }
+    },
+    "$v1.?disallow.|": {
+      "#": "update disallow property",
+      "/": [ [""] ],
+      "*": [ "$distinctStringArray" ]
+    },
+    "$v1.?enum": {
+      "#": "update enum property",
+      "*": { "!": true }
+    },
+    "$v1": {
+      "#": "drop and add properties",
+      "/": [ "?maxDecimal" ],
+      "*": {
+        "?divisibleBy": 1.0,
+        "?uniqueItems": true 
+      }
+    }
+  }
+}
