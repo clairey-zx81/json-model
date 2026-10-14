@@ -11,6 +11,8 @@
 - [x] model: allow to edit definitions (namespace `$foo#`) with transformations
 - [x] models: add `:` trafo to json model meta model
 - [x] models: add diff model from v1 to v2
+- [x] bench: work around cal dns issues
+- [ ] bench: fix missing jmc on cron job
 - [ ] spec: consider reverting `:` back to `~` for readability
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?

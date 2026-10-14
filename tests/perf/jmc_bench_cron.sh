@@ -123,6 +123,14 @@ for cmd in docker git make ; do
   type $cmd > /dev/null 2>&1 || err 3 "missing command: $cmd"
 done
 
+# work around occasional dns issues
+for name in github.com ghcr.io docker.io ; do
+  for n in 1 2 3 4 5 ; do
+    host $name && break
+    sleep 1
+  done
+done
+
 msg "buid=$build check=$check force=$force publish=$publish"
 
 #
