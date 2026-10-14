@@ -139,6 +139,8 @@ msg "buid=$build check=$check force=$force publish=$publish"
 
 if [ "$build" ] ; then
   msg "building"
+  # set venv for "jmc"
+  [ -d $WORK/venv ] && source $WORK/venv/bin/activate
   # WORK_PERF=$WORK/tests/perf
   WORK_PERF=$PERF
   make -C "$WORK_PERF" clean || err 6 "cannot clean for corvus build"
