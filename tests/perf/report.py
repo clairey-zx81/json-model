@@ -191,7 +191,7 @@ Classification metrics for each tool (percent average over all cases):
 
 - **Accuracy**: rate of well classified values (TP + TN / TP + TN + FP + FN).
 - **Precision**: rate of true positives over reported positives (TP / TP + FP).
-- **Sensitivity (aka Recall)**: rate of true positives over real positives (TP / TP + FN).
+- **Recall (aka Sensitivity)**: rate of true positives over real positives (TP / TP + FN).
 - **Specificity**: rate of true negatives over real negatives (TN / TN + FP).
 - **F-score**: harmonic mean of precision and recall (2 TP / 2 TP + FP + FN).
 """
@@ -619,10 +619,10 @@ if args.negs:
     print(RESULT_SUMMARY_NOTE, end="")
 else:
     print()
-    print("For each tool, the percent precision of correctly validated true values.")
+    print("For each tool, the percent recall (aka sensitivity), ie rate of true positives over real positives (TP / TP + FN).")
     print()
     print("|metrics|" + "".join(f"{TOOL[t]}|" for t in tools))
-    print("|precision|" + "".join(f"{percent(precision_avg.loc[t])}|" for t in tools))
+    print("|recall|" + "".join(f"{percent(recall_avg.loc[t])}|" for t in tools))
 
 # detail recall/sensitivity
 if any(success_ratio[c, t] != 1.0 for t in tools for c in cases):
