@@ -12,6 +12,7 @@
 - [x] models: add diff model from v1 to v2
 - [x] bench: work around cal dns issues
 - [x] bench: fix missing jmc on cron job
+- [x] bench: improve report section title about classification metrics
 - [ ] spec: consider reverting `:` back to `~` for readability
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?

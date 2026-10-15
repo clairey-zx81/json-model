@@ -187,7 +187,7 @@ else:
     TOOL_CASES += f"Reference is **1.0** for tool {TOOL[args.performance]}.\n"
 
 RESULT_SUMMARY_INTRO: str = """
-Tool summary metrics (average over all cases, percent):
+Classification metrics for each tool (percent average over all cases):
 
 - **Accuracy**: rate of well classified values (TP + TN / TP + TN + FP + FN).
 - **Precision**: rate of true positives over reported positives (TP / TP + FP).
@@ -597,7 +597,7 @@ for i, c in enumerate(cases):
 #
 
 print()
-print("## Results")
+print("## Classification Metrics")
 
 def percent(rate: float) -> str:
     """Convert rate to percent."""
@@ -617,6 +617,12 @@ if args.negs:
     print("|specificity|" + "".join(f"{percent(specificity_avg.loc[t])}|" for t in tools))
     print("|F1-score|" + "".join(f"{percent(F1_avg.loc[t])}|" for t in tools))
     print(RESULT_SUMMARY_NOTE, end="")
+else:
+    print()
+    print("For each tool, the percent precision of correctly validated true values.")
+    print()
+    print("|metrics|" + "".join(f"{TOOL[t]}|" for t in tools))
+    print("|precision|" + "".join(f"{percent(precision_avg.loc[t])}|" for t in tools))
 
 # detail recall/sensitivity
 if any(success_ratio[c, t] != 1.0 for t in tools for c in cases):
