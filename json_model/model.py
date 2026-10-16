@@ -1045,9 +1045,9 @@ class JsonModel:
             # rename properties
             reprop = trafo["~"]
             if not isinstance(reprop, dict):
-                raise ModelError(f"rename requires an object at {path}")
+                raise ModelError(f"rename ~ requires an object at {path}")
             if not all(isinstance(p, str) and isinstance(v, str) for p, v in reprop.items()):
-                raise ModelError(f"rename must be a string map at {path}")
+                raise ModelError(f"rename ~ must be a string map at {path}")
 
             if isinstance(j, dict):
                 new = {}
@@ -1143,9 +1143,9 @@ class JsonModel:
         if "~" in trafo:
             renames = trafo["~"]
             if not isinstance(renames, dict):
-                raise ModelError(f"expecting an object for : at {path}")
+                raise ModelError(f"expecting an object for ~ at {path}")
             if not all(isinstance(p, str) and isinstance(v, str) for p, v in renames.items()):
-                raise ModelError(f"expecting a string mapping for : at {path}")
+                raise ModelError(f"expecting a string mapping for ~ at {path}")
             updates = {}
             for po, pn in renames.items():
                 if po not in self._defs:
