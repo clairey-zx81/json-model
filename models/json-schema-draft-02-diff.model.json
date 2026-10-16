@@ -23,7 +23,7 @@
       "/": [ "?maxDecimal" ],
       "*": {
         "?divisibleBy": 1.0,
-        "?uniqueItems": true 
+        "?uniqueItems": true
       }
     }
   }
