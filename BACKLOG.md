@@ -14,6 +14,7 @@
 - [x] bench: work around cal dns issues
 - [x] bench: fix missing jmc on cron job
 - [x] bench: improve report section title about classification metrics
+- [x] docker: enable user remap (for a long time?)
 - [ ] spec: consider reverting `:` back to `~` for readability
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
@@ -63,7 +64,6 @@
 - [ ] predefs: _url_ vs _uri_ vs _iri_
 - [ ] predefs: improve `$URI` and `$URL`
 - [ ] predefs: add `$SIMPLE_REGEX` for regex syntax subset?
-- [ ] docker: enable user remap
 - [ ] export: java classes
 - [ ] export: go interfaces
 - [ ] export: ts interfaces
