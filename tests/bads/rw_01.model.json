@@ -1,0 +1,6 @@
+{
+  "#": "~ expects an string mapping",
+  "%": {
+    "$#": { "~": {"foo": 42} }
+  }
+}
