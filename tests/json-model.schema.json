@@ -165,7 +165,7 @@
             "$comment": "TODO improve",
             "anyOf": [
               { "$ref": "#/$defs/Model" },
-              { "?*": "$ANY", "?/": "$ANY", "?#": {"type": "string"} }
+              { "?*": "$ANY", "?/": "$ANY", "?~": {"": ""}, "?#": {"type": "string"} }
             ]
           }
         }
