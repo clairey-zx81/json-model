@@ -1660,13 +1660,13 @@ sub json_model_30($$$)
     return $res;
 }
 
-# object .'$Trafo'.':'
+# object .'$Trafo'.'~'
 sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
     unless (jm_is_object($val))
     {
-        push @$rep, ["not an object [.'\$Trafo'.':']", $path] if defined $rep;
+        push @$rep, ["not an object [.'\$Trafo'.'~']", $path] if defined $rep;
         return 0;
     }
     my $res;
@@ -1676,11 +1676,11 @@ sub _jm_obj_6($$$)
         my $pval = $$val{$prop};
         my $lpath_10 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
-        # .'$Trafo'.':'.''
+        # .'$Trafo'.'~'.''
         $res = jm_is_string($pval);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\" [.'\$Trafo'.':'.'']", defined $path ? $lpath_10 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\" [.'\$Trafo'.'~'.'']", defined $path ? $lpath_10 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1729,15 +1729,15 @@ sub json_model_31($$$)
             }
             next;
         }
-        elsif ($prop eq ":")
+        elsif ($prop eq "~")
         {
-            # handle may : property
-            # .'$Trafo'.':'
+            # handle may ~ property
+            # .'$Trafo'.'~'
             $res = _jm_obj_6($pval, defined $path ? $lpath_9 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected element [.'\$Trafo'.':']", defined $path ? $lpath_9 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Trafo'.':']", defined $path ? $lpath_9 : undef] if defined $rep;
+                push @$rep, ["unexpected element [.'\$Trafo'.'~']", defined $path ? $lpath_9 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Trafo'.'~']", defined $path ? $lpath_9 : undef] if defined $rep;
                 return 0;
             }
             next;
@@ -1755,13 +1755,13 @@ sub json_model_31($$$)
     return 1;
 }
 
-# object .'$Transformation'.'|'.1.':'
+# object .'$Transformation'.'|'.1.'~'
 sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
     unless (jm_is_object($val))
     {
-        push @$rep, ["not an object [.'\$Transformation'.'|'.1.':']", $path] if defined $rep;
+        push @$rep, ["not an object [.'\$Transformation'.'|'.1.'~']", $path] if defined $rep;
         return 0;
     }
     my $res;
@@ -1771,11 +1771,11 @@ sub _jm_obj_8($$$)
         my $pval = $$val{$prop};
         my $lpath_12 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
-        # .'$Transformation'.'|'.1.':'.''
+        # .'$Transformation'.'|'.1.'~'.''
         $res = jm_is_string($pval);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\" [.'\$Transformation'.'|'.1.':'.'']", defined $path ? $lpath_12 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\" [.'\$Transformation'.'|'.1.'~'.'']", defined $path ? $lpath_12 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1835,15 +1835,15 @@ sub _jm_obj_7($$$)
             }
             next;
         }
-        elsif ($prop eq ":")
+        elsif ($prop eq "~")
         {
-            # handle may : property
-            # .'$Transformation'.'|'.1.':'
+            # handle may ~ property
+            # .'$Transformation'.'|'.1.'~'
             $res = _jm_obj_8($pval, defined $path ? $lpath_11 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected element [.'\$Transformation'.'|'.1.':']", defined $path ? $lpath_11 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Transformation'.'|'.1.':']", defined $path ? $lpath_11 : undef] if defined $rep;
+                push @$rep, ["unexpected element [.'\$Transformation'.'|'.1.'~']", defined $path ? $lpath_11 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Transformation'.'|'.1.'~']", defined $path ? $lpath_11 : undef] if defined $rep;
                 return 0;
             }
             next;

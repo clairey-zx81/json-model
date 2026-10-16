@@ -3103,13 +3103,13 @@ sub json_model_42($$$)
     return $res;
 }
 
-# object .'$Model#Transformation'.'|'.1.':'
+# object .'$Model#Transformation'.'|'.1.'~'
 sub _jm_obj_25($$$)
 {
     my ($val, $path, $rep) = @_;
     unless (jm_is_object($val))
     {
-        push @$rep, ["not an object [.'\$Model#Transformation'.'|'.1.':']", $path] if defined $rep;
+        push @$rep, ["not an object [.'\$Model#Transformation'.'|'.1.'~']", $path] if defined $rep;
         return 0;
     }
     my $res;
@@ -3119,11 +3119,11 @@ sub _jm_obj_25($$$)
         my $pval = $$val{$prop};
         my $lpath_25 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
-        # .'$Model#Transformation'.'|'.1.':'.''
+        # .'$Model#Transformation'.'|'.1.'~'.''
         $res = jm_is_string($pval);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\" [.'\$Model#Transformation'.'|'.1.':'.'']", defined $path ? $lpath_25 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\" [.'\$Model#Transformation'.'|'.1.'~'.'']", defined $path ? $lpath_25 : undef] if defined $rep;
             return 0;
         }
     }
@@ -3183,15 +3183,15 @@ sub _jm_obj_24($$$)
             }
             next;
         }
-        elsif ($prop eq ":")
+        elsif ($prop eq "~")
         {
-            # handle may : property
-            # .'$Model#Transformation'.'|'.1.':'
+            # handle may ~ property
+            # .'$Model#Transformation'.'|'.1.'~'
             $res = _jm_obj_25($pval, defined $path ? $lpath_24 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected element [.'\$Model#Transformation'.'|'.1.':']", defined $path ? $lpath_24 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Model#Transformation'.'|'.1.':']", defined $path ? $lpath_24 : undef] if defined $rep;
+                push @$rep, ["unexpected element [.'\$Model#Transformation'.'|'.1.'~']", defined $path ? $lpath_24 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Model#Transformation'.'|'.1.'~']", defined $path ? $lpath_24 : undef] if defined $rep;
                 return 0;
             }
             next;

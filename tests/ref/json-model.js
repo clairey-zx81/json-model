@@ -1414,12 +1414,12 @@ function json_model_30(val, path, rep)
     return res
 }
 
-// object .'$Trafo'.':'
+// object .'$Trafo'.'~'
 function _jm_obj_6(val, path, rep)
 {
     if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
-        rep !== null && rep.push(["not an object [.'$Trafo'.':']", path])
+        rep !== null && rep.push(["not an object [.'$Trafo'.'~']", path])
         return false
     }
     let res
@@ -1427,11 +1427,11 @@ function _jm_obj_6(val, path, rep)
     {
         let lpath_10 = path ? path.concat([prop]) : null
         // handle other props
-        // .'$Trafo'.':'.''
+        // .'$Trafo'.'~'.''
         res = typeof pval == 'string'
         if (! res)
         {
-            rep !== null && rep.push(["unexpected value for model \"\" [.'$Trafo'.':'.'']", (path ? lpath_10 : null)])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'$Trafo'.'~'.'']", (path ? lpath_10 : null)])
             return false
         }
     }
@@ -1478,15 +1478,15 @@ function json_model_31(val, path, rep)
             }
             continue
         }
-        else if (prop == ":")
+        else if (prop == "~")
         {
-            // handle may : property
-            // .'$Trafo'.':'
+            // handle may ~ property
+            // .'$Trafo'.'~'
             res = _jm_obj_6(pval, (path ? lpath_9 : null), rep)
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Trafo'.':']", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Trafo'.':']", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["unexpected element [.'$Trafo'.'~']", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Trafo'.'~']", (path ? lpath_9 : null)])
                 return false
             }
             continue
@@ -1504,12 +1504,12 @@ function json_model_31(val, path, rep)
     return true
 }
 
-// object .'$Transformation'.'|'.1.':'
+// object .'$Transformation'.'|'.1.'~'
 function _jm_obj_8(val, path, rep)
 {
     if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
     {
-        rep !== null && rep.push(["not an object [.'$Transformation'.'|'.1.':']", path])
+        rep !== null && rep.push(["not an object [.'$Transformation'.'|'.1.'~']", path])
         return false
     }
     let res
@@ -1517,11 +1517,11 @@ function _jm_obj_8(val, path, rep)
     {
         let lpath_12 = path ? path.concat([prop]) : null
         // handle other props
-        // .'$Transformation'.'|'.1.':'.''
+        // .'$Transformation'.'|'.1.'~'.''
         res = typeof pval == 'string'
         if (! res)
         {
-            rep !== null && rep.push(["unexpected value for model \"\" [.'$Transformation'.'|'.1.':'.'']", (path ? lpath_12 : null)])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'$Transformation'.'|'.1.'~'.'']", (path ? lpath_12 : null)])
             return false
         }
     }
@@ -1579,15 +1579,15 @@ function _jm_obj_7(val, path, rep)
             }
             continue
         }
-        else if (prop == ":")
+        else if (prop == "~")
         {
-            // handle may : property
-            // .'$Transformation'.'|'.1.':'
+            // handle may ~ property
+            // .'$Transformation'.'|'.1.'~'
             res = _jm_obj_8(pval, (path ? lpath_11 : null), rep)
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Transformation'.'|'.1.':']", (path ? lpath_11 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Transformation'.'|'.1.':']", (path ? lpath_11 : null)])
+                rep !== null && rep.push(["unexpected element [.'$Transformation'.'|'.1.'~']", (path ? lpath_11 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Transformation'.'|'.1.'~']", (path ? lpath_11 : null)])
                 return false
             }
             continue
