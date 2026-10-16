@@ -36,7 +36,6 @@
 - [ ] front: generate valid minimal, maximal and random values from a model
 - [ ] front: generate invalid minimal values from a model
 - [ ] optim: collect and display stats about what works
-- [ ] spec: allow to _remove_ definitions, eg `{ "$stuff": {"/": "$foo"}}`
 - [ ] spec: restrict regex syntax to a smaller subset
 - [ ] perf: drop and/or merge identical results when comparing
 - [ ] backend: check `mv-34/mu` test case which may require some utf normalization
