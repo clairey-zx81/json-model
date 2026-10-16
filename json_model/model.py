@@ -99,7 +99,7 @@ class JsonModel:
     ROOT_KW = ["$", "%", "~"]
     SCAL_KW = ["@"]
     CONS_KW = ["!", "#", "<", "<=", ">", ">=", "=", "!="]
-    TRAN_KW = ["*", "/", ":"]
+    TRAN_KW = ["*", "/", "~"]
     KEYWORDS = LIST_KW + ROOT_KW + SCAL_KW + CONS_KW + TRAN_KW
 
     # sentinel characters
@@ -989,14 +989,14 @@ class JsonModel:
         return (jm, xpath)
 
     def _isTrafo(self, trafo: ModelTrafo):
-        return isinstance(trafo, dict) and set(trafo.keys()).issubset({"#", "/", "*", ":"})
+        """Tell whether trafo is a transformation object."""
+        return isinstance(trafo, dict) and set(trafo.keys()).issubset({"#", "/", "*", "~"})
 
     def _applyTrafo(self, j: Jsonable, trafo: ModelTrafo, path: ModelPath):
         """Apply this transformation on j."""
 
-        if not isinstance(trafo, dict) or "/" not in trafo and "*" not in trafo and ":" not in trafo:
+        if not self._isTrafo(trafo):
             return trafo
-        assert self._isTrafo(trafo)
         assert isinstance(trafo, dict)  # pyright hint
         if self._debug:
             log.debug(f"{self._id}: applyTrafo trafo={trafo} on j={j} [{path}]")
@@ -1040,10 +1040,10 @@ class JsonModel:
             else:
                 raise ModelError(f"unexpected add type at {path}")
 
-        if ":" in trafo:
+        if "~" in trafo:
             log.error(f"trafo : on {j}")
             # rename properties
-            reprop = trafo[":"]
+            reprop = trafo["~"]
             if not isinstance(reprop, dict):
                 raise ModelError(f"rename requires an object at {path}")
             if not all(isinstance(p, str) and isinstance(v, str) for p, v in reprop.items()):
@@ -1140,8 +1140,8 @@ class JsonModel:
                 # may override
                 jm._defs[n] = JsonModel(m, self._resolver, head=self)
         # rename definitions
-        if ":" in trafo:
-            renames = trafo[":"]
+        if "~" in trafo:
+            renames = trafo["~"]
             if not isinstance(renames, dict):
                 raise ModelError(f"expecting an object for : at {path}")
             if not all(isinstance(p, str) and isinstance(v, str) for p, v in renames.items()):
