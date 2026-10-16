@@ -1,0 +1,4 @@
+WARNING:json-model:tpath=$ trafo={'~': {'missing-prop': 'foo'}}
+ERROR:json-model:trafo : on {}
+ERROR:json-model:unexpected property missing-prop to rename at ['%', '$']
+ERROR:json-model:invalid model rw_02.model.json
