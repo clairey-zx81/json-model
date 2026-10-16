@@ -15,6 +15,7 @@
 - [x] bench: fix missing jmc on cron job
 - [x] bench: improve report section title about classification metrics
 - [x] docker: enable user remap (for a long time?)
+- [x] models: add OpenAPI-with-models alternative model
 - [ ] spec: consider reverting `:` back to `~` for readability
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
