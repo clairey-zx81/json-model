@@ -1592,12 +1592,12 @@ public class json_model extends ModelChecker
         return res;
     }
 
-    // object .'$Trafo'.':'
+    // object .'$Trafo'.'~'
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.'$Trafo'.':']", path);
+            if (rep != null) rep.addEntry("not an object [.'$Trafo'.'~']", path);
             return false;
         }
         boolean res;
@@ -1608,11 +1608,11 @@ public class json_model extends ModelChecker
             Object pval = json.objectValue(val, prop);
             Path lpath_10 = new Path(prop, path);
             // handle other props
-            // .'$Trafo'.':'.''
+            // .'$Trafo'.'~'.''
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Trafo'.':'.'']", (path != null ? lpath_10 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Trafo'.'~'.'']", (path != null ? lpath_10 : null));
                 return false;
             }
         }
@@ -1664,15 +1664,15 @@ public class json_model extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo(":") == 0)
+            else if (prop.compareTo("~") == 0)
             {
-                // handle may : property
-                // .'$Trafo'.':'
+                // handle may ~ property
+                // .'$Trafo'.'~'
                 res = _jm_obj_6(pval, (path != null ? lpath_9 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Trafo'.':']", (path != null ? lpath_9 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Trafo'.':']", (path != null ? lpath_9 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$Trafo'.'~']", (path != null ? lpath_9 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Trafo'.'~']", (path != null ? lpath_9 : null));
                     return false;
                 }
                 continue;
@@ -1690,12 +1690,12 @@ public class json_model extends ModelChecker
         return true;
     }
 
-    // object .'$Transformation'.'|'.1.':'
+    // object .'$Transformation'.'|'.1.'~'
     public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.'$Transformation'.'|'.1.':']", path);
+            if (rep != null) rep.addEntry("not an object [.'$Transformation'.'|'.1.'~']", path);
             return false;
         }
         boolean res;
@@ -1706,11 +1706,11 @@ public class json_model extends ModelChecker
             Object pval = json.objectValue(val, prop);
             Path lpath_12 = new Path(prop, path);
             // handle other props
-            // .'$Transformation'.'|'.1.':'.''
+            // .'$Transformation'.'|'.1.'~'.''
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Transformation'.'|'.1.':'.'']", (path != null ? lpath_12 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Transformation'.'|'.1.'~'.'']", (path != null ? lpath_12 : null));
                 return false;
             }
         }
@@ -1773,15 +1773,15 @@ public class json_model extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo(":") == 0)
+            else if (prop.compareTo("~") == 0)
             {
-                // handle may : property
-                // .'$Transformation'.'|'.1.':'
+                // handle may ~ property
+                // .'$Transformation'.'|'.1.'~'
                 res = _jm_obj_8(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Transformation'.'|'.1.':']", (path != null ? lpath_11 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Transformation'.'|'.1.':']", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$Transformation'.'|'.1.'~']", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Transformation'.'|'.1.'~']", (path != null ? lpath_11 : null));
                     return false;
                 }
                 continue;
