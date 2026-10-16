@@ -3576,12 +3576,12 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Model#Transformation'.'|'.1.':'
+// object .'$Model#Transformation'.'|'.1.'~'
 static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Model#Transformation'.'|'.1.':']", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Model#Transformation'.'|'.1.'~']", path);
         return false;
     }
     bool res;
@@ -3591,11 +3591,11 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_25 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
-        // .'$Model#Transformation'.'|'.1.':'.''
+        // .'$Model#Transformation'.'|'.1.'~'.''
         res = json_is_string(pval);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Transformation'.'|'.1.':'.'']", (path ? &lpath_25 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Transformation'.'|'.1.'~'.'']", (path ? &lpath_25 : NULL));
             return false;
         }
     }
@@ -3669,15 +3669,15 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             continue;
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x0000003a)))
+        else if (unlikely(jm_str_eq_2(prop, 0x0000007e)))
         {
-            // handle may : property
-            // .'$Model#Transformation'.'|'.1.':'
+            // handle may ~ property
+            // .'$Model#Transformation'.'|'.1.'~'
             res = _jm_obj_25(pval, (path ? &lpath_24 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Model#Transformation'.'|'.1.':']", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Transformation'.'|'.1.':']", (path ? &lpath_24 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Model#Transformation'.'|'.1.'~']", (path ? &lpath_24 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Transformation'.'|'.1.'~']", (path ? &lpath_24 : NULL));
                 return false;
             }
             continue;
