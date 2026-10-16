@@ -123,19 +123,8 @@
 - [ ] predefs: add country codes, eg `$COUNTRY $COUNTRY2 $COUNTRY3 $COUNTRYN`
 - [ ] spec: be precise about predefs standard references, eg `$DATE` and co.
 
-## Internship
+## Internship Ideas
 
-- [x] pr: read www, papers, spec… setup dev env, report issues
-- [x] pr: try tutorial, report issues and suggest improvements
-- [x] tests: add a few tests for jsonrpc model
-- [x] model: write a model for MCP
-- [x] tests: add a few tests for MCP model
-- [x] export: generate ts interfaces
-- [x] model: fix IR model and tests
-- [x] front: IR re-entrance
-- [x] tests: generate valid (pseudo-random) values
-- [x] tests: generate invalid minimal, maximal, pseudo-random values
-- [x] tests: generate invalid values on each constraint
 - [ ] backend: C and runtime with json-c (\*, but beware of runtime integration)
 - [ ] backend: C# (\*\*)
 - [ ] backend: go (\*\*\*)
