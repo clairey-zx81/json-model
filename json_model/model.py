@@ -1146,15 +1146,19 @@ class JsonModel:
                 raise ModelError(f"expecting an object for : at {path}")
             if not all(isinstance(p, str) and isinstance(v, str) for p, v in renames.items()):
                 raise ModelError(f"expecting a string mapping for : at {path}")
+            updates = {}
             for po, pn in renames.items():
                 if po not in self._defs:
                     raise ModelError(f"missing definition {po} at {path}")
-                # may override?!
-                self._defs[pn] = self._defs[po]
+                updates[pn] = self._defs[po]
                 del self._defs[po]
+            self._defs.update(**updates)
 
     def rewrite(self):
         """Apply model rewriting to current JSON Model."""
+
+        if self._debug >= 2:
+            log.debug(f"raw model: {self._model} ({self._defs})")
 
         # NOTE transformation specs may be empty
         for tpath, trafo in self._rewrite.items():
@@ -1166,3 +1170,6 @@ class JsonModel:
                 self._applyHeadTrafoAtPath(jm, path, trafo, lpath)
             else:
                 self._applyModelTrafoAtPath(jm, path, trafo, lpath)  # type: ignore
+
+        if self._debug >= 2:
+            log.debug(f"edited model: {self._model} ({self._defs})")

@@ -5,7 +5,7 @@
 - [x] bench: move corvus at then end of the radar to keep colors consistent
 - [x] bench: run cron bench with corvus
 - [x] bench: re-build corvus image automatically
-- [x] model: transformation rename properties with `:` (experimental)
+- [x] model: transformation rename properties with `~` (experimental)
 - [x] model: transformation make work on import? checked!
 - [x] model: allow to edit definitions (namespace `$foo#`) with transformations
 - [x] models: add `:` trafo to json model meta model
@@ -15,7 +15,7 @@
 - [x] bench: improve report section title about classification metrics
 - [x] docker: enable user remap (for a long time?)
 - [x] models: add OpenAPI-with-models alternative model
-- [x] spec: consider reverting `:` back to `~` for readability
+- [x] model: fix definition cross renames
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads
