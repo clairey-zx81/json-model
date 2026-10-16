@@ -64,7 +64,7 @@
     "Trafo": {
       "#": "remove, rename or add stuff",
       "?/": { "|": [ "$EqValue", [ "$Any" ] ] },
-      "?:": { "": "" },
+      "?~": { "": "" },
       "?*": { "|": [ [ "$Any" ], { "": "$Model" }, "$Any" ] }
     },
     "Transformation": { "|": [ "$Model", { "+": [ "$Common", "$Trafo" ] } ] },

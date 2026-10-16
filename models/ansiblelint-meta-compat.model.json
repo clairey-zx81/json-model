@@ -347,7 +347,7 @@
       "?src": "",
       "?scm": {"|": ["hg", "git"]},
       "?tags": {"|": ["", [""]]},
-      "?vars": {"":"$ANY"},
+      "?vars": {"": "$ANY"},
       "?version": "",
       "?when": "$complex_conditional",
       "": "$ANY"

@@ -526,16 +526,16 @@ may include symbol renamings, model importations and model editions.
         If a property does not exist, this is an error and must be rejected.
       - `*` value must be a object, which is merged into the target object.
         If a property already exists, this is an error and must be rejected.
-      - `:` value must be an object, which is a string mapping to rename properties
+      - `~` value must be an object, which is a string mapping to rename properties
         in the target object. All renamed properties **must** exists.
-        Specifying `{"?a":"b", "?b": "a"}` exchanges optional property values and makes them mandatory.
+        Specifying `{"?a": "b", "?b": "a"}` exchanges optional property values and makes them mandatory.
     - if the target is a JSON array (not necessarily a model for an array):
       - `/`: may be value or a list of values.
         Array items equal to these values are removed.
         If a value is not found, this is an error and must be rejected.
       - `*`: if the value is an array, append its items to the target array.
         if the value is something else, appends this to the array.
-      - `:`: currently invalid
+      - `~`: currently invalid
     - if the target is a JSON scalar: this is an error and must be rejected.
   - if the transformation value is a model (i.e. an object without any `/ *` property),
     the target value is _replaced_ by this value, in place.
@@ -545,7 +545,7 @@ may include symbol renamings, model importations and model editions.
 
   - `/`: remove one (scalar) or several (array) definitions
   - `*`: add or override definitions
-  - `:`: Rename, and possibly override, existing definitions
+  - `~`: Rename, and possibly override, existing definitions
 
   These additions and editions are performed _after_ property renamings and imports,
   and _before_ merge pre-processing.
