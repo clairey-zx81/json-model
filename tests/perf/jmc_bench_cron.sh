@@ -75,11 +75,11 @@ function usage()
   cat <<EOF
 Usage: $0 [ -c -f -p -i id ] [ -- benchmark options... ]
   -h: this help
+  -b/-nb: build external images (no)
   -c/-nc: check for new versions and run if any (yes)
   -f/-nf: force run (no)
   -p/-np: publish to git repos (yes)
   -i id/-ni: use existing benchmark id (auto)
-  -b: build external images (no)
 EOF
 }
 
