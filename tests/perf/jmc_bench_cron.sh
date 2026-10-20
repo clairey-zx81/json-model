@@ -107,13 +107,17 @@ while [[ $1 == -* ]] ; do
   esac
 done
 
+msg "buid=$build check=$check force=$force publish=$publish"
+
 #
 # sanity checks
 #
-test -d $PERF || err 2 "missing source directory: $PERF"
+
+for dir in $PERF $TARGET $JSB_DIR ; do
+  test -d $dir || err 2 "missing source directory: $dir"
+done
+
 test -x $PERF/start_bench.sh || err 3 "missing executable: $PERF/start_bench.sh"
-test -d $TARGET || err 2 "missing target directory: $TARGET"
-test -d $JSB_DIR || err 2 "missing json-schema benchmark directory: $JSB_DIR"
 
 if [ ! "$no_publish" ] ; then
   test -d $WORK || err 2 "missing working directory: $WORK"
@@ -130,8 +134,6 @@ for name in github.com ghcr.io docker.io ; do
     sleep 1
   done
 done
-
-msg "buid=$build check=$check force=$force publish=$publish"
 
 #
 # build external images
