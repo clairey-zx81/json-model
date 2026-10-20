@@ -220,6 +220,7 @@ if [ "$run" ] ; then
   # record benchmark version
   if [ "$check" ] ; then
     for tool in sbc corvus jmc jsb ; do
+      cp $VERSION.$tool $VERSION.$tool.old
       cp $VERSION.$tool.tmp $VERSION.$tool
       rm -f $VERSION.$tool.tmp
     done
