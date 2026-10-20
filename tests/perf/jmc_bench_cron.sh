@@ -128,7 +128,8 @@ for cmd in docker git make ; do
 done
 
 # work around occasional dns issues
-for name in github.com ghcr.io docker.io mcr.microsoft.com ; do
+for name in \
+    github.com ghcr.io docker.io mcr.microsoft.com archive.ubuntu.com security.ubuntu.com ; do
   for n in 1 2 3 4 5 ; do
     host $name && break
     sleep 1
