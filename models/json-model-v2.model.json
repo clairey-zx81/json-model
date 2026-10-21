@@ -67,7 +67,7 @@
       "?~": { "": "" },
       "?*": { "|": [ [ "$Any" ], { "": "$Model" }, "$Any" ] }
     },
-    "LocalTrafo": { "@": { "+": [ "$Trafo", "$Import" ] }, ">=": 1 },
+    "LocalTrafo": { "@": { "+": [ "$Common", "$Trafo", {"?<": "$Ref"} ] }, ">=": 1 },
     "Transformation": { "|": [ "$Model", { "+": [ "$Common", "$Trafo" ] } ] },
     "ScalarModel": { "|": [ "$ValModel", "$StrModel" ] },
     "Model": { "|": [ "$ScalarModel", "$Array", "$Element" ] },

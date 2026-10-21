@@ -2057,7 +2057,16 @@ def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_24: Path = (path + [ prop ]) if path is not None else None
-        if prop == "/":
+        if prop == "#":
+            # handle may # property
+            # .'$Model#LocalTrafo'.'@'.'#'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"\" [.'$Model#LocalTrafo'.'@'.'#']", lpath_24 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#LocalTrafo'.'@'.'#']", lpath_24 if path is not None else None))
+                return False
+            continue
+        elif prop == "/":
             # handle may / property
             # .'$Model#LocalTrafo'.'@'.'/'
             # .'$Model#LocalTrafo'.'@'.'/'.'|'.0
@@ -2092,31 +2101,19 @@ def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "<":
             # handle may < property
             # .'$Model#LocalTrafo'.'@'.'<'
-            # .'$Model#LocalTrafo'.'@'.'<'.'|'.0
             res = json_model_10(pval, lpath_24 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<'.'|'.0]", lpath_24 if path is not None else None))
-                # .'$Model#LocalTrafo'.'@'.'<'.'|'.1
-                res = isinstance(pval, list)
-                if res:
-                    for arr_15_idx, arr_15_item in enumerate(pval):
-                        arr_15_lpath: Path = ((lpath_24 if path is not None else None) + [ arr_15_idx ]) if (lpath_24 if path is not None else None) is not None else None
-                        # .'$Model#LocalTrafo'.'@'.'<'.'|'.1.0
-                        res = json_model_10(arr_15_item, arr_15_lpath if (lpath_24 if path is not None else None) is not None else None, rep)
-                        if not res:
-                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<'.'|'.1.0]", arr_15_lpath if (lpath_24 if path is not None else None) is not None else None))
-                            break
-                if not res:
-                    rep is None or rep.append(("not array or unexpected array [.'$Model#LocalTrafo'.'@'.'<'.'|'.1]", lpath_24 if path is not None else None))
-            if res:
-                rep is None or rep.clear()
-            else:
-                rep is None or rep.append(("no model matched [.'$Model#LocalTrafo'.'@'.'<'.'|']", lpath_24 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<']", lpath_24 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Model#LocalTrafo'.'@'.'<']", lpath_24 if path is not None else None))
                 return False
             continue
-        rep is None or rep.append(("unexpected prop [.'$Model#LocalTrafo'.'@']", lpath_24 if path is not None else None))
-        return False
+        if _jm_re_5(prop, path, rep):
+            # handle 1 re props
+            # .'$Model#LocalTrafo'.'@'.'/^#./s'
+            res = True
+        else:
+            rep is None or rep.append(("unexpected prop [.'$Model#LocalTrafo'.'@']", lpath_24 if path is not None else None))
+            return False
     return True
 
 # check $Model#LocalTrafo (.'$Model#LocalTrafo')

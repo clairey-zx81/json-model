@@ -2811,7 +2811,20 @@ public class json_model_preprocessed extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_20 = new Path(prop, path);
-            if (prop.compareTo("/") == 0)
+            if (prop.compareTo("#") == 0)
+            {
+                // handle may # property
+                // .'$Model#LocalTrafo'.'@'.'#'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Model#LocalTrafo'.'@'.'#']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#LocalTrafo'.'@'.'#']", (path != null ? lpath_20 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("/") == 0)
             {
                 // handle may / property
                 // .'$Model#LocalTrafo'.'@'.'/'
@@ -2863,50 +2876,24 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle may < property
                 // .'$Model#LocalTrafo'.'@'.'<'
-                // .'$Model#LocalTrafo'.'@'.'<'.'|'.0
                 res = json_model_10(pval, (path != null ? lpath_20 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<'.'|'.0]", (path != null ? lpath_20 : null));
-                    // .'$Model#LocalTrafo'.'@'.'<'.'|'.1
-                    res = json.isArray(pval);
-                    if (res)
-                    {
-                        int arr_12_idx = -1;
-                        Iterator<Object> arr_12_item_loop = json.arrayIterator(pval);
-                        while (arr_12_item_loop.hasNext())
-                        {
-                            arr_12_idx++;
-                            Object arr_12_item = arr_12_item_loop.next();
-                            Path arr_12_lpath = new Path(arr_12_idx, (path != null ? lpath_20 : null));
-                            // .'$Model#LocalTrafo'.'@'.'<'.'|'.1.0
-                            res = json_model_10(arr_12_item, ((path != null ? lpath_20 : null) != null ? arr_12_lpath : null), rep);
-                            if (! res)
-                            {
-                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<'.'|'.1.0]", ((path != null ? lpath_20 : null) != null ? arr_12_lpath : null));
-                                break;
-                            }
-                        }
-                    }
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not array or unexpected array [.'$Model#LocalTrafo'.'@'.'<'.'|'.1]", (path != null ? lpath_20 : null));
-                    }
-                }
-                if (res)
-                {
-                    if (rep != null) rep.clearEntries();
-                }
-                else
-                {
-                    if (rep != null) rep.addEntry("no model matched [.'$Model#LocalTrafo'.'@'.'<'.'|']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<']", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#LocalTrafo'.'@'.'<']", (path != null ? lpath_20 : null));
                     return false;
                 }
                 continue;
             }
-            if (rep != null) rep.addEntry("unexpected prop [.'$Model#LocalTrafo'.'@']", (path != null ? lpath_20 : null));
-            return false;
+            if (_jm_re_5(prop, path, rep))
+                // handle 1 re props
+                // .'$Model#LocalTrafo'.'@'.'/^#./s'
+                res = true;
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$Model#LocalTrafo'.'@']", (path != null ? lpath_20 : null));
+                return false;
+            }
         }
         return true;
     }

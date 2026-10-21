@@ -1732,7 +1732,20 @@ public class json_model extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_11 = new Path(prop, path);
-            if (prop.compareTo("/") == 0)
+            if (prop.compareTo("#") == 0)
+            {
+                // handle may # property
+                // .'$LocalTrafo'.'@'.'#'
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$LocalTrafo'.'@'.'#']", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$LocalTrafo'.'@'.'#']", (path != null ? lpath_11 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("/") == 0)
             {
                 // handle may / property
                 // .'$LocalTrafo'.'@'.'/'
@@ -1784,50 +1797,24 @@ public class json_model extends ModelChecker
             {
                 // handle may < property
                 // .'$LocalTrafo'.'@'.'<'
-                // .'$LocalTrafo'.'@'.'<'.'|'.0
                 res = json_model_8(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$LocalTrafo'.'@'.'<'.'|'.0]", (path != null ? lpath_11 : null));
-                    // .'$LocalTrafo'.'@'.'<'.'|'.1
-                    res = json.isArray(pval);
-                    if (res)
-                    {
-                        int arr_9_idx = -1;
-                        Iterator<Object> arr_9_item_loop = json.arrayIterator(pval);
-                        while (arr_9_item_loop.hasNext())
-                        {
-                            arr_9_idx++;
-                            Object arr_9_item = arr_9_item_loop.next();
-                            Path arr_9_lpath = new Path(arr_9_idx, (path != null ? lpath_11 : null));
-                            // .'$LocalTrafo'.'@'.'<'.'|'.1.0
-                            res = json_model_8(arr_9_item, ((path != null ? lpath_11 : null) != null ? arr_9_lpath : null), rep);
-                            if (! res)
-                            {
-                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$LocalTrafo'.'@'.'<'.'|'.1.0]", ((path != null ? lpath_11 : null) != null ? arr_9_lpath : null));
-                                break;
-                            }
-                        }
-                    }
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not array or unexpected array [.'$LocalTrafo'.'@'.'<'.'|'.1]", (path != null ? lpath_11 : null));
-                    }
-                }
-                if (res)
-                {
-                    if (rep != null) rep.clearEntries();
-                }
-                else
-                {
-                    if (rep != null) rep.addEntry("no model matched [.'$LocalTrafo'.'@'.'<'.'|']", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$LocalTrafo'.'@'.'<']", (path != null ? lpath_11 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$LocalTrafo'.'@'.'<']", (path != null ? lpath_11 : null));
                     return false;
                 }
                 continue;
             }
-            if (rep != null) rep.addEntry("unexpected prop [.'$LocalTrafo'.'@']", (path != null ? lpath_11 : null));
-            return false;
+            if (_jm_re_3(prop, path, rep))
+                // handle 1 re props
+                // .'$LocalTrafo'.'@'.'/^#./s'
+                res = true;
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$LocalTrafo'.'@']", (path != null ? lpath_11 : null));
+                return false;
+            }
         }
         return true;
     }
@@ -2233,18 +2220,18 @@ public class json_model extends ModelChecker
                     res = json.isArray(pval);
                     if (res)
                     {
-                        int arr_10_idx = -1;
-                        Iterator<Object> arr_10_item_loop = json.arrayIterator(pval);
-                        while (arr_10_item_loop.hasNext())
+                        int arr_9_idx = -1;
+                        Iterator<Object> arr_9_item_loop = json.arrayIterator(pval);
+                        while (arr_9_item_loop.hasNext())
                         {
-                            arr_10_idx++;
-                            Object arr_10_item = arr_10_item_loop.next();
-                            Path arr_10_lpath = new Path(arr_10_idx, (path != null ? lpath_18 : null));
+                            arr_9_idx++;
+                            Object arr_9_item = arr_9_item_loop.next();
+                            Path arr_9_lpath = new Path(arr_9_idx, (path != null ? lpath_18 : null));
                             // .'$Import'.'<'.'|'.1.0
-                            res = json_model_8(arr_10_item, ((path != null ? lpath_18 : null) != null ? arr_10_lpath : null), rep);
+                            res = json_model_8(arr_9_item, ((path != null ? lpath_18 : null) != null ? arr_9_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Import'.'<'.'|'.1.0]", ((path != null ? lpath_18 : null) != null ? arr_10_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Import'.'<'.'|'.1.0]", ((path != null ? lpath_18 : null) != null ? arr_9_lpath : null));
                                 break;
                             }
                         }
@@ -2393,18 +2380,18 @@ public class json_model extends ModelChecker
                     res = json.isArray(pval);
                     if (res)
                     {
-                        int arr_11_idx = -1;
-                        Iterator<Object> arr_11_item_loop = json.arrayIterator(pval);
-                        while (arr_11_item_loop.hasNext())
+                        int arr_10_idx = -1;
+                        Iterator<Object> arr_10_item_loop = json.arrayIterator(pval);
+                        while (arr_10_item_loop.hasNext())
                         {
-                            arr_11_idx++;
-                            Object arr_11_item = arr_11_item_loop.next();
-                            Path arr_11_lpath = new Path(arr_11_idx, (path != null ? lpath_21 : null));
+                            arr_10_idx++;
+                            Object arr_10_item = arr_10_item_loop.next();
+                            Path arr_10_lpath = new Path(arr_10_idx, (path != null ? lpath_21 : null));
                             // .'$RootOnly'.'%'.'<'.'|'.1.0
-                            res = json_model_8(arr_11_item, ((path != null ? lpath_21 : null) != null ? arr_11_lpath : null), rep);
+                            res = json_model_8(arr_10_item, ((path != null ? lpath_21 : null) != null ? arr_10_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$RootOnly'.'%'.'<'.'|'.1.0]", ((path != null ? lpath_21 : null) != null ? arr_11_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$RootOnly'.'%'.'<'.'|'.1.0]", ((path != null ? lpath_21 : null) != null ? arr_10_lpath : null));
                                 break;
                             }
                         }
@@ -2645,18 +2632,18 @@ public class json_model extends ModelChecker
                     res = json.isArray(pval);
                     if (res)
                     {
-                        int arr_12_idx = -1;
-                        Iterator<Object> arr_12_item_loop = json.arrayIterator(pval);
-                        while (arr_12_item_loop.hasNext())
+                        int arr_11_idx = -1;
+                        Iterator<Object> arr_11_item_loop = json.arrayIterator(pval);
+                        while (arr_11_item_loop.hasNext())
                         {
-                            arr_12_idx++;
-                            Object arr_12_item = arr_12_item_loop.next();
-                            Path arr_12_lpath = new Path(arr_12_idx, (path != null ? lpath_24 : null));
+                            arr_11_idx++;
+                            Object arr_11_item = arr_11_item_loop.next();
+                            Path arr_11_lpath = new Path(arr_11_idx, (path != null ? lpath_24 : null));
                             // .'$Root'.'|'.5.'%'.'<'.'|'.1.0
-                            res = json_model_8(arr_12_item, ((path != null ? lpath_24 : null) != null ? arr_12_lpath : null), rep);
+                            res = json_model_8(arr_11_item, ((path != null ? lpath_24 : null) != null ? arr_11_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.5.'%'.'<'.'|'.1.0]", ((path != null ? lpath_24 : null) != null ? arr_12_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.5.'%'.'<'.'|'.1.0]", ((path != null ? lpath_24 : null) != null ? arr_11_lpath : null));
                                 break;
                             }
                         }
@@ -2922,18 +2909,18 @@ public class json_model extends ModelChecker
                     res = json.isArray(pval);
                     if (res)
                     {
-                        int arr_14_idx = -1;
-                        Iterator<Object> arr_14_item_loop = json.arrayIterator(pval);
-                        while (arr_14_item_loop.hasNext())
+                        int arr_13_idx = -1;
+                        Iterator<Object> arr_13_item_loop = json.arrayIterator(pval);
+                        while (arr_13_item_loop.hasNext())
                         {
-                            arr_14_idx++;
-                            Object arr_14_item = arr_14_item_loop.next();
-                            Path arr_14_lpath = new Path(arr_14_idx, (path != null ? lpath_27 : null));
+                            arr_13_idx++;
+                            Object arr_13_item = arr_13_item_loop.next();
+                            Path arr_13_lpath = new Path(arr_13_idx, (path != null ? lpath_27 : null));
                             // .'$Root'.'|'.4.'%'.'<'.'|'.1.0
-                            res = json_model_8(arr_14_item, ((path != null ? lpath_27 : null) != null ? arr_14_lpath : null), rep);
+                            res = json_model_8(arr_13_item, ((path != null ? lpath_27 : null) != null ? arr_13_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.4.'%'.'<'.'|'.1.0]", ((path != null ? lpath_27 : null) != null ? arr_14_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.4.'%'.'<'.'|'.1.0]", ((path != null ? lpath_27 : null) != null ? arr_13_lpath : null));
                                 break;
                             }
                         }
@@ -3011,18 +2998,18 @@ public class json_model extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_13_idx = -1;
-                    Iterator<Object> arr_13_item_loop = json.arrayIterator(pval);
-                    while (arr_13_item_loop.hasNext())
+                    int arr_12_idx = -1;
+                    Iterator<Object> arr_12_item_loop = json.arrayIterator(pval);
+                    while (arr_12_item_loop.hasNext())
                     {
-                        arr_13_idx++;
-                        Object arr_13_item = arr_13_item_loop.next();
-                        Path arr_13_lpath = new Path(arr_13_idx, (path != null ? lpath_25 : null));
+                        arr_12_idx++;
+                        Object arr_12_item = arr_12_item_loop.next();
+                        Path arr_12_lpath = new Path(arr_12_idx, (path != null ? lpath_25 : null));
                         // .'$Root'.'|'.4.'+'.0
-                        res = json_model_19(arr_13_item, ((path != null ? lpath_25 : null) != null ? arr_13_lpath : null), rep);
+                        res = json_model_19(arr_12_item, ((path != null ? lpath_25 : null) != null ? arr_12_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Root'.'|'.4.'+'.0]", ((path != null ? lpath_25 : null) != null ? arr_13_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Root'.'|'.4.'+'.0]", ((path != null ? lpath_25 : null) != null ? arr_12_lpath : null));
                             break;
                         }
                     }
@@ -3232,18 +3219,18 @@ public class json_model extends ModelChecker
                     res = json.isArray(pval);
                     if (res)
                     {
-                        int arr_16_idx = -1;
-                        Iterator<Object> arr_16_item_loop = json.arrayIterator(pval);
-                        while (arr_16_item_loop.hasNext())
+                        int arr_15_idx = -1;
+                        Iterator<Object> arr_15_item_loop = json.arrayIterator(pval);
+                        while (arr_15_item_loop.hasNext())
                         {
-                            arr_16_idx++;
-                            Object arr_16_item = arr_16_item_loop.next();
-                            Path arr_16_lpath = new Path(arr_16_idx, (path != null ? lpath_30 : null));
+                            arr_15_idx++;
+                            Object arr_15_item = arr_15_item_loop.next();
+                            Path arr_15_lpath = new Path(arr_15_idx, (path != null ? lpath_30 : null));
                             // .'$Root'.'|'.3.'%'.'<'.'|'.1.0
-                            res = json_model_8(arr_16_item, ((path != null ? lpath_30 : null) != null ? arr_16_lpath : null), rep);
+                            res = json_model_8(arr_15_item, ((path != null ? lpath_30 : null) != null ? arr_15_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.3.'%'.'<'.'|'.1.0]", ((path != null ? lpath_30 : null) != null ? arr_16_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.3.'%'.'<'.'|'.1.0]", ((path != null ? lpath_30 : null) != null ? arr_15_lpath : null));
                                 break;
                             }
                         }
@@ -3321,18 +3308,18 @@ public class json_model extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_15_idx = -1;
-                    Iterator<Object> arr_15_item_loop = json.arrayIterator(pval);
-                    while (arr_15_item_loop.hasNext())
+                    int arr_14_idx = -1;
+                    Iterator<Object> arr_14_item_loop = json.arrayIterator(pval);
+                    while (arr_14_item_loop.hasNext())
                     {
-                        arr_15_idx++;
-                        Object arr_15_item = arr_15_item_loop.next();
-                        Path arr_15_lpath = new Path(arr_15_idx, (path != null ? lpath_28 : null));
+                        arr_14_idx++;
+                        Object arr_14_item = arr_14_item_loop.next();
+                        Path arr_14_lpath = new Path(arr_14_idx, (path != null ? lpath_28 : null));
                         // .'$Root'.'|'.3.'^'.0
-                        res = json_model_19(arr_15_item, ((path != null ? lpath_28 : null) != null ? arr_15_lpath : null), rep);
+                        res = json_model_19(arr_14_item, ((path != null ? lpath_28 : null) != null ? arr_14_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Root'.'|'.3.'^'.0]", ((path != null ? lpath_28 : null) != null ? arr_15_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Root'.'|'.3.'^'.0]", ((path != null ? lpath_28 : null) != null ? arr_14_lpath : null));
                             break;
                         }
                     }
@@ -3542,18 +3529,18 @@ public class json_model extends ModelChecker
                     res = json.isArray(pval);
                     if (res)
                     {
-                        int arr_18_idx = -1;
-                        Iterator<Object> arr_18_item_loop = json.arrayIterator(pval);
-                        while (arr_18_item_loop.hasNext())
+                        int arr_17_idx = -1;
+                        Iterator<Object> arr_17_item_loop = json.arrayIterator(pval);
+                        while (arr_17_item_loop.hasNext())
                         {
-                            arr_18_idx++;
-                            Object arr_18_item = arr_18_item_loop.next();
-                            Path arr_18_lpath = new Path(arr_18_idx, (path != null ? lpath_33 : null));
+                            arr_17_idx++;
+                            Object arr_17_item = arr_17_item_loop.next();
+                            Path arr_17_lpath = new Path(arr_17_idx, (path != null ? lpath_33 : null));
                             // .'$Root'.'|'.2.'%'.'<'.'|'.1.0
-                            res = json_model_8(arr_18_item, ((path != null ? lpath_33 : null) != null ? arr_18_lpath : null), rep);
+                            res = json_model_8(arr_17_item, ((path != null ? lpath_33 : null) != null ? arr_17_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.2.'%'.'<'.'|'.1.0]", ((path != null ? lpath_33 : null) != null ? arr_18_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.2.'%'.'<'.'|'.1.0]", ((path != null ? lpath_33 : null) != null ? arr_17_lpath : null));
                                 break;
                             }
                         }
@@ -3631,18 +3618,18 @@ public class json_model extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_17_idx = -1;
-                    Iterator<Object> arr_17_item_loop = json.arrayIterator(pval);
-                    while (arr_17_item_loop.hasNext())
+                    int arr_16_idx = -1;
+                    Iterator<Object> arr_16_item_loop = json.arrayIterator(pval);
+                    while (arr_16_item_loop.hasNext())
                     {
-                        arr_17_idx++;
-                        Object arr_17_item = arr_17_item_loop.next();
-                        Path arr_17_lpath = new Path(arr_17_idx, (path != null ? lpath_31 : null));
+                        arr_16_idx++;
+                        Object arr_16_item = arr_16_item_loop.next();
+                        Path arr_16_lpath = new Path(arr_16_idx, (path != null ? lpath_31 : null));
                         // .'$Root'.'|'.2.'&'.0
-                        res = json_model_19(arr_17_item, ((path != null ? lpath_31 : null) != null ? arr_17_lpath : null), rep);
+                        res = json_model_19(arr_16_item, ((path != null ? lpath_31 : null) != null ? arr_16_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Root'.'|'.2.'&'.0]", ((path != null ? lpath_31 : null) != null ? arr_17_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Root'.'|'.2.'&'.0]", ((path != null ? lpath_31 : null) != null ? arr_16_lpath : null));
                             break;
                         }
                     }
@@ -3852,18 +3839,18 @@ public class json_model extends ModelChecker
                     res = json.isArray(pval);
                     if (res)
                     {
-                        int arr_20_idx = -1;
-                        Iterator<Object> arr_20_item_loop = json.arrayIterator(pval);
-                        while (arr_20_item_loop.hasNext())
+                        int arr_19_idx = -1;
+                        Iterator<Object> arr_19_item_loop = json.arrayIterator(pval);
+                        while (arr_19_item_loop.hasNext())
                         {
-                            arr_20_idx++;
-                            Object arr_20_item = arr_20_item_loop.next();
-                            Path arr_20_lpath = new Path(arr_20_idx, (path != null ? lpath_36 : null));
+                            arr_19_idx++;
+                            Object arr_19_item = arr_19_item_loop.next();
+                            Path arr_19_lpath = new Path(arr_19_idx, (path != null ? lpath_36 : null));
                             // .'$Root'.'|'.1.'%'.'<'.'|'.1.0
-                            res = json_model_8(arr_20_item, ((path != null ? lpath_36 : null) != null ? arr_20_lpath : null), rep);
+                            res = json_model_8(arr_19_item, ((path != null ? lpath_36 : null) != null ? arr_19_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.1.'%'.'<'.'|'.1.0]", ((path != null ? lpath_36 : null) != null ? arr_20_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.1.'%'.'<'.'|'.1.0]", ((path != null ? lpath_36 : null) != null ? arr_19_lpath : null));
                                 break;
                             }
                         }
@@ -3941,18 +3928,18 @@ public class json_model extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_19_idx = -1;
-                    Iterator<Object> arr_19_item_loop = json.arrayIterator(pval);
-                    while (arr_19_item_loop.hasNext())
+                    int arr_18_idx = -1;
+                    Iterator<Object> arr_18_item_loop = json.arrayIterator(pval);
+                    while (arr_18_item_loop.hasNext())
                     {
-                        arr_19_idx++;
-                        Object arr_19_item = arr_19_item_loop.next();
-                        Path arr_19_lpath = new Path(arr_19_idx, (path != null ? lpath_34 : null));
+                        arr_18_idx++;
+                        Object arr_18_item = arr_18_item_loop.next();
+                        Path arr_18_lpath = new Path(arr_18_idx, (path != null ? lpath_34 : null));
                         // .'$Root'.'|'.1.'|'.0
-                        res = json_model_19(arr_19_item, ((path != null ? lpath_34 : null) != null ? arr_19_lpath : null), rep);
+                        res = json_model_19(arr_18_item, ((path != null ? lpath_34 : null) != null ? arr_18_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Root'.'|'.1.'|'.0]", ((path != null ? lpath_34 : null) != null ? arr_19_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$CModel\" [.'$Root'.'|'.1.'|'.0]", ((path != null ? lpath_34 : null) != null ? arr_18_lpath : null));
                             break;
                         }
                     }
@@ -4162,18 +4149,18 @@ public class json_model extends ModelChecker
                     res = json.isArray(pval);
                     if (res)
                     {
-                        int arr_21_idx = -1;
-                        Iterator<Object> arr_21_item_loop = json.arrayIterator(pval);
-                        while (arr_21_item_loop.hasNext())
+                        int arr_20_idx = -1;
+                        Iterator<Object> arr_20_item_loop = json.arrayIterator(pval);
+                        while (arr_20_item_loop.hasNext())
                         {
-                            arr_21_idx++;
-                            Object arr_21_item = arr_21_item_loop.next();
-                            Path arr_21_lpath = new Path(arr_21_idx, (path != null ? lpath_39 : null));
+                            arr_20_idx++;
+                            Object arr_20_item = arr_20_item_loop.next();
+                            Path arr_20_lpath = new Path(arr_20_idx, (path != null ? lpath_39 : null));
                             // .'$Root'.'|'.0.'%'.'<'.'|'.1.0
-                            res = json_model_8(arr_21_item, ((path != null ? lpath_39 : null) != null ? arr_21_lpath : null), rep);
+                            res = json_model_8(arr_20_item, ((path != null ? lpath_39 : null) != null ? arr_20_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.0.'%'.'<'.'|'.1.0]", ((path != null ? lpath_39 : null) != null ? arr_21_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Root'.'|'.0.'%'.'<'.'|'.1.0]", ((path != null ? lpath_39 : null) != null ? arr_20_lpath : null));
                                 break;
                             }
                         }

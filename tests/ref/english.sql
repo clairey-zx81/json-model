@@ -2081,14 +2081,20 @@ DECLARE
   res BOOL;
   prop TEXT;
   pval JSONB;
-  arr_15_idx INT8;
-  arr_15_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '/' THEN
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'$Model#LocalTrafo'.'@'.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '/' THEN
       -- handle may / property
       -- .'$Model#LocalTrafo'.'@'.'/'
       -- .'$Model#LocalTrafo'.'@'.'/'.'|'.0
@@ -2114,28 +2120,19 @@ BEGIN
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#LocalTrafo'.'@'.'<'
-      -- .'$Model#LocalTrafo'.'@'.'<'.'|'.0
       res := json_model_10(pval, NULL, NULL);
-      IF NOT res THEN
-        -- .'$Model#LocalTrafo'.'@'.'<'.'|'.1
-        res := JSONB_TYPEOF(pval) = 'array';
-        IF res THEN
-          FOR arr_15_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-            arr_15_item := pval -> arr_15_idx;
-            -- .'$Model#LocalTrafo'.'@'.'<'.'|'.1.0
-            res := json_model_10(arr_15_item, NULL, NULL);
-            IF NOT res THEN
-              EXIT;
-            END IF;
-          END LOOP;
-        END IF;
-      END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
     END IF;
-    RETURN FALSE;
+    IF _jm_re_5(prop, NULL, NULL) THEN
+      -- handle 1 re props
+      -- .'$Model#LocalTrafo'.'@'.'/^#./s'
+      res := TRUE;
+    ELSE
+      RETURN FALSE;
+    END IF;
   END LOOP;
   RETURN TRUE;
 END;

@@ -3709,100 +3709,108 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_24 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_2(prop, 0x0000002f)))
+        uint32_t hash_1 = (*((uint32_t *) (prop))) & 0xffff;
+        if (hash_1 <= 0x2f)
         {
-            // handle may / property
-            // .'$Model#LocalTrafo'.'@'.'/'
-            // .'$Model#LocalTrafo'.'@'.'/'.'|'.0
-            res = json_model_16(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
+            if (jm_str_eq_2(prop, 0x00000023))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$EqValue\" [.'$Model#LocalTrafo'.'@'.'/'.'|'.0]", (path ? &lpath_24 : NULL));
-                // .'$Model#LocalTrafo'.'@'.'/'.'|'.1
-                res = json_is_array(pval);
+                // handle may # property
+                // .'$Model#LocalTrafo'.'@'.'#'
+                res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Model#LocalTrafo'.'@'.'/'.'|'.1]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#LocalTrafo'.'@'.'#']", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#LocalTrafo'.'@'.'#']", (path ? &lpath_24 : NULL));
+                    return false;
                 }
+                continue;
             }
-            if (likely(res))
+            else if (jm_str_eq_2(prop, 0x0000002f))
             {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
-            {
-                if (rep) jm_report_add_entry(rep, "no model matched [.'$Model#LocalTrafo'.'@'.'/'.'|']", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#LocalTrafo'.'@'.'/']", (path ? &lpath_24 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_2(prop, 0x0000007e)))
-        {
-            // handle may ~ property
-            // .'$Model#LocalTrafo'.'@'.'~'
-            res = _jm_obj_25(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Model#LocalTrafo'.'@'.'~']", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#LocalTrafo'.'@'.'~']", (path ? &lpath_24 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (jm_str_eq_2(prop, 0x0000002a))
-        {
-            // handle may * property
-            // .'$Model#LocalTrafo'.'@'.'*'
-            res = true;
-            continue;
-        }
-        else if (likely(jm_str_eq_2(prop, 0x0000003c)))
-        {
-            // handle may < property
-            // .'$Model#LocalTrafo'.'@'.'<'
-            // .'$Model#LocalTrafo'.'@'.'<'.'|'.0
-            res = json_model_10(pval, (path ? &lpath_24 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<'.'|'.0]", (path ? &lpath_24 : NULL));
-                // .'$Model#LocalTrafo'.'@'.'<'.'|'.1
-                res = json_is_array(pval);
-                if (likely(res))
+                // handle may / property
+                // .'$Model#LocalTrafo'.'@'.'/'
+                // .'$Model#LocalTrafo'.'@'.'/'.'|'.0
+                res = json_model_16(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
                 {
-                    size_t arr_15_idx;
-                    json_t *arr_15_item;
-                    json_array_foreach(pval, arr_15_idx, arr_15_item)
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$EqValue\" [.'$Model#LocalTrafo'.'@'.'/'.'|'.0]", (path ? &lpath_24 : NULL));
+                    // .'$Model#LocalTrafo'.'@'.'/'.'|'.1
+                    res = json_is_array(pval);
+                    if (unlikely(! res))
                     {
-                        jm_path_t arr_15_lpath = (jm_path_t) { NULL, arr_15_idx, (path ? &lpath_24 : NULL), NULL };
-                        // .'$Model#LocalTrafo'.'@'.'<'.'|'.1.0
-                        res = json_model_10(arr_15_item, ((path ? &lpath_24 : NULL) ? &arr_15_lpath : NULL), rep);
-                        if (unlikely(! res))
-                        {
-                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<'.'|'.1.0]", ((path ? &lpath_24 : NULL) ? &arr_15_lpath : NULL));
-                            break;
-                        }
+                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Model#LocalTrafo'.'@'.'/'.'|'.1]", (path ? &lpath_24 : NULL));
                     }
                 }
+                if (likely(res))
+                {
+                    if (rep) jm_report_free_entries(rep);
+                }
+                else
+                {
+                    if (rep) jm_report_add_entry(rep, "no model matched [.'$Model#LocalTrafo'.'@'.'/'.'|']", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#LocalTrafo'.'@'.'/']", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_2(prop, 0x0000002a))
+            {
+                // handle may * property
+                // .'$Model#LocalTrafo'.'@'.'*'
+                res = true;
+                continue;
+            }
+        }
+        else
+        {
+            if (jm_str_eq_8(prop, 0x00616d656863732eLL))
+            {
+                // handle may .schema property
+                // .'$Model#LocalTrafo'.'@'.'.schema'
+                res = json_is_object(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Model#LocalTrafo'.'@'.'<'.'|'.1]", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#LocalTrafo'.'@'.'.schema']", (path ? &lpath_24 : NULL));
+                    return false;
                 }
+                continue;
             }
-            if (likely(res))
+            else if (jm_str_eq_2(prop, 0x0000007e))
             {
-                if (rep) jm_report_free_entries(rep);
+                // handle may ~ property
+                // .'$Model#LocalTrafo'.'@'.'~'
+                res = _jm_obj_25(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Model#LocalTrafo'.'@'.'~']", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#LocalTrafo'.'@'.'~']", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
             }
-            else
+            else if (jm_str_eq_2(prop, 0x0000003c))
             {
-                if (rep) jm_report_add_entry(rep, "no model matched [.'$Model#LocalTrafo'.'@'.'<'.'|']", (path ? &lpath_24 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#LocalTrafo'.'@'.'<']", (path ? &lpath_24 : NULL));
-                return false;
+                // handle may < property
+                // .'$Model#LocalTrafo'.'@'.'<'
+                res = json_model_10(pval, (path ? &lpath_24 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<']", (path ? &lpath_24 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#LocalTrafo'.'@'.'<']", (path ? &lpath_24 : NULL));
+                    return false;
+                }
+                continue;
             }
-            continue;
         }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Model#LocalTrafo'.'@']", (path ? &lpath_24 : NULL));
-        return false;
+        if (likely(_jm_re_5(prop, path, rep)))
+            // handle 1 re props
+            // .'$Model#LocalTrafo'.'@'.'/^#./s'
+            res = true;
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Model#LocalTrafo'.'@']", (path ? &lpath_24 : NULL));
+            return false;
+        }
     }
     return true;
 }

@@ -2535,7 +2535,20 @@ function _jm_obj_20(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_20 = path ? path.concat([prop]) : null
-        if (prop == "/")
+        if (prop == "#")
+        {
+            // handle may # property
+            // .'$Model#LocalTrafo'.'@'.'#'
+            res = typeof pval == 'string'
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Model#LocalTrafo'.'@'.'#']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#LocalTrafo'.'@'.'#']", (path ? lpath_20 : null)])
+                return false
+            }
+            continue
+        }
+        else if (prop == "/")
         {
             // handle may / property
             // .'$Model#LocalTrafo'.'@'.'/'
@@ -2585,45 +2598,24 @@ function _jm_obj_20(val, path, rep)
         {
             // handle may < property
             // .'$Model#LocalTrafo'.'@'.'<'
-            // .'$Model#LocalTrafo'.'@'.'<'.'|'.0
             res = json_model_10(pval, (path ? lpath_20 : null), rep)
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<'.'|'.0]", (path ? lpath_20 : null)])
-                // .'$Model#LocalTrafo'.'@'.'<'.'|'.1
-                res = Array.isArray(pval)
-                if (res)
-                {
-                    for (let arr_12_idx = 0; arr_12_idx < pval.length; arr_12_idx++)
-                    {
-                        let arr_12_item = pval[arr_12_idx]
-                        let arr_12_lpath = (path ? lpath_20 : null) ? (path ? lpath_20 : null).concat([arr_12_idx]) : null
-                        // .'$Model#LocalTrafo'.'@'.'<'.'|'.1.0
-                        res = json_model_10(arr_12_item, ((path ? lpath_20 : null) ? arr_12_lpath : null), rep)
-                        if (! res)
-                        {
-                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<'.'|'.1.0]", ((path ? lpath_20 : null) ? arr_12_lpath : null)])
-                            break
-                        }
-                    }
-                }
-                if (! res)
-                    rep !== null && rep.push(["not array or unexpected array [.'$Model#LocalTrafo'.'@'.'<'.'|'.1]", (path ? lpath_20 : null)])
-            }
-            if (res)
-            {
-                if (rep !== null) rep.length = 0
-            }
-            else
-            {
-                rep !== null && rep.push(["no model matched [.'$Model#LocalTrafo'.'@'.'<'.'|']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<']", (path ? lpath_20 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#LocalTrafo'.'@'.'<']", (path ? lpath_20 : null)])
                 return false
             }
             continue
         }
-        rep !== null && rep.push(["unexpected prop [.'$Model#LocalTrafo'.'@']", (path ? lpath_20 : null)])
-        return false
+        if (_jm_re_5(prop, path, rep))
+            // handle 1 re props
+            // .'$Model#LocalTrafo'.'@'.'/^#./s'
+            res = true
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$Model#LocalTrafo'.'@']", (path ? lpath_20 : null)])
+            return false
+        }
     }
     return true
 }
