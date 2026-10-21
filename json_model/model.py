@@ -399,7 +399,7 @@ class JsonModel:
     def _isLocalTrafo(self):
         return (
             isinstance(self._model, dict) and
-            self._model.keys() & LTRA_KW and
+            self._model.keys() & self.LTRA_KW and
             "@" not in self._model
         )
 
