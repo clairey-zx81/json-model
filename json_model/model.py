@@ -312,7 +312,7 @@ class JsonModel:
             # apply local trafo copies
             # FIXME order, no cycles
             for name, jm in self._defs.items():
-                if isinstance(jm._model, dict) and jm._model.keys() & self.LTRA_KW:
+                if jm._isLocalTrafo():
                     self._localTrafo(jm, ["$", name])
 
             # keep initial definitions
@@ -396,6 +396,13 @@ class JsonModel:
 
             self._model = recModel(self._model, allFlt, rwtRegex, keys=True)
 
+    def _isLocalTrafo(self):
+        return (
+            isinstance(self._model, dict) and
+            self._model.keys() & LTRA_KW and
+            "@" not in self._model
+        )
+
     def _localTrafo(self, jm: JsonModel, names: list[str]):
         trafo = jm._model
         # log.warning(f"trafo = {trafo}")
@@ -406,7 +413,7 @@ class JsonModel:
             assert ncopy not in names, f"local transformation cycle: {ncopy} {names}"
             assert ncopy in self._defs, f"local definition copy must exist: {ncopy}"
             jmc = self._defs[ncopy]
-            if isinstance(jmc._model, dict) and jmc._model.keys() & self.LTRA_KW:
+            if jmc._isLocalTrafo():
                 # recurse to handle misordering
                 self._localTrafo(jmc, names + [ncopy])
             jm._model = copy.deepcopy(self._defs[ncopy]._model)
