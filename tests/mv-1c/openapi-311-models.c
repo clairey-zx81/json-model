@@ -94,7 +94,7 @@ static bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_64(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool json_model_98(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_99(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_84(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_83(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_70(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -153,7 +153,7 @@ static cre2_regexp_t *_jm_re_12_re2 = NULL;
 static int _jm_re_12_nn = 0;
 static bool _jm_re_12(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_76(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool json_model_97(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_98(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_cst_5_test(const json_t *);
 static jm_constant_t _jm_cst_5[8];
 static bool json_model_79(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -1216,7 +1216,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
         jm_path_t lpath_14 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$openapi#Components'.models.''
-        res = json_model_98(pval, (path ? &lpath_14 : NULL), rep);
+        res = json_model_99(pval, (path ? &lpath_14 : NULL), rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$openapi#Components'.models.'']", (path ? &lpath_14 : NULL));
@@ -2583,7 +2583,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may model property
                 // .'$openapi#Parameter'.'|'.0.model
-                res = json_model_98(pval, (path ? &lpath_27 : NULL), rep);
+                res = json_model_99(pval, (path ? &lpath_27 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$openapi#Parameter'.'|'.0.model]", (path ? &lpath_27 : NULL));
@@ -2969,7 +2969,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may model property
             // .'$openapi#MediaType'.model
-            res = json_model_98(pval, (path ? &lpath_31 : NULL), rep);
+            res = json_model_99(pval, (path ? &lpath_31 : NULL), rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$openapi#MediaType'.model]", (path ? &lpath_31 : NULL));
@@ -3975,7 +3975,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 // handle may model property
                 // .'$openapi#Header'.'|'.0.model
-                res = json_model_98(pval, (path ? &lpath_47 : NULL), rep);
+                res = json_model_99(pval, (path ? &lpath_47 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$openapi#Header'.'|'.0.model]", (path ? &lpath_47 : NULL));
@@ -5045,7 +5045,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$openapi#Model'
-    bool res = json_model_98(val, path, rep);
+    bool res = json_model_99(val, path, rep);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected value for model \"$model#Model\" [.'$openapi#Model']", path);
@@ -5054,11 +5054,11 @@ static bool json_model_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check $openapi#model#Model (.'$openapi#model#Model')
-static bool json_model_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_99(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$openapi#model#Model'
     // .'$openapi#model#Model'.'|'.0
-    bool res = json_model_97(val, path, rep);
+    bool res = json_model_98(val, path, rep);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected value for model \"$ScalarModel\" [.'$openapi#model#Model'.'|'.0]", path);
@@ -5119,7 +5119,7 @@ static bool json_model_83(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$openapi#model#CModel'
     // .'$openapi#model#CModel'.'|'.0
-    bool res = json_model_98(val, path, rep);
+    bool res = json_model_99(val, path, rep);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$openapi#model#CModel'.'|'.0]", path);
@@ -5187,7 +5187,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle 1 key props
             // .'$openapi#model#Element'.'|'.5.'$Prop'
-            res = json_model_98(pval, (path ? &lpath_61 : NULL), rep);
+            res = json_model_99(pval, (path ? &lpath_61 : NULL), rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.5.'$Prop']", (path ? &lpath_61 : NULL));
@@ -5551,7 +5551,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must @ property
             must_count += 1;
             // .'$openapi#model#Element'.'|'.0.'@'
-            res = json_model_98(pval, (path ? &lpath_66 : NULL), rep);
+            res = json_model_99(pval, (path ? &lpath_66 : NULL), rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.0.'@']", (path ? &lpath_66 : NULL));
@@ -6133,7 +6133,7 @@ static bool json_model_76(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
-static bool json_model_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$openapi#model#ScalarModel'
     // .'$openapi#model#ScalarModel'.'|'.0

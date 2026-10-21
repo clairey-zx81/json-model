@@ -706,7 +706,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#Components'.models.''
-    res := json_model_98(pval, NULL, NULL);
+    res := json_model_99(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1748,7 +1748,7 @@ BEGIN
     ELSEIF prop = 'model' THEN
       -- handle may model property
       -- .'$openapi#MediaType'.model
-      res := json_model_98(pval, NULL, NULL);
+      res := json_model_99(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3122,19 +3122,19 @@ CREATE OR REPLACE FUNCTION json_model_64(val JSONB, path TEXT[], rep jm_report_e
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi#Model'
-  RETURN json_model_98(val, NULL, NULL);
+  RETURN json_model_99(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $openapi#model#Model (.'$openapi#model#Model')
-CREATE OR REPLACE FUNCTION json_model_98(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_99(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi#model#Model'
   -- .'$openapi#model#Model'.'|'.0
   -- .'$openapi#model#Model'.'|'.1
   -- .'$openapi#model#Model'.'|'.2
-  RETURN json_model_97(val, NULL, NULL) OR json_model_84(val, NULL, NULL) OR json_model_94(val, NULL, NULL);
+  RETURN json_model_98(val, NULL, NULL) OR json_model_84(val, NULL, NULL) OR json_model_94(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3169,7 +3169,7 @@ BEGIN
   -- .'$openapi#model#CModel'
   -- .'$openapi#model#CModel'.'|'.0
   -- .'$openapi#model#CModel'.'|'.1
-  RETURN json_model_98(val, NULL, NULL) OR json_model_70(val, NULL, NULL);
+  RETURN json_model_99(val, NULL, NULL) OR json_model_70(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3213,7 +3213,7 @@ BEGIN
     IF json_model_91(TO_JSONB(prop), NULL, NULL) THEN
       -- handle 1 key props
       -- .'$openapi#model#Element'.'|'.5.'$Prop'
-      res := json_model_98(pval, NULL, NULL);
+      res := json_model_99(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3481,7 +3481,7 @@ BEGIN
       -- handle must @ property
       must_count := must_count + 1;
       -- .'$openapi#model#Element'.'|'.0.'@'
-      res := json_model_98(pval, NULL, NULL);
+      res := json_model_99(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3826,7 +3826,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
-CREATE OR REPLACE FUNCTION json_model_97(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_98(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$openapi#model#ScalarModel'

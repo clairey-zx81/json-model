@@ -541,6 +541,44 @@
       },
       "additionalProperties": false
     },
+    "LocalTrafo": {
+      "type": "object",
+      "properties": {
+        "/": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EqValue"
+            },
+            {
+              "type": "array",
+              "items": true
+            }
+          ]
+        },
+        "~": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "*": true,
+        "<": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ref"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Ref"
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    },
     "Transformation": {
       "anyOf": [
         {
@@ -605,7 +643,14 @@
       "type": "object",
       "patternProperties": {
         "(?s)^.*$": {
-          "$ref": "#/$defs/Model"
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Model"
+            },
+            {
+              "$ref": "#/$defs/LocalTrafo"
+            }
+          ]
         }
       },
       "properties": {
@@ -665,7 +710,14 @@
           "patternProperties": {
             "(?s)^#.": true,
             "(?s)^.*$": {
-              "$ref": "#/$defs/Model"
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Model"
+                },
+                {
+                  "$ref": "#/$defs/LocalTrafo"
+                }
+              ]
             }
           },
           "properties": {
@@ -738,7 +790,14 @@
               "patternProperties": {
                 "(?s)^#.": true,
                 "(?s)^.*$": {
-                  "$ref": "#/$defs/Model"
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Model"
+                    },
+                    {
+                      "$ref": "#/$defs/LocalTrafo"
+                    }
+                  ]
                 }
               },
               "properties": {
@@ -815,7 +874,14 @@
               "patternProperties": {
                 "(?s)^#.": true,
                 "(?s)^.*$": {
-                  "$ref": "#/$defs/Model"
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Model"
+                    },
+                    {
+                      "$ref": "#/$defs/LocalTrafo"
+                    }
+                  ]
                 }
               },
               "properties": {
@@ -889,7 +955,14 @@
               "patternProperties": {
                 "(?s)^#.": true,
                 "(?s)^.*$": {
-                  "$ref": "#/$defs/Model"
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Model"
+                    },
+                    {
+                      "$ref": "#/$defs/LocalTrafo"
+                    }
+                  ]
                 }
               },
               "properties": {
@@ -963,7 +1036,14 @@
               "patternProperties": {
                 "(?s)^#.": true,
                 "(?s)^.*$": {
-                  "$ref": "#/$defs/Model"
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Model"
+                    },
+                    {
+                      "$ref": "#/$defs/LocalTrafo"
+                    }
+                  ]
                 }
               },
               "properties": {
@@ -1037,7 +1117,14 @@
               "patternProperties": {
                 "(?s)^#.": true,
                 "(?s)^.*$": {
-                  "$ref": "#/$defs/Model"
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Model"
+                    },
+                    {
+                      "$ref": "#/$defs/LocalTrafo"
+                    }
+                  ]
                 }
               },
               "properties": {
@@ -1108,7 +1195,14 @@
               "patternProperties": {
                 "(?s)^#.": true,
                 "(?s)^.*$": {
-                  "$ref": "#/$defs/Model"
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Model"
+                    },
+                    {
+                      "$ref": "#/$defs/LocalTrafo"
+                    }
+                  ]
                 }
               },
               "properties": {

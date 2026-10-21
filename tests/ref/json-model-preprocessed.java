@@ -42,7 +42,7 @@ public class json_model_preprocessed extends ModelChecker
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         // .'$Model'
-        boolean res = json_model_43(val, path, rep);
+        boolean res = json_model_44(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$RootModel\" [.'$Model']", path);
@@ -54,7 +54,7 @@ public class json_model_preprocessed extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        boolean res = json_model_43(val, path, rep);
+        boolean res = json_model_44(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.]", path);
@@ -63,11 +63,11 @@ public class json_model_preprocessed extends ModelChecker
     }
 
     // check $Model#RootModel (.'$Model#RootModel')
-    public boolean json_model_43(Object val, Path path, Report rep)
+    public boolean json_model_44(Object val, Path path, Report rep)
     {
         // .'$Model#RootModel'
         // .'$Model#RootModel'.'|'.0
-        boolean res = json_model_35(val, path, rep);
+        boolean res = json_model_36(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$ScalarModel\" [.'$Model#RootModel'.'|'.0]", path);
@@ -77,7 +77,7 @@ public class json_model_preprocessed extends ModelChecker
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$Array\" [.'$Model#RootModel'.'|'.1]", path);
                 // .'$Model#RootModel'.'|'.2
-                res = json_model_42(val, path, rep);
+                res = json_model_43(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Root\" [.'$Model#RootModel'.'|'.2]", path);
@@ -130,7 +130,7 @@ public class json_model_preprocessed extends ModelChecker
     {
         // .'$Model#CModel'
         // .'$Model#CModel'.'|'.0
-        boolean res = json_model_36(val, path, rep);
+        boolean res = json_model_37(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#CModel'.'|'.0]", path);
@@ -166,7 +166,7 @@ public class json_model_preprocessed extends ModelChecker
     }
 
     // check $Model#ScalarModel (.'$Model#ScalarModel')
-    public boolean json_model_35(Object val, Path path, Report rep)
+    public boolean json_model_36(Object val, Path path, Report rep)
     {
         // .'$Model#ScalarModel'
         // .'$Model#ScalarModel'.'|'.0
@@ -536,11 +536,11 @@ public class json_model_preprocessed extends ModelChecker
     }
 
     // check $Model#Model (.'$Model#Model')
-    public boolean json_model_36(Object val, Path path, Report rep)
+    public boolean json_model_37(Object val, Path path, Report rep)
     {
         // .'$Model#Model'
         // .'$Model#Model'.'|'.0
-        boolean res = json_model_35(val, path, rep);
+        boolean res = json_model_36(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$ScalarModel\" [.'$Model#Model'.'|'.0]", path);
@@ -601,7 +601,7 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Element'.'|'.4.'$Prop'
-                res = json_model_36(pval, (path != null ? lpath_0 : null), rep);
+                res = json_model_37(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Element'.'|'.4.'$Prop']", (path != null ? lpath_0 : null));
@@ -891,7 +891,7 @@ public class json_model_preprocessed extends ModelChecker
                 // handle must @ property
                 must_count += 1;
                 // .'$Model#Element'.'|'.0.'@'
-                res = json_model_36(pval, (path != null ? lpath_4 : null), rep);
+                res = json_model_37(pval, (path != null ? lpath_4 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Element'.'|'.0.'@']", (path != null ? lpath_4 : null));
@@ -1217,10 +1217,25 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.4.'$'.'$Identifier'
-                res = json_model_36(pval, (path != null ? lpath_6 : null), rep);
+                // .'$Model#Root'.'|'.4.'$'.'$Identifier'.'|'.0
+                res = json_model_37(pval, (path != null ? lpath_6 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.4.'$'.'$Identifier']", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.4.'$'.'$Identifier'.'|'.0]", (path != null ? lpath_6 : null));
+                    // .'$Model#Root'.'|'.4.'$'.'$Identifier'.'|'.1
+                    res = json_model_34(pval, (path != null ? lpath_6 : null), rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected value for model \"$LocalTrafo\" [.'$Model#Root'.'|'.4.'$'.'$Identifier'.'|'.1]", (path != null ? lpath_6 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#Root'.'|'.4.'$'.'$Identifier'.'|']", (path != null ? lpath_6 : null));
                     return false;
                 }
             }
@@ -1341,7 +1356,7 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.4.'%'.'/^\\$.*$/'
-                res = json_model_34(pval, (path != null ? lpath_7 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Transformation\" [.'$Model#Root'.'|'.4.'%'.'/^\\\\$.*$/']", (path != null ? lpath_7 : null));
@@ -1424,7 +1439,7 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.4.'$Prop'
-                res = json_model_36(pval, (path != null ? lpath_5 : null), rep);
+                res = json_model_37(pval, (path != null ? lpath_5 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.4.'$Prop']", (path != null ? lpath_5 : null));
@@ -1489,10 +1504,25 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.3.'$'.'$Identifier'
-                res = json_model_36(pval, (path != null ? lpath_9 : null), rep);
+                // .'$Model#Root'.'|'.3.'$'.'$Identifier'.'|'.0
+                res = json_model_37(pval, (path != null ? lpath_9 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.3.'$'.'$Identifier']", (path != null ? lpath_9 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.3.'$'.'$Identifier'.'|'.0]", (path != null ? lpath_9 : null));
+                    // .'$Model#Root'.'|'.3.'$'.'$Identifier'.'|'.1
+                    res = json_model_34(pval, (path != null ? lpath_9 : null), rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected value for model \"$LocalTrafo\" [.'$Model#Root'.'|'.3.'$'.'$Identifier'.'|'.1]", (path != null ? lpath_9 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#Root'.'|'.3.'$'.'$Identifier'.'|']", (path != null ? lpath_9 : null));
                     return false;
                 }
             }
@@ -1603,7 +1633,7 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.3.'%'.'/^\\$.*$/'
-                res = json_model_34(pval, (path != null ? lpath_10 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_10 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Transformation\" [.'$Model#Root'.'|'.3.'%'.'/^\\\\$.*$/']", (path != null ? lpath_10 : null));
@@ -1784,10 +1814,25 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.2.'$'.'$Identifier'
-                res = json_model_36(pval, (path != null ? lpath_12 : null), rep);
+                // .'$Model#Root'.'|'.2.'$'.'$Identifier'.'|'.0
+                res = json_model_37(pval, (path != null ? lpath_12 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.2.'$'.'$Identifier']", (path != null ? lpath_12 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.2.'$'.'$Identifier'.'|'.0]", (path != null ? lpath_12 : null));
+                    // .'$Model#Root'.'|'.2.'$'.'$Identifier'.'|'.1
+                    res = json_model_34(pval, (path != null ? lpath_12 : null), rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected value for model \"$LocalTrafo\" [.'$Model#Root'.'|'.2.'$'.'$Identifier'.'|'.1]", (path != null ? lpath_12 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#Root'.'|'.2.'$'.'$Identifier'.'|']", (path != null ? lpath_12 : null));
                     return false;
                 }
             }
@@ -1898,7 +1943,7 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.2.'%'.'/^\\$.*$/'
-                res = json_model_34(pval, (path != null ? lpath_13 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_13 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Transformation\" [.'$Model#Root'.'|'.2.'%'.'/^\\\\$.*$/']", (path != null ? lpath_13 : null));
@@ -2079,10 +2124,25 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.1.'$'.'$Identifier'
-                res = json_model_36(pval, (path != null ? lpath_15 : null), rep);
+                // .'$Model#Root'.'|'.1.'$'.'$Identifier'.'|'.0
+                res = json_model_37(pval, (path != null ? lpath_15 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.1.'$'.'$Identifier']", (path != null ? lpath_15 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.1.'$'.'$Identifier'.'|'.0]", (path != null ? lpath_15 : null));
+                    // .'$Model#Root'.'|'.1.'$'.'$Identifier'.'|'.1
+                    res = json_model_34(pval, (path != null ? lpath_15 : null), rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected value for model \"$LocalTrafo\" [.'$Model#Root'.'|'.1.'$'.'$Identifier'.'|'.1]", (path != null ? lpath_15 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#Root'.'|'.1.'$'.'$Identifier'.'|']", (path != null ? lpath_15 : null));
                     return false;
                 }
             }
@@ -2193,7 +2253,7 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.1.'%'.'/^\\$.*$/'
-                res = json_model_34(pval, (path != null ? lpath_16 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_16 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Transformation\" [.'$Model#Root'.'|'.1.'%'.'/^\\\\$.*$/']", (path != null ? lpath_16 : null));
@@ -2374,10 +2434,25 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.0.'$'.'$Identifier'
-                res = json_model_36(pval, (path != null ? lpath_18 : null), rep);
+                // .'$Model#Root'.'|'.0.'$'.'$Identifier'.'|'.0
+                res = json_model_37(pval, (path != null ? lpath_18 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.0.'$'.'$Identifier']", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.0.'$'.'$Identifier'.'|'.0]", (path != null ? lpath_18 : null));
+                    // .'$Model#Root'.'|'.0.'$'.'$Identifier'.'|'.1
+                    res = json_model_34(pval, (path != null ? lpath_18 : null), rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected value for model \"$LocalTrafo\" [.'$Model#Root'.'|'.0.'$'.'$Identifier'.'|'.1]", (path != null ? lpath_18 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#Root'.'|'.0.'$'.'$Identifier'.'|']", (path != null ? lpath_18 : null));
                     return false;
                 }
             }
@@ -2488,7 +2563,7 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.0.'%'.'/^\\$.*$/'
-                res = json_model_34(pval, (path != null ? lpath_19 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_19 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Transformation\" [.'$Model#Root'.'|'.0.'%'.'/^\\\\$.*$/']", (path != null ? lpath_19 : null));
@@ -2521,7 +2596,7 @@ public class json_model_preprocessed extends ModelChecker
                 // handle must @ property
                 must_count += 1;
                 // .'$Model#Root'.'|'.0.'@'
-                res = json_model_36(pval, (path != null ? lpath_17 : null), rep);
+                res = json_model_37(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.0.'@']", (path != null ? lpath_17 : null));
@@ -2642,7 +2717,7 @@ public class json_model_preprocessed extends ModelChecker
     }
 
     // check $Model#Root (.'$Model#Root')
-    public boolean json_model_42(Object val, Path path, Report rep)
+    public boolean json_model_43(Object val, Path path, Report rep)
     {
         // .'$Model#Root'
         boolean res = json.isObject(val);
@@ -2694,8 +2769,172 @@ public class json_model_preprocessed extends ModelChecker
         return res;
     }
 
-    // object .'$Model#Transformation'.'|'.1.'~'
+    // object .'$Model#LocalTrafo'.'@'.'~'
     public boolean _jm_obj_21(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$Model#LocalTrafo'.'@'.'~']", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_21 = new Path(prop, path);
+            // handle other props
+            // .'$Model#LocalTrafo'.'@'.'~'.''
+            res = json.isString(pval);
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Model#LocalTrafo'.'@'.'~'.'']", (path != null ? lpath_21 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // object .'$Model#LocalTrafo'.'@'
+    public boolean _jm_obj_20(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$Model#LocalTrafo'.'@']", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_20 = new Path(prop, path);
+            if (prop.compareTo("/") == 0)
+            {
+                // handle may / property
+                // .'$Model#LocalTrafo'.'@'.'/'
+                // .'$Model#LocalTrafo'.'@'.'/'.'|'.0
+                res = json_model_16(pval, (path != null ? lpath_20 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"$EqValue\" [.'$Model#LocalTrafo'.'@'.'/'.'|'.0]", (path != null ? lpath_20 : null));
+                    // .'$Model#LocalTrafo'.'@'.'/'.'|'.1
+                    res = json.isArray(pval);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("not array or unexpected array [.'$Model#LocalTrafo'.'@'.'/'.'|'.1]", (path != null ? lpath_20 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#LocalTrafo'.'@'.'/'.'|']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#LocalTrafo'.'@'.'/']", (path != null ? lpath_20 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("~") == 0)
+            {
+                // handle may ~ property
+                // .'$Model#LocalTrafo'.'@'.'~'
+                res = _jm_obj_21(pval, (path != null ? lpath_20 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$Model#LocalTrafo'.'@'.'~']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#LocalTrafo'.'@'.'~']", (path != null ? lpath_20 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("*") == 0)
+            {
+                // handle may * property
+                // .'$Model#LocalTrafo'.'@'.'*'
+                res = true;
+                continue;
+            }
+            else if (prop.compareTo("<") == 0)
+            {
+                // handle may < property
+                // .'$Model#LocalTrafo'.'@'.'<'
+                // .'$Model#LocalTrafo'.'@'.'<'.'|'.0
+                res = json_model_10(pval, (path != null ? lpath_20 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<'.'|'.0]", (path != null ? lpath_20 : null));
+                    // .'$Model#LocalTrafo'.'@'.'<'.'|'.1
+                    res = json.isArray(pval);
+                    if (res)
+                    {
+                        int arr_12_idx = -1;
+                        Iterator<Object> arr_12_item_loop = json.arrayIterator(pval);
+                        while (arr_12_item_loop.hasNext())
+                        {
+                            arr_12_idx++;
+                            Object arr_12_item = arr_12_item_loop.next();
+                            Path arr_12_lpath = new Path(arr_12_idx, (path != null ? lpath_20 : null));
+                            // .'$Model#LocalTrafo'.'@'.'<'.'|'.1.0
+                            res = json_model_10(arr_12_item, ((path != null ? lpath_20 : null) != null ? arr_12_lpath : null), rep);
+                            if (! res)
+                            {
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Ref\" [.'$Model#LocalTrafo'.'@'.'<'.'|'.1.0]", ((path != null ? lpath_20 : null) != null ? arr_12_lpath : null));
+                                break;
+                            }
+                        }
+                    }
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("not array or unexpected array [.'$Model#LocalTrafo'.'@'.'<'.'|'.1]", (path != null ? lpath_20 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#LocalTrafo'.'@'.'<'.'|']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#LocalTrafo'.'@'.'<']", (path != null ? lpath_20 : null));
+                    return false;
+                }
+                continue;
+            }
+            if (rep != null) rep.addEntry("unexpected prop [.'$Model#LocalTrafo'.'@']", (path != null ? lpath_20 : null));
+            return false;
+        }
+        return true;
+    }
+
+    // check $Model#LocalTrafo (.'$Model#LocalTrafo')
+    public boolean json_model_34(Object val, Path path, Report rep)
+    {
+        // .'$Model#LocalTrafo'
+        // .'$Model#LocalTrafo'.'@'
+        boolean res = _jm_obj_20(val, path, rep);
+        if (res)
+        {
+            long ival_0 = json.objectSize(val);
+            res = ival_0 >= 1;
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("constraints failed [.'$Model#LocalTrafo']", path);
+            }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected element [.'$Model#LocalTrafo'.'@']", path);
+        }
+        return res;
+    }
+
+    // object .'$Model#Transformation'.'|'.1.'~'
+    public boolean _jm_obj_23(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2708,13 +2947,13 @@ public class json_model_preprocessed extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_21 = new Path(prop, path);
+            Path lpath_23 = new Path(prop, path);
             // handle other props
             // .'$Model#Transformation'.'|'.1.'~'.''
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Model#Transformation'.'|'.1.'~'.'']", (path != null ? lpath_21 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Model#Transformation'.'|'.1.'~'.'']", (path != null ? lpath_23 : null));
                 return false;
             }
         }
@@ -2722,7 +2961,7 @@ public class json_model_preprocessed extends ModelChecker
     }
 
     // object .'$Model#Transformation'.'|'.1
-    public boolean _jm_obj_20(Object val, Path path, Report rep)
+    public boolean _jm_obj_22(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2735,7 +2974,7 @@ public class json_model_preprocessed extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_20 = new Path(prop, path);
+            Path lpath_22 = new Path(prop, path);
             if (prop.compareTo("#") == 0)
             {
                 // handle may # property
@@ -2743,8 +2982,8 @@ public class json_model_preprocessed extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Model#Transformation'.'|'.1.'#']", (path != null ? lpath_20 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Transformation'.'|'.1.'#']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Model#Transformation'.'|'.1.'#']", (path != null ? lpath_22 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Transformation'.'|'.1.'#']", (path != null ? lpath_22 : null));
                     return false;
                 }
                 continue;
@@ -2754,15 +2993,15 @@ public class json_model_preprocessed extends ModelChecker
                 // handle may / property
                 // .'$Model#Transformation'.'|'.1.'/'
                 // .'$Model#Transformation'.'|'.1.'/'.'|'.0
-                res = json_model_16(pval, (path != null ? lpath_20 : null), rep);
+                res = json_model_16(pval, (path != null ? lpath_22 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$EqValue\" [.'$Model#Transformation'.'|'.1.'/'.'|'.0]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$EqValue\" [.'$Model#Transformation'.'|'.1.'/'.'|'.0]", (path != null ? lpath_22 : null));
                     // .'$Model#Transformation'.'|'.1.'/'.'|'.1
                     res = json.isArray(pval);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not array or unexpected array [.'$Model#Transformation'.'|'.1.'/'.'|'.1]", (path != null ? lpath_20 : null));
+                        if (rep != null) rep.addEntry("not array or unexpected array [.'$Model#Transformation'.'|'.1.'/'.'|'.1]", (path != null ? lpath_22 : null));
                     }
                 }
                 if (res)
@@ -2771,8 +3010,8 @@ public class json_model_preprocessed extends ModelChecker
                 }
                 else
                 {
-                    if (rep != null) rep.addEntry("no model matched [.'$Model#Transformation'.'|'.1.'/'.'|']", (path != null ? lpath_20 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Transformation'.'|'.1.'/']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#Transformation'.'|'.1.'/'.'|']", (path != null ? lpath_22 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Transformation'.'|'.1.'/']", (path != null ? lpath_22 : null));
                     return false;
                 }
                 continue;
@@ -2781,11 +3020,11 @@ public class json_model_preprocessed extends ModelChecker
             {
                 // handle may ~ property
                 // .'$Model#Transformation'.'|'.1.'~'
-                res = _jm_obj_21(pval, (path != null ? lpath_20 : null), rep);
+                res = _jm_obj_23(pval, (path != null ? lpath_22 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Transformation'.'|'.1.'~']", (path != null ? lpath_20 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Transformation'.'|'.1.'~']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Transformation'.'|'.1.'~']", (path != null ? lpath_22 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Transformation'.'|'.1.'~']", (path != null ? lpath_22 : null));
                     return false;
                 }
                 continue;
@@ -2803,7 +3042,7 @@ public class json_model_preprocessed extends ModelChecker
                 res = true;
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Model#Transformation'.'|'.1]", (path != null ? lpath_20 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$Model#Transformation'.'|'.1]", (path != null ? lpath_22 : null));
                 return false;
             }
         }
@@ -2811,16 +3050,16 @@ public class json_model_preprocessed extends ModelChecker
     }
 
     // check $Model#Transformation (.'$Model#Transformation')
-    public boolean json_model_34(Object val, Path path, Report rep)
+    public boolean json_model_35(Object val, Path path, Report rep)
     {
         // .'$Model#Transformation'
         // .'$Model#Transformation'.'|'.0
-        boolean res = json_model_36(val, path, rep);
+        boolean res = json_model_37(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Transformation'.'|'.0]", path);
             // .'$Model#Transformation'.'|'.1
-            res = _jm_obj_20(val, path, rep);
+            res = _jm_obj_22(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$Model#Transformation'.'|'.1]", path);
@@ -2913,8 +3152,8 @@ public class json_model_preprocessed extends ModelChecker
             _jm_re_10_pat = Pattern.compile("^([#|&^+/*@~=$%]|[<>!]=?)$");
             _jm_re_11_pat = Pattern.compile("^\\$.*$");
             json_model_preprocessed_map_pmap = new HashMap<String, Checker>();
-            json_model_preprocessed_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_43(o, p, r);} });
-            json_model_preprocessed_map_pmap.put("Model", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_43(o, p, r);} });
+            json_model_preprocessed_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_44(o, p, r);} });
+            json_model_preprocessed_map_pmap.put("Model", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_44(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
