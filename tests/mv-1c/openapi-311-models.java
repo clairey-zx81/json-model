@@ -1318,7 +1318,7 @@ public class openapi_311_models extends ModelChecker
             Path lpath_19 = new Path(prop, path);
             // handle other props
             // .'$openapi#Components'.models.''
-            res = json_model_98(pval, (path != null ? lpath_19 : null), rep);
+            res = json_model_99(pval, (path != null ? lpath_19 : null), rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#Components'.models.'']", (path != null ? lpath_19 : null));
@@ -2430,7 +2430,7 @@ public class openapi_311_models extends ModelChecker
             {
                 // handle may model property
                 // .'$openapi#Parameter'.'|'.0.model
-                res = json_model_98(pval, (path != null ? lpath_27 : null), rep);
+                res = json_model_99(pval, (path != null ? lpath_27 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#Parameter'.'|'.0.model]", (path != null ? lpath_27 : null));
@@ -2733,7 +2733,7 @@ public class openapi_311_models extends ModelChecker
             {
                 // handle may model property
                 // .'$openapi#MediaType'.model
-                res = json_model_98(pval, (path != null ? lpath_31 : null), rep);
+                res = json_model_99(pval, (path != null ? lpath_31 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#MediaType'.model]", (path != null ? lpath_31 : null));
@@ -3822,7 +3822,7 @@ public class openapi_311_models extends ModelChecker
             {
                 // handle may model property
                 // .'$openapi#Header'.'|'.0.model
-                res = json_model_98(pval, (path != null ? lpath_47 : null), rep);
+                res = json_model_99(pval, (path != null ? lpath_47 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#Header'.'|'.0.model]", (path != null ? lpath_47 : null));
@@ -4814,7 +4814,7 @@ public class openapi_311_models extends ModelChecker
     public boolean json_model_64(Object val, Path path, Report rep)
     {
         // .'$openapi#Model'
-        boolean res = json_model_98(val, path, rep);
+        boolean res = json_model_99(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$model#Model\" [.'$openapi#Model']", path);
@@ -4823,11 +4823,11 @@ public class openapi_311_models extends ModelChecker
     }
 
     // check $openapi#model#Model (.'$openapi#model#Model')
-    public boolean json_model_98(Object val, Path path, Report rep)
+    public boolean json_model_99(Object val, Path path, Report rep)
     {
         // .'$openapi#model#Model'
         // .'$openapi#model#Model'.'|'.0
-        boolean res = json_model_97(val, path, rep);
+        boolean res = json_model_98(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$ScalarModel\" [.'$openapi#model#Model'.'|'.0]", path);
@@ -4890,7 +4890,7 @@ public class openapi_311_models extends ModelChecker
     {
         // .'$openapi#model#CModel'
         // .'$openapi#model#CModel'.'|'.0
-        boolean res = json_model_98(val, path, rep);
+        boolean res = json_model_99(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#model#CModel'.'|'.0]", path);
@@ -4958,7 +4958,7 @@ public class openapi_311_models extends ModelChecker
             {
                 // handle 1 key props
                 // .'$openapi#model#Element'.'|'.5.'$Prop'
-                res = json_model_98(pval, (path != null ? lpath_61 : null), rep);
+                res = json_model_99(pval, (path != null ? lpath_61 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.5.'$Prop']", (path != null ? lpath_61 : null));
@@ -5329,7 +5329,7 @@ public class openapi_311_models extends ModelChecker
                 // handle must @ property
                 must_count += 1;
                 // .'$openapi#model#Element'.'|'.0.'@'
-                res = json_model_98(pval, (path != null ? lpath_66 : null), rep);
+                res = json_model_99(pval, (path != null ? lpath_66 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.0.'@']", (path != null ? lpath_66 : null));
@@ -5854,7 +5854,7 @@ public class openapi_311_models extends ModelChecker
     }
 
     // check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
-    public boolean json_model_97(Object val, Path path, Report rep)
+    public boolean json_model_98(Object val, Path path, Report rep)
     {
         // .'$openapi#model#ScalarModel'
         // .'$openapi#model#ScalarModel'.'|'.0

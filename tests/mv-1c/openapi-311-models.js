@@ -1186,7 +1186,7 @@ function _jm_obj_13(val, path, rep)
         let lpath_19 = path ? path.concat([prop]) : null
         // handle other props
         // .'$openapi#Components'.models.''
-        res = json_model_98(pval, (path ? lpath_19 : null), rep)
+        res = json_model_99(pval, (path ? lpath_19 : null), rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$openapi#Components'.models.'']", (path ? lpath_19 : null)])
@@ -2336,7 +2336,7 @@ function _jm_obj_17(val, path, rep)
         {
             // handle may model property
             // .'$openapi#Parameter'.'|'.0.model
-            res = json_model_98(pval, (path ? lpath_27 : null), rep)
+            res = json_model_99(pval, (path ? lpath_27 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$openapi#Parameter'.'|'.0.model]", (path ? lpath_27 : null)])
@@ -2610,7 +2610,7 @@ function json_model_22(val, path, rep)
         {
             // handle may model property
             // .'$openapi#MediaType'.model
-            res = json_model_98(pval, (path ? lpath_31 : null), rep)
+            res = json_model_99(pval, (path ? lpath_31 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$openapi#MediaType'.model]", (path ? lpath_31 : null)])
@@ -3625,7 +3625,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may model property
             // .'$openapi#Header'.'|'.0.model
-            res = json_model_98(pval, (path ? lpath_47 : null), rep)
+            res = json_model_99(pval, (path ? lpath_47 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$openapi#Header'.'|'.0.model]", (path ? lpath_47 : null)])
@@ -4533,18 +4533,18 @@ function json_model_45(val, path, rep)
 function json_model_64(val, path, rep)
 {
     // .'$openapi#Model'
-    let res = json_model_98(val, path, rep)
+    let res = json_model_99(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$model#Model\" [.'$openapi#Model']", path])
     return res
 }
 
 // check $openapi#model#Model (.'$openapi#model#Model')
-function json_model_98(val, path, rep)
+function json_model_99(val, path, rep)
 {
     // .'$openapi#model#Model'
     // .'$openapi#model#Model'.'|'.0
-    let res = json_model_97(val, path, rep)
+    let res = json_model_98(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$ScalarModel\" [.'$openapi#model#Model'.'|'.0]", path])
@@ -4598,7 +4598,7 @@ function json_model_83(val, path, rep)
 {
     // .'$openapi#model#CModel'
     // .'$openapi#model#CModel'.'|'.0
-    let res = json_model_98(val, path, rep)
+    let res = json_model_99(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$openapi#model#CModel'.'|'.0]", path])
@@ -4654,7 +4654,7 @@ function _jm_obj_39(val, path, rep)
         {
             // handle 1 key props
             // .'$openapi#model#Element'.'|'.5.'$Prop'
-            res = json_model_98(pval, (path ? lpath_61 : null), rep)
+            res = json_model_99(pval, (path ? lpath_61 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.5.'$Prop']", (path ? lpath_61 : null)])
@@ -4984,7 +4984,7 @@ function _jm_obj_44(val, path, rep)
             // handle must @ property
             must_count += 1
             // .'$openapi#model#Element'.'|'.0.'@'
-            res = json_model_98(pval, (path ? lpath_66 : null), rep)
+            res = json_model_99(pval, (path ? lpath_66 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.0.'@']", (path ? lpath_66 : null)])
@@ -5433,7 +5433,7 @@ function json_model_76(val, path, rep)
 }
 
 // check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
-function json_model_97(val, path, rep)
+function json_model_98(val, path, rep)
 {
     // .'$openapi#model#ScalarModel'
     // .'$openapi#model#ScalarModel'.'|'.0

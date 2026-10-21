@@ -258,6 +258,32 @@
         "?*": "$ANY",
         "#": "JsonModel 31"
       },
+      "LocalTrafo": {
+        "@": {
+          "?/": {
+            "|": [
+              "$EqValue",
+              [
+                "$ANY"
+              ]
+            ]
+          },
+          "?~": {
+            "": ""
+          },
+          "?*": "$ANY",
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          }
+        },
+        ">=": 1,
+        "#": "JsonModel 32"
+      },
       "Transformation": {
         "|": [
           "$Model",
@@ -278,14 +304,14 @@
             "/^#./s": "$ANY"
           }
         ],
-        "#": "JsonModel 32"
+        "#": "JsonModel 33"
       },
       "ScalarModel": {
         "|": [
           "$ValModel",
           "$StrModel"
         ],
-        "#": "JsonModel 33"
+        "#": "JsonModel 34"
       },
       "Model": {
         "|": [
@@ -293,20 +319,25 @@
           "$Array",
           "$Element"
         ],
-        "#": "JsonModel 34"
+        "#": "JsonModel 35"
       },
       "Defs": {
         "?": "$Url",
-        "$Identifier": "$Model",
-        "#": "JsonModel 35"
+        "$Identifier": {
+          "|": [
+            "$Model",
+            "$LocalTrafo"
+          ]
+        },
+        "#": "JsonModel 36"
       },
       "Rename": {
         "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-        "#": "JsonModel 36"
+        "#": "JsonModel 37"
       },
       "Rewrite": {
         "/^\\$.*$/": "$Transformation",
-        "#": "JsonModel 37"
+        "#": "JsonModel 38"
       },
       "Import": {
         "?<": {
@@ -317,14 +348,19 @@
             ]
           ]
         },
-        "#": "JsonModel 38"
+        "#": "JsonModel 39"
       },
       "RootOnly": {
         "?~": "$Url",
         "?$": {
           "?#": "",
           "?": "$Url",
-          "$Identifier": "$Model",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
           "/^#./s": "$ANY"
         },
         "?%": {
@@ -341,7 +377,7 @@
           "/^#./s": "$ANY",
           "/^\\$.*$/": "$Transformation"
         },
-        "#": "JsonModel 39"
+        "#": "JsonModel 40"
       },
       "Root": {
         "|": [
@@ -351,7 +387,12 @@
             "?$": {
               "?#": "",
               "?": "$Url",
-              "$Identifier": "$Model",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
               "/^#./s": "$ANY"
             },
             "?%": {
@@ -382,7 +423,12 @@
             "?$": {
               "?#": "",
               "?": "$Url",
-              "$Identifier": "$Model",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
               "/^#./s": "$ANY"
             },
             "?%": {
@@ -410,7 +456,12 @@
             "?$": {
               "?#": "",
               "?": "$Url",
-              "$Identifier": "$Model",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
               "/^#./s": "$ANY"
             },
             "?%": {
@@ -438,7 +489,12 @@
             "?$": {
               "?#": "",
               "?": "$Url",
-              "$Identifier": "$Model",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
               "/^#./s": "$ANY"
             },
             "?%": {
@@ -466,7 +522,12 @@
             "?$": {
               "?#": "",
               "?": "$Url",
-              "$Identifier": "$Model",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
               "/^#./s": "$ANY"
             },
             "?%": {
@@ -491,7 +552,12 @@
             "?$": {
               "?#": "",
               "?": "$Url",
-              "$Identifier": "$Model",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
               "/^#./s": "$ANY"
             },
             "?%": {
@@ -513,7 +579,7 @@
             "/^#./s": "$ANY"
           }
         ],
-        "#": "JsonModel 40"
+        "#": "JsonModel 41"
       },
       "RootModel": {
         "|": [
@@ -521,7 +587,7 @@
           "$Array",
           "$Root"
         ],
-        "#": "JsonModel 41"
+        "#": "JsonModel 42"
       },
       "#": "Symbol 1",
       "": "https://json-model.org/models/json-model"
@@ -786,6 +852,32 @@
     "#": "JsonModel 31"
   },
   {
+    "@": {
+      "?/": {
+        "|": [
+          "$EqValue",
+          [
+            "$ANY"
+          ]
+        ]
+      },
+      "?~": {
+        "": ""
+      },
+      "?*": "$ANY",
+      "?<": {
+        "|": [
+          "$Ref",
+          [
+            "$Ref"
+          ]
+        ]
+      }
+    },
+    ">=": 1,
+    "#": "JsonModel 32"
+  },
+  {
     "|": [
       "$Model",
       {
@@ -805,14 +897,14 @@
         "/^#./s": "$ANY"
       }
     ],
-    "#": "JsonModel 32"
+    "#": "JsonModel 33"
   },
   {
     "|": [
       "$ValModel",
       "$StrModel"
     ],
-    "#": "JsonModel 33"
+    "#": "JsonModel 34"
   },
   {
     "|": [
@@ -820,20 +912,25 @@
       "$Array",
       "$Element"
     ],
-    "#": "JsonModel 34"
-  },
-  {
-    "?": "$Url",
-    "$Identifier": "$Model",
     "#": "JsonModel 35"
   },
   {
-    "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+    "?": "$Url",
+    "$Identifier": {
+      "|": [
+        "$Model",
+        "$LocalTrafo"
+      ]
+    },
     "#": "JsonModel 36"
   },
   {
-    "/^\\$.*$/": "$Transformation",
+    "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
     "#": "JsonModel 37"
+  },
+  {
+    "/^\\$.*$/": "$Transformation",
+    "#": "JsonModel 38"
   },
   {
     "?<": {
@@ -844,14 +941,19 @@
         ]
       ]
     },
-    "#": "JsonModel 38"
+    "#": "JsonModel 39"
   },
   {
     "?~": "$Url",
     "?$": {
       "?#": "",
       "?": "$Url",
-      "$Identifier": "$Model",
+      "$Identifier": {
+        "|": [
+          "$Model",
+          "$LocalTrafo"
+        ]
+      },
       "/^#./s": "$ANY"
     },
     "?%": {
@@ -868,7 +970,7 @@
       "/^#./s": "$ANY",
       "/^\\$.*$/": "$Transformation"
     },
-    "#": "JsonModel 39"
+    "#": "JsonModel 40"
   },
   {
     "|": [
@@ -878,7 +980,12 @@
         "?$": {
           "?#": "",
           "?": "$Url",
-          "$Identifier": "$Model",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
           "/^#./s": "$ANY"
         },
         "?%": {
@@ -909,7 +1016,12 @@
         "?$": {
           "?#": "",
           "?": "$Url",
-          "$Identifier": "$Model",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
           "/^#./s": "$ANY"
         },
         "?%": {
@@ -937,7 +1049,12 @@
         "?$": {
           "?#": "",
           "?": "$Url",
-          "$Identifier": "$Model",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
           "/^#./s": "$ANY"
         },
         "?%": {
@@ -965,7 +1082,12 @@
         "?$": {
           "?#": "",
           "?": "$Url",
-          "$Identifier": "$Model",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
           "/^#./s": "$ANY"
         },
         "?%": {
@@ -993,7 +1115,12 @@
         "?$": {
           "?#": "",
           "?": "$Url",
-          "$Identifier": "$Model",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
           "/^#./s": "$ANY"
         },
         "?%": {
@@ -1018,7 +1145,12 @@
         "?$": {
           "?#": "",
           "?": "$Url",
-          "$Identifier": "$Model",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
           "/^#./s": "$ANY"
         },
         "?%": {
@@ -1040,7 +1172,7 @@
         "/^#./s": "$ANY"
       }
     ],
-    "#": "JsonModel 40"
+    "#": "JsonModel 41"
   },
   {
     "|": [
@@ -1048,6 +1180,6 @@
       "$Array",
       "$Root"
     ],
-    "#": "JsonModel 41"
+    "#": "JsonModel 42"
   }
 ]

@@ -67,10 +67,11 @@
       "?~": { "": "" },
       "?*": { "|": [ [ "$Any" ], { "": "$Model" }, "$Any" ] }
     },
+    "LocalTrafo": { "@": { "+": [ "$Trafo", "$Import" ] }, ">=": 1 },
     "Transformation": { "|": [ "$Model", { "+": [ "$Common", "$Trafo" ] } ] },
     "ScalarModel": { "|": [ "$ValModel", "$StrModel" ] },
     "Model": { "|": [ "$ScalarModel", "$Array", "$Element" ] },
-    "Defs": { "?": "$Url", "$Identifier": "$Model" },
+    "Defs": { "?": "$Url", "$Identifier": { "|": [ "$Model", "$LocalTrafo" ] } },
     "Rename": { "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/" },
     "Rewrite": { "/^\\$.*$/": "$Transformation" },
     "Import": { "?<": { "|": [ "$Ref", [ "$Ref" ] ] } },
