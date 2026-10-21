@@ -179,7 +179,7 @@ class JsonModel:
         # copy parameter which may be modified
         model = self.noComment(copy.deepcopy(model))
 
-        # %: names and rewrites
+        # %: import, names and rewrites
         self._init_pc: dict[str, ModelType] = {}
         self._name: ModelRename = {}
         self._rewrite: dict[str, ModelTrafo] = {}
@@ -245,7 +245,7 @@ class JsonModel:
             }
 
             # FIXME what is the scope of renamings, eg wrt references?
-            model = self.rename(model, [], True)
+            model = self.rename(model, self._name, [], True)
             assert isinstance(model, dict)
 
             # reference imports
@@ -325,7 +325,7 @@ class JsonModel:
             else:
                 self._spec = self
             log.info(f"renaming {self._id} from ~")
-            model = self._spec.rename(model, [], True)
+            model = self._spec.rename(model, self._spec._name, ["~", "%"], True)
         else:
             # FIXME add a default?
             self._spec = None
@@ -352,7 +352,7 @@ class JsonModel:
         if self._is_root:
             # loading twice, rewriting may add references…
             self.allLoads()
-            self.rewrite()
+            self.rewrite(self._rewrite)
 
         if self._is_head:
             # hmmm… the above rewriting may have changed external dependencies,
@@ -939,11 +939,14 @@ class JsonModel:
     #
     # Rename Transformation
     #
-    def rename(self, model: ModelType, path: ModelPath = [], root: bool = False) -> ModelType:
+    def rename(self,
+                model: ModelType, names: dict[str, str],
+                path: ModelPath = [], root: bool = False
+            ) -> ModelType:
         """Apply keyword renaming."""
 
         # FIXME should check that all are ".…" are replaced?!
-        if root and not self._name:
+        if root and not names:
             return model
 
         def rnFlt(m: ModelType, path: ModelPath) -> bool:
@@ -951,8 +954,8 @@ class JsonModel:
                 remove, added = set(), {}
                 for k, v in m.items():
                     assert isinstance(k, str)
-                    if k in self._name:
-                        added[self._name[k]] = v
+                    if k in names:
+                        added[names[k]] = v
                         remove.add(k)
                 for k in remove:
                     del m[k]
@@ -1103,7 +1106,7 @@ class JsonModel:
             log.debug(f"{jm._id}: empty tpath on {jm._model} for {trafo}")
             jm._model = self._applyTrafo(jm._model, trafo, path)
 
-    def _applyHeadTrafoAtPath(self,
+    def _applyRootTrafoAtPath(self,
                 jm: JsonModel,
                 tpath: ModelPath,
                 trafo: ModelTrafo,
@@ -1154,20 +1157,20 @@ class JsonModel:
                 del self._defs[po]
             self._defs.update(**updates)
 
-    def rewrite(self):
+    def rewrite(self, rules: dict[str, typing.Any]):
         """Apply model rewriting to current JSON Model."""
 
         if self._debug >= 2:
             log.debug(f"raw model: {self._model} ({self._defs})")
 
         # NOTE transformation specs may be empty
-        for tpath, trafo in self._rewrite.items():
+        for tpath, trafo in rules.items():
             log.warning(f"tpath={tpath} trafo={trafo}")
             lpath = ["%", tpath]  # FIXME
             # typing issue, cannot assign list[str] to list[str|int] !?
             jm, path = self._parsePath(tpath, lpath)  # type: ignore
             if tpath.endswith("#"):  # model namespace
-                self._applyHeadTrafoAtPath(jm, path, trafo, lpath)
+                self._applyRootTrafoAtPath(jm, path, trafo, lpath)
             else:
                 self._applyModelTrafoAtPath(jm, path, trafo, lpath)  # type: ignore
 
