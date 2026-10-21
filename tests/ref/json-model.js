@@ -1540,7 +1540,20 @@ function _jm_obj_7(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_11 = path ? path.concat([prop]) : null
-        if (prop == "/")
+        if (prop == "#")
+        {
+            // handle may # property
+            // .'$LocalTrafo'.'@'.'#'
+            res = typeof pval == 'string'
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$LocalTrafo'.'@'.'#']", (path ? lpath_11 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$LocalTrafo'.'@'.'#']", (path ? lpath_11 : null)])
+                return false
+            }
+            continue
+        }
+        else if (prop == "/")
         {
             // handle may / property
             // .'$LocalTrafo'.'@'.'/'
@@ -1590,45 +1603,24 @@ function _jm_obj_7(val, path, rep)
         {
             // handle may < property
             // .'$LocalTrafo'.'@'.'<'
-            // .'$LocalTrafo'.'@'.'<'.'|'.0
             res = json_model_8(pval, (path ? lpath_11 : null), rep)
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$LocalTrafo'.'@'.'<'.'|'.0]", (path ? lpath_11 : null)])
-                // .'$LocalTrafo'.'@'.'<'.'|'.1
-                res = Array.isArray(pval)
-                if (res)
-                {
-                    for (let arr_9_idx = 0; arr_9_idx < pval.length; arr_9_idx++)
-                    {
-                        let arr_9_item = pval[arr_9_idx]
-                        let arr_9_lpath = (path ? lpath_11 : null) ? (path ? lpath_11 : null).concat([arr_9_idx]) : null
-                        // .'$LocalTrafo'.'@'.'<'.'|'.1.0
-                        res = json_model_8(arr_9_item, ((path ? lpath_11 : null) ? arr_9_lpath : null), rep)
-                        if (! res)
-                        {
-                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$LocalTrafo'.'@'.'<'.'|'.1.0]", ((path ? lpath_11 : null) ? arr_9_lpath : null)])
-                            break
-                        }
-                    }
-                }
-                if (! res)
-                    rep !== null && rep.push(["not array or unexpected array [.'$LocalTrafo'.'@'.'<'.'|'.1]", (path ? lpath_11 : null)])
-            }
-            if (res)
-            {
-                if (rep !== null) rep.length = 0
-            }
-            else
-            {
-                rep !== null && rep.push(["no model matched [.'$LocalTrafo'.'@'.'<'.'|']", (path ? lpath_11 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$LocalTrafo'.'@'.'<']", (path ? lpath_11 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$LocalTrafo'.'@'.'<']", (path ? lpath_11 : null)])
                 return false
             }
             continue
         }
-        rep !== null && rep.push(["unexpected prop [.'$LocalTrafo'.'@']", (path ? lpath_11 : null)])
-        return false
+        if (_jm_re_3(prop, path, rep))
+            // handle 1 re props
+            // .'$LocalTrafo'.'@'.'/^#./s'
+            res = true
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$LocalTrafo'.'@']", (path ? lpath_11 : null)])
+            return false
+        }
     }
     return true
 }
@@ -1990,15 +1982,15 @@ function json_model_39(val, path, rep)
                 res = Array.isArray(pval)
                 if (res)
                 {
-                    for (let arr_10_idx = 0; arr_10_idx < pval.length; arr_10_idx++)
+                    for (let arr_9_idx = 0; arr_9_idx < pval.length; arr_9_idx++)
                     {
-                        let arr_10_item = pval[arr_10_idx]
-                        let arr_10_lpath = (path ? lpath_18 : null) ? (path ? lpath_18 : null).concat([arr_10_idx]) : null
+                        let arr_9_item = pval[arr_9_idx]
+                        let arr_9_lpath = (path ? lpath_18 : null) ? (path ? lpath_18 : null).concat([arr_9_idx]) : null
                         // .'$Import'.'<'.'|'.1.0
-                        res = json_model_8(arr_10_item, ((path ? lpath_18 : null) ? arr_10_lpath : null), rep)
+                        res = json_model_8(arr_9_item, ((path ? lpath_18 : null) ? arr_9_lpath : null), rep)
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Import'.'<'.'|'.1.0]", ((path ? lpath_18 : null) ? arr_10_lpath : null)])
+                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Import'.'<'.'|'.1.0]", ((path ? lpath_18 : null) ? arr_9_lpath : null)])
                             break
                         }
                     }
@@ -2137,15 +2129,15 @@ function _jm_obj_12(val, path, rep)
                 res = Array.isArray(pval)
                 if (res)
                 {
-                    for (let arr_11_idx = 0; arr_11_idx < pval.length; arr_11_idx++)
+                    for (let arr_10_idx = 0; arr_10_idx < pval.length; arr_10_idx++)
                     {
-                        let arr_11_item = pval[arr_11_idx]
-                        let arr_11_lpath = (path ? lpath_21 : null) ? (path ? lpath_21 : null).concat([arr_11_idx]) : null
+                        let arr_10_item = pval[arr_10_idx]
+                        let arr_10_lpath = (path ? lpath_21 : null) ? (path ? lpath_21 : null).concat([arr_10_idx]) : null
                         // .'$RootOnly'.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_11_item, ((path ? lpath_21 : null) ? arr_11_lpath : null), rep)
+                        res = json_model_8(arr_10_item, ((path ? lpath_21 : null) ? arr_10_lpath : null), rep)
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$RootOnly'.'%'.'<'.'|'.1.0]", ((path ? lpath_21 : null) ? arr_11_lpath : null)])
+                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$RootOnly'.'%'.'<'.'|'.1.0]", ((path ? lpath_21 : null) ? arr_10_lpath : null)])
                             break
                         }
                     }
@@ -2373,15 +2365,15 @@ function _jm_obj_15(val, path, rep)
                 res = Array.isArray(pval)
                 if (res)
                 {
-                    for (let arr_12_idx = 0; arr_12_idx < pval.length; arr_12_idx++)
+                    for (let arr_11_idx = 0; arr_11_idx < pval.length; arr_11_idx++)
                     {
-                        let arr_12_item = pval[arr_12_idx]
-                        let arr_12_lpath = (path ? lpath_24 : null) ? (path ? lpath_24 : null).concat([arr_12_idx]) : null
+                        let arr_11_item = pval[arr_11_idx]
+                        let arr_11_lpath = (path ? lpath_24 : null) ? (path ? lpath_24 : null).concat([arr_11_idx]) : null
                         // .'$Root'.'|'.5.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_12_item, ((path ? lpath_24 : null) ? arr_12_lpath : null), rep)
+                        res = json_model_8(arr_11_item, ((path ? lpath_24 : null) ? arr_11_lpath : null), rep)
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.5.'%'.'<'.'|'.1.0]", ((path ? lpath_24 : null) ? arr_12_lpath : null)])
+                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.5.'%'.'<'.'|'.1.0]", ((path ? lpath_24 : null) ? arr_11_lpath : null)])
                             break
                         }
                     }
@@ -2634,15 +2626,15 @@ function _jm_obj_18(val, path, rep)
                 res = Array.isArray(pval)
                 if (res)
                 {
-                    for (let arr_14_idx = 0; arr_14_idx < pval.length; arr_14_idx++)
+                    for (let arr_13_idx = 0; arr_13_idx < pval.length; arr_13_idx++)
                     {
-                        let arr_14_item = pval[arr_14_idx]
-                        let arr_14_lpath = (path ? lpath_27 : null) ? (path ? lpath_27 : null).concat([arr_14_idx]) : null
+                        let arr_13_item = pval[arr_13_idx]
+                        let arr_13_lpath = (path ? lpath_27 : null) ? (path ? lpath_27 : null).concat([arr_13_idx]) : null
                         // .'$Root'.'|'.4.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_14_item, ((path ? lpath_27 : null) ? arr_14_lpath : null), rep)
+                        res = json_model_8(arr_13_item, ((path ? lpath_27 : null) ? arr_13_lpath : null), rep)
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.4.'%'.'<'.'|'.1.0]", ((path ? lpath_27 : null) ? arr_14_lpath : null)])
+                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.4.'%'.'<'.'|'.1.0]", ((path ? lpath_27 : null) ? arr_13_lpath : null)])
                             break
                         }
                     }
@@ -2715,15 +2707,15 @@ function _jm_obj_16(val, path, rep)
             res = Array.isArray(pval)
             if (res)
             {
-                for (let arr_13_idx = 0; arr_13_idx < pval.length; arr_13_idx++)
+                for (let arr_12_idx = 0; arr_12_idx < pval.length; arr_12_idx++)
                 {
-                    let arr_13_item = pval[arr_13_idx]
-                    let arr_13_lpath = (path ? lpath_25 : null) ? (path ? lpath_25 : null).concat([arr_13_idx]) : null
+                    let arr_12_item = pval[arr_12_idx]
+                    let arr_12_lpath = (path ? lpath_25 : null) ? (path ? lpath_25 : null).concat([arr_12_idx]) : null
                     // .'$Root'.'|'.4.'+'.0
-                    res = json_model_19(arr_13_item, ((path ? lpath_25 : null) ? arr_13_lpath : null), rep)
+                    res = json_model_19(arr_12_item, ((path ? lpath_25 : null) ? arr_12_lpath : null), rep)
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected value for model \"$CModel\" [.'$Root'.'|'.4.'+'.0]", ((path ? lpath_25 : null) ? arr_13_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$CModel\" [.'$Root'.'|'.4.'+'.0]", ((path ? lpath_25 : null) ? arr_12_lpath : null)])
                         break
                     }
                 }
@@ -2923,15 +2915,15 @@ function _jm_obj_21(val, path, rep)
                 res = Array.isArray(pval)
                 if (res)
                 {
-                    for (let arr_16_idx = 0; arr_16_idx < pval.length; arr_16_idx++)
+                    for (let arr_15_idx = 0; arr_15_idx < pval.length; arr_15_idx++)
                     {
-                        let arr_16_item = pval[arr_16_idx]
-                        let arr_16_lpath = (path ? lpath_30 : null) ? (path ? lpath_30 : null).concat([arr_16_idx]) : null
+                        let arr_15_item = pval[arr_15_idx]
+                        let arr_15_lpath = (path ? lpath_30 : null) ? (path ? lpath_30 : null).concat([arr_15_idx]) : null
                         // .'$Root'.'|'.3.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_16_item, ((path ? lpath_30 : null) ? arr_16_lpath : null), rep)
+                        res = json_model_8(arr_15_item, ((path ? lpath_30 : null) ? arr_15_lpath : null), rep)
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.3.'%'.'<'.'|'.1.0]", ((path ? lpath_30 : null) ? arr_16_lpath : null)])
+                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.3.'%'.'<'.'|'.1.0]", ((path ? lpath_30 : null) ? arr_15_lpath : null)])
                             break
                         }
                     }
@@ -3004,15 +2996,15 @@ function _jm_obj_19(val, path, rep)
             res = Array.isArray(pval)
             if (res)
             {
-                for (let arr_15_idx = 0; arr_15_idx < pval.length; arr_15_idx++)
+                for (let arr_14_idx = 0; arr_14_idx < pval.length; arr_14_idx++)
                 {
-                    let arr_15_item = pval[arr_15_idx]
-                    let arr_15_lpath = (path ? lpath_28 : null) ? (path ? lpath_28 : null).concat([arr_15_idx]) : null
+                    let arr_14_item = pval[arr_14_idx]
+                    let arr_14_lpath = (path ? lpath_28 : null) ? (path ? lpath_28 : null).concat([arr_14_idx]) : null
                     // .'$Root'.'|'.3.'^'.0
-                    res = json_model_19(arr_15_item, ((path ? lpath_28 : null) ? arr_15_lpath : null), rep)
+                    res = json_model_19(arr_14_item, ((path ? lpath_28 : null) ? arr_14_lpath : null), rep)
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected value for model \"$CModel\" [.'$Root'.'|'.3.'^'.0]", ((path ? lpath_28 : null) ? arr_15_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$CModel\" [.'$Root'.'|'.3.'^'.0]", ((path ? lpath_28 : null) ? arr_14_lpath : null)])
                         break
                     }
                 }
@@ -3212,15 +3204,15 @@ function _jm_obj_24(val, path, rep)
                 res = Array.isArray(pval)
                 if (res)
                 {
-                    for (let arr_18_idx = 0; arr_18_idx < pval.length; arr_18_idx++)
+                    for (let arr_17_idx = 0; arr_17_idx < pval.length; arr_17_idx++)
                     {
-                        let arr_18_item = pval[arr_18_idx]
-                        let arr_18_lpath = (path ? lpath_33 : null) ? (path ? lpath_33 : null).concat([arr_18_idx]) : null
+                        let arr_17_item = pval[arr_17_idx]
+                        let arr_17_lpath = (path ? lpath_33 : null) ? (path ? lpath_33 : null).concat([arr_17_idx]) : null
                         // .'$Root'.'|'.2.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_18_item, ((path ? lpath_33 : null) ? arr_18_lpath : null), rep)
+                        res = json_model_8(arr_17_item, ((path ? lpath_33 : null) ? arr_17_lpath : null), rep)
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.2.'%'.'<'.'|'.1.0]", ((path ? lpath_33 : null) ? arr_18_lpath : null)])
+                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.2.'%'.'<'.'|'.1.0]", ((path ? lpath_33 : null) ? arr_17_lpath : null)])
                             break
                         }
                     }
@@ -3293,15 +3285,15 @@ function _jm_obj_22(val, path, rep)
             res = Array.isArray(pval)
             if (res)
             {
-                for (let arr_17_idx = 0; arr_17_idx < pval.length; arr_17_idx++)
+                for (let arr_16_idx = 0; arr_16_idx < pval.length; arr_16_idx++)
                 {
-                    let arr_17_item = pval[arr_17_idx]
-                    let arr_17_lpath = (path ? lpath_31 : null) ? (path ? lpath_31 : null).concat([arr_17_idx]) : null
+                    let arr_16_item = pval[arr_16_idx]
+                    let arr_16_lpath = (path ? lpath_31 : null) ? (path ? lpath_31 : null).concat([arr_16_idx]) : null
                     // .'$Root'.'|'.2.'&'.0
-                    res = json_model_19(arr_17_item, ((path ? lpath_31 : null) ? arr_17_lpath : null), rep)
+                    res = json_model_19(arr_16_item, ((path ? lpath_31 : null) ? arr_16_lpath : null), rep)
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected value for model \"$CModel\" [.'$Root'.'|'.2.'&'.0]", ((path ? lpath_31 : null) ? arr_17_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$CModel\" [.'$Root'.'|'.2.'&'.0]", ((path ? lpath_31 : null) ? arr_16_lpath : null)])
                         break
                     }
                 }
@@ -3501,15 +3493,15 @@ function _jm_obj_27(val, path, rep)
                 res = Array.isArray(pval)
                 if (res)
                 {
-                    for (let arr_20_idx = 0; arr_20_idx < pval.length; arr_20_idx++)
+                    for (let arr_19_idx = 0; arr_19_idx < pval.length; arr_19_idx++)
                     {
-                        let arr_20_item = pval[arr_20_idx]
-                        let arr_20_lpath = (path ? lpath_36 : null) ? (path ? lpath_36 : null).concat([arr_20_idx]) : null
+                        let arr_19_item = pval[arr_19_idx]
+                        let arr_19_lpath = (path ? lpath_36 : null) ? (path ? lpath_36 : null).concat([arr_19_idx]) : null
                         // .'$Root'.'|'.1.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_20_item, ((path ? lpath_36 : null) ? arr_20_lpath : null), rep)
+                        res = json_model_8(arr_19_item, ((path ? lpath_36 : null) ? arr_19_lpath : null), rep)
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.1.'%'.'<'.'|'.1.0]", ((path ? lpath_36 : null) ? arr_20_lpath : null)])
+                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.1.'%'.'<'.'|'.1.0]", ((path ? lpath_36 : null) ? arr_19_lpath : null)])
                             break
                         }
                     }
@@ -3582,15 +3574,15 @@ function _jm_obj_25(val, path, rep)
             res = Array.isArray(pval)
             if (res)
             {
-                for (let arr_19_idx = 0; arr_19_idx < pval.length; arr_19_idx++)
+                for (let arr_18_idx = 0; arr_18_idx < pval.length; arr_18_idx++)
                 {
-                    let arr_19_item = pval[arr_19_idx]
-                    let arr_19_lpath = (path ? lpath_34 : null) ? (path ? lpath_34 : null).concat([arr_19_idx]) : null
+                    let arr_18_item = pval[arr_18_idx]
+                    let arr_18_lpath = (path ? lpath_34 : null) ? (path ? lpath_34 : null).concat([arr_18_idx]) : null
                     // .'$Root'.'|'.1.'|'.0
-                    res = json_model_19(arr_19_item, ((path ? lpath_34 : null) ? arr_19_lpath : null), rep)
+                    res = json_model_19(arr_18_item, ((path ? lpath_34 : null) ? arr_18_lpath : null), rep)
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected value for model \"$CModel\" [.'$Root'.'|'.1.'|'.0]", ((path ? lpath_34 : null) ? arr_19_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$CModel\" [.'$Root'.'|'.1.'|'.0]", ((path ? lpath_34 : null) ? arr_18_lpath : null)])
                         break
                     }
                 }
@@ -3790,15 +3782,15 @@ function _jm_obj_30(val, path, rep)
                 res = Array.isArray(pval)
                 if (res)
                 {
-                    for (let arr_21_idx = 0; arr_21_idx < pval.length; arr_21_idx++)
+                    for (let arr_20_idx = 0; arr_20_idx < pval.length; arr_20_idx++)
                     {
-                        let arr_21_item = pval[arr_21_idx]
-                        let arr_21_lpath = (path ? lpath_39 : null) ? (path ? lpath_39 : null).concat([arr_21_idx]) : null
+                        let arr_20_item = pval[arr_20_idx]
+                        let arr_20_lpath = (path ? lpath_39 : null) ? (path ? lpath_39 : null).concat([arr_20_idx]) : null
                         // .'$Root'.'|'.0.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_21_item, ((path ? lpath_39 : null) ? arr_21_lpath : null), rep)
+                        res = json_model_8(arr_20_item, ((path ? lpath_39 : null) ? arr_20_lpath : null), rep)
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.0.'%'.'<'.'|'.1.0]", ((path ? lpath_39 : null) ? arr_21_lpath : null)])
+                            rep !== null && rep.push(["unexpected value for model \"$Ref\" [.'$Root'.'|'.0.'%'.'<'.'|'.1.0]", ((path ? lpath_39 : null) ? arr_20_lpath : null)])
                             break
                         }
                     }

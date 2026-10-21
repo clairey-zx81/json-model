@@ -2826,7 +2826,20 @@ sub _jm_obj_20($$$)
     {
         my $pval = $$val{$prop};
         my $lpath_20 = defined $path ? [@{$path}, $prop] : undef;
-        if ($prop eq "/")
+        if ($prop eq "#")
+        {
+            # handle may # property
+            # .'$Model#LocalTrafo'.'@'.'#'
+            $res = jm_is_string($pval);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Model#LocalTrafo'.'\@'.'#']", defined $path ? $lpath_20 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Model#LocalTrafo'.'\@'.'#']", defined $path ? $lpath_20 : undef] if defined $rep;
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq "/")
         {
             # handle may / property
             # .'$Model#LocalTrafo'.'@'.'/'
@@ -2875,44 +2888,26 @@ sub _jm_obj_20($$$)
         {
             # handle may < property
             # .'$Model#LocalTrafo'.'@'.'<'
-            # .'$Model#LocalTrafo'.'@'.'<'.'|'.0
             $res = json_model_10($pval, defined $path ? $lpath_20 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\$Ref\" [.'\$Model#LocalTrafo'.'\@'.'<'.'|'.0]", defined $path ? $lpath_20 : undef] if defined $rep;
-                # .'$Model#LocalTrafo'.'@'.'<'.'|'.1
-                $res = jm_is_array($pval);
-                if ($res)
-                {
-                    for my $arr_12_idx (0 .. $#$pval)
-                    {
-                        my $arr_12_item = $$pval[$arr_12_idx];
-                        my $arr_12_lpath = defined (defined $path ? $lpath_20 : undef) ? [@{(defined $path ? $lpath_20 : undef)}, $arr_12_idx] : undef;
-                        # .'$Model#LocalTrafo'.'@'.'<'.'|'.1.0
-                        $res = json_model_10($arr_12_item, defined (defined $path ? $lpath_20 : undef) ? $arr_12_lpath : undef, $rep);
-                        unless ($res)
-                        {
-                            push @$rep, ["unexpected value for model \"\$Ref\" [.'\$Model#LocalTrafo'.'\@'.'<'.'|'.1.0]", defined (defined $path ? $lpath_20 : undef) ? $arr_12_lpath : undef] if defined $rep;
-                            last;
-                        }
-                    }
-                }
-                push @$rep, ["not array or unexpected array [.'\$Model#LocalTrafo'.'\@'.'<'.'|'.1]", defined $path ? $lpath_20 : undef] if defined $rep and not $res;
-            }
-            if ($res)
-            {
-                @$rep = () if defined $rep;
-            }
-            else
-            {
-                push @$rep, ["no model matched [.'\$Model#LocalTrafo'.'\@'.'<'.'|']", defined $path ? $lpath_20 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Ref\" [.'\$Model#LocalTrafo'.'\@'.'<']", defined $path ? $lpath_20 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$Model#LocalTrafo'.'\@'.'<']", defined $path ? $lpath_20 : undef] if defined $rep;
                 return 0;
             }
             next;
         }
-        push @$rep, ["unexpected prop [.'\$Model#LocalTrafo'.'\@']", defined $path ? $lpath_20 : undef] if defined $rep;
-        return 0;
+        if (_jm_re_5($prop, $path, $rep))
+        {
+            # handle 1 re props
+            # .'$Model#LocalTrafo'.'@'.'/^#./s'
+            $res = 1;
+        }
+        else
+        {
+            push @$rep, ["unexpected prop [.'\$Model#LocalTrafo'.'\@']", defined $path ? $lpath_20 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }

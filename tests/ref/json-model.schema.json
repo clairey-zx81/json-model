@@ -543,7 +543,13 @@
     },
     "LocalTrafo": {
       "type": "object",
+      "patternProperties": {
+        "(?s)^#.": true
+      },
       "properties": {
+        "#": {
+          "type": "string"
+        },
         "/": {
           "anyOf": [
             {
@@ -563,17 +569,7 @@
         },
         "*": true,
         "<": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Ref"
-            },
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/Ref"
-              }
-            }
-          ]
+          "$ref": "#/$defs/Ref"
         }
       },
       "additionalProperties": false,

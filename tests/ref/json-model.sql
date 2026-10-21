@@ -1191,14 +1191,20 @@ DECLARE
   res BOOL;
   prop TEXT;
   pval JSONB;
-  arr_9_idx INT8;
-  arr_9_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '/' THEN
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'$LocalTrafo'.'@'.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '/' THEN
       -- handle may / property
       -- .'$LocalTrafo'.'@'.'/'
       -- .'$LocalTrafo'.'@'.'/'.'|'.0
@@ -1224,28 +1230,19 @@ BEGIN
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$LocalTrafo'.'@'.'<'
-      -- .'$LocalTrafo'.'@'.'<'.'|'.0
       res := json_model_8(pval, NULL, NULL);
-      IF NOT res THEN
-        -- .'$LocalTrafo'.'@'.'<'.'|'.1
-        res := JSONB_TYPEOF(pval) = 'array';
-        IF res THEN
-          FOR arr_9_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-            arr_9_item := pval -> arr_9_idx;
-            -- .'$LocalTrafo'.'@'.'<'.'|'.1.0
-            res := json_model_8(arr_9_item, NULL, NULL);
-            IF NOT res THEN
-              EXIT;
-            END IF;
-          END LOOP;
-        END IF;
-      END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
     END IF;
-    RETURN FALSE;
+    IF _jm_re_3(prop, NULL, NULL) THEN
+      -- handle 1 re props
+      -- .'$LocalTrafo'.'@'.'/^#./s'
+      res := TRUE;
+    ELSE
+      RETURN FALSE;
+    END IF;
   END LOOP;
   RETURN TRUE;
 END;
@@ -1501,8 +1498,8 @@ DECLARE
   res BOOL;
   prop TEXT;
   pval JSONB;
-  arr_10_idx INT8;
-  arr_10_item JSONB;
+  arr_9_idx INT8;
+  arr_9_item JSONB;
 BEGIN
   -- .'$Import'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -1518,10 +1515,10 @@ BEGIN
         -- .'$Import'.'<'.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
         IF res THEN
-          FOR arr_10_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-            arr_10_item := pval -> arr_10_idx;
+          FOR arr_9_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_9_item := pval -> arr_9_idx;
             -- .'$Import'.'<'.'|'.1.0
-            res := json_model_8(arr_10_item, NULL, NULL);
+            res := json_model_8(arr_9_item, NULL, NULL);
             IF NOT res THEN
               EXIT;
             END IF;
@@ -1596,8 +1593,8 @@ DECLARE
   res BOOL;
   prop TEXT;
   pval JSONB;
-  arr_11_idx INT8;
-  arr_11_item JSONB;
+  arr_10_idx INT8;
+  arr_10_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -1620,10 +1617,10 @@ BEGIN
         -- .'$RootOnly'.'%'.'<'.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
         IF res THEN
-          FOR arr_11_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-            arr_11_item := pval -> arr_11_idx;
+          FOR arr_10_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_10_item := pval -> arr_10_idx;
             -- .'$RootOnly'.'%'.'<'.'|'.1.0
-            res := json_model_8(arr_11_item, NULL, NULL);
+            res := json_model_8(arr_10_item, NULL, NULL);
             IF NOT res THEN
               EXIT;
             END IF;
@@ -1764,8 +1761,8 @@ DECLARE
   res BOOL;
   prop TEXT;
   pval JSONB;
-  arr_12_idx INT8;
-  arr_12_item JSONB;
+  arr_11_idx INT8;
+  arr_11_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -1788,10 +1785,10 @@ BEGIN
         -- .'$Root'.'|'.5.'%'.'<'.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
         IF res THEN
-          FOR arr_12_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-            arr_12_item := pval -> arr_12_idx;
+          FOR arr_11_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_11_item := pval -> arr_11_idx;
             -- .'$Root'.'|'.5.'%'.'<'.'|'.1.0
-            res := json_model_8(arr_12_item, NULL, NULL);
+            res := json_model_8(arr_11_item, NULL, NULL);
             IF NOT res THEN
               EXIT;
             END IF;
@@ -1949,8 +1946,8 @@ DECLARE
   res BOOL;
   prop TEXT;
   pval JSONB;
-  arr_14_idx INT8;
-  arr_14_item JSONB;
+  arr_13_idx INT8;
+  arr_13_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -1973,10 +1970,10 @@ BEGIN
         -- .'$Root'.'|'.4.'%'.'<'.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
         IF res THEN
-          FOR arr_14_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-            arr_14_item := pval -> arr_14_idx;
+          FOR arr_13_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_13_item := pval -> arr_13_idx;
             -- .'$Root'.'|'.4.'%'.'<'.'|'.1.0
-            res := json_model_8(arr_14_item, NULL, NULL);
+            res := json_model_8(arr_13_item, NULL, NULL);
             IF NOT res THEN
               EXIT;
             END IF;
@@ -2023,8 +2020,8 @@ DECLARE
   must_count INT;
   prop TEXT;
   pval JSONB;
-  arr_13_idx INT8;
-  arr_13_item JSONB;
+  arr_12_idx INT8;
+  arr_12_item JSONB;
 BEGIN
   -- value known to be an object
   must_count := 0;
@@ -2035,10 +2032,10 @@ BEGIN
       -- .'$Root'.'|'.4.'+'
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_13_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_13_item := pval -> arr_13_idx;
+        FOR arr_12_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_12_item := pval -> arr_12_idx;
           -- .'$Root'.'|'.4.'+'.0
-          res := json_model_19(arr_13_item, NULL, NULL);
+          res := json_model_19(arr_12_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -2151,8 +2148,8 @@ DECLARE
   res BOOL;
   prop TEXT;
   pval JSONB;
-  arr_16_idx INT8;
-  arr_16_item JSONB;
+  arr_15_idx INT8;
+  arr_15_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -2175,10 +2172,10 @@ BEGIN
         -- .'$Root'.'|'.3.'%'.'<'.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
         IF res THEN
-          FOR arr_16_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-            arr_16_item := pval -> arr_16_idx;
+          FOR arr_15_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_15_item := pval -> arr_15_idx;
             -- .'$Root'.'|'.3.'%'.'<'.'|'.1.0
-            res := json_model_8(arr_16_item, NULL, NULL);
+            res := json_model_8(arr_15_item, NULL, NULL);
             IF NOT res THEN
               EXIT;
             END IF;
@@ -2225,8 +2222,8 @@ DECLARE
   must_count INT;
   prop TEXT;
   pval JSONB;
-  arr_15_idx INT8;
-  arr_15_item JSONB;
+  arr_14_idx INT8;
+  arr_14_item JSONB;
 BEGIN
   -- value known to be an object
   must_count := 0;
@@ -2237,10 +2234,10 @@ BEGIN
       -- .'$Root'.'|'.3.'^'
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_15_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_15_item := pval -> arr_15_idx;
+        FOR arr_14_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_14_item := pval -> arr_14_idx;
           -- .'$Root'.'|'.3.'^'.0
-          res := json_model_19(arr_15_item, NULL, NULL);
+          res := json_model_19(arr_14_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -2353,8 +2350,8 @@ DECLARE
   res BOOL;
   prop TEXT;
   pval JSONB;
-  arr_18_idx INT8;
-  arr_18_item JSONB;
+  arr_17_idx INT8;
+  arr_17_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -2377,10 +2374,10 @@ BEGIN
         -- .'$Root'.'|'.2.'%'.'<'.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
         IF res THEN
-          FOR arr_18_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-            arr_18_item := pval -> arr_18_idx;
+          FOR arr_17_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_17_item := pval -> arr_17_idx;
             -- .'$Root'.'|'.2.'%'.'<'.'|'.1.0
-            res := json_model_8(arr_18_item, NULL, NULL);
+            res := json_model_8(arr_17_item, NULL, NULL);
             IF NOT res THEN
               EXIT;
             END IF;
@@ -2427,8 +2424,8 @@ DECLARE
   must_count INT;
   prop TEXT;
   pval JSONB;
-  arr_17_idx INT8;
-  arr_17_item JSONB;
+  arr_16_idx INT8;
+  arr_16_item JSONB;
 BEGIN
   -- value known to be an object
   must_count := 0;
@@ -2439,10 +2436,10 @@ BEGIN
       -- .'$Root'.'|'.2.'&'
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_17_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_17_item := pval -> arr_17_idx;
+        FOR arr_16_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_16_item := pval -> arr_16_idx;
           -- .'$Root'.'|'.2.'&'.0
-          res := json_model_19(arr_17_item, NULL, NULL);
+          res := json_model_19(arr_16_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -2555,8 +2552,8 @@ DECLARE
   res BOOL;
   prop TEXT;
   pval JSONB;
-  arr_20_idx INT8;
-  arr_20_item JSONB;
+  arr_19_idx INT8;
+  arr_19_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -2579,10 +2576,10 @@ BEGIN
         -- .'$Root'.'|'.1.'%'.'<'.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
         IF res THEN
-          FOR arr_20_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-            arr_20_item := pval -> arr_20_idx;
+          FOR arr_19_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_19_item := pval -> arr_19_idx;
             -- .'$Root'.'|'.1.'%'.'<'.'|'.1.0
-            res := json_model_8(arr_20_item, NULL, NULL);
+            res := json_model_8(arr_19_item, NULL, NULL);
             IF NOT res THEN
               EXIT;
             END IF;
@@ -2629,8 +2626,8 @@ DECLARE
   must_count INT;
   prop TEXT;
   pval JSONB;
-  arr_19_idx INT8;
-  arr_19_item JSONB;
+  arr_18_idx INT8;
+  arr_18_item JSONB;
 BEGIN
   -- value known to be an object
   must_count := 0;
@@ -2641,10 +2638,10 @@ BEGIN
       -- .'$Root'.'|'.1.'|'
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_19_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_19_item := pval -> arr_19_idx;
+        FOR arr_18_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_18_item := pval -> arr_18_idx;
           -- .'$Root'.'|'.1.'|'.0
-          res := json_model_19(arr_19_item, NULL, NULL);
+          res := json_model_19(arr_18_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -2757,8 +2754,8 @@ DECLARE
   res BOOL;
   prop TEXT;
   pval JSONB;
-  arr_21_idx INT8;
-  arr_21_item JSONB;
+  arr_20_idx INT8;
+  arr_20_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -2781,10 +2778,10 @@ BEGIN
         -- .'$Root'.'|'.0.'%'.'<'.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
         IF res THEN
-          FOR arr_21_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-            arr_21_item := pval -> arr_21_idx;
+          FOR arr_20_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_20_item := pval -> arr_20_idx;
             -- .'$Root'.'|'.0.'%'.'<'.'|'.1.0
-            res := json_model_8(arr_21_item, NULL, NULL);
+            res := json_model_8(arr_20_item, NULL, NULL);
             IF NOT res THEN
               EXIT;
             END IF;

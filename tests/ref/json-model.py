@@ -1130,7 +1130,16 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_11: Path = (path + [ prop ]) if path is not None else None
-        if prop == "/":
+        if prop == "#":
+            # handle may # property
+            # .'$LocalTrafo'.'@'.'#'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"\" [.'$LocalTrafo'.'@'.'#']", lpath_11 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$LocalTrafo'.'@'.'#']", lpath_11 if path is not None else None))
+                return False
+            continue
+        elif prop == "/":
             # handle may / property
             # .'$LocalTrafo'.'@'.'/'
             # .'$LocalTrafo'.'@'.'/'.'|'.0
@@ -1165,31 +1174,19 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "<":
             # handle may < property
             # .'$LocalTrafo'.'@'.'<'
-            # .'$LocalTrafo'.'@'.'<'.'|'.0
             res = json_model_8(pval, lpath_11 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$LocalTrafo'.'@'.'<'.'|'.0]", lpath_11 if path is not None else None))
-                # .'$LocalTrafo'.'@'.'<'.'|'.1
-                res = isinstance(pval, list)
-                if res:
-                    for arr_9_idx, arr_9_item in enumerate(pval):
-                        arr_9_lpath: Path = ((lpath_11 if path is not None else None) + [ arr_9_idx ]) if (lpath_11 if path is not None else None) is not None else None
-                        # .'$LocalTrafo'.'@'.'<'.'|'.1.0
-                        res = json_model_8(arr_9_item, arr_9_lpath if (lpath_11 if path is not None else None) is not None else None, rep)
-                        if not res:
-                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$LocalTrafo'.'@'.'<'.'|'.1.0]", arr_9_lpath if (lpath_11 if path is not None else None) is not None else None))
-                            break
-                if not res:
-                    rep is None or rep.append(("not array or unexpected array [.'$LocalTrafo'.'@'.'<'.'|'.1]", lpath_11 if path is not None else None))
-            if res:
-                rep is None or rep.clear()
-            else:
-                rep is None or rep.append(("no model matched [.'$LocalTrafo'.'@'.'<'.'|']", lpath_11 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$LocalTrafo'.'@'.'<']", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$LocalTrafo'.'@'.'<']", lpath_11 if path is not None else None))
                 return False
             continue
-        rep is None or rep.append(("unexpected prop [.'$LocalTrafo'.'@']", lpath_11 if path is not None else None))
-        return False
+        if _jm_re_3(prop, path, rep):
+            # handle 1 re props
+            # .'$LocalTrafo'.'@'.'/^#./s'
+            res = True
+        else:
+            rep is None or rep.append(("unexpected prop [.'$LocalTrafo'.'@']", lpath_11 if path is not None else None))
+            return False
     return True
 
 # check $LocalTrafo (.'$LocalTrafo')
@@ -1438,12 +1435,12 @@ def json_model_39(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$Import'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
-                    for arr_10_idx, arr_10_item in enumerate(pval):
-                        arr_10_lpath: Path = ((lpath_18 if path is not None else None) + [ arr_10_idx ]) if (lpath_18 if path is not None else None) is not None else None
+                    for arr_9_idx, arr_9_item in enumerate(pval):
+                        arr_9_lpath: Path = ((lpath_18 if path is not None else None) + [ arr_9_idx ]) if (lpath_18 if path is not None else None) is not None else None
                         # .'$Import'.'<'.'|'.1.0
-                        res = json_model_8(arr_10_item, arr_10_lpath if (lpath_18 if path is not None else None) is not None else None, rep)
+                        res = json_model_8(arr_9_item, arr_9_lpath if (lpath_18 if path is not None else None) is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Import'.'<'.'|'.1.0]", arr_10_lpath if (lpath_18 if path is not None else None) is not None else None))
+                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Import'.'<'.'|'.1.0]", arr_9_lpath if (lpath_18 if path is not None else None) is not None else None))
                             break
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.'$Import'.'<'.'|'.1]", lpath_18 if path is not None else None))
@@ -1536,12 +1533,12 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$RootOnly'.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
-                    for arr_11_idx, arr_11_item in enumerate(pval):
-                        arr_11_lpath: Path = ((lpath_21 if path is not None else None) + [ arr_11_idx ]) if (lpath_21 if path is not None else None) is not None else None
+                    for arr_10_idx, arr_10_item in enumerate(pval):
+                        arr_10_lpath: Path = ((lpath_21 if path is not None else None) + [ arr_10_idx ]) if (lpath_21 if path is not None else None) is not None else None
                         # .'$RootOnly'.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_11_item, arr_11_lpath if (lpath_21 if path is not None else None) is not None else None, rep)
+                        res = json_model_8(arr_10_item, arr_10_lpath if (lpath_21 if path is not None else None) is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$RootOnly'.'%'.'<'.'|'.1.0]", arr_11_lpath if (lpath_21 if path is not None else None) is not None else None))
+                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$RootOnly'.'%'.'<'.'|'.1.0]", arr_10_lpath if (lpath_21 if path is not None else None) is not None else None))
                             break
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.'$RootOnly'.'%'.'<'.'|'.1]", lpath_21 if path is not None else None))
@@ -1695,12 +1692,12 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$Root'.'|'.5.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
-                    for arr_12_idx, arr_12_item in enumerate(pval):
-                        arr_12_lpath: Path = ((lpath_24 if path is not None else None) + [ arr_12_idx ]) if (lpath_24 if path is not None else None) is not None else None
+                    for arr_11_idx, arr_11_item in enumerate(pval):
+                        arr_11_lpath: Path = ((lpath_24 if path is not None else None) + [ arr_11_idx ]) if (lpath_24 if path is not None else None) is not None else None
                         # .'$Root'.'|'.5.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_12_item, arr_12_lpath if (lpath_24 if path is not None else None) is not None else None, rep)
+                        res = json_model_8(arr_11_item, arr_11_lpath if (lpath_24 if path is not None else None) is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.5.'%'.'<'.'|'.1.0]", arr_12_lpath if (lpath_24 if path is not None else None) is not None else None))
+                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.5.'%'.'<'.'|'.1.0]", arr_11_lpath if (lpath_24 if path is not None else None) is not None else None))
                             break
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.'$Root'.'|'.5.'%'.'<'.'|'.1]", lpath_24 if path is not None else None))
@@ -1871,12 +1868,12 @@ def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$Root'.'|'.4.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
-                    for arr_14_idx, arr_14_item in enumerate(pval):
-                        arr_14_lpath: Path = ((lpath_27 if path is not None else None) + [ arr_14_idx ]) if (lpath_27 if path is not None else None) is not None else None
+                    for arr_13_idx, arr_13_item in enumerate(pval):
+                        arr_13_lpath: Path = ((lpath_27 if path is not None else None) + [ arr_13_idx ]) if (lpath_27 if path is not None else None) is not None else None
                         # .'$Root'.'|'.4.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_14_item, arr_14_lpath if (lpath_27 if path is not None else None) is not None else None, rep)
+                        res = json_model_8(arr_13_item, arr_13_lpath if (lpath_27 if path is not None else None) is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.4.'%'.'<'.'|'.1.0]", arr_14_lpath if (lpath_27 if path is not None else None) is not None else None))
+                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.4.'%'.'<'.'|'.1.0]", arr_13_lpath if (lpath_27 if path is not None else None) is not None else None))
                             break
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.'$Root'.'|'.4.'%'.'<'.'|'.1]", lpath_27 if path is not None else None))
@@ -1924,12 +1921,12 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$Root'.'|'.4.'+'
             res = isinstance(pval, list)
             if res:
-                for arr_13_idx, arr_13_item in enumerate(pval):
-                    arr_13_lpath: Path = ((lpath_25 if path is not None else None) + [ arr_13_idx ]) if (lpath_25 if path is not None else None) is not None else None
+                for arr_12_idx, arr_12_item in enumerate(pval):
+                    arr_12_lpath: Path = ((lpath_25 if path is not None else None) + [ arr_12_idx ]) if (lpath_25 if path is not None else None) is not None else None
                     # .'$Root'.'|'.4.'+'.0
-                    res = json_model_19(arr_13_item, arr_13_lpath if (lpath_25 if path is not None else None) is not None else None, rep)
+                    res = json_model_19(arr_12_item, arr_12_lpath if (lpath_25 if path is not None else None) is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected value for model \"$CModel\" [.'$Root'.'|'.4.'+'.0]", arr_13_lpath if (lpath_25 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected value for model \"$CModel\" [.'$Root'.'|'.4.'+'.0]", arr_12_lpath if (lpath_25 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Root'.'|'.4.'+']", lpath_25 if path is not None else None))
@@ -2064,12 +2061,12 @@ def _jm_obj_21(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$Root'.'|'.3.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
-                    for arr_16_idx, arr_16_item in enumerate(pval):
-                        arr_16_lpath: Path = ((lpath_30 if path is not None else None) + [ arr_16_idx ]) if (lpath_30 if path is not None else None) is not None else None
+                    for arr_15_idx, arr_15_item in enumerate(pval):
+                        arr_15_lpath: Path = ((lpath_30 if path is not None else None) + [ arr_15_idx ]) if (lpath_30 if path is not None else None) is not None else None
                         # .'$Root'.'|'.3.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_16_item, arr_16_lpath if (lpath_30 if path is not None else None) is not None else None, rep)
+                        res = json_model_8(arr_15_item, arr_15_lpath if (lpath_30 if path is not None else None) is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.3.'%'.'<'.'|'.1.0]", arr_16_lpath if (lpath_30 if path is not None else None) is not None else None))
+                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.3.'%'.'<'.'|'.1.0]", arr_15_lpath if (lpath_30 if path is not None else None) is not None else None))
                             break
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.'$Root'.'|'.3.'%'.'<'.'|'.1]", lpath_30 if path is not None else None))
@@ -2117,12 +2114,12 @@ def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$Root'.'|'.3.'^'
             res = isinstance(pval, list)
             if res:
-                for arr_15_idx, arr_15_item in enumerate(pval):
-                    arr_15_lpath: Path = ((lpath_28 if path is not None else None) + [ arr_15_idx ]) if (lpath_28 if path is not None else None) is not None else None
+                for arr_14_idx, arr_14_item in enumerate(pval):
+                    arr_14_lpath: Path = ((lpath_28 if path is not None else None) + [ arr_14_idx ]) if (lpath_28 if path is not None else None) is not None else None
                     # .'$Root'.'|'.3.'^'.0
-                    res = json_model_19(arr_15_item, arr_15_lpath if (lpath_28 if path is not None else None) is not None else None, rep)
+                    res = json_model_19(arr_14_item, arr_14_lpath if (lpath_28 if path is not None else None) is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected value for model \"$CModel\" [.'$Root'.'|'.3.'^'.0]", arr_15_lpath if (lpath_28 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected value for model \"$CModel\" [.'$Root'.'|'.3.'^'.0]", arr_14_lpath if (lpath_28 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Root'.'|'.3.'^']", lpath_28 if path is not None else None))
@@ -2257,12 +2254,12 @@ def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$Root'.'|'.2.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
-                    for arr_18_idx, arr_18_item in enumerate(pval):
-                        arr_18_lpath: Path = ((lpath_33 if path is not None else None) + [ arr_18_idx ]) if (lpath_33 if path is not None else None) is not None else None
+                    for arr_17_idx, arr_17_item in enumerate(pval):
+                        arr_17_lpath: Path = ((lpath_33 if path is not None else None) + [ arr_17_idx ]) if (lpath_33 if path is not None else None) is not None else None
                         # .'$Root'.'|'.2.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_18_item, arr_18_lpath if (lpath_33 if path is not None else None) is not None else None, rep)
+                        res = json_model_8(arr_17_item, arr_17_lpath if (lpath_33 if path is not None else None) is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.2.'%'.'<'.'|'.1.0]", arr_18_lpath if (lpath_33 if path is not None else None) is not None else None))
+                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.2.'%'.'<'.'|'.1.0]", arr_17_lpath if (lpath_33 if path is not None else None) is not None else None))
                             break
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.'$Root'.'|'.2.'%'.'<'.'|'.1]", lpath_33 if path is not None else None))
@@ -2310,12 +2307,12 @@ def _jm_obj_22(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$Root'.'|'.2.'&'
             res = isinstance(pval, list)
             if res:
-                for arr_17_idx, arr_17_item in enumerate(pval):
-                    arr_17_lpath: Path = ((lpath_31 if path is not None else None) + [ arr_17_idx ]) if (lpath_31 if path is not None else None) is not None else None
+                for arr_16_idx, arr_16_item in enumerate(pval):
+                    arr_16_lpath: Path = ((lpath_31 if path is not None else None) + [ arr_16_idx ]) if (lpath_31 if path is not None else None) is not None else None
                     # .'$Root'.'|'.2.'&'.0
-                    res = json_model_19(arr_17_item, arr_17_lpath if (lpath_31 if path is not None else None) is not None else None, rep)
+                    res = json_model_19(arr_16_item, arr_16_lpath if (lpath_31 if path is not None else None) is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected value for model \"$CModel\" [.'$Root'.'|'.2.'&'.0]", arr_17_lpath if (lpath_31 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected value for model \"$CModel\" [.'$Root'.'|'.2.'&'.0]", arr_16_lpath if (lpath_31 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Root'.'|'.2.'&']", lpath_31 if path is not None else None))
@@ -2450,12 +2447,12 @@ def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$Root'.'|'.1.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
-                    for arr_20_idx, arr_20_item in enumerate(pval):
-                        arr_20_lpath: Path = ((lpath_36 if path is not None else None) + [ arr_20_idx ]) if (lpath_36 if path is not None else None) is not None else None
+                    for arr_19_idx, arr_19_item in enumerate(pval):
+                        arr_19_lpath: Path = ((lpath_36 if path is not None else None) + [ arr_19_idx ]) if (lpath_36 if path is not None else None) is not None else None
                         # .'$Root'.'|'.1.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_20_item, arr_20_lpath if (lpath_36 if path is not None else None) is not None else None, rep)
+                        res = json_model_8(arr_19_item, arr_19_lpath if (lpath_36 if path is not None else None) is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.1.'%'.'<'.'|'.1.0]", arr_20_lpath if (lpath_36 if path is not None else None) is not None else None))
+                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.1.'%'.'<'.'|'.1.0]", arr_19_lpath if (lpath_36 if path is not None else None) is not None else None))
                             break
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.'$Root'.'|'.1.'%'.'<'.'|'.1]", lpath_36 if path is not None else None))
@@ -2503,12 +2500,12 @@ def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$Root'.'|'.1.'|'
             res = isinstance(pval, list)
             if res:
-                for arr_19_idx, arr_19_item in enumerate(pval):
-                    arr_19_lpath: Path = ((lpath_34 if path is not None else None) + [ arr_19_idx ]) if (lpath_34 if path is not None else None) is not None else None
+                for arr_18_idx, arr_18_item in enumerate(pval):
+                    arr_18_lpath: Path = ((lpath_34 if path is not None else None) + [ arr_18_idx ]) if (lpath_34 if path is not None else None) is not None else None
                     # .'$Root'.'|'.1.'|'.0
-                    res = json_model_19(arr_19_item, arr_19_lpath if (lpath_34 if path is not None else None) is not None else None, rep)
+                    res = json_model_19(arr_18_item, arr_18_lpath if (lpath_34 if path is not None else None) is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected value for model \"$CModel\" [.'$Root'.'|'.1.'|'.0]", arr_19_lpath if (lpath_34 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected value for model \"$CModel\" [.'$Root'.'|'.1.'|'.0]", arr_18_lpath if (lpath_34 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Root'.'|'.1.'|']", lpath_34 if path is not None else None))
@@ -2643,12 +2640,12 @@ def _jm_obj_30(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$Root'.'|'.0.'%'.'<'.'|'.1
                 res = isinstance(pval, list)
                 if res:
-                    for arr_21_idx, arr_21_item in enumerate(pval):
-                        arr_21_lpath: Path = ((lpath_39 if path is not None else None) + [ arr_21_idx ]) if (lpath_39 if path is not None else None) is not None else None
+                    for arr_20_idx, arr_20_item in enumerate(pval):
+                        arr_20_lpath: Path = ((lpath_39 if path is not None else None) + [ arr_20_idx ]) if (lpath_39 if path is not None else None) is not None else None
                         # .'$Root'.'|'.0.'%'.'<'.'|'.1.0
-                        res = json_model_8(arr_21_item, arr_21_lpath if (lpath_39 if path is not None else None) is not None else None, rep)
+                        res = json_model_8(arr_20_item, arr_20_lpath if (lpath_39 if path is not None else None) is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.0.'%'.'<'.'|'.1.0]", arr_21_lpath if (lpath_39 if path is not None else None) is not None else None))
+                            rep is None or rep.append(("unexpected value for model \"$Ref\" [.'$Root'.'|'.0.'%'.'<'.'|'.1.0]", arr_20_lpath if (lpath_39 if path is not None else None) is not None else None))
                             break
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.'$Root'.'|'.0.'%'.'<'.'|'.1]", lpath_39 if path is not None else None))
