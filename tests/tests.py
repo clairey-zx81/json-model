@@ -274,8 +274,8 @@ EXPECT: dict[str, int] = {
     "mv-36:values": 140,
     "mv-36:verrors:schema": 1,
     # mv-37
-    "mv-37:models": 2,
-    "mv-37:values": 30,
+    "mv-37:models": 3,
+    "mv-37:values": 44,
     # miscellaneous tests
     "bads:models": 77,
     "bads:models:errors-jsm": 6,

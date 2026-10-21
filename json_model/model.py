@@ -101,6 +101,7 @@ class JsonModel:
     CONS_KW = ["!", "#", "<", "<=", ">", ">=", "=", "!="]
     TRAN_KW = ["*", "/", "~"]
     KEYWORDS = LIST_KW + ROOT_KW + SCAL_KW + CONS_KW + TRAN_KW
+    LTRA_KW = {"#", "<", "%"} | set(TRAN_KW)
 
     # sentinel characters
     # $: reference
@@ -177,7 +178,7 @@ class JsonModel:
         self._single_line = single_line
 
         # copy parameter which may be modified
-        model = self.noComment(copy.deepcopy(model))
+        model = self.noComment(copy.deepcopy(model), root=self._is_root)
 
         # %: import, names and rewrites
         self._init_pc: dict[str, ModelType] = {}
@@ -289,7 +290,8 @@ class JsonModel:
                 if self._url != "" and u != self._url:
                     log.info(f"inconsistent url identifier: {u}")
                 self._url = u  # override
-            # TODO restrict names?
+            # TODO restrict names
+
             # extract actual definitions
             self._defs.update({
                 n: JsonModel(m, resolver, url=self._url + "#" + n,
@@ -299,19 +301,27 @@ class JsonModel:
                     for n, m in dollar.items()
                         if isinstance(n, str) and n not in ("#", "")
             })
+
             # warn about possibly missing $
             for name, value in self._defs.items():
                 m = value._model
                 if isinstance(m, str) and re.search("^((https?|file)://|\\.)", m):
                     log.warning(f"url-looking {name}: "
                                 "add missing $ or prefix with _ for string constants")
+
+            # apply local trafo copies
+            # FIXME order, no cycles
+            for name, jm in self._defs.items():
+                if isinstance(jm._model, dict) and jm._model.keys() & self.LTRA_KW:
+                    self._localTrafo(jm, ["$", name])
+
             # keep initial definitions
             self._init_dl = dollar
         else:
             self._init_dl = None
 
-        if isinstance(model, dict) and "~" in model:
-            assert self._is_root
+        # ~ at root is the meta model
+        if isinstance(model, dict) and "~" in model and self._is_root:
             version = model["~"]
             del model["~"]
             # FIXME should accept a *model*, not just a URL? or not?
@@ -385,6 +395,26 @@ class JsonModel:
                 return m
 
             self._model = recModel(self._model, allFlt, rwtRegex, keys=True)
+
+    def _localTrafo(self, jm: JsonModel, names: list[str]):
+        trafo = jm._model
+        # log.warning(f"trafo = {trafo}")
+        if scopy := trafo.get("<"):
+            del trafo["<"]
+            assert isinstance(scopy, str) and scopy and scopy[0] == "$"
+            ncopy = scopy[1:]
+            assert ncopy not in names, f"local transformation cycle: {ncopy} {names}"
+            assert ncopy in self._defs, f"local definition copy must exist: {ncopy}"
+            jmc = self._defs[ncopy]
+            if isinstance(jmc._model, dict) and jmc._model.keys() & self.LTRA_KW:
+                # recurse to handle misordering
+                self._localTrafo(jmc, names + [ncopy])
+            jm._model = copy.deepcopy(self._defs[ncopy]._model)
+            if "#" in trafo:
+                jm._model["#"] = trafo["#"]
+                del trafo["#"]
+            log.info(f"{jm._id} copied as {jm._model}")
+        jm._applyTrafo(jm._model, trafo, names)
 
     def load(self, url: str, path: ModelPath, is_head: bool = False) -> JsonModel:
         """Retrieve external JSON Model for a URL."""
@@ -533,7 +563,7 @@ class JsonModel:
             kept = " ".join(str(mid) for mid in sorted(keep))
             log.debug(f"{self._id}: unload {len(self._models)}/{total} models kept ({kept})")
 
-    def noComment(self, model: ModelType):
+    def noComment(self, model: ModelType, root: bool = True):
         """Remove non trivial comments."""
 
         def rmComments(m: ModelType, p: ModelPath):
@@ -547,7 +577,7 @@ class JsonModel:
             else:
                 return m
 
-        return recModel(model, allFlt, rmComments)
+        return recModel(model, allFlt, rmComments, root=root)
 
     #
     # Display
@@ -934,7 +964,7 @@ class JsonModel:
                         self._defs.gset(m, m)
             return m
 
-        self._model = recModel(self._model, allFlt, globRwt, True)
+        self._model = recModel(self._model, allFlt, globRwt, True, self._is_root)
 
     #
     # Rename Transformation
@@ -1044,7 +1074,7 @@ class JsonModel:
                 raise ModelError(f"unexpected add type at {path}")
 
         if "~" in trafo:
-            log.error(f"trafo : on {j}")
+            # log.error(f"trafo ~ on {j}")
             # rename properties
             reprop = trafo["~"]
             if not isinstance(reprop, dict):
@@ -1112,7 +1142,7 @@ class JsonModel:
                 trafo: ModelTrafo,
                 path: ModelPath,
             ):
-        """Apply a transformation on a namespace."""
+        """Apply a transformation on definitions (namespace)."""
         # sanity
         if not jm._is_head:
             # log.warning(f"expecting a head model at {path}")

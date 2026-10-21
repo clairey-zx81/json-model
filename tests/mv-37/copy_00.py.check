@@ -1,0 +1,14 @@
+copy_00.values.json[0]: PASS
+copy_00.values.json[1]: FAIL (.: bad property count [.'$PersonId'])
+copy_00.values.json[2]: FAIL (.: bad property count [.'$PersonId'])
+copy_00.values.json[3]: FAIL (.: not an object [.'$PersonId'])
+copy_00.values.json[4]: PASS
+copy_00.values.json[5]: FAIL (.: bad property count [.'$Person'])
+copy_00.values.json[6]: FAIL (.: not an object [.'$Person'])
+copy_00.values.json[7]: PASS
+copy_00.values.json[8]: PASS
+copy_00.values.json[9]: PASS
+copy_00.values.json[10]: PASS
+copy_00.values.json[11]: PASS
+copy_00.values.json[12]: FAIL (.'no-such-prop': unexpected prop [.'$PersonDiff'])
+copy_00.values.json[13]: FAIL (.: not an object [.'$PersonDiff'])

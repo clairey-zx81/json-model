@@ -60,7 +60,7 @@ def check(jm: JsonModel, assertion: ModelFilter, what: str = "?", short: bool = 
             okay = False
         return okay if short else True
 
-    recModel(jm._model, checkFlt, noRwt, True)
+    recModel(jm._model, checkFlt, noRwt, True, jm._is_root)
 
     return okay
 

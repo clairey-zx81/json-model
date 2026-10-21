@@ -460,7 +460,7 @@ Implementation should detect external reference cycles which are errors and shou
 
 ## (EXPERIMENTAL) Model Transformations
 
-Symbol `%` at the root of the model defines a model transformation object, which
+Symbol `%` at the root of the model defines a global model transformation object, which
 may include symbol renamings, model importations and model editions.
 
 - **Symbol Names**
@@ -549,6 +549,11 @@ may include symbol renamings, model importations and model editions.
 
   These additions and editions are performed _after_ property renamings and imports,
   and _before_ merge pre-processing.
+
+Symbols `<`, `/`, `*`, `~` inside a _definition_ define a local transformation.
+
+- `<` must be a local reference `$name`, the target model is **copied** inside the definition.
+- `/`, `*` and `~` define local editions inside the definition, as describe above.
 
 What is the _right_ balance between features, syntax and ease-of-use for a type transformation
 language is an on-going investigation: should it allow renaming, moving or copying attributes?

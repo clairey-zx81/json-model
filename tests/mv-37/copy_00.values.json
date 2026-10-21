@@ -1,0 +1,16 @@
+[
+  [ true,  "PersonId", {"id": "00000000-0000-0000-0000-000000000000", "fname": "Calvin", "lname": "?", "birth": "2000-10-14", "genre": "M"} ],
+  [ false, "PersonId", {"id": "00000000-0000-0000-0000-000000000000", "fname": "Calvin", "lname": "?", "birth": "2000-10-14", "genre": "M", "no-such-prop": null} ],
+  [ false, "PersonId", {} ],
+  [ false, "PersonId", null ],
+  [ true,  "Person", {"fname": "Susie", "lname": "Derkins", "birth": "2010-03-20", "genre": "F"} ],
+  [ false, "Person", {"fname": "Susie", "lname": "Derkins", "birth": "2010-03-20", "genre": "F", "no-such-prop": null} ],
+  [ false, "Person", null ],
+  [ true,  "PersonDiff", {} ],
+  [ true,  "PersonDiff", {"fname": "Hobbes"} ],
+  [ true,  "PersonDiff", {"lname": "?"} ],
+  [ true,  "PersonDiff", {"birth": "2020-10-14"} ],
+  [ true,  "PersonDiff", {"genre": "U"} ],
+  [ false, "PersonDiff", {"no-such-prop": null} ],
+  [ false, "PersonDiff", null ]
+]
