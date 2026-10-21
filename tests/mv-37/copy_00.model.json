@@ -1,0 +1,25 @@
+{
+  "$": {
+    "PersonId": {
+      "#": "Person with an id for GET search",
+      "id": "$UUID",
+      "fname": "",
+      "lname": "",
+      "birth": "$DATE",
+      "genre": "/^[MFUN]$/"
+    },
+    "Person": {
+      "#": "Person without an id for POST, PUT, GET",
+      "<": "$PersonId",
+      "/": "id"
+    },
+    "PersonDiff": {
+      "#": "Person changes for PATCH",
+      "<": "$Person",
+      "~": { "fname": "?fname", "lname": "?lname", "birth": "?birth", "genre": "?genre" }
+    }
+  },
+  "?pid": "$PersonId",
+  "?per": "$Person",
+  "?pdi": "$PersonDiff"
+}

@@ -56,11 +56,16 @@ def _recModel(
                 if prop == "#":
                     assert isinstance(val, str), f"# is a string {lpath}"
                 elif prop == "~":
-                    assert root and isinstance(val, str), f"~ is a string at root {lpath}"
+                    if root:
+                        assert isinstance(val, str), f"~ is a string at root {lpath}"
+                    else:
+                        assert isinstance(val, dict) and \
+                            all(isinstance(k, str) and isinstance(v, str) for k, v in val.items()), \
+                            f"~ is a string mapping {lpath}"
                 elif prop == "!":
                     assert isinstance(val, bool), f"! is a bool {lpath}"
                 elif prop == "/":
-                    assert isinstance(val, list), f"/ is a list {lpath}"
+                    assert isinstance(val, str) or isinstance(val, list), f"/ is a string or list {lpath}"
                 continue
             elif prop in MODEL_LIST_KEYWORDS:
                 assert isinstance(val, list), f"{prop} is a list {lpath}"

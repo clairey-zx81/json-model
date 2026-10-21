@@ -16,6 +16,7 @@
 - [x] docker: enable user remap (for a long time?)
 - [x] models: add OpenAPI-with-models alternative model
 - [x] model: fix definition cross renames
+- [x] model: add local transformations
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads

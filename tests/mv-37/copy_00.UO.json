@@ -1,0 +1,56 @@
+[
+  {
+    "?pid": "$PersonId",
+    "?per": "$Person",
+    "?pdi": "$PersonDiff",
+    "#": "JsonModel 1",
+    "$": {
+      "PersonId": {
+        "id": "$UUID",
+        "fname": "",
+        "lname": "",
+        "birth": "$DATE",
+        "genre": "/^[MFUN]$/",
+        "#": "JsonModel 2"
+      },
+      "Person": {
+        "fname": "",
+        "lname": "",
+        "birth": "$DATE",
+        "genre": "/^[MFUN]$/",
+        "#": "JsonModel 3"
+      },
+      "PersonDiff": {
+        "?fname": "",
+        "?lname": "",
+        "?birth": "$DATE",
+        "?genre": "/^[MFUN]$/",
+        "#": "JsonModel 4"
+      },
+      "#": "Symbol 1",
+      "": "./copy_00.model.json"
+    }
+  },
+  {
+    "id": "$UUID",
+    "fname": "",
+    "lname": "",
+    "birth": "$DATE",
+    "genre": "/^[MFUN]$/",
+    "#": "JsonModel 2"
+  },
+  {
+    "fname": "",
+    "lname": "",
+    "birth": "$DATE",
+    "genre": "/^[MFUN]$/",
+    "#": "JsonModel 3"
+  },
+  {
+    "?fname": "",
+    "?lname": "",
+    "?birth": "$DATE",
+    "?genre": "/^[MFUN]$/",
+    "#": "JsonModel 4"
+  }
+]
