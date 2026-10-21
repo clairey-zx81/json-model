@@ -1151,9 +1151,8 @@ class JsonModel:
             ):
         """Apply a transformation on definitions (namespace)."""
         # sanity
-        if not jm._is_head:
-            # log.warning(f"expecting a head model at {path}")
-            raise ModelError(f"expecting a head model at {path}")
+        if not jm._is_root:
+            raise ModelError(f"expecting a root model at {path}")
         if not isinstance(trafo, dict):
             raise ModelError(f"namespace trafo must be a dict at {path}")
         if tpath:
