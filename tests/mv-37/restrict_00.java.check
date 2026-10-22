@@ -1,0 +1,21 @@
+restrict_00.values.json[0]: PASS
+restrict_00.values.json[1]: PASS
+restrict_00.values.json[2]: PASS
+restrict_00.values.json[3]: PASS
+restrict_00.values.json[4]: PASS
+restrict_00.values.json[5]: PASS
+restrict_00.values.json[6]: FAIL (foo, no-such-prop: unexpected prop [.'$Foo']; foo: unexpected value for model "$Foo" [.foo]; foo: invalid optional prop value [.foo])
+restrict_00.values.json[7]: FAIL (bla: missing mandatory prop <a> [.'$Bla']; bla: unexpected value for model "$Bla" [.bla]; bla: invalid optional prop value [.bla])
+restrict_00.values.json[8]: PASS
+restrict_00.values.json[9]: PASS
+restrict_00.values.json[10]: FAIL (bla, c: unexpected prop [.'$Bla']; bla: unexpected value for model "$Bla" [.bla]; bla: invalid optional prop value [.bla])
+restrict_00.values.json[11]: FAIL (bla, d: unexpected prop [.'$Bla']; bla: unexpected value for model "$Bla" [.bla]; bla: invalid optional prop value [.bla])
+restrict_00.values.json[12]: FAIL (: not an object [.])
+restrict_00.values.json[13]: FAIL (: not an object [.])
+restrict_00.values.json[14]: FAIL (: not an object [.])
+restrict_00.values.json[15]: FAIL (: not an object [.])
+restrict_00.values.json[16]: FAIL (: not an object [.])
+restrict_00.values.json[17]: FAIL (: not an object [.])
+restrict_00.values.json[18]: FAIL (: not an object [.])
+restrict_00.values.json[19]: FAIL (: not an object [.])
+restrict_00.values.json[20]: FAIL (: not an object [.])

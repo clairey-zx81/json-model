@@ -1,0 +1,9 @@
+{
+  "#": "restrict object to a subset of properties",
+  "$": {
+    "Foo": { "?a": "", "?b": "", "?c": "", "?d": "" },
+    "Bla": { "<": "$Foo", "*": [ "?a", "?b" ], "~": { "?a": "a"} }
+  },
+  "?foo": "$Foo",
+  "?bla": "$Bla"
+}

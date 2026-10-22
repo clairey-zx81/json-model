@@ -1,0 +1,23 @@
+[
+  [ true,  {} ],
+  [ true,  {"foo": {"a": "Susie"}} ],
+  [ true,  {"foo": {"b": "Susie"}} ],
+  [ true,  {"foo": {"c": "Susie"}} ],
+  [ true,  {"foo": {"d": "Susie"}} ],
+  [ true,  {"foo": {"a": "Calvin", "b": "Hobbes", "c": "Moe", "d": "Susie"}} ],
+  [ false, {"foo": {"no-such-prop": "Rosalynd"}} ],
+  [ false, {"bla": {}} ],
+  [ true,  {"bla": {"a": "Susie"}} ],
+  [ true,  {"bla": {"a": "Susie", "b": "Calvin"}} ],
+  [ false, {"bla": {"a": "Susie", "c": "Calvin"}} ],
+  [ false, {"bla": {"a": "Susie", "d": "Calvin"}} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]
