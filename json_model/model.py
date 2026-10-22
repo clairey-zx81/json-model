@@ -1066,7 +1066,15 @@ class JsonModel:
             add = trafo["*"]
             if isinstance(add, list):
                 if isinstance(j, list):
+                    # append new items to list
                     j.extend(add)
+                elif isinstance(j, dict):
+                    # keep only those props, as well as comments
+                    for prop in list(j.keys()):
+                        if prop.startswith("#") or prop in add:
+                            pass
+                        else:
+                            del j[prop]
                 else:
                     raise ModelError(f"cannot add list to {tname(j)} at {path}")
             elif isinstance(add, dict):
