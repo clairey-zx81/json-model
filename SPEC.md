@@ -519,13 +519,15 @@ may include symbol renamings, model importations and model editions.
 
   The following edition rules apply, in order, depending on the type of the target element:
 
-  - if the transformation value is an edition object (ie include at least one `/ * :` property):
+  - if the transformation value is an edition object (ie include at least one `/ * ~` property):
     - if the target is a JSON object (not necessarily a model for an object):
       - `/` value may be a string or a list of strings.
         All properties of these names are removed.
         If a property does not exist, this is an error and must be rejected.
-      - `*` value must be a object, which is merged into the target object.
-        If a property already exists, this is an error and must be rejected.
+      - `*` value may be an objecti or list
+        If the value is an obhect, it is merged into the target object.
+        If a property already exists, this is an error and must be rejected.  
+        If the value is a list, keep only the listed properties, others are discarded.
       - `~` value must be an object, which is a string mapping to rename properties
         in the target object. All renamed properties **must** exists.
         Specifying `{"?a": "b", "?b": "a"}` exchanges optional property values and makes them mandatory.
@@ -534,7 +536,7 @@ may include symbol renamings, model importations and model editions.
         Array items equal to these values are removed.
         If a value is not found, this is an error and must be rejected.
       - `*`: if the value is an array, append its items to the target array.
-        if the value is something else, appends this to the array.
+        If the value is something else, appends to the array.
       - `~`: currently invalid
     - if the target is a JSON scalar: this is an error and must be rejected.
   - if the transformation value is a model (i.e. an object without any `/ *` property),
