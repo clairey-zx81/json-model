@@ -1191,6 +1191,9 @@ class JsonModel:
                 path: ModelPath,
             ):
         """Apply a transformation on definitions (namespace)."""
+        if self._debug:
+            log.debug(f"{jm._id}: applying {trafo} at {path}")
+        # log.debug(f"{jm._id}: before defs = {jm._defs}")
         # sanity
         if not jm._is_root:
             raise ModelError(f"expecting a root model at {path}")
@@ -1208,17 +1211,21 @@ class JsonModel:
             for name in names:
                 if name not in jm._defs:
                     raise ModelError(f"missing {name} definition in model {jm._id} at {path}")
+                # FIXME this may not be enough!
                 del jm._defs[name]
         # add new definitions
         if "*" in trafo:
             defs = trafo["*"]
             if not isinstance(defs, dict):
                 raise ModelError(f"expecting definitions at {path}")
-            for n, m in defs.items():
-                if not isinstance(n, str):
-                    raise ModelError(f"expecting a string name for * definitions at {path}")
-                # may override
-                jm._defs[n] = JsonModel(m, self._resolver, head=self)
+            for name, model in defs.items():
+                # log.warning(f"{jm._id}: adding {name}")
+                # FIXME this may not be enough!
+                jm._defs[name] = JsonModel(
+                    model, jm._resolver, head=jm._head, scope=jm._defs,
+                    loose_int=jm._loose_int, loose_float=jm._loose_float,
+                    debug=jm._debug, dname=name, single_line=jm._single_line,
+                )
         # rename definitions
         if "~" in trafo:
             renames = trafo["~"]
@@ -1234,6 +1241,7 @@ class JsonModel:
                 updates[pn] = self._defs[po]
                 del self._defs[po]
             self._defs.update(**updates)
+        # log.debug(f"{jm._id}: after defs = {jm._defs}")
 
     def rewrite(self, rules: dict[str, typing.Any]):
         """Apply model rewriting to current JSON Model."""
