@@ -1,0 +1,9 @@
+{
+  "#": "mandatory to optional property bulk change",
+  "$": {
+    "Foo": { "a": "", "b": "", "c": "" },
+    "Bla": { "<": "$Foo", "~": {"!": "?"} }
+  },
+  "?foo": "$Foo",
+  "?bla": "$Bla"
+}
