@@ -530,7 +530,9 @@ may include symbol renamings, model importations and model editions.
         If the value is a list, keep only the listed properties, others are discarded.
       - `~` value must be an object, which is a string mapping to rename properties
         in the target object. All renamed properties **must** exists.
-        Specifying `{"?a": "b", "?b": "a"}` exchanges optional property values and makes them mandatory.
+        Specifying `{"?a": "b", "?b": "a"}` exchanges optional property values and makes them mandatory.  
+        As a special case, `{"!": "?"}` and `{"?": "!"}` are bulk changes to downgrade
+        mandatory properties to optional, or upgrade optional properties to mandatory.
     - if the target is a JSON array (not necessarily a model for an array):
       - `/`: may be value or a list of values.
         Array items equal to these values are removed.

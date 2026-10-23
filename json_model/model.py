@@ -400,12 +400,12 @@ class JsonModel:
         return (
             isinstance(self._model, dict) and
             self._model.keys() & self.LTRA_KW and
-            "@" not in self._model
+            "@" not in self._model  # avoid constraint models
         )
 
     def _localTrafo(self, jm: JsonModel, names: list[str]):
         trafo = jm._model
-        # log.warning(f"trafo = {trafo}")
+        # log.debug(f"trafo = {trafo}")
         if scopy := trafo.get("<"):
             del trafo["<"]
             assert isinstance(scopy, str) and scopy and scopy[0] == "$"
@@ -414,7 +414,7 @@ class JsonModel:
             assert ncopy in self._defs, f"local definition copy must exist: {ncopy}"
             jmc = self._defs[ncopy]
             if jmc._isLocalTrafo():
-                # recurse to handle misordering
+                # recursion to handle misordering
                 self._localTrafo(jmc, names + [ncopy])
             jm._model = copy.deepcopy(self._defs[ncopy]._model)
             if "#" in trafo:
@@ -1097,8 +1097,41 @@ class JsonModel:
             if not all(isinstance(p, str) and isinstance(v, str) for p, v in reprop.items()):
                 raise ModelError(f"rename ~ must be a string map at {path}")
 
+            # bulk changes
+            bulk: bool|None = None
+            if "!" in reprop or "?" in reprop:
+                if "!" in reprop and reprop["!"] != "?":
+                    raise ModelError(f"rename ~ special ! value must be ? at {path}")
+                if "?" in reprop and reprop["?"] != "!":
+                    raise ModelError(f"rename ~ special ? value must be ! at {path}")
+                if "?" in reprop and "!" in reprop:
+                    raise ModelError(f"rename ~ cannot have both ! and ? specials at {path}")
+                bulk = "!" in reprop  # True for mandatory -> optional
+                if "!" in reprop:
+                    del reprop["!"]
+                if "?" in reprop:
+                    del reprop["?"]
+
             if isinstance(j, dict):
+                if "@" in j:
+                    # could it follow @?
+                    raise ModelError(f"cannot bulk change a constraint model at {path}")
                 new = {}
+                if bulk is not None:
+                    # do bulk changes
+                    for p, v in list(j.items()):
+                        if p and p[0] not in "$/#~%":  # simple prop
+                            if bulk and p[0] != "?":  # mandatory to optional
+                                pn = "?" + (p[1:] if p[0] in "!_" else p)
+                                new[pn] = v
+                                del j[p]
+                            elif not bulk and p[0] == "?": # opt to mandatory
+                                pn = p[1:]
+                                new[pn] = v
+                                del j[p]
+                    j.update(**new)
+                    new = {}
+                # simple changes
                 for p, v in reprop.items():
                     if p in j:
                         new[v] = j[p]
@@ -1193,6 +1226,7 @@ class JsonModel:
                 raise ModelError(f"expecting an object for ~ at {path}")
             if not all(isinstance(p, str) and isinstance(v, str) for p, v in renames.items()):
                 raise ModelError(f"expecting a string mapping for ~ at {path}")
+            # build update
             updates = {}
             for po, pn in renames.items():
                 if po not in self._defs:

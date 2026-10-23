@@ -18,6 +18,7 @@
 - [x] model: fix definition cross renames
 - [x] model: add local transformations
 - [x] model: add keep-only transformation
+- [x] model: allow bulk mandatory to optional and optional to mandatory renames
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads

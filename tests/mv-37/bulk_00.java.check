@@ -1,0 +1,33 @@
+bulk_00.values.json[0]: PASS
+bulk_00.values.json[1]: FAIL (foo: bad property count [.'$Foo']; foo: unexpected value for model "$Foo" [.foo]; foo: invalid optional prop value [.foo])
+bulk_00.values.json[2]: FAIL (foo: bad property count [.'$Foo']; foo: unexpected value for model "$Foo" [.foo]; foo: invalid optional prop value [.foo])
+bulk_00.values.json[3]: FAIL (foo: bad property count [.'$Foo']; foo: unexpected value for model "$Foo" [.foo]; foo: invalid optional prop value [.foo])
+bulk_00.values.json[4]: FAIL (foo: bad property count [.'$Foo']; foo: unexpected value for model "$Foo" [.foo]; foo: invalid optional prop value [.foo])
+bulk_00.values.json[5]: FAIL (foo: bad property count [.'$Foo']; foo: unexpected value for model "$Foo" [.foo]; foo: invalid optional prop value [.foo])
+bulk_00.values.json[6]: FAIL (foo: bad property count [.'$Foo']; foo: unexpected value for model "$Foo" [.foo]; foo: invalid optional prop value [.foo])
+bulk_00.values.json[7]: FAIL (foo: bad property count [.'$Foo']; foo: unexpected value for model "$Foo" [.foo]; foo: invalid optional prop value [.foo])
+bulk_00.values.json[8]: FAIL (foo: bad property count [.'$Foo']; foo: unexpected value for model "$Foo" [.foo]; foo: invalid optional prop value [.foo])
+bulk_00.values.json[9]: FAIL (foo: bad property count [.'$Foo']; foo: unexpected value for model "$Foo" [.foo]; foo: invalid optional prop value [.foo])
+bulk_00.values.json[10]: FAIL (foo: not an object [.'$Foo']; foo: unexpected value for model "$Foo" [.foo]; foo: invalid optional prop value [.foo])
+bulk_00.values.json[11]: PASS
+bulk_00.values.json[12]: PASS
+bulk_00.values.json[13]: PASS
+bulk_00.values.json[14]: PASS
+bulk_00.values.json[15]: PASS
+bulk_00.values.json[16]: PASS
+bulk_00.values.json[17]: PASS
+bulk_00.values.json[18]: PASS
+bulk_00.values.json[19]: FAIL (bla, no-such-prop: unexpected prop [.'$Bla']; bla: unexpected value for model "$Bla" [.bla]; bla: invalid optional prop value [.bla])
+bulk_00.values.json[20]: FAIL (bla, no-such-prop: unexpected prop [.'$Bla']; bla: unexpected value for model "$Bla" [.bla]; bla: invalid optional prop value [.bla])
+bulk_00.values.json[21]: FAIL (bla: not an object [.'$Bla']; bla: unexpected value for model "$Bla" [.bla]; bla: invalid optional prop value [.bla])
+bulk_00.values.json[22]: PASS
+bulk_00.values.json[23]: FAIL (no-such-prop: unexpected prop [.])
+bulk_00.values.json[24]: FAIL (: not an object [.])
+bulk_00.values.json[25]: FAIL (: not an object [.])
+bulk_00.values.json[26]: FAIL (: not an object [.])
+bulk_00.values.json[27]: FAIL (: not an object [.])
+bulk_00.values.json[28]: FAIL (: not an object [.])
+bulk_00.values.json[29]: FAIL (: not an object [.])
+bulk_00.values.json[30]: FAIL (: not an object [.])
+bulk_00.values.json[31]: FAIL (: not an object [.])
+bulk_00.values.json[32]: FAIL (: not an object [.])
