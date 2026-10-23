@@ -20,6 +20,7 @@
 - [x] model: add local transformations
 - [x] model: add keep-only transformation
 - [x] model: allow bulk mandatory to optional and optional to mandatory renames
+- [x] model: fix model internals when adding definitions with a namespace trafo
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads
