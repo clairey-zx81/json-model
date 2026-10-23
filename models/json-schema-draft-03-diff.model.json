@@ -1,0 +1,38 @@
+{
+  "#": "JSON Schema Draft 03 as a diff from Draft 02",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/json-schema-draft-03-diff",
+    "schema": "$https://json-model.org/models/json-schema-draft-02"
+  },
+  "%": {
+    "$schema#": {
+      "/": "distinctStringArray",
+      "*": {
+        "distSchemArray": { "@": [ {"|": ["", "$Schema"]} ], "!": true }
+      }
+    },
+    "$schema": {
+      "/": [ "?requires", "?contentEncoding" ],
+      "*": {
+        "?patternProperties": {"": "$Schema"},
+        "?additionalItems": {"|": [true, "$Schema"]},
+        "?dependencies": {"": {"|": ["", [""], "$Schema"]}},
+        "?$ref": ""
+      },
+      "~": {
+        "?optional": "?required",
+        "?minimumCanEqual": "?exclusiveMinimum",
+        "?maximumCanEqual": "?exclusiveMaximum"
+      }
+    },
+    "$schema.?disallow.|": {
+      "/": [ "$distinctStringArray" ],
+      "*": [ "$distSchemArray" ] 
+    },
+    "$schema.?format": {
+      "|": ["date-time", "date", "time", "utc-millisec", "regex", "color", "style", "phone", "uri", "email", "ip-address", "ipv6", "host-name"]
+    }
+  },
+  "@": "$schema"
+}
