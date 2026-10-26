@@ -20,7 +20,7 @@ get_version()
 sed -ne '1,/BENCHES/p' < BENCH.md | grep -v '^BENCHES$'
 
 # list max 10 latest artifacts
-nartifacts=0 p_jsu= p_jmc= p_sbc= p_crv=
+nartifacts=0 p_jsu= p_jmc= p_sbc= p_crv= p_msg=
 
 for artifact in $(ls site/benchmarks/*.md | sort -r) ; do
 
@@ -29,25 +29,27 @@ for artifact in $(ls site/benchmarks/*.md | sort -r) ; do
   sbc=$(get_version jsonschema-cli $artifact)
   crv=$(get_version corvus-cli $artifact)
 
-  # skip same version (details may differ, keep first encountered)
-  [ "$jsu" = "$p_jsu" -a "$jmc" = "$p_jmc" -a "$sbc" = "$p_sbc" -a "$crv" = "$p_crv" ] && continue
+  msg=""
+  [ "$(grep 'content:.*yes' $artifact)" ] && msg+="content" || msg+="no content"
+  [ "$(grep 'JSU_OPT.*--no-id' $artifact)" ] && msg+=", no id" || msg+=", id"
+  [ "$(grep 'fix:.*yes' $artifact)" ] && msg+=", fix" || msg+=", no fix"
 
-  p_jsu=$jsu p_jmc=$jmc p_sbc=$sbc p_crv=$crv
+  # skip same version (details may differ, keep first encountered)
+  [ "$jsu" = "$p_jsu" -a "$jmc" = "$p_jmc" -a \
+    "$sbc" = "$p_sbc" -a "$crv" = "$p_crv" -a "$msg" = "$p_msg" ] && continue
+
+  p_jsu=$jsu p_jmc=$jmc p_sbc=$sbc p_crv=$crv p_msg=$msg
 
   link=${artifact#site/}
   name=${link#benchmarks/}
   name=${name%.md}
 
-  message=""
-  [ "$(grep 'content:.*yes' $artifact)" ] && message+="content" || message+="no content"
-  [ "$(grep 'JSU_OPT.*--no-id' $artifact)" ] && message+=", no id" || message+=", id"
-  [ "$(grep 'fix:.*yes' $artifact)" ] && message+=", fix" || message+=", no fix"
   echo "- Artifact [$name]($link) using"
   echo "  [JMC $jmc]($PYPI/json-model-compiler/$jmc/), "
   echo "  [JSU $jsu]($PYPI/json-schema-utils/$jsu/), "
   [ "$sbc" ] && echo "  [SBC $sbc](https://github.com/sourcemeta/jsonschema/releases/tag/v$sbc),"
   [ "$crv" ] && echo "  [Corvus $crv](https://corvus-oss.org/Corvus.JsonSchema/),"
-  echo "  $message."
+  echo "  $msg."
 
   let nartifacts+=1
   [ $nartifacts -eq $MAX ] && break
