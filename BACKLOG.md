@@ -2,27 +2,6 @@
 
 ## Current Tasks
 
-- [x] bench: do not link same version and message artifacts, keep first encountered
-- [x] bench: move corvus at then end of the radar to keep colors consistent
-- [x] bench: run cron bench with corvus
-- [x] bench: re-build corvus image automatically
-- [x] model: transformation rename properties with `~` (experimental)
-- [x] model: transformation make work on import? checked!
-- [x] model: allow to edit definitions (namespace `$foo#`) with transformations
-- [x] models: add `:` trafo to json model meta model
-- [x] models: add diff model from v1 to v2
-- [x] bench: work around cal dns issues
-- [x] bench: fix missing jmc on cron job
-- [x] bench: improve report section title about classification metrics
-- [x] docker: enable user remap (for a long time?)
-- [x] models: add OpenAPI-with-models alternative model
-- [x] model: fix definition cross renames
-- [x] model: add local transformations
-- [x] model: add keep-only transformation
-- [x] model: allow bulk mandatory to optional and optional to mandatory renames
-- [x] model: fix model internals when adding definitions with a namespace trafo
-- [x] models: add json schema draft 03 diff model
-- [x] model: move local transformations _after_ global transformations
 - [ ] models: add for openapi overlay spec, json patch and others
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?

@@ -1,5 +1,29 @@
 # JSON Model Compiler Versions
 
+## 2.0.64 on 2026-10-26
+
+- bench: do not link same version and message artifacts, keep first encountered
+- bench: move corvus at then end of the radar to keep colors consistent
+- bench: run cron bench with corvus
+- bench: re-build corvus image automatically
+- model: transformation rename properties with `~` (experimental)
+- model: transformation make work on import? checked!
+- model: allow to edit definitions (namespace `$foo#`) with transformations
+- models: add `:` trafo to json model meta model
+- models: add diff model from v1 to v2
+- bench: work around cal dns issues
+- bench: fix missing jmc on cron job
+- bench: improve report section title about classification metrics
+- docker: enable user remap (for a long time?)
+- models: add OpenAPI-with-models alternative model
+- model: fix definition cross renames
+- model: add local transformations
+- model: add keep-only transformation
+- model: allow bulk mandatory to optional and optional to mandatory renames
+- model: fix model internals when adding definitions with a namespace trafo
+- models: add json schema draft 03 diff model
+- model: move local transformations _after_ global transformations
+
 ## 2.0.63 on 2026-10-05
 
 - pr: center logo in sidebar
