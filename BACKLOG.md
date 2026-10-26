@@ -22,6 +22,7 @@
 - [x] model: allow bulk mandatory to optional and optional to mandatory renames
 - [x] model: fix model internals when adding definitions with a namespace trafo
 - [x] models: add json schema draft 03 diff model
+- [x] model: move local transformations _after_ global transformations
 - [ ] models: add for openapi overlay spec, json patch and others
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?

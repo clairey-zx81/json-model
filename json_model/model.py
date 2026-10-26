@@ -260,7 +260,7 @@ class JsonModel:
                 self._imports = imports  # type: ignore
 
             # extract rewrites
-            # TODO check name syntax? $Path#To#Def.path.to.prop
+            # TODO check reference syntax? $Path#To#Def.path.to.prop
             self._rewrite = {
                 name: rw
                     for name, rw in model_pc.items()
@@ -308,12 +308,6 @@ class JsonModel:
                 if isinstance(m, str) and re.search("^((https?|file)://|\\.)", m):
                     log.warning(f"url-looking {name}: "
                                 "add missing $ or prefix with _ for string constants")
-
-            # apply local trafo copies
-            # FIXME order, no cycles
-            for name, jm in self._defs.items():
-                if jm._isLocalTrafo():
-                    self._localTrafo(jm, ["$", name])
 
             # keep initial definitions
             self._init_dl = dollar
@@ -363,6 +357,11 @@ class JsonModel:
             # loading twice, rewriting may add references…
             self.allLoads()
             self.rewrite(self._rewrite)
+
+            # apply local trafo copies late, some definitions may have been added by rewrite
+            for name, jm in self._defs.items():
+                if jm._isLocalTrafo():
+                    self._localTrafo(jm, ["$", name])
 
         if self._is_head:
             # hmmm… the above rewriting may have changed external dependencies,
