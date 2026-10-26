@@ -20,18 +20,24 @@ get_version()
 sed -ne '1,/BENCHES/p' < BENCH.md | grep -v '^BENCHES$'
 
 # list max 10 latest artifacts
-nartifacts=0
+nartifacts=0 p_jsu= p_jmc= p_sbc= p_crv=
 
 for artifact in $(ls site/benchmarks/*.md | sort -r) ; do
-  let nartifacts+=1
 
-  link=${artifact#site/}
-  name=${link#benchmarks/}
-  name=${name%.md}
   jsu=$(get_version jsu $artifact)
   jmc=$(get_version jmc $artifact)
   sbc=$(get_version jsonschema-cli $artifact)
   crv=$(get_version corvus-cli $artifact)
+
+  # skip same version (details may differ, keep first encountered)
+  [ "$jsu" = "$p_jsu" -a "$jmc" = "$p_jmc" -a "$sbc" = "$p_sbc" -a "$crv" = "$p_crv" ] && continue
+
+  p_jsu=$jsu p_jmc=$jmc p_sbc=$sbc p_crv=$crv
+
+  link=${artifact#site/}
+  name=${link#benchmarks/}
+  name=${name%.md}
+
   message=""
   [ "$(grep 'content:.*yes' $artifact)" ] && message+="content" || message+="no content"
   [ "$(grep 'JSU_OPT.*--no-id' $artifact)" ] && message+=", no id" || message+=", id"
@@ -43,6 +49,7 @@ for artifact in $(ls site/benchmarks/*.md | sort -r) ; do
   [ "$crv" ] && echo "  [Corvus $crv](https://corvus-oss.org/Corvus.JsonSchema/),"
   echo "  $message."
 
+  let nartifacts+=1
   [ $nartifacts -eq $MAX ] && break
 done
 
