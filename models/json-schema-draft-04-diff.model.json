@@ -17,7 +17,7 @@
     },
     "$schema": {
       "#": "update properties",
-      "/": ["?disallow", "?extends", "?required", "?dependencies", "?type", "?$ref"],
+      "/": ["?disallow", "?extends", "?required", "?dependencies", "?type", "?format", "?$ref"],
       "~": { "?divisibleBy": "?multipleOf" },
       "*": {
         "#.r": "5 property replacements",
