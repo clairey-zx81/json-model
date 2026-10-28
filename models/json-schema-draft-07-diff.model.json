@@ -1,0 +1,22 @@
+{
+  "#": "JSON Schema Draft 07 as a diff from Draft 06",
+  "~": "https://json-model.org/models/json-model",
+  "%": {
+    "<": "$https://json-model.org/models/json-schema-draft-06",
+    "$typeArray": { "*": { "!": true } },
+    "$ObjectSchema": {
+      "#": "8 new properties",
+      "*": {
+        "?$comment": "",
+        "?readOnly": true,
+        "?writeOnly": true,
+        "?contentMediaType": "",
+        "?contentEncoding": "",
+        "?if": "$Schema",
+        "?then": "$Schema",
+        "?else": "$Schema"
+      }
+    }
+  },
+  "@": "$Schema"
+}
