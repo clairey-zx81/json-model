@@ -1038,8 +1038,9 @@ class JsonModel:
         if self._debug:
             log.debug(f"{self._id}: IN applyTrafo trafo={trafo} on j={j} [{path}]")
 
+        # replace
         if not self._isTrafo(trafo):
-            return j
+            return trafo
         assert isinstance(trafo, dict)  # pyright hint
 
         if "/" in trafo:
