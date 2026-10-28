@@ -146,7 +146,7 @@ for all possible values for that type.
   - `"$IP6"`: an ipv6, eg _0::0_
   - `"$ETH"`: an ethernet (mac) address, eg _De:ad:Be:ef:01:23_
   - `"$CARD"`: a credit card number with a Luhn checksum, eg _1234567890123452_
-  - `"$JSONPT"`: an RFC6901 json pointer, eg _/http:~1~1json-model.org_
+  - `"$JSONPT"`: an RFC6901 json pointer, eg _/http:\~1\~1json-model.org_
   - `"$TIMETZ"`: time with timezone
   - `"$SEMVER"`: semantic versioning 2.0
 
