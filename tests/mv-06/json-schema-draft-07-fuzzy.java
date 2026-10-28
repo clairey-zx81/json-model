@@ -564,7 +564,7 @@ public class json_schema_draft_07_fuzzy extends ModelChecker
             res = json_model_7(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected value for model \"$arrayTypes\" [.'$schema#ObjectSchema'.type.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$typeArray\" [.'$schema#ObjectSchema'.type.'|'.1]", path);
             }
         }
         if (res)
@@ -699,11 +699,11 @@ public class json_schema_draft_07_fuzzy extends ModelChecker
         return res;
     }
 
-    // check $schema#arrayTypes (.'$schema#arrayTypes')
+    // check $schema#typeArray (.'$schema#typeArray')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
-        // .'$schema#arrayTypes'
-        // .'$schema#arrayTypes'.'@'
+        // .'$schema#typeArray'
+        // .'$schema#typeArray'.'@'
         boolean res = json.isArray(val);
         if (res)
         {
@@ -714,11 +714,11 @@ public class json_schema_draft_07_fuzzy extends ModelChecker
                 arr_3_idx++;
                 Object arr_3_item = arr_3_item_loop.next();
                 Path arr_3_lpath = new Path(arr_3_idx, path);
-                // .'$schema#arrayTypes'.'@'.0
+                // .'$schema#typeArray'.'@'.0
                 res = json_model_6(arr_3_item, (path != null ? arr_3_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$simpleTypes\" [.'$schema#arrayTypes'.'@'.0]", (path != null ? arr_3_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$simpleTypes\" [.'$schema#typeArray'.'@'.0]", (path != null ? arr_3_lpath : null));
                     break;
                 }
             }
@@ -729,12 +729,12 @@ public class json_schema_draft_07_fuzzy extends ModelChecker
             res = rt.array_is_unique(val, path, rep) && ival_2 >= 1;
             if (! res)
             {
-                if (rep != null) rep.addEntry("constraints failed [.'$schema#arrayTypes']", path);
+                if (rep != null) rep.addEntry("constraints failed [.'$schema#typeArray']", path);
             }
         }
         else
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$schema#arrayTypes'.'@']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$schema#typeArray'.'@']", path);
         }
         return res;
     }

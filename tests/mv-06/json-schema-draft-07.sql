@@ -62,7 +62,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $arrayTypes (.'$arrayTypes')
+-- check $typeArray (.'$typeArray')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -71,13 +71,13 @@ DECLARE
   arr_1_item JSONB;
   ival_1 INT;
 BEGIN
-  -- .'$arrayTypes'
-  -- .'$arrayTypes'.'@'
+  -- .'$typeArray'
+  -- .'$typeArray'.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
-      -- .'$arrayTypes'.'@'.0
+      -- .'$typeArray'.'@'.0
       res := json_model_4(arr_1_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
@@ -561,7 +561,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","URI-REFERENCE":"json_model_2","schemaArray":"json_model_3","simpleTypes":"json_model_4","arrayTypes":"json_model_5","ObjectSchema":"json_model_6","Schema":"json_model_7"}';
+  map JSONB := JSONB '{"":"json_model_1","URI-REFERENCE":"json_model_2","schemaArray":"json_model_3","simpleTypes":"json_model_4","typeArray":"json_model_5","ObjectSchema":"json_model_6","Schema":"json_model_7"}';
 BEGIN
   RETURN map->>name;
 END;

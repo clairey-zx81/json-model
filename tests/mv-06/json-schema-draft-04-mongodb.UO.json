@@ -3,6 +3,165 @@
     "#": "JsonModel 1 with defs",
     "$": {
       "schema": {
+        "@": "$Schema",
+        "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)",
+        "$": {
+          "": "https://json-model.org/models/json-schema-draft-04",
+          "schemaArray": {
+            "@": [
+              "$Schema"
+            ],
+            ">=": 1
+          },
+          "simpleTypes": {
+            "|": [
+              "null",
+              "boolean",
+              "integer",
+              "number",
+              "string",
+              "array",
+              "object"
+            ]
+          },
+          "stringArray": {
+            "@": [
+              ""
+            ],
+            ">=": 1,
+            "!": true
+          },
+          "typeArray": {
+            "@": [
+              "$simpleTypes"
+            ],
+            ">=": 1,
+            "!": true
+          },
+          "ObjectSchema": {
+            "?id": "",
+            "?$schema": "",
+            "?title": "",
+            "?description": "",
+            "?default": "$ANY",
+            "?multipleOf": 1.0,
+            "?maximum": -1.0,
+            "?exclusiveMaximum": true,
+            "?minimum": -1.0,
+            "?exclusiveMinimum": true,
+            "?maxLength": 0,
+            "?minLength": 0,
+            "?pattern": "$REGEX",
+            "?additionalItems": {
+              "|": [
+                true,
+                "$Schema"
+              ]
+            },
+            "?items": {
+              "|": [
+                "$Schema",
+                "$schemaArray"
+              ]
+            },
+            "?maxItems": 0,
+            "?minItems": 0,
+            "?uniqueItems": true,
+            "?maxProperties": 0,
+            "?minProperties": 0,
+            "?required": "$stringArray",
+            "?additionalProperties": {
+              "|": [
+                true,
+                "$Schema"
+              ]
+            },
+            "?definitions": {
+              "": "$Schema"
+            },
+            "?properties": {
+              "": "$Schema"
+            },
+            "?patternProperties": {
+              "": "$Schema"
+            },
+            "?dependencies": {
+              "": {
+                "|": [
+                  "$Schema",
+                  "$stringArray"
+                ]
+              }
+            },
+            "?enum": {
+              "@": [
+                "$ANY"
+              ],
+              ">=": 1,
+              "!": true
+            },
+            "?type": {
+              "|": [
+                "$simpleTypes",
+                "$typeArray"
+              ]
+            },
+            "?format": "",
+            "?allOf": "$schemaArray",
+            "?anyOf": "$schemaArray",
+            "?oneOf": "$schemaArray",
+            "?not": "$Schema",
+            "?$ref": "$URI"
+          },
+          "Schema": "$ObjectSchema"
+        },
+        "~": "https://json-model.org/models/json-model"
+      },
+      "#": "Symbol 1",
+      "": "https://json-model.org/models/json-schema-draft-04-mongodb"
+    },
+    "@": "$schema",
+    "~": "https://json-model.org/models/json-model"
+  },
+  {
+    "@": "$Schema",
+    "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)",
+    "$": {
+      "schemaArray": {
+        "@": [
+          "$Schema"
+        ],
+        ">=": 1,
+        "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
+      },
+      "simpleTypes": {
+        "|": [
+          "_null",
+          "_boolean",
+          "_number",
+          "_string",
+          "_array",
+          "_object"
+        ],
+        "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
+      },
+      "stringArray": {
+        "@": [
+          ""
+        ],
+        ">=": 1,
+        "!": true,
+        "#": "JsonModel 6 (JSON_MODEL_LOOSE_FLOAT)"
+      },
+      "typeArray": {
+        "@": [
+          "$simpleTypes"
+        ],
+        ">=": 1,
+        "!": true,
+        "#": "JsonModel 7 (JSON_MODEL_LOOSE_FLOAT)"
+      },
+      "ObjectSchema": {
         "?title": "",
         "?description": "",
         "?multipleOf": 1.0,
@@ -76,49 +235,69 @@
             ]
           ]
         },
-        "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)",
-        "$": {
-          "": "https://json-model.org/models/json-schema-draft-04",
-          "schemaArray": {
-            "@": [
-              "$Schema"
-            ],
-            ">=": 1
-          },
-          "simpleTypes": {
-            "|": [
-              "null",
-              "boolean",
-              "integer",
-              "number",
-              "string",
-              "array",
-              "object"
-            ]
-          },
-          "stringArray": {
-            "@": [
-              ""
-            ],
-            ">=": 1,
-            "!": true
-          },
-          "typeArray": {
-            "@": [
-              "$simpleTypes"
-            ],
-            ">=": 1,
-            "!": true
-          },
-          "Schema": "$#"
-        },
-        "~": "https://json-model.org/models/json-model"
+        "#": "JsonModel 8 (JSON_MODEL_LOOSE_FLOAT)"
       },
-      "#": "Symbol 1",
-      "": "https://json-model.org/models/json-schema-draft-04-mongodb"
+      "Schema": "$ObjectSchema",
+      "bsonType": {
+        "|": [
+          "_null",
+          "_bool",
+          "_string",
+          "_object",
+          "_array",
+          "_double",
+          "_int",
+          "_long",
+          "_decimal",
+          "_binData",
+          "_objectId",
+          "_date",
+          "_regex",
+          "_javascript",
+          "_timestamp",
+          "_minKey",
+          "_maxKey"
+        ],
+        "#": "JsonModel 10 (JSON_MODEL_LOOSE_FLOAT)"
+      },
+      "#": "Symbol 3",
+      "": "https://json-model.org/models/json-schema-draft-04"
     },
-    "@": "$schema",
     "~": "https://json-model.org/models/json-model"
+  },
+  {
+    "@": [
+      "$Schema"
+    ],
+    ">=": 1,
+    "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
+  },
+  {
+    "|": [
+      "_null",
+      "_boolean",
+      "_number",
+      "_string",
+      "_array",
+      "_object"
+    ],
+    "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
+  },
+  {
+    "@": [
+      ""
+    ],
+    ">=": 1,
+    "!": true,
+    "#": "JsonModel 6 (JSON_MODEL_LOOSE_FLOAT)"
+  },
+  {
+    "@": [
+      "$simpleTypes"
+    ],
+    ">=": 1,
+    "!": true,
+    "#": "JsonModel 7 (JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?title": "",
@@ -194,105 +373,9 @@
         ]
       ]
     },
-    "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)",
-    "$": {
-      "schemaArray": {
-        "@": [
-          "$Schema"
-        ],
-        ">=": 1,
-        "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
-      },
-      "simpleTypes": {
-        "|": [
-          "_null",
-          "_boolean",
-          "_number",
-          "_string",
-          "_array",
-          "_object"
-        ],
-        "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
-      },
-      "stringArray": {
-        "@": [
-          ""
-        ],
-        ">=": 1,
-        "!": true,
-        "#": "JsonModel 6 (JSON_MODEL_LOOSE_FLOAT)"
-      },
-      "typeArray": {
-        "@": [
-          "$simpleTypes"
-        ],
-        ">=": 1,
-        "!": true,
-        "#": "JsonModel 7 (JSON_MODEL_LOOSE_FLOAT)"
-      },
-      "Schema": "$#",
-      "bsonType": {
-        "|": [
-          "_null",
-          "_bool",
-          "_string",
-          "_object",
-          "_array",
-          "_double",
-          "_int",
-          "_long",
-          "_decimal",
-          "_binData",
-          "_objectId",
-          "_date",
-          "_regex",
-          "_javascript",
-          "_timestamp",
-          "_minKey",
-          "_maxKey"
-        ],
-        "#": "JsonModel 9 (JSON_MODEL_LOOSE_FLOAT)"
-      },
-      "#": "Symbol 3",
-      "": "https://json-model.org/models/json-schema-draft-04"
-    },
-    "~": "https://json-model.org/models/json-model"
+    "#": "JsonModel 8 (JSON_MODEL_LOOSE_FLOAT)"
   },
-  {
-    "@": [
-      "$Schema"
-    ],
-    ">=": 1,
-    "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
-  },
-  {
-    "|": [
-      "_null",
-      "_boolean",
-      "_number",
-      "_string",
-      "_array",
-      "_object"
-    ],
-    "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
-  },
-  {
-    "@": [
-      ""
-    ],
-    ">=": 1,
-    "!": true,
-    "#": "JsonModel 6 (JSON_MODEL_LOOSE_FLOAT)"
-  },
-  {
-    "@": [
-      "$simpleTypes"
-    ],
-    ">=": 1,
-    "!": true,
-    "#": "JsonModel 7 (JSON_MODEL_LOOSE_FLOAT)"
-  },
-  "$#",
+  "$ObjectSchema",
   {
     "|": [
       "_null",
@@ -313,6 +396,6 @@
       "_minKey",
       "_maxKey"
     ],
-    "#": "JsonModel 9 (JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 10 (JSON_MODEL_LOOSE_FLOAT)"
   }
 ]

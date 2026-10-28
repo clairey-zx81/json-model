@@ -1,5 +1,5 @@
 WARNING:json-model:url-looking bad: add missing $ or prefix with _ for string constants
-WARNING:json-model:tpath=$bad#Point trafo=$NONE
-WARNING:json-model:tpath=$bad#Polygon trafo={'*': {'#': ''}}
+WARNING:json-model:1: tpath=$bad#Point trafo=$NONE
+WARNING:json-model:1: tpath=$bad#Polygon trafo={'*': {'#': ''}}
 ERROR:json-model:cannot add object to null at ['%', '$bad#Polygon']
 ERROR:json-model:invalid model _bad_tref.model.json

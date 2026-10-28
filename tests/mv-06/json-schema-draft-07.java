@@ -86,11 +86,11 @@ public class json_schema_draft_07 extends ModelChecker
         return res;
     }
 
-    // check $arrayTypes (.'$arrayTypes')
+    // check $typeArray (.'$typeArray')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
-        // .'$arrayTypes'
-        // .'$arrayTypes'.'@'
+        // .'$typeArray'
+        // .'$typeArray'.'@'
         boolean res = json.isArray(val);
         if (res)
         {
@@ -101,11 +101,11 @@ public class json_schema_draft_07 extends ModelChecker
                 arr_1_idx++;
                 Object arr_1_item = arr_1_item_loop.next();
                 Path arr_1_lpath = new Path(arr_1_idx, path);
-                // .'$arrayTypes'.'@'.0
+                // .'$typeArray'.'@'.0
                 res = json_model_4(arr_1_item, (path != null ? arr_1_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$simpleTypes\" [.'$arrayTypes'.'@'.0]", (path != null ? arr_1_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$simpleTypes\" [.'$typeArray'.'@'.0]", (path != null ? arr_1_lpath : null));
                     break;
                 }
             }
@@ -116,12 +116,12 @@ public class json_schema_draft_07 extends ModelChecker
             res = rt.array_is_unique(val, path, rep) && ival_1 >= 1;
             if (! res)
             {
-                if (rep != null) rep.addEntry("constraints failed [.'$arrayTypes']", path);
+                if (rep != null) rep.addEntry("constraints failed [.'$typeArray']", path);
             }
         }
         else
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$arrayTypes'.'@']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$typeArray'.'@']", path);
         }
         return res;
     }
@@ -638,7 +638,7 @@ public class json_schema_draft_07 extends ModelChecker
             res = json_model_5(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected value for model \"$arrayTypes\" [.'$ObjectSchema'.type.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$typeArray\" [.'$ObjectSchema'.type.'|'.1]", path);
             }
         }
         if (res)
@@ -816,7 +816,7 @@ public class json_schema_draft_07 extends ModelChecker
             json_schema_draft_07_map_pmap.put("URI-REFERENCE", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             json_schema_draft_07_map_pmap.put("schemaArray", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             json_schema_draft_07_map_pmap.put("simpleTypes", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            json_schema_draft_07_map_pmap.put("arrayTypes", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            json_schema_draft_07_map_pmap.put("typeArray", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             json_schema_draft_07_map_pmap.put("ObjectSchema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
             json_schema_draft_07_map_pmap.put("Schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
                 super.init(json);

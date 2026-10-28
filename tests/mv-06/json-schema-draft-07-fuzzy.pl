@@ -535,7 +535,7 @@ sub _jm_f_28($$$)
         push @$rep, ["unexpected value for model \"\$simpleTypes\" [.'\$schema#ObjectSchema'.type.'|'.0]", $path] if defined $rep;
         # .'$schema#ObjectSchema'.type.'|'.1
         $res = json_model_7($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\$arrayTypes\" [.'\$schema#ObjectSchema'.type.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$typeArray\" [.'\$schema#ObjectSchema'.type.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -657,12 +657,12 @@ sub json_model_6($$$)
     return $res;
 }
 
-# check $schema#arrayTypes (.'$schema#arrayTypes')
+# check $schema#typeArray (.'$schema#typeArray')
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .'$schema#arrayTypes'
-    # .'$schema#arrayTypes'.'@'
+    # .'$schema#typeArray'
+    # .'$schema#typeArray'.'@'
     my $res = jm_is_array($val);
     if ($res)
     {
@@ -670,11 +670,11 @@ sub json_model_7($$$)
         {
             my $arr_3_item = $$val[$arr_3_idx];
             my $arr_3_lpath = defined $path ? [@{$path}, $arr_3_idx] : undef;
-            # .'$schema#arrayTypes'.'@'.0
+            # .'$schema#typeArray'.'@'.0
             $res = json_model_6($arr_3_item, defined $path ? $arr_3_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\$simpleTypes\" [.'\$schema#arrayTypes'.'\@'.0]", defined $path ? $arr_3_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$simpleTypes\" [.'\$schema#typeArray'.'\@'.0]", defined $path ? $arr_3_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -683,11 +683,11 @@ sub json_model_7($$$)
     {
         my $ival_2 = scalar @$val;
         $res = jm_is_unique_array($val, $path, $rep) && $ival_2 >= 1;
-        push @$rep, ["constraints failed [.'\$schema#arrayTypes']", $path] if defined $rep and not $res;
+        push @$rep, ["constraints failed [.'\$schema#typeArray']", $path] if defined $rep and not $res;
     }
     else
     {
-        push @$rep, ["not array or unexpected array [.'\$schema#arrayTypes'.'\@']", $path] if defined $rep;
+        push @$rep, ["not array or unexpected array [.'\$schema#typeArray'.'\@']", $path] if defined $rep;
     }
     return $res;
 }

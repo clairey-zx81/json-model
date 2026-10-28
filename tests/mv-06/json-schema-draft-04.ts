@@ -10,26 +10,23 @@ export type stringArray = string[]
 
 export type typeArray = simpleTypes[]
 
-export type Schema = string
-
-export interface RootModel_definitions {
+export interface ObjectSchema_definitions {
 	[key: string]: Schema
 }
 
-export interface RootModel_properties {
+export interface ObjectSchema_properties {
 	[key: string]: Schema
 }
 
-export interface RootModel_patternProperties {
+export interface ObjectSchema_patternProperties {
 	[key: string]: Schema
 }
 
-export interface RootModel_dependencies {
+export interface ObjectSchema_dependencies {
 	[key: string]: (Schema | stringArray)
 }
 
-/* JSON Model for JSON Schema Draft 04 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */
-export interface RootModel {
+export interface ObjectSchema {
 	id?: string
 	$schema?: string
 	title?: string
@@ -52,10 +49,10 @@ export interface RootModel {
 	minProperties?: number
 	required?: stringArray
 	additionalProperties?: (boolean | Schema)
-	definitions?: RootModel_definitions
-	properties?: RootModel_properties
-	patternProperties?: RootModel_patternProperties
-	dependencies?: RootModel_dependencies
+	definitions?: ObjectSchema_definitions
+	properties?: ObjectSchema_properties
+	patternProperties?: ObjectSchema_patternProperties
+	dependencies?: ObjectSchema_dependencies
 	enum?: any[]
 	type?: (simpleTypes | typeArray)
 	format?: string
@@ -65,3 +62,7 @@ export interface RootModel {
 	not?: Schema
 	$ref?: string
 }
+
+export type Schema = ObjectSchema
+
+export type RootModel = Schema

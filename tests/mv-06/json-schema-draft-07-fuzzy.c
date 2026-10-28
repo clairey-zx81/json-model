@@ -690,7 +690,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                             res = json_model_7(pval, (path ? &lpath_0 : NULL), rep);
                             if (unlikely(! res))
                             {
-                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$arrayTypes\" [.'$schema#ObjectSchema'.type.'|'.1]", (path ? &lpath_0 : NULL));
+                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$typeArray\" [.'$schema#ObjectSchema'.type.'|'.1]", (path ? &lpath_0 : NULL));
                             }
                         }
                         if (likely(res))
@@ -980,11 +980,11 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check $schema#arrayTypes (.'$schema#arrayTypes')
+// check $schema#typeArray (.'$schema#typeArray')
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .'$schema#arrayTypes'
-    // .'$schema#arrayTypes'.'@'
+    // .'$schema#typeArray'
+    // .'$schema#typeArray'.'@'
     bool res = json_is_array(val);
     if (likely(res))
     {
@@ -993,11 +993,11 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
         json_array_foreach(val, arr_3_idx, arr_3_item)
         {
             jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, path, NULL };
-            // .'$schema#arrayTypes'.'@'.0
+            // .'$schema#typeArray'.'@'.0
             res = json_model_6(arr_3_item, (path ? &arr_3_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$simpleTypes\" [.'$schema#arrayTypes'.'@'.0]", (path ? &arr_3_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$simpleTypes\" [.'$schema#typeArray'.'@'.0]", (path ? &arr_3_lpath : NULL));
                 break;
             }
         }
@@ -1008,12 +1008,12 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = jm_str_array_is_unique(val, path, rep) && ival_2 >= 1;
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "constraints failed [.'$schema#arrayTypes']", path);
+            if (rep) jm_report_add_entry(rep, "constraints failed [.'$schema#typeArray']", path);
         }
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$schema#arrayTypes'.'@']", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$schema#typeArray'.'@']", path);
     }
     return res;
 }

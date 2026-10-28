@@ -1,3 +1,3 @@
-WARNING:json-model:tpath=$ trafo={'*': {'foo': '_bla'}, '@': 1}
+WARNING:json-model:1: tpath=$ trafo={'*': {'foo': '_bla'}, '@': 1}
 ERROR:json-model:@ restricts other keywords ['@']
 ERROR:json-model:invalid model rw_03.model.json
