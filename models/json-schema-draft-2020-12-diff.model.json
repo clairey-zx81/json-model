@@ -1,0 +1,20 @@
+{
+  "#": "JSON Schema Draft 2020-12 from 2019-09",
+  "~": "https://json-model.org/models/json-model",
+  "%": {
+    "<": "$https://json-model.org/models/json-schema-draft-2019-09",
+    "$core": {
+      "/": [ "?$recursiveRef", "?$recursiveAnchor" ],
+      "*": { "?$dynamicRef": "", "?$dynamicAnchor": "" }
+    },
+    "$core.?$schema": "_https://json-schema.org/draft/2020-12/schema",
+    "$applicator": {
+      "/": [ "?items", "?additionalItems" ],
+      "*": {
+        "?items": "$Schema",
+        "?prefixItems": "$schemaArray"
+      }
+    }
+  },
+  "@": "$Schema"
+}
