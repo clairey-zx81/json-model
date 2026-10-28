@@ -1,0 +1,17 @@
+[
+  [ true,  {} ],
+  [ true,  {"c": "X"} ],
+  [ false, {"c": "Y"} ],
+  [ false, {"no-such-prop": null} ],
+  [ false, {"c": "X", "no-such-prop": 42} ],
+  [ false, {"c": "Y", "no-such-prop": 42} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]
