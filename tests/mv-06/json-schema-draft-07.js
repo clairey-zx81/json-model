@@ -67,11 +67,11 @@ function json_model_4(val, path, rep)
     return res
 }
 
-// check $arrayTypes (.'$arrayTypes')
+// check $typeArray (.'$typeArray')
 function json_model_5(val, path, rep)
 {
-    // .'$arrayTypes'
-    // .'$arrayTypes'.'@'
+    // .'$typeArray'
+    // .'$typeArray'.'@'
     let res = Array.isArray(val)
     if (res)
     {
@@ -79,11 +79,11 @@ function json_model_5(val, path, rep)
         {
             let arr_1_item = val[arr_1_idx]
             let arr_1_lpath = path ? path.concat([arr_1_idx]) : null
-            // .'$arrayTypes'.'@'.0
+            // .'$typeArray'.'@'.0
             res = json_model_4(arr_1_item, (path ? arr_1_lpath : null), rep)
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$simpleTypes\" [.'$arrayTypes'.'@'.0]", (path ? arr_1_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$simpleTypes\" [.'$typeArray'.'@'.0]", (path ? arr_1_lpath : null)])
                 break
             }
         }
@@ -93,10 +93,10 @@ function json_model_5(val, path, rep)
         let ival_1 = val.length
         res = runtime.jm_array_is_unique(val, path, rep) && ival_1 >= 1
         if (! res)
-            rep !== null && rep.push(["constraints failed [.'$arrayTypes']", path])
+            rep !== null && rep.push(["constraints failed [.'$typeArray']", path])
     }
     else
-        rep !== null && rep.push(["not array or unexpected array [.'$arrayTypes'.'@']", path])
+        rep !== null && rep.push(["not array or unexpected array [.'$typeArray'.'@']", path])
     return res
 }
 
@@ -539,7 +539,7 @@ function _jm_f_30(val, path, rep)
         // .'$ObjectSchema'.type.'|'.1
         res = json_model_5(val, path, rep)
         if (! res)
-            rep !== null && rep.push(["unexpected value for model \"$arrayTypes\" [.'$ObjectSchema'.type.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$typeArray\" [.'$ObjectSchema'.type.'|'.1]", path])
     }
     if (res)
     {
@@ -702,7 +702,7 @@ export function check_model_init()
         check_model_map.set("URI-REFERENCE", json_model_2)
         check_model_map.set("schemaArray", json_model_3)
         check_model_map.set("simpleTypes", json_model_4)
-        check_model_map.set("arrayTypes", json_model_5)
+        check_model_map.set("typeArray", json_model_5)
         check_model_map.set("ObjectSchema", json_model_6)
         check_model_map.set("Schema", json_model_7)
     }

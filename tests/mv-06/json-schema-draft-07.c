@@ -96,11 +96,11 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check $arrayTypes (.'$arrayTypes')
+// check $typeArray (.'$typeArray')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .'$arrayTypes'
-    // .'$arrayTypes'.'@'
+    // .'$typeArray'
+    // .'$typeArray'.'@'
     bool res = json_is_array(val);
     if (likely(res))
     {
@@ -109,11 +109,11 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         json_array_foreach(val, arr_1_idx, arr_1_item)
         {
             jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
-            // .'$arrayTypes'.'@'.0
+            // .'$typeArray'.'@'.0
             res = json_model_4(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$simpleTypes\" [.'$arrayTypes'.'@'.0]", (path ? &arr_1_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$simpleTypes\" [.'$typeArray'.'@'.0]", (path ? &arr_1_lpath : NULL));
                 break;
             }
         }
@@ -124,12 +124,12 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = jm_str_array_is_unique(val, path, rep) && ival_1 >= 1;
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "constraints failed [.'$arrayTypes']", path);
+            if (rep) jm_report_add_entry(rep, "constraints failed [.'$typeArray']", path);
         }
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$arrayTypes'.'@']", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$typeArray'.'@']", path);
     }
     return res;
 }
@@ -771,7 +771,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                             res = json_model_5(pval, (path ? &lpath_0 : NULL), rep);
                             if (unlikely(! res))
                             {
-                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$arrayTypes\" [.'$ObjectSchema'.type.'|'.1]", (path ? &lpath_0 : NULL));
+                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$typeArray\" [.'$ObjectSchema'.type.'|'.1]", (path ? &lpath_0 : NULL));
                             }
                         }
                         if (likely(res))
@@ -1045,7 +1045,7 @@ const char *check_model_init(void)
         check_model_map_tab[1] = (jm_propmap_t) { "URI-REFERENCE", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "schemaArray", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "simpleTypes", json_model_4 };
-        check_model_map_tab[4] = (jm_propmap_t) { "arrayTypes", json_model_5 };
+        check_model_map_tab[4] = (jm_propmap_t) { "typeArray", json_model_5 };
         check_model_map_tab[5] = (jm_propmap_t) { "ObjectSchema", json_model_6 };
         check_model_map_tab[6] = (jm_propmap_t) { "Schema", json_model_7 };
         jm_sort_propmap(check_model_map_tab, 7);

@@ -475,7 +475,7 @@ function _jm_f_28(val, path, rep)
         // .'$schema#ObjectSchema'.type.'|'.1
         res = json_model_7(val, path, rep)
         if (! res)
-            rep !== null && rep.push(["unexpected value for model \"$arrayTypes\" [.'$schema#ObjectSchema'.type.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$typeArray\" [.'$schema#ObjectSchema'.type.'|'.1]", path])
     }
     if (res)
     {
@@ -589,11 +589,11 @@ function json_model_6(val, path, rep)
     return res
 }
 
-// check $schema#arrayTypes (.'$schema#arrayTypes')
+// check $schema#typeArray (.'$schema#typeArray')
 function json_model_7(val, path, rep)
 {
-    // .'$schema#arrayTypes'
-    // .'$schema#arrayTypes'.'@'
+    // .'$schema#typeArray'
+    // .'$schema#typeArray'.'@'
     let res = Array.isArray(val)
     if (res)
     {
@@ -601,11 +601,11 @@ function json_model_7(val, path, rep)
         {
             let arr_3_item = val[arr_3_idx]
             let arr_3_lpath = path ? path.concat([arr_3_idx]) : null
-            // .'$schema#arrayTypes'.'@'.0
+            // .'$schema#typeArray'.'@'.0
             res = json_model_6(arr_3_item, (path ? arr_3_lpath : null), rep)
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$simpleTypes\" [.'$schema#arrayTypes'.'@'.0]", (path ? arr_3_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$simpleTypes\" [.'$schema#typeArray'.'@'.0]", (path ? arr_3_lpath : null)])
                 break
             }
         }
@@ -615,10 +615,10 @@ function json_model_7(val, path, rep)
         let ival_2 = val.length
         res = runtime.jm_array_is_unique(val, path, rep) && ival_2 >= 1
         if (! res)
-            rep !== null && rep.push(["constraints failed [.'$schema#arrayTypes']", path])
+            rep !== null && rep.push(["constraints failed [.'$schema#typeArray']", path])
     }
     else
-        rep !== null && rep.push(["not array or unexpected array [.'$schema#arrayTypes'.'@']", path])
+        rep !== null && rep.push(["not array or unexpected array [.'$schema#typeArray'.'@']", path])
     return res
 }
 

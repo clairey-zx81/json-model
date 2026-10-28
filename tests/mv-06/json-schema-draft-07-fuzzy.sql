@@ -516,7 +516,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $schema#arrayTypes (.'$schema#arrayTypes')
+-- check $schema#typeArray (.'$schema#typeArray')
 CREATE OR REPLACE FUNCTION json_model_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -525,13 +525,13 @@ DECLARE
   arr_3_item JSONB;
   ival_2 INT;
 BEGIN
-  -- .'$schema#arrayTypes'
-  -- .'$schema#arrayTypes'.'@'
+  -- .'$schema#typeArray'
+  -- .'$schema#typeArray'.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
     FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_3_item := val -> arr_3_idx;
-      -- .'$schema#arrayTypes'.'@'.0
+      -- .'$schema#typeArray'.'@'.0
       res := json_model_6(arr_3_item, NULL, NULL);
       IF NOT res THEN
         EXIT;

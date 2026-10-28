@@ -112,12 +112,12 @@ sub json_model_4($$$)
     return $res;
 }
 
-# check $arrayTypes (.'$arrayTypes')
+# check $typeArray (.'$typeArray')
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    # .'$arrayTypes'
-    # .'$arrayTypes'.'@'
+    # .'$typeArray'
+    # .'$typeArray'.'@'
     my $res = jm_is_array($val);
     if ($res)
     {
@@ -125,11 +125,11 @@ sub json_model_5($$$)
         {
             my $arr_1_item = $$val[$arr_1_idx];
             my $arr_1_lpath = defined $path ? [@{$path}, $arr_1_idx] : undef;
-            # .'$arrayTypes'.'@'.0
+            # .'$typeArray'.'@'.0
             $res = json_model_4($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\$simpleTypes\" [.'\$arrayTypes'.'\@'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$simpleTypes\" [.'\$typeArray'.'\@'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -138,11 +138,11 @@ sub json_model_5($$$)
     {
         my $ival_1 = scalar @$val;
         $res = jm_is_unique_array($val, $path, $rep) && $ival_1 >= 1;
-        push @$rep, ["constraints failed [.'\$arrayTypes']", $path] if defined $rep and not $res;
+        push @$rep, ["constraints failed [.'\$typeArray']", $path] if defined $rep and not $res;
     }
     else
     {
-        push @$rep, ["not array or unexpected array [.'\$arrayTypes'.'\@']", $path] if defined $rep;
+        push @$rep, ["not array or unexpected array [.'\$typeArray'.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -604,7 +604,7 @@ sub _jm_f_30($$$)
         push @$rep, ["unexpected value for model \"\$simpleTypes\" [.'\$ObjectSchema'.type.'|'.0]", $path] if defined $rep;
         # .'$ObjectSchema'.type.'|'.1
         $res = json_model_5($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\$arrayTypes\" [.'\$ObjectSchema'.type.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$typeArray\" [.'\$ObjectSchema'.type.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -779,7 +779,7 @@ sub check_model_init()
             "URI-REFERENCE" => \&json_model_2,
             "schemaArray" => \&json_model_3,
             "simpleTypes" => \&json_model_4,
-            "arrayTypes" => \&json_model_5,
+            "typeArray" => \&json_model_5,
             "ObjectSchema" => \&json_model_6,
             "Schema" => \&json_model_7,
         );

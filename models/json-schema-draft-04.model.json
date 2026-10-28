@@ -43,7 +43,7 @@
       "?not": "$Schema",
       "?$ref": "$URI"
     },
-    "Schema": {"|": [ true, "$ObjectSchema"]}
+    "Schema": "$ObjectSchema"
   },
   "@": "$Schema"
 }

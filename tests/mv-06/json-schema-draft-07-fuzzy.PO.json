@@ -24,7 +24,7 @@
             "object"
           ]
         },
-        "arrayTypes": {
+        "typeArray": {
           "@": [
             "$simpleTypes"
           ],
@@ -99,7 +99,7 @@
           "?type": {
             "|": [
               "$simpleTypes",
-              "$arrayTypes"
+              "$typeArray"
             ]
           },
           "?format": "",

@@ -372,7 +372,7 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$schema#ObjectSchema'.type.'|'.1
         res = json_model_7(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected value for model \"$arrayTypes\" [.'$schema#ObjectSchema'.type.'|'.1]", path))
+            rep is None or rep.append(("unexpected value for model \"$typeArray\" [.'$schema#ObjectSchema'.type.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
@@ -454,26 +454,26 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("value not in enum [.'$schema#simpleTypes'.'|']", path))
     return res
 
-# check $schema#arrayTypes (.'$schema#arrayTypes')
+# check $schema#typeArray (.'$schema#typeArray')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$schema#arrayTypes'
-    # .'$schema#arrayTypes'.'@'
+    # .'$schema#typeArray'
+    # .'$schema#typeArray'.'@'
     res: bool = isinstance(val, list)
     if res:
         for arr_3_idx, arr_3_item in enumerate(val):
             arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None
-            # .'$schema#arrayTypes'.'@'.0
+            # .'$schema#typeArray'.'@'.0
             res = json_model_6(arr_3_item, arr_3_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$simpleTypes\" [.'$schema#arrayTypes'.'@'.0]", arr_3_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$simpleTypes\" [.'$schema#typeArray'.'@'.0]", arr_3_lpath if path is not None else None))
                 break
     if res:
         ival_2: int = len(val)
         res = is_unique_array(val, path, rep) and ival_2 >= 1
         if not res:
-            rep is None or rep.append(("constraints failed [.'$schema#arrayTypes']", path))
+            rep is None or rep.append(("constraints failed [.'$schema#typeArray']", path))
     else:
-        rep is None or rep.append(("not array or unexpected array [.'$schema#arrayTypes'.'@']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$schema#typeArray'.'@']", path))
     return res
 
 

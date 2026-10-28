@@ -64,26 +64,26 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("value not in enum [.'$simpleTypes'.'|']", path))
     return res
 
-# check $arrayTypes (.'$arrayTypes')
+# check $typeArray (.'$typeArray')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$arrayTypes'
-    # .'$arrayTypes'.'@'
+    # .'$typeArray'
+    # .'$typeArray'.'@'
     res: bool = isinstance(val, list)
     if res:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
-            # .'$arrayTypes'.'@'.0
+            # .'$typeArray'.'@'.0
             res = json_model_4(arr_1_item, arr_1_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$simpleTypes\" [.'$arrayTypes'.'@'.0]", arr_1_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$simpleTypes\" [.'$typeArray'.'@'.0]", arr_1_lpath if path is not None else None))
                 break
     if res:
         ival_1: int = len(val)
         res = is_unique_array(val, path, rep) and ival_1 >= 1
         if not res:
-            rep is None or rep.append(("constraints failed [.'$arrayTypes']", path))
+            rep is None or rep.append(("constraints failed [.'$typeArray']", path))
     else:
-        rep is None or rep.append(("not array or unexpected array [.'$arrayTypes'.'@']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$typeArray'.'@']", path))
     return res
 
 # check json_model_6_map_$comment (.'$ObjectSchema'.'$comment')
@@ -412,7 +412,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$ObjectSchema'.type.'|'.1
         res = json_model_5(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected value for model \"$arrayTypes\" [.'$ObjectSchema'.type.'|'.1]", path))
+            rep is None or rep.append(("unexpected value for model \"$typeArray\" [.'$ObjectSchema'.type.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
@@ -548,7 +548,7 @@ def check_model_init():
             "URI-REFERENCE": json_model_2,
             "schemaArray": json_model_3,
             "simpleTypes": json_model_4,
-            "arrayTypes": json_model_5,
+            "typeArray": json_model_5,
             "ObjectSchema": json_model_6,
             "Schema": json_model_7,
         }
