@@ -1035,7 +1035,7 @@ class JsonModel:
         """Apply this transformation on j."""
 
         if not self._isTrafo(trafo):
-            return trafo
+            return j
         assert isinstance(trafo, dict)  # pyright hint
         if self._debug:
             log.debug(f"{self._id}: applyTrafo trafo={trafo} on j={j} [{path}]")
