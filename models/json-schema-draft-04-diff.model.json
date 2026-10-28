@@ -1,0 +1,41 @@
+{
+  "#": "JSON Schema Draft 04 as a diff from Draft 03",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "schema": "$https://json-model.org/models/json-schema-draft-03"
+  },
+  "%": {
+    "$schema#": {
+      "#": "update definitions",
+      "/": [ "distinctSchemaArray", "allTypes" ],
+      "*": {
+        "schemaArray": {"@": ["$Schema"], ">=": 1},
+        "simpleTypes": {"|": ["null", "boolean", "integer", "number", "string", "array", "object"]},
+        "stringArray": {"@": [""], ">=": 1, "!": true},
+        "typeArray": {"@": ["$simpleTypes"], ">=": 1, "!": true}
+      }
+    },
+    "$schema": {
+      "#": "update properties",
+      "/": ["?disallow", "?extends", "?required", "?dependencies", "?type", "?$ref"],
+      "~": { "?divisibleBy": "?multipleOf" },
+      "*": {
+        "#.r": "5 property replacements",
+        "?required": "$stringArray",
+        "?dependencies": {"": {"|": ["$Schema", "$stringArray"]}},
+        "?type": {"|": ["$simpleTypes", "$typeArray"]},
+        "?format": "",
+        "?$ref": "$URI",
+        "#.n": "7 new properties",
+        "?definitions": {"": "$Schema"},
+        "?maxProperties": 0,
+        "?minProperties": 0,
+        "?allOf": "$schemaArray",
+        "?anyOf": "$schemaArray",
+        "?oneOf": "$schemaArray",
+        "?not": "$Schema"
+      }
+    }
+  },
+  "@": "$schema"
+}
