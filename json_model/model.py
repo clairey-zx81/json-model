@@ -1029,16 +1029,18 @@ class JsonModel:
 
     def _isTrafo(self, trafo: ModelTrafo):
         """Tell whether trafo is a transformation object."""
-        return isinstance(trafo, dict) and set(trafo.keys()).issubset({"#", "/", "*", "~"})
+        return isinstance(trafo, dict) and \
+            set(filter(lambda p: not p.startswith("#"), trafo.keys())).issubset({"/", "*", "~"})
 
     def _applyTrafo(self, j: Jsonable, trafo: ModelTrafo, path: ModelPath):
         """Apply this transformation on j."""
 
+        if self._debug:
+            log.debug(f"{self._id}: IN applyTrafo trafo={trafo} on j={j} [{path}]")
+
         if not self._isTrafo(trafo):
             return j
         assert isinstance(trafo, dict)  # pyright hint
-        if self._debug:
-            log.debug(f"{self._id}: applyTrafo trafo={trafo} on j={j} [{path}]")
 
         if "/" in trafo:
             sub = trafo["/"]
@@ -1140,6 +1142,9 @@ class JsonModel:
                 j.update(**new)
             else:
                 raise ModelError(f"unexpected rename type at {path}")
+
+        if self._debug >= 3:
+            log.debug(f"{self._id}: OUT applyTrafo is j={j} [{path}]")
 
         return j
 
@@ -1250,7 +1255,7 @@ class JsonModel:
 
         # NOTE transformation specs may be empty
         for tpath, trafo in rules.items():
-            log.warning(f"tpath={tpath} trafo={trafo}")
+            log.warning(f"{self._id}: tpath={tpath} trafo={trafo}")
             lpath = ["%", tpath]  # FIXME
             # typing issue, cannot assign list[str] to list[str|int] !?
             jm, path = self._parsePath(tpath, lpath)  # type: ignore
@@ -1260,4 +1265,4 @@ class JsonModel:
                 self._applyModelTrafoAtPath(jm, path, trafo, lpath)  # type: ignore
 
         if self._debug >= 2:
-            log.debug(f"edited model: {self._model} ({self._defs})")
+            log.debug(f"{self._id}: edited model {self._model} ({self._defs})")
