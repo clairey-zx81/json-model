@@ -6,7 +6,7 @@
     "schema": "$https://json-model.org/models/json-schema-draft-04"
   },
   "%": {
-    "$schema": {
+    "$schema#ObjectSchema": {
       "/": ["?pattern", "?$ref"],
       "*": { "": "$ANY", "?pattern": "", "?$ref": "" }
     }
