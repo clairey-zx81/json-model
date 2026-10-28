@@ -2,7 +2,7 @@
 
 ## Current Tasks
 
-- [x] models: json schema drafts as a diff (wip, 4, 6, 7)
+- [x] models: json schema drafts as a diff (wip, 4, 6, 7, 9)
 - [ ] models: add for openapi overlay spec, json patch and others
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
