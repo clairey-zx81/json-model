@@ -5,18 +5,20 @@
     "<": "$https://json-model.org/models/json-schema-draft-04",
     "$stringArray": { "/": [ ">=", "!" ] },
     "$typeArray": { "/": "!" },
+    "$#": {
+      "/": "Schema",
+      "*": { "Schema": { "|": [true, "$ObjectSchema"] } }
+    },
     "$ObjectSchema": {
       "/": [
         "?exclusiveMinimum", "?exclusiveMaximum", "?additionalItems",
         "?additionalProperties", "?patternProperties", "?$ref", "?$schema"
       ],
       "*": {
-        "#.n": "4 new properties",
         "?examples": [ "$ANY" ],
         "?contains": "$Schema",
         "?propertyNames": "$Schema",
         "?const": "$ANY",
-        "#.r": "property replacements",
         "?exclusiveMinimum": -1.0,
         "?exclusiveMaximum": -1.0,
         "?additionalItems": "$Schema",
@@ -26,8 +28,7 @@
         "?$schema": "$URI"
       },
       "~": { "?id": "?$id" }
-    },
-    "$Schema": {"|": [true, "$ObjectSchema"]}
+    }
   },
   "@": "$Schema"
 }

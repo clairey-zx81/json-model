@@ -1,7 +1,20 @@
 {
   "#": "JsonModel 1 with defs",
   "$": {
-    "schema": {
+    "allTypes": {
+      "|": [
+        "_null",
+        "_boolean",
+        "_integer",
+        "_number",
+        "_string",
+        "_array",
+        "_object",
+        "_any"
+      ],
+      "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)"
+    },
+    "Schema": {
       "?type": {
         "|": [
           "$allTypes",
@@ -78,28 +91,11 @@
       "?id": "",
       "?$schema": "",
       "": "$ANY",
-      "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)",
-      "$": {
-        "": "https://json-model.org/models/json-schema-draft-01",
-        "allTypes": {
-          "|": [
-            "null",
-            "boolean",
-            "integer",
-            "number",
-            "string",
-            "array",
-            "object",
-            "any"
-          ]
-        },
-        "Schema": "$#"
-      },
-      "~": "https://json-model.org/models/json-model"
+      "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "#": "Symbol 1",
-    "": "https://json-model.org/models/json-schema-draft-01-fuzzy"
+    "": "./json-schema-draft-01-fuzzy"
   },
-  "@": "$schema",
+  "@": "$Schema",
   "~": "https://json-model.org/models/json-model"
 }

@@ -1,0 +1,143 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "allTypes": {
+      "|": [
+        "_null",
+        "_boolean",
+        "_integer",
+        "_number",
+        "_string",
+        "_array",
+        "_object",
+        "_any"
+      ],
+      "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)"
+    },
+    "Schema": {
+      "?type": {
+        "|": [
+          "$allTypes",
+          [
+            {
+              "|": [
+                "",
+                "$Schema"
+              ]
+            }
+          ]
+        ]
+      },
+      "?properties": {
+        "": "$Schema"
+      },
+      "?items": {
+        "|": [
+          "$Schema",
+          [
+            "$Schema"
+          ]
+        ]
+      },
+      "?additionalProperties": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?minimum": -1.0,
+      "?maximum": -1.0,
+      "?minItems": 0,
+      "?maxItems": 0,
+      "?pattern": "$REGEX",
+      "?minLength": 0,
+      "?maxLength": 0,
+      "?enum": {
+        "@": [
+          "$ANY"
+        ],
+        ">=": 1,
+        "!": true
+      },
+      "?uniqueItems": true,
+      "?title": "",
+      "?description": "",
+      "?format": {
+        "|": [
+          "_date-time",
+          "_date",
+          "_time",
+          "_utc-millisec",
+          "_regex",
+          "_color",
+          "_style",
+          "_phone",
+          "_uri",
+          "_email",
+          "_ip-address",
+          "_ipv6",
+          "_host-name"
+        ]
+      },
+      "?default": "$ANY",
+      "?divisibleBy": 1.0,
+      "?disallow": {
+        "|": [
+          "",
+          "$distinctSchemaArray"
+        ]
+      },
+      "?extends": {
+        "|": [
+          "$Schema",
+          [
+            "$Schema"
+          ]
+        ]
+      },
+      "?id": "",
+      "?$schema": "",
+      "?patternProperties": {
+        "": "$Schema"
+      },
+      "?additionalItems": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?dependencies": {
+        "": {
+          "|": [
+            "",
+            [
+              ""
+            ],
+            "$Schema"
+          ]
+        }
+      },
+      "?$ref": "",
+      "?required": true,
+      "?exclusiveMinimum": true,
+      "?exclusiveMaximum": true,
+      "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
+    },
+    "distinctSchemaArray": {
+      "@": [
+        {
+          "|": [
+            "",
+            "$Schema"
+          ]
+        }
+      ],
+      "!": true,
+      "#": "JsonModel 6"
+    },
+    "#": "Symbol 1",
+    "": "./json-schema-draft-03-diff"
+  },
+  "@": "$Schema",
+  "~": "https://json-model.org/models/json-model"
+}

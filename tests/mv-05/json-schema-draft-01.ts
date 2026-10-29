@@ -4,16 +4,13 @@
 
 export type allTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object" | "any")
 
-export type Schema = string
-
-export interface RootModel_properties {
+export interface Schema_properties {
 	[key: string]: Schema
 }
 
-/* JSON Model for JSON Schema Draft 01 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */
-export interface RootModel {
+export interface Schema {
 	type?: (allTypes | (string | Schema)[])
-	properties?: RootModel_properties
+	properties?: Schema_properties
 	items?: (Schema | Schema[])
 	optional?: boolean
 	additionalProperties?: (boolean | Schema)
@@ -39,3 +36,5 @@ export interface RootModel {
 	id?: string
 	$schema?: string
 }
+
+export type RootModel = Schema

@@ -1,20 +1,17 @@
 {
   "#": "JSON Schema Draft 02 as a diff from Draft 01",
   "~": "https://json-model.org/models/json-model",
-  "$": {
-    "": "https://json-model.org/models/json-schema-draft-02-diff",
-    "schema": "$https://json-model.org/models/json-schema-draft-01"
-  },
   "%": {
-    "$schema#disStrArray": { "@": [""], "!": true },
-    "$schema.?disallow.|": {
+    "<": "$https://json-model.org/models/json-schema-draft-01",
+    "$distinctStringArray": { "@": [""], "!": true },
+    "$Schema.?disallow.|": {
       "/": [ [""] ],
-      "*": [ "$disStrArray" ]
+      "*": [ "$distinctStringArray" ]
     },
-    "$schema.?enum": {
+    "$Schema.?enum": {
       "*": { "!": true }
     },
-    "$schema": {
+    "$Schema": {
       "/": "?maxDecimal",
       "*": {
         "?divisibleBy": 1.0,
@@ -22,5 +19,5 @@
       }
     }
   },
-  "@": "$schema"
+  "@": "$Schema"
 }

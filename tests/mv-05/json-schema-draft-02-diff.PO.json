@@ -1,0 +1,108 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "allTypes": {
+      "|": [
+        "_null",
+        "_boolean",
+        "_integer",
+        "_number",
+        "_string",
+        "_array",
+        "_object",
+        "_any"
+      ],
+      "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)"
+    },
+    "Schema": {
+      "?type": {
+        "|": [
+          "$allTypes",
+          [
+            {
+              "|": [
+                "",
+                "$Schema"
+              ]
+            }
+          ]
+        ]
+      },
+      "?properties": {
+        "": "$Schema"
+      },
+      "?items": {
+        "|": [
+          "$Schema",
+          [
+            "$Schema"
+          ]
+        ]
+      },
+      "?optional": true,
+      "?additionalProperties": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?requires": {
+        "|": [
+          "",
+          "$Schema"
+        ]
+      },
+      "?minimum": -1.0,
+      "?maximum": -1.0,
+      "?minimumCanEqual": true,
+      "?maximumCanEqual": true,
+      "?minItems": 0,
+      "?maxItems": 0,
+      "?pattern": "$REGEX",
+      "?minLength": 0,
+      "?maxLength": 0,
+      "?enum": {
+        "@": [
+          "$ANY"
+        ],
+        ">=": 1,
+        "!": true
+      },
+      "?title": "",
+      "?description": "",
+      "?format": "",
+      "?contentEncoding": "",
+      "?default": "$ANY",
+      "?disallow": {
+        "|": [
+          "",
+          "$distinctStringArray"
+        ]
+      },
+      "?extends": {
+        "|": [
+          "$Schema",
+          [
+            "$Schema"
+          ]
+        ]
+      },
+      "?id": "",
+      "?$schema": "",
+      "?divisibleBy": 1.0,
+      "?uniqueItems": true,
+      "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
+    },
+    "distinctStringArray": {
+      "@": [
+        ""
+      ],
+      "!": true,
+      "#": "JsonModel 5"
+    },
+    "#": "Symbol 1",
+    "": "./json-schema-draft-02-diff"
+  },
+  "@": "$Schema",
+  "~": "https://json-model.org/models/json-model"
+}

@@ -51,13 +51,13 @@ EXPECT: dict[str, int] = {
     "mv-04:values": 115,
     "mv-04:verrors:schema": 15,
     # chunk 05
-    "mv-05:models": 9,
-    "mv-05:values": 81,
+    "mv-05:models": 11,
+    "mv-05:values": 99,
     # chunk 06
     # FIXME schema missing Schema
-    "mv-06:models": 9,
-    "mv-06:values": 89,
-    "mv-06:verrors:schema": 24,
+    "mv-06:models": 12,
+    "mv-06:values": 116,
+    "mv-06:verrors:schema": 53,
     # chunk 07
     # FIXME schema missing Schema
     "mv-07:models": 5,
@@ -151,8 +151,8 @@ EXPECT: dict[str, int] = {
     "mv-1c:verrors:schema": 32,
     # chunk 1D
     # FIXME schema missing Schema
-    "mv-1d:models": 5,
-    "mv-1d:values": 45,
+    "mv-1d:models": 6,
+    "mv-1d:values": 54,
     "mv-1d:verrors:schema": 9,
     # chunk 1E
     "mv-1e:models": 10,

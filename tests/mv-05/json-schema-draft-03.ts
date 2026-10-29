@@ -6,29 +6,26 @@ export type allTypes = ("null" | "boolean" | "integer" | "number" | "string" | "
 
 export type distinctSchemaArray = (string | Schema)[]
 
-export type Schema = string
-
-export interface RootModel_properties {
+export interface Schema_properties {
 	[key: string]: Schema
 }
 
-export interface RootModel_patternProperties {
+export interface Schema_patternProperties {
 	[key: string]: Schema
 }
 
-export interface RootModel_dependencies {
+export interface Schema_dependencies {
 	[key: string]: (string | string[] | Schema)
 }
 
-/* JSON Model for JSON Schema Draft 03 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */
-export interface RootModel {
+export interface Schema {
 	type?: (allTypes | (string | Schema)[])
-	properties?: RootModel_properties
-	patternProperties?: RootModel_patternProperties
+	properties?: Schema_properties
+	patternProperties?: Schema_patternProperties
 	additionalProperties?: (boolean | Schema)
 	items?: (Schema | Schema[])
 	additionalItems?: (boolean | Schema)
-	dependencies?: RootModel_dependencies
+	dependencies?: Schema_dependencies
 	required?: boolean
 	minimum?: number
 	maximum?: number
@@ -52,3 +49,5 @@ export interface RootModel {
 	$schema?: string
 	$ref?: string
 }
+
+export type RootModel = Schema

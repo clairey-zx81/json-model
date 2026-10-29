@@ -1,0 +1,122 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "Schema": {
+      "?properties": {
+        "": "$Schema"
+      },
+      "?patternProperties": {
+        "": "$Schema"
+      },
+      "?additionalProperties": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?items": {
+        "|": [
+          "$Schema",
+          [
+            "$Schema"
+          ]
+        ]
+      },
+      "?additionalItems": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?minimum": -1.0,
+      "?maximum": -1.0,
+      "?exclusiveMaximum": true,
+      "?exclusiveMinimum": true,
+      "?minItems": 0,
+      "?maxItems": 0,
+      "?pattern": "$REGEX",
+      "?minLength": 0,
+      "?maxLength": 0,
+      "?enum": {
+        "@": [
+          "$ANY"
+        ],
+        ">=": 1,
+        "!": true
+      },
+      "?uniqueItems": true,
+      "?title": "",
+      "?description": "",
+      "?default": "$ANY",
+      "?id": "",
+      "?$schema": "",
+      "?required": "$stringArray",
+      "?dependencies": {
+        "": {
+          "|": [
+            "$Schema",
+            "$stringArray"
+          ]
+        }
+      },
+      "?type": {
+        "|": [
+          "$simpleTypes",
+          "$typeArray"
+        ]
+      },
+      "?format": "",
+      "?$ref": "$URI",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "?maxProperties": 0,
+      "?minProperties": 0,
+      "?allOf": "$schemaArray",
+      "?anyOf": "$schemaArray",
+      "?oneOf": "$schemaArray",
+      "?not": "$Schema",
+      "?multipleOf": 1.0,
+      "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
+    },
+    "schemaArray": {
+      "@": [
+        "$Schema"
+      ],
+      ">=": 1,
+      "#": "JsonModel 6"
+    },
+    "simpleTypes": {
+      "|": [
+        "_null",
+        "_boolean",
+        "_integer",
+        "_number",
+        "_string",
+        "_array",
+        "_object"
+      ],
+      "#": "JsonModel 7"
+    },
+    "stringArray": {
+      "@": [
+        ""
+      ],
+      ">=": 1,
+      "!": true,
+      "#": "JsonModel 8"
+    },
+    "typeArray": {
+      "@": [
+        "$simpleTypes"
+      ],
+      ">=": 1,
+      "!": true,
+      "#": "JsonModel 9"
+    },
+    "#": "Symbol 1",
+    "": "./json-schema-draft-04-diff"
+  },
+  "@": "$Schema",
+  "~": "https://json-model.org/models/json-model"
+}

@@ -2,27 +2,30 @@
 // for ./json-schema-draft-03-nesting
 // see https://json-model.org/
 
-export interface schema_properties {
-	[key: string]: string
+export type allTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object" | "any")
+
+export type distinctSchemaArray = (string | Schema)[]
+
+export interface Schema_properties {
+	[key: string]: Schema
 }
 
-export interface schema_patternProperties {
-	[key: string]: string
+export interface Schema_patternProperties {
+	[key: string]: Schema
 }
 
-export interface schema_dependencies {
-	[key: string]: (string | string[])
+export interface Schema_dependencies {
+	[key: string]: (string | string[] | Schema)
 }
 
-/* JSON Model for JSON Schema Draft 03 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */
-export interface schema {
-	type?: (string | string[])
-	properties?: schema_properties
-	patternProperties?: schema_patternProperties
-	additionalProperties?: (boolean | string)
-	items?: (string | string[])
-	additionalItems?: (boolean | string)
-	dependencies?: schema_dependencies
+export interface Schema {
+	type?: (allTypes | (string | Schema)[])
+	properties?: Schema_properties
+	patternProperties?: Schema_patternProperties
+	additionalProperties?: (boolean | Schema)
+	items?: (Schema | Schema[])
+	additionalItems?: (boolean | Schema)
+	dependencies?: Schema_dependencies
 	required?: boolean
 	minimum?: number
 	maximum?: number
@@ -40,12 +43,12 @@ export interface schema {
 	format?: ("date-time" | "date" | "time" | "utc-millisec" | "regex" | "color" | "style" | "phone" | "uri" | "email" | "ip-address" | "ipv6" | "host-name")
 	default?: any
 	divisibleBy?: number
-	disallow?: string
-	extends?: (string | string[])
+	disallow?: (string | distinctSchemaArray)
+	extends?: (Schema | Schema[])
 	id?: string
 	$schema?: string
 	$ref?: string
 	[key: string]: any
 }
 
-export type RootModel = schema
+export type RootModel = Schema
