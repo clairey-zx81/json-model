@@ -2,7 +2,7 @@
 
 ## Current Tasks
 
-- [x] models: json schema drafts as a diff (wip, 4, 6, 7, 9)
+- [x] models: json schema drafts as a diff (4, 6, 7, 8, 9)
 - [x] tests: also check json schema diff versions
 - [x] tests: add more trafo tests
 - [ ] models: add for openapi overlay spec, json patch and others
