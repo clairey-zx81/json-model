@@ -1266,11 +1266,12 @@ class JsonModel:
 
         # NOTE transformation specs may be empty
         for tpath, trafo in rules.items():
-            log.warning(f"{self._id}: tpath={tpath} trafo={trafo}")
+            if self._debug:
+                log.debug(f"{self._id}: tpath={tpath} trafo={trafo}")
             lpath = ["%", tpath]  # FIXME
             # typing issue, cannot assign list[str] to list[str|int] !?
             jm, path = self._parsePath(tpath, lpath)  # type: ignore
-            log.warning(f"{self._id}: {jm._id} is {jm._model}")
+            # log.debug(f"{self._id}: {jm._id} is {jm._model}")
             if tpath.endswith("#"):  # model namespace
                 self._applyRootTrafoAtPath(jm, path, trafo, lpath)
             else:
