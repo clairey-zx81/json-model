@@ -294,7 +294,7 @@ class JsonModel:
 
             # extract actual definitions
             self._defs.update({
-                n: JsonModel(m, resolver, url=self._url + "#" + n,
+                n: JsonModel(m, self._resolver, url=self._url + "#" + n,
                              head=self._head, scope=self._defs, debug=self._debug,
                              loose_int=self._loose_int, loose_float=self._loose_float,
                              dname=n, single_line=self._single_line)
@@ -1023,6 +1023,7 @@ class JsonModel:
         else:
             name, xpath = tpath, []
         log.debug(f"{self._id}: parsePath name={name} xpath={xpath}")
+        # log.debug(f"{self._id}: defs={list(self._defs.keys())}")
         jm = self.resolveRef(name, path, True)
         log.debug(f"{self._id}: {name} resolved to {jm._id}")
         return (jm, xpath)
@@ -1036,7 +1037,7 @@ class JsonModel:
         """Apply this transformation on j."""
 
         if self._debug:
-            log.debug(f"{self._id}: IN applyTrafo trafo={trafo} on j={j} [{path}]")
+            log.debug(f"{self._id}: IN applyTrafo trafo={trafo} on j={j} at {path}")
 
         # replace
         if not self._isTrafo(trafo):
@@ -1074,14 +1075,15 @@ class JsonModel:
                     # keep only those props, as well as comments
                     for prop in list(j.keys()):
                         if prop.startswith("#") or prop in add:
-                            pass
-                        else:
-                            del j[prop]
+                            continue
+                        del j[prop]
                 else:
                     raise ModelError(f"cannot add list to {tname(j)} at {path}")
             elif isinstance(add, dict):
                 if isinstance(j, dict):
                     for k, v in add.items():
+                        if k.startswith("#"):
+                            continue
                         if k in j:
                             log.warning(f"overwriting property {k} at {path}")
                         j[k] = v
@@ -1131,6 +1133,7 @@ class JsonModel:
                                 pn = p[1:]
                                 new[pn] = v
                                 del j[p]
+                        # else skip
                     j.update(**new)
                     new = {}
                 # simple changes
@@ -1145,7 +1148,7 @@ class JsonModel:
                 raise ModelError(f"unexpected rename type at {path}")
 
         if self._debug >= 3:
-            log.debug(f"{self._id}: OUT applyTrafo is j={j} [{path}]")
+            log.debug(f"{self._id}: OUT applyTrafo is j={j} {path}")
 
         return j
 
@@ -1158,7 +1161,9 @@ class JsonModel:
         """Apply a transformation into a JSON Model."""
 
         if self._debug:
-            log.debug(f"{jm._id}: {trafo} at {path}: {tpath}")
+            log.debug(f"{jm._id}: applying {trafo} at {path}: {tpath}")
+            if self._debug >= 3:
+                log.debug(f"{jm._id}: model = {jm._model}")
 
         j = jm._model
 
@@ -1214,6 +1219,7 @@ class JsonModel:
             if not isinstance(names, list) or not all(isinstance(s, str) for s in names):
                 raise ModelError(f"namespace remove must be a list of names at {path}")
             for name in names:
+                # FIXME filter out comments?
                 if name not in jm._defs:
                     raise ModelError(f"missing {name} definition in model {jm._id} at {path}")
                 # FIXME this may not be enough!
@@ -1224,6 +1230,8 @@ class JsonModel:
             if not isinstance(defs, dict):
                 raise ModelError(f"expecting definitions at {path}")
             for name, model in defs.items():
+                if name.startswith("#"):
+                    continue
                 # log.warning(f"{jm._id}: adding {name}")
                 # FIXME this may not be enough!
                 jm._defs[name] = JsonModel(
@@ -1241,6 +1249,8 @@ class JsonModel:
             # build update
             updates = {}
             for po, pn in renames.items():
+                if po.startswith("#"):
+                    continue
                 if po not in self._defs:
                     raise ModelError(f"missing definition {po} at {path}")
                 updates[pn] = self._defs[po]
@@ -1260,6 +1270,7 @@ class JsonModel:
             lpath = ["%", tpath]  # FIXME
             # typing issue, cannot assign list[str] to list[str|int] !?
             jm, path = self._parsePath(tpath, lpath)  # type: ignore
+            log.warning(f"{self._id}: {jm._id} is {jm._model}")
             if tpath.endswith("#"):  # model namespace
                 self._applyRootTrafoAtPath(jm, path, trafo, lpath)
             else:
