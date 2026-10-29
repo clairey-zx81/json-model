@@ -138,9 +138,6 @@
           "type": "integer",
           "minimum": 0
         },
-        "pattern": {
-          "type": "string"
-        },
         "minLength": {
           "type": "integer",
           "minimum": 0
@@ -162,9 +159,6 @@
           "type": "string"
         },
         "description": {
-          "type": "string"
-        },
-        "format": {
           "type": "string"
         },
         "divisibleBy": {
@@ -201,6 +195,12 @@
           "type": "string"
         },
         "$ref": {
+          "type": "string"
+        },
+        "pattern": {
+          "type": "string"
+        },
+        "format": {
           "type": "string"
         }
       },

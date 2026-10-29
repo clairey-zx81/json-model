@@ -301,13 +301,13 @@ def path2file(fname: str) -> str:
     return fname.replace("/", "_").replace(".", "_")
 
 
-def dirmap(dname) -> dict[str, str]:
-    return {
-        # map JM canonical url to local directory
-        "https://json-model.org/models/": "../models/",
+def dirmap(dname: str|None = None) -> dict[str, str]:
+    # map JM canonical url to local directory
+    dm = { "https://json-model.org/models/": "../models/" }
+    if dname:
         # map current to tested directory
-        "./": f"./{dname}/",
-    }
+        dm |= { "./": f"./{dname}/" }
+    return dm
 
 def file_is_newer(f1: str, f2: str) -> bool:
     return os.path.getmtime(f1) > os.path.getmtime(f2)
@@ -1171,7 +1171,7 @@ def test_schema_suite_tests():
 def json_schema_test_suite(version, fmodel):
     ntests = 0
     # load model
-    checker = model_checker_from_url(fmodel, auto=True)
+    checker = model_checker_from_url(fmodel, resolver=Resolver(None, dirmap()), auto=True)
     # run all tests
     path = pathlib.Path(f"./JSON-Schema-Test-Suite/tests/{version}")
     if not path.is_dir():

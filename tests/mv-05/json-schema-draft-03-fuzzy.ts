@@ -33,14 +33,12 @@ export interface Schema {
 	exclusiveMinimum?: boolean
 	minItems?: number
 	maxItems?: number
-	pattern?: string
 	minLength?: number
 	maxLength?: number
 	enum?: any[]
 	uniqueItems?: boolean
 	title?: string
 	description?: string
-	format?: string
 	divisibleBy?: number
 	disallow?: (string | distinctSchemaArray)
 	extends?: (Schema | Schema[])
@@ -48,6 +46,8 @@ export interface Schema {
 	$schema?: string
 	$ref?: string
 	[key: string]: any
+	pattern?: string
+	format?: string
 }
 
 export type RootModel = Schema

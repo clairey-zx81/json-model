@@ -3,9 +3,10 @@
   "~": "https://json-model.org/models/json-model",
   "%": {
     "<": "$https://json-model.org/models/json-schema-draft-03",
-    "$Schema.?pattern": "",
-    "$Schema.?format": "",
-    "$Schema": { "*": { "": "$ANY" } }
+    "$Schema": {
+      "/": ["?pattern", "?format"],
+      "*": { "": "$ANY", "?pattern": "", "?format": "" }
+    }
   },
   "@": "$Schema"
 }

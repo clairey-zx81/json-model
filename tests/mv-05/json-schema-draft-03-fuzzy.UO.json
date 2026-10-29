@@ -85,7 +85,6 @@
         "?exclusiveMinimum": true,
         "?minItems": 0,
         "?maxItems": 0,
-        "?pattern": "",
         "?minLength": 0,
         "?maxLength": 0,
         "?enum": {
@@ -98,7 +97,6 @@
         "?uniqueItems": true,
         "?title": "",
         "?description": "",
-        "?format": "",
         "?divisibleBy": 1.0,
         "?disallow": {
           "|": [
@@ -118,6 +116,8 @@
         "?$schema": "",
         "?$ref": "",
         "": "$ANY",
+        "?pattern": "",
+        "?format": "",
         "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
       },
       "#": "Symbol 1",
@@ -209,7 +209,6 @@
     "?exclusiveMinimum": true,
     "?minItems": 0,
     "?maxItems": 0,
-    "?pattern": "",
     "?minLength": 0,
     "?maxLength": 0,
     "?enum": {
@@ -222,7 +221,6 @@
     "?uniqueItems": true,
     "?title": "",
     "?description": "",
-    "?format": "",
     "?divisibleBy": 1.0,
     "?disallow": {
       "|": [
@@ -242,6 +240,8 @@
     "?$schema": "",
     "?$ref": "",
     "": "$ANY",
+    "?pattern": "",
+    "?format": "",
     "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
   }
 ]
