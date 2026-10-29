@@ -1,0 +1,50 @@
+{
+  "#": "OpenAPI Overlay Specification 1.2.0",
+  "#.url": "https://spec.openapis.org/overlay/latest.html",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/openapi-overlay-120",
+    "JsonPath": "",
+    "Overlay": {
+      "_overlay": "_1.2.0",
+      "#.self": "URI reference, must not contain a fragment",
+      "_$self": "$URI",
+      "_info": "$Info",
+      "?extends": "$URI",
+      "_actions": {
+        "@": [ "$Action" ],
+        ">=": 1
+      },
+      "?components": "$Components"
+    },
+    "Info": {
+      "_title": "",
+      "_version": "$SEMVER",
+      "?description": ""
+    },
+    "Components": {
+      "": "$ReusableAction"
+    },
+    "ActionObject": {
+      "_target": "$JsonPath",
+      "?description": "",
+      "?update": "$ANY",
+      "?copy": "$JsonPath",
+      "?remove": true
+    },
+    "ReusableAction": {
+      "?description": "",
+      "?fields": "$ActionObject"
+    },
+    "ReusableActionReference": {
+      "#.ref": "constraints to be improved",
+      "_$ref": "/^\\/components\\/actions\\//",
+      "_target": "$JsonPath",
+      "?description": ""
+    },
+    "Action": {
+      "|": [ "$ActionObject", "$ReusableActionReference" ]
+    }
+  },
+  "@": "$Overlay"
+}

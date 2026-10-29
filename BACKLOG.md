@@ -6,7 +6,8 @@
 - [x] tests: also check json schema diff versions
 - [x] tests: add more trafo tests
 - [x] tests: update trafo support in model schema used by some tests
-- [ ] models: add for openapi overlay spec, json patch and others
+- [x] models: add for openapi overlay spec
+- [ ] models: add json patch spec
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads
