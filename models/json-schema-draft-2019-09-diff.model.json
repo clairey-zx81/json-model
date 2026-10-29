@@ -1,0 +1,34 @@
+{
+  "#": "JSON Schema Draft 2019-09 as a diff from Draft 07",
+  "#.note": "Use basic edition, without any refactoring",
+  "%": {
+    "<": "$https://json-model.org/models/json-schema-draft-07",
+    "$#": {
+      "*": { "stringArray": { "@": [""], "!": true } }
+    },
+    "$ObjectSchema.?$schema": "_https://json-schema.org/draft/2019-09/schema",
+    "$ObjectSchema.?enum": ["$ANY"],
+    "$ObjectSchema.?required": "$stringArray",
+    "$ObjectSchema": {
+      "#./": "dependencies is broken into dependentRequired and dependentSchemas",
+      "/": "?dependencies",
+      "~": { "?definitions": "?$defs" },
+      "*": {
+        "#": "12 new properties",
+        "?$anchor": "$URI-REFERENCE",
+        "?$recursiveRef": "$URI-REFERENCE",
+        "?$recursiveAnchor": true,
+        "?$vocabulary": { "$URI": true },
+        "?deprecated": true,
+        "?contentSchema": "$Schema",
+        "?maxContains": 0,
+        "?minContains": 0,
+        "?dependentRequired": { "": "$stringArray" },
+        "?dependentSchemas": { "": "$Schema" },
+        "?unevaluatedItems": "$Schema",
+        "?unevaluatedProperties": "$Schema"
+      }
+    }
+  },
+  "@": "$Schema"
+}
