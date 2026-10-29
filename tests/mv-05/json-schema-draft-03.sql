@@ -40,7 +40,7 @@ BEGIN
       -- .'$distinctSchemaArray'.'@'.0
       -- .'$distinctSchemaArray'.'@'.0.'|'.0
       -- .'$distinctSchemaArray'.'@'.0.'|'.1
-      res := JSONB_TYPEOF(arr_0_item) = 'string' OR json_model_1(arr_0_item, NULL, NULL);
+      res := JSONB_TYPEOF(arr_0_item) = 'string' OR json_model_4(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -53,56 +53,56 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_$ref (.'$ref')
+-- check json_model_4_map_$ref (.'$Schema'.'$ref')
 CREATE OR REPLACE FUNCTION _jm_f_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .'$ref'
+  -- .'$Schema'.'$ref'
   RETURN JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_$schema (.'$schema')
+-- check json_model_4_map_$schema (.'$Schema'.'$schema')
 CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .'$schema'
+  -- .'$Schema'.'$schema'
   RETURN JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_additionalItems (.additionalItems)
+-- check json_model_4_map_additionalItems (.'$Schema'.additionalItems)
 CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .additionalItems
-  -- .additionalItems.'|'.0
-  -- .additionalItems.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_1(val, NULL, NULL);
+  -- .'$Schema'.additionalItems
+  -- .'$Schema'.additionalItems.'|'.0
+  -- .'$Schema'.additionalItems.'|'.1
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_4(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_additionalProperties (.additionalProperties)
+-- check json_model_4_map_additionalProperties (.'$Schema'.additionalProperties)
 CREATE OR REPLACE FUNCTION _jm_f_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .additionalProperties
-  -- .additionalProperties.'|'.0
-  -- .additionalProperties.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_1(val, NULL, NULL);
+  -- .'$Schema'.additionalProperties
+  -- .'$Schema'.additionalProperties.'|'.0
+  -- .'$Schema'.additionalProperties.'|'.1
+  RETURN JSONB_TYPEOF(val) = 'boolean' OR json_model_4(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_default (.default)
+-- check json_model_4_map_default (.'$Schema'.default)
 CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .default
+  -- .'$Schema'.default
   RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_dependencies (.dependencies)
+-- check json_model_4_map_dependencies (.'$Schema'.dependencies)
 CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -112,22 +112,22 @@ DECLARE
   arr_1_idx INT8;
   arr_1_item JSONB;
 BEGIN
-  -- .dependencies
+  -- .'$Schema'.dependencies
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
-    -- .dependencies.''
-    -- .dependencies.''.'|'.0
+    -- .'$Schema'.dependencies.''
+    -- .'$Schema'.dependencies.''.'|'.0
     res := JSONB_TYPEOF(pval) = 'string';
     IF NOT res THEN
-      -- .dependencies.''.'|'.1
+      -- .'$Schema'.dependencies.''.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
         FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_1_item := pval -> arr_1_idx;
-          -- .dependencies.''.'|'.1.0
+          -- .'$Schema'.dependencies.''.'|'.1.0
           res := JSONB_TYPEOF(arr_1_item) = 'string';
           IF NOT res THEN
             EXIT;
@@ -135,8 +135,8 @@ BEGIN
         END LOOP;
       END IF;
       IF NOT res THEN
-        -- .dependencies.''.'|'.2
-        res := json_model_1(pval, NULL, NULL);
+        -- .'$Schema'.dependencies.''.'|'.2
+        res := json_model_4(pval, NULL, NULL);
       END IF;
     END IF;
     IF NOT res THEN
@@ -147,44 +147,44 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_description (.description)
+-- check json_model_4_map_description (.'$Schema'.description)
 CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .description
+  -- .'$Schema'.description
   RETURN JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_disallow (.disallow)
+-- check json_model_4_map_disallow (.'$Schema'.disallow)
 CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .disallow
-  -- .disallow.'|'.0
-  -- .disallow.'|'.1
+  -- .'$Schema'.disallow
+  -- .'$Schema'.disallow.'|'.0
+  -- .'$Schema'.disallow.'|'.1
   RETURN JSONB_TYPEOF(val) = 'string' OR json_model_3(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_divisibleBy (.divisibleBy)
+-- check json_model_4_map_divisibleBy (.'$Schema'.divisibleBy)
 CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .divisibleBy
+  -- .'$Schema'.divisibleBy
   RETURN JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_enum (.enum)
+-- check json_model_4_map_enum (.'$Schema'.enum)
 CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res BOOL;
   ival_0 INT;
 BEGIN
-  -- .enum
-  -- .enum.'@'
+  -- .'$Schema'.enum
+  -- .'$Schema'.enum.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
     -- accept any array
@@ -196,25 +196,25 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_exclusiveMaximum (.exclusiveMaximum)
+-- check json_model_4_map_exclusiveMaximum (.'$Schema'.exclusiveMaximum)
 CREATE OR REPLACE FUNCTION _jm_f_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .exclusiveMaximum
+  -- .'$Schema'.exclusiveMaximum
   RETURN JSONB_TYPEOF(val) = 'boolean';
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_exclusiveMinimum (.exclusiveMinimum)
+-- check json_model_4_map_exclusiveMinimum (.'$Schema'.exclusiveMinimum)
 CREATE OR REPLACE FUNCTION _jm_f_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .exclusiveMinimum
+  -- .'$Schema'.exclusiveMinimum
   RETURN JSONB_TYPEOF(val) = 'boolean';
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_extends (.extends)
+-- check json_model_4_map_extends (.'$Schema'.extends)
 CREATE OR REPLACE FUNCTION _jm_f_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -222,17 +222,17 @@ DECLARE
   arr_2_idx INT8;
   arr_2_item JSONB;
 BEGIN
-  -- .extends
-  -- .extends.'|'.0
-  res := json_model_1(val, NULL, NULL);
+  -- .'$Schema'.extends
+  -- .'$Schema'.extends.'|'.0
+  res := json_model_4(val, NULL, NULL);
   IF NOT res THEN
-    -- .extends.'|'.1
+    -- .'$Schema'.extends.'|'.1
     res := JSONB_TYPEOF(val) = 'array';
     IF res THEN
       FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_2_item := val -> arr_2_idx;
-        -- .extends.'|'.1.0
-        res := json_model_1(arr_2_item, NULL, NULL);
+        -- .'$Schema'.extends.'|'.1.0
+        res := json_model_4(arr_2_item, NULL, NULL);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -252,25 +252,25 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check json_model_1_map_format (.format)
+-- check json_model_4_map_format (.'$Schema'.format)
 CREATE OR REPLACE FUNCTION _jm_f_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .format
+  -- .'$Schema'.format
   RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(val);
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_id (.id)
+-- check json_model_4_map_id (.'$Schema'.id)
 CREATE OR REPLACE FUNCTION _jm_f_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .id
+  -- .'$Schema'.id
   RETURN JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_items (.items)
+-- check json_model_4_map_items (.'$Schema'.items)
 CREATE OR REPLACE FUNCTION _jm_f_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -278,17 +278,17 @@ DECLARE
   arr_3_idx INT8;
   arr_3_item JSONB;
 BEGIN
-  -- .items
-  -- .items.'|'.0
-  res := json_model_1(val, NULL, NULL);
+  -- .'$Schema'.items
+  -- .'$Schema'.items.'|'.0
+  res := json_model_4(val, NULL, NULL);
   IF NOT res THEN
-    -- .items.'|'.1
+    -- .'$Schema'.items.'|'.1
     res := JSONB_TYPEOF(val) = 'array';
     IF res THEN
       FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_3_item := val -> arr_3_idx;
-        -- .items.'|'.1.0
-        res := json_model_1(arr_3_item, NULL, NULL);
+        -- .'$Schema'.items.'|'.1.0
+        res := json_model_4(arr_3_item, NULL, NULL);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -299,70 +299,70 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_maxItems (.maxItems)
+-- check json_model_4_map_maxItems (.'$Schema'.maxItems)
 CREATE OR REPLACE FUNCTION _jm_f_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .maxItems
+  -- .'$Schema'.maxItems
   RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_maxLength (.maxLength)
+-- check json_model_4_map_maxLength (.'$Schema'.maxLength)
 CREATE OR REPLACE FUNCTION _jm_f_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .maxLength
+  -- .'$Schema'.maxLength
   RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_maximum (.maximum)
+-- check json_model_4_map_maximum (.'$Schema'.maximum)
 CREATE OR REPLACE FUNCTION _jm_f_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .maximum
+  -- .'$Schema'.maximum
   RETURN JSONB_TYPEOF(val) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_minItems (.minItems)
+-- check json_model_4_map_minItems (.'$Schema'.minItems)
 CREATE OR REPLACE FUNCTION _jm_f_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .minItems
+  -- .'$Schema'.minItems
   RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_minLength (.minLength)
+-- check json_model_4_map_minLength (.'$Schema'.minLength)
 CREATE OR REPLACE FUNCTION _jm_f_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .minLength
+  -- .'$Schema'.minLength
   RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_minimum (.minimum)
+-- check json_model_4_map_minimum (.'$Schema'.minimum)
 CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .minimum
+  -- .'$Schema'.minimum
   RETURN JSONB_TYPEOF(val) = 'number';
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_pattern (.pattern)
+-- check json_model_4_map_pattern (.'$Schema'.pattern)
 CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .pattern
+  -- .'$Schema'.pattern
   RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_patternProperties (.patternProperties)
+-- check json_model_4_map_patternProperties (.'$Schema'.patternProperties)
 CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -370,14 +370,14 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  -- .patternProperties
+  -- .'$Schema'.patternProperties
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
-    -- .patternProperties.''
-    res := json_model_1(pval, NULL, NULL);
+    -- .'$Schema'.patternProperties.''
+    res := json_model_4(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -386,7 +386,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_properties (.properties)
+-- check json_model_4_map_properties (.'$Schema'.properties)
 CREATE OR REPLACE FUNCTION _jm_f_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -394,14 +394,14 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  -- .properties
+  -- .'$Schema'.properties
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
-    -- .properties.''
-    res := json_model_1(pval, NULL, NULL);
+    -- .'$Schema'.properties.''
+    res := json_model_4(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -410,25 +410,25 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_required (.required)
+-- check json_model_4_map_required (.'$Schema'.required)
 CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .required
+  -- .'$Schema'.required
   RETURN JSONB_TYPEOF(val) = 'boolean';
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_title (.title)
+-- check json_model_4_map_title (.'$Schema'.title)
 CREATE OR REPLACE FUNCTION _jm_f_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .title
+  -- .'$Schema'.title
   RETURN JSONB_TYPEOF(val) = 'string';
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_type (.type)
+-- check json_model_4_map_type (.'$Schema'.type)
 CREATE OR REPLACE FUNCTION _jm_f_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -436,19 +436,19 @@ DECLARE
   arr_4_idx INT8;
   arr_4_item JSONB;
 BEGIN
-  -- .type
-  -- .type.'|'.0
+  -- .'$Schema'.type
+  -- .'$Schema'.type.'|'.0
   res := json_model_2(val, NULL, NULL);
   IF NOT res THEN
-    -- .type.'|'.1
+    -- .'$Schema'.type.'|'.1
     res := JSONB_TYPEOF(val) = 'array';
     IF res THEN
       FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_4_item := val -> arr_4_idx;
-        -- .type.'|'.1.0
-        -- .type.'|'.1.0.'|'.0
-        -- .type.'|'.1.0.'|'.1
-        res := JSONB_TYPEOF(arr_4_item) = 'string' OR json_model_1(arr_4_item, NULL, NULL);
+        -- .'$Schema'.type.'|'.1.0
+        -- .'$Schema'.type.'|'.1.0.'|'.0
+        -- .'$Schema'.type.'|'.1.0.'|'.1
+        res := JSONB_TYPEOF(arr_4_item) = 'string' OR json_model_4(arr_4_item, NULL, NULL);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -459,16 +459,16 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_1_map_uniqueItems (.uniqueItems)
+-- check json_model_4_map_uniqueItems (.'$Schema'.uniqueItems)
 CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- .uniqueItems
+  -- .'$Schema'.uniqueItems
   RETURN JSONB_TYPEOF(val) = 'boolean';
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION json_model_1_map(name TEXT)
+CREATE OR REPLACE FUNCTION json_model_4_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"$ref":"_jm_f_0","$schema":"_jm_f_1","additionalItems":"_jm_f_2","additionalProperties":"_jm_f_3","default":"_jm_f_4","dependencies":"_jm_f_5","description":"_jm_f_6","disallow":"_jm_f_7","divisibleBy":"_jm_f_8","enum":"_jm_f_9","exclusiveMaximum":"_jm_f_10","exclusiveMinimum":"_jm_f_11","extends":"_jm_f_12","format":"_jm_f_13","id":"_jm_f_14","items":"_jm_f_15","maxItems":"_jm_f_16","maxLength":"_jm_f_17","maximum":"_jm_f_18","minItems":"_jm_f_19","minLength":"_jm_f_20","minimum":"_jm_f_21","pattern":"_jm_f_22","patternProperties":"_jm_f_23","properties":"_jm_f_24","required":"_jm_f_25","title":"_jm_f_26","type":"_jm_f_27","uniqueItems":"_jm_f_28"}';
@@ -477,23 +477,22 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check $ (.)
-CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $Schema (.'$Schema')
+CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
   prop TEXT;
   pval JSONB;
 BEGIN
-  -- JSON Model for JSON Schema Draft 03 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
-  -- .
+  -- .'$Schema'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF json_model_1_map(prop) IS NOT NULL THEN
+    IF json_model_4_map(prop) IS NOT NULL THEN
       -- handle 29 may props
-      pfun := json_model_1_map(prop);
+      pfun := json_model_4_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
@@ -505,10 +504,21 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+-- check $ (.)
+CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  -- JSON Model for JSON Schema Draft 03 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
+  -- .
+  -- .'@'
+  RETURN json_model_4(val, NULL, NULL);
+END;
+$$ LANGUAGE PLpgSQL;
+
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","allTypes":"json_model_2","distinctSchemaArray":"json_model_3","Schema":"json_model_1"}';
+  map JSONB := JSONB '{"":"json_model_1","allTypes":"json_model_2","distinctSchemaArray":"json_model_3","Schema":"json_model_4"}';
 BEGIN
   RETURN map->>name;
 END;

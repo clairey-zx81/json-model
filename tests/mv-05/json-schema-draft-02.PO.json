@@ -1,80 +1,5 @@
 {
-  "?type": {
-    "|": [
-      "$allTypes",
-      [
-        {
-          "|": [
-            "",
-            "$Schema"
-          ]
-        }
-      ]
-    ]
-  },
-  "?properties": {
-    "": "$Schema"
-  },
-  "?items": {
-    "|": [
-      "$Schema",
-      [
-        "$Schema"
-      ]
-    ]
-  },
-  "?optional": true,
-  "?additionalProperties": {
-    "|": [
-      true,
-      "$Schema"
-    ]
-  },
-  "?requires": {
-    "|": [
-      "",
-      "$Schema"
-    ]
-  },
-  "?minimum": -1.0,
-  "?maximum": -1.0,
-  "?minimumCanEqual": true,
-  "?maximumCanEqual": true,
-  "?minItems": 0,
-  "?maxItems": 0,
-  "?pattern": "$REGEX",
-  "?minLength": 0,
-  "?maxLength": 0,
-  "?enum": {
-    "@": [
-      "$ANY"
-    ],
-    ">=": 1,
-    "!": true
-  },
-  "?uniqueItems": true,
-  "?title": "",
-  "?description": "",
-  "?format": "",
-  "?contentEncoding": "",
-  "?default": "$ANY",
-  "?divisibleBy": 1.0,
-  "?disallow": {
-    "|": [
-      "",
-      "$distinctStringArray"
-    ]
-  },
-  "?extends": {
-    "|": [
-      "$Schema",
-      [
-        "$Schema"
-      ]
-    ]
-  },
-  "?id": "",
-  "?$schema": "",
+  "@": "$Schema",
   "#": "JsonModel 1 (JSON_MODEL_LOOSE_FLOAT)",
   "$": {
     "allTypes": {
@@ -97,7 +22,85 @@
       "!": true,
       "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)"
     },
-    "Schema": "$#",
+    "Schema": {
+      "?type": {
+        "|": [
+          "$allTypes",
+          [
+            {
+              "|": [
+                "",
+                "$Schema"
+              ]
+            }
+          ]
+        ]
+      },
+      "?properties": {
+        "": "$Schema"
+      },
+      "?items": {
+        "|": [
+          "$Schema",
+          [
+            "$Schema"
+          ]
+        ]
+      },
+      "?optional": true,
+      "?additionalProperties": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?requires": {
+        "|": [
+          "",
+          "$Schema"
+        ]
+      },
+      "?minimum": -1.0,
+      "?maximum": -1.0,
+      "?minimumCanEqual": true,
+      "?maximumCanEqual": true,
+      "?minItems": 0,
+      "?maxItems": 0,
+      "?pattern": "$REGEX",
+      "?minLength": 0,
+      "?maxLength": 0,
+      "?enum": {
+        "@": [
+          "$ANY"
+        ],
+        ">=": 1,
+        "!": true
+      },
+      "?uniqueItems": true,
+      "?title": "",
+      "?description": "",
+      "?format": "",
+      "?contentEncoding": "",
+      "?default": "$ANY",
+      "?divisibleBy": 1.0,
+      "?disallow": {
+        "|": [
+          "",
+          "$distinctStringArray"
+        ]
+      },
+      "?extends": {
+        "|": [
+          "$Schema",
+          [
+            "$Schema"
+          ]
+        ]
+      },
+      "?id": "",
+      "?$schema": "",
+      "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
+    },
     "#": "Symbol 1",
     "": "https://json-model.org/models/json-schema-draft-02"
   },

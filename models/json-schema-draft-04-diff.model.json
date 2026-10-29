@@ -1,12 +1,9 @@
 {
   "#": "JSON Schema Draft 04 as a diff from Draft 03",
   "~": "https://json-model.org/models/json-model",
-  "$": {
-    "#": "load previous definition explicitely: import not enough because we need the root object",
-    "schema": "$https://json-model.org/models/json-schema-draft-03"
-  },
   "%": {
-    "$schema#": {
+    "<": "$https://json-model.org/models/json-schema-draft-03",
+    "$#": {
       "#": "update model definitions",
       "/": [ "distinctSchemaArray", "allTypes" ],
       "*": {
@@ -16,18 +13,16 @@
         "typeArray": {"@": ["$simpleTypes"], ">=": 1, "!": true}
       }
     },
-    "$schema": {
+    "$Schema": {
       "#": "update root properties",
       "/": ["?disallow", "?extends", "?required", "?dependencies", "?type", "?format", "?$ref"],
       "~": { "?divisibleBy": "?multipleOf" },
       "*": {
-        "#.r": "5 property replacements (removed on /)",
         "?required": "$stringArray",
         "?dependencies": {"": {"|": ["$Schema", "$stringArray"]}},
         "?type": {"|": ["$simpleTypes", "$typeArray"]},
         "?format": "",
         "?$ref": "$URI",
-        "#.n": "7 new properties",
         "?definitions": {"": "$Schema"},
         "?maxProperties": 0,
         "?minProperties": 0,
@@ -38,5 +33,5 @@
       }
     }
   },
-  "@": "$schema"
+  "@": "$Schema"
 }

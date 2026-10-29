@@ -2,18 +2,21 @@
 // for ./json-schema-draft-02-nesting
 // see https://json-model.org/
 
-export interface schema_properties {
-	[key: string]: string
+export type allTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object" | "any")
+
+export type distinctStringArray = string[]
+
+export interface Schema_properties {
+	[key: string]: Schema
 }
 
-/* JSON Model for JSON Schema Draft 02 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */
-export interface schema {
-	type?: (string | string[])
-	properties?: schema_properties
-	items?: (string | string[])
+export interface Schema {
+	type?: (allTypes | (string | Schema)[])
+	properties?: Schema_properties
+	items?: (Schema | Schema[])
 	optional?: boolean
-	additionalProperties?: (boolean | string)
-	requires?: string
+	additionalProperties?: (boolean | Schema)
+	requires?: (string | Schema)
 	minimum?: number
 	maximum?: number
 	minimumCanEqual?: boolean
@@ -31,11 +34,11 @@ export interface schema {
 	contentEncoding?: string
 	default?: any
 	divisibleBy?: number
-	disallow?: string
-	extends?: (string | string[])
+	disallow?: (string | distinctStringArray)
+	extends?: (Schema | Schema[])
 	id?: string
 	$schema?: string
 	[key: string]: any
 }
 
-export type RootModel = schema
+export type RootModel = Schema
