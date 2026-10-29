@@ -276,12 +276,11 @@ EXPECT: dict[str, int] = {
     # mv-37
     "mv-37:models": 9,
     "mv-37:values": 158,
-    "mv-37:models:errors-jsm": 3,  # FIXME
     "mv-37:models:errors-jsg": 3,  # FIXME
     "mv-37:verrors:schema": 14,  # subschema tests
     # miscellaneous tests
     "bads:models": 77,
-    "bads:models:errors-jsm": 6,
+    "bads:models:errors-jsm": 5,
     "bads:models:errors-jsg": 2,
     "jsts-files": 309,
     # tests json models of json schema versions
@@ -1112,7 +1111,7 @@ def check_bads(jmchecker: str, errors: int = 0):
         if ": ERROR" not in line:
             nerrors += 1
     assert ntests == EXPECT.get(f"bads:models", 0)
-    assert nerrors == errors, f"expecting {errors} errors"
+    assert nerrors == errors, f"expecting {errors} errors, got {nerrors}"
 
 @pytest.mark.c
 @pytest.mark.skipif(not has_exec("cc"), reason="missing cc")
