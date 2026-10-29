@@ -254,7 +254,20 @@ if [ "$publish" ] ; then
   cp $TARGET/$bench_id/$bench_id.{json,md} $WORK/site/benchmarks/ || err 11 "cannot cp artifact files"
   git add site/benchmarks/$bench_id.* || err 11 "cannot git add artifacts"
 
-  git commit -m "add artifact $bench_id from cron job" || err 11 "cannot git commit artifact"
+  # versions
+  read jmc_v < $VERSION.jmc
+  read jsb_v < $VERSION.jsb
+  read sbc_v < $VERSION.sbc
+  read corvus_v < $VERSION.corvus
+
+  msg=<<EOF
+add artifact $bench_id from cron job
+
+jsu is $jmc_v, blaze is $sbc_v, corvus is $corvus_v.
+jsonschema-benchmark is $jsb_v.
+EOF
+
+  git commit -m "$msg" || err 11 "cannot git commit artifact"
   git push || err 11 "cannot git push"
 else
   msg "no publish"
