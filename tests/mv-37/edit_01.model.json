@@ -1,9 +1,14 @@
 {
   "%": {
     "<": "$./edit_00",
+    "#.a": "constrain a property value",
     "$Foo.?a": "/^a/",
     "$Foo": {
-      "*": {"?b": "/^b/"}
+      "#": "add a b property",
+      "*": {
+        "#": "constrain b property value",
+        "?b": "/^b/"
+      }
     }
   },
   "@": "$Foo"
