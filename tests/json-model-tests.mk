@@ -8,7 +8,7 @@ JMC.opts    = --check --quiet --short-version --precompiled
 JMC.cmd = \
 	$(JMC) $(JMC.opts) \
         -m "https://json-model.org/models/=../../models/" \
-        -m "https://json-model.org/tests/ ./"
+        -m "https://json-model.org/tests/=./"
 JMC.opts.c  = --regex-loose
 
 # JSON Schema Checker
