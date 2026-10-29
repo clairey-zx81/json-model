@@ -106,6 +106,10 @@ def valid(jm: JsonModel,
         finite = not jm._isRef(ref) or ref == "$#"  # Hmmm…
         if not finite:
             log.debug(f"infinite recursion on {smodel}: {recref} ({recid})")
+            if jm._debug >= 3:
+                log.debug(f"{jm._id}: {jm._model}")
+                for name, j in jm._defs.items():
+                    log.debug(f"{jm._id}: {name} -> {j._id} ({j._model})")
         return finite
 
     def validFlt(model: ModelType, path: ModelPath) -> bool:
