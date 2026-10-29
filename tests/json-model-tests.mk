@@ -192,6 +192,7 @@ schema: $(F.EO) $(F.schc)
 %.schema.check: %.schema.json
 	shopt -s nullglob
 	set -o pipefail
+	$(RM) $@
 	if [ -e $@.skip ] ; then
 	  echo SKIPPED > $@
 	  exit 0
@@ -287,6 +288,7 @@ ir: $(F.ir)
 %.py.check: %.py %.values.json
 	shopt -s nullglob
 	set -o pipefail
+	$(RM) $@
 	./$< -r $*.*.{true,false}.json | sort > $@
 	./$< -tr $*.values.json >> $@
 	status=$$?
@@ -305,6 +307,7 @@ ir: $(F.ir)
 %.js.check: %.js %.values.json
 	shopt -s nullglob
 	set -o pipefail
+	$(RM) $@
 	./$< -r $*.*.{true,false}.json | sort > $@
 	./$< -tr $*.values.json >> $@
 	status=$$?
@@ -324,10 +327,12 @@ ir: $(F.ir)
 
 %.sql.check: %.sql %.values.json ../test_sql_csv.sql ../test_sql.sh
 	shopt -s nullglob
+	$(RM) $@
 	if [ -e $*.sql.check.skip ] ; then
 	    echo "skipped" > $@
 	    exit 0
 	fi
+	# else
 	../test_sql.sh $< $*.*.true.json $*.*.false.json $*.values.json > $@
 	status=$$?
 	if [ $$status -ne 0 ] ; then
@@ -348,6 +353,7 @@ ir: $(F.ir)
 %.pl.check: %.pl %.values.json
 	shopt -s nullglob
 	set -o pipefail
+	$(RM) $@
 	./$< $*.*.{true,false}.json | sort > $@
 	./$< -t -r $*.values.json >> $@
 	status=$$?
@@ -389,6 +395,7 @@ java: $(F.java) $(F.jvc)
 %.java.check: %.class %.values.json
 	shopt -s nullglob
 	set -o pipefail
+	$(RM) $@
 	java_name=$*
 	java_name=$${java_name//-/_}
 	[ $* != $$java_name ] && ln -s $*.class $$java_name.class
