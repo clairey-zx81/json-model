@@ -127,6 +127,60 @@
       ],
       "properties": { "$": false, "%": false, "~": false }
     },
+    "trafo": {
+      "$comment": "partial type edition object with comments",
+      "type": "object",
+      "properties": {
+        "*": true,
+        "/": true,
+        "~": {
+          "type": "object",
+          "additionalProperties": {"type": "string"}
+        }
+      },
+      "patternProperties": {
+        "^#": {"type": "string"}
+      }
+    },
+    "rootTrafo": {
+      "description": "transformation at the root of the model",
+      "$comment": "TODO improve * and /",
+      "type": "object",
+      "properties": {
+        "<": {
+          "anyOf": [
+            {"type": "string"},
+            {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+          ]
+        }
+      },
+      "patternProperties": {
+        "^#": {"type": "string"},
+        "^\\.": { "type": "string" },
+        "^\\$": {
+          "anyOf": [
+            { "$ref": "#/$defs/Model" },
+            {
+              "$ref": "#/$defs/trafo",
+              "unexpectedProperties": false
+            }
+          ]
+        }
+      },
+      "unexpectedProperties": false
+    },
+    "defTrafo": {
+      "description": "transformation for a model",
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/trafo" },
+        {
+          "type": "object",
+          "properties": { "<": {"type": "string", "pattern": "^\\$"} }
+        }
+      ],
+      "unexpectedProperties": false
+    },
     "defsModel": {
       "description": "Keywords available only at the root",
       "type": "object",
@@ -144,30 +198,16 @@
             "": {"type": "string"}
           },
           "patternProperties": { "^#": {"type": "string"} },
-          "additionalProperties": { "$ref": "#/$defs/Model" }
+          "additionalProperties": {
+            "anyOf": [
+              { "$ref": "#/$defs/Model" },
+              { "$ref": "#/$defs/defTrafo" }
+            ]
+          }
         },
         "%": {
           "description": "renames and rewrites",
-          "type": "object",
-          "properties": {
-            "<": {
-              "anyOf": [
-                { "type": "string", "pattern": "^\\$" },
-                { "type": "array", "items": { "type": "string", "pattern": "^\\$" } }
-              ]
-            }
-          },
-          "patternProperties": {
-            "^\\.": { "type": "string" },
-            "^#": { "type": "string" }
-          },
-          "additionalProperties": {
-            "$comment": "TODO improve",
-            "anyOf": [
-              { "$ref": "#/$defs/Model" },
-              { "?*": "$ANY", "?/": "$ANY", "?~": {"": ""}, "?#": {"type": "string"} }
-            ]
-          }
+          "$ref": "#/$defs/rootTrafo"
         }
       }
     },
