@@ -1,0 +1,44 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "Operation": {
+      "|": [
+        {
+          "op": "add",
+          "path": "$JSONPT",
+          "value": "$ANY"
+        },
+        {
+          "op": "remove",
+          "path": "$JSONPT"
+        },
+        {
+          "op": "replace",
+          "path": "$JSONPT",
+          "value": "$ANY"
+        },
+        {
+          "op": "move",
+          "path": "$JSONPT",
+          "from": "$JSONPT"
+        },
+        {
+          "op": "copy",
+          "path": "$JSONPT",
+          "from": "$JSONPT"
+        },
+        {
+          "op": "test",
+          "path": "$JSONPT",
+          "value": "$ANY"
+        }
+      ],
+      "#": "JsonModel 2"
+    },
+    "#": "Symbol 1",
+    "": "./json-patch"
+  },
+  "@": [
+    "$Operation"
+  ]
+}

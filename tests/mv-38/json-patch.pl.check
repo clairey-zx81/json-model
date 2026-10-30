@@ -1,0 +1,31 @@
+json-patch.values.json[0]: PASS
+json-patch.values.json[1]: PASS
+json-patch.values.json[2]: PASS
+json-patch.values.json[3]: PASS
+json-patch.values.json[4]: PASS
+json-patch.values.json[5]: PASS
+json-patch.values.json[6]: PASS
+json-patch.values.json[7]: FAIL (.0: tag <op> value not found [.'$Operation'.'|']; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[8]: FAIL (.0: bad property count [.'$Operation'.'|'.5]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[9]: FAIL (.0: bad property count [.'$Operation'.'|'.1]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[10]: FAIL (.0: bad property count [.'$Operation'.'|'.0]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[11]: FAIL (.0: bad property count [.'$Operation'.'|'.2]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[12]: FAIL (.0: bad property count [.'$Operation'.'|'.3]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[13]: FAIL (.0: bad property count [.'$Operation'.'|'.4]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[14]: FAIL (.0.path: unexpected value for model "$JSONPT" [.'$Operation'.'|'.5.path]; .0.path: unexpected value for mandatory prop <path> [.'$Operation'.'|'.5]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[15]: FAIL (.0.path: unexpected value for model "$JSONPT" [.'$Operation'.'|'.0.path]; .0.path: unexpected value for mandatory prop <path> [.'$Operation'.'|'.0]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[16]: FAIL (.0.path: unexpected value for model "$JSONPT" [.'$Operation'.'|'.2.path]; .0.path: unexpected value for mandatory prop <path> [.'$Operation'.'|'.2]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[17]: FAIL (.0.path: unexpected value for model "$JSONPT" [.'$Operation'.'|'.3.path]; .0.path: unexpected value for mandatory prop <path> [.'$Operation'.'|'.3]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[18]: FAIL (.0.path: unexpected value for model "$JSONPT" [.'$Operation'.'|'.4.path]; .0.path: unexpected value for mandatory prop <path> [.'$Operation'.'|'.4]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[19]: FAIL (.0.path: unexpected value for model "$JSONPT" [.'$Operation'.'|'.3.path]; .0.path: unexpected value for mandatory prop <path> [.'$Operation'.'|'.3]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[20]: FAIL (.0.path: unexpected value for model "$JSONPT" [.'$Operation'.'|'.4.path]; .0.path: unexpected value for mandatory prop <path> [.'$Operation'.'|'.4]; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[21]: FAIL (.: not array or unexpected array [.])
+json-patch.values.json[22]: FAIL (.: not array or unexpected array [.])
+json-patch.values.json[23]: FAIL (.: not array or unexpected array [.])
+json-patch.values.json[24]: FAIL (.: not array or unexpected array [.])
+json-patch.values.json[25]: FAIL (.: not array or unexpected array [.])
+json-patch.values.json[26]: FAIL (.: not array or unexpected array [.])
+json-patch.values.json[27]: FAIL (.: not array or unexpected array [.])
+json-patch.values.json[28]: FAIL (.0: value is not an object [.'$Operation'.'|']; .0: unexpected value for model "$Operation" [.0]; .: not array or unexpected array [.])
+json-patch.values.json[29]: FAIL (.: not array or unexpected array [.])
+json-patch.values.json[30]: FAIL (.: not array or unexpected array [.])

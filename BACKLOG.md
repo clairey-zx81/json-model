@@ -7,7 +7,7 @@
 - [x] tests: add more trafo tests
 - [x] tests: update trafo support in model schema used by some tests
 - [x] models: add for openapi overlay spec
-- [x] models: add json patch spec (RFC6902)
+- [x] models: add json patch spec (RFC6902) and tests
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads
