@@ -1,0 +1,17 @@
+{
+  "#": "RFC6902: JSON Patch",
+  "#.url": "https://www.rfc-editor.org/info/rfc6902/",
+  "$": {
+    "Operation": {
+      "^": [
+        {"op": "add", "path": "$JSONPT", "value": "$ANY"},
+        {"op": "remove", "path": "$JSONPT"},
+        {"op": "replace", "path": "$JSONPT", "value": "$ANY"},
+        {"op": "move", "path": "$JSONPT", "from": "$JSONPT"},
+        {"op": "copy", "path": "$JSONPT", "from": "$JSONPT"},
+        {"op": "test", "path": "$JSONPT", "value": "$ANY"}
+      ]
+    }
+  },
+  "@": [ "$Operation" ]
+}
