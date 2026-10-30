@@ -458,110 +458,145 @@ A reference is a string which begins with the `$` character.
 
 Implementation should detect external reference cycles which are errors and should be rejected.
 
-## (EXPERIMENTAL) Model Transformations
+## (EXPERIMENTAL) Type Edition (aka Model Transformations)
 
-Symbol `%` at the root of the model defines a global model transformation object, which
+Type edition allows to transform models by editing nodes inside a model.
+It comes in two forms:
+
+1. Global Type Edition with special keyword `%` at the root of the model.
+2. Local Type Edition within `$`-definitions.
+
+The are executed when the model is loaded, as an initial syntactic step,
+before any interpretation of the model beside considering its definitions `$`
+and editions `%`.
+
+### Global Type Editions
+
+Symbol `%` at the root of the model defines a global type edition object, which
 may include symbol renamings, model importations and model editions.
-
-- **Symbol Names**
-
-  Within the `%` object at the root, properties beginning with a `.` introduce new symbol names.
-  The value is the symbol string which is replaced, in `# ~ $ % @ = != <= < >= > ! | ^ & + / *`.
-  For instance:
-
-  ```json
-  {
-    "%": { ".com": "#", ".or": "|", ".merge": "+" }
-  }
-  ```
-
-  Declares property substitutions, which translate this model:
-
-  ```json
-  { ".merge": [ {"a": 0}, {".or": [ {"b": 0}, {"c": 0} ] } ] }
-  ```
-
-  Into:
-
-  ```json
-  { "+": [ {"a": 0}, {"|": [ {"b": 0}, {"c": 0} ] } ] }
-  ```
-
-  These substitutions can be carried out by a separate preprocessor which generates
-  the resulting standard model without any renamed symbol.
-
-  When declaring the model meta-model with `"~"` at the root, any renaming section specified
-  in the meta-model **must** be applied to the current model before further processing.
-  This feature allow the localization of the model syntax.
+Inside the type edition objects, `#...` properties are comments to be ignored.
+Other allowed properties are imports (`<`) and references (`$...`).
+Any other property is an error.
 
 - **Importation**
 
-  Special property `"<"` inside a transformation object expects a reference to an external
-  model, or a list of such references, and imports all definitions of the targets into the
-  local scope.
+  Special property `<` inside a edition object expects a reference to an external model,
+  or a list of such references, and imports all **definitions** of the targets into the
+  local scope, as local **definitions**.
 
   While importing, homonymous definitions are invalid and must be rejected.
 
-- **Model Addition and Edition**
+- **Model Removal, Addition and Edition**
 
-  Model editions are specified with properties which are references possibly followed
+  Model editions are specified with properties which are references (`$...`) possibly followed
   by a JSON path, allowing to point to a JSON element in the model, and either a value
   with special properties `/ *` to remove or add sub elements, `:` to rename properties.
   Anything else taken as-is, but which must not be an object with any of the special properties.
 
-  - Addition/replacement on a `"$External#name"` reference to a definition:
-    - a non-existing definition is added to available definitions _in the target scope_.
-    - an existing definition is replaced _in the target scope_.
-  - Edition on a `"$External#name.foo.0"`: the target element **must** exist.
-    The `.foo.0` path instructs to select the first element (index _0_) of
-    the array value of property _foo_ inside definition _name_.
-  - Rename on "$External:name.foo.0": the target element **must** exist and be an object.
+  - If the reference ends with `#`, it designates the model _definitions_ on which the
+    editions are performed. The reference object must be a root model, eg imported with
+    a URL (`{ "model": "$https://json-model/models/json-model" }`). `$#` is a reference
+    to a model's own definitions. A reference may designate an indirectly imported model,
+    eg `$openapi#schema#` where `schema` is a definition inside `openapi`.
+    If the referenced object does not exist, this is an error.
 
-  The following edition rules apply, in order, depending on the type of the target element:
+    The target value may contains any of `/ * ~` properties, this is a type edition object,
+    which is interpreted as follow, in this order, when they exist:
 
-  - if the transformation value is an edition object (ie include at least one `/ * ~` property):
-    - if the target is a JSON object (not necessarily a model for an object):
-      - `/` value may be a string or a list of strings.
-        All properties of these names are removed.
-        If a property does not exist, this is an error and must be rejected.
-      - `*` value may be an objecti or list
-        If the value is an obhect, it is merged into the target object.
-        If a property already exists, this is an error and must be rejected.  
-        If the value is a list, keep only the listed properties, others are discarded.
-      - `~` value must be an object, which is a string mapping to rename properties
-        in the target object. All renamed properties **must** exists.
-        Specifying `{"?a": "b", "?b": "a"}` exchanges optional property values and makes them mandatory.  
-        As a special case, `{"!": "?"}` and `{"?": "!"}` are bulk changes to downgrade
-        mandatory properties to optional, or upgrade optional properties to mandatory.
-    - if the target is a JSON array (not necessarily a model for an array):
-      - `/`: may be value or a list of values.
-        Array items equal to these values are removed.
-        If a value is not found, this is an error and must be rejected.
-      - `*`: if the value is an array, append its items to the target array.
-        If the value is something else, appends to the array.
-      - `~`: currently invalid
-    - if the target is a JSON scalar: this is an error and must be rejected.
-  - if the transformation value is a model (i.e. an object without any `/ *` property),
-    the target value is _replaced_ by this value, in place.
+    `/` must be a string or list of strings, the corresponding definitions must exist and
+    are removed.
 
-  Moreover, operations can also apply on model definitions when the path ends with `#` and
-  must designate a _head_ model, not a submodel:
+    `*` is a object containing new definitions to be added to the name space. If
+    the name already exists, this is an error.
 
-  - `/`: remove one (scalar) or several (array) definitions
-  - `*`: add or override definitions
-  - `~`: Rename, and possibly override, existing definitions
+    `~` is a string-to-string map to rename definitions, which the source must exist
+    and the target must not.
+    The renaming occurs simultaneously, i.e. `{"a": "b", "b": "a"}` inverts `a`
+    and `b` values and is allowed.
 
-  These additions and editions are performed _after_ property renamings and imports,
-  and _before_ merge pre-processing.
+    The target object may also include comments (`# ...` properties) which are ignored.
+    It cannot include anything else.
 
-Symbols `<`, `/`, `*`, `~` inside a _definition_ define a local transformation.
+  - If the reference does **not** end with a `#`, this is interpreted as a `$` reference
+    possibly followed by a simple `.`-separated JSON Path: `$Foo.?bla` is definition `Foo`
+    and within this definition property `?bla`. As expected, `$.foo` refer to property
+    `foo` at the root of the model itself.
 
-- `<` must be a local reference `$name`, the target model is **copied** inside the definition.
+    - If the reference is a name without a path, it designates a definition.
+
+      If the definition does not exist, it is created and the value is associated
+      to the definition, which may be a model **or** a local type edition.
+
+    - If the definition exists, or if the reference is a name with an existing path:
+
+      - If the target value is an object which contains any of contains `/ * ~` properties
+        and possibly some comments, this is an edition, interpreted as follow:
+
+        `/` is a scalar or list of stuff and the referenced model is an array,
+        the values are removed from the array; if it is an object, the scalar or stuffs
+        must be strings, and the corresponding properties are removed. Other cases are errors.
+
+        `*` interpretation is also type dependent:
+        If a scalar and the target a list, the item must exist and is removed;
+        If a list of stuff and the target a list, the items must exist and are removed;
+        If an object and the target an object, both objects are merged,
+        with property collisions considered as errors.
+        All other cases are errors.
+
+        `~` is a string-to-string map, the target must be an object, the sources
+        must exist as properties and are renamed to the target, which must not exist.
+        The renaming occurs simultaneously, i.e. `{"a": "b", "b": "a"}` inverts `a`
+        and `b` value and is allowed.
+
+      - Otherwise the target is assumed to be a model and replaces initial definition
+        or value at the path.
+
+    - If the reference is a name with a non existing path, this is an error.
+
+### Local Type Editions
+
+Symbols `<`, `/`, `*`, `~` inside a _definition_ constitute a local type edition.
+
+- `<` must be a simple local reference `$name`, the target model is **copied** inside the definition.
 - `/`, `*` and `~` define local editions inside the definition, as describe above.
 
 What is the _right_ balance between features, syntax and ease-of-use for a type transformation
 language is an on-going investigation: should it allow renaming, moving or copying attributes?
 Should it allow to remove definitions? Should imports allow to define a namespace?
+
+Local editions are executed _after_ global editions, which may add new definitions with
+such local editions.
+
+## (EXPERIMENTAL) Symbol Names
+
+Within the `%` object at the root, properties beginning with a `.` introduce new symbol names.
+The value is the symbol string which is replaced, in `# ~ $ % @ = != <= < >= > ! | ^ & + / *`.
+For instance:
+
+```json
+{
+"%": { ".com": "#", ".or": "|", ".merge": "+" }
+}
+```
+
+Declares property substitutions, which translate this model:
+
+```json
+{ ".merge": [ {"a": 0}, {".or": [ {"b": 0}, {"c": 0} ] } ] }
+```
+
+Into:
+
+```json
+{ "+": [ {"a": 0}, {"|": [ {"b": 0}, {"c": 0} ] } ] }
+```
+
+These substitutions can be carried out by a separate preprocessor which generates
+the resulting standard model without any renamed symbol.
+
+When declaring the model meta-model with `"~"` at the root, any renaming section specified
+in the meta-model **must** be applied to the current model before further processing.
+This feature allow the localization of the model syntax.
 
 ## Static Typing Lattice
 
