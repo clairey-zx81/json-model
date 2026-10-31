@@ -539,6 +539,7 @@ Any other property is an error.
         `*` interpretation is also type dependent:
         If a scalar and the target a list, the item must exist and is removed;
         If a list of stuff and the target a list, the items must exist and are removed;
+        If a list of strings and the target is an objects, keep only those properties;
         If an object and the target an object, both objects are merged,
         with property collisions considered as errors.
         All other cases are errors.
