@@ -4,12 +4,11 @@
 # count assert through a file to work around xdist multiprocess machinery
 # what hook can be used to remove the generated files is unclear
 #
-# FIXME is this reliable?
-#
 
 import pytest
 import os
 import glob
+import pathlib
 
 COUNTER = ".counter"
 cnt: int = 0
@@ -21,6 +20,7 @@ def pytest_assertion_pass(item, lineno, orig, expl):
 def pytest_unconfigure(config):
     worker_id = os.environ.get("PYTEST_XDIST_WORKER", "root")
     counter_file = f"{COUNTER}.{worker_id}"
+    assert not pathlib.Path(counter_file).exists(), f"counter file must not exist: {counter_file}"
     with open(counter_file, "w") as cf:
         print(cnt, file=cf)
 

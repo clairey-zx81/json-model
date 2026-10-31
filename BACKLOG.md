@@ -11,6 +11,7 @@
 - [x] model: allow comments in trafo
 - [x] model: fix missing resolver forwarding
 - [x] pr: rewrite trafo spec
+- [x] tests: add sanity assertion about xdist parallel pytest runs
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads
