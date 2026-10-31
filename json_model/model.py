@@ -1219,10 +1219,11 @@ class JsonModel:
             if not isinstance(names, list) or not all(isinstance(s, str) for s in names):
                 raise ModelError(f"namespace remove must be a list of names at {path}")
             for name in names:
-                # FIXME filter out comments?
+                if name.startswith("#"):
+                    continue
                 if name not in jm._defs:
                     raise ModelError(f"missing {name} definition in model {jm._id} at {path}")
-                # FIXME this may not be enough!
+                # NOTE this may not be enough!
                 del jm._defs[name]
         # add new definitions
         if "*" in trafo:
@@ -1233,7 +1234,7 @@ class JsonModel:
                 if name.startswith("#"):
                     continue
                 # log.warning(f"{jm._id}: adding {name}")
-                # FIXME this may not be enough!
+                # NOTE this may not be enough!
                 jm._defs[name] = JsonModel(
                     model, jm._resolver, head=jm._head, scope=jm._defs,
                     loose_int=jm._loose_int, loose_float=jm._loose_float,
