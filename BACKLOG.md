@@ -10,6 +10,7 @@
 - [x] models: add json patch spec (RFC6902) and tests
 - [x] model: allow comments in trafo
 - [x] model: fix missing resolver forwarding
+- [x] pr: rewrite trafo spec
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads
