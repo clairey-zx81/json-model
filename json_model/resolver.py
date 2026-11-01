@@ -74,11 +74,13 @@ class Resolver:
         if url in self._jsons:
             return self._jsons[url]
 
+        FILE = "file://"
+
         # handle local files
         if url.startswith("./") or url.startswith("../") or url.startswith("/"):
             file = url
-        elif url.startswith("file://"):
-            file = url[7:]
+        elif url.startswith(FILE):
+            file = url[len(FILE):]
         elif ":" not in url:
             file = "./" + url
         else:
