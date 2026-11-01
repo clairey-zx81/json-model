@@ -273,11 +273,11 @@ for dir ; do
       echo "## corvus ko: $corvus_ko"
     }
 
-    # schema to model
+    # schema to unprocessed model
     [ "$do_cmp" -a "$trg" = "jsu" ] && {
       echo "## $dir jsu compile"
       ctime "$name,jsu-model,$now," "$prefix" jsu \
-        $jsu_compile $jsu_opts -o ${prefix}.model.json $dir/schema.json
+        $jsu_compile $jsu_opts -b n -o ${prefix}.model.json $dir/schema.json
     }
 
     # schema to C and executable
