@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] model: make resolver log actual file source when using cache
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads

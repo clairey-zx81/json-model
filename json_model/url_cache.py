@@ -42,6 +42,7 @@ class JsonURLCache:
         self._cache: dict[str, Jsonable] = {}
 
     def getJSON(self, url: str) -> Jsonable:
+        """Load URL for a JSON representation from JSON or YaML."""
         res = self._requests.get(url)
         try:
             return res.json()
@@ -64,20 +65,22 @@ class JsonURLCache:
         # first cache (memory)
         # log.error("skipping cache!")
         if u in self._cache:
+            log.info(f"mem cache: {url}")
             return self._cache[u]
 
         # second cache (file): we assume no hash collision
         h = hashlib.sha3_256(u.encode("UTF-8")).hexdigest()
         hfile = self._cache_dir + "/" + h
         if os.path.exists(hfile):
-            log.info(f"loading: {url}")
+            log.info(f"file cache: {url}")
             with open(hfile) as f:
                 j = json.load(f)
                 self._cache[u] = j
                 return j
 
-        # download
-        log.info(f"downloading: {url}")
+        # download or load
+        op = "downloading" if url.startswith("http:") or url.startswith("https:") else "loading"
+        log.info(f"{op}: {url}")
         j = self.getJSON(u)
         self._cache[u] = j
         with open(hfile, "w") as f:
