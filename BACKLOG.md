@@ -4,6 +4,7 @@
 
 - [x] model: make resolver log actual file source when using cache
 - [x] bench: explicitly skip cache
+- [ ] model: preprocessed model output is _not_ reintrant: feature or bug?
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads
