@@ -96,8 +96,8 @@ cd $bench_id || err 4 "cannot change directory: $bench_id"
 container_opts=(--hostname=$(hostname))
 bench_opts=()
 
-# always map to internal copy
-JMC_OPTS+=" -m https://json-model.org/models/=/app/json-model/models/"
+# always map to internal copy, no cache
+JMC_OPTS+=" -m https://json-model.org/models/=/app/json-model/models/ --cache-ignore"
 
 # forward environment settings to container
 if [ "$JMC_OPTS" ] ; then
