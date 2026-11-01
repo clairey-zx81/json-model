@@ -2,16 +2,6 @@
 
 ## Current Tasks
 
-- [x] models: json schema drafts as a diff (4, 6, 7, 8, 9)
-- [x] tests: also check json schema diff versions
-- [x] tests: add more trafo tests
-- [x] tests: update trafo support in model schema used by some tests
-- [x] models: add for openapi overlay spec
-- [x] models: add json patch spec (RFC6902) and tests
-- [x] model: allow comments in trafo
-- [x] model: fix missing resolver forwarding
-- [x] pr: rewrite trafo spec
-- [x] tests: add sanity assertion about xdist parallel pytest runs
 - [ ] java-runtime: consider automatic updates?
 - [ ] pr: improve compiler page, list and describe optimizations?
 - [ ] bench: better count should ignore bads

@@ -1,5 +1,18 @@
 # JSON Model Compiler Versions
 
+## 2.0.65 on 2026-11-01
+
+- models: json schema drafts as a diff (4, 6, 7, 8, 9)
+- tests: also check json schema diff versions
+- tests: add more trafo tests
+- tests: update trafo support in model schema used by some tests
+- models: add for openapi overlay spec
+- models: add json patch spec (RFC6902) and tests
+- model: allow comments in trafo
+- model: fix missing resolver forwarding
+- pr: rewrite trafo spec
+- tests: add sanity assertion about xdist parallel pytest runs
+
 ## 2.0.64 on 2026-10-26
 
 - bench: do not link same version and message artifacts, keep first encountered
