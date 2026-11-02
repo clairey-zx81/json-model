@@ -1,0 +1,1420 @@
+[
+  {
+    "#": "JsonModel 2 with defs",
+    "$": {
+      "Model": {
+        "#": "JsonModel 4 with defs",
+        "$": "Symbol 4",
+        "@": "$RootModel",
+        "~": "https://json-model.org/models/json-model"
+      },
+      "#": "Symbol 2",
+      "": "./json-model-moschin-ref.model.json"
+    },
+    "@": "$Model"
+  },
+  {
+    "#": "JsonModel 2 with defs",
+    "$": {
+      "Model": {
+        "#": "JsonModel 4 with defs",
+        "$": "Symbol 4",
+        "@": "$RootModel",
+        "~": "https://json-model.org/models/json-model"
+      },
+      "#": "Symbol 2",
+      "": "https://json-model.org/models/json-model-moschin"
+    },
+    "@": "$Model",
+    "~": "https://json-model.org/models/json-model"
+  },
+  {
+    "#": "JsonModel 4 with defs",
+    "$": {
+      "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/",
+      "StrPredef": {
+        "|": [
+          "_$STRING",
+          "_$DATE",
+          "_$TIME",
+          "_$TIMETZ",
+          "_$DATETIME",
+          "_$DURATION",
+          "_$URL",
+          "_$URL_REL",
+          "_$URI",
+          "_$HOST",
+          "_$IP4",
+          "_$IP6",
+          "_$ETH",
+          "_$EMAIL",
+          "_$UUID",
+          "_$REGEX",
+          "_$EXREG",
+          "_$JSON",
+          "_$JSONPT",
+          "_$SEMVER",
+          "_$CARD"
+        ],
+        "#": "JsonModel 6"
+      },
+      "PreDef": {
+        "|": [
+          "$StrPredef",
+          "_$NULL",
+          "_$BOOL",
+          "_$BOOLEAN",
+          "_$FLOAT",
+          "_$F16",
+          "_$F32",
+          "_$F64",
+          "_$NUMBER",
+          "_$RATE",
+          "_$INT",
+          "_$INTEGER",
+          "_$I8",
+          "_$I16",
+          "_$I32",
+          "_$I64",
+          "_$U8",
+          "_$U16",
+          "_$U32",
+          "_$U64",
+          "_$NONE",
+          "_$ANY"
+        ],
+        "#": "JsonModel 7"
+      },
+      "Identifier": {
+        "&": [
+          "/^\\w(\\w|-)*$/",
+          "/[^A-Z0-9]/"
+        ],
+        "#": "JsonModel 8"
+      },
+      "ArrayComment": "/^#/",
+      "ObjectComment": {
+        "?#": "",
+        "/^#./s": "$ANY",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "#": "JsonModel 10"
+      },
+      "Ref": {
+        "|": [
+          "/^\\$($Identifier)$/X",
+          "/^\\$($Url)$/X"
+        ],
+        "#": "JsonModel 11"
+      },
+      "ValConst": "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/",
+      "StrConst": "/^[A-Za-z0-9_]/",
+      "Regex": {
+        "|": [
+          "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+          "/^/($REGEX)/[a-z]*$/X"
+        ],
+        "#": "JsonModel 14"
+      },
+      "Name": "/^\\..+$/",
+      "CmpValue": {
+        "|": [
+          -1,
+          -1.0,
+          ""
+        ],
+        "#": "JsonModel 16"
+      },
+      "EqValue": {
+        "|": [
+          null,
+          true,
+          "$CmpValue"
+        ],
+        "#": "JsonModel 17"
+      },
+      "ValModel": {
+        "|": [
+          null,
+          "=true",
+          "=0",
+          "=1",
+          "=-1",
+          "=0.0",
+          "=1.0",
+          "=-1.0"
+        ],
+        "#": "JsonModel 18"
+      },
+      "StrModel": {
+        "|": [
+          "$StrConst",
+          "$ValConst",
+          "$Regex",
+          "$PreDef",
+          "$Ref",
+          "_"
+        ],
+        "#": "JsonModel 19"
+      },
+      "Any": "$ANY",
+      "None": "$NONE",
+      "CModel": {
+        "|": [
+          "$Model",
+          "$ArrayComment"
+        ],
+        "#": "JsonModel 22"
+      },
+      "Array": [
+        "$CModel"
+      ],
+      "Common": "$ObjectComment",
+      "Constraint": {
+        "_@": "$Model",
+        "/^(<=|>=|<|>)$/": "$CmpValue",
+        "/^(=|!=)$/": "$EqValue",
+        "?!": true,
+        "?.mo": {
+          "|": [
+            1,
+            1.0
+          ]
+        },
+        "?.in": "$Model",
+        "#": "JsonModel 25"
+      },
+      "Or": {
+        "_|": [
+          "$CModel"
+        ],
+        "#": "JsonModel 26"
+      },
+      "And": {
+        "_&": [
+          "$CModel"
+        ],
+        "#": "JsonModel 27"
+      },
+      "Xor": {
+        "_^": [
+          "$CModel"
+        ],
+        "#": "JsonModel 28"
+      },
+      "Add": {
+        "_+": [
+          "$CModel"
+        ],
+        "#": "JsonModel 29"
+      },
+      "Prop": {
+        "|": [
+          "/^[?!]/",
+          "$StrConst",
+          "$Regex",
+          "$StrPredef",
+          "$Ref",
+          "$Name",
+          "_"
+        ],
+        "#": "JsonModel 30"
+      },
+      "Obj": {
+        "$Prop": "$Model",
+        "#": "JsonModel 31"
+      },
+      "Elem": {
+        "|": [
+          "$Constraint",
+          "$Or",
+          "$And",
+          "$Xor",
+          "$Add",
+          "$Obj"
+        ],
+        "#": "JsonModel 32"
+      },
+      "Element": {
+        "|": [
+          {
+            "!@": "$Model",
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "?!": true,
+            "?.mo": {
+              "|": [
+                1,
+                1.0
+              ]
+            },
+            "?.in": "$Model",
+            "/^#./s": "$ANY",
+            "/^(<=|>=|<|>)$/": "$CmpValue",
+            "/^(=|!=)$/": "$EqValue"
+          },
+          {
+            "!|": [
+              "$CModel"
+            ],
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "/^#./s": "$ANY"
+          },
+          {
+            "!&": [
+              "$CModel"
+            ],
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "/^#./s": "$ANY"
+          },
+          {
+            "!^": [
+              "$CModel"
+            ],
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "/^#./s": "$ANY"
+          },
+          {
+            "!+": [
+              "$CModel"
+            ],
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "/^#./s": "$ANY"
+          },
+          {
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "$Prop": "$Model",
+            "/^#./s": "$ANY"
+          }
+        ],
+        "#": "JsonModel 33"
+      },
+      "Trafo": {
+        "?/": {
+          "|": [
+            "$EqValue",
+            [
+              "$ANY"
+            ]
+          ]
+        },
+        "?~": {
+          "": ""
+        },
+        "?*": "$ANY",
+        "#": "JsonModel 34"
+      },
+      "LocalTrafo": {
+        "@": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?/": {
+            "|": [
+              "$EqValue",
+              [
+                "$ANY"
+              ]
+            ]
+          },
+          "?~": {
+            "": ""
+          },
+          "?*": "$ANY",
+          "?<": "$Ref",
+          "/^#./s": "$ANY"
+        },
+        ">=": 1,
+        "#": "JsonModel 35"
+      },
+      "Transformation": {
+        "|": [
+          "$Model",
+          {
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "?/": {
+              "|": [
+                "$EqValue",
+                [
+                  "$ANY"
+                ]
+              ]
+            },
+            "?~": {
+              "": ""
+            },
+            "?*": "$ANY",
+            "/^#./s": "$ANY"
+          }
+        ],
+        "#": "JsonModel 36"
+      },
+      "ScalarModel": {
+        "|": [
+          "$ValModel",
+          "$StrModel"
+        ],
+        "#": "JsonModel 37"
+      },
+      "Model": {
+        "|": [
+          "$ScalarModel",
+          "$Array",
+          "$Element"
+        ],
+        "#": "JsonModel 38"
+      },
+      "Defs": {
+        "?": "$Url",
+        "$Identifier": {
+          "|": [
+            "$Model",
+            "$LocalTrafo"
+          ]
+        },
+        "#": "JsonModel 39"
+      },
+      "Rename": {
+        "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+        "#": "JsonModel 40"
+      },
+      "Rewrite": {
+        "/^\\$.*$/": "$Transformation",
+        "#": "JsonModel 41"
+      },
+      "Import": {
+        "?<": {
+          "|": [
+            "$Ref",
+            [
+              "$Ref"
+            ]
+          ]
+        },
+        "#": "JsonModel 42"
+      },
+      "RootOnly": {
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?": "$Url",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
+          "/^#./s": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#./s": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "#": "JsonModel 43"
+      },
+      "Root": {
+        "|": [
+          {
+            "!@": "$Model",
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?": "$Url",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
+              "/^#./s": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#./s": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "?!": true,
+            "?.mo": {
+              "|": [
+                1,
+                1.0
+              ]
+            },
+            "?.in": "$Model",
+            "/^#./s": "$ANY",
+            "/^(<=|>=|<|>)$/": "$CmpValue",
+            "/^(=|!=)$/": "$EqValue"
+          },
+          {
+            "!|": [
+              "$CModel"
+            ],
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?": "$Url",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
+              "/^#./s": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#./s": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "/^#./s": "$ANY"
+          },
+          {
+            "!&": [
+              "$CModel"
+            ],
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?": "$Url",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
+              "/^#./s": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#./s": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "/^#./s": "$ANY"
+          },
+          {
+            "!^": [
+              "$CModel"
+            ],
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?": "$Url",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
+              "/^#./s": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#./s": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "/^#./s": "$ANY"
+          },
+          {
+            "!+": [
+              "$CModel"
+            ],
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?": "$Url",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
+              "/^#./s": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#./s": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "/^#./s": "$ANY"
+          },
+          {
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?": "$Url",
+              "$Identifier": {
+                "|": [
+                  "$Model",
+                  "$LocalTrafo"
+                ]
+              },
+              "/^#./s": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?.schema": {
+                "": "$ANY"
+              },
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#./s": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "?.schema": {
+              "": "$ANY"
+            },
+            "$Prop": "$Model",
+            "/^#./s": "$ANY"
+          }
+        ],
+        "#": "JsonModel 44"
+      },
+      "RootModel": {
+        "|": [
+          "$ScalarModel",
+          "$Array",
+          "$Root"
+        ],
+        "#": "JsonModel 45"
+      },
+      "#": "Symbol 4",
+      "": "https://json-model.org/models/json-model"
+    },
+    "@": "$RootModel",
+    "~": "https://json-model.org/models/json-model"
+  },
+  "/^((file|https?)://.+|\\./.*|\\.\\./.*|[^#]*#.*)$/",
+  {
+    "|": [
+      "_$STRING",
+      "_$DATE",
+      "_$TIME",
+      "_$TIMETZ",
+      "_$DATETIME",
+      "_$DURATION",
+      "_$URL",
+      "_$URL_REL",
+      "_$URI",
+      "_$HOST",
+      "_$IP4",
+      "_$IP6",
+      "_$ETH",
+      "_$EMAIL",
+      "_$UUID",
+      "_$REGEX",
+      "_$EXREG",
+      "_$JSON",
+      "_$JSONPT",
+      "_$SEMVER",
+      "_$CARD"
+    ],
+    "#": "JsonModel 6"
+  },
+  {
+    "|": [
+      "$StrPredef",
+      "_$NULL",
+      "_$BOOL",
+      "_$BOOLEAN",
+      "_$FLOAT",
+      "_$F16",
+      "_$F32",
+      "_$F64",
+      "_$NUMBER",
+      "_$RATE",
+      "_$INT",
+      "_$INTEGER",
+      "_$I8",
+      "_$I16",
+      "_$I32",
+      "_$I64",
+      "_$U8",
+      "_$U16",
+      "_$U32",
+      "_$U64",
+      "_$NONE",
+      "_$ANY"
+    ],
+    "#": "JsonModel 7"
+  },
+  {
+    "&": [
+      "/^\\w(\\w|-)*$/",
+      "/[^A-Z0-9]/"
+    ],
+    "#": "JsonModel 8"
+  },
+  "/^#/",
+  {
+    "?#": "",
+    "/^#./s": "$ANY",
+    "?.schema": {
+      "": "$ANY"
+    },
+    "#": "JsonModel 10"
+  },
+  {
+    "|": [
+      "/^\\$($Identifier)$/X",
+      "/^\\$($Url)$/X"
+    ],
+    "#": "JsonModel 11"
+  },
+  "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/",
+  "/^[A-Za-z0-9_]/",
+  {
+    "|": [
+      "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+      "/^/($REGEX)/[a-z]*$/X"
+    ],
+    "#": "JsonModel 14"
+  },
+  "/^\\..+$/",
+  {
+    "|": [
+      -1,
+      -1.0,
+      ""
+    ],
+    "#": "JsonModel 16"
+  },
+  {
+    "|": [
+      null,
+      true,
+      "$CmpValue"
+    ],
+    "#": "JsonModel 17"
+  },
+  {
+    "|": [
+      null,
+      "=true",
+      "=0",
+      "=1",
+      "=-1",
+      "=0.0",
+      "=1.0",
+      "=-1.0"
+    ],
+    "#": "JsonModel 18"
+  },
+  {
+    "|": [
+      "$StrConst",
+      "$ValConst",
+      "$Regex",
+      "$PreDef",
+      "$Ref",
+      "_"
+    ],
+    "#": "JsonModel 19"
+  },
+  "$ANY",
+  "$NONE",
+  {
+    "|": [
+      "$Model",
+      "$ArrayComment"
+    ],
+    "#": "JsonModel 22"
+  },
+  [
+    "$CModel"
+  ],
+  "$ObjectComment",
+  {
+    "_@": "$Model",
+    "/^(<=|>=|<|>)$/": "$CmpValue",
+    "/^(=|!=)$/": "$EqValue",
+    "?!": true,
+    "?.mo": {
+      "|": [
+        1,
+        1.0
+      ]
+    },
+    "?.in": "$Model",
+    "#": "JsonModel 25"
+  },
+  {
+    "_|": [
+      "$CModel"
+    ],
+    "#": "JsonModel 26"
+  },
+  {
+    "_&": [
+      "$CModel"
+    ],
+    "#": "JsonModel 27"
+  },
+  {
+    "_^": [
+      "$CModel"
+    ],
+    "#": "JsonModel 28"
+  },
+  {
+    "_+": [
+      "$CModel"
+    ],
+    "#": "JsonModel 29"
+  },
+  {
+    "|": [
+      "/^[?!]/",
+      "$StrConst",
+      "$Regex",
+      "$StrPredef",
+      "$Ref",
+      "$Name",
+      "_"
+    ],
+    "#": "JsonModel 30"
+  },
+  {
+    "$Prop": "$Model",
+    "#": "JsonModel 31"
+  },
+  {
+    "|": [
+      "$Constraint",
+      "$Or",
+      "$And",
+      "$Xor",
+      "$Add",
+      "$Obj"
+    ],
+    "#": "JsonModel 32"
+  },
+  {
+    "|": [
+      {
+        "!@": "$Model",
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "?!": true,
+        "?.mo": {
+          "|": [
+            1,
+            1.0
+          ]
+        },
+        "?.in": "$Model",
+        "/^#./s": "$ANY",
+        "/^(<=|>=|<|>)$/": "$CmpValue",
+        "/^(=|!=)$/": "$EqValue"
+      },
+      {
+        "!|": [
+          "$CModel"
+        ],
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "/^#./s": "$ANY"
+      },
+      {
+        "!&": [
+          "$CModel"
+        ],
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "/^#./s": "$ANY"
+      },
+      {
+        "!^": [
+          "$CModel"
+        ],
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "/^#./s": "$ANY"
+      },
+      {
+        "!+": [
+          "$CModel"
+        ],
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "/^#./s": "$ANY"
+      },
+      {
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "$Prop": "$Model",
+        "/^#./s": "$ANY"
+      }
+    ],
+    "#": "JsonModel 33"
+  },
+  {
+    "?/": {
+      "|": [
+        "$EqValue",
+        [
+          "$ANY"
+        ]
+      ]
+    },
+    "?~": {
+      "": ""
+    },
+    "?*": "$ANY",
+    "#": "JsonModel 34"
+  },
+  {
+    "@": {
+      "?#": "",
+      "?.schema": {
+        "": "$ANY"
+      },
+      "?/": {
+        "|": [
+          "$EqValue",
+          [
+            "$ANY"
+          ]
+        ]
+      },
+      "?~": {
+        "": ""
+      },
+      "?*": "$ANY",
+      "?<": "$Ref",
+      "/^#./s": "$ANY"
+    },
+    ">=": 1,
+    "#": "JsonModel 35"
+  },
+  {
+    "|": [
+      "$Model",
+      {
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "?/": {
+          "|": [
+            "$EqValue",
+            [
+              "$ANY"
+            ]
+          ]
+        },
+        "?~": {
+          "": ""
+        },
+        "?*": "$ANY",
+        "/^#./s": "$ANY"
+      }
+    ],
+    "#": "JsonModel 36"
+  },
+  {
+    "|": [
+      "$ValModel",
+      "$StrModel"
+    ],
+    "#": "JsonModel 37"
+  },
+  {
+    "|": [
+      "$ScalarModel",
+      "$Array",
+      "$Element"
+    ],
+    "#": "JsonModel 38"
+  },
+  {
+    "?": "$Url",
+    "$Identifier": {
+      "|": [
+        "$Model",
+        "$LocalTrafo"
+      ]
+    },
+    "#": "JsonModel 39"
+  },
+  {
+    "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+    "#": "JsonModel 40"
+  },
+  {
+    "/^\\$.*$/": "$Transformation",
+    "#": "JsonModel 41"
+  },
+  {
+    "?<": {
+      "|": [
+        "$Ref",
+        [
+          "$Ref"
+        ]
+      ]
+    },
+    "#": "JsonModel 42"
+  },
+  {
+    "?~": "$Url",
+    "?$": {
+      "?#": "",
+      "?.schema": {
+        "": "$ANY"
+      },
+      "?": "$Url",
+      "$Identifier": {
+        "|": [
+          "$Model",
+          "$LocalTrafo"
+        ]
+      },
+      "/^#./s": "$ANY"
+    },
+    "?%": {
+      "?#": "",
+      "?.schema": {
+        "": "$ANY"
+      },
+      "?<": {
+        "|": [
+          "$Ref",
+          [
+            "$Ref"
+          ]
+        ]
+      },
+      "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+      "/^#./s": "$ANY",
+      "/^\\$.*$/": "$Transformation"
+    },
+    "#": "JsonModel 43"
+  },
+  {
+    "|": [
+      {
+        "!@": "$Model",
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?": "$Url",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
+          "/^#./s": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#./s": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "?!": true,
+        "?.mo": {
+          "|": [
+            1,
+            1.0
+          ]
+        },
+        "?.in": "$Model",
+        "/^#./s": "$ANY",
+        "/^(<=|>=|<|>)$/": "$CmpValue",
+        "/^(=|!=)$/": "$EqValue"
+      },
+      {
+        "!|": [
+          "$CModel"
+        ],
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?": "$Url",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
+          "/^#./s": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#./s": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "/^#./s": "$ANY"
+      },
+      {
+        "!&": [
+          "$CModel"
+        ],
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?": "$Url",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
+          "/^#./s": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#./s": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "/^#./s": "$ANY"
+      },
+      {
+        "!^": [
+          "$CModel"
+        ],
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?": "$Url",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
+          "/^#./s": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#./s": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "/^#./s": "$ANY"
+      },
+      {
+        "!+": [
+          "$CModel"
+        ],
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?": "$Url",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
+          "/^#./s": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#./s": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "/^#./s": "$ANY"
+      },
+      {
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?": "$Url",
+          "$Identifier": {
+            "|": [
+              "$Model",
+              "$LocalTrafo"
+            ]
+          },
+          "/^#./s": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?.schema": {
+            "": "$ANY"
+          },
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#./s": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "?.schema": {
+          "": "$ANY"
+        },
+        "$Prop": "$Model",
+        "/^#./s": "$ANY"
+      }
+    ],
+    "#": "JsonModel 44"
+  },
+  {
+    "|": [
+      "$ScalarModel",
+      "$Array",
+      "$Root"
+    ],
+    "#": "JsonModel 45"
+  }
+]

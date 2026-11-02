@@ -1,0 +1,32 @@
+[
+  {
+    "/^#/": "",
+    "_$": {
+      "?": "$URL",
+      "_Model": "_$https://json-model.org/models/json-model"
+    },
+    "_~": "_https://json-model.org/models/l10n",
+    "_%": {
+      "#": "dot-prefixed arbitrary key, one or two char keyword values",
+      "/^#/": "",
+      "/^\\..+$/": "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
+    },
+    "_@": "_$Model",
+    "#": "JsonModel 2"
+  },
+  {
+    "/^#/": "",
+    "_$": {
+      "?": "$URL",
+      "_Model": "_$https://json-model.org/models/json-model"
+    },
+    "_~": "_https://json-model.org/models/l10n",
+    "_%": {
+      "#": "dot-prefixed arbitrary key, one or two char keyword values",
+      "/^#/": "",
+      "/^\\..+$/": "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
+    },
+    "_@": "_$Model",
+    "#": "JsonModel 2"
+  }
+]

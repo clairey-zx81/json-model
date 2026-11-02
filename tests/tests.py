@@ -23,9 +23,9 @@ log.setLevel(logging.INFO)
 #
 EXPECT: dict[str, int] = {
     # reference
-    "ref:models": 10,
-    "ref:values": 142,
-    "ref:verrors:schema": 62,
+    "ref:models": 12,
+    "ref:values": 155,
+    "ref:verrors:schema": 65,
     "ref:models:errors-jsm": 2,
     # chunk 00
     "mv-00:cmp-opts": {"report": False, "comment": False, "relib": "re"},
