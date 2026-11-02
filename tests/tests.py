@@ -151,8 +151,8 @@ EXPECT: dict[str, int] = {
     "mv-1c:verrors:schema": 32,
     # chunk 1D
     # FIXME schema missing Schema
-    "mv-1d:models": 9,
-    "mv-1d:values": 81,
+    "mv-1d:models": 11,
+    "mv-1d:values": 99,
     "mv-1d:verrors:schema": 9,
     # chunk 1E
     "mv-1e:models": 10,
