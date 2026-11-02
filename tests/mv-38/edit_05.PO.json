@@ -1,0 +1,13 @@
+{
+  "#": "JsonModel 2 with defs",
+  "$": {
+    "foo": {
+      "#": "JsonModel 4 with defs",
+      "$": "Symbol 4",
+      "@": "$Foo"
+    },
+    "#": "Symbol 2",
+    "": "./edit_05"
+  },
+  "@": "$foo"
+}
