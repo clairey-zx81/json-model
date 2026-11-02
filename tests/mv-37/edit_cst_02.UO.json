@@ -1,0 +1,18 @@
+[
+  {
+    "#": "JsonModel 2 with defs",
+    "$": {
+      "foo": {
+        "?c": "_Y",
+        "#": "JsonModel 4"
+      },
+      "#": "Symbol 2",
+      "": "./edit_cst_01"
+    },
+    "@": "$foo"
+  },
+  {
+    "?c": "_Y",
+    "#": "JsonModel 4"
+  }
+]
