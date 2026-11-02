@@ -5,6 +5,7 @@
 - [x] model: make resolver log actual file source when using cache
 - [x] bench: explicitly skip cache
 - [x] bench: use an unprocessed model instead of preprocessed as an intermediate
+- [x] front: make -U more verbose under debug
 - [ ] tests: add ref tests for native models
 - [ ] bench: add resilience to jmc failure to radar generation
 - [ ] model: preprocessed model output is _not_ reintrant: feature or bug?

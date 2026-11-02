@@ -900,10 +900,11 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     elif args.op == "U":  # model dump
         assert model._models
         show = []
-        for mid in sorted(model._models.keys()):
-            m = model._models[mid]
+        for mid, m in sorted(model._models.items()):
             j = m.toModel(m._is_root)
             if isinstance(j, dict) or model._is_root:
+                show.append(j)
+            elif args.debug:
                 show.append(j)
         print(json2str(show), file=output)
     elif args.op == "N":  # no operation
