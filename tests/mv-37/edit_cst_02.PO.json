@@ -1,6 +1,5 @@
 {
-  "@": "$foo",
-  "#": "JsonModel 2",
+  "#": "JsonModel 2 with defs",
   "$": {
     "foo": {
       "?c": "_Y",
@@ -8,5 +7,6 @@
     },
     "#": "Symbol 2",
     "": "./edit_cst_02"
-  }
+  },
+  "@": "$foo"
 }

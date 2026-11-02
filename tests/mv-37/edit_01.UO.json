@@ -13,6 +13,19 @@
     "@": "$Foo"
   },
   {
+    "#": "JsonModel 2 with defs",
+    "$": {
+      "Foo": {
+        "?a": "/^a/",
+        "?b": "/^b/",
+        "#": "JsonModel 3"
+      },
+      "#": "Symbol 2",
+      "": "./edit_00"
+    },
+    "@": "$Foo"
+  },
+  {
     "?a": "/^a/",
     "?b": "/^b/",
     "#": "JsonModel 3"

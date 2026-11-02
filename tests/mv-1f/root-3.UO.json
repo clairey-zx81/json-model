@@ -16,16 +16,9 @@
     "#": "JsonModel 3 with defs",
     "$": {
       "root": {
-        "@": "$Root",
-        "#": "JsonModel 8",
-        "$": {
-          "Root": {
-            "id": "=0",
-            "name": ""
-          },
-          "#": "Symbol 8",
-          "": "./root-0"
-        }
+        "#": "JsonModel 8 with defs",
+        "$": "Symbol 8",
+        "@": "$Root"
       },
       "Foo": {
         "rt": "$root#Root",
@@ -39,6 +32,20 @@
   {
     "rt": "$root#Root",
     "#": "JsonModel 5"
+  },
+  {
+    "#": "JsonModel 8 with defs",
+    "$": {
+      "root": {
+        "#": "JsonModel 11 with defs",
+        "$": "Symbol 11",
+        "@": "$Root"
+      },
+      "Root": "$root#Root",
+      "#": "Symbol 8",
+      "": "./root-0"
+    },
+    "@": "$Root"
   },
   {
     "#": "JsonModel 8 with defs",

@@ -47,10 +47,9 @@ function json_model_4(val, path, rep)
 function json_model_2(val, path, rep)
 {
     // .
-    // .'@'
     let res = json_model_4(val, path, rep)
     if (! res)
-        rep !== null && rep.push(["unexpected value for model \"$foo\" [.'@']", path])
+        rep !== null && rep.push(["unexpected value for model \"$foo\" [.]", path])
     return res
 }
 
@@ -64,7 +63,7 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", json_model_2)
+        check_model_map.set("", json_model_4)
         check_model_map.set("foo", json_model_4)
     }
 }

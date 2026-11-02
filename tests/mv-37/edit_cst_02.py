@@ -48,10 +48,9 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
-    # .'@'
     res: bool = json_model_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected value for model \"$foo\" [.'@']", path))
+        rep is None or rep.append(("unexpected value for model \"$foo\" [.]", path))
     return res
 
 
@@ -65,7 +64,7 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": json_model_2,
+            "": json_model_4,
             "foo": json_model_4,
         }
 

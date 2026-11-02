@@ -38,7 +38,6 @@ CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  -- .'@'
   RETURN json_model_4(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
@@ -46,7 +45,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_2","foo":"json_model_4"}';
+  map JSONB := JSONB '{"":"json_model_4","foo":"json_model_4"}';
 BEGIN
   RETURN map->>name;
 END;

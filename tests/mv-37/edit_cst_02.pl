@@ -56,9 +56,8 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    # .'@'
     my $res = json_model_4($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\$foo\" [.'\@']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$foo\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -73,7 +72,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            "" => \&json_model_2,
+            "" => \&json_model_4,
             "foo" => \&json_model_4,
         );
     }

@@ -14,12 +14,10 @@ export var check_model_map = new Map()
 // check $ (.)
 function json_model_2(val, path, rep)
 {
-    // to serve as an external reference
     // .
-    // .'@'
     let res = typeof val == 'string' && val == "Susie"
     if (! res)
-        rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'@']", path])
+        rep !== null && rep.push(["unexpected value for model \"_Susie\" [.]", path])
     return res
 }
 

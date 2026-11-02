@@ -7,7 +7,31 @@
         "#": "JsonModel 4"
       },
       "#": "Symbol 2",
+      "": "./edit_cst_02.model.json"
+    },
+    "@": "$foo"
+  },
+  {
+    "#": "JsonModel 2 with defs",
+    "$": {
+      "foo": {
+        "?c": "_Y",
+        "#": "JsonModel 4"
+      },
+      "#": "Symbol 2",
       "": "./edit_cst_01"
+    },
+    "@": "$foo"
+  },
+  {
+    "#": "JsonModel 3 with defs",
+    "$": {
+      "foo": {
+        "?c": "_Y",
+        "#": "JsonModel 4"
+      },
+      "#": "Symbol 3",
+      "": "./edit_cst_00"
     },
     "@": "$foo"
   },

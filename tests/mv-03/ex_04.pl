@@ -19,11 +19,9 @@ my %check_model_map;
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    # to serve as an external reference
     # .
-    # .'@'
     my $res = jm_is_string($val) && $val eq "Susie";
-    push @$rep, ["unexpected value for model \"_Susie\" [.'\@']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"_Susie\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

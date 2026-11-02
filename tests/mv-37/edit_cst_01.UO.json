@@ -12,6 +12,18 @@
     "@": "$foo"
   },
   {
+    "#": "JsonModel 2 with defs",
+    "$": {
+      "foo": {
+        "?c": "_Y",
+        "#": "JsonModel 3"
+      },
+      "#": "Symbol 2",
+      "": "./edit_cst_00"
+    },
+    "@": "$foo"
+  },
+  {
     "?c": "_Y",
     "#": "JsonModel 3"
   }

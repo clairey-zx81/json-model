@@ -1,3 +1,2 @@
-WARNING:json-model:1: tpath=not-a-reference trafo={}
 ERROR:json-model:tpath must be a reference: not-a-reference
 ERROR:json-model:invalid model rw_04.model.json

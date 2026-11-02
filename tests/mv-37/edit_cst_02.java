@@ -58,11 +58,10 @@ public class edit_cst_02 extends ModelChecker
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         // .
-        // .'@'
         boolean res = json_model_4(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected value for model \"$foo\" [.'@']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$foo\" [.]", path);
         }
         return res;
     }
@@ -74,7 +73,7 @@ public class edit_cst_02 extends ModelChecker
         {
             try {
             edit_cst_02_map_pmap = new HashMap<String, Checker>();
-            edit_cst_02_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            edit_cst_02_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             edit_cst_02_map_pmap.put("foo", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
                 super.init(json);
             }

@@ -9,9 +9,7 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  -- to serve as an external reference
   -- .
-  -- .'@'
   RETURN JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'Susie';
 END;
 $$ LANGUAGE PLpgSQL;

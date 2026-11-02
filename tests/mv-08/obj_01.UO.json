@@ -8,5 +8,14 @@
     },
     "@": "$BOOLEAN"
   },
+  {
+    "#": "JsonModel 3 with defs",
+    "$": {
+      "foo": "$BOOLEAN",
+      "#": "Symbol 3",
+      "": "./obj_00"
+    },
+    "@": "$BOOLEAN"
+  },
   "$BOOLEAN"
 ]

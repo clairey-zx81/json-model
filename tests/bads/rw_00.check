@@ -1,3 +1,2 @@
-WARNING:json-model:1: tpath=$# trafo={'~': None}
 ERROR:json-model:expecting an object for ~ at ['%', '$#']
 ERROR:json-model:invalid model rw_00.model.json

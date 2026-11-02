@@ -49,11 +49,10 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    // .'@'
     bool res = json_model_4(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$foo\" [.'@']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$foo\" [.]", path);
     }
     return res;
 }
@@ -71,7 +70,7 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_4 };
         check_model_map_tab[1] = (jm_propmap_t) { "foo", json_model_4 };
         jm_sort_propmap(check_model_map_tab, 2);
     }
