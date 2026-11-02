@@ -558,6 +558,9 @@ class JsonModel:
                         ntodo.add(jm._id)
             todo = ntodo
 
+        # NOTE see mv-38/edit_05: keep all root models just in case
+        keep |= {mid for mid, mmo in self._models.items() if mmo._is_root}
+
         # cleanup
         total = len(self._models)
         for mid in list(self._models.keys()):
