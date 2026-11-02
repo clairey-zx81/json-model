@@ -260,12 +260,10 @@ if [ "$publish" ] ; then
   read sbc_v < $VERSION.sbc
   read corvus_v < $VERSION.corvus
 
-  msg=<<EOF
-add artifact $bench_id from cron job
+  msg="add artifact $bench_id from cron job
 
 jsu is $jmc_v, blaze is $sbc_v, corvus is $corvus_v.
-jsonschema-benchmark is $jsb_v.
-EOF
+jsonschema-benchmark is $jsb_v."
 
   git commit -m "$msg" || err 11 "cannot git commit artifact"
   git push || err 11 "cannot git push"
