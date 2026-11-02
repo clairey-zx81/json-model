@@ -1,0 +1,16 @@
+edit_03.values.json[0]: PASS
+edit_03.values.json[1]: PASS
+edit_03.values.json[2]: PASS
+edit_03.values.json[3]: PASS
+edit_03.values.json[4]: FAIL (.foo: invalid optional prop value [.'$Foo'.foo]; .foo: unexpected value for model "" [.'$Foo'.foo])
+edit_03.values.json[5]: FAIL (.foo: invalid optional prop value [.'$Foo'.foo]; .foo: unexpected value for model "" [.'$Foo'.foo])
+edit_03.values.json[6]: FAIL (.no-such-prop: unexpected prop [.'$Foo'])
+edit_03.values.json[7]: FAIL (.: not an object [.'$Foo'])
+edit_03.values.json[8]: FAIL (.: not an object [.'$Foo'])
+edit_03.values.json[9]: FAIL (.: not an object [.'$Foo'])
+edit_03.values.json[10]: FAIL (.: not an object [.'$Foo'])
+edit_03.values.json[11]: FAIL (.: not an object [.'$Foo'])
+edit_03.values.json[12]: FAIL (.: not an object [.'$Foo'])
+edit_03.values.json[13]: FAIL (.: not an object [.'$Foo'])
+edit_03.values.json[14]: FAIL (.: not an object [.'$Foo'])
+edit_03.values.json[15]: FAIL (.: not an object [.'$Foo'])

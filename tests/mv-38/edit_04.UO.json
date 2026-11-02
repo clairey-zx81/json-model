@@ -1,0 +1,33 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "foo": {
+        "#": "JsonModel 3 with defs",
+        "$": "Symbol 3",
+        "@": "$Foo"
+      },
+      "#": "Symbol 1",
+      "": "./edit_04.model.json"
+    },
+    "@": "$foo"
+  },
+  {
+    "#": "JsonModel 3 with defs",
+    "$": {
+      "Foo": {
+        "?foo": 1,
+        "?bla": true,
+        "#": "JsonModel 4"
+      },
+      "#": "Symbol 3",
+      "": "./edit_03"
+    },
+    "@": "$Foo"
+  },
+  {
+    "?foo": 1,
+    "?bla": true,
+    "#": "JsonModel 4"
+  }
+]
