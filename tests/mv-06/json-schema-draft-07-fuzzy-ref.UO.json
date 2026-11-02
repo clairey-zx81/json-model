@@ -1,0 +1,508 @@
+[
+  {
+    "#": "JsonModel 2 with defs",
+    "$": {
+      "schema": {
+        "@": "$Schema",
+        "#": "JsonModel 4 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
+        "$": {
+          "": "https://json-model.org/models/json-schema-draft-07",
+          "URI-REFERENCE": "",
+          "schemaArray": {
+            "@": [
+              "$Schema"
+            ],
+            ">=": 1
+          },
+          "simpleTypes": {
+            "|": [
+              "null",
+              "boolean",
+              "integer",
+              "number",
+              "string",
+              "array",
+              "object"
+            ]
+          },
+          "typeArray": {
+            "@": [
+              "$simpleTypes"
+            ],
+            ">=": 1,
+            "!": true
+          },
+          "ObjectSchema": {
+            "?$id": "$URI-REFERENCE",
+            "?$schema": "$URI",
+            "?$comment": "",
+            "?title": "",
+            "?description": "",
+            "?default": "$ANY",
+            "?readOnly": true,
+            "?writeOnly": true,
+            "?examples": [
+              "$ANY"
+            ],
+            "?multipleOf": 1.0,
+            "?maximum": -1.0,
+            "?exclusiveMaximum": -1.0,
+            "?minimum": -1.0,
+            "?exclusiveMinimum": -1.0,
+            "?maxLength": 0,
+            "?minLength": 0,
+            "?pattern": "$REGEX",
+            "?additionalItems": "$Schema",
+            "?items": {
+              "|": [
+                "$Schema",
+                "$schemaArray"
+              ]
+            },
+            "?maxItems": 0,
+            "?minItems": 0,
+            "?uniqueItems": true,
+            "?contains": "$Schema",
+            "?maxProperties": 0,
+            "?minProperties": 0,
+            "?required": [
+              ""
+            ],
+            "?additionalProperties": "$Schema",
+            "?definitions": {
+              "": "$Schema"
+            },
+            "?properties": {
+              "": "$Schema"
+            },
+            "?propertyNames": "$Schema",
+            "?patternProperties": {
+              "$REGEX": "$Schema"
+            },
+            "?dependencies": {
+              "": {
+                "|": [
+                  "$Schema",
+                  [
+                    ""
+                  ]
+                ]
+              }
+            },
+            "?enum": {
+              "@": [
+                "$ANY"
+              ],
+              ">=": 1,
+              "!": true
+            },
+            "?const": "$ANY",
+            "?type": {
+              "|": [
+                "$simpleTypes",
+                "$typeArray"
+              ]
+            },
+            "?format": "",
+            "?contentMediaType": "",
+            "?contentEncoding": "",
+            "?if": "$Schema",
+            "?then": "$Schema",
+            "?else": "$Schema",
+            "?allOf": "$schemaArray",
+            "?anyOf": "$schemaArray",
+            "?oneOf": "$schemaArray",
+            "?not": "$Schema",
+            "?$ref": "$URI-REFERENCE"
+          },
+          "Schema": {
+            "|": [
+              true,
+              "$ObjectSchema"
+            ]
+          }
+        },
+        "~": "https://json-model.org/models/json-model"
+      },
+      "#": "Symbol 2",
+      "": "./json-schema-draft-07-fuzzy-ref.model.json"
+    },
+    "@": "$schema"
+  },
+  {
+    "#": "JsonModel 2 with defs",
+    "$": {
+      "schema": {
+        "@": "$Schema",
+        "#": "JsonModel 4 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
+        "$": {
+          "": "https://json-model.org/models/json-schema-draft-07",
+          "URI-REFERENCE": "",
+          "schemaArray": {
+            "@": [
+              "$Schema"
+            ],
+            ">=": 1
+          },
+          "simpleTypes": {
+            "|": [
+              "null",
+              "boolean",
+              "integer",
+              "number",
+              "string",
+              "array",
+              "object"
+            ]
+          },
+          "typeArray": {
+            "@": [
+              "$simpleTypes"
+            ],
+            ">=": 1,
+            "!": true
+          },
+          "ObjectSchema": {
+            "?$id": "$URI-REFERENCE",
+            "?$schema": "$URI",
+            "?$comment": "",
+            "?title": "",
+            "?description": "",
+            "?default": "$ANY",
+            "?readOnly": true,
+            "?writeOnly": true,
+            "?examples": [
+              "$ANY"
+            ],
+            "?multipleOf": 1.0,
+            "?maximum": -1.0,
+            "?exclusiveMaximum": -1.0,
+            "?minimum": -1.0,
+            "?exclusiveMinimum": -1.0,
+            "?maxLength": 0,
+            "?minLength": 0,
+            "?pattern": "$REGEX",
+            "?additionalItems": "$Schema",
+            "?items": {
+              "|": [
+                "$Schema",
+                "$schemaArray"
+              ]
+            },
+            "?maxItems": 0,
+            "?minItems": 0,
+            "?uniqueItems": true,
+            "?contains": "$Schema",
+            "?maxProperties": 0,
+            "?minProperties": 0,
+            "?required": [
+              ""
+            ],
+            "?additionalProperties": "$Schema",
+            "?definitions": {
+              "": "$Schema"
+            },
+            "?properties": {
+              "": "$Schema"
+            },
+            "?propertyNames": "$Schema",
+            "?patternProperties": {
+              "$REGEX": "$Schema"
+            },
+            "?dependencies": {
+              "": {
+                "|": [
+                  "$Schema",
+                  [
+                    ""
+                  ]
+                ]
+              }
+            },
+            "?enum": {
+              "@": [
+                "$ANY"
+              ],
+              ">=": 1,
+              "!": true
+            },
+            "?const": "$ANY",
+            "?type": {
+              "|": [
+                "$simpleTypes",
+                "$typeArray"
+              ]
+            },
+            "?format": "",
+            "?contentMediaType": "",
+            "?contentEncoding": "",
+            "?if": "$Schema",
+            "?then": "$Schema",
+            "?else": "$Schema",
+            "?allOf": "$schemaArray",
+            "?anyOf": "$schemaArray",
+            "?oneOf": "$schemaArray",
+            "?not": "$Schema",
+            "?$ref": "$URI-REFERENCE"
+          },
+          "Schema": {
+            "|": [
+              true,
+              "$ObjectSchema"
+            ]
+          }
+        },
+        "~": "https://json-model.org/models/json-model"
+      },
+      "#": "Symbol 2",
+      "": "https://json-model.org/models/json-schema-draft-07-fuzzy"
+    },
+    "@": "$schema",
+    "~": "https://json-model.org/models/json-model"
+  },
+  {
+    "@": "$Schema",
+    "#": "JsonModel 4 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
+    "$": {
+      "URI-REFERENCE": "",
+      "schemaArray": {
+        "@": [
+          "$Schema"
+        ],
+        ">=": 1,
+        "#": "JsonModel 6 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+      },
+      "simpleTypes": {
+        "|": [
+          "_null",
+          "_boolean",
+          "_integer",
+          "_number",
+          "_string",
+          "_array",
+          "_object"
+        ],
+        "#": "JsonModel 7 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+      },
+      "typeArray": {
+        "@": [
+          "$simpleTypes"
+        ],
+        ">=": 1,
+        "!": true,
+        "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+      },
+      "ObjectSchema": {
+        "?$id": "$URI-REFERENCE",
+        "?$schema": "$URI",
+        "?$comment": "",
+        "?title": "",
+        "?description": "",
+        "?readOnly": true,
+        "?writeOnly": true,
+        "?examples": [
+          "$ANY"
+        ],
+        "?multipleOf": 1.0,
+        "?maximum": -1.0,
+        "?exclusiveMaximum": -1.0,
+        "?minimum": -1.0,
+        "?exclusiveMinimum": -1.0,
+        "?maxLength": 0,
+        "?minLength": 0,
+        "?additionalItems": "$Schema",
+        "?items": {
+          "|": [
+            "$Schema",
+            "$schemaArray"
+          ]
+        },
+        "?maxItems": 0,
+        "?minItems": 0,
+        "?uniqueItems": true,
+        "?contains": "$Schema",
+        "?maxProperties": 0,
+        "?minProperties": 0,
+        "?required": [
+          ""
+        ],
+        "?additionalProperties": "$Schema",
+        "?definitions": {
+          "": "$Schema"
+        },
+        "?properties": {
+          "": "$Schema"
+        },
+        "?propertyNames": "$Schema",
+        "?dependencies": {
+          "": {
+            "|": [
+              "$Schema",
+              [
+                ""
+              ]
+            ]
+          }
+        },
+        "?enum": {
+          "@": [
+            "$ANY"
+          ],
+          ">=": 1,
+          "!": true
+        },
+        "?type": {
+          "|": [
+            "$simpleTypes",
+            "$typeArray"
+          ]
+        },
+        "?format": "",
+        "?contentMediaType": "",
+        "?contentEncoding": "",
+        "?if": "$Schema",
+        "?then": "$Schema",
+        "?else": "$Schema",
+        "?allOf": "$schemaArray",
+        "?anyOf": "$schemaArray",
+        "?oneOf": "$schemaArray",
+        "?not": "$Schema",
+        "?$ref": "$URI-REFERENCE",
+        "": "$ANY",
+        "?pattern": "",
+        "?patternProperties": {
+          "": "$Schema"
+        },
+        "#": "JsonModel 9 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+      },
+      "Schema": {
+        "|": [
+          true,
+          "$ObjectSchema"
+        ],
+        "#": "JsonModel 10 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+      },
+      "#": "Symbol 4",
+      "": "https://json-model.org/models/json-schema-draft-07"
+    },
+    "~": "https://json-model.org/models/json-model"
+  },
+  "",
+  {
+    "@": [
+      "$Schema"
+    ],
+    ">=": 1,
+    "#": "JsonModel 6 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+  },
+  {
+    "|": [
+      "_null",
+      "_boolean",
+      "_integer",
+      "_number",
+      "_string",
+      "_array",
+      "_object"
+    ],
+    "#": "JsonModel 7 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+  },
+  {
+    "@": [
+      "$simpleTypes"
+    ],
+    ">=": 1,
+    "!": true,
+    "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+  },
+  {
+    "?$id": "$URI-REFERENCE",
+    "?$schema": "$URI",
+    "?$comment": "",
+    "?title": "",
+    "?description": "",
+    "?readOnly": true,
+    "?writeOnly": true,
+    "?examples": [
+      "$ANY"
+    ],
+    "?multipleOf": 1.0,
+    "?maximum": -1.0,
+    "?exclusiveMaximum": -1.0,
+    "?minimum": -1.0,
+    "?exclusiveMinimum": -1.0,
+    "?maxLength": 0,
+    "?minLength": 0,
+    "?additionalItems": "$Schema",
+    "?items": {
+      "|": [
+        "$Schema",
+        "$schemaArray"
+      ]
+    },
+    "?maxItems": 0,
+    "?minItems": 0,
+    "?uniqueItems": true,
+    "?contains": "$Schema",
+    "?maxProperties": 0,
+    "?minProperties": 0,
+    "?required": [
+      ""
+    ],
+    "?additionalProperties": "$Schema",
+    "?definitions": {
+      "": "$Schema"
+    },
+    "?properties": {
+      "": "$Schema"
+    },
+    "?propertyNames": "$Schema",
+    "?dependencies": {
+      "": {
+        "|": [
+          "$Schema",
+          [
+            ""
+          ]
+        ]
+      }
+    },
+    "?enum": {
+      "@": [
+        "$ANY"
+      ],
+      ">=": 1,
+      "!": true
+    },
+    "?type": {
+      "|": [
+        "$simpleTypes",
+        "$typeArray"
+      ]
+    },
+    "?format": "",
+    "?contentMediaType": "",
+    "?contentEncoding": "",
+    "?if": "$Schema",
+    "?then": "$Schema",
+    "?else": "$Schema",
+    "?allOf": "$schemaArray",
+    "?anyOf": "$schemaArray",
+    "?oneOf": "$schemaArray",
+    "?not": "$Schema",
+    "?$ref": "$URI-REFERENCE",
+    "": "$ANY",
+    "?pattern": "",
+    "?patternProperties": {
+      "": "$Schema"
+    },
+    "#": "JsonModel 9 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+  },
+  {
+    "|": [
+      true,
+      "$ObjectSchema"
+    ],
+    "#": "JsonModel 10 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+  }
+]
