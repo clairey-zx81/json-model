@@ -25,7 +25,6 @@
     },
     "@": "$foo"
   },
-  "$./edit_03",
   {
     "#": "JsonModel 4 with defs",
     "$": {
@@ -43,77 +42,5 @@
     "?foo": 1,
     "?bla": true,
     "#": "JsonModel 5"
-  },
-  {
-    "@": "$Foo",
-    "#": "JsonModel 6",
-    "$": {
-      "Foo": {
-        "?foo": "",
-        "?bla": true,
-        "#": "JsonModel 7"
-      },
-      "#": "Symbol 6",
-      "": "./edit_03"
-    }
-  },
-  {
-    "?foo": "",
-    "?bla": true,
-    "#": "JsonModel 7"
-  },
-  {
-    "@": "$Foo",
-    "#": "JsonModel 8",
-    "$": {
-      "Foo": {
-        "?foo": "",
-        "?bla": true,
-        "#": "JsonModel 9"
-      },
-      "#": "Symbol 8",
-      "": "./edit_03"
-    }
-  },
-  {
-    "?foo": "",
-    "?bla": true,
-    "#": "JsonModel 9"
-  },
-  {
-    "@": "$Foo",
-    "#": "JsonModel 10",
-    "$": {
-      "Foo": {
-        "?foo": "",
-        "?bla": true,
-        "#": "JsonModel 11"
-      },
-      "#": "Symbol 10",
-      "": "./edit_03"
-    }
-  },
-  {
-    "?foo": "",
-    "?bla": true,
-    "#": "JsonModel 11"
-  },
-  {
-    "@": "$Foo",
-    "#": "JsonModel 12",
-    "$": {
-      "Foo": {
-        "?foo": "",
-        "?bla": true,
-        "#": "JsonModel 13"
-      },
-      "#": "Symbol 12",
-      "": "./edit_03"
-    }
-  },
-  {
-    "?foo": "",
-    "?bla": true,
-    "#": "JsonModel 13"
   }
 ]
