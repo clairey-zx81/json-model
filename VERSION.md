@@ -1,5 +1,13 @@
 # JSON Model Compiler Versions
 
+## 2.0.66 on 2026-11-02
+
+- model: make resolver log actual file source when using cache
+- bench: explicitly skip cache
+- bench: use an unprocessed model instead of preprocessed as an intermediate
+- front: make -U more verbose under debug
+- tests: add ref tests for various native models
+
 ## 2.0.65 on 2026-11-01
 
 - models: json schema drafts as a diff (4, 6, 7, 8, 9)
