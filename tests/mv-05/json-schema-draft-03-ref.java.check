@@ -1,0 +1,9 @@
+json-schema-draft-03-ref.values.json[0]: PASS
+json-schema-draft-03-ref.values.json[1]: FAIL (: not an object [.'$Schema']; : unexpected value for model "$Schema" [.'@'])
+json-schema-draft-03-ref.values.json[2]: FAIL (: not an object [.'$Schema']; : unexpected value for model "$Schema" [.'@'])
+json-schema-draft-03-ref.values.json[3]: FAIL (: not an object [.'$Schema']; : unexpected value for model "$Schema" [.'@'])
+json-schema-draft-03-ref.values.json[4]: FAIL (: not an object [.'$Schema']; : unexpected value for model "$Schema" [.'@'])
+json-schema-draft-03-ref.values.json[5]: FAIL (: not an object [.'$Schema']; : unexpected value for model "$Schema" [.'@'])
+json-schema-draft-03-ref.values.json[6]: FAIL (: not an object [.'$Schema']; : unexpected value for model "$Schema" [.'@'])
+json-schema-draft-03-ref.values.json[7]: FAIL (: not an object [.'$Schema']; : unexpected value for model "$Schema" [.'@'])
+json-schema-draft-03-ref.values.json[8]: FAIL (: not an object [.'$Schema']; : unexpected value for model "$Schema" [.'@'])

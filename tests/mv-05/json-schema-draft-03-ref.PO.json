@@ -1,0 +1,142 @@
+{
+  "@": "$Schema",
+  "#": "JsonModel 2 (JSON_MODEL_LOOSE_FLOAT)",
+  "$": {
+    "allTypes": {
+      "|": [
+        "_null",
+        "_boolean",
+        "_integer",
+        "_number",
+        "_string",
+        "_array",
+        "_object",
+        "_any"
+      ],
+      "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)"
+    },
+    "distinctSchemaArray": {
+      "@": [
+        {
+          "|": [
+            "",
+            "$Schema"
+          ]
+        }
+      ],
+      "!": true,
+      "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
+    },
+    "Schema": {
+      "?type": {
+        "|": [
+          "$allTypes",
+          [
+            {
+              "|": [
+                "",
+                "$Schema"
+              ]
+            }
+          ]
+        ]
+      },
+      "?properties": {
+        "": "$Schema"
+      },
+      "?patternProperties": {
+        "": "$Schema"
+      },
+      "?additionalProperties": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?items": {
+        "|": [
+          "$Schema",
+          [
+            "$Schema"
+          ]
+        ]
+      },
+      "?additionalItems": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?dependencies": {
+        "": {
+          "|": [
+            "",
+            [
+              ""
+            ],
+            "$Schema"
+          ]
+        }
+      },
+      "?required": true,
+      "?minimum": -1.0,
+      "?maximum": -1.0,
+      "?exclusiveMaximum": true,
+      "?exclusiveMinimum": true,
+      "?minItems": 0,
+      "?maxItems": 0,
+      "?pattern": "$REGEX",
+      "?minLength": 0,
+      "?maxLength": 0,
+      "?enum": {
+        "@": [
+          "$ANY"
+        ],
+        ">=": 1,
+        "!": true
+      },
+      "?uniqueItems": true,
+      "?title": "",
+      "?description": "",
+      "?format": {
+        "|": [
+          "_date-time",
+          "_date",
+          "_time",
+          "_utc-millisec",
+          "_regex",
+          "_color",
+          "_style",
+          "_phone",
+          "_uri",
+          "_email",
+          "_ip-address",
+          "_ipv6",
+          "_host-name"
+        ]
+      },
+      "?default": "$ANY",
+      "?divisibleBy": 1.0,
+      "?disallow": {
+        "|": [
+          "",
+          "$distinctSchemaArray"
+        ]
+      },
+      "?extends": {
+        "|": [
+          "$Schema",
+          [
+            "$Schema"
+          ]
+        ]
+      },
+      "?id": "",
+      "?$schema": "",
+      "?$ref": "",
+      "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
+    },
+    "#": "Symbol 2",
+    "": "./json-schema-draft-03-ref"
+  }
+}
