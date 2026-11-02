@@ -2,6 +2,8 @@
 #
 # start bench
 #
+# launch the benchmark container with an appropriate environment
+#
 
 # container
 export POD=${POD:-docker}
@@ -104,6 +106,8 @@ if [ "$JMC_OPTS" ] ; then
   container_opts+=(-e "JMC_OPTS=$JMC_OPTS")
   bench_opts+=(--env JMC_OPTS)
 fi
+
+JSU_OPTS+=" -m https://json-model.org/models/=/app/json-model/models/ --download"
 
 if [ "$JSU_OPTS" ] ; then
   container_opts+=(-e "JSU_OPTS=$JSU_OPTS")
