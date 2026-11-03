@@ -25,8 +25,8 @@ VERSION=$TARGET/.bench_version
 # - PARA: bench parallelism (12)
 # - LOOP: bench iterations (1000)
 # - RUNS: number of runs (7)
-# - JMC: docker tag for jmc image (main)
-# - JMC_BENCH: docker tag for jmc-bench image  (main)
+# - JMC: docker tag for jmc image (latest)
+# - JMC_BENCH: docker tag for jmc-bench image (latest)
 # - SBC: docker tag for sourcemeta blaze cli (latest)
 # - CORVUS: docker tag for corvus-cli bench image (latest)
 #
@@ -36,8 +36,8 @@ export LOOP=${LOOP:-1000}
 export RUNS=${RUNS:-7}
 
 # docker tags
-export JMC=${JMC:-main}
-export JMC_BENCH=${JMC_BENCH:-main}
+export JMC=${JMC:-latest}
+export JMC_BENCH=${JMC_BENCH:-latest}
 export SBC=${SBC:-latest}
 export CORVUS=${CORVUS:-latest}
 
