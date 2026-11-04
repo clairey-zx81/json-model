@@ -199,8 +199,7 @@ Classification metrics for each tool (percent average over all cases):
 RESULT_SUMMARY_NOTE: str = """
 For external tools, a non perfect result does _not_ imply a tool bug: a non perfect
 _specificity_ reflects an imprecise schema which fails to reject some (nonsensical) bad values.
-However, the benchmark good test cases are built so that the _sensitivity_ should be 100%:
-As of October 2026, _Corvus_ rejects some string values (eg URI's) which are accepted by others.
+However, the benchmark good test cases are built so that the _sensitivity_ should be 100%.
 """
 
 RESULT_GOODS: str = """
