@@ -4,6 +4,7 @@
 
 - [x] bench: use latest image instead of main for jmc
 - [x] bench: show jmc-bench docker info in benchmark run report
+- [x] bench: update corvus failure message
 - [ ] bench: add resilience to jmc failure to radar generation
 - [ ] model: preprocessed model output is _not_ reintrant: feature or bug?
 - [ ] java-runtime: consider automatic updates?
