@@ -151,7 +151,7 @@ if [ "$build" ] ; then
   # force rebuild
   make -C "$WORK_PERF" clean || err 6 "cannot clean for corvus build"
   make -C "$WORK_PERF" corvus.build || err 6 "cannot build corvus image"
-  make -C "$WORK_PERF" corvus.push || err 6 "cannot push corvus image"
+  # make -C "$WORK_PERF" corvus.push || err 6 "cannot push corvus image"
   msg "Corvus: $(corvus-cli --version)"
 else
   msg "no build"
@@ -166,7 +166,7 @@ if [ "$check" ] ; then
 
   docker pull $SBC_IMG || err 6 "cannot docker pull: $SBC_IMG"
   docker pull $JMC_IMG || err 6 "cannot docker pull: $JMC_IMG"
-  docker pull $CORVUS_IMG || err 6 "cannot docker pull: $CORVUS_IMG"
+  [ "$build" ] || docker pull $CORVUS_IMG || err 6 "cannot docker pull: $CORVUS_IMG"
   docker pull $BENCH_IMG || err 6 "cannot docker pull: $JMC_BENCH_IMG"
 
   docker run --rm --name sbc_version_$$ $SBC_IMG --version > $VERSION.sbc.tmp || err 7 "error getting version: $SBC_IMG"
