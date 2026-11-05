@@ -62,7 +62,7 @@ export POD_PULL=0  # do not pull images again!
 
 function msg()
 {
-  echo "[bench] $@" >&2
+  echo "[bench] $SECONDS $@" >&2
 }
 
 function err()
@@ -85,6 +85,8 @@ Usage: $0 [ -c -f -p -i id ] [ -- benchmark options... ]
   -i id/-ni: use existing benchmark id (auto)
 EOF
 }
+
+msg "starting at $(date)"
 
 # option management
 check=1 run= publish= no_publish= build=
@@ -115,6 +117,8 @@ msg "buid=$build check=$check force=$force publish=$publish"
 #
 # sanity checks
 #
+
+msg "sanitizing"
 
 for dir in $PERF $TARGET $JSB_DIR ; do
   test -d $dir || err 2 "missing source directory: $dir"
@@ -192,7 +196,7 @@ fi
 # run default bench if required
 #
 if [ "$run" ] ; then
-  msg "checking"
+  msg "running"
 
   if [ ! "$bench_id" ] ; then
     # generate unique bench id
@@ -273,3 +277,5 @@ jsonschema-benchmark is $jsb_v."
 else
   msg "no publish"
 fi
+
+msg "done"
