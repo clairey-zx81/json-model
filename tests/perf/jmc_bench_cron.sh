@@ -57,6 +57,9 @@ export JMC_OPTS="--single-line-regex --cc=clang --precompiled --short-version"
 export JSB_DIR="$TARGET/jsb_dir"
 export POD_PULL=0  # do not pull images again!
 
+# update PATH?
+# export PATH=$HOME/bin:$PATH
+
 function msg()
 {
   echo "[bench] $@" >&2
@@ -152,7 +155,7 @@ if [ "$build" ] ; then
   make -C "$WORK_PERF" clean || err 6 "cannot clean for corvus build"
   make -C "$WORK_PERF" corvus.build || err 6 "cannot build corvus image"
   # make -C "$WORK_PERF" corvus.push || err 6 "cannot push corvus image"
-  msg "Corvus: $(corvus-cli --version)"
+  msg "Corvus: $($WORK_PERF/corvus-cli --version)"
 else
   msg "no build"
 fi
