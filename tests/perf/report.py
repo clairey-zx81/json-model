@@ -221,7 +221,8 @@ jmc language-specific model compilation) in seconds.
 
 CASE_DATA: str = """
 For each case and a summary: the full schema, normalized schema and model sizes
-(number of lines), number/min/average/max size of test values.
+(number of lines), number of synthetic negative values,
+number/min/average/max size of positive values.
 """
 
 X2_DETAIL_COMMENT: str = """
@@ -313,7 +314,7 @@ comp_df = pd.read_csv(
 )
 case_df = pd.read_csv(
     "cases.csv",
-    names=["case", "ssize", "nsize", "msize", "ntests"],
+    names=["case", "ssize", "nsize", "msize", "ptests", "ntests"],
     index_col=[0]
 )
 vals_df = pd.read_csv(
@@ -371,8 +372,8 @@ log.info(f"missings: {missings}")
 bad_result: dict[tuple[str, str], str] = {
     (c, t): (
         "missing" if (c, t) in missings else
-        "ntests" if TP[c, t] + FN[c, t] != case_df.loc[c]["ntests"] else
-        "partial" if TP[c, t] <= args.recall_threshold * case_df.loc[c]["ntests"] else
+        "ptests" if TP[c, t] + FN[c, t] != case_df.loc[c]["ptests"] else
+        "partial" if TP[c, t] <= args.recall_threshold * case_df.loc[c]["ptests"] else
         "okay"
     )
     for c in cases
@@ -587,7 +588,7 @@ print()
 print("|#|name|cases|best µs| :1st_place_medal: |" + "|".join(TOOL[t] for t in tools) + "|")
 print("|---:|:------|---:|---:|:--:|" + "".join("---:|" for t in tools))
 for i, c in enumerate(cases):
-    print(f"|{i+1}|{CASE[c]}|{case_df.loc[c]['ntests']}|"
+    print(f"|{i+1}|{CASE[c]}|{case_df.loc[c]['ptests']}|"
           f"{perf_best[c]:.01f}|{TOOL[best_tool[c]]}|", end="")
     print("".join(f"{perf_display[(c, t)]}|" for t in tools))
 
@@ -734,19 +735,20 @@ print("## Cases Data")
 if args.standard: print(CASE_DATA, end="")
 
 print()
-print(f"|#|name|schema|normal|model|nb|min (B)|avg (B)|max (B)|")
+print(f"|#|name|schema|normal|model|#neg|#pos|min (B)|avg (B)|max (B)|")
 print(f"|---:|:---|---:|---:|---:|---:|---:|---:|---:|")
 
 # aggregations
 sum_ss = case_df["ssize"].sum()
 sum_ns = case_df["nsize"].sum()
 sum_ms = case_df["msize"].sum()
-sum_nb = case_df["ntests"].sum()
+sum_n_pos = case_df["ptests"].sum()
+sum_n_neg = case_df["ntests"].sum()
 
 avg_ss = case_df["ssize"].mean()
 avg_ns = case_df["nsize"].mean()
 avg_ms = case_df["msize"].mean()
-avg_nb = case_df["ntests"].mean()
+avg_nb = case_df["ptests"].mean()
 
 min_vs = vals_df["size"].min()
 avg_vs = vals_df["size"].mean()
@@ -756,16 +758,17 @@ case_df["min"] = vals_df.groupby("case")["size"].min()
 case_df["avg"] = vals_df.groupby("case")["size"].mean()
 case_df["max"] = vals_df.groupby("case")["size"].max()
 
-print(f"|| _total_ | _{sum_ss}_ | _{sum_ns}_ | _{sum_ms}_ | _{sum_nb}_ ||||")
-print(f"|| _average_ | _{avg_ss:.0f}_ | _{avg_ns:.0f}_ | _{avg_ms:.0f}_ | _{avg_nb:.0f}_ ||||")
+print(f"|| _total_ | _{sum_ss}_ | _{sum_ns}_ | _{sum_ms}_ | _{sum_n_neg}_ | _{sum_n_pos}_ ||||")
+print(f"|| _average_ | _{avg_ss:.0f}_ | _{avg_ns:.0f}_ | _{avg_ms:.0f}_ | _{avg_nb:.0f}_ |||||")
 # details
 for i, c in enumerate(cases):
     print(
         f"|{i+1}|{CASE[c]}|{case_df.loc[c]['ssize']:.0f}|"
-        f"{case_df.loc[c]['nsize']:.0f}|{case_df.loc[c]['msize']:.0f}|{case_df.loc[c]['ntests']:.0f}|"
+        f"{case_df.loc[c]['nsize']:.0f}|{case_df.loc[c]['msize']:.0f}|"
+        f"{case_df.loc[c]['ntests']:.0f}|{case_df.loc[c]['ptests']:.0f}|"
         f"{case_df.loc[c]['min']:.0f}|{case_df.loc[c]['avg']:.0f}|{case_df.loc[c]['max']:.0f}|"
     )
-print(f"|| _summary_ ||||| _{min_vs}_ | _{avg_vs:.0f}_ | _{max_vs}_ |")
+print(f"|| _summary_ |||||| _{min_vs}_ | _{avg_vs:.0f}_ | _{max_vs}_ |")
 # force flush at end of main sections
 print(end="", flush=True)
 
@@ -821,20 +824,20 @@ if args.ref:
     # NOTE costly loop: over 35,000 tests for each tool
     for i, c in progress(list(enumerate(cases)), desc="Cases", leave=False):
 
-        ntests = int(case_df.loc[c]['ntests'])
+        ptests = int(case_df.loc[c]['ptests'])
         if not args.progress:
-            log.debug(f"comparing {CASE[c]} {i+1}/{len(cases)} ({ntests} tests)")
+            log.debug(f"comparing {CASE[c]} {i+1}/{len(cases)} ({ptests} tests)")
 
         ref_runs = {
             line: runs.values
                 for line, runs in perf_df.loc[c, args.ref].groupby("line")["runavg"]
         }
 
-        assert len(ref_runs) == ntests
+        assert len(ref_runs) == ptests
         if args.iterations:
             assert all(len(times) == args.iterations for _, times in ref_runs.items())
 
-        print(f"|{i+1}|{CASE[c]}|{ntests}|", end="")
+        print(f"|{i+1}|{CASE[c]}|{ptests}|", end="")
         for tool in progress(tools, desc="Tools", leave=False):
 
             # NOTE we compute a tool against itself for sanity checking
@@ -858,13 +861,13 @@ if args.ref:
                     for line, runs in perf_df.loc[c, tool].groupby("line")["runavg"]
             }
 
-            assert len(cmp_runs) == ntests
+            assert len(cmp_runs) == ptests
             if args.iterations:
                 assert all(len(times) == args.iterations for _, times in cmp_runs.items())
 
             # compare each test performance
             better, worse, same = 0, 0, 0
-            for j in progress(range(1, ntests + 1), desc="Tests", leave=False):
+            for j in progress(range(1, ptests + 1), desc="Tests", leave=False):
 
                 # this is more or less Mood's median-test using Boschloo's exact test
                 all_runs = pd.DataFrame(np.concatenate((ref_runs[j], cmp_runs[j])))

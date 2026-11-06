@@ -358,23 +358,37 @@ echo "## source summary $(( $SECONDS - $START ))"
 
 START=$SECONDS
 
+# generate case csv
+touch cases.csv casevalues.csv casenvalues.csv
+
 for dir in jsb/schemas/* ; do
   [ -d "$dir" ] || continue
   name=$(basename $dir)
+
   # full schema locs
   ssize=$(jq < $dir/schema.json | wc -l)
+
   # locs without documentation stuff, may be approximated
   nsize=$(
     gron $dir/schema.json |
     egrep -v '(\$comment|description|title|default|deprecated|readOnly|writeOnly|examples) = ' |
     wc -l
   )
+
+  # model locs
   msize=$(jq < tmp/0/${name}.model.json | wc -l)
-  tests=$(wc -l < $dir/instances.jsonl)
-  echo "$name,$ssize,$nsize,$msize,$tests"
+
+  # pos and neg values
+  ptests=$(wc -l < $dir/instances.jsonl)
+  ntests=0
+  [ -e $dir/negatives.jsonl ] && ntests=$(wc -l < $dir/negatives.jsonl)
+
+  # case name, schema size, normalized schema size, model size, # pos tests, # neg tests
+  echo "$name,$ssize,$nsize,$msize,$ptests,$ntests"
 
   # all cases stats
   jsonl2csv.py $name $dir/instances.jsonl >> casevalues.csv
+  [ -e $dir/negatives.jsonl ] && jsonl2csv.py $name $dir/negatives.jsonl >> casenvalues.csv
 done > cases.csv
 
 echo "## case stats $(( $SECONDS - $START ))"
@@ -454,6 +468,11 @@ fix_status="yes, models may correct some schema deficiencies"
 cap_status="no"
 [ "$cap" ] && cap_status="yes"
 
+# JSON Schema Benchmark stuff
+jsb_hash=$(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD)
+jsb_npos=$(cat jsb/schemas/*/instances.jsonl | wc -l)
+jsb_nneg=$(cat jsb/schemas/*/negatives.jsonl | wc -l)
+
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
 
@@ -479,7 +498,7 @@ or deselect tools for easier comparisons.
 - **docker version:** $(docker --version | cut -d' ' -f 3-)
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
-- **jsonschema-benchmark version:** $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD), $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l) unique tests
+- **jsonschema-benchmark version:** $jsb_hash ($jsb_npos positive values, $jsb_nneg synthetic negative values)"
 - **benchmark script version:** $version
 EOF
 
