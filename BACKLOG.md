@@ -7,6 +7,7 @@
 - [x] bench: update corvus failure message
 - [x] bench: do not push built corvus docker image
 - [x] bench: show cron script progress and time
+- [x] bench: adjust report and contents comments and counts about synthetic false test values
 - [ ] bench: add resilience to jmc failure to radar generation
 - [ ] model: preprocessed model output is _not_ reintrant: feature or bug?
 - [ ] java-runtime: consider automatic updates?
