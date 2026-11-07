@@ -288,12 +288,12 @@ EXPECT: dict[str, int] = {
     "bads:models:errors-jsg": 2,
     "jsts-files": 309,
     # tests json models of json schema versions
-    "draft3:jsts": 105,
-    "draft4:jsts": 160,
-    "draft6:jsts": 233,
-    "draft7:jsts": 258,
-    "draft2019-09:jsts": 373,
-    "draft2020-12:jsts": 384,
+    "draft3:jsts": 106,
+    "draft4:jsts": 161,
+    "draft6:jsts": 234,
+    "draft7:jsts": 259,
+    "draft2019-09:jsts": 374,
+    "draft2020-12:jsts": 385,
     "draft-next:jsts": 369,
 }
 
