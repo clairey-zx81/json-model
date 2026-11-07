@@ -174,6 +174,7 @@ echo "# benchmark options: --id=$bench_id ${bench_opts[@]} $@"
 exec $POD run \
   --rm \
   --name jmcbench_$bench_id \
+  -e CONTAINER_NAME=jmcbench_$bench_id \
   --pull=never \
   -v .:/workspace \
   -e WORKDIR="$WORKDIR" \
