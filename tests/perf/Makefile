@@ -27,80 +27,86 @@ endif
 
 .PHONY: clean
 clean:
-	$(RM) .*-*-build.* .version .{ajv,corvus}.* {ajv,corvus}/.jmc_version
+	$(RM) .*.build .*.tag .version .{ajv,corvus}.* {ajv,corvus}/.jmc_version
 	$(RM) -rf jsb/ tmp/
 
 #
-# CONTAINER
+# JMC BENCH CONTAINER
 #
 
-.PHONY: push
-push: docker-docker.push
-
 .PHONY: docker-docker.push
-docker-docker.push: docker-docker.build
-	$(MAKE) POD=docker VARIANT=docker tag
+docker-docker.push: docker-docker.tag
 	# docker push -a $(ZX80)/jmc-bench-docker
 	docker push $(ZX80)/jmc-bench-docker:$(BRANCH)
 	docker push $(ZX80)/jmc-bench-docker:$(TAG)
 	[ "$(BRANCH)" = "main" ] && docker push $(ZX80)/jmc-bench-docker:$(VERSION)
 
 .PHONY: docker-podman.push
-docker-podman.push: docker-podman.build
-	$(MAKE) POD=docker VARIANT=podman tag
+docker-podman.push: docker-podman.tag
 	# docker push -a $(ZX80)/jmc-bench-podman
 	docker push $(ZX80)/jmc-bench-podman:$(BRANCH)
 	docker push $(ZX80)/jmc-bench-podman:$(TAG)
 	[ "$(BRANCH)" = "main" ] && docker push $(ZX80)/jmc-bench-podman:$(VERSION)
 
-# .PHONY: podman.push
-# podman.push:
-# 	$(MAKE) POD=podman pod.tag
-# 	for tag in $(BRANCH) $(TAG) $(VERSION) $(GITREV) ; do
-# 	  podman push jmc-bench-$(POD):$$tag $(ZX80)/jmc-bench-$(VARIANT):$$tag
-# 	  sleep 1
-# 	done
-
 .PHONY: pod.list
 pod.list:
 	$(POD) image ls
 
+.PHONY: push
+push: docker-docker.push
+
 .PHONY: tag
-tag: .$(POD)-$(VARIANT)-build.$(BRANCH)
+tag: .$(POD)-$(VARIANT)-$(BRANCH).tag
+
+.PHONY: build
+build: .$(POD)-$(VARIANT)-$(BRANCH).build
+
+# actual building and tagging
+POD.opts    = --no-cache
+
+.$(POD)-$(VARIANT)-$(BRANCH).build: perf.$(VARIANT)
+	jmc --version > .version || exit 1
+	$(POD) build $(POD.opts) -t jmc-bench-$(VARIANT) -f perf.$(VARIANT) . && date -Iseconds > $@
+
+.$(POD)-$(VARIANT)-$(BRANCH).tag: .$(POD)-$(VARIANT)-$(BRANCH).build
 	$(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(TAG)
 	$(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(BRANCH)
 	if [ "$(BRANCH)" = "main" ] ; then
 	  $(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(VERSION)
 	  # $(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(GITREV)
 	fi
-	$(POD) image ls
+	touch $@
 
 .PHONY: pod.build
-pod.build: docker.build podman.build
-
-.PHONY: build
-build: .$(POD)-$(VARIANT)-build.$(BRANCH)
-
-POD.opts    = --no-cache
-
-.$(POD)-$(VARIANT)-build.$(BRANCH): perf.$(VARIANT)
-	jmc --version > .version || exit 1
-	$(POD) build $(POD.opts) -t jmc-bench-$(VARIANT) -f perf.$(VARIANT) . && date -Iseconds > $@
+pod.build: docker-docker.build docker-podman.build podman-podman.build
 
 .PHONY: docker-docker.build
 docker-docker.build:
 	$(MAKE) POD=docker VARIANT=docker build
 
+.PHONY: docker-docker.tag
+docker-docker.tag:
+	$(MAKE) POD=docker VARIANT=docker tag
+
+# does this one make sense?
 .PHONY: docker-podman.build
 docker-podman.build:
 	$(MAKE) POD=docker VARIANT=podman build
+
+.PHONY: docker-podman.tag
+docker-podman.tag:
+	$(MAKE) POD=docker VARIANT=podman tag
 
 .PHONY: podman-podman.build
 podman-podman.build:
 	$(MAKE) POD=podman VARIANT=podman build
 
+.PHONY: podman-podman.tag
+podman-podman.tag:
+	$(MAKE) POD=podman VARIANT=podman tag
+
 #
-# external tools
+# EXTERNAL TOOLS
 #
 # SUB = corvus
 # SUB = ajv
