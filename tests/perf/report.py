@@ -387,6 +387,11 @@ log.info(f"bad results: {bad_results}")
 
 negs_results: dict[tuple[str, str], float] = {}
 negs_cases: dict[str, bool] = {}
+
+# true values metrics
+recall = TP / (TP + FN)                     # rate of pos among actual pos (sensitivity, TPR)
+recall_avg = recall.groupby("tool").mean()
+
 if args.negs:
     # this is specificity
     negs_results = {
@@ -406,14 +411,11 @@ if args.negs:
     accuracy = (TP + TN) / (TP + FP + TN + FN)  # rate of well classified tests
     precision = TP / (TP + FP)                  # rate of pos among classified as pos
     specificity = TN / (TN + FP)                # rate of negs among actual negs (1 - FPR)
-    recall = TP / (TP + FN)                     # rate of pos among actual pos (sensitivity, TPR)
     F1 = 2 * precision * recall / (precision + recall)
     # tool summaries: tool -> rate
     accuracy_avg = accuracy.groupby("tool").mean()
     precision_avg = precision.groupby("tool").mean()
-    # FPR_avg = FPR.groupby("tool").mean()
     specificity_avg = specificity.groupby("tool").mean()
-    recall_avg = recall.groupby("tool").mean()
     F1_avg = F1.groupby("tool").mean()
 
 # cannot compare to a failed result!?
@@ -748,7 +750,8 @@ sum_n_neg = case_df["ntests"].sum()
 avg_ss = case_df["ssize"].mean()
 avg_ns = case_df["nsize"].mean()
 avg_ms = case_df["msize"].mean()
-avg_nb = case_df["ptests"].mean()
+avg_n_pos = case_df["ptests"].mean()
+avg_n_neg = case_df["ntests"].mean()
 
 min_vs = vals_df["size"].min()
 avg_vs = vals_df["size"].mean()
@@ -759,7 +762,7 @@ case_df["avg"] = vals_df.groupby("case")["size"].mean()
 case_df["max"] = vals_df.groupby("case")["size"].max()
 
 print(f"|| _total_ | _{sum_ss}_ | _{sum_ns}_ | _{sum_ms}_ | _{sum_n_neg}_ | _{sum_n_pos}_ ||||")
-print(f"|| _average_ | _{avg_ss:.0f}_ | _{avg_ns:.0f}_ | _{avg_ms:.0f}_ | _{avg_nb:.0f}_ |||||")
+print(f"|| _average_ | _{avg_ss:.0f}_ | _{avg_ns:.0f}_ | _{avg_ms:.0f}_ | _{avg_n_neg:.0f}_ | _{avg_n_pos:.0f}_ ||||")
 # details
 for i, c in enumerate(cases):
     print(
