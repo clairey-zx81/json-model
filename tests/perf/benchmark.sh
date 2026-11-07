@@ -540,10 +540,13 @@ EOF
 
 # per-container versions
 {
-  # jmc-bench image info (assuming docker-in-docker)
-  current_img=$($POD inspect --format '{{.Config.Image}}' "$(hostname)")
-  current_tag=${current_img##*:}
-  echo "- **jmc-bench container version:** $current_tag ($(pod_id $current_img))"
+  [ "$CONTAINER_NAME" ] && {
+    # jmc-bench image info (assuming docker-in-docker)
+    # NOTE the usual $(hostname) trick does not work when launched with --hostname
+    current_img=$($POD inspect --format '{{.Config.Image}}' "${CONTAINER_NAME}")
+    current_tag=${current_img##*:}
+    echo "- **jmc-bench container version:** $current_tag ($(pod_id $current_img))"
+  }
   # sub containers
   [[ $TASK =~ [cv123syl] ]] && echo "- **jmc container version:** $JMC ($(pod_id docker.io/zx80/jmc:$JMC))"
   [[ $TASK =~ B ]] && echo "- **jsc container version:** $JSC ($(pod_id ghcr.io/sourcemeta/jsonschema:$JSC))"
