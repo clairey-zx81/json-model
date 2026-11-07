@@ -71,10 +71,7 @@ POD.opts    = --no-cache
 .$(POD)-$(VARIANT)-$(BRANCH).tag: .$(POD)-$(VARIANT)-$(BRANCH).build
 	$(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(TAG)
 	$(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(BRANCH)
-	if [ "$(BRANCH)" = "main" ] ; then
-	  $(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(VERSION)
-	  # $(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(GITREV)
-	fi
+	$(POD) tag jmc-bench-$(VARIANT) $(ZX80)/jmc-bench-$(VARIANT):$(VERSION)
 	touch $@
 
 .PHONY: pod.build
