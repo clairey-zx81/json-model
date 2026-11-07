@@ -102,6 +102,10 @@ podman-podman.build:
 podman-podman.tag:
 	$(MAKE) POD=podman VARIANT=podman tag
 
+.PHONY: current
+current:
+	$(POD) run --rm $(ZX80)/jmc-bench-$(VARIANT):$(TAG) --version
+
 #
 # EXTERNAL TOOLS
 #
