@@ -3,11 +3,11 @@
 # run jmc command in a container, with some extensions
 #
 # env:
-# - POD: container command, either "docker" or "podman"
-# - JMC: jmc container tag to run
+# - POD: container command, either "docker" or "podman", default is docker
+# - JMC: jmc container tag to run, default is latest
 # - JMC_ENV: names of environment variables to export
 # - JMC_POD_OPTS: additional pod options
-# - WORKDIR: working directory to use
+# - WORKDIR: working directory to use, default to .
 
 pod=${POD:-docker}
 
@@ -27,6 +27,7 @@ for var in $JMC_ENV ; do
   fi
 done
 
+# provide hostname
 if [ "$pod" = "docker" ] ; then
   container_root+=(--hostname=$(hostname))
 elif [ "$pod" = "podman" ] ; then
@@ -37,6 +38,7 @@ else
   exit 1
 fi
 
+# keep user id
 container_user=("${container_root[@]}")
 if [ "$pod" = "docker" ] ; then
   container_user+=(--user "$(id -u):$(id -g)")
@@ -45,6 +47,7 @@ if [ "$pod" = "docker" ] ; then
   fi
 fi
 
+# handle subcommands
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
   echo "$0 [ help | run | exec | shell | root | echo ] …"
 elif [ "$#" -ge 1 -a "$1" = "shell" ] ; then
