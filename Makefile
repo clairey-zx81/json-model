@@ -15,7 +15,7 @@ endif
 venv: venv/.init
 
 venv/.init:
-	$(PYTHON) -m venv venv
+	$(PYTHON) -m venv --prompt "ve" venv
 	source venv/bin/activate
 	pip install -U pip
 	pip install -e .
