@@ -2,13 +2,6 @@
 
 ## Current Tasks
 
-- [x] bench: use latest image instead of main for jmc
-- [x] bench: show jmc-bench docker info in benchmark run report
-- [x] bench: update corvus failure message
-- [x] bench: do not push built corvus docker image
-- [x] bench: show cron script progress and time
-- [x] bench: adjust report and contents comments and counts about synthetic false test values
-- [x] bench: pass container name as `CONTAINER_NAME` env
 - [ ] bench: add resilience to jmc failure to radar generation
 - [ ] model: preprocessed model output is _not_ reintrant: feature or bug?
 - [ ] java-runtime: consider automatic updates?

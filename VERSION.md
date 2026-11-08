@@ -1,5 +1,15 @@
 # JSON Model Compiler Versions
 
+## 2.0.67 on 2026-11-08
+
+- bench: use latest image instead of main for jmc
+- bench: show jmc-bench docker info in benchmark run report
+- bench: update corvus failure message
+- bench: do not push built corvus docker image
+- bench: show cron script progress and time
+- bench: adjust report and contents comments and counts about synthetic false test values
+- bench: pass container name as `CONTAINER_NAME` env
+
 ## 2.0.66 on 2026-11-02
 
 - model: make resolver log actual file source when using cache
