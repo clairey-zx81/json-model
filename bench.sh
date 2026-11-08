@@ -3,7 +3,7 @@
 # generate BENCH.md page with links to available benchmarks
 #
 
-MAX=10
+MAX_ARTIFACTS=${MAX_ARTIFACTS:-12}
 PYPI="https://pypi.org/project"
 
 # extract version from file
@@ -52,7 +52,7 @@ for artifact in $(ls site/benchmarks/*.md | sort -r) ; do
   echo "  $msg."
 
   let nartifacts+=1
-  [ $nartifacts -eq $MAX ] && break
+  [ $nartifacts -eq $MAX_ARTIFACTS ] && break
 done
 
 # after artifact list
