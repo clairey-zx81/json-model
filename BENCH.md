@@ -14,7 +14,7 @@ from [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-b
 
 Overall, depending on the chosen metrics, JMC with the C backend is 24-60% faster
 than Blaze on average to validate JSON values in these artifacts.
-Note: SBC version 7.3.3 marks a significant performance jump for the reference.
+Note: SBC version 7.3.3 marks a significant performance jump for Blaze.
 
 BENCHES
 
