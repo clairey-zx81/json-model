@@ -12,8 +12,9 @@ from [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-b
 
 ## Recent Artifacts
 
-Overall, depending on the chosen metrics, JMC with the C backend is 50-100% faster
+Overall, depending on the chosen metrics, JMC with the C backend is 24-60% faster
 than Blaze on average to validate JSON values in these artifacts.
+Note: SBC version 7.3.3 marks a significant performance jump for the reference.
 
 BENCHES
 
@@ -70,6 +71,8 @@ validated and discussed.
   and the run stops as soon as possible.
 - The benchmark presents relative comparison ratios to smooth out the wide range of
   collected performances (from 10 ns to over 300 µs for validating one test value).
+- Within a benchmark case, the summary performance is the sum of all tests, which
+  emphasize the weight of larger (in size and time) tests.
 
 Note that performance figures **must** be taken with a pinch of salt, please consider
 the following caveats, and others:
@@ -77,7 +80,7 @@ the following caveats, and others:
 - Do you value latency or throuput or resource consumption? the answer is not so obvious,
   probably you should prefer a high throuput _if_ the latency is good enough, but these
   benchmark actually measure raw latency.
-- Test cases may or may not be representative of specific use cases,
+- Benchmark cases may or may not be representative of specific use cases,
   especially wrt schema/model and value sizes.
 - The overall load on the test host can impact measures, as well as power control
   features which adjust the cpu frequency in real time, thus the frequency may be set
@@ -148,6 +151,5 @@ It should be noted that benchmarking conditions are quite different compared to 
      is less favorable to cache effects, and makes it impossible to investigate
      individual test figures.
 5. Performance runs uses multiple dockers through github actions:
-   Runners assigned to the job are not always homogeneous, resulting in significant variations
-   from one run to the next.
-
+   Runners assigned to the job were not always homogeneous with older scripts, which
+   resulted in unstable reports, but now seem to be identical.
