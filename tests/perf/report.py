@@ -738,7 +738,7 @@ if args.standard: print(CASE_DATA, end="")
 
 print()
 print(f"|#|name|schema|normal|model|#neg|#pos|min (B)|avg (B)|max (B)|")
-print(f"|---:|:---|---:|---:|---:|---:|---:|---:|---:|")
+print(f"|---:|:---|---:|---:|---:|---:|---:|---:|---:|---:|")
 
 # aggregations
 sum_ss = case_df["ssize"].sum()

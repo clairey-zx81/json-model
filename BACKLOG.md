@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] bench: show configurable number of artifacts, defaults to 12
+- [x] bench: fix case table generation columns
 - [ ] bench: add resilience to jmc failure to radar generation
 - [ ] model: preprocessed model output is _not_ reintrant: feature or bug?
 - [ ] java-runtime: consider automatic updates?
