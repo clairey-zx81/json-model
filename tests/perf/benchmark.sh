@@ -498,7 +498,7 @@ or deselect tools for easier comparisons.
 - **docker version:** $(docker --version | cut -d' ' -f 3-)
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
-- **jsonschema-benchmark version:** $jsb_hash ($jsb_npos positive values, $jsb_nneg synthetic negative values)"
+- **jsonschema-benchmark version:** $jsb_hash ($jsb_npos real positive values, $jsb_nneg synthetic negative values)"
 - **benchmark script version:** $version
 EOF
 
