@@ -142,8 +142,8 @@ if args.tools:
 
 TOOL_SUMMARY += """
 For each tool:
-maximum/geometrical average/minimum time performance ratio;
-overall validation speed in bytes per µs and lines per µs"""
+maximum/geometrical average/minimum **time** performance ratio;
+overall validation **speed** in bytes per µs and lines per µs"""
 
 if args.best:
     TOOL_SUMMARY += ";\nnumber of best performance"
