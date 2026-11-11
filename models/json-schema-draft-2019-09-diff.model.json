@@ -1,5 +1,5 @@
 {
-  "#": "JSON Schema Draft 2019-09 as a diff from Draft 07",
+  "#": "JSON Model for JSON Schema Draft 2019-09 as a diff from Draft 07",
   "#.note": "Use basic edition, without any refactoring",
   "%": {
     "<": "$https://json-model.org/models/json-schema-draft-07",

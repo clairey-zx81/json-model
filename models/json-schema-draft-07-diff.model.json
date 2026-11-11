@@ -1,5 +1,5 @@
 {
-  "#": "JSON Schema Draft 07 as a diff from Draft 06",
+  "#": "JSON Model for JSON Schema Draft 07 as a diff from Draft 06",
   "~": "https://json-model.org/models/json-model",
   "%": {
     "<": "$https://json-model.org/models/json-schema-draft-06",
