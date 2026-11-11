@@ -8,6 +8,12 @@ and to export models to JSON Schema or Pydantic.
 
 It is dedicated to the [Public Domain](https://creativecommons.org/public-domain/).
 
+![Status](https://github.com/clairey-zx81/json-model/actions/workflows/sanity.yml/badge.svg?branch=main&style=flat)
+![Python](https://img.shields.io/badge/python-3-informational)
+![Version](https://img.shields.io/pypi/v/json-model-compiler)
+![Badges](https://img.shields.io/badge/badges-5-informational)
+![License](https://img.shields.io/pypi/l/json-model-compiler?style=flat)
+
 ## JMC Command
 
 JSON Model optimizing compiler (`jmc`) can be installed as a
