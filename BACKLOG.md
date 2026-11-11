@@ -6,6 +6,7 @@
 - [x] bench: fix case table generation columns
 - [x] container: link "jmc" wrapper to keep it synced with bench version
 - [x] dev: shortenv venv shell prefix
+- [ ] pr: release JSU 1.0 and JMC 2.1
 - [ ] bench: add resilience to jmc failure to radar generation
 - [ ] model: preprocessed model output is _not_ reintrant: feature or bug?
 - [ ] java-runtime: consider automatic updates?
