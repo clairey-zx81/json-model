@@ -1,5 +1,5 @@
 {
-  "#": "JSON Schema Draft 2020-12 from 2019-09",
+  "#": "JSON Model for JSON Schema Draft 2020-12 from 2019-09",
   "~": "https://json-model.org/models/json-model",
   "%": {
     "<": "$https://json-model.org/models/json-schema-draft-2019-09",
