@@ -1,6 +1,5 @@
 # The -aot image variants carry the native toolchain (clang, zlib) that native AOT publishing needs
-# FROM mcr.microsoft.com/dotnet/sdk:10.0.401-noble-aot
-FROM mcr.microsoft.com/dotnet/sdk:10.0-aot
+FROM mcr.microsoft.com/dotnet/sdk:11.0-aot
 
 # install: we assume an ubuntu/debian base
 RUN apt update && apt install -y --no-install-recommends jq && rm -rf /var/lib/apt/lists/*

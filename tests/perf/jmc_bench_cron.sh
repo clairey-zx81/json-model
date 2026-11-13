@@ -154,7 +154,7 @@ if [ "$build" ] ; then
   # WORK_PERF=$WORK/tests/perf
   WORK_PERF=$PERF
   # get updates
-  docker pull mcr.microsoft.com/dotnet/sdk:10.0-aot
+  docker pull mcr.microsoft.com/dotnet/sdk:11.0-aot
   # force rebuild
   make -C "$WORK_PERF" clean || err 6 "cannot clean for corvus build"
   make -C "$WORK_PERF" corvus.build || err 6 "cannot build corvus image"
