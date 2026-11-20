@@ -186,6 +186,13 @@ if args.performance == "best":
 else:
     TOOL_CASES += f"Reference is **1.0** for tool {TOOL[args.performance]}.\n"
 
+TOOL_CASES += """
+Note that performance is reported for **positive values only**: the rational is that
+negatives are expected to be very rare when checking types for a working application.
+Moreover, as validation is shortcut on the first error found, it depends on the
+evaluation order thus is a less interesting for comparing tools.
+"""
+
 RESULT_SUMMARY_INTRO: str = """
 Classification metrics for each tool (percent average over all cases):
 
