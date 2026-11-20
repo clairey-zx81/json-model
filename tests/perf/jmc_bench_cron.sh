@@ -86,6 +86,17 @@ Usage: $0 [ -c -f -p -i id ] [ -- benchmark options... ]
 EOF
 }
 
+function dns()
+{
+  local name=$1
+  for n in 1 2 3 4 5 ; do
+    host "$name" && return 0
+    sleep 1
+  done
+  msg "dns $host failed"
+  return 1
+}
+
 msg "starting at $(date)"
 
 # option management
@@ -137,10 +148,7 @@ done
 # work around occasional dns issues
 for name in \
     github.com ghcr.io docker.io mcr.microsoft.com archive.ubuntu.com security.ubuntu.com ; do
-  for n in 1 2 3 4 5 ; do
-    host $name && break
-    sleep 1
-  done
+  dns $name
 done
 
 #
@@ -252,6 +260,9 @@ if [ "$publish" ] ; then
   [ "$bench_id" ] || err 12 "missing bench id for publish"
 
   cd $WORK || err 10 "cannot cd to: $WORK"
+
+  # just in case because the initial resolution was 30 minutes ago
+  dns github.com
 
   # should be auth'ed with a github PAT
   git checkout post || err 11 "cannot git checkout post"
