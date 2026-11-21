@@ -186,13 +186,13 @@ internal static class Program
             long start = Stopwatch.GetTimestamp();
             // FIXME some basic computations to avoid over optimizations?
             long ticks = Stopwatch.GetTimestamp() - start;
-            double edelay = toMicroSeconds(ticks);
+            double edelay = toMicroSecs(ticks);
             empty = empty == 0.0 ? edelay : edelay < empty ? edelay : empty;
         }
 
         if (verbose)
         {
-            double µs_precision = 1_000_000.0 / Stopwatch.Frequency;
+            double µs_precision = toMicroSecs(1L);
             Console.Error.WriteLine(
                 $"Clock precision {µs_precision:F3} µs (high: {Stopwatch.IsHighResolution})"
             );
@@ -277,7 +277,7 @@ internal static class Program
                 ticks = Stopwatch.GetTimestamp() - start;
             }
 
-            double delay = toMicroSeconds(ticks) - empty;
+            double delay = toMicroSecs(ticks) - empty;
             sum += delay;
             sum2 += delay * delay;
         }
@@ -304,5 +304,5 @@ internal static class Program
         }
     }
 
-    private static double toMicroSeconds(long ticks) => ticks * (1_000_000.0 / Stopwatch.Frequency);
+    private static double toMicroSecs(long ticks) => ticks * (1_000_000.0 / Stopwatch.Frequency);
 }
