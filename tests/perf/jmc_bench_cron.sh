@@ -16,11 +16,11 @@ WORK=$HOME/dev/cron-json-model
 # directory for performance benchmark runs
 TARGET=$HOME/perf
 
-# where to store latest run versions
-VERSION=$TARGET/.bench_version
+# NOTE the jsonschema-benchmark directory is currently maintained manually
+export JSB_DIR="$TARGET/jsb_dir"
 
 #
-# Environment overrides:
+# Environment passed to the benchmarking script:
 #
 # - PARA: bench parallelism (12)
 # - LOOP: bench iterations (1000)
@@ -53,8 +53,6 @@ export JMC_OPTS="--single-line-regex --cc=clang --precompiled --short-version"
 # export JSU_OPTS="--id --fix --no-strict"
 # export JSU_OPTS="--id --no-fix --no-strict"
 # export JSU_OPTS="--no-id --no-fix --no-strict"
-# NOTE the jsonschema-benchmark directory is currently maintained manually
-export JSB_DIR="$TARGET/jsb_dir"
 export POD_PULL=0  # do not pull images again!
 
 # update PATH?
@@ -76,13 +74,24 @@ function err()
 function usage()
 {
   cat <<EOF
-Usage: $0 [ -c -f -p -i id ] [ -- benchmark options... ]
-  -h: this help
-  -b/-nb: build external images (no)
-  -c/-nc: check for new versions and run if any (yes)
-  -f/-nf: force run (no)
-  -p/-np: publish to git repos (yes)
-  -i id/-ni: use existing benchmark id (auto)
+Usage: $0 [ script options... ] [ -- benchmark options... ]
+  Miscellaneous:
+    -h: this help
+  Operations:
+    -b/-nb: build external images (no)
+    -c/-nc: check for new versions and run if any (yes)
+    -f/-nf: force run (no)
+    -p/-np: publish to git repos (yes)
+    -i id/-ni: use existing benchmark id (auto)
+  Parameters:
+    -L/--loop 1000: number of iterations
+    -P/--para 12: bench parallelism
+    -R/--runs 5: number of runs
+  Directories:
+    --target-dir TD: where to generate the benchmark output
+    --perf-dir PD: where to find benchmark scripts
+    --work-dir WD: where to find jmc working directory
+    --jsb-dir JD: where to find jsonschema benchmark working directory
 EOF
 }
 
@@ -126,6 +135,15 @@ while [[ $1 == -* ]] ; do
     --runs=*) RUNS=${opt#*=} ;;
     --para|-P) PARA=$1 ; shift ;;
     --para=*) PARA=${opt#*=} ;;
+    # directories
+    --target-dir|-TD) TARGET=$1 ; shift ;;
+    --target-dir=*) TARGET=${opt#*=} ;;
+    --work-dir|-WD) WORK=$1 ; shift ;;
+    --work-dir=*) WORK=${opt#*=} ;;
+    --perf-dir|-PD) PERF=$1 ; shift ;;
+    --perf-dir=*) PERF=${opt#*=} ;;
+    --jsb-dir|-JD) JSB_DIR=$1 ; shift ;;
+    --jsb-dir=*) JSB_DIR=${opt#*=} ;;
     # done
     --) break ;;
     -*) usage ; err 1 "unexpected option: $opt" ;;
@@ -133,6 +151,9 @@ while [[ $1 == -* ]] ; do
 done
 
 msg "buid=$build check=$check force=$force publish=$publish"
+
+# where to store latest run versions
+VERSION=$TARGET/.bench_version
 
 #
 # sanity checks
