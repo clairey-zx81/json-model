@@ -33,7 +33,7 @@ VERSION=$TARGET/.bench_version
 # benchmarking parameters
 export PARA=${PARA:-12}
 export LOOP=${LOOP:-1000}
-export RUNS=${RUNS:-7}
+export RUNS=${RUNS:-5}
 
 # docker tags
 export JMC=${JMC:-latest}
