@@ -107,6 +107,7 @@ while [[ $1 == -* ]] ; do
   shift
   case $opt in
     --help|-h) usage ; exit 0 ;;
+    # operations
     --check|-c) check=1 ;;
     --no-check|-nc) check= ;;
     --force|-f) run=1 ;;
@@ -118,6 +119,14 @@ while [[ $1 == -* ]] ; do
     --no-id|-ni) bench_id= ;;
     --build|-b) build=1 ;;
     --no-build|-nb) build= ;;
+    # parameters may override env vars
+    --loop|-L) LOOP=$1 ; shift ;;
+    --loop=*) LOOP=${opt#*=} ;;
+    --runs|-R) RUNS=$1 ; shift ;;
+    --runs=*) RUNS=${opt#*=} ;;
+    --para|-P) PARA=$1 ; shift ;;
+    --para=*) PARA=${opt#*=} ;;
+    # done
     --) break ;;
     -*) usage ; err 1 "unexpected option: $opt" ;;
   esac
