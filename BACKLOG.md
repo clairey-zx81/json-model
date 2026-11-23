@@ -4,6 +4,7 @@
 
 - [x] bench: show configurable number of artifacts, defaults to 12
 - [x] bench: fix case table generation columns
+- [x] bench: update corvus container file
 - [x] container: link "jmc" wrapper to keep it synced with bench version
 - [x] dev: shortenv venv shell prefix
 - [x] pr: add badges to readme
