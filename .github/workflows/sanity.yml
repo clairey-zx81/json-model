@@ -16,6 +16,8 @@ jobs:
         python-version: '3.13'
         # NOTE google-re2 / bazel error on freethreaded true
         # freethreaded: true
+        # get tags for git versioning
+        fetch-depth: 0
     - name: Install Package Stuff
       run: make dev.py
     - name: Sanity Check
