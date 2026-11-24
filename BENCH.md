@@ -5,10 +5,11 @@ the same constraints, independently of the syntax used to express these constrai
 
 These artifacts compare
 [JSON Model Compiler (JMC)](https://github.com/clairey-zx81/json-model) generated code using the
-[JSON Schema Utils (JSU)](https://hub.docker.com/repository/docker/zx80/json-schema-utils)
+[JSON Schema Utils (JSU)](https://github.com/zx80/json-schema-utils)
 schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 [Sourcemeta Blaze CLI (SBC)](https://github.com/sourcemeta/jsonschema) using test cases and values
-from [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark).
+from [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark)
+and/or [Corvus.JsonSchema](https://github.com/corvus-dotnet/Corvus.JsonSchema).
 
 ## Recent Artifacts
 
