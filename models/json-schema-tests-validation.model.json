@@ -6,7 +6,7 @@
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/test-schema",
-    "Compatibility": "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/",
+    "Compatibility": "/^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$/",
     "Section": "/^[0-9]+(\\.[0-9]+)*$/",
     "Test": {
       "#": "A single test",
