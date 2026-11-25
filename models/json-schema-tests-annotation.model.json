@@ -1,0 +1,33 @@
+{
+  "#": "JSON Model for JSON Schema Annotation Test Suite (2026-11-25)",
+  "#.url": "https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/main/annotations/test-suite.schema.json",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model/models/annotation-test-schema",
+    "RoughSchema": { "|": [ true, { "": "$ANY" } ] },
+    "Compatibility": "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/",
+    "Assertion": {
+      "_location": "$JSONPT",
+      "_keyword": "",
+      "#.expected": "prop should be a URI, but in practice relative/partial urls?",
+      "_expected": { "": "$ANY" }
+    },
+    "Test": {
+      "_instance": "$ANY",
+      "_assertions": [ "$Assertion" ]
+    },
+    "TestCase": {
+      "_description": "",
+      "?compatibility": "$Compatibility",
+      "_schema": "$RoughSchema",
+      "?externalSchemas": { "$URI": "$RoughSchema" },
+      "_tests": [ "$Test" ]
+    },
+    "TestSuite": {
+      "_description": "",
+      "_suite": [ "$TestCase" ],
+      "": "$ANY"
+    }
+  },
+  "@": "$TestSuite"
+}

@@ -286,7 +286,8 @@ EXPECT: dict[str, int] = {
     "bads:models": 77,
     "bads:models:errors-jsm": 5,
     "bads:models:errors-jsg": 2,
-    "jsts-files": 69,
+    "jsts-files-validation": 69,
+    "jsts-files-annotation": 7,
     # tests json models of json schema versions
     "draft3:jsts": 106,
     "draft4:jsts": 161,
@@ -1154,12 +1155,10 @@ def test_bads_jsg():
 # JSON SCHEMA DRAFT TESTS
 #
 
-# TODO annotation/tests has a different model
-@pytest.mark.schema
-def test_schema_suite_validation_tests():
+def check_json_schema_suite(model: str, dpath: str, expected: int):
     ntests = 0
-    checker = model_checker_from_url("../models/validation-test-schema.model.json")
-    path = pathlib.Path("./JSON-Schema-Test-Suite/validation/tests")
+    checker = model_checker_from_url(model)
+    path = pathlib.Path(dpath)
     if not path.is_dir():
         pytest.skip(f"missing test suite directory: {path}")
     for tfile in path.glob("*.json"):
@@ -1170,7 +1169,21 @@ def test_schema_suite_validation_tests():
             reasons = []
             okay = checker(value, "", reasons)
             assert okay, f"{tfile} matches its model"
-    assert ntests == EXPECT.get("jsts-files", 0)
+    assert ntests == expected
+
+# TODO annotation/tests has a different model
+@pytest.mark.schema
+def test_schema_suite_tests():
+    check_json_schema_suite(
+        "../models/json-schema-tests-validation.model.json",
+        "./JSON-Schema-Test-Suite/validation/tests",
+        EXPECT.get("jsts-files-validation", 0)
+    )
+    check_json_schema_suite(
+        "../models/json-schema-tests-annotation.model.json",
+        "./JSON-Schema-Test-Suite/annotations/tests",
+        EXPECT.get("jsts-files-annotation", 0)
+    )
 
 def json_schema_test_suite(version, fmodel):
     ntests = 0
