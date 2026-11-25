@@ -1,5 +1,6 @@
 {
-  "#": "JSON Model for JSON Schema Annotation Test Suite (2026-11-25)",
+  "#": "JSON Model for JSTS annotation tests",
+  "#.doc": "On 2026-11-25",
   "#.url": "https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/main/annotations/test-suite.schema.json",
   "~": "https://json-model.org/models/json-model",
   "$": {

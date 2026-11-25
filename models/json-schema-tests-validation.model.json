@@ -1,5 +1,5 @@
 {
-  "#": "JSON Model for JSTS tests",
+  "#": "JSON Model for JSTS validation tests",
   "#.doc": "JSON Schema Test Suite tests file format (November 2026)",
   "#.url": "https://github.com/json-schema-org/JSON-Schema-Test-Suite/tree/main/validation/tests",
   "#.schema": "https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/main/validation/validation-test-schema.json",

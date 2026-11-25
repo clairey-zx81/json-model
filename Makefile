@@ -140,7 +140,9 @@ check.sanity: venv/.dev
 #
 # Docsify Web Site: https://json-model.org/
 #
-site/models.json: $(wildcard models/*.model.json)
+# ignore _*.model.json files
+#
+site/models.json: $(wildcard models/[a-z]*.model.json)
 	{
 	  first=1
 	  echo "["
