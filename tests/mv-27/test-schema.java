@@ -19,7 +19,9 @@ public class test_schema extends ModelChecker
 
     public Pattern _jm_re_0_pat = null;
     public Pattern _jm_re_1_pat = null;
+    Set<Object> _jm_cst_0_set;
     public Pattern _jm_re_2_pat = null;
+    public Pattern _jm_re_3_pat = null;
     public Map<String, Checker> test_schema_map_pmap;
     public Pattern jm_is_semver_pat = null;
 
@@ -28,16 +30,29 @@ public class test_schema extends ModelChecker
         return _jm_re_0_pat.matcher(val).find();
     }
 
-    // check $Section (.'$Section')
+    // check $Compatibility (.'$Compatibility')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        // .'$Section'
-        // "/^[0-9]+(\\.[0-9]+)*$/"
+        // .'$Compatibility'
+        // "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/"
         return json.isString(val) && _jm_re_0(json.asString(val), null, null);
     }
 
-    // check $Test (.'$Test')
+    public boolean _jm_re_1(String val, Path path, Report rep)
+    {
+        return _jm_re_1_pat.matcher(val).find();
+    }
+
+    // check $Section (.'$Section')
     public boolean json_model_3(Object val, Path path, Report rep)
+    {
+        // .'$Section'
+        // "/^[0-9]+(\\.[0-9]+)*$/"
+        return json.isString(val) && _jm_re_1(json.asString(val), null, null);
+    }
+
+    // check $Test (.'$Test')
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
         // A single test
         // .'$Test'
@@ -92,14 +107,22 @@ public class test_schema extends ModelChecker
         return must_count == 3;
     }
 
-    public boolean _jm_re_1(String val, Path path, Report rep)
+
+    // check $Tag (.'$Tag')
+    public boolean json_model_5(Object val, Path path, Report rep)
     {
-        return _jm_re_1_pat.matcher(val).find();
+        // .'$Tag'
+        return json.isScalar(val) && _jm_cst_0_set.contains(val);
     }
 
     public boolean _jm_re_2(String val, Path path, Report rep)
     {
         return _jm_re_2_pat.matcher(val).find();
+    }
+
+    public boolean _jm_re_3(String val, Path path, Report rep)
+    {
+        return _jm_re_3_pat.matcher(val).find();
     }
 
     // object .'$Specification'.'@'
@@ -119,7 +142,7 @@ public class test_schema extends ModelChecker
                 // .'$Specification'.'@'.core
                 // .'$Specification'.'@'.core.'|'.0
                 // .'$Specification'.'@'.core.'|'.1
-                res = json.isString(pval) && jm_is_semver(json.asString(pval), null, null) || json_model_2(pval, null, null);
+                res = json.isString(pval) && jm_is_semver(json.asString(pval), null, null) || json_model_3(pval, null, null);
                 if (! res)
                     return false;
                 continue;
@@ -160,15 +183,17 @@ public class test_schema extends ModelChecker
                     return false;
                 continue;
             }
-            if (_jm_re_1(prop, null, null))
+            if (_jm_re_2(prop, null, null))
             {
                 // handle 2 re props
                 // .'$Specification'.'@'.'/^rfc\\d+$/'
-                res = json.isString(pval) && jm_is_semver(json.asString(pval), null, null);
+                // .'$Specification'.'@'.'/^rfc\\d+$/'.'|'.0
+                // .'$Specification'.'@'.'/^rfc\\d+$/'.'|'.1
+                res = json.isString(pval) && jm_is_semver(json.asString(pval), null, null) || json_model_3(pval, null, null);
                 if (! res)
                     return false;
             }
-            else if (_jm_re_2(prop, null, null))
+            else if (_jm_re_3(prop, null, null))
             {
                 // handle 2 re props
                 // .'$Specification'.'@'.'/^iso\\d+$/'
@@ -183,7 +208,7 @@ public class test_schema extends ModelChecker
     }
 
     // check $Specification (.'$Specification')
-    public boolean json_model_4(Object val, Path path, Report rep)
+    public boolean json_model_6(Object val, Path path, Report rep)
     {
         // .'$Specification'
         // .'$Specification'.'@'
@@ -196,8 +221,24 @@ public class test_schema extends ModelChecker
         return res;
     }
 
+    // object .'$TestCase'.externalSchemas
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+            return false;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            if (! rt.is_valid_url(prop))
+                return false;
+        }
+        return true;
+    }
+
     // check $TestCase (.'$TestCase')
-    public boolean json_model_5(Object val, Path path, Report rep)
+    public boolean json_model_7(Object val, Path path, Report rep)
     {
         // .'$TestCase'
         if (! json.isObject(val))
@@ -243,7 +284,7 @@ public class test_schema extends ModelChecker
                         arr_0_idx++;
                         Object arr_0_item = arr_0_item_loop.next();
                         // .'$TestCase'.tests.'@'.0
-                        res = json_model_3(arr_0_item, null, null);
+                        res = json_model_4(arr_0_item, null, null);
                         if (! res)
                             break;
                     }
@@ -257,11 +298,52 @@ public class test_schema extends ModelChecker
                     return false;
                 continue;
             }
-            if (prop.compareTo("comment") == 0)
+            if (prop.compareTo("compatibility") == 0)
+            {
+                // handle may compatibility property
+                // .'$TestCase'.compatibility
+                res = json_model_2(pval, null, null);
+                if (! res)
+                    return false;
+                continue;
+            }
+            else if (prop.compareTo("comment") == 0)
             {
                 // handle may comment property
                 // .'$TestCase'.comment
                 res = json.isString(pval);
+                if (! res)
+                    return false;
+                continue;
+            }
+            else if (prop.compareTo("tags") == 0)
+            {
+                // handle may tags property
+                // .'$TestCase'.tags
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_1_idx = -1;
+                    Iterator<Object> arr_1_item_loop = json.arrayIterator(pval);
+                    while (arr_1_item_loop.hasNext())
+                    {
+                        arr_1_idx++;
+                        Object arr_1_item = arr_1_item_loop.next();
+                        // .'$TestCase'.tags.0
+                        res = json_model_5(arr_1_item, null, null);
+                        if (! res)
+                            break;
+                    }
+                }
+                if (! res)
+                    return false;
+                continue;
+            }
+            else if (prop.compareTo("externalSchemas") == 0)
+            {
+                // handle may externalSchemas property
+                // .'$TestCase'.externalSchemas
+                res = _jm_obj_1(pval, null, null);
                 if (! res)
                     return false;
                 continue;
@@ -274,14 +356,14 @@ public class test_schema extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_1_idx = -1;
-                    Iterator<Object> arr_1_item_loop = json.arrayIterator(pval);
-                    while (arr_1_item_loop.hasNext())
+                    int arr_2_idx = -1;
+                    Iterator<Object> arr_2_item_loop = json.arrayIterator(pval);
+                    while (arr_2_item_loop.hasNext())
                     {
-                        arr_1_idx++;
-                        Object arr_1_item = arr_1_item_loop.next();
+                        arr_2_idx++;
+                        Object arr_2_item = arr_2_item_loop.next();
                         // .'$TestCase'.specification.'@'.0
-                        res = json_model_4(arr_1_item, null, null);
+                        res = json_model_6(arr_2_item, null, null);
                         if (! res)
                             break;
                     }
@@ -303,30 +385,63 @@ public class test_schema extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        // JSON Model for JSTS tests
         // .
-        // .'@'
-        boolean res = json.isArray(val);
-        if (res)
+        if (! json.isObject(val))
+            return false;
+        boolean res;
+        long must_count = 0;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
         {
-            int arr_2_idx = -1;
-            Iterator<Object> arr_2_item_loop = json.arrayIterator(val);
-            while (arr_2_item_loop.hasNext())
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            if (prop.compareTo("$schema") == 0)
             {
-                arr_2_idx++;
-                Object arr_2_item = arr_2_item_loop.next();
-                // .'@'.0
-                res = json_model_5(arr_2_item, null, null);
+                // handle must $schema property
+                must_count += 1;
+                // .'$schema'
+                res = json.isString(pval);
                 if (! res)
-                    break;
+                    return false;
+                continue;
             }
+            else if (prop.compareTo("description") == 0)
+            {
+                // handle must description property
+                must_count += 1;
+                // .description
+                res = json.isString(pval);
+                if (! res)
+                    return false;
+                continue;
+            }
+            else if (prop.compareTo("tests") == 0)
+            {
+                // handle must tests property
+                must_count += 1;
+                // .tests
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_3_idx = -1;
+                    Iterator<Object> arr_3_item_loop = json.arrayIterator(pval);
+                    while (arr_3_item_loop.hasNext())
+                    {
+                        arr_3_idx++;
+                        Object arr_3_item = arr_3_item_loop.next();
+                        // .tests.0
+                        res = json_model_7(arr_3_item, null, null);
+                        if (! res)
+                            break;
+                    }
+                }
+                if (! res)
+                    return false;
+                continue;
+            }
+            return false;
         }
-        if (res)
-        {
-            long ival_3 = json.arrayLength(val);
-            res = ival_3 >= 1;
-        }
-        return res;
+        return must_count == 3;
     }
 
 
@@ -340,15 +455,21 @@ public class test_schema extends ModelChecker
         if (!initialized)
         {
             try {
-            _jm_re_0_pat = Pattern.compile("^[0-9]+(\\.[0-9]+)*$");
-            _jm_re_1_pat = Pattern.compile("^rfc\\d+$");
-            _jm_re_2_pat = Pattern.compile("^iso\\d+$");
+            _jm_re_0_pat = Pattern.compile("^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$");
+            _jm_re_1_pat = Pattern.compile("^[0-9]+(\\.[0-9]+)*$");
+            _jm_cst_0_set = new HashSet<Object>();
+            _jm_cst_0_set.add(json.safeJSON("\"format-annotation\""));
+            _jm_cst_0_set.add(json.safeJSON("\"format-assertion\""));
+            _jm_re_2_pat = Pattern.compile("^rfc\\d+$");
+            _jm_re_3_pat = Pattern.compile("^iso\\d+$");
             test_schema_map_pmap = new HashMap<String, Checker>();
             test_schema_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            test_schema_map_pmap.put("Section", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            test_schema_map_pmap.put("Test", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            test_schema_map_pmap.put("Specification", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            test_schema_map_pmap.put("TestCase", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            test_schema_map_pmap.put("Compatibility", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            test_schema_map_pmap.put("Section", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            test_schema_map_pmap.put("Test", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            test_schema_map_pmap.put("Tag", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            test_schema_map_pmap.put("Specification", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
+            test_schema_map_pmap.put("TestCase", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
             jm_is_semver_pat = Pattern.compile("^([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)(-(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?(\\+(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?$");
                 super.init(json);
             }
@@ -365,7 +486,9 @@ public class test_schema extends ModelChecker
             super.free();
             _jm_re_0_pat = null;
             _jm_re_1_pat = null;
+            _jm_cst_0_set = null;
             _jm_re_2_pat = null;
+            _jm_re_3_pat = null;
             test_schema_map_pmap = null;
             jm_is_semver_pat = null;
         }

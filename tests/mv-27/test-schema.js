@@ -9,24 +9,36 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-const _jm_re_0_re = new runtime.RX("^[0-9]+(\\.[0-9]+)*$", "")
-const _jm_re_1_re = new runtime.RX("^rfc\\d+$", "")
-const _jm_re_2_re = new runtime.RX("^iso\\d+$", "")
+const _jm_re_0_re = new runtime.RX("^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$", "")
+const _jm_re_1_re = new runtime.RX("^[0-9]+(\\.[0-9]+)*$", "")
+let _jm_cst_0 = new Set()
+const _jm_re_2_re = new runtime.RX("^rfc\\d+$", "")
+const _jm_re_3_re = new runtime.RX("^iso\\d+$", "")
 export var check_model_map = new Map()
 const jm_is_semver_re = new runtime.RX("^([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)(-(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?(\\+(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?$", "")
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
-// check $Section (.'$Section')
+// check $Compatibility (.'$Compatibility')
 function json_model_2(val, path, rep)
 {
-    // .'$Section'
-    // "/^[0-9]+(\\.[0-9]+)*$/"
+    // .'$Compatibility'
+    // "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/"
     return typeof val == 'string' && _jm_re_0(val, null, null)
 }
 
-// check $Test (.'$Test')
+const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
+
+// check $Section (.'$Section')
 function json_model_3(val, path, rep)
+{
+    // .'$Section'
+    // "/^[0-9]+(\\.[0-9]+)*$/"
+    return typeof val == 'string' && _jm_re_1(val, null, null)
+}
+
+// check $Test (.'$Test')
+function json_model_4(val, path, rep)
 {
     // A single test
     // .'$Test'
@@ -78,9 +90,17 @@ function json_model_3(val, path, rep)
     return must_count == 3
 }
 
-const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
+
+// check $Tag (.'$Tag')
+function json_model_5(val, path, rep)
+{
+    // .'$Tag'
+    return ((val === null || typeof val == 'number' || typeof val == 'boolean' || typeof val == 'string')) && _jm_cst_0.has(val)
+}
 
 const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
+
+const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
 
 // object .'$Specification'.'@'
 function _jm_obj_0(val, path, rep)
@@ -96,7 +116,7 @@ function _jm_obj_0(val, path, rep)
             // .'$Specification'.'@'.core
             // .'$Specification'.'@'.core.'|'.0
             // .'$Specification'.'@'.core.'|'.1
-            res = typeof pval == 'string' && jm_is_semver(pval, null, null) || json_model_2(pval, null, null)
+            res = typeof pval == 'string' && jm_is_semver(pval, null, null) || json_model_3(pval, null, null)
             if (! res)
                 return false
             continue
@@ -137,15 +157,17 @@ function _jm_obj_0(val, path, rep)
                 return false
             continue
         }
-        if (_jm_re_1(prop, null, null))
+        if (_jm_re_2(prop, null, null))
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^rfc\\d+$/'
-            res = typeof pval == 'string' && jm_is_semver(pval, null, null)
+            // .'$Specification'.'@'.'/^rfc\\d+$/'.'|'.0
+            // .'$Specification'.'@'.'/^rfc\\d+$/'.'|'.1
+            res = typeof pval == 'string' && jm_is_semver(pval, null, null) || json_model_3(pval, null, null)
             if (! res)
                 return false
         }
-        else if (_jm_re_2(prop, null, null))
+        else if (_jm_re_3(prop, null, null))
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^iso\\d+$/'
@@ -160,7 +182,7 @@ function _jm_obj_0(val, path, rep)
 }
 
 // check $Specification (.'$Specification')
-function json_model_4(val, path, rep)
+function json_model_6(val, path, rep)
 {
     // .'$Specification'
     // .'$Specification'.'@'
@@ -173,8 +195,21 @@ function json_model_4(val, path, rep)
     return res
 }
 
+// object .'$TestCase'.externalSchemas
+function _jm_obj_1(val, path, rep)
+{
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
+        return false
+    for (const [prop, pval] of Object.entries(val))
+    {
+        if (! runtime.jm_is_valid_url(prop, null, null))
+            return false
+    }
+    return true
+}
+
 // check $TestCase (.'$TestCase')
-function json_model_5(val, path, rep)
+function json_model_7(val, path, rep)
 {
     // .'$TestCase'
     if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
@@ -214,7 +249,7 @@ function json_model_5(val, path, rep)
                 {
                     let arr_0_item = pval[arr_0_idx]
                     // .'$TestCase'.tests.'@'.0
-                    res = json_model_3(arr_0_item, null, null)
+                    res = json_model_4(arr_0_item, null, null)
                     if (! res)
                         break
                 }
@@ -228,11 +263,49 @@ function json_model_5(val, path, rep)
                 return false
             continue
         }
-        if (prop == "comment")
+        if (prop == "compatibility")
+        {
+            // handle may compatibility property
+            // .'$TestCase'.compatibility
+            res = json_model_2(pval, null, null)
+            if (! res)
+                return false
+            continue
+        }
+        else if (prop == "comment")
         {
             // handle may comment property
             // .'$TestCase'.comment
             res = typeof pval == 'string'
+            if (! res)
+                return false
+            continue
+        }
+        else if (prop == "tags")
+        {
+            // handle may tags property
+            // .'$TestCase'.tags
+            res = Array.isArray(pval)
+            if (res)
+            {
+                for (let arr_1_idx = 0; arr_1_idx < pval.length; arr_1_idx++)
+                {
+                    let arr_1_item = pval[arr_1_idx]
+                    // .'$TestCase'.tags.0
+                    res = json_model_5(arr_1_item, null, null)
+                    if (! res)
+                        break
+                }
+            }
+            if (! res)
+                return false
+            continue
+        }
+        else if (prop == "externalSchemas")
+        {
+            // handle may externalSchemas property
+            // .'$TestCase'.externalSchemas
+            res = _jm_obj_1(pval, null, null)
             if (! res)
                 return false
             continue
@@ -245,11 +318,11 @@ function json_model_5(val, path, rep)
             res = Array.isArray(pval)
             if (res)
             {
-                for (let arr_1_idx = 0; arr_1_idx < pval.length; arr_1_idx++)
+                for (let arr_2_idx = 0; arr_2_idx < pval.length; arr_2_idx++)
                 {
-                    let arr_1_item = pval[arr_1_idx]
+                    let arr_2_item = pval[arr_2_idx]
                     // .'$TestCase'.specification.'@'.0
-                    res = json_model_4(arr_1_item, null, null)
+                    res = json_model_6(arr_2_item, null, null)
                     if (! res)
                         break
                 }
@@ -271,27 +344,57 @@ function json_model_5(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    // JSON Model for JSTS tests
     // .
-    // .'@'
-    let res = Array.isArray(val)
-    if (res)
+    if (! (val !== null && typeof val == 'object' && !Array.isArray(val)))
+        return false
+    let res
+    let must_count = 0
+    for (const [prop, pval] of Object.entries(val))
     {
-        for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
+        if (prop == "$schema")
         {
-            let arr_2_item = val[arr_2_idx]
-            // .'@'.0
-            res = json_model_5(arr_2_item, null, null)
+            // handle must $schema property
+            must_count += 1
+            // .'$schema'
+            res = typeof pval == 'string'
             if (! res)
-                break
+                return false
+            continue
         }
+        else if (prop == "description")
+        {
+            // handle must description property
+            must_count += 1
+            // .description
+            res = typeof pval == 'string'
+            if (! res)
+                return false
+            continue
+        }
+        else if (prop == "tests")
+        {
+            // handle must tests property
+            must_count += 1
+            // .tests
+            res = Array.isArray(pval)
+            if (res)
+            {
+                for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
+                {
+                    let arr_3_item = pval[arr_3_idx]
+                    // .tests.0
+                    res = json_model_7(arr_3_item, null, null)
+                    if (! res)
+                        break
+                }
+            }
+            if (! res)
+                return false
+            continue
+        }
+        return false
     }
-    if (res)
-    {
-        let ival_3 = val.length
-        res = ival_3 >= 1
-    }
-    return res
+    return must_count == 3
 }
 
 
@@ -306,11 +409,15 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
+        _jm_cst_0.add("format-annotation")
+        _jm_cst_0.add("format-assertion")
         check_model_map.set("", json_model_1)
-        check_model_map.set("Section", json_model_2)
-        check_model_map.set("Test", json_model_3)
-        check_model_map.set("Specification", json_model_4)
-        check_model_map.set("TestCase", json_model_5)
+        check_model_map.set("Compatibility", json_model_2)
+        check_model_map.set("Section", json_model_3)
+        check_model_map.set("Test", json_model_4)
+        check_model_map.set("Tag", json_model_5)
+        check_model_map.set("Specification", json_model_6)
+        check_model_map.set("TestCase", json_model_7)
     }
 }
 

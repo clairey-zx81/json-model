@@ -10,15 +10,22 @@ static cre2_regexp_t *_jm_re_0_re2 = NULL;
 static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *_jm_re_1_re2 = NULL;
+static int _jm_re_1_nn = 0;
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static INLINE bool _jm_cst_0_str_test(const char *);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
-jm_propmap_t check_model_map_tab[5];
-const size_t check_model_map_size = 5;
+jm_propmap_t check_model_map_tab[7];
+const size_t check_model_map_size = 7;
 static cre2_regexp_t *jm_is_semver_re2 = NULL;
 static int jm_is_semver_nn = 0;
 static bool jm_is_semver(const char *s, jm_path_t *path, jm_report_t *rep);
@@ -29,16 +36,30 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
     return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
-// check $Section (.'$Section')
+// check $Compatibility (.'$Compatibility')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // .'$Section'
-    // "/^[0-9]+(\\.[0-9]+)*$/"
+    // .'$Compatibility'
+    // "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/"
     return json_is_string(val) && _jm_re_0(json_string_value(val), NULL, NULL);
 }
 
-// check $Test (.'$Test')
+static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_1_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+// check $Section (.'$Section')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    // .'$Section'
+    // "/^[0-9]+(\\.[0-9]+)*$/"
+    return json_is_string(val) && _jm_re_1(json_string_value(val), NULL, NULL);
+}
+
+// check $Test (.'$Test')
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // A single test
     // .'$Test'
@@ -92,7 +113,22 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return must_count == 3;
 }
 
-static INLINE bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_cst_0_str_test(const char *s)
+{
+    return
+           jm_str_eq_8(s, 0x612d74616d726f66LL) && jm_str_eq_8(s + 8, 0x6e6f697472657373LL) && jm_str_eq_0(s + 16)  // "format-assertion"
+        || jm_str_eq_8(s, 0x612d74616d726f66LL) && jm_str_eq_8(s + 8, 0x6f697461746f6e6eLL) && jm_str_eq_2(s + 16, 0x0000006e)  // "format-annotation"
+    ;
+}
+
+// check $Tag (.'$Tag')
+static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    // .'$Tag'
+    return json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
+}
+
+static INLINE bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(jm_str_ne_3(s, 0x00636672)))
         return false;
@@ -104,7 +140,7 @@ static INLINE bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
     return *s == '\0';
 }
 
-static INLINE bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(jm_str_ne_3(s, 0x006f7369)))
         return false;
@@ -132,7 +168,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             // .'$Specification'.'@'.core
             // .'$Specification'.'@'.core.'|'.0
             // .'$Specification'.'@'.core.'|'.1
-            res = json_is_string(pval) && jm_is_semver(json_string_value(pval), NULL, NULL) || json_model_2(pval, NULL, NULL);
+            res = json_is_string(pval) && jm_is_semver(json_string_value(pval), NULL, NULL) || json_model_3(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
             continue;
@@ -173,15 +209,17 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             continue;
         }
-        if (_jm_re_1(prop, NULL, NULL))
+        if (_jm_re_2(prop, NULL, NULL))
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^rfc\\d+$/'
-            res = json_is_string(pval) && jm_is_semver(json_string_value(pval), NULL, NULL);
+            // .'$Specification'.'@'.'/^rfc\\d+$/'.'|'.0
+            // .'$Specification'.'@'.'/^rfc\\d+$/'.'|'.1
+            res = json_is_string(pval) && jm_is_semver(json_string_value(pval), NULL, NULL) || json_model_3(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
         }
-        else if (likely(_jm_re_2(prop, NULL, NULL)))
+        else if (likely(_jm_re_3(prop, NULL, NULL)))
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^iso\\d+$/'
@@ -196,7 +234,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // check $Specification (.'$Specification')
-static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Specification'
     // .'$Specification'.'@'
@@ -209,8 +247,23 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+// object .'$TestCase'.externalSchemas
+static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+        return false;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (likely(! jm_is_valid_url(prop, NULL, NULL)))
+            return false;
+    }
+    return true;
+}
+
 // check $TestCase (.'$TestCase')
-static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$TestCase'
     if (unlikely(! json_is_object(val)))
@@ -239,7 +292,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = true;
             continue;
         }
-        else if (jm_str_eq_6(prop, 0x0000007374736574LL))
+        else if (unlikely(jm_str_eq_6(prop, 0x0000007374736574LL)))
         {
             // handle must tests property
             must_count += 1;
@@ -253,7 +306,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 json_array_foreach(pval, arr_0_idx, arr_0_item)
                 {
                     // .'$TestCase'.tests.'@'.0
-                    res = json_model_3(arr_0_item, NULL, NULL);
+                    res = json_model_4(arr_0_item, NULL, NULL);
                     if (unlikely(! res))
                         break;
                 }
@@ -267,11 +320,50 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             continue;
         }
-        if (jm_str_eq_8(prop, 0x00746e656d6d6f63LL))
+        if (unlikely(jm_str_eq_8(prop, 0x62697461706d6f63LL) && jm_str_eq_6(prop + 8, 0x0000007974696c69LL)))
+        {
+            // handle may compatibility property
+            // .'$TestCase'.compatibility
+            res = json_model_2(pval, NULL, NULL);
+            if (unlikely(! res))
+                return false;
+            continue;
+        }
+        else if (unlikely(jm_str_eq_8(prop, 0x00746e656d6d6f63LL)))
         {
             // handle may comment property
             // .'$TestCase'.comment
             res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+            continue;
+        }
+        else if (unlikely(jm_str_eq_5(prop, 0x0000000073676174LL)))
+        {
+            // handle may tags property
+            // .'$TestCase'.tags
+            res = json_is_array(pval);
+            if (likely(res))
+            {
+                size_t arr_1_idx;
+                json_t *arr_1_item;
+                json_array_foreach(pval, arr_1_idx, arr_1_item)
+                {
+                    // .'$TestCase'.tags.0
+                    res = json_model_5(arr_1_item, NULL, NULL);
+                    if (unlikely(! res))
+                        break;
+                }
+            }
+            if (unlikely(! res))
+                return false;
+            continue;
+        }
+        else if (jm_str_eq_8(prop, 0x6c616e7265747865LL) && jm_str_eq_8(prop + 8, 0x0073616d65686353LL))
+        {
+            // handle may externalSchemas property
+            // .'$TestCase'.externalSchemas
+            res = _jm_obj_1(pval, NULL, NULL);
             if (unlikely(! res))
                 return false;
             continue;
@@ -284,12 +376,12 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_1_idx;
-                json_t *arr_1_item;
-                json_array_foreach(pval, arr_1_idx, arr_1_item)
+                size_t arr_2_idx;
+                json_t *arr_2_item;
+                json_array_foreach(pval, arr_2_idx, arr_2_item)
                 {
                     // .'$TestCase'.specification.'@'.0
-                    res = json_model_4(arr_1_item, NULL, NULL);
+                    res = json_model_6(arr_2_item, NULL, NULL);
                     if (unlikely(! res))
                         break;
                 }
@@ -311,33 +403,65 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // JSON Model for JSTS tests
     // .
-    // .'@'
-    bool res = json_is_array(val);
-    if (likely(res))
+    if (unlikely(! json_is_object(val)))
+        return false;
+    bool res;
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        size_t arr_2_idx;
-        json_t *arr_2_item;
-        json_array_foreach(val, arr_2_idx, arr_2_item)
+        if (unlikely(jm_str_eq_8(prop, 0x00616d6568637324LL)))
         {
-            // .'@'.0
-            res = json_model_5(arr_2_item, NULL, NULL);
+            // handle must $schema property
+            must_count += 1;
+            // .'$schema'
+            res = json_is_string(pval);
             if (unlikely(! res))
-                break;
+                return false;
+            continue;
         }
+        else if (jm_str_eq_8(prop, 0x7470697263736564LL) && jm_str_eq_4(prop + 8, 0x006e6f69))
+        {
+            // handle must description property
+            must_count += 1;
+            // .description
+            res = json_is_string(pval);
+            if (unlikely(! res))
+                return false;
+            continue;
+        }
+        else if (likely(jm_str_eq_6(prop, 0x0000007374736574LL)))
+        {
+            // handle must tests property
+            must_count += 1;
+            // .tests
+            res = json_is_array(pval);
+            if (likely(res))
+            {
+                size_t arr_3_idx;
+                json_t *arr_3_item;
+                json_array_foreach(pval, arr_3_idx, arr_3_item)
+                {
+                    // .tests.0
+                    res = json_model_7(arr_3_item, NULL, NULL);
+                    if (unlikely(! res))
+                        break;
+                }
+            }
+            if (unlikely(! res))
+                return false;
+            continue;
+        }
+        return false;
     }
-    if (likely(res))
-    {
-        int64_t ival_3 = json_array_size(val);
-        res = ival_3 >= 1;
-    }
-    return res;
+    return must_count == 3;
 }
 
 jm_check_fun_t check_model_map(const char *pname)
 {
-    return jm_search_propmap(pname, check_model_map_tab, 5);
+    return jm_search_propmap(pname, check_model_map_tab, 7);
 }
 
 static bool jm_is_semver(const char *s, jm_path_t *path, jm_report_t *rep)
@@ -354,17 +478,24 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        const char * _jm_re_0_rx = "^[0-9]+(\\.[0-9]+)*$";
+        const char * _jm_re_0_rx = "^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$";
         _jm_re_0_re2 = cre2_new(_jm_re_0_rx, strlen(_jm_re_0_rx), NULL);
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
+        const char * _jm_re_1_rx = "^[0-9]+(\\.[0-9]+)*$";
+        _jm_re_1_re2 = cre2_new(_jm_re_1_rx, strlen(_jm_re_1_rx), NULL);
+        if (cre2_error_code(_jm_re_1_re2))
+            return cre2_error_string(_jm_re_1_re2);
+        _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "Section", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "Test", json_model_3 };
-        check_model_map_tab[3] = (jm_propmap_t) { "Specification", json_model_4 };
-        check_model_map_tab[4] = (jm_propmap_t) { "TestCase", json_model_5 };
-        jm_sort_propmap(check_model_map_tab, 5);
+        check_model_map_tab[1] = (jm_propmap_t) { "Compatibility", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Section", json_model_3 };
+        check_model_map_tab[3] = (jm_propmap_t) { "Test", json_model_4 };
+        check_model_map_tab[4] = (jm_propmap_t) { "Tag", json_model_5 };
+        check_model_map_tab[5] = (jm_propmap_t) { "Specification", json_model_6 };
+        check_model_map_tab[6] = (jm_propmap_t) { "TestCase", json_model_7 };
+        jm_sort_propmap(check_model_map_tab, 7);
         const char * jm_is_semver_rx = "^([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)(-(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?(\\+(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?$";
         jm_is_semver_re2 = cre2_new(jm_is_semver_rx, strlen(jm_is_semver_rx), NULL);
         if (cre2_error_code(jm_is_semver_re2))
@@ -384,6 +515,9 @@ void check_model_free(void)
         cre2_delete(_jm_re_0_re2);
         _jm_re_0_re2 = NULL;
         _jm_re_0_nn = 0;
+        cre2_delete(_jm_re_1_re2);
+        _jm_re_1_re2 = NULL;
+        _jm_re_1_nn = 0;
         cre2_delete(jm_is_semver_re2);
         jm_is_semver_re2 = NULL;
         jm_is_semver_nn = 0;

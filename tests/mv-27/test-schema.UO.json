@@ -1,18 +1,27 @@
 [
   {
-    "@": [
+    "_$schema": "",
+    "_description": "",
+    "_tests": [
       "$TestCase"
     ],
-    ">=": 1,
     "#": "JsonModel 1",
     "$": {
+      "Compatibility": "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/",
       "Section": "/^[0-9]+(\\.[0-9]+)*$/",
       "Test": {
         "description": "",
         "?comment": "",
         "data": "$ANY",
         "valid": true,
-        "#": "JsonModel 3"
+        "#": "JsonModel 4"
+      },
+      "Tag": {
+        "|": [
+          "_format-annotation",
+          "_format-assertion"
+        ],
+        "#": "JsonModel 5"
       },
       "Specification": {
         "@": {
@@ -26,17 +35,29 @@
           "?ecma262": "$SEMVER",
           "?perl5": "",
           "?quote": "",
-          "/^rfc\\d+$/": "$SEMVER",
+          "/^rfc\\d+$/": {
+            "|": [
+              "$SEMVER",
+              "$Section"
+            ]
+          },
           "/^iso\\d+$/": "$SEMVER"
         },
         ">=": 1,
-        "#": "JsonModel 4"
+        "#": "JsonModel 6"
       },
       "TestCase": {
-        "description": "",
+        "_description": "",
+        "?compatibility": "$Compatibility",
         "?comment": "",
-        "schema": "$ANY",
-        "tests": {
+        "?tags": [
+          "$Tag"
+        ],
+        "_schema": "$ANY",
+        "?externalSchemas": {
+          "$URL": "$ANY"
+        },
+        "_tests": {
           "@": [
             "$Test"
           ],
@@ -49,20 +70,28 @@
           "!": true,
           ">=": 1
         },
-        "#": "JsonModel 5"
+        "#": "JsonModel 7"
       },
       "#": "Symbol 1",
       "": "https://json-model.org/models/test-schema"
     },
     "~": "https://json-model.org/models/json-model"
   },
+  "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/",
   "/^[0-9]+(\\.[0-9]+)*$/",
   {
     "description": "",
     "?comment": "",
     "data": "$ANY",
     "valid": true,
-    "#": "JsonModel 3"
+    "#": "JsonModel 4"
+  },
+  {
+    "|": [
+      "_format-annotation",
+      "_format-assertion"
+    ],
+    "#": "JsonModel 5"
   },
   {
     "@": {
@@ -76,17 +105,29 @@
       "?ecma262": "$SEMVER",
       "?perl5": "",
       "?quote": "",
-      "/^rfc\\d+$/": "$SEMVER",
+      "/^rfc\\d+$/": {
+        "|": [
+          "$SEMVER",
+          "$Section"
+        ]
+      },
       "/^iso\\d+$/": "$SEMVER"
     },
     ">=": 1,
-    "#": "JsonModel 4"
+    "#": "JsonModel 6"
   },
   {
-    "description": "",
+    "_description": "",
+    "?compatibility": "$Compatibility",
     "?comment": "",
-    "schema": "$ANY",
-    "tests": {
+    "?tags": [
+      "$Tag"
+    ],
+    "_schema": "$ANY",
+    "?externalSchemas": {
+      "$URL": "$ANY"
+    },
+    "_tests": {
       "@": [
         "$Test"
       ],
@@ -99,6 +140,6 @@
       "!": true,
       ">=": 1
     },
-    "#": "JsonModel 5"
+    "#": "JsonModel 7"
   }
 ]

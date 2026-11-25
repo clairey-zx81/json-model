@@ -14,13 +14,33 @@ use constant JMC_VERSION => "2";
 
 sub json_model_2($$$);
 sub json_model_3($$$);
-sub _jm_obj_0($$$);
 sub json_model_4($$$);
+my %_jm_cst_0;
 sub json_model_5($$$);
+sub _jm_obj_0($$$);
+sub json_model_6($$$);
+sub _jm_obj_1($$$);
+sub json_model_7($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
 sub _jm_re_0($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res = $val =~ /^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/;
+    return $res;
+}
+
+# check $Compatibility (.'$Compatibility')
+sub json_model_2($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # .'$Compatibility'
+    # "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/"
+    return jm_is_string($val) && _jm_re_0($val, undef, undef);
+}
+
+sub _jm_re_1($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^[0-9]+(\.[0-9]+)*$/;
@@ -28,16 +48,16 @@ sub _jm_re_0($$$)
 }
 
 # check $Section (.'$Section')
-sub json_model_2($$$)
+sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Section'
     # "/^[0-9]+(\\.[0-9]+)*$/"
-    return jm_is_string($val) && _jm_re_0($val, undef, undef);
+    return jm_is_string($val) && _jm_re_1($val, undef, undef);
 }
 
 # check $Test (.'$Test')
-sub json_model_3($$$)
+sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # A single test
@@ -88,14 +108,23 @@ sub json_model_3($$$)
     return $must_count == 3;
 }
 
-sub _jm_re_1($$$)
+
+# check $Tag (.'$Tag')
+sub json_model_5($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # .'$Tag'
+    return jm_is_string($val) && exists $_jm_cst_0{$val};
+}
+
+sub _jm_re_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^rfc\d+$/;
     return $res;
 }
 
-sub _jm_re_2($$$)
+sub _jm_re_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^iso\d+$/;
@@ -118,7 +147,7 @@ sub _jm_obj_0($$$)
             # .'$Specification'.'@'.core
             # .'$Specification'.'@'.core.'|'.0
             # .'$Specification'.'@'.core.'|'.1
-            $res = jm_is_string($pval) && jm_is_semver($pval, undef, undef) || json_model_2($pval, undef, undef);
+            $res = jm_is_string($pval) && jm_is_semver($pval, undef, undef) || json_model_3($pval, undef, undef);
             return 0 unless $res;
             next;
         }
@@ -154,14 +183,16 @@ sub _jm_obj_0($$$)
             return 0 unless $res;
             next;
         }
-        if (_jm_re_1($prop, undef, undef))
+        if (_jm_re_2($prop, undef, undef))
         {
             # handle 2 re props
             # .'$Specification'.'@'.'/^rfc\\d+$/'
-            $res = jm_is_string($pval) && jm_is_semver($pval, undef, undef);
+            # .'$Specification'.'@'.'/^rfc\\d+$/'.'|'.0
+            # .'$Specification'.'@'.'/^rfc\\d+$/'.'|'.1
+            $res = jm_is_string($pval) && jm_is_semver($pval, undef, undef) || json_model_3($pval, undef, undef);
             return 0 unless $res;
         }
-        elsif (_jm_re_2($prop, undef, undef))
+        elsif (_jm_re_3($prop, undef, undef))
         {
             # handle 2 re props
             # .'$Specification'.'@'.'/^iso\\d+$/'
@@ -177,7 +208,7 @@ sub _jm_obj_0($$$)
 }
 
 # check $Specification (.'$Specification')
-sub json_model_4($$$)
+sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Specification'
@@ -191,8 +222,22 @@ sub json_model_4($$$)
     return $res;
 }
 
+# object .'$TestCase'.externalSchemas
+sub _jm_obj_1($$$)
+{
+    my ($val, $path, $rep) = @_;
+    return 0 unless jm_is_object($val);
+    scalar keys %$val;
+    for my $prop (sort keys %$val)
+    {
+        my $pval = $$val{$prop};
+        return 0 unless jm_is_valid_url($prop, undef, undef);
+    }
+    return 1;
+}
+
 # check $TestCase (.'$TestCase')
-sub json_model_5($$$)
+sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$TestCase'
@@ -233,7 +278,7 @@ sub json_model_5($$$)
                 {
                     my $arr_0_item = $$pval[$arr_0_idx];
                     # .'$TestCase'.tests.'@'.0
-                    $res = json_model_3($arr_0_item, undef, undef);
+                    $res = json_model_4($arr_0_item, undef, undef);
                     last unless $res;
                 }
             }
@@ -245,11 +290,45 @@ sub json_model_5($$$)
             return 0 unless $res;
             next;
         }
-        if ($prop eq "comment")
+        if ($prop eq "compatibility")
+        {
+            # handle may compatibility property
+            # .'$TestCase'.compatibility
+            $res = json_model_2($pval, undef, undef);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq "comment")
         {
             # handle may comment property
             # .'$TestCase'.comment
             $res = jm_is_string($pval);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq "tags")
+        {
+            # handle may tags property
+            # .'$TestCase'.tags
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_1_idx (0 .. $#$pval)
+                {
+                    my $arr_1_item = $$pval[$arr_1_idx];
+                    # .'$TestCase'.tags.0
+                    $res = json_model_5($arr_1_item, undef, undef);
+                    last unless $res;
+                }
+            }
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq "externalSchemas")
+        {
+            # handle may externalSchemas property
+            # .'$TestCase'.externalSchemas
+            $res = _jm_obj_1($pval, undef, undef);
             return 0 unless $res;
             next;
         }
@@ -261,11 +340,11 @@ sub json_model_5($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_1_idx (0 .. $#$pval)
+                for my $arr_2_idx (0 .. $#$pval)
                 {
-                    my $arr_1_item = $$pval[$arr_1_idx];
+                    my $arr_2_item = $$pval[$arr_2_idx];
                     # .'$TestCase'.specification.'@'.0
-                    $res = json_model_4($arr_1_item, undef, undef);
+                    $res = json_model_6($arr_2_item, undef, undef);
                     last unless $res;
                 }
             }
@@ -286,26 +365,54 @@ sub json_model_5($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    # JSON Model for JSTS tests
     # .
-    # .'@'
-    my $res = jm_is_array($val);
-    if ($res)
+    return 0 unless jm_is_object($val);
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    for my $prop (sort keys %$val)
     {
-        for my $arr_2_idx (0 .. $#$val)
+        my $pval = $$val{$prop};
+        if ($prop eq "\$schema")
         {
-            my $arr_2_item = $$val[$arr_2_idx];
-            # .'@'.0
-            $res = json_model_5($arr_2_item, undef, undef);
-            last unless $res;
+            # handle must $schema property
+            $must_count++;
+            # .'$schema'
+            $res = jm_is_string($pval);
+            return 0 unless $res;
+            next;
         }
+        elsif ($prop eq "description")
+        {
+            # handle must description property
+            $must_count++;
+            # .description
+            $res = jm_is_string($pval);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq "tests")
+        {
+            # handle must tests property
+            $must_count++;
+            # .tests
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_3_idx (0 .. $#$pval)
+                {
+                    my $arr_3_item = $$pval[$arr_3_idx];
+                    # .tests.0
+                    $res = json_model_7($arr_3_item, undef, undef);
+                    last unless $res;
+                }
+            }
+            return 0 unless $res;
+            next;
+        }
+        return 0;
     }
-    if ($res)
-    {
-        my $ival_3 = scalar @$val;
-        $res = $ival_3 >= 1;
-    }
-    return $res;
+    return $must_count == 3;
 }
 
 
@@ -325,12 +432,18 @@ sub check_model_init()
     if (!$initialized)
     {
         $initialized = 1;
+        %_jm_cst_0 = (
+            "format-annotation" => 1,
+            "format-assertion" => 1,
+        );
         %check_model_map = (
             "" => \&json_model_1,
-            "Section" => \&json_model_2,
-            "Test" => \&json_model_3,
-            "Specification" => \&json_model_4,
-            "TestCase" => \&json_model_5,
+            "Compatibility" => \&json_model_2,
+            "Section" => \&json_model_3,
+            "Test" => \&json_model_4,
+            "Tag" => \&json_model_5,
+            "Specification" => \&json_model_6,
+            "TestCase" => \&json_model_7,
         );
     }
 }
@@ -340,6 +453,7 @@ sub check_model_free()
     if ($initialized)
     {
         $initialized = 0;
+        %_jm_cst_0 = ();
         %check_model_map = ();
     }
 }

@@ -25,21 +25,31 @@ _jm_re_0_reco: object
 _jm_re_0: RegexFun
 _jm_re_1_reco: object
 _jm_re_1: RegexFun
+_jm_cst_0: set[str]
 _jm_re_2_reco: object
 _jm_re_2: RegexFun
+_jm_re_3_reco: object
+_jm_re_3: RegexFun
 check_model_map: PropMap
 jm_is_semver_reco: object
 jm_is_semver: RegexFun
 
 
-# check $Section (.'$Section')
+# check $Compatibility (.'$Compatibility')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$Section'
-    # "/^[0-9]+(\\.[0-9]+)*$/"
+    # .'$Compatibility'
+    # "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/"
     return isinstance(val, str) and _jm_re_0(val, None, None)
 
-# check $Test (.'$Test')
+
+# check $Section (.'$Section')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Section'
+    # "/^[0-9]+(\\.[0-9]+)*$/"
+    return isinstance(val, str) and _jm_re_1(val, None, None)
+
+# check $Test (.'$Test')
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # A single test
     # .'$Test'
     if not isinstance(val, dict):
@@ -80,6 +90,12 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     return must_count == 3
 
 
+# check $Tag (.'$Tag')
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Tag'
+    return ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+
+
 
 # object .'$Specification'.'@'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -92,7 +108,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$Specification'.'@'.core
             # .'$Specification'.'@'.core.'|'.0
             # .'$Specification'.'@'.core.'|'.1
-            res = isinstance(pval, str) and jm_is_semver(pval, None, None) or json_model_2(pval, None, None)
+            res = isinstance(pval, str) and jm_is_semver(pval, None, None) or json_model_3(pval, None, None)
             if not res:
                 return False
             continue
@@ -124,13 +140,15 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
             continue
-        if _jm_re_1(prop, None, None):
+        if _jm_re_2(prop, None, None):
             # handle 2 re props
             # .'$Specification'.'@'.'/^rfc\\d+$/'
-            res = isinstance(pval, str) and jm_is_semver(pval, None, None)
+            # .'$Specification'.'@'.'/^rfc\\d+$/'.'|'.0
+            # .'$Specification'.'@'.'/^rfc\\d+$/'.'|'.1
+            res = isinstance(pval, str) and jm_is_semver(pval, None, None) or json_model_3(pval, None, None)
             if not res:
                 return False
-        elif _jm_re_2(prop, None, None):
+        elif _jm_re_3(prop, None, None):
             # handle 2 re props
             # .'$Specification'.'@'.'/^iso\\d+$/'
             res = isinstance(pval, str) and jm_is_semver(pval, None, None)
@@ -141,7 +159,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check $Specification (.'$Specification')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Specification'
     # .'$Specification'.'@'
     res: bool = _jm_obj_0(val, None, None)
@@ -150,8 +168,17 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         res = ival_0 >= 1
     return res
 
+# object .'$TestCase'.externalSchemas
+def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        return False
+    for prop, pval in val.items():
+        if not is_valid_url(prop, None, rep):
+            return False
+    return True
+
 # check $TestCase (.'$TestCase')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$TestCase'
     if not isinstance(val, dict):
         return False
@@ -181,7 +208,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             if res:
                 for arr_0_idx, arr_0_item in enumerate(pval):
                     # .'$TestCase'.tests.'@'.0
-                    res = json_model_3(arr_0_item, None, None)
+                    res = json_model_4(arr_0_item, None, None)
                     if not res:
                         break
             if res:
@@ -190,10 +217,37 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
             continue
-        if prop == "comment":
+        if prop == "compatibility":
+            # handle may compatibility property
+            # .'$TestCase'.compatibility
+            res = json_model_2(pval, None, None)
+            if not res:
+                return False
+            continue
+        elif prop == "comment":
             # handle may comment property
             # .'$TestCase'.comment
             res = isinstance(pval, str)
+            if not res:
+                return False
+            continue
+        elif prop == "tags":
+            # handle may tags property
+            # .'$TestCase'.tags
+            res = isinstance(pval, list)
+            if res:
+                for arr_1_idx, arr_1_item in enumerate(pval):
+                    # .'$TestCase'.tags.0
+                    res = json_model_5(arr_1_item, None, None)
+                    if not res:
+                        break
+            if not res:
+                return False
+            continue
+        elif prop == "externalSchemas":
+            # handle may externalSchemas property
+            # .'$TestCase'.externalSchemas
+            res = _jm_obj_1(pval, None, None)
             if not res:
                 return False
             continue
@@ -203,9 +257,9 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$TestCase'.specification.'@'
             res = isinstance(pval, list)
             if res:
-                for arr_1_idx, arr_1_item in enumerate(pval):
+                for arr_2_idx, arr_2_item in enumerate(pval):
                     # .'$TestCase'.specification.'@'.0
-                    res = json_model_4(arr_1_item, None, None)
+                    res = json_model_6(arr_2_item, None, None)
                     if not res:
                         break
             if res:
@@ -219,20 +273,44 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    # JSON Model for JSTS tests
     # .
-    # .'@'
-    res: bool = isinstance(val, list)
-    if res:
-        for arr_2_idx, arr_2_item in enumerate(val):
-            # .'@'.0
-            res = json_model_5(arr_2_item, None, None)
+    if not isinstance(val, dict):
+        return False
+    res: bool
+    must_count: int = 0
+    for prop, pval in val.items():
+        if prop == "$schema":
+            # handle must $schema property
+            must_count += 1
+            # .'$schema'
+            res = isinstance(pval, str)
             if not res:
-                break
-    if res:
-        ival_3: int = len(val)
-        res = ival_3 >= 1
-    return res
+                return False
+            continue
+        elif prop == "description":
+            # handle must description property
+            must_count += 1
+            # .description
+            res = isinstance(pval, str)
+            if not res:
+                return False
+            continue
+        elif prop == "tests":
+            # handle must tests property
+            must_count += 1
+            # .tests
+            res = isinstance(pval, list)
+            if res:
+                for arr_3_idx, arr_3_item in enumerate(pval):
+                    # .tests.0
+                    res = json_model_7(arr_3_item, None, None)
+                    if not res:
+                        break
+            if not res:
+                return False
+            continue
+        return False
+    return must_count == 3
 
 
 
@@ -245,21 +323,28 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_re_0_reco, _jm_re_0
-        _jm_re_0_reco = re.compile("^[0-9]+(\\.[0-9]+)*$")
+        _jm_re_0_reco = re.compile("^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$")
         _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global _jm_re_1_reco, _jm_re_1
-        _jm_re_1_reco = re.compile("^rfc\\d+$")
+        _jm_re_1_reco = re.compile("^[0-9]+(\\.[0-9]+)*$")
         _jm_re_1 = lambda s, p, r: _jm_re_1_reco.search(s) is not None
+        global _jm_cst_0
+        _jm_cst_0 = {'format-annotation', 'format-assertion'}
         global _jm_re_2_reco, _jm_re_2
-        _jm_re_2_reco = re.compile("^iso\\d+$")
+        _jm_re_2_reco = re.compile("^rfc\\d+$")
         _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
+        global _jm_re_3_reco, _jm_re_3
+        _jm_re_3_reco = re.compile("^iso\\d+$")
+        _jm_re_3 = lambda s, p, r: _jm_re_3_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "Section": json_model_2,
-            "Test": json_model_3,
-            "Specification": json_model_4,
-            "TestCase": json_model_5,
+            "Compatibility": json_model_2,
+            "Section": json_model_3,
+            "Test": json_model_4,
+            "Tag": json_model_5,
+            "Specification": json_model_6,
+            "TestCase": json_model_7,
         }
         global jm_is_semver_reco, jm_is_semver
         jm_is_semver_reco = re.compile("^([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]+)(-(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?(\\+(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*)(\\.(([0-9]|[1-9][0-9]+)|[-0-9a-zA-Z]*[-a-zA-Z][-0-9a-zA-Z]*))*)?$")
@@ -279,6 +364,9 @@ def check_model_free():
         global _jm_re_2_reco, _jm_re_2
         _jm_re_2_reco = None
         _jm_re_2 = None
+        global _jm_re_3_reco, _jm_re_3
+        _jm_re_3_reco = None
+        _jm_re_3 = None
         global jm_is_semver_reco, jm_is_semver
         jm_is_semver_reco = None
         jm_is_semver = None
