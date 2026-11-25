@@ -286,7 +286,7 @@ EXPECT: dict[str, int] = {
     "bads:models": 77,
     "bads:models:errors-jsm": 5,
     "bads:models:errors-jsg": 2,
-    "jsts-files": 309,
+    "jsts-files": 69,
     # tests json models of json schema versions
     "draft3:jsts": 106,
     "draft4:jsts": 161,
@@ -1154,17 +1154,18 @@ def test_bads_jsg():
 # JSON SCHEMA DRAFT TESTS
 #
 
+# TODO annotation/tests has a different model
 @pytest.mark.schema
-def test_schema_suite_tests():
+def test_schema_suite_validation_tests():
     ntests = 0
-    checker = model_checker_from_url("../models/test-schema.model.json")
-    path = pathlib.Path("./JSON-Schema-Test-Suite/tests/")
+    checker = model_checker_from_url("../models/validation-test-schema.model.json")
+    path = pathlib.Path("./JSON-Schema-Test-Suite/validation/tests")
     if not path.is_dir():
         pytest.skip(f"missing test suite directory: {path}")
-    for tfile in path.glob("*/*.json"):
+    for tfile in path.glob("*.json"):
         with open(tfile) as f:
             value = json.load(f)
-            assert isinstance(value, list)
+            assert isinstance(value, dict), f"{tfile} is an object"
             ntests += 1
             reasons = []
             okay = checker(value, "", reasons)

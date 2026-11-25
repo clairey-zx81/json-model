@@ -1,10 +1,12 @@
 {
   "#": "JSON Model for JSTS tests",
-  "#.doc": "JSON Schema Test Suite tests file format",
-  "#.url": "https://github.com/json-schema-org/JSON-Schema-Test-Suite/tree/main/tests",
+  "#.doc": "JSON Schema Test Suite tests file format (November 2026)",
+  "#.url": "https://github.com/json-schema-org/JSON-Schema-Test-Suite/tree/main/validation/tests",
+  "#.schema": "https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/main/validation/validation-test-schema.json",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/test-schema",
+    "Compatibility": "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/",
     "Section": "/^[0-9]+(\\.[0-9]+)*$/",
     "Test": {
       "#": "A single test",
@@ -13,6 +15,7 @@
       "data": "$ANY",
       "valid": true
     },
+    "Tag": { "|": [ "_format-annotation", "_format-assertion" ] },
     "Specification": {
       "@": {
         "?core": { "|": [ "$SEMVER", "$Section" ] },
@@ -20,16 +23,19 @@
         "?ecma262": "$SEMVER",
         "?perl5": "",
         "?quote": "",
-        "/^rfc\\d+$/": "$SEMVER",
+        "/^rfc\\d+$/": { "|": [ "$SEMVER", "$Section" ] },
         "/^iso\\d+$/": "$SEMVER"
       },
       ">": 0
     },
     "TestCase": {
-      "description": "",
+      "_description": "",
+      "?compatibility": "$Compatibility",
       "?comment": "",
-      "schema": "$ANY",
-      "tests": {
+      "?tags": [ "$Tag" ],
+      "_schema": "$ANY",
+      "?externalSchemas": { "$URL": "$ANY" },
+      "_tests": {
         "@": [ "$Test" ],
         ">": 0
       },
@@ -40,6 +46,9 @@
       }
     }
   },
-  "@": [ "$TestCase" ],
-  ">": 0
+  "@": {
+    "_$schema": "",
+    "_description": "",
+    "_tests": [  "$TestCase" ]
+  }
 }
