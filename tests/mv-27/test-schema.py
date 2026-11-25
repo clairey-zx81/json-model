@@ -38,7 +38,7 @@ jm_is_semver: RegexFun
 # check $Compatibility (.'$Compatibility')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Compatibility'
-    # "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/"
+    # "/^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$/"
     return isinstance(val, str) and _jm_re_0(val, None, None)
 
 
@@ -323,7 +323,7 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_re_0_reco, _jm_re_0
-        _jm_re_0_reco = re.compile("^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$")
+        _jm_re_0_reco = re.compile("^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$")
         _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global _jm_re_1_reco, _jm_re_1
         _jm_re_1_reco = re.compile("^[0-9]+(\\.[0-9]+)*$")

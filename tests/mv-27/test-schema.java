@@ -34,7 +34,7 @@ public class test_schema extends ModelChecker
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         // .'$Compatibility'
-        // "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/"
+        // "/^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$/"
         return json.isString(val) && _jm_re_0(json.asString(val), null, null);
     }
 
@@ -455,7 +455,7 @@ public class test_schema extends ModelChecker
         if (!initialized)
         {
             try {
-            _jm_re_0_pat = Pattern.compile("^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$");
+            _jm_re_0_pat = Pattern.compile("^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$");
             _jm_re_1_pat = Pattern.compile("^[0-9]+(\\.[0-9]+)*$");
             _jm_cst_0_set = new HashSet<Object>();
             _jm_cst_0_set.add(json.safeJSON("\"format-annotation\""));

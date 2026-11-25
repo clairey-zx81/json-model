@@ -5,11 +5,11 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- regex=^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$ opts=n
+-- regex=^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$', 'n');
+  RETURN regexp_like(val, '^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -18,7 +18,7 @@ CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$Compatibility'
-  -- "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/"
+  -- "/^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$/"
   RETURN JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;

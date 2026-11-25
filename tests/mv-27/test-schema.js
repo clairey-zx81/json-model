@@ -9,7 +9,7 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-const _jm_re_0_re = new runtime.RX("^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$", "")
+const _jm_re_0_re = new runtime.RX("^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$", "")
 const _jm_re_1_re = new runtime.RX("^[0-9]+(\\.[0-9]+)*$", "")
 let _jm_cst_0 = new Set()
 const _jm_re_2_re = new runtime.RX("^rfc\\d+$", "")
@@ -23,7 +23,7 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 function json_model_2(val, path, rep)
 {
     // .'$Compatibility'
-    // "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/"
+    // "/^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$/"
     return typeof val == 'string' && _jm_re_0(val, null, null)
 }
 

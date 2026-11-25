@@ -40,7 +40,7 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Compatibility'
-    // "/^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$/"
+    // "/^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$/"
     return json_is_string(val) && _jm_re_0(json_string_value(val), NULL, NULL);
 }
 
@@ -478,7 +478,7 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        const char * _jm_re_0_rx = "^(<?=)?([123467]|2019|2020|9999)(,(<?=)?([123467]|2019|2020|9999))*$";
+        const char * _jm_re_0_rx = "^(<?=)?([3467]|2019|2020|9999)(,(<?=)?([3467]|2019|2020|9999))*$";
         _jm_re_0_re2 = cre2_new(_jm_re_0_rx, strlen(_jm_re_0_rx), NULL);
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
