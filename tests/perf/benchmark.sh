@@ -487,7 +487,7 @@ or deselect tools for easier comparisons.
 </div>
 <script>showRadar("PerformanceRadar", "/benchmarks/$ID.json")</script>
 
-## Summary
+## Artifact Description
 
 - **id:** $ID
 - **now:** $(date)
@@ -533,7 +533,7 @@ EOF
 cat <<EOF >> "$ID.md"
 - **duration:** $SECONDS seconds (about $(( ( $SECONDS + 30 ) / 60 )) minutes)
 
-## Parameters
+## Run Parameters
 
 - **container command:** $POD
 EOF

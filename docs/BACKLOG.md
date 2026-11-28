@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] docs: move docs to a sub directory
+- [x] bench: improve benchmark section titles
 - [ ] bench: add resilience to jmc failure to radar generation
 - [ ] model: preprocessed model output is _not_ reintrant: feature or bug?
 - [ ] java-runtime: consider automatic updates?
