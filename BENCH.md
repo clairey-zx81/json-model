@@ -52,7 +52,7 @@ The main script options are:
 
 ## Benchmarking Conditions
 
-JSON schemas for the benchmark are translated to models based on `jsu-compile`
+JSON schemas for the benchmark are translated to models based on `jsu compile`
 from [JSON Schema Utils](https://github.com/zx80/json-schema-utils).
 This is mostly an automatic conversion of the test schema to a model, but
 for a few cases have a _native_ model which is used instead.
@@ -132,7 +132,7 @@ the following caveats, and others:
 also provides
 [benchmark artifacts](https://github.com/sourcemeta-research/jsonschema-benchmark/actions)
 which includes 15 JSON Schema validation tools including our compiler with
-C, JS and Python backends, using the `jsu-compile` command only.
+C, JS and Python backends, using the `jsu compile` command only.
 
 It should be noted that benchmarking conditions are quite different compared to our own:
 

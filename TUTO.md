@@ -817,7 +817,7 @@ harder. A partial converter which work with well-structured cases and support co
 keywords is available with [json-schema-util](https://github.com/zx80/json-schema-utils):
 
 ```sh
-jmc -E Person-2 | jsu-model
+jmc -E Person-2 | jsu model
 ```
 ```json
 {
