@@ -2,15 +2,7 @@
 
 ## Current Tasks
 
-- [x] bench: show configurable number of artifacts, defaults to 12
-- [x] bench: fix case table generation columns
-- [x] bench: update corvus container file
-- [x] container: link "jmc" wrapper to keep it synced with bench version
-- [x] dev: shortenv venv shell prefix
-- [x] pr: add badges to readme
-- [x] pr: improve bench page wrt recent corvus and blaze improvements
-- [x] bench: improve generated report
-- [ ] pr: release JSU 1.0 and JMC 2.1
+- [ ] docs: move docs to a sub directory
 - [ ] bench: add resilience to jmc failure to radar generation
 - [ ] model: preprocessed model output is _not_ reintrant: feature or bug?
 - [ ] java-runtime: consider automatic updates?

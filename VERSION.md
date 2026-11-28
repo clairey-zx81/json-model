@@ -1,5 +1,17 @@
 # JSON Model Compiler Versions
 
+## 2.1.0 on 2026-11-28
+
+- bench: show configurable number of artifacts, defaults to 12
+- bench: fix case table generation columns
+- bench: update corvus container file
+- container: link "jmc" wrapper to keep it synced with bench version
+- dev: shortenv venv shell prefix
+- pr: add badges to readme
+- pr: improve bench page wrt recent corvus and blaze improvements
+- bench: improve generated report
+- pr: release JSU 1.0 and JMC 2.1
+
 ## 2.0.67 on 2026-11-08
 
 - bench: use latest image instead of main for jmc
