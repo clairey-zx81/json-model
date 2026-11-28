@@ -255,7 +255,7 @@ DEFAULT_CC = "cc"
 DEFAULT_CFLAGS = (
     "-Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable "
     "-Wno-unused-function -Wno-unused-but-set-variable -Wno-parentheses "
-    "-Ofast -mtune=native"
+    "-O3 -ffast-math -mtune=native"
 )
 DEFAULT_LDFLAGS_PCRE2 = "-ljansson -lpcre2-8 -lm"
 # pkgconf --libs cre2

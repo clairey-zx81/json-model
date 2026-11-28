@@ -227,7 +227,7 @@ CDEBUG    =
 CC        = gcc
 CPPFLAGS  = -DCHECK_FUNCTION_NAME=check_model -I$(RT.c) -DJMC_REGEX_$(RECHK)
 CFLAGS    = -Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -Wno-unused-function \
-            -Wno-parentheses -Ofast $(CDEBUG)
+            -Wno-parentheses -O3 -ffast-math $(CDEBUG)
 
 ifeq ($(RELIB), pcre2)
 CPPFLAGS  += -DREGEX_ENGINE_PCRE2
