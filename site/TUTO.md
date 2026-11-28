@@ -1,1 +1,1 @@
-../TUTO.md
+../docs/TUTO.md

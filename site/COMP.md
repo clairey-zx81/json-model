@@ -1,1 +1,1 @@
-../COMP.md
+../docs/COMP.md

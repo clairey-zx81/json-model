@@ -2,7 +2,7 @@
 
 ## Current Tasks
 
-- [ ] docs: move docs to a sub directory
+- [x] docs: move docs to a sub directory
 - [ ] bench: add resilience to jmc failure to radar generation
 - [ ] model: preprocessed model output is _not_ reintrant: feature or bug?
 - [ ] java-runtime: consider automatic updates?

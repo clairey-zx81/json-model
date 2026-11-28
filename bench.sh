@@ -17,7 +17,7 @@ get_version()
 }
 
 # up to artifact list
-sed -ne '1,/BENCHES/p' < BENCH.md | grep -v '^BENCHES$'
+sed -ne '1,/BENCHES/p' < docs/BENCH.md | grep -v '^BENCHES$'
 
 # list max 10 latest artifacts
 nartifacts=0 p_jsu= p_jmc= p_sbc= p_crv= p_msg=
@@ -56,4 +56,4 @@ for artifact in $(ls site/benchmarks/*.md | sort -r) ; do
 done
 
 # after artifact list
-sed -ne '/BENCHES/,$p' < BENCH.md | grep -v '^BENCHES$'
+sed -ne '/BENCHES/,$p' < docs/BENCH.md | grep -v '^BENCHES$'

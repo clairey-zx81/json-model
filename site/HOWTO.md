@@ -1,1 +1,1 @@
-../HOWTO.md
+../docs/HOWTO.md
