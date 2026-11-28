@@ -5,6 +5,7 @@
 - [x] docs: move docs to a sub directory
 - [x] bench: improve benchmark section titles
 - [x] front: split `-Ofast` as `-O3 -ffast-math` to please `clang-22`
+- [x] java: update dependencies
 - [ ] bench: add resilience to jmc failure to radar generation
 - [ ] model: preprocessed model output is _not_ reintrant: feature or bug?
 - [ ] java-runtime: consider automatic updates?

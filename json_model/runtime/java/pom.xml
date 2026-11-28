@@ -3,7 +3,7 @@
 
   <groupId>org.json-model</groupId>
   <artifactId>json-model</artifactId>
-  <version>2.0.63</version>
+  <version>2.1.0</version>
   <packaging>jar</packaging>
 
   <name>JSON Model Java Runtime</name>
@@ -46,14 +46,14 @@
   <!-- it is unclear what minimal version should be set for compiling and dependencies -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>21</java.version>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+    <java.version>26</java.version>
+    <maven.compiler.source>26</maven.compiler.source>
+    <maven.compiler.target>26</maven.compiler.target>
     <maven.compiler.version>3.15.0</maven.compiler.version>
     <getopt.version>1.0.13</getopt.version>
-    <gson.version>2.14</gson.version>
-    <jackson.version>3.2</jackson.version>
-    <jackson.ann.version>2.22</jackson.ann.version>
+    <gson.version>2.15</gson.version>
+    <jackson.version>3.3</jackson.version>
+    <jackson.ann.version>2.23</jackson.ann.version>
     <jakarta.version>2.1</jakarta.version>
     <johnzon.version>2.2</johnzon.version>
   </properties>
