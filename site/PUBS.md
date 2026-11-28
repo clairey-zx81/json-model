@@ -1,1 +1,1 @@
-../PUBS.md
+../docs/PUBS.md

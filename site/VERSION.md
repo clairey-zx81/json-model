@@ -1,1 +1,1 @@
-../VERSION.md
+../docs/VERSION.md

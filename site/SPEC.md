@@ -1,1 +1,1 @@
-../SPEC.md
+../docs/SPEC.md
