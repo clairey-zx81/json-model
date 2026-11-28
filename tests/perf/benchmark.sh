@@ -516,7 +516,7 @@ EOF
     else
       cc=cc
     fi
-    echo "- **$cc version:** $(jmc exec $cc --version|head -1)"
+    echo "- **${cc%%-*} version:** $(jmc exec $cc --version|head -1)"
   fi
 
   [[ $TASK =~ y ]] && echo "- **python version:** $(jmc exec python --version|head -1)"
