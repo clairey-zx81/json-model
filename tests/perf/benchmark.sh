@@ -509,11 +509,14 @@ EOF
   [[ $TASK =~ C ]] && echo "- **corvus-cli version:** $(corvus-cli --version)"
 
   if [[ $TASK =~ c ]] ; then
-    if [[ "$JMC_OPTS" =~ clang ]] ; then
-      echo "- **clang version:** $(jmc exec clang --version|head -1)"
+    # extract compiler from options if needed
+    if [[ "$JMC_OPTS" =~ '--cc=' ]] ; then
+      cc=${JMC_OPTS#*--cc=}
+      cc=${cc%% *}
     else
-      echo "- **cc version:** $(jmc exec cc --version|head -1)"
+      cc=cc
     fi
+    echo "- **$cc version:** $(jmc exec $cc --version|head -1)"
   fi
 
   [[ $TASK =~ y ]] && echo "- **python version:** $(jmc exec python --version|head -1)"
