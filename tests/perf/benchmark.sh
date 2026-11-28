@@ -474,7 +474,7 @@ jsb_npos=$(cat jsb/schemas/*/instances.jsonl | wc -l)
 jsb_nneg=$(cat jsb/schemas/*/negatives.jsonl | wc -l)
 
 cat <<EOF > "$ID.md"
-# JSON Model Compiler Benchmark Run
+# JSON Model Compiler Benchmark Artifact
 
 For each test case, a radar of the **relative speed** performance of each tool,
 the higher the better, **1.00** is best. Fully non working case(s) removed, if any.
@@ -487,7 +487,7 @@ or deselect tools for easier comparisons.
 </div>
 <script>showRadar("PerformanceRadar", "/benchmarks/$ID.json")</script>
 
-## Artifact Description
+## Description
 
 - **id:** $ID
 - **now:** $(date)
