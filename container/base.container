@@ -5,17 +5,24 @@ FROM ubuntu:26.04
 LABEL description="Ubuntu with C Java JS Perl Python"
 
 # system update, installs, cleanup
+# FIXME: unclear g++-16 failure on cre2 compilation?
 RUN apt update ; \
     apt upgrade -y ; \
     apt install -y --no-install-recommends --fix-missing \
         git ca-certificates libtool m4 time automake make pkgconf gcc g++ clang unzip \
+        gcc-16 g++-16 clang-22 libstdc++6 \
         texinfo jq curl less \
         nano vim libpcre2-dev libre2-dev libjansson-dev \
         python3 python-is-python3 python3-venv python3-pip \
         perl libre-engine-re2-perl libjson-maybexs-perl libcpanel-json-xs-perl libdatetime-hires-perl liburi-perl \
-        openjdk-25-jdk openjdk-25-jre default-jdk libgetopt-java maven \
+        openjdk-26-jdk openjdk-26-jre libgetopt-java maven \
         locales ; \
     apt clean
+
+# sanity check for non default installations
+RUN type gcc || ln -s /usr/bin/gcc-16 /usr/bin/gcc
+# RUN type g++ || ln -s /usr/bin/g++-16 /usr/bin/g++
+RUN type clang || ln -s /usr/bin/clang-22 /usr/bin/clang
 
 # set unicode
 RUN locale-gen C.UTF-8
@@ -77,9 +84,9 @@ RUN mkdir /app/java
 ENV java=/app/java
 
 # FIXME ugly workaround: there is no simple way to **generate** a ENV value in a build
-ENV gson=2.14.0
-ENV jackson=3.2.3
-ENV jackson_ann=2.22
+ENV gson=2.15.0
+ENV jackson=3.3.0
+ENV jackson_ann=2.23
 ENV jakarta=2.1.3
 ENV johnzon=2.2.0
 RUN for artifact in \
